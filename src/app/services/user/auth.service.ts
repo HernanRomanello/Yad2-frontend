@@ -23,7 +23,13 @@ export class AuthService {
     });
   }
 
-  async register(user: any, email: string, password: string) {
+  async register(email: string, password: string, confirmPassword: string) {
+    alert('User registered successfully');
+    const user = {
+      Email: email,
+      Password: password,
+      ConfirmPassword: confirmPassword,
+    };
     this.httpClient
       .post<any>(`${this.Url}api/Users/signup`, user)
       .subscribe(async (response) => {

@@ -20,6 +20,8 @@ export class RegistrationFormComponent implements OnInit {
     private formbuilder: FormBuilder
   ) {}
 
+  signupForm!: FormGroup;
+
   ngOnInit(): void {
     this.signupForm = this.formbuilder.group({
       email: this.formbuilder.control('', [
@@ -48,5 +50,40 @@ export class RegistrationFormComponent implements OnInit {
       : { passwordError: 'Password is not strong enough' };
   }
 
-  signupForm!: FormGroup;
+  async handleSubmit() {
+    const email: string = this.signupForm.get('email')?.value;
+    const password: string = this.signupForm.get('password')?.value;
+    const confirmPassword: string =
+      this.signupForm.get('confirmPassword')?.value;
+    const validLogin = this.areFieldsEmpty(this.signupForm);
+    const user = {
+      Email: email,
+      Password: password,
+      ConfirmPassword: confirmPassword,
+    };
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    this.authService.register(email, password, confirmPassword);
+    if (this.signupForm.valid) {
+      this.router.navigate(['/']);
+      return;
+    }
+    if (validLogin) {
+      alert('"Registration failed. Please enter all fields correctly."');
+      return;
+    }
+  }
+
+  areFieldsEmpty(form: FormGroup): boolean {
+    for (const controlName in form.controls) {
+      const control = form.get(controlName);
+      if (control && control.value.trim() === '') {
+        return true;
+      }
+    }
+    return false;
+  }
 }

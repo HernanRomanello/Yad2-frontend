@@ -1,1 +1,84 @@
-<p>registration-form works!</p>
+<div class="container">
+  <form [formGroup]="signupForm" (ngSubmit)="handleSubmit()">
+    <div class="form-group">
+      <!-- <label for="lastname">Last Name:</label>
+      <input
+        id="lastname"
+        type="text"
+        class="form-control"
+        formControlName="lastname"
+        placeholder="Enter Last Name"
+      />
+      <div
+        *ngIf="
+          signupForm.get('lastname')?.invalid &&
+          signupForm.get('lastname')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a Last Name
+      </div> -->
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        type="text"
+        class="form-control"
+        formControlName="email"
+        placeholder="Enter Email"
+      />
+      <div
+        *ngIf="
+          signupForm.get('email')?.invalid && signupForm.get('email')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a valid Email
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        id="password"
+        type="password"
+        class="form-control"
+        formControlName="password"
+        placeholder="Enter password"
+      />
+      <div
+        *ngIf="
+            signupForm.get('password')?.errors?.['passwordError'] &&
+            signupForm.get('password')?.touched
+          "
+        class="error-message"
+      >
+        {{ signupForm.get("password")?.errors?.['passwordError'] }}
+      </div>
+
+      <div class="form-group">
+        <label for="password">confirm Password:</label>
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="confirmPassword"
+          placeholder="Enter password"
+        />
+        <div
+          *ngIf="
+                signupForm.get('confirmPassword')?.errors?.['passwordError'] &&
+                signupForm.get('confirmPassword')?.touched
+              "
+          class="error-message"
+        >
+          {{ signupForm.get("confirmPassword")?.errors?.['passwordError'] }}
+        </div>
+      </div>
+    </div>
+
+    <button class="submit-button" type="submit">Submit</button>
+  </form>
+</div>
