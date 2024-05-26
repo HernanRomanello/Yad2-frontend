@@ -16,6 +16,8 @@ export class AuthService {
   user = new BehaviorSubject<UserModel | null | undefined>(undefined);
   UserAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
+  UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
+    new BehaviorSubject<AdvertisementsModel[]>([]);
 
   constructor(private router: Router, private httpClient: HttpClient) {
     this.access_token.subscribe((token) => {
@@ -23,7 +25,8 @@ export class AuthService {
         this.isUserLogin.next(true);
         this.GetUserDatails();
         this.GetUsersAdvertisements();
-        console.log(this.UserAdvertisements.value);
+        this.getUserFavoriteAdvertisements();
+        // console.log(this.UserFavoriteAdvertisements.getValue());
       }
     });
     afterNextRender(() => {
@@ -61,7 +64,10 @@ export class AuthService {
         localStorage.setItem('access_token', accessToken);
         this.access_token.next(accessToken);
         this.GetUsersAdvertisements();
-        console.log(this.UserAdvertisements.getValue());
+        this.getUserFavoriteAdvertisements();
+        // console.log(this.UserAdvertisements.getValue());
+        console.log(this.UserFavoriteAdvertisements.getValue());
+        // console.log(this.UserAdvertisements.getValue());
         return true;
       }
     } catch (error) {
@@ -88,6 +94,16 @@ export class AuthService {
       .subscribe((response) => {
         if (response) {
           this.UserAdvertisements.next(response);
+        }
+      });
+  }
+
+  getUserFavoriteAdvertisements() {
+    this.httpClient
+      .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetFavorites`)
+      .subscribe((response) => {
+        if (response) {
+          this.UserFavoriteAdvertisements.next(response);
         }
       });
   }
