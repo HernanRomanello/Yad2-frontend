@@ -10,8 +10,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SingupComponent } from './components/singup/singup.component';
 import { LoginComponent } from './components/login/login.component';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './interceptors/auth.interceptor';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,14 @@ import { LoginComponent } from './components/login/login.component';
     ProfileComponent,
     HeaderComponent,
     FooterComponent,
-    SingupComponent,
     LoginComponent,
+    RegistrationFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
-  providers: [provideClientHydration()],
+  providers: [
+    provideClientHydration(),
+    provideHttpClient(withInterceptors([authInterceptor])),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
