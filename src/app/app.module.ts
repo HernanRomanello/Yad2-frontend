@@ -14,6 +14,8 @@ import { LoginComponent } from './components/login/login.component';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { RealEstateSearchComponent } from './components/real-estate-search/real-estate-search.component';
+import { UserAdvertisementComponent } from './components/user-advertisement/user-advertisement.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { RegistrationFormComponent } from './components/registration-form/regist
     FooterComponent,
     LoginComponent,
     RegistrationFormComponent,
+    RealEstateSearchComponent,
+    UserAdvertisementComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [

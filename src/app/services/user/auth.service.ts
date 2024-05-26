@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
+import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +14,16 @@ export class AuthService {
   access_token = new BehaviorSubject<string | null>('');
   isUserLogin = new BehaviorSubject<boolean>(false);
   user = new BehaviorSubject<UserModel | null | undefined>(undefined);
+  UserAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
+    new BehaviorSubject<AdvertisementsModel[]>([]);
+
   constructor(private router: Router, private httpClient: HttpClient) {
     this.access_token.subscribe((token) => {
       if (token) {
         this.isUserLogin.next(true);
         this.GetUserDatails();
-        console.log(this.user.getValue());
+        this.GetUsersAdvertisements();
+        console.log(this.UserAdvertisements.value);
       }
     });
     afterNextRender(() => {
@@ -55,9 +60,8 @@ export class AuthService {
       if (accessToken) {
         localStorage.setItem('access_token', accessToken);
         this.access_token.next(accessToken);
-        // this.isUserLogin.next(true);
-        // this.GetUserDatails();
-        // this.userEmail.next(email);
+        this.GetUsersAdvertisements();
+        console.log(this.UserAdvertisements.getValue());
         return true;
       }
     } catch (error) {
@@ -74,6 +78,16 @@ export class AuthService {
       .subscribe(async (response) => {
         if (response) {
           this.user.next(response);
+        }
+      });
+  }
+
+  GetUsersAdvertisements() {
+    this.httpClient
+      .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetAdvertisements`)
+      .subscribe((response) => {
+        if (response) {
+          this.UserAdvertisements.next(response);
         }
       });
   }

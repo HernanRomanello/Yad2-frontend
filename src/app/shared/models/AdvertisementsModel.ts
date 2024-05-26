@@ -1,6 +1,6 @@
 import { Picture } from './Picture';
 
-export interface AdvertisementsModel {
+export type AdvertisementsModel = {
   id: number;
   city: string;
   street: string;
@@ -53,4 +53,4 @@ export interface AdvertisementsModel {
   contactName: string;
   contactPhone: string;
   standardizationAccepted: boolean;
-}
+};
