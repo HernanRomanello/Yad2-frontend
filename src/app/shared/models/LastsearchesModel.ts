@@ -1,0 +1,26 @@
+export interface LastsearchesModel {
+  id: string;
+  searchContent: string;
+  forSale: boolean;
+  forRent: boolean;
+  assetType: string;
+  minPrice: number;
+  maxPrice: number;
+  rooms: string;
+  withPictures: boolean;
+  withPrice: boolean;
+  moshavOrKibuutz: boolean;
+  assetWithpriceDescending: boolean;
+  features: string;
+  newFromContractor: boolean;
+  new: boolean;
+  renovated: boolean;
+  goodCondition: boolean;
+  renovatedNedded: boolean;
+  minFloor: number;
+  maxFloor: number;
+  minSquareMeters: number;
+  maxSquareMeters: number;
+  entryDate: string;
+  freeSearch: string;
+}
