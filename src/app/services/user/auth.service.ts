@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserModel } from '../../shared/models/UserModel';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +12,13 @@ export class AuthService {
   Url = environment.URl;
   access_token = new BehaviorSubject<string | null>('');
   isUserLogin = new BehaviorSubject<boolean>(false);
+  user = new BehaviorSubject<UserModel | null | undefined>(undefined);
   constructor(private router: Router, private httpClient: HttpClient) {
     this.access_token.subscribe((token) => {
       if (token) {
         this.isUserLogin.next(true);
-        // this.GetUserDatails();
+        this.GetUserDatails();
+        console.log(this.user.getValue());
       }
     });
     afterNextRender(() => {
@@ -63,5 +66,15 @@ export class AuthService {
     }
 
     return false;
+  }
+
+  GetUserDatails() {
+    this.httpClient
+      .get<UserModel>(`${this.Url}api/Users/User`)
+      .subscribe(async (response) => {
+        if (response) {
+          this.user.next(response);
+        }
+      });
   }
 }
