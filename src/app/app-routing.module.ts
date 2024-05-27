@@ -14,6 +14,14 @@ const routes: Routes = [
     component: RegistrationFormComponent,
     title: 'Registration',
   },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./modules/user-area/user-area.module').then(
+        (m) => m.UserAreaModule
+      ),
+  },
+  // { path: '**', redirectTo: 'profile' },
 ];
 
 @NgModule({
