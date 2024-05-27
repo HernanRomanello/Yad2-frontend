@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { RegistrationFormComponent } from './modules/registration-form/registration-form.component';
+import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {
@@ -21,6 +21,14 @@ const routes: Routes = [
         (m) => m.UserAreaModule
       ),
   },
+  // {
+  //   path: 'real-estate-search',
+  //   loadChildren: () =>
+  //     import('./modules/real-estate/real-estate.module').then(
+  //       (m) => m.RealEstateModule
+  //     ),
+  // },
+  // { path: '**', redirectTo: 'real-estate-search' },
 ];
 
 @NgModule({
