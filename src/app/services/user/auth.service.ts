@@ -26,7 +26,9 @@ export class AuthService {
         this.GetUserDatails();
         this.GetUsersAdvertisements();
         this.getUserFavoriteAdvertisements();
-        // console.log(this.UserFavoriteAdvertisements.getValue());
+        console.log(this.user.getValue());
+        console.log(this.UserFavoriteAdvertisements.getValue());
+        console.log(this.UserAdvertisements.getValue());
       }
     });
     afterNextRender(() => {
@@ -67,7 +69,8 @@ export class AuthService {
         this.getUserFavoriteAdvertisements();
         // console.log(this.UserAdvertisements.getValue());
         console.log(this.UserFavoriteAdvertisements.getValue());
-        // console.log(this.UserAdvertisements.getValue());
+        console.log(this.UserAdvertisements.getValue());
+
         return true;
       }
     } catch (error) {

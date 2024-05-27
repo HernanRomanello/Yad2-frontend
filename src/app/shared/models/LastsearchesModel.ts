@@ -1,4 +1,4 @@
-export interface LastsearchesModel {
+export type LastsearchesModel = {
   id: string;
   searchContent: string;
   forSale: boolean;
@@ -23,4 +23,4 @@ export interface LastsearchesModel {
   maxSquareMeters: number;
   entryDate: string;
   freeSearch: string;
-}
+};
