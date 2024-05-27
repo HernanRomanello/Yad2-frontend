@@ -6,7 +6,7 @@ import { AdvertisementService } from '../../../services/advertisement.service';
   templateUrl: './real-estate-results.component.html',
   styleUrls: [
     './real-estate-results.component.css',
-    '../../user-area/user-advertisement/user-advertisement.component.css',
+    // '../../user-area/user-advertisement/user-advertisement.component.css',
   ],
 })
 export class RealEstateResultsComponent {

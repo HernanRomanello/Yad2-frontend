@@ -1,30 +1,65 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div
       class="col-md-4"
       *ngFor="let advertisement of advertisementService.Advertisements | async"
     >
-      <div class="card mb-4 shadow-sm">
-        <img
-          *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-          [src]="advertisement.pictures[0].url"
-          class="card-img-top"
-          alt="Advertisement Image"
-        />
-        <div class="card-body">
+      <div class="advertisement-card">
+        <div class="advertisement-details">
           <h5 class="card-title">
             {{ advertisement.assetType }} {{ advertisement.city }}
           </h5>
-          <p class="card-text">{{ advertisement.description }}</p>
+          <p class="card-text">
+            {{ advertisement.street }} {{ advertisement.number }}<br />
+            {{ advertisement.price }} ₪
+          </p>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Price: {{ advertisement.price }}</li>
-            <li class="list-group-item">Rooms: {{ advertisement.rooms }}</li>
             <li class="list-group-item">
-              Area: {{ advertisement.builtSquareMeters }} sq.m
+              {{ advertisement.assetType }}/ קוטג', {{ advertisement.city }},
+              {{ advertisement.neighborhood }}
+            </li>
+            <li class="list-group-item">
+              {{ advertisement.rooms }} חדרים • קומה {{ advertisement.floor }} •
+              {{ advertisement.builtSquareMeters }} מ״ר
+            </li>
+            <li class="list-group-item">
+              ממ"ד{{ advertisement.safeRoom ? "" : " - ללא" }}3 כיווני אוויר
+              {{ advertisement.airDirections }}נכס חדש
             </li>
           </ul>
         </div>
+        <img
+          *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+          [src]="advertisement.pictures[0].url"
+          class="card-img"
+          alt="Advertisement Image"
+        />
       </div>
     </div>
+  </div>
+</div> -->
+
+<div
+  class="container"
+  *ngFor="let advertisement of advertisementService.Advertisements | async"
+>
+  <div class="advertisement-details">
+    <div>{{ advertisement.street + " " + advertisement.number }}</div>
+    <div>
+      <li class="list-group-item">
+        {{ advertisement.floor }} חדרים • קומה {{ advertisement.rooms }} •
+        {{ advertisement.builtSquareMeters }} מ״ר
+      </li>
+    </div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="image">
+    <img
+      *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+      [src]="advertisement.pictures[0].url"
+      class="card-img"
+      alt="Advertisement Image"
+    />
   </div>
 </div>
