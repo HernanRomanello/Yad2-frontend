@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
+import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,9 @@ export class AuthService {
     new BehaviorSubject<AdvertisementsModel[]>([]);
   UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
+  userLastSearches: BehaviorSubject<LastsearchesModel[]> = new BehaviorSubject<
+    LastsearchesModel[]
+  >([]);
 
   constructor(private router: Router, private httpClient: HttpClient) {
     this.access_token.subscribe((token) => {
@@ -26,9 +30,10 @@ export class AuthService {
         this.GetUserDatails();
         this.GetUsersAdvertisements();
         this.getUserFavoriteAdvertisements();
-        console.log(this.user.getValue());
-        console.log(this.UserFavoriteAdvertisements.getValue());
-        console.log(this.UserAdvertisements.getValue());
+        this.getUserLastSearches();
+        // console.log(this.user.getValue());
+        // console.log(this.UserFavoriteAdvertisements.getValue());
+        // console.log(this.UserAdvertisements.getValue());
       }
     });
     afterNextRender(() => {
@@ -65,11 +70,13 @@ export class AuthService {
       if (accessToken) {
         localStorage.setItem('access_token', accessToken);
         this.access_token.next(accessToken);
-        this.GetUsersAdvertisements();
-        this.getUserFavoriteAdvertisements();
+        // this.GetUsersAdvertisements();
+        // this.getUserFavoriteAdvertisements();
         // console.log(this.UserAdvertisements.getValue());
         console.log(this.UserFavoriteAdvertisements.getValue());
         console.log(this.UserAdvertisements.getValue());
+        console.log(this.user.getValue());
+        console.log(this.userLastSearches.getValue());
 
         return true;
       }
@@ -107,6 +114,16 @@ export class AuthService {
       .subscribe((response) => {
         if (response) {
           this.UserFavoriteAdvertisements.next(response);
+        }
+      });
+  }
+
+  getUserLastSearches() {
+    this.httpClient
+      .get<LastsearchesModel[]>(`${this.Url}api/Users/user/GetLastSearches`)
+      .subscribe((response) => {
+        if (response) {
+          this.userLastSearches.next(response);
         }
       });
   }
