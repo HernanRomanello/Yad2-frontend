@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { UserModel } from '../../shared/models/UserModel';
 import { AuthService } from '../../services/user/auth.service';
@@ -9,7 +9,6 @@ import { AuthService } from '../../services/user/auth.service';
   styleUrl: './user-advertisement.component.css',
 })
 export class UserAdvertisementComponent implements OnInit {
-  constructor(private userService: AuthService) {}
-
+  authService = inject(AuthService);
   ngOnInit() {}
 }
