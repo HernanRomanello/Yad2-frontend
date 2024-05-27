@@ -22,6 +22,8 @@ export class AuthService {
   userLastSearches: BehaviorSubject<LastsearchesModel[]> = new BehaviorSubject<
     LastsearchesModel[]
   >([]);
+  UserAdvertisementsStatistics =
+    new BehaviorSubject<AdvertisementsModel | null>(null);
 
   constructor(private router: Router, private httpClient: HttpClient) {
     this.access_token.subscribe((token) => {
@@ -31,6 +33,7 @@ export class AuthService {
         this.GetUsersAdvertisements();
         this.getUserFavoriteAdvertisements();
         this.getUserLastSearches();
+        this.getUserAdvertisementsStatistics();
         // console.log(this.user.getValue());
         // console.log(this.UserFavoriteAdvertisements.getValue());
         // console.log(this.UserAdvertisements.getValue());
@@ -77,6 +80,7 @@ export class AuthService {
         console.log(this.UserAdvertisements.getValue());
         console.log(this.user.getValue());
         console.log(this.userLastSearches.getValue());
+        console.log(this.UserAdvertisementsStatistics.getValue());
 
         return true;
       }
@@ -124,6 +128,16 @@ export class AuthService {
       .subscribe((response) => {
         if (response) {
           this.userLastSearches.next(response);
+        }
+      });
+  }
+
+  getUserAdvertisementsStatistics() {
+    this.httpClient
+      .get<AdvertisementsModel>(`${this.Url}api/Users/User/UserStatistics`)
+      .subscribe((response) => {
+        if (response) {
+          this.UserAdvertisementsStatistics.next(response);
         }
       });
   }
