@@ -5,6 +5,13 @@ import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('./modules/real-estate/real-estate.module').then(
+        (m) => m.RealEstateModule
+      ),
+  },
+  {
     path: 'login',
     component: LoginComponent,
     title: 'Sign in',
@@ -21,14 +28,6 @@ const routes: Routes = [
         (m) => m.UserAreaModule
       ),
   },
-  // {
-  //   path: 'real-estate-search',
-  //   loadChildren: () =>
-  //     import('./modules/real-estate/real-estate.module').then(
-  //       (m) => m.RealEstateModule
-  //     ),
-  // },
-  // { path: '**', redirectTo: 'real-estate-search' },
 ];
 
 @NgModule({

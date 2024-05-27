@@ -18,7 +18,12 @@ import { LoginComponent } from './modules/login/login.component';
 import { RegistrationFormComponent } from './modules/registration-form/registration-form.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LoginComponent, RegistrationFormComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    LoginComponent,
+    RegistrationFormComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [
     provideClientHydration(),

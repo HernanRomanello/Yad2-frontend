@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="col-md-4"
+      *ngFor="let advertisement of advertisementService.Advertisements | async"
+    >
+      <div class="card mb-4 shadow-sm">
+        <img
+          *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+          [src]="advertisement.pictures[0].url"
+          class="card-img-top"
+          alt="Advertisement Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ advertisement.assetType }} {{ advertisement.city }}
+          </h5>
+          <p class="card-text">{{ advertisement.description }}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Price: {{ advertisement.price }}</li>
+            <li class="list-group-item">Rooms: {{ advertisement.rooms }}</li>
+            <li class="list-group-item">
+              Area: {{ advertisement.builtSquareMeters }} sq.m
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
