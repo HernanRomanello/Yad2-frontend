@@ -73,9 +73,6 @@ export class AuthService {
       if (accessToken) {
         localStorage.setItem('access_token', accessToken);
         this.access_token.next(accessToken);
-        // this.GetUsersAdvertisements();
-        // this.getUserFavoriteAdvertisements();
-        // console.log(this.UserAdvertisements.getValue());
         console.log(this.UserFavoriteAdvertisements.getValue());
         console.log(this.UserAdvertisements.getValue());
         console.log(this.user.getValue());

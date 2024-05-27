@@ -20,6 +20,7 @@ import { authInterceptor } from './interceptors/auth.interceptor';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { RealEstateSearchComponent } from './components/real-estate-search/real-estate-search.component';
 import { UserAdvertisementComponent } from './components/user-advertisement/user-advertisement.component';
+import { RealeStateComponent } from './components/reale-state/reale-state.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserAdvertisementComponent } from './components/user-advertisement/user
     RegistrationFormComponent,
     RealEstateSearchComponent,
     UserAdvertisementComponent,
+    RealeStateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [
