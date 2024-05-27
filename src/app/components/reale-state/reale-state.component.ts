@@ -8,5 +8,6 @@ import { AdvertisementService } from '../../services/advertisement.service';
   styleUrl: './reale-state.component.css',
 })
 export class RealeStateComponent {
-  authService = inject(AdvertisementService);
+  advertisementService = inject(AdvertisementService);
+  // authService = inject(AuthService);
 }
