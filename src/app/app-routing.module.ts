@@ -21,7 +21,6 @@ const routes: Routes = [
         (m) => m.UserAreaModule
       ),
   },
-  // { path: '**', redirectTo: 'profile' },
 ];
 
 @NgModule({
