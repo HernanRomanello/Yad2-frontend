@@ -66,12 +66,14 @@
 
 .tags .price {
   align-self: flex-start;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
+  margin: 4px 0;
 }
 
 .result-list {
