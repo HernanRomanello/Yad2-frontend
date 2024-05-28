@@ -44,7 +44,9 @@
         <div class="list-group-item">
           <ng-container
             *ngFor="
-              let word of getFirstThreeAdvertisementParameters(advertisement)
+              let word of advertisementService.getFirstThreeAdvertisementParameters(
+                advertisement
+              )
             "
           >
             <li>{{ word }}</li>

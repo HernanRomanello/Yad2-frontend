@@ -40,3 +40,8 @@
 .user-area-container .content {
   margin-right: 200px; /* Same width as sidebar to avoid overlap */
 }
+
+.outlined-heart-icon {
+  color: #ff0000; /* Change the color to red */
+  font-size: 24px; /* Change the size of the icon */
+}

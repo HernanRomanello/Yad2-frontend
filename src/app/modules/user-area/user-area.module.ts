@@ -9,7 +9,7 @@ import { StatisticComponent } from './statistic/statistic.component';
 import { FavoriteAdvertisementsComponent } from './favorite-advertisements/favorite-advertisements.component';
 import { LastSearchesComponent } from './last-searches/last-searches.component';
 import { TipsInformationComponent } from './tips-information/tips-information.component';
-
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -19,11 +19,8 @@ import { TipsInformationComponent } from './tips-information/tips-information.co
     StatisticComponent,
     FavoriteAdvertisementsComponent,
     LastSearchesComponent,
-    TipsInformationComponent
+    TipsInformationComponent,
   ],
-  imports: [
-    CommonModule,
-    UserAreaRoutingModule
-  ]
+  imports: [CommonModule, UserAreaRoutingModule, MatIconModule],
 })
-export class UserAreaModule { }
+export class UserAreaModule {}
