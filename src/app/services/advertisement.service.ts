@@ -12,9 +12,35 @@ export class AdvertisementService {
     AdvertisementsModel[]
   >([]);
   Url = environment.URl;
-  UserFavoriteAdvertisements: any;
+  UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
+    new BehaviorSubject<AdvertisementsModel[]>([]);
   constructor(private router: Router, private httpClient: HttpClient) {
     this.GetAdvertisements();
+  }
+
+  isFavorite(advertisementId: number): boolean {
+    return this.UserFavoriteAdvertisements.getValue().some(
+      (item) => item.id === advertisementId
+    );
+  }
+
+  toggleFavorite(advertisementId: number) {
+    const isFavorite = this.isFavorite(advertisementId);
+
+    if (isFavorite) {
+      this.UserFavoriteAdvertisements.next(
+        this.UserFavoriteAdvertisements.getValue().filter(
+          (item) => item.id !== advertisementId
+        )
+      );
+    } else {
+      this.UserFavoriteAdvertisements.next([
+        ...this.UserFavoriteAdvertisements.getValue(),
+        this.Advertisements.getValue().find(
+          (item) => item.id === advertisementId
+        ) as AdvertisementsModel,
+      ]);
+    }
   }
 
   GetAdvertisements() {

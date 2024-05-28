@@ -11,7 +11,7 @@ import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel'
   ],
 })
 export class RealEstateResultsComponent {
-  advertisementService = inject(AdvertisementService);
+  public advertisementService = inject(AdvertisementService);
   getFirstThreeAdvertisementParameters(
     advertisement: AdvertisementsModel
   ): string[] {

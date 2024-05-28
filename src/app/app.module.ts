@@ -16,6 +16,8 @@ import { authInterceptor } from './interceptors/auth.interceptor';
 import { HeaderComponent } from './modules/header/header.component';
 import { LoginComponent } from './modules/login/login.component';
 import { RegistrationFormComponent } from './modules/registration-form/registration-form.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,17 @@ import { RegistrationFormComponent } from './modules/registration-form/registrat
     LoginComponent,
     RegistrationFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })

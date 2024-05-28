@@ -1,18 +1,84 @@
 .image img {
   height: 140px;
   width: 200px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
   text-align: right;
+  margin-left: auto;
+  border-radius: 12px;
+  min-width: min(85%, 750px);
+  max-width: 600px;
+  padding: 1rem;
+  align-items: center;
+  border: 1px solid rgb(238, 238, 238);
+  justify-content: flex-end;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
+}
+
+.like-button-selected {
+  color: red !important;
+}
+
+.like-button {
+  cursor: pointer;
+  position: absolute;
+  color: lightgray;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  background-color: white;
 }
 
 .list-group-item {
   direction: rtl;
   list-style: none;
+  gap: 4px;
+  justify-content: flex-start;
+  text-align: right;
   display: flex;
+  flex-direction: row;
+  width: fit-content;
   justify-content: space-between;
+}
+
+.image {
+}
+.advertisement-details {
+  padding-inline: 1rem;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.175rem;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.tags .price {
+  align-self: flex-start;
+  font-size: 24px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
 }

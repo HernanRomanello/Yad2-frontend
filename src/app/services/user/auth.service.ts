@@ -1,6 +1,6 @@
 import { Injectable, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, filter, first } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
@@ -12,8 +12,10 @@ import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
 })
 export class AuthService {
   Url = environment.URl;
-  access_token = new BehaviorSubject<string | null>('');
-  isUserLogin = new BehaviorSubject<boolean>(false);
+  access_token = new BehaviorSubject<string | null | undefined>(
+    localStorage.getItem('access_token')
+  );
+  isUserLogin = new ReplaySubject<boolean>(1);
   user = new BehaviorSubject<UserModel | null | undefined>(undefined);
   UserAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
@@ -26,22 +28,23 @@ export class AuthService {
     new BehaviorSubject<AdvertisementsModel | null>(null);
 
   constructor(private router: Router, private httpClient: HttpClient) {
-    this.access_token.subscribe((token) => {
-      if (token) {
-        this.isUserLogin.next(true);
-        this.GetUserDatails();
-        this.GetUsersAdvertisements();
-        this.getUserFavoriteAdvertisements();
-        this.getUserLastSearches();
-        this.getUserAdvertisementsStatistics();
-        // console.log(this.user.getValue());
-        // console.log(this.UserFavoriteAdvertisements.getValue());
-        // console.log(this.UserAdvertisements.getValue());
-      }
-    });
-    afterNextRender(() => {
-      this.access_token.next(localStorage.getItem('access_token'));
-    });
+    this.access_token
+      .pipe(filter((it) => it !== undefined))
+      .subscribe((token) => {
+        if (token) {
+          this.isUserLogin.next(true);
+          this.GetUserDatails();
+          this.GetUsersAdvertisements();
+          this.getUserFavoriteAdvertisements();
+          this.getUserLastSearches();
+          this.getUserAdvertisementsStatistics();
+          // console.log(this.user.getValue());
+          // console.log(this.UserFavoriteAdvertisements.getValue());
+          // console.log(this.UserAdvertisements.getValue());
+        } else {
+          this.isUserLogin.next(false);
+        }
+      });
   }
 
   async register(email: string, password: string, confirmPassword: string) {
