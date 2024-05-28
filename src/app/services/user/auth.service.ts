@@ -77,10 +77,10 @@ export class AuthService {
         localStorage.setItem('access_token', accessToken);
         this.access_token.next(accessToken);
         console.log(this.UserFavoriteAdvertisements.getValue());
-        console.log(this.UserAdvertisements.getValue());
-        console.log(this.user.getValue());
-        console.log(this.userLastSearches.getValue());
-        console.log(this.UserAdvertisementsStatistics.getValue());
+        // console.log(this.UserAdvertisements.getValue());
+        // console.log(this.user.getValue());
+        // console.log(this.userLastSearches.getValue());
+        // console.log(this.UserAdvertisementsStatistics.getValue());
 
         return true;
       }
