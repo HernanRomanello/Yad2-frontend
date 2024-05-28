@@ -45,30 +45,32 @@
 >
   <div class="advertisement-details">
     <div>{{ advertisement.street + " " + advertisement.number }}</div>
-    <!-- <div class="list-group-item">
-      <ng-container
-        *ngFor="let word of getFirstThreeAdvertisementParameters(advertisement)"
-      >
-        <li>{{ word }}</li>
-      </ng-container>
-    </div> -->
+
     <div class="list-group-item">
-      <!-- <span>{{ advertisement.assetType }}</span>
-      <span>{{ advertisement.neighborhood }}</span>
-      <span>{{ advertisement.city }}</span> -->
       <ng-container
         >{{ advertisement.assetType }},{{ advertisement.neighborhood }},{{
           advertisement.city
         }}</ng-container
       >
     </div>
+
     <div class="list-group-item">
       <li>{{ advertisement.rooms }} חדרים •</li>
       <li>קומה {{ advertisement.floor }} •</li>
       <li>{{ advertisement.totalSquareMeters }} מ"ר</li>
     </div>
-    <div></div>
-    <div></div>
+    <div>
+      <div class="list-group-item">
+        <ng-container
+          *ngFor="
+            let word of getFirstThreeAdvertisementParameters(advertisement)
+          "
+        >
+          <li>{{ word }}</li>
+        </ng-container>
+      </div>
+      <div>₪ {{ advertisement.price }}</div>
+    </div>
   </div>
   <div class="image">
     <img
