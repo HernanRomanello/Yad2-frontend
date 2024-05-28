@@ -9,3 +9,10 @@
   grid-gap: 10px;
   text-align: right;
 }
+
+.list-group-item {
+  direction: rtl;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
