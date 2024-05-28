@@ -11,19 +11,15 @@
       (click)="advertisementService.toggleFavorite(advertisement.id)"
     >
       <mat-icon
-        [ngClass]="{ 'like-button-red-border': hoverIndex === i }"
         *ngIf="advertisementService.isFavorite(advertisement.id)"
         aria-hidden="false"
         aria-label="Example home icon"
         fontIcon="favorite"
         class="like-button-selected"
-        (mouseenter)="hoverIndex = i"
-        (mouseleave)="hoverIndex = -1"
       ></mat-icon>
 
       <mat-icon
         [ngClass]="{
-          'like-button-red-border': hoverIndex === i,
           'like-button-red-color': hoverIndex === i
         }"
         *ngIf="!advertisementService.isFavorite(advertisement.id)"
