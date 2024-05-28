@@ -1,25 +1,37 @@
 <div class="result-list">
   <div
     class="container"
-    *ngFor="let advertisement of advertisementService.Advertisements | async"
+    *ngFor="
+      let advertisement of advertisementService.Advertisements | async;
+      let i = index
+    "
   >
     <div
       class="like-button"
       (click)="advertisementService.toggleFavorite(advertisement.id)"
     >
       <mat-icon
+        [ngClass]="{ 'like-button-red-border': hoverIndex === i }"
         *ngIf="advertisementService.isFavorite(advertisement.id)"
         aria-hidden="false"
         aria-label="Example home icon"
         fontIcon="favorite"
         class="like-button-selected"
+        (mouseenter)="hoverIndex = i"
+        (mouseleave)="hoverIndex = -1"
       ></mat-icon>
 
       <mat-icon
+        [ngClass]="{
+          'like-button-red-border': hoverIndex === i,
+          'like-button-red-color': hoverIndex === i
+        }"
         *ngIf="!advertisementService.isFavorite(advertisement.id)"
         aria-hidden="false"
         aria-label="Example home icon"
         fontIcon="favorite_border"
+        (mouseenter)="hoverIndex = i"
+        (mouseleave)="hoverIndex = -1"
       ></mat-icon>
     </div>
     <div class="advertisement-details">
@@ -28,11 +40,11 @@
       </div>
 
       <div class="list-group-item">
-        <ng-container
-          >{{ advertisement.assetType }},{{ advertisement.neighborhood }},{{
+        <ng-container>
+          {{ advertisement.assetType }},{{ advertisement.neighborhood }},{{
             advertisement.city
-          }}</ng-container
-        >
+          }}
+        </ng-container>
       </div>
 
       <div class="list-group-item">

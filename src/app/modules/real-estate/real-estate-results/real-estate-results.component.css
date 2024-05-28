@@ -80,3 +80,7 @@
   gap: 1.5rem;
   padding: 1rem;
 }
+
+.like-button-red-color {
+  color: red !important;
+}
