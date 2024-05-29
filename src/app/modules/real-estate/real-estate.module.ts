@@ -5,9 +5,14 @@ import { RealEstateRoutingModule } from './real-estate-routing.module';
 import { RealEstateSearchComponent } from './real-estate-search/real-estate-search.component';
 import { RealEstateResultsComponent } from './real-estate-results/real-estate-results.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CustomCurrencyPipe } from '../../pipes/custom-currency.pipe';
 
 @NgModule({
-  declarations: [RealEstateSearchComponent, RealEstateResultsComponent],
+  declarations: [
+    RealEstateSearchComponent,
+    RealEstateResultsComponent,
+    CustomCurrencyPipe,
+  ],
   imports: [CommonModule, MatIconModule, RealEstateRoutingModule],
 })
 export class RealEstateModule {}
