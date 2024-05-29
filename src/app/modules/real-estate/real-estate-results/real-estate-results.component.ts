@@ -16,4 +16,10 @@ export class RealEstateResultsComponent {
   authSerivce = inject(AuthService);
 
   hoverIndex: number = -1;
+
+  isFavorite(advertisementId: number): boolean {
+    return this.authSerivce.UserFavoriteAdvertisements.value.some(
+      (ad) => ad.id === advertisementId
+    );
+  }
 }

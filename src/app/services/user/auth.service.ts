@@ -148,19 +148,19 @@ export class AuthService {
       });
   }
 
-  async checkIfThisAdvertisementIsFavorite(
-    advertisementId: number
-  ): Promise<boolean> {
-    try {
-      const response = await firstValueFrom(
-        this.httpClient.get<boolean>(
-          `${this.Url}api/Users/user/checkIfThisAdvertisementIsFavorite/${advertisementId}`
-        )
-      );
-      return response; // Assuming the response itself is the boolean value
-    } catch (error) {
-      console.error('Error checking if advertisement is favorite:', error);
-      return false; // Return false if there was an error
-    }
-  }
+  // async checkIfThisAdvertisementIsFavorite(
+  //   advertisementId: number
+  // ): Promise<boolean> {
+  //   try {
+  //     const response = await firstValueFrom(
+  //       this.httpClient.get<boolean>(
+  //         `${this.Url}api/Users/user/checkIfThisAdvertisementIsFavorite/${advertisementId}`
+  //       )
+  //     );
+  //     return response; // Assuming the response itself is the boolean value
+  //   } catch (error) {
+  //     console.error('Error checking if advertisement is favorite:', error);
+  //     return false; // Return false if there was an error
+  //   }
+  // }
 }
