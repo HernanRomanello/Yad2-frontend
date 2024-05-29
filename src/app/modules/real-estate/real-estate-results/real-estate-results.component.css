@@ -12,8 +12,9 @@
   text-align: right;
   margin-left: auto;
   border-radius: 12px;
-  min-width: min(85%, 750px);
-  max-width: 600px;
+  width: 742px;
+  height: 377;
+
   padding: 1rem;
   align-items: center;
   border: 1px solid rgb(238, 238, 238);
