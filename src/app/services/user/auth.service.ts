@@ -44,9 +44,6 @@ export class AuthService {
           this.getUserFavoriteAdvertisements();
           this.getUserLastSearches();
           this.getUserAdvertisementsStatistics();
-          // console.log(this.user.getValue());
-          // console.log(this.UserFavoriteAdvertisements.getValue());
-          // console.log(this.UserAdvertisements.getValue());
         } else {
           this.isUserLogin.next(false);
         }
@@ -83,11 +80,6 @@ export class AuthService {
         localStorage.setItem('access_token', accessToken);
         this.access_token.next(accessToken);
         console.log(this.UserFavoriteAdvertisements.getValue());
-        // console.log(this.UserAdvertisements.getValue());
-        // console.log(this.user.getValue());
-        // console.log(this.userLastSearches.getValue());
-        // console.log(this.UserAdvertisementsStatistics.getValue());
-
         return true;
       }
     } catch (error) {
@@ -118,7 +110,7 @@ export class AuthService {
       });
   }
 
-  getUserFavoriteAdvertisements() {
+  async getUserFavoriteAdvertisements() {
     this.httpClient
       .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetFavorites`)
       .subscribe((response) => {
@@ -148,19 +140,11 @@ export class AuthService {
       });
   }
 
-  // async checkIfThisAdvertisementIsFavorite(
-  //   advertisementId: number
-  // ): Promise<boolean> {
-  //   try {
-  //     const response = await firstValueFrom(
-  //       this.httpClient.get<boolean>(
-  //         `${this.Url}api/Users/user/checkIfThisAdvertisementIsFavorite/${advertisementId}`
-  //       )
-  //     );
-  //     return response; // Assuming the response itself is the boolean value
-  //   } catch (error) {
-  //     console.error('Error checking if advertisement is favorite:', error);
-  //     return false; // Return false if there was an error
-  //   }
-  // }
+  async addAdvertisementToFavorites(advertisementId: number) {
+    this.httpClient
+      .post(`${this.Url}api/Users/user/AddToFavorites/${advertisementId}`, null)
+      .subscribe(() => {
+        this.getUserFavoriteAdvertisements();
+      });
+  }
 }

@@ -8,7 +8,7 @@
   >
     <div
       class="like-button"
-      (click)="advertisementService.toggleFavorite(advertisement.id)"
+      (click)="authSerivce.addAdvertisementToFavorites(advertisement.id)"
     >
       <mat-icon
         *ngIf="this.isFavorite(advertisement.id)"
