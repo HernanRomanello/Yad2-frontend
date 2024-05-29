@@ -140,9 +140,9 @@ export class AuthService {
       });
   }
 
-  async addAdvertisementToFavorites(advertisementId: number) {
+  async updateAdvertisementToFavorites(advertisementId: number) {
     this.httpClient
-      .post(`${this.Url}api/Users/user/AddToFavorites/${advertisementId}`, null)
+      .post(`${this.Url}api/Users/user/updateFavorite/${advertisementId}`, null)
       .subscribe(() => {
         this.getUserFavoriteAdvertisements();
       });
