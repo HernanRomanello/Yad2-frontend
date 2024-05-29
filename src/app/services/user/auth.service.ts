@@ -1,6 +1,12 @@
 import { Injectable, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { BehaviorSubject, ReplaySubject, filter, first } from 'rxjs';
+import {
+  BehaviorSubject,
+  ReplaySubject,
+  filter,
+  first,
+  firstValueFrom,
+} from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
@@ -142,17 +148,19 @@ export class AuthService {
       });
   }
 
-  checkIfThisAdvertisementIsFavorite(advertisementId: number): boolean {
-    this.httpClient
-      .get<boolean>(
-        `${this.Url}api/Users/user/checkIfThisAdvertisementIsFavorite/${advertisementId}`
-      )
-      .pipe(first())
-      .subscribe((response) => {
-        // alert(response);
-        return true;
-      });
-    // alert('false');
-    return false;
+  async checkIfThisAdvertisementIsFavorite(
+    advertisementId: number
+  ): Promise<boolean> {
+    try {
+      const response = await firstValueFrom(
+        this.httpClient.get<boolean>(
+          `${this.Url}api/Users/user/checkIfThisAdvertisementIsFavorite/${advertisementId}`
+        )
+      );
+      return response; // Assuming the response itself is the boolean value
+    } catch (error) {
+      console.error('Error checking if advertisement is favorite:', error);
+      return false; // Return false if there was an error
+    }
   }
 }
