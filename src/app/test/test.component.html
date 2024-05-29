@@ -1,0 +1,99 @@
+<mat-toolbar color="primary">
+  <span>My Header</span>
+  <mat-toolbar-row>
+    <!-- Link 1: פרסום הודעה -->
+    <button mat-button [matMenuTriggerFor]="menu1">פרסום הודעה</button>
+    <mat-menu #menu1="matMenu">
+      <button mat-menu-item>Option 1</button>
+      <button mat-menu-item>Option 2</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 2: שםמשתנה -->
+    <button mat-button [matMenuTriggerFor]="menu2">שםמשתנה</button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item>אזור אישי</button>
+      <button mat-menu-item>חיפושים אחרונים</button>
+      <button mat-menu-item>התראות</button>
+      <button mat-menu-item>התנתקות</button>
+    </mat-menu>
+
+    <!-- Link 3: מודעות שאהבתי -->
+    <button mat-button [matMenuTriggerFor]="menu3">מודעות שאהבתי</button>
+    <mat-menu #menu3="matMenu">
+      <!-- Dynamic menu items -->
+      <!-- You'll need to implement the logic for dynamic menu items here -->
+    </mat-menu>
+
+    <!-- Link 4: מגזין יד 2 -->
+    <button mat-button [matMenuTriggerFor]="menu4">מגזין יד 2</button>
+    <mat-menu #menu4="matMenu">
+      <button mat-menu-item>Option 1</button>
+      <button mat-menu-item>Option 2</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 5: בעלי מקצוע -->
+    <button mat-button [matMenuTriggerFor]="menu5">בעלי מקצוע</button>
+    <mat-menu #menu5="matMenu">
+      <button mat-menu-item>מכוני בדיקה ורישוי לרכב</button>
+      <button mat-menu-item>רחיצת רכב</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 6: חיות מחמד -->
+    <button mat-button [matMenuTriggerFor]="menu6">חיות מחמד</button>
+    <mat-menu #menu6="matMenu">
+      <button mat-menu-item>כלבים</button>
+      <button mat-menu-item>חתולים</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 7: עסקים למכירה -->
+    <button mat-button [matMenuTriggerFor]="menu7">עסקים למכירה</button>
+    <mat-menu #menu7="matMenu">
+      <button mat-menu-item>בתי קפה ומסעדות</button>
+      <button mat-menu-item>זכיינות</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 8: דרושים IL -->
+    <button mat-button [matMenuTriggerFor]="menu8">דרושים IL</button>
+    <mat-menu #menu8="matMenu">
+      <button mat-menu-item>חיפוש עבודה</button>
+      <button mat-menu-item>פרסום משרות</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 9: יד שניה -->
+    <button mat-button [matMenuTriggerFor]="menu9">יד שניה</button>
+    <mat-menu #menu9="matMenu">
+      <button mat-menu-item>כל המוצרים</button>
+      <button mat-menu-item>מוצרי חשמל</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 10: רכב -->
+    <button mat-button [matMenuTriggerFor]="menu10">רכב</button>
+    <mat-menu #menu10="matMenu">
+      <button mat-menu-item>פרטיים ומסחריים</button>
+      <button mat-menu-item>אופנועים</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 11: נדלן -->
+    <button mat-button [matMenuTriggerFor]="menu11">נדלן</button>
+    <mat-menu #menu11="matMenu">
+      <button mat-menu-item>דירות למכירה</button>
+      <button mat-menu-item>דירות להשכרה</button>
+      <!-- Add other options here -->
+    </mat-menu>
+
+    <!-- Link 12: תמונה של לוגו -->
+    <button mat-button [matMenuTriggerFor]="menu12">תמונה של לוגו</button>
+    <mat-menu #menu12="matMenu">
+      <!-- Your dynamic options here -->
+      <!-- You'll need to implement the logic for dynamic menu items here -->
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
