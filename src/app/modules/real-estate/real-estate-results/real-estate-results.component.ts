@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AdvertisementService } from '../../../services/advertisement.service';
 import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel';
+import { AuthService } from '../../../services/user/auth.service';
 
 @Component({
   selector: 'app-real-estate-results',
@@ -11,6 +12,8 @@ import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel'
   ],
 })
 export class RealEstateResultsComponent {
-  public advertisementService = inject(AdvertisementService);
+  advertisementService = inject(AdvertisementService);
+  authSerivce = inject(AuthService);
+
   hoverIndex: number = -1;
 }

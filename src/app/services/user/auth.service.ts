@@ -141,4 +141,18 @@ export class AuthService {
         }
       });
   }
+
+  checkIfThisAdvertisementIsFavorite(advertisementId: number): boolean {
+    this.httpClient
+      .get<boolean>(
+        `${this.Url}api/Users/user/checkIfThisAdvertisementIsFavorite/${advertisementId}`
+      )
+      .pipe(first())
+      .subscribe((response) => {
+        // alert(response);
+        return true;
+      });
+    // alert('false');
+    return false;
+  }
 }
