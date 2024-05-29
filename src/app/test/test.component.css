@@ -14,7 +14,7 @@
   color: #fff; /* Change the text color */
   font-weight: bold; /* Make the text bold */
   text-transform: uppercase; /* Convert text to uppercase */
-  border-color: rgb(255, 255, 255) !important; /* Change the border color */
+  cursor: pointer !important; /* Change cursor to pointer */
 }
 
 /* Style the menu items */
