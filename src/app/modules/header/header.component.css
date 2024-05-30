@@ -1,42 +1,32 @@
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-direction: row-reverse; /* Reverse the order */
+Style the toolbar .mat-toolbar {
+  color: #fff; /* Change the text color */
 }
 
-.navbar span {
-  margin: 5px 10px;
-  padding: 10px;
-  font-size: 16px;
-  color: #333;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* Style the toolbar row */
+.mat-toolbar-row {
+  justify-content: space-between; /* Align items evenly */
+  padding: 0 20px; /* Add some padding */
 }
 
-.navbar span:hover {
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 5px;
+/* Style the menu button */
+.mat-button {
+  color: rgb(255, 255, 255) !important; /* Change the text color */
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer !important;
 }
 
-.navbar button {
-  margin: 5px 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Style the menu items */
+.mat-menu-content {
+  background-color: #f8f9fa; /* Change the background color */
 }
 
-.navbar button:hover {
-  background-color: #0056b3;
+.mat-menu-item {
+  color: #212529; /* Change the text color */
+  padding: 8px 20px; /* Add padding to menu items */
+}
+
+.mat-menu-item:hover {
+  background-color: #007bff; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
 }
