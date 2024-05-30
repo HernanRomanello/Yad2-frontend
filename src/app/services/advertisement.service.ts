@@ -24,25 +24,6 @@ export class AdvertisementService {
     );
   }
 
-  // toggleFavorite(advertisementId: number) {
-  //   const isFavorite = this.isFavorite(advertisementId);
-
-  //   if (isFavorite) {
-  //     this.UserFavoriteAdvertisements.next(
-  //       this.UserFavoriteAdvertisements.getValue().filter(
-  //         (item) => item.id !== advertisementId
-  //       )
-  //     );
-  //   } else {
-  //     this.UserFavoriteAdvertisements.next([
-  //       ...this.UserFavoriteAdvertisements.getValue(),
-  //       this.Advertisements.getValue().find(
-  //         (item) => item.id === advertisementId
-  //       ) as AdvertisementsModel,
-  //     ]);
-  //   }
-  // }
-
   GetAdvertisements() {
     this.httpClient
       .get<AdvertisementsModel[]>(

@@ -1,5 +1,4 @@
-/* Style the toolbar */
-.mat-toolbar {
+Style the toolbar .mat-toolbar {
   color: #fff; /* Change the text color */
 }
 
@@ -11,10 +10,10 @@
 
 /* Style the menu button */
 .mat-button {
-  color: #fff; /* Change the text color */
-  font-weight: bold; /* Make the text bold */
-  text-transform: uppercase; /* Convert text to uppercase */
-  cursor: pointer !important; /* Change cursor to pointer */
+  color: rgb(255, 255, 255) !important; /* Change the text color */
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer !important;
 }
 
 /* Style the menu items */
