@@ -1,32 +1,19 @@
-Style the toolbar .mat-toolbar {
-  color: #fff; /* Change the text color */
-}
-
-/* Style the toolbar row */
 .mat-toolbar-row {
-  justify-content: space-between; /* Align items evenly */
-  padding: 0 20px; /* Add some padding */
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: rgb(255, 255, 255);
 }
 
-/* Style the menu button */
-.mat-button {
-  color: rgb(255, 255, 255) !important; /* Change the text color */
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer !important;
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px !important;
+  display: flex;
+  align-items: center;
 }
 
-/* Style the menu items */
-.mat-menu-content {
-  background-color: #f8f9fa; /* Change the background color */
-}
-
-.mat-menu-item {
-  color: #212529; /* Change the text color */
-  padding: 8px 20px; /* Add padding to menu items */
-}
-
-.mat-menu-item:hover {
-  background-color: #007bff; /* Change background color on hover */
-  color: #fff; /* Change text color on hover */
+.heart-button {
+  color: transparent;
+  -webkit-text-stroke: 1px black;
 }

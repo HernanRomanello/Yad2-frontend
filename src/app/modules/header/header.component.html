@@ -1,19 +1,3 @@
-<!-- <div class="navbar">
-  <span>נדל״ן</span>
-  <span>רכב</span>
-  <span>יד שנייה</span>
-  <span>דרושים IL</span>
-  <span>עסקים למכירה</span>
-  <span>חיות מחמד</span>
-  <span>בעלי מקצוע</span>
-  <span>מגזין יד2</span>
-  <span>3</span>
-  <span>מודעות שאהבתי</span>
-  <span (click)="router.navigate(['/login'])">התחבר</span>
-  <span (click)="router.navigate(['/profile'])">ארנן</span>
-
-  <button mat-button>פרסום מודעה</button>
-</div> -->
 <mat-toolbar color="rgb(255,255,255)">
   <mat-toolbar-row>
     <button mat-button>פרסום הודעה</button>
@@ -29,7 +13,10 @@
       <button mat-menu-item>התנתקות</button>
     </mat-menu>
 
-    <button mat-button [matMenuTriggerFor]="menu3">מודעות שאהבתי</button>
+    <button mat-button [matMenuTriggerFor]="menu3">
+      מודעות שאהבתי
+      <mat-icon class="icon heart-button">favorite</mat-icon>
+    </button>
     <mat-menu #menu3="matMenu"> </mat-menu>
 
     <button mat-button>מגזין יד 2</button>
@@ -126,7 +113,7 @@
       <button mat-menu-item>מימון רכב</button>
     </mat-menu>
 
-    <button mat-button [matMenuTriggerFor]="menu11">נדלן</button>
+    <button mat-button [matMenuTriggerFor]="menu11">נדל"ן</button>
     <mat-menu #menu11="matMenu">
       <button mat-menu-item>דירות למכירה</button>
       <button mat-menu-item>דירות להשכרה</button>
