@@ -21,35 +21,48 @@
 
     <button mat-button>מגזין יד 2</button>
     <mat-menu #menu1="matMenu"> </mat-menu>
+    <div
+      class="menu-container"
+      class="menu-button-trigger-area"
+      (mouseover)="openMenu('menu_proffesionals')"
+      (mouseleave)="closeMenu('menu_proffesionals')"
+    >
+      <button>בעלי מקצוע</button>
+      <div class="menu" *ngIf="menus['menu_proffesionals']">
+        <button mat-menu-item>מכוני בדיקה ורישוי לרכב</button>
+        <button mat-menu-item>רחיצת רכב</button>
+        <button mat-menu-item>חומרי בניין</button>
+        <button mat-menu-item>אינסטלטורים</button>
+        <button mat-menu-item>חשמלאים</button>
+        <button mat-menu-item>שמאי מקרקעין</button>
+        <button mat-menu-item>שיפוצים</button>
+        <button mat-menu-item>הובלות</button>
+        <button mat-menu-item>רהיטים</button>
+        <button mat-menu-item>חברות ניקיון ואחזקה</button>
+        <button mat-menu-item>לכל בעלי המקצוע</button>
+      </div>
+    </div>
 
-    <button mat-button [matMenuTriggerFor]="menu5">בעלי מקצוע</button>
-    <mat-menu #menu5="matMenu">
-      <button mat-menu-item>מכוני בדיקה ורישוי לרכב</button>
-      <button mat-menu-item>רחיצת רכב</button>
-      <button mat-menu-item>חומרי בניין</button>
-      <button mat-menu-item>אינסטלטורים</button>
-      <button mat-menu-item>חשמלאים</button>
-      <button mat-menu-item>שמאי מקרקעין</button>
-      <button mat-menu-item>שיפוצים</button>
-      <button mat-menu-item>הובלות</button>
-      <button mat-menu-item>רהיטים</button>
-      <button mat-menu-item>חברות ניקיון ואחזקה</button>
-      <button mat-menu-item>לכל בעלי המקצוע</button>
-    </mat-menu>
-
-    <button mat-button [matMenuTriggerFor]="menu6">חיות מחמד</button>
-    <mat-menu #menu6="matMenu">
-      <button mat-menu-item>כלבים</button>
-      <button mat-menu-item>חתולים</button>
-      <button mat-menu-item>תוכים ובעלי כנף</button>
-      <button mat-menu-item>דגים</button>
-      <button mat-menu-item>זוחלים</button>
-      <button mat-menu-item>מכרסמים</button>
-      <button mat-menu-item>סוסים</button>
-      <button mat-menu-item>תרנגולים</button>
-      <button mat-menu-item>חיות משק</button>
-      <button mat-menu-item>חמוסים</button>
-    </mat-menu>
+    <div
+      class="menu-container"
+      class="menu-button-trigger-area"
+      (mouseover)="openMenu('menu_products')"
+      (mouseleave)="closeMenu('menu_products')"
+    >
+      <button>חיות מחמד</button>
+      <div class="menu" *ngIf="menus['menu_products']">
+        <button mat-menu-item>כלבים</button>
+        <button mat-menu-item>חתולים</button>
+        <button mat-menu-item>תוכים ובעלי כנף</button>
+        <button mat-menu-item>דגים</button>
+        <button mat-menu-item>זוחלים</button>
+        <button mat-menu-item>מכרסמים</button>
+        <button mat-menu-item>סוסים</button>
+        <button mat-menu-item>תרנגולים</button>
+        <button mat-menu-item>חיות משק</button>
+        <button mat-menu-item>חמוסים</button>
+      </div>
+    </div>
 
     <button mat-button [matMenuTriggerFor]="menu7">עסקים למכירה</button>
     <mat-menu #menu7="matMenu">

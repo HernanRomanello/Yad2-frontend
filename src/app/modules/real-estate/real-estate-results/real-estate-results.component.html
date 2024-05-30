@@ -48,19 +48,25 @@
         <li>קומה {{ advertisement.floor }} •</li>
         <li>{{ advertisement.totalSquareMeters }} מ"ר</li>
       </div>
-      <div class="tags">
-        <div class="list-group-item">
-          <ng-container
-            *ngFor="
-              let word of advertisementService.getFirstThreeAdvertisementParameters(
-                advertisement
-              )
-            "
-          >
-            <li>{{ word }}</li>
-          </ng-container>
+      <div class="last-row">
+        <div class="tags">
+          <div class="price">
+            {{ advertisement.price | customCurrency }}
+          </div>
+
+          <div class="list-tags">
+            <li
+              *ngFor="
+                let word of advertisementService.getFirstThreeAdvertisementParameters(
+                  advertisement
+                )
+              "
+              class="list-tag"
+            >
+              {{ word }}
+            </li>
+          </div>
         </div>
-        <div class="price">{{ advertisement.price | customCurrency }}</div>
       </div>
     </div>
     <div class="image">
