@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../../services/user/auth.service';
-import { RealEstateResultsComponent } from '../../real-estate/real-estate-results/real-estate-results.component';
 import { AdvertisementService } from '../../../services/advertisement.service';
 
 @Component({

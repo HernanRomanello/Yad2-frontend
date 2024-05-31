@@ -1,14 +1,16 @@
-<mat-toolbar color="rgb(255,255,255)">
+<mat-toolbar class="header" color="rgb(255,255,255)">
   <mat-toolbar-row>
-    <button mat-button>פרסום הודעה</button>
-    <!-- <mat-menu #menu1="matMenu"> </mat-menu> -->
+    <button class="light" mat-button>פרסום הודעה</button>
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      *ngIf="authSerrvice.user | async as user"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_User')"
       (mouseleave)="closeMenu('menu_User')"
     >
-      <button>ארנן</button>
+      <div style="display: flex; gap: 2px">
+        <button>{{ user.name }}</button>
+        <div class="round">{{ user.name.slice(0, 2) }}</div>
+      </div>
       <div class="menu" *ngIf="menus['menu_User']">
         <button routerLink="/profile" mat-menu-item>אזור אישי</button>
         <button mat-menu-item>חיפושים אחרונים</button>
@@ -18,32 +20,29 @@
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_FavoriteAds')"
       (mouseleave)="closeMenu('menu_FavoriteAds')"
     >
-      <button>מודעות שאהבתי</button>
+      <button class="light">מודעות שאהבתי</button>
       <div class="menu" *ngIf="menus['menu_FavoriteAds']"></div>
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_Yad2Magazine')"
       (mouseleave)="closeMenu('menu_Yad2Magazine')"
     >
-      <button>מגזין יד 2</button>
+      <button class="light">מגזין יד 2</button>
       <div class="menu" *ngIf="menus['menu_Yad2Magazine']"></div>
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_proffesionals')"
       (mouseleave)="closeMenu('menu_proffesionals')"
     >
-      <button>בעלי מקצוע</button>
+      <button class="light">בעלי מקצוע</button>
       <div class="menu" *ngIf="menus['menu_proffesionals']">
         <button mat-menu-item>מכוני בדיקה ורישוי לרכב</button>
         <button mat-menu-item>רחיצת רכב</button>
@@ -60,12 +59,11 @@
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_Pets')"
       (mouseleave)="closeMenu('menu_Pets')"
     >
-      <button>חיות מחמד</button>
+      <button class="light">חיות מחמד</button>
       <div class="menu" *ngIf="menus['menu_Pets']">
         <button mat-menu-item>כלבים</button>
         <button mat-menu-item>חתולים</button>
@@ -81,12 +79,11 @@
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_BusinessesforSale')"
       (mouseleave)="closeMenu('menu_BusinessesforSale')"
     >
-      <button>עסקים למכירה</button>
+      <button class="light">עסקים למכירה</button>
       <div class="menu" *ngIf="menus['menu_BusinessesforSale']">
         <button mat-menu-item>בתי קפה ומסעדות</button>
         <button mat-menu-item>זכיינות</button>
@@ -99,42 +96,44 @@
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_JobsIL')"
       (mouseleave)="closeMenu('menu_JobsIL')"
     >
-      <button>דרושים IL</button>
+      <button class="light">IL דרושים</button>
       <div class="menu" *ngIf="menus['menu_JobsIL']">
-        <button mat-menu-item>חיפוש עבודה</button>
-        <button mat-menu-item>פרסום משרות</button>
-        <button mat-menu-item>כתיבת קורות חיים</button>
-        <button mat-menu-item>אודות החברות</button>
-        <button mat-menu-item>דרושים הייטק</button>
-        <button mat-menu-item>דרושים סטודנטים</button>
-        <button mat-menu-item>מגזין הקריירה</button>
-        <button mat-menu-item>כספים</button>
-        <button mat-menu-item>מכירות</button>
-        <button mat-menu-item>שירות לקוחות</button>
-        <button mat-menu-item>מהנדסים</button>
-        <button mat-menu-item>תחבורה</button>
-        <button mat-menu-item>מסעדנות/תיירות</button>
-        <button mat-menu-item>אבטחה</button>
-        <button mat-menu-item>בריאות</button>
-        <button mat-menu-item>בעלי מקצוע</button>
-        <button mat-menu-item>הדרכה/הוראה</button>
-        <button mat-menu-item>שיווק</button>
-        <button mat-menu-item>לתחומים נוספים</button>
+        <div>
+          <button mat-menu-item>חיפוש עבודה</button>
+          <button mat-menu-item>פרסום משרות</button>
+          <button mat-menu-item>כתיבת קורות חיים</button>
+          <button mat-menu-item>אודות החברות</button>
+          <button mat-menu-item>דרושים הייטק</button>
+          <button mat-menu-item>דרושים סטודנטים</button>
+          <button mat-menu-item>מגזין הקריירה</button>
+          <button mat-menu-item>כספים</button>
+          <button mat-menu-item>מכירות</button>
+          <button mat-menu-item>שירות לקוחות</button>
+        </div>
+        <div>
+          <button mat-menu-item>מהנדסים</button>
+          <button mat-menu-item>תחבורה</button>
+          <button mat-menu-item>מסעדנות/תיירות</button>
+          <button mat-menu-item>אבטחה</button>
+          <button mat-menu-item>בריאות</button>
+          <button mat-menu-item>בעלי מקצוע</button>
+          <button mat-menu-item>הדרכה/הוראה</button>
+          <button mat-menu-item>שיווק</button>
+          <button mat-menu-item>לתחומים נוספים</button>
+        </div>
       </div>
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_Yad2')"
       (mouseleave)="closeMenu('menu_Yad2')"
     >
-      <button>יד שניה</button>
+      <button class="light">יד שניה</button>
       <div class="menu" *ngIf="menus['menu_Yad2']">
         <button mat-menu-item>כל המוצרים</button>
         <button mat-menu-item>מוצרי חשמל</button>
@@ -151,12 +150,11 @@
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_Cars')"
       (mouseleave)="closeMenu('menu_Cars')"
     >
-      <button>רכב</button>
+      <button class="light">רכב</button>
       <div class="menu" *ngIf="menus['menu_Cars']">
         <button mat-menu-item>פרטיים ומסחריים</button>
         <button mat-menu-item>אופנועים</button>
@@ -171,12 +169,11 @@
     </div>
 
     <div
-      class="menu-container"
-      class="menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_RealEstate')"
       (mouseleave)="closeMenu('menu_RealEstate')"
     >
-      <button>נדל"ן</button>
+      <button class="light">נדל"ן</button>
       <div class="menu" *ngIf="menus['menu_RealEstate']">
         <button mat-menu-item>דירות למכירה</button>
         <button mat-menu-item>דירות להשכרה</button>
@@ -191,7 +188,8 @@
     </div>
 
     <button routerLink="/" mat-button [matMenuTriggerFor]="menu12">
-      תמונה של לוגו
+      <!-- <img src="assets\images\logo" alt="logo" /> -->
+      <img src="{{ _LogoPic }}" alt="logo" />
     </button>
     <mat-menu #menu12="matMenu"> </mat-menu>
   </mat-toolbar-row>

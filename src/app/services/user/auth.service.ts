@@ -1,12 +1,6 @@
 import { Injectable, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import {
-  BehaviorSubject,
-  ReplaySubject,
-  filter,
-  first,
-  firstValueFrom,
-} from 'rxjs';
+import { BehaviorSubject, ReplaySubject, filter } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
@@ -18,9 +12,7 @@ import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
 })
 export class AuthService {
   Url = environment.URl;
-  access_token = new BehaviorSubject<string | null | undefined>(
-    localStorage.getItem('access_token')
-  );
+  access_token = new BehaviorSubject<string | null | undefined>('');
   isUserLogin = new ReplaySubject<boolean>(1);
   user = new BehaviorSubject<UserModel | null | undefined>(undefined);
   UserAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
@@ -34,6 +26,9 @@ export class AuthService {
     new BehaviorSubject<AdvertisementsModel | null>(null);
 
   constructor(private router: Router, private httpClient: HttpClient) {
+    afterNextRender(() => {
+      this.access_token.next(localStorage.getItem('access_token'));
+    });
     this.access_token
       .pipe(filter((it) => it !== undefined))
       .subscribe((token) => {

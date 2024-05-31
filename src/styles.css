@@ -1,5 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+  font-family: Rubik;
+  src: url(./assets//fonts/rubik/Rubik-Regular.ttf);
+}
+@font-face {
+  font-family: Rubik;
+  font-weight: bold;
+  src: url(./assets//fonts/rubik/Rubik-Bold.ttf);
+}
+@font-face {
+  font-family: Rubik;
+  font-weight: 100;
+  src: url(./assets//fonts/rubik/Rubik-Light.ttf);
+}
+
 html,
 body {
   height: 100%;
@@ -7,9 +22,25 @@ body {
 body {
   margin: 0;
   /* font-family: Roboto, "Helvetica Neue", sans-serif; */
-  font-family: "rubik", sans-serif !important ;
   color: #363636;
 }
+/* .light {
+  font-family: Rubik !important;
+} */
+
+button[mat-menu-item] {
+  color: #4a4a4a;
+}
+button.light {
+  font-family: Rubik !important;
+  font-weight: 100 !important;
+}
+p,
+div,
+button {
+  font-family: Rubik !important;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewRef, inject } from '@angular/core';
-import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/user/auth.service';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -22,7 +22,8 @@ type MenuTriggers = {
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  router = inject(Router);
+  _LogoPic = 'assets/images/logo-default.svg';
+  authSerrvice = inject(AuthService);
   menus: MenuTriggers = {
     menu_User: false,
     menu_PostAd: false,

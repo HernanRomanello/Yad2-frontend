@@ -3,7 +3,9 @@
   padding: 0 20px;
   background-color: rgb(255, 255, 255);
 }
-
+.header {
+  border-bottom: 1px solid lightgray;
+}
 button {
   background-color: transparent;
   border: none;
@@ -13,6 +15,23 @@ button {
   align-items: center;
 }
 
+.round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fc8c31;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid #fc8c31;
+  font-size: 14px;
+  line-height: 16.1px;
+  text-decoration: none solid rgb(54, 54, 54);
+  text-align: center;
+  background-color: #fff1e6;
+  height: 40px;
+  width: 40px;
+  margin: 12px 0 12px 0px;
+}
 .heart-button {
   color: transparent;
   -webkit-text-stroke: 1px black;
@@ -22,9 +41,17 @@ button {
 }
 .menu {
   position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  right: -1rem;
+  top: 100%;
+  transform: translateY(10px);
+  border-radius: 6px;
+  min-width: max-content;
+  overflow: auto;
   z-index: 100 !important;
   background-color: rgb(255, 255, 255);
-  width: 225px !important;
 }
 
 .menu :hover {
@@ -34,4 +61,9 @@ button {
 .menu button[mat-menu-item] {
   text-align: right;
   direction: rtl;
+}
+
+.menu button {
+  padding-block: 16px;
+  padding-inline: 20px;
 }
