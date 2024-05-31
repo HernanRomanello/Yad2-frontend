@@ -1,6 +1,10 @@
 <mat-toolbar class="header" color="rgb(255,255,255)">
   <mat-toolbar-row>
-    <button class="light" mat-button>פרסום הודעה</button>
+    <div class="Post-Btn">
+      <button class="light" mat-button>
+        פרסום הודעה <span class="plus"> +</span>
+      </button>
+    </div>
     <div
       *ngIf="authSerrvice.user | async as user"
       class="menu-container menu-button-trigger-area"
