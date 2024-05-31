@@ -21,14 +21,17 @@ button {
   position: relative;
 }
 .menu {
-  /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); */
-
   position: absolute;
   z-index: 100 !important;
   background-color: rgb(255, 255, 255);
+  width: 225px !important;
 }
 
 .menu :hover {
   background-color: rgb(255, 255, 255);
   color: rgb(255, 113, 0);
+}
+.menu button[mat-menu-item] {
+  text-align: right;
+  direction: rtl;
 }
