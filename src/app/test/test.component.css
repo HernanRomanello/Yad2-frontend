@@ -1,0 +1,84 @@
+.mat-toolbar-row {
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: rgb(255, 255, 255);
+  height: 70px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px !important;
+  display: flex;
+  align-items: start;
+}
+
+.heart-button {
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+}
+/* .menu-container {
+  position: relative;
+} */
+.menu {
+  /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); */
+  position: absolute;
+  z-index: 1000 !important;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.menu :hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 113, 0);
+}
+
+/* 
+.mat-toolbar-row {
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: rgb(255, 255, 255);
+  height: 70px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px !important;
+  display: flex;
+  align-items: center;
+  color: #363636;
+}
+
+.heart-button {
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 1000 !important;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  top: 100%; /* Positions the menu right below the button */
+/* left: 0; 
+  padding: 10px;
+} */
+
+/* button.mat-menu-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Ensures buttons take full width in the menu */
+/* }   */

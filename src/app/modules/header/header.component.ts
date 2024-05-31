@@ -3,10 +3,17 @@ import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 
 type MenuTriggers = {
+  menu_User: boolean;
+  menu_PostAd: boolean;
+  menu_FavoriteAds: boolean;
+  menu_Yad2Magazine: boolean;
   menu_proffesionals: boolean;
-  menu_services: boolean;
-  menu_products: boolean;
-  menu_about: boolean;
+  menu_Pets: boolean;
+  menu_BusinessesforSale: boolean;
+  menu_JobsIL: boolean;
+  menu_Yad2: boolean;
+  menu_Cars: boolean;
+  menu_RealEstate: boolean;
 };
 
 @Component({
@@ -17,10 +24,17 @@ type MenuTriggers = {
 export class HeaderComponent {
   router = inject(Router);
   menus: MenuTriggers = {
+    menu_User: false,
+    menu_PostAd: false,
+    menu_FavoriteAds: false,
+    menu_Yad2Magazine: false,
     menu_proffesionals: false,
-    menu_services: false,
-    menu_products: false,
-    menu_about: false,
+    menu_Pets: false,
+    menu_BusinessesforSale: false,
+    menu_JobsIL: false,
+    menu_Yad2: false,
+    menu_Cars: false,
+    menu_RealEstate: false,
   };
 
   openMenu(menu: keyof MenuTriggers) {
