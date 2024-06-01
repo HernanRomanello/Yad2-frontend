@@ -6,14 +6,11 @@
       <!-- <button type="button" (click)="applyFilter('מכירה')">מכירה</button> -->
       <div>
         <button type="button" (click)="toggleDropdown()">
-          {{ buttonText }}
+          {{ advertisementTypebuttonText }}
         </button>
         <div *ngIf="dropdownOpen" class="dropdown-menu">
-          <button type="button" (click)="applyFilter1('מכירה')">מכירה</button>
-          <button type="button" (click)="applyFilter1('השכרה')">השכרה</button>
-        </div>
-        <div *ngIf="selectedOption">
-          {{ message }}
+          <button type="button" (click)="applyFilter('מכירה')">מכירה</button>
+          <button type="button" (click)="applyFilter('השכרה')">השכרה</button>
         </div>
       </div>
 
