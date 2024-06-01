@@ -1,5 +1,14 @@
+<div class="sort-container">
+  <div>
+    <span>מיון לפי תאריך</span>
+  </div>
+
+  <div class="result">
+    {{ this.advertisementService.advertisementResult | async }} תוצאות
+  </div>
+</div>
+
 <div class="result-list">
-  <div>{{ this.advertisementService.advertisementResult | async }}</div>
   <div
     class="container"
     *ngFor="

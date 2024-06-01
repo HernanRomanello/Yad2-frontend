@@ -108,3 +108,17 @@
   align-items: center;
   width: 100% !important;
 }
+
+.result {
+  direction: rtl;
+}
+
+.sort-container {
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  width: 742px;
+
+  padding: 1rem;
+  justify-content: space-between;
+}
