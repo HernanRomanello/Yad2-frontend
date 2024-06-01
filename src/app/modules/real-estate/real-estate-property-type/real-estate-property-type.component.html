@@ -1,0 +1,46 @@
+<div class="property-type-select">
+  <p>ניתן לבחור מספר סוגים</p>
+  <div>
+    <div class="property-type-header">דירות</div>
+
+    <div class="property-type-grid">
+      <span
+        (click)="emit('דירות_הכל')"
+        class="property-type {{ className('דירות_הכל') }}"
+      >
+        הכל
+      </span>
+      <span
+        (click)="emit(pType)"
+        *ngFor="let pType of propertyTypes.apartment"
+        class="property-type {{ className(pType) }}"
+      >
+        {{ pType }}
+      </span>
+    </div>
+  </div>
+  <div>
+    <div class="property-type-header">בתים</div>
+    <div class="property-type-grid">
+      <span
+        (click)="emit(pType)"
+        *ngFor="let pType of propertyTypes.house"
+        class="property-type {{ className(pType) }}"
+      >
+        {{ pType }}
+      </span>
+    </div>
+  </div>
+  <div>
+    <div class="property-type-header">אחר</div>
+    <div class="property-type-grid">
+      <span
+        (click)="emit(pType)"
+        *ngFor="let pType of propertyTypes.other"
+        class="property-type {{ className(pType) }}"
+      >
+        {{ pType }}
+      </span>
+    </div>
+  </div>
+</div>

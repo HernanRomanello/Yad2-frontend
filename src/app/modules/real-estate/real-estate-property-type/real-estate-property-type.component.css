@@ -1,0 +1,46 @@
+.property-type-select {
+  display: flex;
+  width: 400px;
+  direction: rtl;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
+  border-radius: 5px;
+}
+
+.property-type-select p {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.property-type-header {
+  padding: 0.5rem;
+  font-size: 16px;
+}
+.selected {
+  color: rgb(255, 130, 0);
+  border: 1px solid rgb(255, 130, 0) !important;
+}
+.property-type-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.25rem;
+  max-width: 80%;
+  gap: 0.65rem;
+}
+
+.property-type {
+  padding: 0.5rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.property-type:hover {
+  color: rgb(255, 130, 0);
+  border: 1px solid rgb(255, 130, 0);
+}

@@ -8,11 +8,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { CustomCurrencyPipe } from '../../pipes/custom-currency.pipe';
 import { FormsModule } from '@angular/forms';
 import { ListboxModule } from 'primeng/listbox';
+import { RealEstatePropertyTypeComponent } from './real-estate-property-type/real-estate-property-type.component';
 
 @NgModule({
   declarations: [
     RealEstateSearchComponent,
     RealEstateResultsComponent,
+    RealEstatePropertyTypeComponent,
     CustomCurrencyPipe,
   ],
   imports: [

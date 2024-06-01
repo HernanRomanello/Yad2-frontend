@@ -2,8 +2,11 @@
   <h2>חיפוש נדל"ן</h2>
   <form (submit)="onSearch()">
     <div class="Search-bar">
-      <input type="text" name="searchQuery" placeholder="חפש" />
-      <!-- <button type="button" (click)="applyFilter('מכירה')">מכירה</button> -->
+      <input
+        type="text"
+        name="searchQuery"
+        placeholder="אזור, עיר שכונה או רחוב"
+      />
       <div>
         <button type="button" (click)="toggleDropdown()">
           {{ advertisementTypebuttonText }}
@@ -13,13 +16,19 @@
           <button type="button" (click)="applyFilter('השכרה')">השכרה</button>
         </div>
       </div>
-
-      <button type="button" (click)="applyFilter('סוג הנכס')">סוג הנכס</button>
-      <button type="button" (click)="applyFilter('מחיר')">מחיר</button>
-      <button type="button" (click)="applyFilter('חדרים')">חדרים</button>
-      <button type="button" (click)="applyFilter('סינונים נוספים')">
-        סינונים נוספים
-      </button>
+      <div class="menu-container" #propertyTypeMenu>
+        <button type="button" (click)="togglePropertyTypeDropdown()">
+          סוג הנכס
+        </button>
+        <div class="menu hidden">
+          <app-real-estate-property-type
+            (propertyTypeSelected)="onPropertyTypeSelected($event)"
+          ></app-real-estate-property-type>
+        </div>
+      </div>
+      <button type="button">מחיר</button>
+      <button type="button">חדרים</button>
+      <button type="button">סינונים נוספים</button>
 
       <button type="submit">חיפוש</button>
       <button type="button">יצירת התראה</button>

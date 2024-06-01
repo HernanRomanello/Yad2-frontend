@@ -7,6 +7,11 @@
   direction: rtl;
 }
 
+.Search-bar::placeholder {
+  direction: rtl;
+  text-align: right;
+}
+
 .dropdown-menu {
   border: 1px solid #ccc;
   background-color: white;
@@ -14,6 +19,19 @@
   z-index: 1000;
 }
 
+.hidden {
+  display: none;
+}
+.menu-container {
+  position: relative;
+  display: inline-block;
+  background-color: white;
+  z-index: 99999;
+}
+.menu {
+  position: absolute;
+  right: -2rem;
+}
 .dropdown-menu button {
   display: block;
   width: 100%;

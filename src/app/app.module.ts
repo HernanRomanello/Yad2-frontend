@@ -27,6 +27,7 @@ import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { SidebarModule } from 'primeng/sidebar';
 import { ListboxModule } from 'primeng/listbox';
+import { RealEstatePriceSliderComponent } from './modules/real-estate/real-estate-price-slider/real-estate-price-slider.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ListboxModule } from 'primeng/listbox';
     LoginComponent,
     RegistrationFormComponent,
     TestComponent,
+    RealEstatePriceSliderComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,77 @@
+.price-slider-select {
+  display: flex;
+  width: 400px;
+  direction: rtl;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
+  border-radius: 5px;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.price {
+  width: 150px;
+  padding-block: 0.75rem;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  position: relative;
+}
+
+.slide-front {
+  content: "";
+  display: block;
+  margin-inline: 2.5rem;
+  position: absolute;
+  right: 0;
+  align-self: center;
+  left: 0;
+  height: 2px;
+  background-color: black;
+}
+
+.slider-back {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  color: lightgray;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-handle {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  color: lightgray;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.a {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
