@@ -9,8 +9,16 @@ import { Router } from '@angular/router';
 export class RealEstateSearchComponent {
   searchQuery: string = '';
   selectedFilters: string[] = [];
-
-  constructor(private router: Router) {}
+  cities: any[]; // Define the type according to your data structure
+  selectedCity: any;
+  constructor(private router: Router) {
+    this.cities = [
+      { label: 'New York', value: 'NY' },
+      { label: 'Los Angeles', value: 'LA' },
+      { label: 'Chicago', value: 'CHI' },
+    ];
+    this.selectedCity = null; // Or assign a default value
+  }
 
   onSearch() {
     this.router.navigate(['real-estate-search/results'], {

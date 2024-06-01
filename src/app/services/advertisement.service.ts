@@ -14,6 +14,7 @@ export class AdvertisementService {
   Url = environment.URl;
   UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
+  advertisementResult: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   constructor(private router: Router, private httpClient: HttpClient) {
     this.GetAdvertisements();
   }
@@ -31,6 +32,7 @@ export class AdvertisementService {
       )
       .subscribe((response) => {
         this.Advertisements.next(response);
+        this.advertisementResult.next(response.length);
       });
   }
 

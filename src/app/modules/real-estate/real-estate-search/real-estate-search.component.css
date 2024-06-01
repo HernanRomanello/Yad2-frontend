@@ -1,47 +1,8 @@
-.search-container {
+.Search-bar {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-input[type="text"] {
-  width: 80%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.filter-buttons {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button[type="submit"] {
-  background-color: #007bff;
-  color: white;
-}
-
-button[type="button"] {
-  background-color: #f8f9fa;
-  color: black;
-  border: 1px solid #ccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  direction: rtl;
 }

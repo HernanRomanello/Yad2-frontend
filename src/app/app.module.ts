@@ -26,6 +26,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { SidebarModule } from 'primeng/sidebar';
+import { ListboxModule } from 'primeng/listbox';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import { SidebarModule } from 'primeng/sidebar';
     ButtonModule,
     SplitButtonModule,
     SidebarModule,
+    ListboxModule,
+    FormsModule,
   ],
   providers: [
     provideClientHydration(),

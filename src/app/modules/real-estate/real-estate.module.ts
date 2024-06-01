@@ -6,6 +6,8 @@ import { RealEstateSearchComponent } from './real-estate-search/real-estate-sear
 import { RealEstateResultsComponent } from './real-estate-results/real-estate-results.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomCurrencyPipe } from '../../pipes/custom-currency.pipe';
+import { FormsModule } from '@angular/forms';
+import { ListboxModule } from 'primeng/listbox';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,12 @@ import { CustomCurrencyPipe } from '../../pipes/custom-currency.pipe';
     RealEstateResultsComponent,
     CustomCurrencyPipe,
   ],
-  imports: [CommonModule, MatIconModule, RealEstateRoutingModule],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    RealEstateRoutingModule,
+    ListboxModule,
+    FormsModule,
+  ],
 })
 export class RealEstateModule {}

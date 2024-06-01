@@ -76,7 +76,6 @@ button {
   font-weight: bold;
   line-height: 16.1px;
   text-decoration: none solid rgb(54, 54, 54);
-  /* background-color: #ffffff; */
   height: 36px;
   width: 134px;
   border: 1px solid #fc8c31;
@@ -92,7 +91,4 @@ button {
     font-weight: 200px !important;
     padding: 0.25rem;
   }
-  /* position: absolute; */
-  /* height: 597px; */
-  /* width: 479px; */
 }

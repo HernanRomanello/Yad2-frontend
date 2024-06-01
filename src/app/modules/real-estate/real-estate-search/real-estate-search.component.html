@@ -1,17 +1,20 @@
 <div class="search-container">
   <h2>חיפוש נדל"ן</h2>
   <form (submit)="onSearch()">
-    <input type="text" name="searchQuery" placeholder="חפש" />
-    <div class="filter-buttons">
+    <div class="Search-bar">
+      <input type="text" name="searchQuery" placeholder="חפש" />
       <button type="button" (click)="applyFilter('מכירה')">מכירה</button>
+
       <button type="button" (click)="applyFilter('סוג הנכס')">סוג הנכס</button>
       <button type="button" (click)="applyFilter('מחיר')">מחיר</button>
       <button type="button" (click)="applyFilter('חדרים')">חדרים</button>
       <button type="button" (click)="applyFilter('סינונים נוספים')">
         סינונים נוספים
       </button>
+
+      <button type="submit">חיפוש</button>
+      <button type="button">יצירת התראה</button>
     </div>
-    <button type="submit">חיפוש</button>
   </form>
 </div>
 
