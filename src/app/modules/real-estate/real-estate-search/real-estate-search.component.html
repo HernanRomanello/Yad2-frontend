@@ -12,15 +12,22 @@
       <div>
         <button class="search-button" type="button" (click)="toggleDropdown()">
           {{ advertisementTypebuttonText }}
+          <i class="material-icons">keyboard_arrow_down</i>
         </button>
         <div *ngIf="dropdownOpen" class="dropdown-menu">
           <button type="button" (click)="applyFilter('מכירה')">מכירה</button>
           <button type="button" (click)="applyFilter('השכרה')">השכרה</button>
         </div>
       </div>
-      <div class="menu-container search-button" #propertyTypeMenu>
-        <button type="button" (click)="togglePropertyTypeDropdown()">
+      <div class="menu-container" #propertyTypeMenu>
+        <button
+          class="search-button"
+          type="button"
+          (click)="togglePropertyTypeDropdown()"
+        >
           סוג הנכס
+
+          <i class="material-icons">keyboard_arrow_down</i>
         </button>
         <div class="menu hidden">
           <app-real-estate-property-type
@@ -28,9 +35,18 @@
           ></app-real-estate-property-type>
         </div>
       </div>
-      <button class="search-button" type="button">מחיר</button>
-      <button class="search-button" type="button">חדרים</button>
-      <button class="search-button" type="button">סינונים נוספים</button>
+      <button class="search-button" type="button">
+        מחיר
+        <i class="material-icons">keyboard_arrow_down</i>
+      </button>
+      <button class="search-button" type="button">
+        חדרים
+        <i class="material-icons">keyboard_arrow_down</i>
+      </button>
+      <button class="search-button rtl" type="button">
+        סינונים נוספים
+        <i class="material-icons">tune</i>
+      </button>
 
       <button class="search-button-orange" type="submit">חיפוש</button>
       <button class="search-button" type="button">יצירת התראה</button>
