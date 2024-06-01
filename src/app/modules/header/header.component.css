@@ -68,27 +68,20 @@ button {
   padding-inline: 20px;
 }
 
-.Post-Btn {
+.Post-Btn button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 16.1px;
+  font-size: 14px !important;
+  font-weight: 500;
   text-decoration: none solid rgb(54, 54, 54);
-  height: 36px;
-  width: 134px;
   border: 1px solid #fc8c31;
-  padding: 12px 0 18px 0;
   border-radius: 30px;
-  button {
-    color: #fc8c31;
-    font-weight: bold !important;
-  }
 
-  .plus {
-    font-size: 20px;
-    font-weight: 200px !important;
-    padding: 0.25rem;
-  }
+  line-height: 16.1px;
+  width: 150px !important;
+  height: 36px;
+  padding: 18px !important;
+  color: #fc8c31;
+  font-weight: bold !important;
 }
