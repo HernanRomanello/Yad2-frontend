@@ -11,6 +11,20 @@ export class RealEstateSearchComponent {
   selectedFilters: string[] = [];
   cities: any[]; // Define the type according to your data structure
   selectedCity: any;
+  dropdownOpen = false;
+  selectedOption: string | null = null;
+  message: string = '';
+  buttonText: string = 'מכירה';
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  applyFilter1(option: string) {
+    this.selectedOption = option;
+    this.buttonText = option; // Update the button text
+    this.dropdownOpen = false;
+  }
   constructor(private router: Router) {
     this.cities = [
       { label: 'New York', value: 'NY' },

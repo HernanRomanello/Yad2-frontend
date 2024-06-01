@@ -3,7 +3,19 @@
   <form (submit)="onSearch()">
     <div class="Search-bar">
       <input type="text" name="searchQuery" placeholder="חפש" />
-      <button type="button" (click)="applyFilter('מכירה')">מכירה</button>
+      <!-- <button type="button" (click)="applyFilter('מכירה')">מכירה</button> -->
+      <div>
+        <button type="button" (click)="toggleDropdown()">
+          {{ buttonText }}
+        </button>
+        <div *ngIf="dropdownOpen" class="dropdown-menu">
+          <button type="button" (click)="applyFilter1('מכירה')">מכירה</button>
+          <button type="button" (click)="applyFilter1('השכרה')">השכרה</button>
+        </div>
+        <div *ngIf="selectedOption">
+          {{ message }}
+        </div>
+      </div>
 
       <button type="button" (click)="applyFilter('סוג הנכס')">סוג הנכס</button>
       <button type="button" (click)="applyFilter('מחיר')">מחיר</button>
