@@ -7,9 +7,16 @@
   direction: rtl;
 }
 
-.Search-bar::placeholder {
-  direction: rtl;
-  text-align: right;
+.input-search {
+  width: 280px;
+  height: 44.4px;
+  border-radius: 30px;
+  padding: 12px;
+  border: 1px solid #cccccc;
+}
+
+.input-search::placeholder {
+  font-size: 16px;
 }
 
 .dropdown-menu {
