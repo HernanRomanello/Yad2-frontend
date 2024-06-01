@@ -1,15 +1,16 @@
 <div class="search-container">
-  <h2>חיפוש נדל"ן</h2>
   <form (submit)="onSearch()">
     <div class="Search-bar">
-      <input
-        type="text"
-        name="searchQuery"
-        placeholder="איזור, עיר שכונה או רחוב"
-        class="input-search"
-      />
+      <div class="input-box">
+        <input
+          type="text"
+          name="searchQuery"
+          placeholder="איזור, עיר שכונה או רחוב"
+          class="input-search"
+        />
+      </div>
       <div>
-        <button type="button" (click)="toggleDropdown()">
+        <button class="search-button" type="button" (click)="toggleDropdown()">
           {{ advertisementTypebuttonText }}
         </button>
         <div *ngIf="dropdownOpen" class="dropdown-menu">
@@ -17,7 +18,7 @@
           <button type="button" (click)="applyFilter('השכרה')">השכרה</button>
         </div>
       </div>
-      <div class="menu-container" #propertyTypeMenu>
+      <div class="menu-container search-button" #propertyTypeMenu>
         <button type="button" (click)="togglePropertyTypeDropdown()">
           סוג הנכס
         </button>
@@ -27,12 +28,12 @@
           ></app-real-estate-property-type>
         </div>
       </div>
-      <button type="button">מחיר</button>
-      <button type="button">חדרים</button>
-      <button type="button">סינונים נוספים</button>
+      <button class="search-button" type="button">מחיר</button>
+      <button class="search-button" type="button">חדרים</button>
+      <button class="search-button" type="button">סינונים נוספים</button>
 
-      <button type="submit">חיפוש</button>
-      <button type="button">יצירת התראה</button>
+      <button class="search-button-orange" type="submit">חיפוש</button>
+      <button class="search-button" type="button">יצירת התראה</button>
     </div>
   </form>
 </div>
