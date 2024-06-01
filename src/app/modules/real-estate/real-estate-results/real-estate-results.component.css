@@ -111,6 +111,7 @@
 
 .result {
   direction: rtl;
+  margin: 1rem;
 }
 
 .sort-container {
@@ -118,7 +119,6 @@
   display: flex;
   margin-left: auto;
   width: 742px;
-
   padding: 1rem;
   justify-content: space-between;
 }
