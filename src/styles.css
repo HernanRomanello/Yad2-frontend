@@ -37,7 +37,8 @@ button.light {
 }
 p,
 div,
-button {
+button,
+h1 {
   font-family: Rubik !important;
 }
 

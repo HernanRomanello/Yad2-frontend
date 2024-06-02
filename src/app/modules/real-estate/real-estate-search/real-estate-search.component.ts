@@ -12,7 +12,8 @@ export class RealEstateSearchComponent {
   selectedPropertyTypes: string[] = [];
   dropdownOpen = false;
   selectedOption: string | null = null;
-  advertisementTypebuttonText: string = 'מכירה'; // Initial button text
+  advertisementTypebuttonText: string = 'מכירה';
+  title = 'נדל"ן למכירה';
 
   @ViewChild('propertyTypeMenu', { static: false })
   propertyTypeMenu!: ElementRef;
@@ -31,6 +32,7 @@ export class RealEstateSearchComponent {
     this.selectedOption = option;
     this.dropdownOpen = false;
     this.advertisementTypebuttonText = option;
+    this.title = option === 'מכירה' ? 'נדל"ן למכירה' : 'נדל"ן להשכרה';
   }
   constructor(private router: Router) {}
 
