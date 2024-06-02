@@ -68,9 +68,9 @@
   <div class="ad" *ngFor="let ad of searchService.adds">
     <img [src]="ad.pic" alt="" />
     <div class="content">
-      <div>{{ ad.title }}</div>
-      <div>{{ ad.city }}</div>
-      <div>{{ ad.program }}</div>
+      <div class="ad-title">{{ ad.title }}</div>
+      <div class="ad-city">{{ ad.city }}</div>
+      <div class="ad-project">{{ ad.program }}</div>
     </div>
   </div>
 </div>

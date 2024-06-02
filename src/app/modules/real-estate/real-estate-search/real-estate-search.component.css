@@ -156,7 +156,6 @@ i {
 .adds {
   margin-left: auto;
   line-height: 16.1px;
-  color: rgb(54, 54, 54);
   height: 260px;
   width: 663px;
   display: flex;
@@ -168,9 +167,8 @@ i {
 
 .ad {
   justify-content: center;
-  text-align: center;
+  text-align: end;
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.09);
-  /* background-color: #ffffff; */
   height: 250px;
   border-bottom-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -188,4 +186,23 @@ i {
   object-fit: cover;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+}
+
+.ad-title {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 18.4px;
+}
+
+.ad-city {
+  font-weight: 400;
+  line-height: 16.1px;
+}
+.ad-project {
+  font-weight: 700;
+  line-height: 16.1px;
+  text-decoration: none solid rgb(54, 54, 54);
+  direction: rtl;
+  text-align: start;
+  margin-top: 1rem;
 }
