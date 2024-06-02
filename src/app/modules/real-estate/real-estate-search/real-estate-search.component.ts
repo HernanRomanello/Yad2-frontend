@@ -22,7 +22,7 @@ export class RealEstateSearchComponent {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
-  togglePropertyTypeDropdown() {
+  togglePropertyTypeDropdown(Class: string) {
     this.propertyTypeMenu.nativeElement
       .querySelector('.menu')
       .classList.toggle('hidden');

@@ -15,15 +15,19 @@
           <i class="material-icons">keyboard_arrow_down</i>
         </button>
         <div *ngIf="dropdownOpen" class="dropdown-menu">
-          <button type="button" (click)="applyFilter('מכירה')">מכירה</button>
-          <button type="button" (click)="applyFilter('השכרה')">השכרה</button>
+          <button class="type-btn" type="button" (click)="applyFilter('מכירה')">
+            מכירה
+          </button>
+          <button class="type-btn" type="button" (click)="applyFilter('השכרה')">
+            השכרה
+          </button>
         </div>
       </div>
       <div class="menu-container" #propertyTypeMenu>
         <button
           class="search-button"
           type="button"
-          (click)="togglePropertyTypeDropdown()"
+          (click)="togglePropertyTypeDropdown('.menu')"
         >
           סוג הנכס
 
