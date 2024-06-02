@@ -158,3 +158,10 @@ i {
   height: 20px;
   width: 20px;
 }
+
+.date {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.4px;
+  text-decoration: none solid rgb(54, 54, 54);
+}
