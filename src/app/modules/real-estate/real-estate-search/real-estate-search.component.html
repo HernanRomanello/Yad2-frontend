@@ -64,5 +64,13 @@
     <img class="logo-img" src="assets/images/logo-yad-blue.svg" alt="" />
   </div>
 </div>
+<div class="adds">
+  <div class="ad" *ngFor="let ad of searchService.adds">
+    <img [src]="ad.pic" alt="" />
+    <div>{{ ad.title }}</div>
+    <div>{{ ad.city }}</div>
+    <div>{{ ad.program }}</div>
+  </div>
+</div>
 
 <app-real-estate-results></app-real-estate-results>

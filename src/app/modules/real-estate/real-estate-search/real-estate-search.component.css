@@ -152,3 +152,32 @@ i {
   width: 42px;
   height: 21px;
 }
+
+.adds {
+  margin-left: auto;
+  line-height: 16.1px;
+  color: rgb(54, 54, 54);
+  height: 260px;
+  width: 663px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.ad {
+  width: 206px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ad img {
+  line-height: 18.4px;
+  height: 158.719px;
+  width: 206px;
+  max-width: 100%;
+}
