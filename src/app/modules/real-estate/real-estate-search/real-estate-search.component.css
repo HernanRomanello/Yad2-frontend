@@ -197,6 +197,7 @@ i {
 .ad-city {
   font-weight: 400;
   line-height: 16.1px;
+  padding-top: 2px;
 }
 .ad-project {
   font-weight: 700;
