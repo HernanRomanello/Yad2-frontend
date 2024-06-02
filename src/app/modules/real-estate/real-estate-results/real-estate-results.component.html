@@ -1,10 +1,13 @@
 <div *ngIf="this.$apartments | async as apartments">
   <div class="sort-container">
     <div>
-      <span>מיון לפי תאריך</span>
+      <i class="material-icons">keyboard_arrow_down</i><span>מיון לפי</span
+      ><span> תאריך </span>
     </div>
 
-    <div class="result">{{ apartments.length }} תוצאות</div>
+    <div class="result">
+      <span style="font-size: 24px">{{ apartments.length }}</span> תוצאות
+    </div>
   </div>
 
   <div class="result-list">

@@ -111,7 +111,31 @@
 
 .result {
   direction: rtl;
-  margin: 1rem;
+  margin-right: 1rem;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 18.4px;
+  text-decoration: none solid rgb(153, 153, 153);
+  text-align: start;
+  text-indent: 0px;
+  text-transform: none;
+  vertical-align: baseline;
+  white-space: normal;
+  word-spacing: 0px;
+
+  /* Color & Background */
+  background-attachment: scroll;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+  color: rgb(153, 153, 153) !important;
+
+  height: 30px;
+  width: 101.625px;
 }
 
 .sort-container {
@@ -121,4 +145,16 @@
   width: 742px;
   padding: 1rem;
   justify-content: space-between;
+}
+
+i {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  text-decoration: none solid rgb(54, 54, 54);
+  text-align: center;
+  vertical-align: middle;
+  height: 20px;
+  width: 20px;
 }
