@@ -1,16 +1,25 @@
-<div class="pics-container">
-  <div class="pics">
+<div class="advertisement-page">
+  <div class="pics-container">
+    <div class="pics">
+      <div
+        class="small-pic pic1"
+        [style.background-image]="'url(' + advertisement.pictures[1].url + ')'"
+      ></div>
+      <div
+        class="small-pic pic2"
+        [style.background-image]="'url(' + advertisement.pictures[2].url + ')'"
+      ></div>
+    </div>
     <div
-      class="small-pic"
-      [style.background-image]="'url(' + advertisement.pictures[1].url + ')'"
-    ></div>
-    <div
-      class="small-pic"
-      [style.background-image]="'url(' + advertisement.pictures[2].url + ')'"
+      class="main-pic"
+      [style.background-image]="'url(' + advertisement.pictures[0].url + ')'"
     ></div>
   </div>
-  <div
-    class="main-pic"
-    [style.background-image]="'url(' + advertisement.pictures[0].url + ')'"
-  ></div>
+
+  <div class="contact-card">
+    <div class="card-content">
+      <p class="price">{{ advertisement.price }}</p>
+      <button class="call-button">Call</button>
+    </div>
+  </div>
 </div>

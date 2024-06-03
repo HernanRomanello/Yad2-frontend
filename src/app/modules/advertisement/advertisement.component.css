@@ -2,13 +2,17 @@
   display: flex;
   gap: 10px;
   margin: 20px;
+  width: 83vw;
+  margin: 2rem auto;
 }
 
 .main-pic {
   flex: 2;
-  height: 300px;
+  height: 440px;
   background-size: cover;
   background-position: center;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .pics {
@@ -23,4 +27,57 @@
   height: 140px;
   background-size: cover;
   background-position: center;
+}
+
+.pic2 {
+  border-bottom-left-radius: 12px;
+}
+
+.pic1 {
+  border-top-left-radius: 12px;
+}
+
+.contact-card {
+  position: sticky !important;
+  top: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  height: 140px; /* same height as .small-pic */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 10px;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.call-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.call-button:hover {
+  background-color: darkgreen;
+}
+
+.advertisement-page {
+  display: flex;
+  width: 83vw;
+  flex-direction: column !important;
+  margin: auto;
 }
