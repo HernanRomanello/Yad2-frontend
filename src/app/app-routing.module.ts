@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegistrationFormComponent } from './modules/registration-form/registration-form.component';
 import { LoginComponent } from './modules/login/login.component';
 import { authGuard } from './Guards/auth.guard';
+import { AdvertisementComponent } from './modules/advertisement/advertisement.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,11 @@ const routes: Routes = [
     path: 'register',
     component: RegistrationFormComponent,
     title: 'Registration',
+  },
+  {
+    path: 'advertisement/:id',
+    component: AdvertisementComponent,
+    title: 'Advertisement Details',
   },
   {
     path: 'profile',

@@ -36,6 +36,12 @@ export class AdvertisementService {
       });
   }
 
+  GetAdvertisementById(id: number) {
+    return this.httpClient.get<AdvertisementsModel>(
+      `${this.Url}api/Advertisement/GetAdvertisement/${id}`
+    );
+  }
+
   getFirstThreeAdvertisementParameters(
     advertisement: AdvertisementsModel
   ): string[] {
