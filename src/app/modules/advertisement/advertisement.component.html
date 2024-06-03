@@ -1,1 +1,16 @@
-<p>advertisement works!</p>
+<div class="pics-container">
+  <div class="pics">
+    <div
+      class="small-pic"
+      [style.background-image]="'url(' + advertisement.pictures[1].url + ')'"
+    ></div>
+    <div
+      class="small-pic"
+      [style.background-image]="'url(' + advertisement.pictures[2].url + ')'"
+    ></div>
+  </div>
+  <div
+    class="main-pic"
+    [style.background-image]="'url(' + advertisement.pictures[0].url + ')'"
+  ></div>
+</div>
