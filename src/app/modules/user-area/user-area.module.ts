@@ -10,6 +10,7 @@ import { FavoriteAdvertisementsComponent } from './favorite-advertisements/favor
 import { LastSearchesComponent } from './last-searches/last-searches.component';
 import { TipsInformationComponent } from './tips-information/tips-information.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CustomCurrencyPipe } from '../../pipes/custom-currency.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     FavoriteAdvertisementsComponent,
     LastSearchesComponent,
     TipsInformationComponent,
+    CustomCurrencyPipe,
   ],
   imports: [CommonModule, UserAreaRoutingModule, MatIconModule],
 })

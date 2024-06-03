@@ -1,4 +1,4 @@
-<div class="result-list">
+<!-- <div class="result-list">
   <div
     class="container"
     *ngFor="let advertisement of authService.UserAdvertisements | async"
@@ -43,6 +43,66 @@
         class="card-img"
         alt="Advertisement Image"
       />
+    </div>
+  </div>
+</div> -->
+
+<div>
+  <div class="result-list">
+    <div
+      class="container"
+      *ngFor="
+        let advertisement of authService.UserAdvertisements | async;
+        let i = index
+      "
+    >
+      <div class="advertisement-details">
+        <div class="title">
+          {{ advertisement.street + " " + advertisement.number }}
+        </div>
+
+        <div class="list-group-item">
+          <ng-container>
+            {{ advertisement.assetType }},{{ advertisement.neighborhood }},{{
+              advertisement.city
+            }}
+          </ng-container>
+        </div>
+
+        <div class="list-group-item">
+          <li>{{ advertisement.rooms }} חדרים •</li>
+          <li>קומה {{ advertisement.floor }} •</li>
+          <li>{{ advertisement.totalSquareMeters }} מ"ר</li>
+        </div>
+        <div class="last-row">
+          <div class="tags">
+            <div class="price">
+              {{ advertisement.price | customCurrency }}
+            </div>
+
+            <div class="list-tags">
+              <li
+                *ngFor="
+                  let word of advertisementService.getFirstThreeAdvertisementParameters(
+                    advertisement
+                  )
+                "
+                class="list-tag"
+              >
+                {{ word }}
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="image">
+        <img
+          *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+          [src]="advertisement.pictures[0].url"
+          class="card-img"
+          alt="Advertisement Image"
+        />
+      </div>
     </div>
   </div>
 </div>

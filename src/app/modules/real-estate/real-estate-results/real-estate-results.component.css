@@ -14,12 +14,12 @@
   border-radius: 12px;
   width: 742px;
   height: 377;
-
   padding: 1rem;
   align-items: center;
   border: 1px solid rgb(238, 238, 238);
   justify-content: flex-end;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
+  cursor: pointer;
 }
 
 .like-button-selected {
