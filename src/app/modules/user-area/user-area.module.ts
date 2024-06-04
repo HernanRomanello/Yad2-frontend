@@ -10,6 +10,7 @@ import { FavoriteAdvertisementsComponent } from './favorite-advertisements/favor
 import { LastSearchesComponent } from './last-searches/last-searches.component';
 import { TipsInformationComponent } from './tips-information/tips-information.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,11 @@ import { MatIconModule } from '@angular/material/icon';
     LastSearchesComponent,
     TipsInformationComponent,
   ],
-  imports: [CommonModule, UserAreaRoutingModule, MatIconModule],
+  imports: [
+    CommonModule,
+    UserAreaRoutingModule,
+    MatIconModule,
+    FontAwesomeModule,
+  ],
 })
 export class UserAreaModule {}
