@@ -103,3 +103,45 @@
   flex-direction: column !important;
   margin: auto;
 }
+
+.price-box {
+  height: 60px;
+  border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.add-id {
+  display: flex;
+  justify-content: space-between;
+  width: 120%;
+  margin-left: -10%;
+  margin-top: 2rem;
+}
+
+.add-info {
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  margin-left: auto !important;
+  margin-right: 2rem !important;
+  background-color: red;
+  justify-content: end !important;
+  margin-top: -10rem;
+}
+
+.add-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: fit-content;
+  margin-left: auto !important;
+  margin-right: 2rem !important;
+  background-color: red;
+  justify-content: end !important;
+  margin-top: -10rem;
+}
+
+.size-details {
+  display: flex;
+  gap: 1rem;
+}
