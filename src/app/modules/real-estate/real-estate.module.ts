@@ -8,7 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ListboxModule } from 'primeng/listbox';
 import { RealEstatePropertyTypeComponent } from './real-estate-property-type/real-estate-property-type.component';
-import { CustomCurrencyPipe } from '../../pipes/custom-currency.pipe';
 
 @NgModule({
   declarations: [
