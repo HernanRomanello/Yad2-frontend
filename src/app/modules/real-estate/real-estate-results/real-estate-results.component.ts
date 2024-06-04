@@ -10,7 +10,6 @@ import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel'
 import { AuthService } from '../../../services/user/auth.service';
 import { combineLatest, map } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
-import { CustomCurrencyPipe } from '../../../pipes/custom-currency.pipe';
 @Component({
   selector: 'app-real-estate-results',
   templateUrl: './real-estate-results.component.html',

@@ -40,16 +40,17 @@
 .contact-card {
   position: sticky !important;
   top: 0;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  height: 140px; /* same height as .small-pic */
+  height: 140px;
   background-color: white;
-  border: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.1px;
+  height: 214.797px;
+  width: 385px;
+  border: 1px solid rgb(238, 238, 238);
+  margin: 0px;
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 10px;
 }
 
 .card-content {
@@ -63,16 +64,34 @@
 }
 
 .call-button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 16.1px;
+  text-align: center;
+  background-color: rgb(16, 173, 111);
+  color: rgb(255, 255, 255);
+  height: 48px;
+  width: 323px;
+  border: 0px none rgb(255, 255, 255);
+  margin: 36px 0px 6px;
+  padding: 0px 18px;
+  min-height: 36px;
   cursor: pointer;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.call-button i {
+  margin-left: 8px; /* Adjust the spacing between text and icon */
+  font-size: 24px; /* Adjust the icon size */
 }
 
 .call-button:hover {
-  background-color: darkgreen;
+  background-color: rgb(14, 156, 100);
+}
+.material-icons phone {
+  background-color: rgb(206, 40, 40) !important;
 }
 
 .advertisement-page {
