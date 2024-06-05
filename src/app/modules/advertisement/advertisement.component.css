@@ -175,7 +175,50 @@
 }
 
 .description {
-  background-color: rosybrown;
   height: 100px;
   width: 770px;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 25px;
+}
+.map {
+  color: rgb(216, 96, 0);
+  font-size: 16px;
+  margin: 32px 0px 0px;
+  height: 24px;
+  padding-bottom: 64px !important;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 2rem;
+}
+
+.additional-details {
+  height: 196.562px;
+  width: 770px;
+}
+
+.additional-details-title {
+  font-size: 20px;
+  font-weight: 550;
+  line-height: 23px;
+  margin: 0px 0px 20px !important;
+}
+
+.add-block {
+  display: flex;
+  direction: rtl;
+  width: fit-content !important;
+}
+
+.add-block div {
+  width: 200px;
+  font-size: 16px;
+}
+
+.additional-details-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  direction: rtl;
 }

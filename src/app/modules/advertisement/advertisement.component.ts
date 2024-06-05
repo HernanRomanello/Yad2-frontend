@@ -10,6 +10,7 @@ import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 })
 export class AdvertisementComponent {
   advertisement!: AdvertisementsModel;
+  entryDate: string = '';
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService
@@ -20,7 +21,11 @@ export class AdvertisementComponent {
           +params['id']
         ).subscribe((response) => {
           this.advertisement = response;
-          console.log(this.advertisement);
+          const date = new Date(this.advertisement.entryDate);
+          const day = date.getDate().toString().padStart(2, '0');
+          const month = (date.getMonth() + 1).toString().padStart(2, '0');
+          const year = date.getFullYear().toString().slice(-2);
+          this.entryDate = `${day}/${month}/${year}`;
         });
       }
     });
