@@ -39,7 +39,10 @@
           (mouseleave)="hoverIndex = -1"
         ></mat-icon>
       </div>
-      <div class="advertisement-details">
+      <div
+        class="advertisement-details"
+        routerLink="/advertisement/{{ advertisement.id }}"
+      >
         <div class="title">
           {{ advertisement.street + " " + advertisement.number }}
         </div>
@@ -78,6 +81,7 @@
       </div>
       <div class="image">
         <img
+          routerLink="/advertisement/{{ advertisement.id }}"
           *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
           [src]="advertisement.pictures[0].url"
           class="card-img"
