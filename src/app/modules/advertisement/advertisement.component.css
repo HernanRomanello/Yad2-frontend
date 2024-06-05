@@ -183,6 +183,7 @@
   font-weight: 400;
   letter-spacing: normal;
   line-height: 25px;
+  margin: 34px 0px 0px;
 }
 .map {
   color: rgb(216, 96, 0);
@@ -204,21 +205,31 @@
   font-weight: 550;
   line-height: 23px;
   margin: 0px 0px 20px !important;
+  width: 770px;
 }
 
 .add-block {
   display: flex;
   direction: rtl;
   width: fit-content !important;
+  margin: 0 !important;
+  font-size: 16px;
 }
 
 .add-block div {
-  width: 200px;
+  width: 190px;
   font-size: 16px;
+  margin: 20px 0px 0px 0px;
 }
 
 .additional-details-table {
   display: grid;
   grid-template-columns: 1fr 1fr;
   direction: rtl;
+  gap: 1rem;
+}
+
+.gray-text {
+  color: rgb(153, 153, 153);
+  width: 154px !important;
 }
