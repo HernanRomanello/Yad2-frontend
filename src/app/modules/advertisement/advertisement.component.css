@@ -51,6 +51,7 @@
   margin: 0px;
   padding: 30px;
   border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 12px 0px;
 }
 
 .card-content {
@@ -120,28 +121,61 @@
 .add-info {
   display: flex;
   flex-wrap: wrap;
-  width: fit-content;
-  margin-left: auto !important;
-  margin-right: 2rem !important;
-  background-color: red;
-  justify-content: end !important;
-  margin-top: -10rem;
-}
-
-.add-info {
-  display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  gap: 0.5rem;
   width: fit-content;
   margin-left: auto !important;
   margin-right: 2rem !important;
-  background-color: red;
   justify-content: end !important;
-  margin-top: -10rem;
+  margin-top: -12.5rem;
+  margin-right: 0rem !important;
+  text-align: right;
 }
 
 .size-details {
-  display: flex;
   gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: space-around;
+  height: 62px;
+  width: 391.75px;
+  border: 1px solid rgb(238, 238, 238);
+  margin: 34px 0px 0px;
+  padding: 18px 0px;
+  border-radius: 12px;
+  font-size: 18px !important;
+  direction: rtl !important;
+  margin-right: auto !important;
+  margin-bottom: 40px !important;
+}
+
+.size-details span {
+  padding: 0.1rem;
+}
+
+.size-details div {
+  padding: 0 1.5rem;
+}
+
+.size-details span {
+  font-weight: 500;
+}
+
+.add-title {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: 32.2px;
+}
+
+.location-details {
+  margin: 10px 0px 0px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.description {
+  background-color: rosybrown;
+  height: 100px;
+  width: 770px;
 }

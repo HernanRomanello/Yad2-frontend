@@ -35,15 +35,25 @@
     <div class="add-title">
       {{ advertisement.street }} {{ advertisement.number }}
     </div>
-    <div class="">
-      {{ advertisement.assetType }}, {{ advertisement.neighborhood }},
-      {{ advertisement.city }}
+    <div class="location-details">
+      <span>{{ advertisement.assetType }}, </span>
+      {{ advertisement.neighborhood }},<span> {{ advertisement.city }}</span>
     </div>
     <div class="size-details">
-      <div>{{ advertisement.rooms }} חדרים</div>
-      <div>{{ advertisement.floor }} קומה</div>
-      <div>{{ advertisement.totalFloors }} מ"ר</div>
+      <div>
+        <span>{{ advertisement.rooms }}</span>
+        <span>חדרים</span>
+      </div>
+      <div>
+        <span>קומה</span>
+        <span>{{ advertisement.floor }}</span>
+      </div>
+      <div>
+        <span>{{ advertisement.totalFloors }}</span
+        ><span>מ"ר</span>
+      </div>
     </div>
+    <div class="description">{{ advertisement.description }}</div>
   </div>
   <div>ddd</div>
   <div>ddd</div>
