@@ -86,6 +86,68 @@
           <div class="gray-text">תאריך כניסה</div>
           <div>{{ entryDate }}</div>
         </div>
+        <div class="space"></div>
+        <div class="space"></div>
+      </div>
+    </div>
+    <div class="additional-details">
+      <div class="additional-details-title">מה יש בנכס</div>
+      <div class="additional-details-table">
+        <div class="add-block">
+          <div [ngClass]="fillApartmentCondition(advertisement.longTerm)">
+            מעלית
+          </div>
+          <div [ngClass]="fillApartmentCondition(advertisement.longTerm)">
+            גישה לנכים
+          </div>
+        </div>
+        <div class="add-block">
+          <div
+            [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
+          >
+            מזגן טורנדו
+          </div>
+          <div [ngClass]="fillApartmentCondition(advertisement.multiLockDoors)">
+            דלתות רב-בריח
+          </div>
+        </div>
+        <div class="add-block">
+          <div
+            [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
+          >
+            מיזוג
+          </div>
+          <div [ngClass]="fillApartmentCondition(advertisement.windowBars)">
+            סורגים
+          </div>
+        </div>
+        <div class="add-block">
+          <div [ngClass]="fillApartmentCondition(advertisement.storageRoom)">
+            מחסן
+          </div>
+          <div
+            [ngClass]="fillApartmentCondition(advertisement.solarWaterHeater)"
+          >
+            דוד שמש
+          </div>
+        </div>
+        <div class="add-block">
+          <div [ngClass]="fillApartmentCondition(advertisement.renovated)">
+            משופצת
+          </div>
+          <div [ngClass]="fillApartmentCondition(advertisement.safeRoom)">
+            ממ"ד
+          </div>
+        </div>
+        <div class="add-block">
+          @if (advertisement.longTerm) {
+          <div>לטווח ארוך</div>
+          }
+
+          <div [ngClass]="fillApartmentCondition(false)">מרפסת</div>
+        </div>
+        <div class="space"></div>
+        <div class="space"></div>
       </div>
     </div>
   </div>

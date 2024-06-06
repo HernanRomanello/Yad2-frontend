@@ -30,4 +30,12 @@ export class AdvertisementComponent {
       }
     });
   }
+
+  fillApartmentCondition(condition: boolean): string {
+    if (condition) {
+      return 'text';
+    } else {
+      return 'light-text';
+    }
+  }
 }

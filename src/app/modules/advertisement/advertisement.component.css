@@ -39,7 +39,7 @@
 
 .contact-card {
   position: sticky !important;
-  top: 0;
+  top: 2rem !important;
   height: 140px;
   background-color: white;
   font-size: 14px;
@@ -196,8 +196,10 @@
 }
 
 .additional-details {
-  height: 196.562px;
+  height: fit-content !important;
   width: 770px;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 2rem;
 }
 
 .additional-details-title {
@@ -217,7 +219,7 @@
 }
 
 .add-block div {
-  width: 190px;
+  width: 200.2px;
   font-size: 16px;
   margin: 20px 0px 0px 0px;
 }
@@ -232,4 +234,16 @@
 .gray-text {
   color: rgb(153, 153, 153);
   width: 154px !important;
+}
+
+.text .light-text {
+  width: 192.5px !important;
+}
+
+.space {
+  height: 41px !important;
+}
+
+.light-text {
+  color: #cccccc;
 }
