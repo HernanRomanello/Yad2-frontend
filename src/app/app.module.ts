@@ -7,7 +7,11 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { HeaderComponent } from './modules/header/header.component';
 import { LoginComponent } from './modules/login/login.component';
@@ -25,6 +29,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ListboxModule } from 'primeng/listbox';
 import { RealEstatePriceSliderComponent } from './modules/real-estate/real-estate-price-slider/real-estate-price-slider.component';
 import { AdvertisementComponent } from './modules/advertisement/advertisement.component';
+import { FooterComponent } from './modules/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,7 @@ import { AdvertisementComponent } from './modules/advertisement/advertisement.co
     TestComponent,
     RealEstatePriceSliderComponent,
     AdvertisementComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

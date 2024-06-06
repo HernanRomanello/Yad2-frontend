@@ -50,7 +50,7 @@ button {
   border-radius: 6px;
   min-width: max-content;
   overflow: auto;
-  z-index: 99999999999 !important;
+  z-index: 40 !important;
   background-color: rgb(255, 255, 255);
 }
 

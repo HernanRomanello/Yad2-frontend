@@ -1,0 +1,27 @@
+* {
+  background-color: rgb(54, 54, 54) !important;
+  color: #cccccc !important;
+  z-index: 40 !important;
+}
+
+.footer-content {
+  direction: rtl;
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-explanation {
+  font-weight: 400;
+  margin: 50px !important;
+}
+
+.app-explanation p {
+  /* width: 850px !important; */
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: rgb(153, 153, 153) !important;
+}
