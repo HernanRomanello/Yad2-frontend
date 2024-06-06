@@ -2,6 +2,9 @@
   background-color: rgb(54, 54, 54) !important;
   color: #cccccc !important;
   z-index: 40 !important;
+  list-style: none !important;
+  list-style: none !important;
+  text-decoration: none !important;
 }
 
 .footer-content {
@@ -19,9 +22,29 @@
 }
 
 .app-explanation p {
-  /* width: 850px !important; */
   text-align: center !important;
   margin: 0 !important;
   padding: 0 !important;
   color: rgb(153, 153, 153) !important;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  width: 950px;
+}
+
+.categories div {
+  text-align: start !important;
+}
+
+.category-title {
+  font-size: 18px !important;
+  margin-bottom: 1rem;
+  font-weight: 500 !important;
+}
+
+.two-col {
+  display: flex;
+  justify-content: start;
 }
