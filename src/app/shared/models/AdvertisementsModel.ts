@@ -3,6 +3,7 @@ import { Picture } from './Picture';
 export type AdvertisementsModel = {
   id: number;
   city: string;
+  tradeType: string;
   street: string;
   number: number;
   floor: number;
@@ -17,8 +18,9 @@ export type AdvertisementsModel = {
   rearProperty: boolean;
   rooms: string;
   showerRooms: string;
-  privateParking: string;
-  balconies: string;
+  privateParking: number;
+  balconies: boolean;
+  balconiesNumber: number;
   accessibleForDisabled: boolean;
   airConditioning: boolean;
   windowBars: boolean;
@@ -32,9 +34,11 @@ export type AdvertisementsModel = {
   renovated: boolean;
   safeRoom: boolean;
   multiLockDoors: boolean;
+  airConditioner: boolean;
   tornadoAirConditioner: boolean;
   storageRoom: boolean;
   description: string;
+  furnituredescription: string;
   numberOfPayments: number;
   houseCommitteePayment: number;
   municipalityMonthlyPropertyTax: number;
