@@ -27,7 +27,7 @@
         <button
           class="search-button"
           type="button"
-          (click)="togglePropertyTypeDropdown('.menu')"
+          (click)="toggleMenu('propertyTypeMenu')"
         >
           סוג הנכס
 
@@ -39,10 +39,23 @@
           ></app-real-estate-property-type>
         </div>
       </div>
-      <button class="search-button" type="button">
-        מחיר
-        <i class="material-icons">keyboard_arrow_down</i>
-      </button>
+      <div class="menu-container" #priceSlider>
+        <button
+          #priceSliderButton
+          (click)="toggleMenu('priceSlider')"
+          class="search-button price-btn"
+          type="button"
+        >
+          מחיר
+          <i class="material-icons">keyboard_arrow_down</i>
+        </button>
+        <div class="menu hidden">
+          <app-real-estate-price-slider
+            (selectedPriceRange)="onPriceRangeSelected($event)"
+          ></app-real-estate-price-slider>
+        </div>
+      </div>
+
       <button class="search-button" type="button">
         חדרים
         <i class="material-icons">keyboard_arrow_down</i>

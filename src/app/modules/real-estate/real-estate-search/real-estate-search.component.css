@@ -82,7 +82,11 @@
 .dropdown-menu button:hover {
   background-color: #f1f1f1;
 }
-
+.price-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .search-button {
   display: flex;
   justify-content: center;
@@ -192,21 +196,23 @@ i {
   justify-content: center;
   text-align: end;
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.09);
-  height: 250px;
+  height: 266px;
   border-bottom-left-radius: 12px;
   border-top-right-radius: 12px;
-  padding: 10px 12px 10px 12px;
 }
 
 .content {
   border-bottom-left-radius: 12px;
   border-top-right-radius: 12px;
+  padding-inline: 0.5rem;
+  padding-bottom: 1rem !important;
 }
 
 .ad img {
   height: 158.719px;
   width: 100%;
   object-fit: cover;
+  transform: translateX(-5px) translateY(-10px);
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }

@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ListboxModule } from 'primeng/listbox';
 import { RealEstatePropertyTypeComponent } from './real-estate-property-type/real-estate-property-type.component';
+import { SliderModule } from 'primeng/slider';
+import { RealEstatePriceSliderComponent } from './real-estate-price-slider/real-estate-price-slider.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RealEstatePropertyTypeComponent } from './real-estate-property-type/rea
   imports: [
     CommonModule,
     MatIconModule,
+    SliderModule,
     RealEstateRoutingModule,
+    RealEstatePriceSliderComponent,
     ListboxModule,
     FormsModule,
   ],

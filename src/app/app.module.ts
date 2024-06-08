@@ -38,12 +38,12 @@ import { FooterComponent } from './modules/footer/footer.component';
     LoginComponent,
     RegistrationFormComponent,
     TestComponent,
-    RealEstatePriceSliderComponent,
     AdvertisementComponent,
     FooterComponent,
   ],
   imports: [
     BrowserModule,
+    RealEstatePriceSliderComponent,
     AppRoutingModule,
     MatIconModule,
     ReactiveFormsModule,

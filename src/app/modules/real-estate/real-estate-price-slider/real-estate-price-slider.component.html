@@ -1,25 +1,25 @@
 <div class="price-slider-select">
   <div class="price-container">
-    <input class="price" />
+    <input
+      class="price"
+      (input)="manualSelectMaxPrice($event)"
+      [value]="formatPrice(rangeValuesBuy[1])"
+    />
     <span>-</span>
-    <input class="price" />
+    <input
+      (input)="manualSelectMinPrice($event)"
+      class="price"
+      [value]="formatPrice(rangeValuesBuy[0])"
+    />
   </div>
 
   <div class="slider">
-    <div class="slider-handle">
-      <div class="a">
-        <div>|</div>
-        <div>|</div>
-      </div>
-    </div>
-    <div #sliderfront class="slide-front"></div>
-    <div #sliderback class="slide-back"></div>
-
-    <div class="slider-handle">
-      <div class="a">
-        <div>|</div>
-        <div>|</div>
-      </div>
-    </div>
+    <p-slider
+      (onChange)="emit()"
+      [(ngModel)]="rangeValuesBuy"
+      [range]="true"
+      [min]="rangeValuesBuyMinMax[0]"
+      [max]="rangeValuesBuyMinMax[1]"
+    />
   </div>
 </div>

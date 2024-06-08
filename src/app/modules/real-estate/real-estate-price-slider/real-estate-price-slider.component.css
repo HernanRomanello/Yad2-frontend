@@ -1,7 +1,6 @@
 .price-slider-select {
   display: flex;
   width: 400px;
-  direction: rtl;
   flex-direction: column;
   padding: 1rem;
   margin: 1rem;
@@ -20,15 +19,55 @@
 
 .price {
   width: 150px;
+  font-size: 18px;
   padding-block: 0.75rem;
 }
 
+:host ::ng-deep .p-slider-handle {
+  width: 30px;
+  height: 30px;
+  border: 1px solid lightgray;
+  transform: translateY(-20%);
+}
+:host ::ng-deep .p-slider-handle:focus {
+  box-shadow: none;
+}
+:host ::ng-deep .p-slider-handle {
+  background-color: white !important;
+}
+:host ::ng-deep .p-slider-handle:hover {
+  background-color: white;
+  border-color: gray;
+}
+
+:host ::ng-deep .p-slider * {
+  background-color: black;
+  color: black;
+}
+
+:host ::ng-deep .p-slider-handle::after {
+  content: "";
+  height: 50%;
+  width: 0.1rem;
+  border-left: 1px solid #b17091;
+  position: absolute;
+  right: 0;
+  transform: translateX(-300%) translateY(50%);
+  top: 0;
+}
+:host ::ng-deep .p-slider-handle::before {
+  content: "";
+  height: 50%;
+  border-right: 1px solid #b17091;
+  position: absolute;
+  left: 0;
+  transform: translateX(10px) translateY(50%);
+  top: 0;
+}
 .slider {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  align-items: center;
-  position: relative;
+  padding: 2rem;
+  width: 100%;
+  transform: translateX(-5px);
 }
 
 .slide-front {

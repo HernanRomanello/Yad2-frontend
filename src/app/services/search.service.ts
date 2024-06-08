@@ -30,9 +30,23 @@ export class SearchService {
   selectedPropertyTypes: BehaviorSubject<string[]> = new BehaviorSubject<
     string[]
   >([]);
+
+  selectedPriceRange: BehaviorSubject<[number, number]> = new BehaviorSubject([
+    -100000000, 100000000,
+  ]);
+
+  selectedTradeType: BehaviorSubject<'מכירה' | 'השכרה'> = new BehaviorSubject(
+    'מכירה' as 'מכירה' | 'השכרה'
+  );
   constructor() {}
 
+  emitSelectedTradeType(searchType: 'מכירה' | 'השכרה') {
+    this.selectedTradeType.next(searchType);
+  }
   emitSelectedPropertyTypes(propertyTypes: string[]) {
     this.selectedPropertyTypes.next(propertyTypes);
+  }
+  emitSelectedPriceRange(priceRange: [number, number]) {
+    this.selectedPriceRange.next(priceRange);
   }
 }

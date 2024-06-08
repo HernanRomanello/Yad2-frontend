@@ -30,13 +30,37 @@ export class RealEstateResultsComponent {
   $apartments = combineLatest([
     this.advertisementService.Advertisements,
     this.searchService.selectedPropertyTypes,
+    this.searchService.selectedPriceRange,
+    this.searchService.selectedTradeType,
   ]).pipe(
-    map(([advertisements, selectedPropertyTypes]) => {
-      if (selectedPropertyTypes.length === 0) return advertisements;
-      return advertisements.filter((ad) =>
-        selectedPropertyTypes.includes(ad.assetType)
-      );
-    })
+    map(
+      ([
+        advertisements,
+        selectedPropertyTypes,
+        selectedPriceRange,
+        selectedTradeType,
+      ]) => {
+        console.log(selectedPriceRange);
+        // all advertisements
+        let ads = advertisements;
+        // filter by property type
+        if (selectedPropertyTypes.length > 0) {
+          ads = ads.filter((ad) =>
+            selectedPropertyTypes.includes(ad.assetType)
+          );
+        }
+        // filter by price
+        ads = ads.filter(
+          (ad) =>
+            ad.price >= selectedPriceRange[0] &&
+            ad.price <= selectedPriceRange[1]
+        );
+
+        // fitler by search type
+        ads = ads.filter((ad) => ad.tradeType === selectedTradeType);
+        return ads;
+      }
+    )
   );
   isFavorite(advertisementId: number): boolean {
     return this.authSerivce.UserFavoriteAdvertisements.value.some(
