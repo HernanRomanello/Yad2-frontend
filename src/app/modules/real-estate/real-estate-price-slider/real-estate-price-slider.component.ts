@@ -1,18 +1,10 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Output,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SliderModule } from 'primeng/slider';
 
 import { formatPrice } from '../../../utilities';
-import { SearchService } from '../../../services/search.service';
 @Component({
   selector: 'app-real-estate-price-slider',
   templateUrl: './real-estate-price-slider.component.html',
@@ -21,12 +13,10 @@ import { SearchService } from '../../../services/search.service';
   imports: [CommonModule, MatIconModule, SliderModule, FormsModule],
 })
 export class RealEstatePriceSliderComponent {
-  rangeValuesBuyMinMax: [number, number] = [2000, 100000];
-  // rangeValuesRentMinMax: number[] = [500, 250000];
+  rangeValuesBuyMinMax: [number, number] = [0, 20000];
 
   rangeValuesBuy: [number, number] = [...this.rangeValuesBuyMinMax];
 
-  // rangeValuesRent: [number, number] = [500, 250000];
   @Output() selectedPriceRange = new EventEmitter<[number, number]>();
 
   emit() {
