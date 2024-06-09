@@ -1,4 +1,10 @@
-import { Component, ViewChild, ViewRef, inject } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ViewRef,
+  afterRender,
+  inject,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/user/auth.service';
 
@@ -24,6 +30,7 @@ type MenuTriggers = {
 export class HeaderComponent {
   _LogoPic = 'assets/images/logo-default.svg';
   authSerrvice = inject(AuthService);
+
   menus: MenuTriggers = {
     menu_User: false,
     menu_PostAd: false,

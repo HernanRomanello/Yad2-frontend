@@ -44,6 +44,7 @@ export class RealEstateSearchComponent {
           .classList.contains('hidden');
 
         if (!isSliderHidden && this.isPriceRangeSelected()) {
+          alert('Please select a price range');
           this.priceSliderButton.nativeElement.innerText = `${formatPrice(
             this.selectedPriceRange[1]
           )} - ${formatPrice(this.selectedPriceRange[0])}
