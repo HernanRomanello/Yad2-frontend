@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchService } from '../../../services/search.service';
-import { formatPrice } from '../../../utils';
+import { formatPrice } from '../../../utilities';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',

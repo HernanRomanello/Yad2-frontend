@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SliderModule } from 'primeng/slider';
 
-import { formatPrice } from '../../../utils';
+import { formatPrice } from '../../../utilities';
 import { SearchService } from '../../../services/search.service';
 @Component({
   selector: 'app-real-estate-price-slider',
