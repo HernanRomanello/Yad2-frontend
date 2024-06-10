@@ -93,6 +93,7 @@ export class RealEstateSearchComponent {
   onSearch() {
     this.searchService.emitSelectedPriceRange(this.selectedPriceRange);
     this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
+    this.dropdownOpen = false;
   }
 
   onPriceRangeSelected(priceRange: [number, number]) {
