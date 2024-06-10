@@ -5,6 +5,7 @@
 
     <div class="property-type-grid">
       <span
+        id="all-apartments"
         (click)="emit('דירות_הכל')"
         class="property-type {{ className('דירות_הכל') }}"
       >
@@ -23,8 +24,9 @@
     <div class="property-type-header">בתים</div>
     <div class="property-type-grid">
       <span
+        id="all-houses"
         (click)="emit('בתים_הכל')"
-        class="property-type {{ className('בתים_הכל') }}"
+        class="property-type {{ className('בתים_הכל') }} "
       >
         הכל
       </span>

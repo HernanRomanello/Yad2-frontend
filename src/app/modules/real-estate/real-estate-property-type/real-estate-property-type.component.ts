@@ -50,30 +50,41 @@ export class RealEstatePropertyTypeComponent {
         propertyType === 'דירות_הכל'
           ? this.propertyTypes.apartment
           : this.propertyTypes.house;
-      if (true) {
-        for (let i = 0; i <= apartments.length; i++) {
-          // if (
-          //   this.selectedPropertyTypes.includes(this.propertyTypes.apartment[i])
-          // ) {
-          //   alert('yes' + this.propertyTypes.apartment[i]);
-          // this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
-          //   // (type) => type !== this.propertyTypes.apartment[i]
-          //   (type) => type !== apartments[i]
-          // );
-          // }
+
+      var id = propertyType === 'דירות_הכל' ? 'all-apartments' : 'all-houses';
+
+      var countCheckedApartments = 0;
+      for (let i = 0; i <= apartments.length; i++) {
+        if (this.selectedPropertyTypes.includes(apartments[i])) {
+          countCheckedApartments++;
         }
-        // this.selectedPropertyTypes = [
-        //   ...this.propertyTypes.apartment,
-        //   ...this.selectedPropertyTypes,
-        // ];
-
-        this.selectedPropertyTypes.push(propertyType);
-
-        this.selectedPropertyTypes = [
-          ...apartments,
-          ...this.selectedPropertyTypes,
-        ];
       }
+      if (countCheckedApartments === apartments.length) {
+        alert('all checked');
+        for (let i = 0; i <= apartments.length; i++) {
+          for (let j = 0; j <= this.selectedPropertyTypes.length; j++) {
+            if (apartments[i] === this.selectedPropertyTypes[j]) {
+              this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
+                (type) => type !== apartments[i]
+              );
+            }
+          }
+        }
+        var allApartmentsElements = document.getElementById(id);
+        if (allApartmentsElements) {
+          allApartmentsElements.classList.remove('selected');
+        }
+        return;
+      } else {
+        var countCheckedApartments = 0;
+      }
+
+      this.selectedPropertyTypes.push(propertyType);
+
+      this.selectedPropertyTypes = [
+        ...apartments,
+        ...this.selectedPropertyTypes,
+      ];
     } else if (this.isSelected(propertyType)) {
       this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
         (type) => type !== propertyType
