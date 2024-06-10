@@ -236,3 +236,10 @@ i {
   text-align: start;
   margin-top: 1rem;
 }
+
+.alert-btn {
+  border: transparent !important;
+  color: rgb(255, 113, 0) !important;
+  font-weight: 650;
+  opacity: 0.8;
+}

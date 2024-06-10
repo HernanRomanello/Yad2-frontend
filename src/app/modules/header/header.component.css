@@ -2,6 +2,7 @@
   justify-content: space-between;
   padding: 0 20px;
   background-color: rgb(255, 255, 255);
+  height: 64px !important;
 }
 .header {
   border-bottom: 1px solid lightgray;
@@ -84,4 +85,8 @@ button {
   padding: 18px !important;
   color: #fc8c31;
   font-weight: bold !important;
+}
+
+.user-name {
+  font-size: 14px !important;
 }

@@ -13,7 +13,7 @@
       (mouseleave)="closeMenu('menu_User')"
     >
       <div style="display: flex; gap: 2px">
-        <button>{{ user.name }}</button>
+        <button class="user-name">{{ user.name }}</button>
         <div class="round">{{ user.name.slice(0, 2) }}</div>
       </div>
       <div class="menu" *ngIf="menus['menu_User']">
