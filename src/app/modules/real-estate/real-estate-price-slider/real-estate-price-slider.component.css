@@ -127,3 +127,11 @@
   flex-direction: row;
   gap: 2px;
 }
+
+.hyphen {
+  height: 10px;
+  width: 16px;
+  background-color: black;
+  transform: rotate(90deg);
+  opacity: 0.4;
+}

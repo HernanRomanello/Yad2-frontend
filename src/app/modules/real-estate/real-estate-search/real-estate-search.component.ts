@@ -37,20 +37,27 @@ export class RealEstateSearchComponent {
         if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
           return;
         } else if (this.priceSlider.nativeElement.contains(clickedElement)) {
+          // alert('propertyTypeMenu');
+          // alert('propertyTypeMenu');
+          // alert('priceSlider' + this.selectedPriceRange[1]);
+          if (this.selectedPriceRange[0] !== -1) {
+            // changeButtonInnerHtml(
+            //   this.priceSliderButton,
+            //   this.selectedPriceRange
+            // );
+          }
+
           return;
         }
         const isSliderHidden = this.priceSlider.nativeElement
           .querySelector('.menu')
           .classList.contains('hidden');
 
-        if (!isSliderHidden && this.isPriceRangeSelected()) {
-          alert('Please select a price range');
-          this.priceSliderButton.nativeElement.innerText = `${formatPrice(
-            this.selectedPriceRange[1]
-          )} - ${formatPrice(this.selectedPriceRange[0])}
-          `;
-          this.priceSliderButton.nativeElement.innerHTML +=
-            '<i class="material-icons">keyboard_arrow_down</i>';
+        if (!isSliderHidden && this.selectedPriceRange[0] !== -1) {
+          changeButtonInnerHtml(
+            this.priceSliderButton,
+            this.selectedPriceRange
+          );
         }
 
         this.propertyTypeMenu.nativeElement
@@ -59,6 +66,18 @@ export class RealEstateSearchComponent {
         this.priceSlider.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
+
+        function changeButtonInnerHtml(
+          priceSliderButton: ElementRef,
+          selectedPriceRange: [number, number]
+        ) {
+          priceSliderButton.nativeElement.innerText = `${formatPrice(
+            selectedPriceRange[1]
+          )} - ${formatPrice(selectedPriceRange[0])}
+          `;
+          priceSliderButton.nativeElement.innerHTML +=
+            '<i class="material-icons">keyboard_arrow_down</i>';
+        }
       });
     });
   }
