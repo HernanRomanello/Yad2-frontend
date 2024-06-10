@@ -35,6 +35,8 @@ export class RealEstatePropertyTypeComponent {
     ] as const,
   } as const;
 
+  allApartmentTypesChecked = false;
+
   selectedPropertyTypes: string[] = [];
   // event emitter for selected
   // property type
@@ -42,20 +44,36 @@ export class RealEstatePropertyTypeComponent {
   @Output() propertyTypeSelected = new EventEmitter<string[]>();
 
   emit(propertyType: string) {
-    if (propertyType === 'דירות_הכל') {
-      for (let i = 0; i < this.propertyTypes.apartment.length; i++) {
-        if (
-          this.selectedPropertyTypes.includes(this.propertyTypes.apartment[i])
-        ) {
-          this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
-            (type) => type !== this.propertyTypes.apartment[i]
-          );
+    if (propertyType === 'דירות_הכל' || propertyType === 'בתים_הכל') {
+      this.allApartmentTypesChecked = !this.allApartmentTypesChecked;
+      var apartments =
+        propertyType === 'דירות_הכל'
+          ? this.propertyTypes.apartment
+          : this.propertyTypes.house;
+      if (true) {
+        for (let i = 0; i <= apartments.length; i++) {
+          // if (
+          //   this.selectedPropertyTypes.includes(this.propertyTypes.apartment[i])
+          // ) {
+          //   alert('yes' + this.propertyTypes.apartment[i]);
+          // this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
+          //   // (type) => type !== this.propertyTypes.apartment[i]
+          //   (type) => type !== apartments[i]
+          // );
+          // }
         }
+        // this.selectedPropertyTypes = [
+        //   ...this.propertyTypes.apartment,
+        //   ...this.selectedPropertyTypes,
+        // ];
+
+        this.selectedPropertyTypes.push(propertyType);
+
+        this.selectedPropertyTypes = [
+          ...apartments,
+          ...this.selectedPropertyTypes,
+        ];
       }
-      this.selectedPropertyTypes = [
-        ...this.propertyTypes.apartment,
-        ...this.selectedPropertyTypes,
-      ];
     } else if (this.isSelected(propertyType)) {
       this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
         (type) => type !== propertyType

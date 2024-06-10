@@ -16,7 +16,7 @@ import { formatPrice } from '../../../utilities';
 export class RealEstateSearchComponent {
   searchService = inject(SearchService);
   selectedPropertyTypes: string[] = [];
-  selectedPriceRange: [number, number] = [-1, -1];
+  selectedPriceRange: [number, number] = [-1, 20000];
   dropdownOpen = false;
   selectedOption: string | null = null;
   advertisementTypebuttonText: string = 'מכירה';

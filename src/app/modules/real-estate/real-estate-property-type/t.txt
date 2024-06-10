@@ -1,0 +1,16 @@
+  var countCheckedApartments = 0;
+        for (let i = 0; i <= apartments.length; i++) {
+          if (this.selectedPropertyTypes.includes(apartments[i])) {
+            countCheckedApartments++;
+          }
+        }
+        if (countCheckedApartments === apartments.length) {
+          alert('all checked');
+        } else {
+          this.selectedPropertyTypes.push(propertyType);
+          this.selectedPropertyTypes = [
+            ...this.propertyTypes.apartment,
+            ...this.selectedPropertyTypes,
+          ];
+          alert(this.selectedPropertyTypes);
+        }

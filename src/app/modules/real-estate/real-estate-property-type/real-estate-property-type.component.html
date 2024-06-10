@@ -23,6 +23,12 @@
     <div class="property-type-header">בתים</div>
     <div class="property-type-grid">
       <span
+        (click)="emit('בתים_הכל')"
+        class="property-type {{ className('בתים_הכל') }}"
+      >
+        הכל
+      </span>
+      <span
         (click)="emit(pType)"
         *ngFor="let pType of propertyTypes.house"
         class="property-type {{ className(pType) }}"
