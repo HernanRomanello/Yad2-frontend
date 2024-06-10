@@ -46,12 +46,14 @@ export class RealEstatePropertyTypeComponent {
   emit(propertyType: string) {
     if (propertyType === 'דירות_הכל' || propertyType === 'בתים_הכל') {
       this.allApartmentTypesChecked = !this.allApartmentTypesChecked;
+
       var apartments =
         propertyType === 'דירות_הכל'
           ? this.propertyTypes.apartment
           : this.propertyTypes.house;
 
       var id = propertyType === 'דירות_הכל' ? 'all-apartments' : 'all-houses';
+      var allApartmentsElements = document.getElementById(id);
 
       var countCheckedApartments = 0;
       for (let i = 0; i <= apartments.length; i++) {
@@ -60,7 +62,6 @@ export class RealEstatePropertyTypeComponent {
         }
       }
       if (countCheckedApartments === apartments.length) {
-        alert('all checked');
         for (let i = 0; i <= apartments.length; i++) {
           for (let j = 0; j <= this.selectedPropertyTypes.length; j++) {
             if (apartments[i] === this.selectedPropertyTypes[j]) {
@@ -70,7 +71,6 @@ export class RealEstatePropertyTypeComponent {
             }
           }
         }
-        var allApartmentsElements = document.getElementById(id);
         if (allApartmentsElements) {
           allApartmentsElements.classList.remove('selected');
         }
@@ -80,6 +80,9 @@ export class RealEstatePropertyTypeComponent {
       }
 
       this.selectedPropertyTypes.push(propertyType);
+      if (allApartmentsElements) {
+        allApartmentsElements.classList.toggle('selected');
+      }
 
       this.selectedPropertyTypes = [
         ...apartments,
@@ -92,7 +95,8 @@ export class RealEstatePropertyTypeComponent {
     } else {
       this.selectedPropertyTypes.push(propertyType);
     }
-
+    this.checkeIfAllApartmentsSelected('all-apartments', 'apartment');
+    this.checkeIfAllApartmentsSelected('all-houses', 'house');
     this.propertyTypeSelected.emit(this.selectedPropertyTypes);
   }
 
@@ -102,5 +106,29 @@ export class RealEstatePropertyTypeComponent {
 
   className(propertyType: string) {
     return this.isSelected(propertyType) ? 'selected' : '';
+  }
+
+  checkeIfAllApartmentsSelected(id: string, Class: string): void {
+    var countCheckedApartments = 0;
+    var apartments =
+      Class === 'apartment'
+        ? this.propertyTypes.apartment
+        : this.propertyTypes.house;
+    for (let i = 0; i <= apartments.length; i++) {
+      if (this.selectedPropertyTypes.includes(apartments[i])) {
+        countCheckedApartments++;
+      }
+    }
+    var allApartmentsElements = document.getElementById(id);
+    if (countCheckedApartments === apartments.length) {
+      if (allApartmentsElements) {
+        allApartmentsElements.classList.add('selected');
+        countCheckedApartments = 0;
+      }
+    } else {
+      if (allApartmentsElements) {
+        allApartmentsElements.classList.remove('selected');
+      }
+    }
   }
 }

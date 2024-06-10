@@ -14,7 +14,7 @@
       <span
         (click)="emit(pType)"
         *ngFor="let pType of propertyTypes.apartment"
-        class="property-type {{ className(pType) }}"
+        class="property-type {{ className(pType) }} "
       >
         {{ pType }}
       </span>
@@ -25,8 +25,11 @@
     <div class="property-type-grid">
       <span
         id="all-houses"
-        (click)="emit('בתים_הכל')"
-        class="property-type {{ className('בתים_הכל') }} "
+        (click)="
+          emit('בתים_הכל');
+          checkeIfAllApartmentsSelected('all-houses', 'houses')
+        "
+        class="property-type {{ className('בתים_הכל') }} houses"
       >
         הכל
       </span>
