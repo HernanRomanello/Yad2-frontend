@@ -49,6 +49,8 @@ export class RealEstateSearchComponent {
             this.selectedPriceRange[1]
           )} - ${formatPrice(this.selectedPriceRange[0])}
           `;
+          this.priceSliderButton.nativeElement.innerHTML +=
+            '<i class="material-icons">keyboard_arrow_down</i>';
         }
 
         this.propertyTypeMenu.nativeElement
