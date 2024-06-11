@@ -118,6 +118,7 @@ header button {
 input[type="checkbox"] {
   height: 16px;
   width: 16px;
+  cursor: pointer;
 }
 
 .add-checkboxs label {
@@ -174,14 +175,11 @@ footer button {
 }
 
 .features {
-  /* width: 460px; */
   display: grid;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
   right: 0 !important;
-  /* margin: auto; */
-  /* margin-left: auto; */
   padding: 1rem;
   transform: translateX(20px);
 }
@@ -192,4 +190,39 @@ footer button {
   border-bottom: 1px solid rgb(220, 220, 220) !important;
   cursor: pointer;
   padding-top: 2rem;
+}
+
+.add-condition {
+  height: fit-content !important;
+}
+
+.range-slider {
+  font-weight: 400;
+  padding: 25px 0px;
+  padding: 25px 0px;
+  height: 171.391px;
+  width: 460px;
+}
+
+.free-search {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: start;
+  height: 95.3906px;
+  width: 460px;
+  padding: 25px 0px 0px;
+}
+
+.text-serch input[type="text"] {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.4px;
+  color: rgb(54, 54, 54);
+  background-color: rgb(255, 255, 255);
+  height: 44px !important;
+  width: 436px;
+  padding: 0px 11px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 4px;
 }
