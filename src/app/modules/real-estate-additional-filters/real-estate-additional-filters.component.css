@@ -1,0 +1,98 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 45px;
+  height: 80vh;
+  z-index: 99999 !important;
+  border-radius: 12px;
+  width: 520px;
+  background-color: rgb(255, 255, 255) !important;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  grid-gap: 20px;
+}
+
+header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20.7px;
+  opacity: 0.85;
+}
+
+header button {
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16.1px;
+  cursor: pointer;
+  border: transparent;
+}
+.filter-options h3 {
+  margin-top: 20px;
+}
+.filter-options label {
+  display: block;
+  margin: 5px 0;
+}
+.filter-options input[type="number"] {
+  width: 60px;
+}
+.filter-options input[type="text"] {
+  width: 100%;
+}
+.filter-options button {
+  margin: 10px 5px;
+}
+
+.border {
+  border-top: 0px none rgb(54, 54, 54);
+  border-right: 0px none rgb(54, 54, 54);
+  border-bottom: 1px solid rgb(220, 220, 220);
+  border-left: 0px none rgb(54, 54, 54);
+  margin-bottom: 2px !important;
+}
+
+.body {
+  overflow-y: auto;
+  flex: 1;
+  direction: rtl;
+  width: 99% !important;
+  margin-right: auto;
+}
+
+.body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+  background-color: rgb(204, 204, 204) !important;
+}
+
+.body::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
