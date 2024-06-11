@@ -35,6 +35,7 @@ const routes: Routes = [
       import('./modules/real-estate/real-estate.module').then(
         (m) => m.RealEstateModule
       ),
+    title: 'Main Page',
     canActivate: [authGuard],
   },
 ];
