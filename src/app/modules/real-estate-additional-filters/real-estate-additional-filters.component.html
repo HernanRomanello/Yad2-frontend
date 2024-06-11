@@ -120,18 +120,21 @@
           </div>
         </div>
 
-        <!-- Entry Date -->
-        <div class="title">תאריך כניסה</div>
-        <div>
-          <input
-            type="date"
-            [(ngModel)]="filters.entryDate"
-            placeholder="dd/mm/yyyy"
-          />
-          <label
-            ><input type="checkbox" [(ngModel)]="filters.immediateEntry" />
-            כניסה מיידית</label
-          >
+        <div class="date-select">
+          <div class="date-container">
+            <div class="title">תאריך כניסה</div>
+            <div class="date">
+              <input
+                type="date"
+                [(ngModel)]="filters.entryDate"
+                placeholder="dd/mm/yyyy"
+              />
+              <label
+                ><input type="checkbox" [(ngModel)]="filters.immediateEntry" />
+                כניסה מיידית</label
+              >
+            </div>
+          </div>
         </div>
 
         <div class="free-search"></div>
