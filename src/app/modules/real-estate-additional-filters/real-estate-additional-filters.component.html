@@ -50,7 +50,7 @@
         </div>
       </div>
       <div>
-        <h3>מאפייני הנכס</h3>
+        <div class="title">מאפייני הנכס</div>
         <label
           ><input type="checkbox" [(ngModel)]="filters.parking" /> חניה</label
         >
@@ -175,11 +175,10 @@
       </div>
 
       <div class="border"></div>
-
-      <footer>
-        <button (click)="resetFilters()">איפוס</button>
-        <button (click)="applyFilters()">אישור</button>
-      </footer>
     </div>
+    <footer>
+      <button (click)="resetFilters()">איפוס</button>
+      <button (click)="applyFilters()">אישור</button>
+    </footer>
   </div>
 </div>
