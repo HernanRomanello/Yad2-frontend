@@ -1,4 +1,4 @@
-div .extra-filters_inputsBox__KP2LT {
+div .ad-attributes-input_checkboxesGroupBox__UHlOw {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -24,19 +24,19 @@ div .extra-filters_inputsBox__KP2LT {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 530.922px;
-	width: 520px;
+	height: 45.8906px;
+	width: 460px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
 	border-bottom: 0px none rgb(54, 54, 54);
 	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 20px 24px 48px;
+	padding: 0px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -45,7 +45,7 @@ div .extra-filters_inputsBox__KP2LT {
 	right: auto;
 	left: auto;
 	float: none;
-	display: block;
+	display: grid;
 	clear: none;
 	z-index: auto;
 
@@ -62,8 +62,8 @@ div .extra-filters_inputsBox__KP2LT {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: auto scroll;
-	cursor: default;
+	overflow: visible;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */

@@ -6,32 +6,30 @@
     </header>
     <div class="border"></div>
     <div class="body">
-      <h3>מאפייני מודעה</h3>
-      <div>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.withImage" />
-          עם תמונה
-        </label>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.onlyCommunities" />
-          רק מושבים וקיבוצים
-        </label>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.withPrice" />
-          עם מחיר
-        </label>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.priceDropped" />
-          נכסים שמחירם ירד
-        </label>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.newProperty" />
-          חדש
-        </label>
+      <div class="asset-add">
+        <span>מאפייני מודעה</span>
+        <div class="add-checkboxs">
+          <label>
+            <input type="checkbox" [(ngModel)]="filters.withImage" />
+            עם תמונה
+          </label>
+          <label>
+            <input type="checkbox" [(ngModel)]="filters.onlyCommunities" />
+            רק מושבים וקיבוצים
+          </label>
+          <label>
+            <input type="checkbox" [(ngModel)]="filters.withPrice" />
+            עם מחיר
+          </label>
+          <label>
+            <input type="checkbox" [(ngModel)]="filters.priceDropped" />
+            נכסים שמחירם ירד חדש
+          </label>
+        </div>
       </div>
 
-      <!-- Publisher Type -->
       <h3>מי המפרסם</h3>
+
       <div>
         <label>
           <input type="radio" [(ngModel)]="filters.publisher" value="broker" />
@@ -47,9 +45,8 @@
         </label>
       </div>
 
-      <!-- Property Features -->
-      <h3>מאפייני הנכס</h3>
       <div>
+        <h3>מאפייני הנכס</h3>
         <label
           ><input type="checkbox" [(ngModel)]="filters.parking" /> חניה</label
         >

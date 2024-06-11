@@ -46,8 +46,10 @@ header button {
   cursor: pointer;
   border: transparent;
 }
-.filter-options h3 {
-  margin-top: 20px;
+.filter-options span {
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  opacity: 0.85 !important;
 }
 .filter-options label {
   display: block;
@@ -95,4 +97,32 @@ header button {
 
 .body::-webkit-scrollbar-thumb:hover {
   background: #999;
+}
+
+.asset-add {
+  height: 106.281px;
+  width: 460px;
+  border-bottom: 1px solid rgb(238, 238, 238) !important;
+  padding: 0px 0px 25px;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.add-checkboxs {
+  height: 45.8906px;
+  width: 460px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 5px !important;
+}
+
+input[type="checkbox"] {
+  height: 16px;
+  width: 16px;
+}
+
+.add-checkboxs label {
+  display: flex;
+  align-items: center;
+  padding: 1;
 }
