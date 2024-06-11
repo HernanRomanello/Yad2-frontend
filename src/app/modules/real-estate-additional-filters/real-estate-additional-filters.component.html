@@ -6,8 +6,8 @@
     </header>
     <div class="border"></div>
     <div class="body">
-      <div class="asset-add">
-        <span>מאפייני מודעה</span>
+      <div class="add-block">
+        <span class="title">מאפייני מודעה</span>
         <div class="add-checkboxs">
           <label>
             <input type="checkbox" [(ngModel)]="filters.withImage" />
@@ -27,24 +27,28 @@
           </label>
         </div>
       </div>
+      <div class="add-block">
+        <span class="title"> מי המפרסם</span>
 
-      <h3>מי המפרסם</h3>
-
-      <div>
-        <label>
-          <input type="radio" [(ngModel)]="filters.publisher" value="broker" />
-          תיווך
-        </label>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="filters.publisher"
-            value="developer"
-          />
-          יזם/קבלן
-        </label>
+        <div class="add-checkboxs">
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="filters.publisher"
+              value="broker"
+            />
+            תיווך
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="filters.publisher"
+              value="developer"
+            />
+            יזם/קבלן
+          </label>
+        </div>
       </div>
-
       <div>
         <h3>מאפייני הנכס</h3>
         <label
@@ -86,91 +90,96 @@
           בבלעדיות</label
         >
       </div>
-
-      <!-- Property Condition -->
-      <h3>מצב הנכס</h3>
       <div>
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.newFromContractor" /> חדש
-          מקבלן (לא גרו בכלל)</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.new" /> חדש (נכס בן עד 10
-          שנים)</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.renovated5Years" /> משופץ
-          (שופץ ב-5 שנים האחרונות)</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.wellMaintained" /> במצב
-          שמור (במצב טוב, לא שופץ)</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.needsRenovation" /> דרוש
-          שיפוץ (זקוק לעבודת שיפוץ)</label
-        >
-      </div>
+        <h3>מצב הנכס</h3>
+        <div>
+          <label
+            ><input type="checkbox" [(ngModel)]="filters.newFromContractor" />
+            חדש מקבלן (לא גרו בכלל)</label
+          >
+          <label
+            ><input type="checkbox" [(ngModel)]="filters.new" /> חדש (נכס בן עד
+            10 שנים)</label
+          >
+          <label
+            ><input type="checkbox" [(ngModel)]="filters.renovated5Years" />
+            משופץ (שופץ ב-5 שנים האחרונות)</label
+          >
+          <label
+            ><input type="checkbox" [(ngModel)]="filters.wellMaintained" /> במצב
+            שמור (במצב טוב, לא שופץ)</label
+          >
+          <label
+            ><input type="checkbox" [(ngModel)]="filters.needsRenovation" />
+            דרוש שיפוץ (זקוק לעבודת שיפוץ)</label
+          >
+        </div>
 
-      <!-- Floor -->
-      <h3>קומה</h3>
-      <div>
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.basement" /> מרתף</label
-        >
-        <label>
+        <!-- Floor -->
+        <h3>קומה</h3>
+        <div>
+          <label
+            ><input type="checkbox" [(ngModel)]="filters.basement" />
+            מרתף</label
+          >
+          <label>
+            <input
+              type="number"
+              [(ngModel)]="filters.floorMin"
+              placeholder="Min"
+            />
+            -
+            <input
+              type="number"
+              [(ngModel)]="filters.floorMax"
+              placeholder="Max"
+            />
+          </label>
+        </div>
+
+        <!-- Apartment Size -->
+        <h3>גודל דירה (במ״ר)</h3>
+        <div>
+          <input type="number" [(ngModel)]="filters.sizeMin" placeholder="0" />
+          +
           <input
             type="number"
-            [(ngModel)]="filters.floorMin"
-            placeholder="Min"
+            [(ngModel)]="filters.sizeMax"
+            placeholder="500"
           />
-          -
+        </div>
+
+        <!-- Entry Date -->
+        <h3>תאריך כניסה</h3>
+        <div>
           <input
-            type="number"
-            [(ngModel)]="filters.floorMax"
-            placeholder="Max"
+            type="date"
+            [(ngModel)]="filters.entryDate"
+            placeholder="dd/mm/yyyy"
           />
-        </label>
+          <label
+            ><input type="checkbox" [(ngModel)]="filters.immediateEntry" />
+            כניסה מיידית</label
+          >
+        </div>
+
+        <!-- Free Search -->
+        <h3>חיפוש חופשי</h3>
+        <div>
+          <input
+            type="text"
+            [(ngModel)]="filters.freeSearch"
+            placeholder="חיפוש חופשי"
+          />
+        </div>
       </div>
 
-      <!-- Apartment Size -->
-      <h3>גודל דירה (במ״ר)</h3>
-      <div>
-        <input type="number" [(ngModel)]="filters.sizeMin" placeholder="0" />
-        +
-        <input type="number" [(ngModel)]="filters.sizeMax" placeholder="500" />
-      </div>
+      <div class="border"></div>
 
-      <!-- Entry Date -->
-      <h3>תאריך כניסה</h3>
-      <div>
-        <input
-          type="date"
-          [(ngModel)]="filters.entryDate"
-          placeholder="dd/mm/yyyy"
-        />
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.immediateEntry" /> כניסה
-          מיידית</label
-        >
-      </div>
-
-      <!-- Free Search -->
-      <h3>חיפוש חופשי</h3>
-      <div>
-        <input
-          type="text"
-          [(ngModel)]="filters.freeSearch"
-          placeholder="חיפוש חופשי"
-        />
-      </div>
+      <footer>
+        <button (click)="resetFilters()">איפוס</button>
+        <button (click)="applyFilters()">אישור</button>
+      </footer>
     </div>
-
-    <div class="border"></div>
-
-    <footer>
-      <button (click)="resetFilters()">איפוס</button>
-      <button (click)="applyFilters()">אישור</button>
-    </footer>
   </div>
 </div>

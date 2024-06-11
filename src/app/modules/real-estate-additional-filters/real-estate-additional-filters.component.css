@@ -46,7 +46,7 @@ header button {
   cursor: pointer;
   border: transparent;
 }
-.filter-options span {
+.title {
   font-weight: 700 !important;
   font-size: 16px !important;
   opacity: 0.85 !important;
@@ -99,7 +99,7 @@ header button {
   background: #999;
 }
 
-.asset-add {
+.add-block {
   height: 106.281px;
   width: 460px;
   border-bottom: 1px solid rgb(238, 238, 238) !important;
@@ -109,7 +109,6 @@ header button {
 }
 
 .add-checkboxs {
-  height: 45.8906px;
   width: 460px;
   display: grid;
   grid-template-columns: 1fr 2fr;
