@@ -17,6 +17,7 @@ export class RealEstateSearchComponent {
   searchService = inject(SearchService);
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
+  selectedRoomsAmount: string[] = [];
   dropdownOpen = false;
   selectedOption: string | null = null;
   advertisementTypebuttonText: string = 'מכירה';
@@ -24,6 +25,9 @@ export class RealEstateSearchComponent {
 
   @ViewChild('propertyTypeMenu', { static: false })
   propertyTypeMenu!: ElementRef;
+
+  @ViewChild('roomsAmountMenu', { static: false })
+  roomsAmountMenu!: ElementRef;
 
   @ViewChild('priceSlider', { static: false })
   priceSlider!: ElementRef;
@@ -112,6 +116,7 @@ export class RealEstateSearchComponent {
   onSearch() {
     this.searchService.emitSelectedPriceRange(this.selectedPriceRange);
     this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
+    this.searchService.emitSelectedRoomsAmount(this.selectedRoomsAmount);
     this.dropdownOpen = false;
   }
 
@@ -121,6 +126,10 @@ export class RealEstateSearchComponent {
 
   onPropertyTypeSelected(propertyTypes: string[]) {
     this.selectedPropertyTypes = propertyTypes;
+  }
+
+  onRoomsAmountSelected(roomsAmount: string[]) {
+    this.selectedRoomsAmount = roomsAmount;
   }
 
   isPriceRangeSelected() {

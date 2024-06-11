@@ -1,0 +1,26 @@
+.rooms-select {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: 18px;
+  height: 74px;
+  width: 514px;
+  border: 1px solid rgb(238, 238, 238);
+  margin: 10px 0px 0px;
+  padding: 18px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  border-radius: 12px;
+}
+
+.room-btn {
+  cursor: pointer;
+  background-color: rgb(255, 250, 245);
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+}
+
+.selected {
+  border: 1px solid #ff7100;
+}

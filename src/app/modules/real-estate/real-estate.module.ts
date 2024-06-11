@@ -10,6 +10,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { RealEstatePropertyTypeComponent } from './real-estate-property-type/real-estate-property-type.component';
 import { SliderModule } from 'primeng/slider';
 import { RealEstatePriceSliderComponent } from './real-estate-price-slider/real-estate-price-slider.component';
+import { RealEstateRoomsAmountComponent } from '../real-estate-rooms-amount/real-estate-rooms-amount.component';
 
 @NgModule({
   declarations: [

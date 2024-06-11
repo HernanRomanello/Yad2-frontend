@@ -56,10 +56,24 @@
         </div>
       </div>
 
-      <button class="search-button" type="button">
-        חדרים
-        <i class="material-icons">keyboard_arrow_down</i>
-      </button>
+      <div class="menu-container" #propertyRoomsMenu>
+        <button
+          class="search-button"
+          type="button"
+          (click)="toggleMenu('propertyTypeMenu')"
+        >
+          חדרים
+
+          <i class="material-icons">keyboard_arrow_down</i>
+        </button>
+        <div class="menu hidden">
+          <!-- <app-real-estate-rooms-amount
+
+            (roomsAmountSelected)="onRoomsAmountSelected($event)"
+            
+          ></app-real-estate-rooms-amount> -->
+        </div>
+      </div>
       <button class="search-button rtl" type="button">
         סינונים נוספים
         <i class="material-icons">tune</i>

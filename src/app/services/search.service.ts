@@ -38,6 +38,10 @@ export class SearchService {
   selectedTradeType: BehaviorSubject<'מכירה' | 'השכרה'> = new BehaviorSubject(
     'מכירה' as 'מכירה' | 'השכרה'
   );
+
+  selectedRoomsAmount: BehaviorSubject<string[]> = new BehaviorSubject<
+    string[]
+  >([]);
   constructor() {}
 
   emitSelectedTradeType(searchType: 'מכירה' | 'השכרה') {
@@ -48,5 +52,9 @@ export class SearchService {
   }
   emitSelectedPriceRange(priceRange: [number, number]) {
     this.selectedPriceRange.next(priceRange);
+  }
+
+  emitSelectedRoomsAmount(roomsAmount: string[]) {
+    this.selectedRoomsAmount.next(roomsAmount);
   }
 }
