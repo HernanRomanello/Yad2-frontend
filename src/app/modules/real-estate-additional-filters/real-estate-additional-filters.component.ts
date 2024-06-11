@@ -6,6 +6,23 @@ import { Component } from '@angular/core';
   styleUrl: './real-estate-additional-filters.component.css',
 })
 export class RealEstateAdditionalFiltersComponent {
+  filters_ = {
+    propertyFeatures: [
+      'חניה',
+      'מעלית',
+      'ממ״ד',
+      'מרפסת',
+      'מיזוג',
+      'מחסן',
+      'משופצת',
+      'גישה לנכים',
+      'סורגים',
+      'מרוהטת',
+      'בבלעדיות',
+      'חיות מחמד',
+      'לשותפים',
+    ],
+  };
   filters = {
     withImage: false,
     onlyCommunities: false,

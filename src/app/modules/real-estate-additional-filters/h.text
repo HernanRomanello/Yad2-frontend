@@ -1,4 +1,4 @@
-div .ad-attributes-input_checkboxesGroupBox__UHlOw {
+div .icon-check-button_iconCheckButton__yis__ {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -6,33 +6,33 @@ div .ad-attributes-input_checkboxesGroupBox__UHlOw {
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 16.1px;
-	text-decoration: none solid rgb(54, 54, 54);
-	text-align: start;
+	line-height: 14px;
+	text-decoration: none solid rgb(255, 113, 0);
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: normal;
+	white-space: nowrap;
 	word-spacing: 0px;
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(255, 113, 0);
 
 	/* Box */
-	height: 45.8906px;
-	width: 460px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
+	height: 40.25px;
+	width: 145.328px;
+	border: 1px solid rgb(255, 113, 0);
+	border-top: 1px solid rgb(255, 113, 0);
+	border-right: 1px solid rgb(255, 113, 0);
+	border-bottom: 1px solid rgb(255, 113, 0);
+	border-left: 1px solid rgb(255, 113, 0);
 	margin: 0px;
-	padding: 0px;
+	padding: 7.14px 14px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
@@ -45,7 +45,7 @@ div .ad-attributes-input_checkboxesGroupBox__UHlOw {
 	right: auto;
 	left: auto;
 	float: none;
-	display: grid;
+	display: inline-flex;
 	clear: none;
 	z-index: auto;
 
@@ -63,7 +63,7 @@ div .ad-attributes-input_checkboxesGroupBox__UHlOw {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: auto;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ div .ad-attributes-input_checkboxesGroupBox__UHlOw {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+	border-top-left-radius: 3.92px;
+	border-top-right-radius: 3.92px;
+	border-bottom-left-radius: 3.92px;
+	border-bottom-right-radius: 3.92px;
 }

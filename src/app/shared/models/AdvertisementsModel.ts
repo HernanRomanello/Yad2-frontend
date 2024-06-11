@@ -19,6 +19,7 @@ export type AdvertisementsModel = {
   rooms: string;
   showerRooms: string;
   privateParking: number;
+  HasPrivateParking: boolean;
   balconies: boolean;
   balconiesNumber: number;
   accessibleForDisabled: boolean;

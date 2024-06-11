@@ -49,46 +49,13 @@
           </label>
         </div>
       </div>
-      <div>
+      <div class="add-features">
         <div class="title">מאפייני הנכס</div>
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.parking" /> חניה</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.elevator" /> מעלית</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.mamad" /> ממ״ד</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.balcony" /> מרפסת</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.airConditioning" />
-          מיזוג</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.storage" /> מחסן</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.renovated" />
-          משופצת</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.accessible" /> גישה
-          לנכים</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.bars" /> סורגים</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.furnished" />
-          מרוהטת</label
-        >
-        <label
-          ><input type="checkbox" [(ngModel)]="filters.exclusive" />
-          בבלעדיות</label
-        >
+        <div class="features">
+          <span class="feature" *ngFor="let item of filters_.propertyFeatures">
+            {{ item }}
+          </span>
+        </div>
       </div>
       <div>
         <h3>מצב הנכס</h3>
@@ -177,8 +144,8 @@
       <div class="border"></div>
     </div>
     <footer>
-      <button (click)="resetFilters()">איפוס</button>
-      <button (click)="applyFilters()">אישור</button>
+      <button class="ok-btn" (click)="applyFilters()">אישור</button>
+      <button class="reset-btn" (click)="resetFilters()">איפוס</button>
     </footer>
   </div>
 </div>
