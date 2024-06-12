@@ -24,6 +24,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 9fr;
   grid-gap: 20px;
+  direction: ltr !important;
 }
 
 header div {

@@ -81,9 +81,9 @@
         <div class="menu hidden"></div>
       </button> -->
 
-      <div class="menu-container" #roomsAmountMenu>
+      <div class="menu-container" #additionalFiltersMenu>
         <button
-          (click)="toggleMenu('roomsAmountMenu')"
+          (click)="toggleMenu('additionalFiltersMenu')"
           class="search-button"
           type="button"
         >
@@ -92,7 +92,9 @@
 
           סינונים נוספים
         </button>
-        <div class="menu hidden"></div>
+        <div class="menu hidden">
+          <app-real-estate-additional-filters></app-real-estate-additional-filters>
+        </div>
       </div>
 
       <button class="search-button-orange" type="submit">חיפוש</button>

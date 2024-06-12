@@ -4,6 +4,7 @@ import {
   ViewChild,
   afterNextRender,
   inject,
+  viewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchService } from '../../../services/search.service';
@@ -31,6 +32,9 @@ export class RealEstateSearchComponent {
 
   @ViewChild('priceSlider', { static: false })
   priceSlider!: ElementRef;
+
+  @ViewChild('additionalFiltersMenu', { static: false })
+  additionalFiltersMenu!: ElementRef;
 
   @ViewChild('priceSliderButton', { static: false })
   priceSliderButton!: ElementRef;
@@ -91,7 +95,13 @@ export class RealEstateSearchComponent {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
-  toggleMenu(type: 'priceSlider' | 'propertyTypeMenu' | 'roomsAmountMenu') {
+  toggleMenu(
+    type:
+      | 'priceSlider'
+      | 'propertyTypeMenu'
+      | 'roomsAmountMenu'
+      | 'additionalFiltersMenu'
+  ) {
     switch (type) {
       case 'priceSlider':
         this.priceSlider.nativeElement
@@ -106,6 +116,12 @@ export class RealEstateSearchComponent {
 
       case 'roomsAmountMenu':
         this.roomsAmountMenu.nativeElement
+          .querySelector('.menu')
+          .classList.toggle('hidden');
+        break;
+
+      case 'additionalFiltersMenu':
+        this.additionalFiltersMenu.nativeElement
           .querySelector('.menu')
           .classList.toggle('hidden');
         break;
