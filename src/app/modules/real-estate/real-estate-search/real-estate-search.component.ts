@@ -1,10 +1,11 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
+  Output,
   ViewChild,
   afterNextRender,
   inject,
-  viewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchService } from '../../../services/search.service';
@@ -19,7 +20,6 @@ export class RealEstateSearchComponent {
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
   selectedRoomsAmount: string[] = [];
-  dropdownOpen = false;
   selectedOption: string | null = null;
   advertisementTypebuttonText: string = 'מכירה';
   title = 'נדל"ן למכירה';
@@ -39,6 +39,11 @@ export class RealEstateSearchComponent {
   @ViewChild('priceSliderButton', { static: false })
   priceSliderButton!: ElementRef;
 
+  @ViewChild('tradeTypeMenu', { static: false })
+  tradeTypeMenu!: ElementRef;
+
+  // @Output() tradeTypeSelected = new EventEmitter<string[]>();
+
   constructor(private router: Router) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
@@ -56,6 +61,10 @@ export class RealEstateSearchComponent {
             // );
           }
 
+          return;
+        } else if (
+          this.roomsAmountMenu.nativeElement.contains(clickedElement)
+        ) {
           return;
         }
         const isSliderHidden = this.priceSlider.nativeElement
@@ -75,6 +84,9 @@ export class RealEstateSearchComponent {
         this.priceSlider.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
+        this.roomsAmountMenu.nativeElement
+          .querySelector('.menu')
+          .classList.add('hidden');
 
         function changeButtonInnerHtml(
           priceSliderButton: ElementRef,
@@ -91,16 +103,13 @@ export class RealEstateSearchComponent {
     });
   }
 
-  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
-  }
-
   toggleMenu(
     type:
       | 'priceSlider'
       | 'propertyTypeMenu'
       | 'roomsAmountMenu'
       | 'additionalFiltersMenu'
+      | 'tradeTypeMenu'
   ) {
     switch (type) {
       case 'priceSlider':
@@ -125,14 +134,22 @@ export class RealEstateSearchComponent {
           .querySelector('.menu')
           .classList.toggle('hidden');
         break;
+
+      case 'tradeTypeMenu':
+        this.tradeTypeMenu.nativeElement
+          .querySelector('.menu')
+          .classList.toggle('hidden');
+        break;
     }
   }
 
   applyFilter(option: 'מכירה' | 'השכרה') {
     this.selectedOption = option;
-    this.dropdownOpen = false;
     this.advertisementTypebuttonText = option;
     this.title = option === 'מכירה' ? 'נדל"ן למכירה' : 'נדל"ן להשכרה';
+    this.tradeTypeMenu.nativeElement
+      .querySelector('.menu')
+      .classList.add('hidden');
     this.searchService.emitSelectedTradeType(option);
   }
 
@@ -140,7 +157,6 @@ export class RealEstateSearchComponent {
     this.searchService.emitSelectedPriceRange(this.selectedPriceRange);
     this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
     this.searchService.emitSelectedRoomsAmount(this.selectedRoomsAmount);
-    this.dropdownOpen = false;
   }
 
   onPriceRangeSelected(priceRange: [number, number]) {

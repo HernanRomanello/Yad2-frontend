@@ -11,9 +11,9 @@ export class RealEstateRoomsAmountComponent {
   // event emitter for selected
   // property type
 
-  @Output() propertyTypeSelected = new EventEmitter<string[]>();
+  @Output() propertyRoomSelected = new EventEmitter<string[]>();
 
   emit(propertyRooms: string) {
-    this.propertyTypeSelected.emit(this.selectedRooms);
+    this.propertyRoomSelected.emit(this.selectedRooms);
   }
 }

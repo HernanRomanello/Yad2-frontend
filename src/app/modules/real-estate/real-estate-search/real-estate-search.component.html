@@ -9,12 +9,17 @@
           class="input-search"
         />
       </div>
-      <div>
-        <button class="search-button" type="button" (click)="toggleDropdown()">
+
+      <div class="menu-container" #tradeTypeMenu>
+        <button
+          class="search-button"
+          type="button"
+          (click)="toggleMenu('tradeTypeMenu')"
+        >
           {{ advertisementTypebuttonText }}
           <i class="material-icons">keyboard_arrow_down</i>
         </button>
-        <div *ngIf="dropdownOpen" class="dropdown-menu">
+        <div class="menu hidden dropdown-menu">
           <button class="type-btn" type="button" (click)="applyFilter('מכירה')">
             מכירה
           </button>
@@ -23,6 +28,7 @@
           </button>
         </div>
       </div>
+
       <div class="menu-container" #propertyTypeMenu>
         <button
           class="search-button"
@@ -45,6 +51,7 @@
           (click)="toggleMenu('priceSlider')"
           class="search-button price-btn"
           type="button"
+          (propertyTypeSelected)="onPropertyTypeSelected($event)"
         >
           מחיר
           <i class="material-icons">keyboard_arrow_down</i>
@@ -67,19 +74,12 @@
           <i class="material-icons">keyboard_arrow_down</i>
         </button>
         <div class="menu hidden">
-          <!-- <app-real-estate-rooms-amount
-
-            (roomsAmountSelected)="onRoomsAmountSelected($event)"
-            
-          ></app-real-estate-rooms-amount> -->
-          <app-real-estate-rooms-amount></app-real-estate-rooms-amount>
+          <app-real-estate-rooms-amount
+            (propertyRoomSelected)="onRoomsAmountSelected($event)"
+          ></app-real-estate-rooms-amount>
+          <!-- <app-real-estate-rooms-amount></app-real-estate-rooms-amount> -->
         </div>
       </div>
-      <!-- <button class="search-button rtl" type="button">
-        סינונים נוספים
-        <i class="material-icons">tune</i>
-        <div class="menu hidden"></div>
-      </button> -->
 
       <div class="menu-container" #additionalFiltersMenu>
         <button
