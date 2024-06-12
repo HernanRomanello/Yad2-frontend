@@ -1,4 +1,4 @@
-fieldset .entrance-date-input_rootBox__QNJib {
+input #:R1tbl6cmm: .text-field_input__V7k5T {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -24,19 +24,19 @@ fieldset .entrance-date-input_rootBox__QNJib {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 121.391px;
-	width: 460px;
-	border: ;
-border-bottom: 1px solid rgb(238, 238, 238);
-	border-right: 0px groove rgb(192, 192, 192);
-	border-bottom: 1px solid rgb(238, 238, 238);
-	border-left: 0px groove rgb(192, 192, 192);
+	height: 42px;
+	width: 201px;
+	border: 0px none rgb(54, 54, 54);
+	border-top: 0px none rgb(54, 54, 54);
+	border-right: 0px none rgb(54, 54, 54);
+	border-bottom: 0px none rgb(54, 54, 54);
+	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 25px 0px;
+	padding: 0px 1px 0px 0px;
 	max-height: none;
-	min-height: 0px;
+	min-height: 42px;
 	max-width: none;
-	min-width: min-content;
+	min-width: auto;
 
 	/* Positioning */
 	position: static;

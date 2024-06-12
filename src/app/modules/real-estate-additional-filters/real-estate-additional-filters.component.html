@@ -125,14 +125,15 @@
             <div class="title">תאריך כניסה</div>
             <div class="date">
               <input
+                class="date-input"
                 type="date"
                 [(ngModel)]="filters.entryDate"
                 placeholder="dd/mm/yyyy"
               />
-              <label
-                ><input type="checkbox" [(ngModel)]="filters.immediateEntry" />
-                כניסה מיידית</label
-              >
+              <label class="date-checkbox">
+                <input type="checkbox" [(ngModel)]="filters.immediateEntry" />
+                כניסה מיידית
+              </label>
             </div>
           </div>
         </div>
