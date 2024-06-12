@@ -262,3 +262,41 @@ footer button {
   justify-content: center !important;
   align-items: center !important;
 }
+
+.add-checkboxs input[type="checkbox"],
+.add-block input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* width: 20px; */
+  /* height: 20px; */
+  /* border: 2px solid #ccc; */
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Style the checkbox when it is checked */
+.add-checkboxs input[type="checkbox"]:checked,
+.add-block input[type="checkbox"]:checked {
+  background-color: #d86000;
+  /* border-color: #d86000; */
+}
+
+.add-checkboxs input[type="checkbox"]:checked::after,
+.add-block input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 4px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.asset-stete-checkBox input[type="checkbox"] {
+  transform: translateY(7px);
+}
