@@ -268,20 +268,15 @@ footer button {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  /* width: 20px; */
-  /* height: 20px; */
-  /* border: 2px solid #ccc; */
   border: 1px solid lightgray;
   border-radius: 2px;
   position: relative;
   cursor: pointer;
 }
 
-/* Style the checkbox when it is checked */
 .add-checkboxs input[type="checkbox"]:checked,
 .add-block input[type="checkbox"]:checked {
   background-color: #d86000;
-  /* border-color: #d86000; */
 }
 
 .add-checkboxs input[type="checkbox"]:checked::after,
