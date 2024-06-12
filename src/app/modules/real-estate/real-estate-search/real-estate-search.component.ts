@@ -31,6 +31,7 @@ export class RealEstateSearchComponent {
 
   @ViewChild('priceSlider', { static: false })
   priceSlider!: ElementRef;
+
   @ViewChild('priceSliderButton', { static: false })
   priceSliderButton!: ElementRef;
 
@@ -90,7 +91,7 @@ export class RealEstateSearchComponent {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
-  toggleMenu(type: 'priceSlider' | 'propertyTypeMenu') {
+  toggleMenu(type: 'priceSlider' | 'propertyTypeMenu' | 'roomsAmountMenu') {
     switch (type) {
       case 'priceSlider':
         this.priceSlider.nativeElement
@@ -99,6 +100,12 @@ export class RealEstateSearchComponent {
         break;
       case 'propertyTypeMenu':
         this.propertyTypeMenu.nativeElement
+          .querySelector('.menu')
+          .classList.toggle('hidden');
+        break;
+
+      case 'roomsAmountMenu':
+        this.roomsAmountMenu.nativeElement
           .querySelector('.menu')
           .classList.toggle('hidden');
         break;

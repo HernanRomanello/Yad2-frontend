@@ -137,11 +137,6 @@ i {
   cursor: pointer;
 }
 
-.rtl {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 .title {
   font-size: 24px;
   line-height: 27.6px;
@@ -242,4 +237,8 @@ i {
   color: rgb(255, 113, 0) !important;
   font-weight: 650;
   opacity: 0.8;
+}
+
+.space {
+  width: 4px;
 }

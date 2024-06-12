@@ -56,17 +56,17 @@
         </div>
       </div>
 
-      <div class="menu-container" #propertyRoomsMenu>
+      <div class="menu-container" #roomsAmountMenu>
         <button
+          (click)="toggleMenu('roomsAmountMenu')"
           class="search-button"
           type="button"
-          (click)="toggleMenu('propertyTypeMenu')"
         >
           חדרים
 
           <i class="material-icons">keyboard_arrow_down</i>
         </button>
-        <div class="menu">
+        <div class="menu hidden">
           <!-- <app-real-estate-rooms-amount
 
             (roomsAmountSelected)="onRoomsAmountSelected($event)"
@@ -75,10 +75,25 @@
           <app-real-estate-rooms-amount></app-real-estate-rooms-amount>
         </div>
       </div>
-      <button class="search-button rtl" type="button">
+      <!-- <button class="search-button rtl" type="button">
         סינונים נוספים
         <i class="material-icons">tune</i>
-      </button>
+        <div class="menu hidden"></div>
+      </button> -->
+
+      <div class="menu-container" #roomsAmountMenu>
+        <button
+          (click)="toggleMenu('roomsAmountMenu')"
+          class="search-button"
+          type="button"
+        >
+          <i class="material-icons">tune</i>
+          <div class="space"></div>
+
+          סינונים נוספים
+        </button>
+        <div class="menu hidden"></div>
+      </div>
 
       <button class="search-button-orange" type="submit">חיפוש</button>
       <button class="search-button alert-btn" type="button">יצירת התראה</button>
