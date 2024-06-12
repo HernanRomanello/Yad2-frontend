@@ -55,7 +55,7 @@ export class AdvertisementService {
 
       !!advertisement.showerRooms && advertisement.showerRooms !== '1',
       !!advertisement.privateParking,
-      !!advertisement.balconies,
+      !!advertisement.hasBolcony,
       advertisement.accessibleForDisabled,
       advertisement.airConditioning,
       advertisement.windowBars,
@@ -79,7 +79,7 @@ export class AdvertisementService {
       'נכס עורפי',
       `${advertisement.showerRooms}חדרי מקלחת`,
       'חניה',
-      `${advertisement.balconies}`,
+      `${advertisement.hasBolcony}`,
       'גישה לנכים',
       'מיזוג',
       'סורגים',

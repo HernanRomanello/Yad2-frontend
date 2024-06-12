@@ -1,5 +1,76 @@
 import { Picture } from './Picture';
 
+// export type AdvertisementsModel = {
+//   id: number;
+//   city: string;
+//   tradeType: string;
+//   street: string;
+//   number: number;
+//   floor: number;
+//   totalFloors: number;
+//   onPillars: boolean;
+//   neighborhood: string;
+//   area: string;
+//   assetType: string;
+//   assetState: string;
+//   airDirections: number;
+//   view: string;
+//   rearProperty: boolean;
+//   rooms: string;
+//   showerRooms: string;
+//   privateParking: number;
+//   HasPrivateParking: boolean;
+//   balconies: boolean;
+//   balconiesNumber: number;
+//   accessibleForDisabled: boolean;
+//   airConditioning: boolean;
+//   windowBars: boolean;
+//   solarWaterHeater: boolean;
+//   elevator: boolean;
+//   forRoommates: boolean;
+//   furnished: boolean;
+//   separateUnit: boolean;
+//   kosherKitchen: boolean;
+//   petsAllowed: boolean;
+//   renovated: boolean;
+//   safeRoom: boolean;
+//   multiLockDoors: boolean;
+//   airConditioner: boolean;
+//   tornadoAirConditioner: boolean;
+//   storageRoom: boolean;
+//   description: string;
+//   furnituredescription: string;
+//   numberOfPayments: number;
+//   houseCommitteePayment: number;
+//   municipalityMonthlyPropertyTax: number;
+//   builtSquareMeters: number;
+//   gardenSquareMeters: number;
+//   totalSquareMeters: number;
+//   price: number;
+//   minimumAmount: number;
+//   pricePerMeter: number;
+//   entryDate: string;
+//   immediate: boolean;
+//   flexible: boolean;
+//   longTerm: boolean;
+//   pictures: Picture[];
+//   video: string;
+//   contactName: string;
+//   contactPhone: string;
+//   standardizationAccepted: boolean;
+// };
+// // {
+// // hasImage: boolean;
+// // hasPrice: boolean;
+// // change from Bolconies
+// // hasBolcony: boolean;
+// // moshavOrKibutz: boolean;
+// // pirceDiscount: boolean;
+// // PublisherIsMiddleMan: boolean;
+// // PublisherIsContractor: boolean;
+
+// // }
+
 export type AdvertisementsModel = {
   id: number;
   city: string;
@@ -19,8 +90,14 @@ export type AdvertisementsModel = {
   rooms: string;
   showerRooms: string;
   privateParking: number;
-  HasPrivateParking: boolean;
-  balconies: boolean;
+  hasPrivateParking: boolean;
+  hasBolcony: boolean;
+  hasImage: boolean;
+  hasPrice: boolean;
+  moshavOrKibutz: boolean;
+  pirceDiscount: boolean;
+  publisherIsMiddleMan: boolean;
+  publisherIsContractor: boolean;
   balconiesNumber: number;
   accessibleForDisabled: boolean;
   airConditioning: boolean;
