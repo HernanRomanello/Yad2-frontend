@@ -79,6 +79,19 @@ export class RealEstateSearchComponent {
           .querySelector('.menu')
           .classList.add('hidden');
         this.rotateAllArrows('tradeTypeArrow');
+
+        if (!clickedElement.classList.contains('search-button')) {
+          this.tradeTypeMenu.nativeElement
+            .querySelector('.menu')
+            .classList.add('hidden');
+          const arrow =
+            this.tradeTypeMenu.nativeElement.querySelector('#tradeTypeArrow');
+          if (arrow) {
+            if (arrow.classList.contains('arrow-up')) {
+              arrow.classList.remove('arrow-up');
+            }
+          }
+        }
         function changeButtonInnerHtml(
           priceSliderButton: ElementRef,
           selectedPriceRange: [number, number]
