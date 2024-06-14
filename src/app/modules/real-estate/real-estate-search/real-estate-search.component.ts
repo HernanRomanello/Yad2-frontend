@@ -78,7 +78,7 @@ export class RealEstateSearchComponent {
         this.roomsAmountMenu.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
-        this.rotateAllArrows('');
+        this.rotateAllArrows('tradeTypeArrow');
         function changeButtonInnerHtml(
           priceSliderButton: ElementRef,
           selectedPriceRange: [number, number]
