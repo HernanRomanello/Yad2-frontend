@@ -111,33 +111,34 @@ export class RealEstateSearchComponent {
   ) {
     switch (type) {
       case 'priceSlider':
-        this.priceSlider.nativeElement
-          .querySelector('.menu')
-          .classList.toggle('hidden');
+        this.toggleMenuDropdown(this.priceSlider);
+
         break;
       case 'propertyTypeMenu':
-        this.propertyTypeMenu.nativeElement
-          .querySelector('.menu')
-          .classList.toggle('hidden');
-        break;
+        this.toggleMenuDropdown(this.propertyTypeMenu);
 
+        break;
       case 'roomsAmountMenu':
-        this.roomsAmountMenu.nativeElement
-          .querySelector('.menu')
-          .classList.toggle('hidden');
+        this.toggleMenuDropdown(this.roomsAmountMenu);
         break;
-
       case 'additionalFiltersMenu':
-        this.additionalFiltersMenu.nativeElement
-          .querySelector('.menu')
-          .classList.toggle('hidden');
+        this.toggleMenuDropdown(this.additionalFiltersMenu);
         break;
-
       case 'tradeTypeMenu':
-        this.tradeTypeMenu.nativeElement
-          .querySelector('.menu')
-          .classList.toggle('hidden');
+        this.toggleMenuDropdown(this.tradeTypeMenu);
         break;
+    }
+  }
+
+  toggleMenuDropdown(tradeTypeMenu: ElementRef): void {
+    const menu = tradeTypeMenu.nativeElement.querySelector('.menu');
+    if (menu) {
+      menu.classList.toggle('hidden');
+    }
+
+    const arrow = tradeTypeMenu.nativeElement.querySelector('.material-icons');
+    if (arrow) {
+      arrow.classList.toggle('arrow-up');
     }
   }
 
