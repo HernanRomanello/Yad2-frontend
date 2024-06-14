@@ -2,12 +2,17 @@
   <div class="price-container">
     <input
       class="price"
+      (input)="emit()"
+      [(ngModel)]="rangeValuesBuy[1]"
       (input)="manualSelectMaxPrice($event)"
       [value]="formatPrice(rangeValuesBuy[1])"
     />
+
     <span class="hyphen"></span>
     <input
+      (input)="emit()"
       (input)="manualSelectMinPrice($event)"
+      [(ngModel)]="rangeValuesBuy[0]"
       class="price"
       [value]="formatPrice(rangeValuesBuy[0])"
     />

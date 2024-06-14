@@ -31,6 +31,7 @@ export class RealEstatePriceSliderComponent {
       element.value = this.formatPrice(this.rangeValuesBuy[0]);
       return;
     }
+
     this.rangeValuesBuy = [number, this.rangeValuesBuy[1]];
     element.value = this.formatPrice(number);
   }

@@ -42,8 +42,6 @@ export class RealEstateSearchComponent {
   @ViewChild('tradeTypeMenu', { static: false })
   tradeTypeMenu!: ElementRef;
 
-  // @Output() tradeTypeSelected = new EventEmitter<string[]>();
-
   constructor(private router: Router) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
