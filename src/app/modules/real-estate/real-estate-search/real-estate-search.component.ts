@@ -85,6 +85,7 @@ export class RealEstateSearchComponent {
         this.roomsAmountMenu.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
+        this.rotateAllArrows();
 
         function changeButtonInnerHtml(
           priceSliderButton: ElementRef,
@@ -112,7 +113,6 @@ export class RealEstateSearchComponent {
     switch (type) {
       case 'priceSlider':
         this.toggleMenuDropdown(this.priceSlider);
-
         break;
       case 'propertyTypeMenu':
         this.toggleMenuDropdown(this.propertyTypeMenu);
@@ -130,7 +130,7 @@ export class RealEstateSearchComponent {
     }
   }
 
-  toggleMenuDropdown(tradeTypeMenu: ElementRef): void {
+  toggleMenuDropdown(tradeTypeMenu: any): void {
     const menu = tradeTypeMenu.nativeElement.querySelector('.menu');
     if (menu) {
       menu.classList.toggle('hidden');
@@ -140,6 +140,15 @@ export class RealEstateSearchComponent {
     if (arrow) {
       arrow.classList.toggle('arrow-up');
     }
+  }
+
+  rotateAllArrows() {
+    const arrows = document.querySelectorAll('.material-icons');
+    arrows.forEach((arrow) => {
+      if (arrow.classList.contains('arrow-up')) {
+        arrow.classList.remove('arrow-up');
+      }
+    });
   }
 
   applyFilter(option: 'מכירה' | 'השכרה') {
