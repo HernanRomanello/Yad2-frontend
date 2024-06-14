@@ -49,14 +49,7 @@ export class RealEstateSearchComponent {
         if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
           return;
         } else if (this.priceSlider.nativeElement.contains(clickedElement)) {
-          // alert('propertyTypeMenu');
-          // alert('propertyTypeMenu');
-          // alert('priceSlider' + this.selectedPriceRange[1]);
           if (this.selectedPriceRange[0] !== -1) {
-            // changeButtonInnerHtml(
-            //   this.priceSliderButton,
-            //   this.selectedPriceRange
-            // );
           }
 
           return;
@@ -85,8 +78,7 @@ export class RealEstateSearchComponent {
         this.roomsAmountMenu.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
-        this.rotateAllArrows();
-
+        this.rotateAllArrows('');
         function changeButtonInnerHtml(
           priceSliderButton: ElementRef,
           selectedPriceRange: [number, number]
@@ -110,22 +102,32 @@ export class RealEstateSearchComponent {
       | 'additionalFiltersMenu'
       | 'tradeTypeMenu'
   ) {
+    // this.rotateAllArrows();
     switch (type) {
       case 'priceSlider':
         this.toggleMenuDropdown(this.priceSlider);
+        this.rotateAllArrows('PriceRangeArrow');
+        this.hideAllMenus('PriceRangeMenu');
         break;
       case 'propertyTypeMenu':
         this.toggleMenuDropdown(this.propertyTypeMenu);
+        this.rotateAllArrows('propertyTypeArrow');
+        this.hideAllMenus('propertyTypeMenu');
 
         break;
       case 'roomsAmountMenu':
         this.toggleMenuDropdown(this.roomsAmountMenu);
+        this.rotateAllArrows('propertyRoomArrow');
+        this.hideAllMenus('propertyRoomMenu');
         break;
       case 'additionalFiltersMenu':
         this.toggleMenuDropdown(this.additionalFiltersMenu);
+
         break;
       case 'tradeTypeMenu':
         this.toggleMenuDropdown(this.tradeTypeMenu);
+        this.rotateAllArrows('tradeTypeArrow');
+        this.hideAllMenus('tradeTypeMenu');
         break;
     }
   }
@@ -142,11 +144,21 @@ export class RealEstateSearchComponent {
     }
   }
 
-  rotateAllArrows() {
+  rotateAllArrows(id: string) {
     const arrows = document.querySelectorAll('.material-icons');
+
     arrows.forEach((arrow) => {
-      if (arrow.classList.contains('arrow-up')) {
+      if (arrow.classList.contains('arrow-up') && arrow.id !== id) {
         arrow.classList.remove('arrow-up');
+      }
+    });
+  }
+
+  hideAllMenus(id: string) {
+    const menus = document.querySelectorAll('.menu');
+    menus.forEach((menu) => {
+      if (!menu.classList.contains('hidden') && menu.id !== id) {
+        menu.classList.add('hidden');
       }
     });
   }

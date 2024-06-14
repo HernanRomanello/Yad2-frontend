@@ -17,9 +17,9 @@
           (click)="toggleMenu('tradeTypeMenu')"
         >
           {{ advertisementTypebuttonText }}
-          <i class="material-icons">keyboard_arrow_down</i>
+          <i id="tradeTypeArrow" class="material-icons">keyboard_arrow_down</i>
         </button>
-        <div class="menu hidden dropdown-menu">
+        <div id="tradeTypeMenu" class="menu hidden dropdown-menu">
           <button class="type-btn" type="button" (click)="applyFilter('מכירה')">
             מכירה
           </button>
@@ -37,9 +37,11 @@
         >
           סוג הנכס
 
-          <i class="material-icons">keyboard_arrow_down</i>
+          <i id="propertyTypeArrow" class="material-icons"
+            >keyboard_arrow_down</i
+          >
         </button>
-        <div class="menu hidden">
+        <div id="propertyTypeMenu" class="menu hidden">
           <app-real-estate-property-type
             (propertyTypeSelected)="onPropertyTypeSelected($event)"
           ></app-real-estate-property-type>
@@ -53,9 +55,9 @@
           type="button"
         >
           מחיר
-          <i class="material-icons">keyboard_arrow_down</i>
+          <i id="PriceRangeArrow" class="material-icons">keyboard_arrow_down</i>
         </button>
-        <div class="menu hidden">
+        <div id="PriceRangeMenu" class="menu hidden">
           <app-real-estate-price-slider
             (selectedPriceRange)="onPriceRangeSelected($event)"
           ></app-real-estate-price-slider>
@@ -70,13 +72,14 @@
         >
           חדרים
 
-          <i class="material-icons">keyboard_arrow_down</i>
+          <i id="propertyRoomArrow" class="material-icons"
+            >keyboard_arrow_down</i
+          >
         </button>
-        <div class="menu hidden">
+        <div id="propertyRoomMenu" class="menu hidden">
           <app-real-estate-rooms-amount
             (propertyRoomSelected)="onRoomsAmountSelected($event)"
           ></app-real-estate-rooms-amount>
-          <!-- <app-real-estate-rooms-amount></app-real-estate-rooms-amount> -->
         </div>
       </div>
 
@@ -86,12 +89,12 @@
           class="search-button"
           type="button"
         >
-          <i class="material-icons">tune</i>
+          <i id="additionalFiltersArrow" class="material-icons">tune</i>
           <div class="space"></div>
 
           סינונים נוספים
         </button>
-        <div class="menu hidden">
+        <div id="additionalFiltersMenu" class="menu hidden">
           <app-real-estate-additional-filters></app-real-estate-additional-filters>
         </div>
       </div>
