@@ -32,6 +32,7 @@ export class RealEstateResultsComponent {
     this.searchService.selectedPropertyTypes,
     this.searchService.selectedPriceRange,
     this.searchService.selectedTradeType,
+    this.searchService.selectedRoomsAmount,
   ]).pipe(
     map(
       ([
@@ -39,6 +40,7 @@ export class RealEstateResultsComponent {
         selectedPropertyTypes,
         selectedPriceRange,
         selectedTradeType,
+        selectedRoomsAmount,
       ]) => {
         console.log(selectedPriceRange);
         // all advertisements
@@ -55,6 +57,11 @@ export class RealEstateResultsComponent {
             ad.price >= selectedPriceRange[0] &&
             ad.price <= selectedPriceRange[1]
         );
+
+        // filter by num rooms
+        if (selectedRoomsAmount.length > 0) {
+          ads = ads.filter((ad) => selectedRoomsAmount.includes(ad.rooms));
+        }
 
         // fitler by search type
         ads = ads.filter((ad) => ad.tradeType === selectedTradeType);

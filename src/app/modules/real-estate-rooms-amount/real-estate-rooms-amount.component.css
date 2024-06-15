@@ -12,13 +12,14 @@
   border-radius: 12px;
   direction: ltr;
   z-index: 100 !important;
-  background-color: rgb(255, 250, 245);
+  background-color: white;
   transform: translateX(-30px);
 }
 
+.rooms-select button,
 .room-btn {
   cursor: pointer;
-  background-color: rgb(255, 250, 245);
+  background-color: white;
   border: 1px solid #cccccc;
   border-radius: 50%;
   height: 36px;

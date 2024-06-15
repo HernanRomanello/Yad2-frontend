@@ -53,10 +53,6 @@ export class RealEstateSearchComponent {
           }
 
           return;
-        } else if (
-          this.roomsAmountMenu.nativeElement.contains(clickedElement)
-        ) {
-          return;
         }
         const isSliderHidden = this.priceSlider.nativeElement
           .querySelector('.menu')
@@ -73,9 +69,6 @@ export class RealEstateSearchComponent {
           .querySelector('.menu')
           .classList.add('hidden');
         this.priceSlider.nativeElement
-          .querySelector('.menu')
-          .classList.add('hidden');
-        this.roomsAmountMenu.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
         this.rotateAllArrows('tradeTypeArrow');

@@ -1,4 +1,33 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { dir } from 'node:console';
+
+const buttonCss = {
+  cursor: 'pointer',
+  border: '1px solid #cccccc',
+  'border-radius': '50%',
+  height: '36px',
+  width: '36px',
+  background: 'none',
+};
+
+const containerSelected = {
+  'background-color': 'rgb(255,250,245)',
+  border: '1px solid #FF7137',
+  display: 'flex',
+  padding: '2px 6px',
+  direction: 'rtl',
+  overflow: 'hidden',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  'border-radius': '16px',
+};
 
 @Component({
   selector: 'app-real-estate-rooms-amount',
@@ -14,10 +43,16 @@ export class RealEstateRoomsAmountComponent {
   selectedRoom_1: string | undefined;
   selectedRoom_2: string | undefined;
 
+  @ViewChild('bar') bar!: ElementRef;
   @Output() propertyRoomSelected = new EventEmitter<string[]>();
 
-  emit(propertyRooms: string) {
-    this.propertyRoomSelected.emit(this.selectedRooms);
+  emit() {
+    if (this.selectedRoom_1 && this.selectedRoom_2) {
+      let index1 = this.rooms.indexOf(this.selectedRoom_1);
+      let index2 = this.rooms.indexOf(this.selectedRoom_2);
+      let selected = this.rooms.slice(index1, index2 + 1);
+      this.propertyRoomSelected.emit(selected);
+    }
   }
 
   onSelectRoom(room: string) {
@@ -31,70 +66,50 @@ export class RealEstateRoomsAmountComponent {
     }
 
     this.updateBarStyle();
+    this.emit();
   }
 
   updateBarStyle() {
     if (this.selectedRoom_1 && this.selectedRoom_2) {
-      const index_1 = this.rooms.indexOf(this.selectedRoom_1 as string);
-      const index_2 = this.rooms.indexOf(this.selectedRoom_2 as string);
-      let half = (index_1 + index_2) / 2;
-      for (
-        let i = Math.min(index_1, index_2);
-        i <= Math.max(index_1, index_2);
-        i++
-      ) {
-        const el = document.getElementById(`btn-${this.rooms[i]}`);
-        if (!el) continue;
-        el.style.borderLeft = 'none';
-        el.style.borderRight = 'none';
-        el.style.borderRadius = '0';
-        el.style.borderColor = 'rgb(255,113,0)';
-        el.style.borderTop = '1px solid rgb(255,113,0)';
-        el.style.borderBottom = '1px solid rgb(255,113,0)';
-        el.style.background = 'rgb(255,250,245)';
-        if (i > half) {
-          el.style.transform = 'translateX(5px)';
-        } else {
-          el.style.transform = 'translateX(-5px)';
-        }
-        //  this.selectedRooms.push(this.rooms[i]);
+      // remove children
+      this.bar.nativeElement.innerHTML = '';
+      let index1 = this.rooms.indexOf(this.selectedRoom_1);
+      let index2 = this.rooms.indexOf(this.selectedRoom_2);
+      let start = Math.min(index1, index2);
+      let end = Math.max(index1, index2);
+
+      for (let i = 0; i < start; i++) {
+        let div = document.createElement('button');
+        div.classList.add('room-btn');
+        div.id = `btn-${this.rooms[i]}`;
+        div.innerText = this.rooms[i];
+        Object.assign(div.style, buttonCss);
+        div.addEventListener('click', () => this.onSelectRoom(this.rooms[i]));
+        this.bar.nativeElement.appendChild(div);
       }
-      const el_1 = document.getElementById(`btn-${this.selectedRoom_1}`);
-      const el_2 = document.getElementById(`btn-${this.selectedRoom_2}`);
-      if (el_1 && el_2) {
-        // remove non number
-        let removed = this.selectedRoom_1?.replace(/[^0-9]/g, '');
-        let removed_2 = this.selectedRoom_2?.replace(/[^0-9]/g, '');
+      let containerSpecial = document.createElement('div');
+      Object.assign(containerSpecial.style, containerSelected);
+      for (let i = start; i <= end; i++) {
+        let div = document.createElement('button');
+        div.classList.add('room-btn');
+        div.id = `btn-${this.rooms[i]}`;
+        div.addEventListener('click', () => this.onSelectRoom(this.rooms[i]));
+        div.innerText = this.rooms[i];
+        containerSpecial.appendChild(div);
+        Object.assign(div.style, buttonCss);
+        div.style.border = 'none';
+      }
+      this.bar.nativeElement.appendChild(containerSpecial);
 
-        let asNum1 = parseFloat(removed as string);
-        let asNum2 = parseFloat(removed_2 as string);
-        if (asNum1 < asNum2) {
-          el_2.style.borderLeft = '1px solid rgb(255,113,0)';
-          el_2.style.borderRight = 'none';
+      for (let i = end + 1; i < this.rooms.length; i++) {
+        let div = document.createElement('button');
+        div.classList.add('room-btn');
+        div.addEventListener('click', () => this.onSelectRoom(this.rooms[i]));
+        div.id = `btn-${this.rooms[i]}`;
+        div.innerText = this.rooms[i];
+        Object.assign(div.style, buttonCss);
 
-          el_1.style.borderRight = '1px solid rgb(255,113,0)';
-          el_1.style.borderLeft = 'none';
-
-          // radius
-          el_2.style.borderTopLeftRadius = '100%';
-          el_2.style.borderBottomLeftRadius = '100%';
-
-          el_1.style.borderTopRightRadius = '100%';
-          el_1.style.borderBottomRightRadius = '100%';
-        } else {
-          el_2.style.borderLeft = 'none';
-          el_2.style.borderRight = '1px solid rgb(255,113,0)';
-
-          el_1.style.borderRight = 'none';
-          el_1.style.borderLeft = '1px solid rgb(255,113,0)';
-
-          // radius
-          el_1.style.borderTopLeftRadius = '100%';
-          el_1.style.borderBottomLeftRadius = '100%';
-
-          el_2.style.borderTopRightRadius = '100%';
-          el_2.style.borderBottomRightRadius = '100%';
-        }
+        this.bar.nativeElement.appendChild(div);
       }
     }
   }
