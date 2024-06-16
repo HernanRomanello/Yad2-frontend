@@ -39,6 +39,7 @@ export class RealEstateRoomsAmountComponent {
   rooms = ['1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5', '5.5', '+6'];
   // event emitter for selected
   // property type
+  oddClicked = false;
 
   selectedRoom_1: string | undefined;
   selectedRoom_2: string | undefined;
@@ -70,6 +71,28 @@ export class RealEstateRoomsAmountComponent {
   }
 
   updateBarStyle() {
+    if (this.selectedRoom_1 && !this.selectedRoom_2) {
+      // clear children of bar and add new children
+      this.bar.nativeElement.innerHTML = '';
+      for (let i = 0; i < this.rooms.length; i++) {
+        let div = document.createElement('button');
+        div.classList.add('room-btn');
+        div.id = `btn-${this.rooms[i]}`;
+        div.innerText = this.rooms[i];
+        Object.assign(div.style, buttonCss);
+        div.addEventListener('click', () => this.onSelectRoom(this.rooms[i]));
+        this.bar.nativeElement.appendChild(div);
+      }
+      const button = document.getElementById(`btn-${this.selectedRoom_1}`);
+
+      if (button) {
+        button.style.border = '1px solid #FF7137';
+        this.oddClicked = true;
+      } else {
+        this.oddClicked = false;
+      }
+    }
+
     if (this.selectedRoom_1 && this.selectedRoom_2) {
       // remove children
       this.bar.nativeElement.innerHTML = '';
@@ -110,6 +133,9 @@ export class RealEstateRoomsAmountComponent {
         Object.assign(div.style, buttonCss);
 
         this.bar.nativeElement.appendChild(div);
+      }
+      if (this.oddClicked) {
+      } else {
       }
     }
   }

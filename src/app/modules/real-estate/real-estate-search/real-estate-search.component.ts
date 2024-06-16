@@ -108,7 +108,6 @@ export class RealEstateSearchComponent {
       | 'additionalFiltersMenu'
       | 'tradeTypeMenu'
   ) {
-    // this.rotateAllArrows();
     switch (type) {
       case 'priceSlider':
         this.toggleMenuDropdown(this.priceSlider);
