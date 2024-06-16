@@ -179,6 +179,11 @@ export class RealEstateSearchComponent {
   }
 
   onSearch() {
+    const roomsAmountContainer =
+      this.roomsAmountMenu.nativeElement.querySelector('.menu');
+    if (roomsAmountContainer) {
+      roomsAmountContainer.classList.add('hidden');
+    }
     this.searchService.emitSelectedPriceRange(this.selectedPriceRange);
     this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
     this.searchService.emitSelectedRoomsAmount(this.selectedRoomsAmount);
