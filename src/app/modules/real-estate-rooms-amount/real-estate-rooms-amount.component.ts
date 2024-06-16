@@ -39,7 +39,6 @@ export class RealEstateRoomsAmountComponent {
   rooms = ['1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5', '5.5', '+6'];
   // event emitter for selected
   // property type
-  oddClicked = false;
 
   selectedRoom_1: string | undefined;
   selectedRoom_2: string | undefined;
@@ -87,9 +86,6 @@ export class RealEstateRoomsAmountComponent {
 
       if (button) {
         button.style.border = '1px solid #FF7137';
-        this.oddClicked = true;
-      } else {
-        this.oddClicked = false;
       }
     }
 
@@ -133,9 +129,6 @@ export class RealEstateRoomsAmountComponent {
         Object.assign(div.style, buttonCss);
 
         this.bar.nativeElement.appendChild(div);
-      }
-      if (this.oddClicked) {
-      } else {
       }
     }
   }
