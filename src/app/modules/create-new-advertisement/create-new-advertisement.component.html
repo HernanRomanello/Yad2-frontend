@@ -1,1 +1,36 @@
-<p>create-new-advertisement works!</p>
+<form [formGroup]="advertisementForm" (ngSubmit)="handleSubmit()">
+  <div class="advertisement-selection" id="1-Selection">
+    <ng-container>
+      {{ this.changeTradeTypeTitle() }}
+      <!-- Display the current selection -->
+    </ng-container>
+    <button
+      type="button"
+      [class.active]="isActive('מכירה')"
+      (click)="setAdvertisementType('מכירה')"
+    >
+      מכירה
+    </button>
+    <button
+      type="button"
+      [class.active]="isActive('השכרה')"
+      (click)="setAdvertisementType('השכרה')"
+    >
+      השכרה
+    </button>
+    <button
+      type="button"
+      [class.active]="isActive('נכס מסחרי')"
+      (click)="setAdvertisementType('נכס מסחרי')"
+    >
+      נכס מסחרי
+    </button>
+    <button
+      type="button"
+      [class.active]="isActive('עסקים למכירה')"
+      (click)="setAdvertisementType('עסקים למכירה')"
+    >
+      עסקים למכירה
+    </button>
+  </div>
+</form>
