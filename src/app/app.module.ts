@@ -30,6 +30,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { RealEstatePriceSliderComponent } from './modules/real-estate/real-estate-price-slider/real-estate-price-slider.component';
 import { AdvertisementComponent } from './modules/advertisement/advertisement.component';
 import { FooterComponent } from './modules/footer/footer.component';
+import { CreateNewAdvertisementComponent } from './modules/create-new-advertisement/create-new-advertisement.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FooterComponent } from './modules/footer/footer.component';
     TestComponent,
     AdvertisementComponent,
     FooterComponent,
+    CreateNewAdvertisementComponent,
   ],
   imports: [
     BrowserModule,
