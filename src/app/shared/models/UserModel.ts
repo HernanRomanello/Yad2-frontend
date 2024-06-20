@@ -14,6 +14,7 @@ export type UserModel = {
   // priceDiscount?: number;
 
   name: string;
+  phoneNumber?: string;
   lastName: string;
   birthDate: string;
   city: string;

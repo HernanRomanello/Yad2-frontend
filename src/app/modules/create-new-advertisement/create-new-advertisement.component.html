@@ -149,7 +149,7 @@
   <div>
     <label>
       <input type="checkbox" formControlName="airConditioning" />
-      מיזוג אוויר
+      מיזוג
     </label>
   </div>
   <div>
@@ -172,14 +172,20 @@
   </div>
   <div>
     <label>
+      <input type="checkbox" formControlName="forRoommates" />
+      לשותפים
+    </label>
+  </div>
+  <div>
+    <label>
       <input type="checkbox" formControlName="furnished" />
-      מרוהט
+      ריהוט
     </label>
   </div>
   <div>
     <label>
       <input type="checkbox" formControlName="separateUnit" />
-      יחידה נפרדת
+      יחידת דיור
     </label>
   </div>
   <div>
@@ -191,13 +197,13 @@
   <div>
     <label>
       <input type="checkbox" formControlName="petsAllowed" />
-      כניסה לחיות מחמד
+      חיות מחמד
     </label>
   </div>
   <div>
     <label>
       <input type="checkbox" formControlName="renovated" />
-      משופץ
+      משופצת
     </label>
   </div>
   <div>
@@ -209,7 +215,7 @@
   <div>
     <label>
       <input type="checkbox" formControlName="multiLockDoors" />
-      דלתות פנדור
+      דלתות רב בריח
     </label>
   </div>
   <div>
@@ -219,26 +225,86 @@
     </label>
   </div>
   <div>
+    <label for="">מה חשוב לך שידעו על הנכס?</label>
+
+    <div>
+      <label for=""> פרוט הריהוט: (עד 200 תוים) </label>
+
+      <label for="description">תיאור*</label>
+      <textarea
+        id="description"
+        formControlName="furnituredescription"
+      ></textarea>
+    </div>
+    <div>
+      <label for="description">פרוט הנכס*</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+  </div>
+  <div>
+    <label for="price">מספר תשלומים</label>
+    <input id="price" formControlName="numberOfPayments" />
+  </div>
+  <div>
+    <label for="price">ועד בית</label>
+    <input
+      placeholder="תשלום לועד בית"
+      id="price"
+      formControlName="houseCommitteePayment"
+    />
+  </div>
+  <div>
+    <label for="price">ארנונה לחודשים</label>
+    <input
+      placeholder="  סכום ארנונה לתשלום"
+      id="price"
+      formControlName="municipalityMonthlyPropertyTax"
+    />
+  </div>
+  <div>
+    <label for="price"> מ״ר בנוי</label>
+    <input
+      placeholder="כמה מר יש בנכס"
+      id="price"
+      formControlName="builtSquareMeters"
+    />
+  </div>
+  <div>
+    <label for="price"> מ״ר גינה</label>
+    <input id="price" formControlName="gardenSquareMeters" />
+  </div>
+  <div>
+    <label for="price"> גודל במ״ר סך הכל*</label>
+    <input id="price" formControlName="totalSquareMeters" />
+  </div>
+  <div>
     <label for="price">מחיר*</label>
     <input id="price" formControlName="price" />
   </div>
   <div>
-    <label for="entryDate">תאריך כניסה*</label>
-    <input id="entryDate" formControlName="entryDate" />
-  </div>
-  <div>
-    <label for="description">תיאור*</label>
-    <textarea id="description" formControlName="description"></textarea>
-  </div>
-  <div>
-    <label for="contactName">שם איש קשר*</label>
-    <input id="contactName" formControlName="contactName" />
-  </div>
-  <div>
-    <label for="contactPhone">טלפון איש קשר*</label>
-    <input id="contactPhone" formControlName="contactPhone" />
+    <label for="price">מחיר למטר</label>
+    <div></div>
   </div>
 
+  <!-- <div>
+    <label for="entryDate">תאריך כניסה*</label>
+    <input id="entryDate" formControlName="entryDate" />
+  </div> -->
+
+  <div class="title">תאריך כניסה</div>
+  <div class="date">
+    <input
+      id="entryDate"
+      formControlName="entryDate"
+      class="date-input"
+      type="date"
+      placeholder="dd/mm/yyyy"
+    />
+    <label class="date-checkbox">
+      <input type="checkbox" />
+      כניסה מיידית
+    </label>
+  </div>
   <!-- File Upload Section -->
   <div>
     <label for="pictures">תמונות</label>
@@ -251,5 +317,20 @@
 
   <!-- Trade Type Selection Section -->
 
+  <div>
+    <label for="contactName">שם איש קשר*</label>
+    <input
+      id="contactName"
+      formControlName="contactName"
+      [value]="authService.user.getValue()?.name"
+    />
+  </div>
+  <div>
+    <label for="contactPhone">טלפון איש קשר*</label>
+    <input id="contactPhone" formControlName="contactPhone" />
+  </div>
+  <input type="checkbox" formControlName="standardizationAccepted" />
+
+  רק לקרוא ולאשר את התקנון*
   <button type="submit">המשך לשלב הבא</button>
 </form>

@@ -89,8 +89,8 @@ export class CreateNewAdvertisementComponent implements OnInit {
       longTerm: [false],
       pictures: [[]], // Assuming an array of Picture type
       video: [''],
-      contactName: ['', Validators.required],
-      contactPhone: ['', Validators.required],
+      contactName: [user?.name || '', Validators.required],
+      contactPhone: [user?.phoneNumber || '', Validators.required],
       standardizationAccepted: [false],
     });
   }
