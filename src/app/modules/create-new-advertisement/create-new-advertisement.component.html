@@ -33,4 +33,223 @@
       עסקים למכירה
     </button>
   </div>
+  <div class="advertisement-selection" id="2-Selection">
+    <label for="city">ישוב*</label>
+    <input
+      id="city"
+      [value]="authService.user.getValue()?.city"
+      formControlName="city"
+    />
+  </div>
+  <div>
+    <label for="street">רחוב*</label>
+    <input
+      id="street"
+      [value]="authService.user.getValue()?.street"
+      formControlName="street"
+    />
+  </div>
+  <div>
+    <label for="number">מס׳ בית*</label>
+    <input
+      id="number"
+      [value]="authService.user.getValue()?.houseNumber"
+      formControlName="number"
+    />
+  </div>
+  <div>
+    <label for="floor">קומה*</label>
+    <input id="floor" formControlName="floor" />
+    <label>
+      <input type="checkbox" formControlName="onPillars" />
+      על עמודים
+    </label>
+  </div>
+  <div>
+    <label for="totalFloors">סה״כ קומות בבניין*</label>
+    <input id="totalFloors" formControlName="totalFloors" />
+  </div>
+  <div>
+    <label for="neighborhood">שכונה*</label>
+    <input id="neighborhood" formControlName="neighborhood" />
+  </div>
+  <div>
+    <label for="area">אזור*</label>
+    <input id="area" formControlName="area" />
+  </div>
+
+  <!-- Property Details Section -->
+  <div>
+    <label for="assetType">סוג הנכס*</label>
+    <input id="assetType" formControlName="assetType" />
+  </div>
+  <div>
+    <label for="assetState">מצב הנכס*</label>
+    <input id="assetState" formControlName="assetState" />
+  </div>
+  <div>
+    <label for="view"> כיווני אוויר*</label>
+    <input id="view" formControlName="airDirections" />
+  </div>
+  <div>
+    <label for="view">נוף פתוח*</label>
+    <input id="view" formControlName="view" />
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="rearProperty" />
+      נכס עורפי
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" />
+      אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס, עסקאות
+      באיזור והצעות מקצועיות מיועצי נדל״ן
+    </label>
+  </div>
+  <div>
+    <label for="rooms">מספר חדרים*</label>
+    <input id="rooms" formControlName="rooms" />
+  </div>
+  <div>
+    <label for="showerRooms"> חדרי מקלחת*</label>
+    <input id="showerRooms" formControlName="showerRooms" />
+  </div>
+  <div>
+    <label for="showerRooms"> חניה*</label>
+    <input id="showerRooms" formControlName="privateParking" />
+  </div>
+  <div>
+    <label for="showerRooms"> מרפסת*</label>
+    <input id="showerRooms" />
+  </div>
+  <!-- //TODO: Add formControlName="balcony" database  -->
+
+  <!-- Boolean Options Section -->
+
+  <!-- <div>
+    <label>
+      <input type="checkbox" formControlName="hasPrivateParking" />
+      חניה פרטית
+    </label>
+  </div> -->
+  <!-- <div>
+    <label>
+      <input type="checkbox" formControlName="hasBalcony" />
+      מרפסת
+    </label>
+  </div> -->
+  <div>
+    <label>
+      <input type="checkbox" formControlName="accessibleForDisabled" />
+      נגיש לנכים
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="airConditioning" />
+      מיזוג אוויר
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="windowBars" />
+      סורגים
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="solarWaterHeater" />
+      דוד שמש
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="elevator" />
+      מעלית
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="furnished" />
+      מרוהט
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="separateUnit" />
+      יחידה נפרדת
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="kosherKitchen" />
+      מטבח כשר
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="petsAllowed" />
+      כניסה לחיות מחמד
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="renovated" />
+      משופץ
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="safeRoom" />
+      ממ"ד
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="multiLockDoors" />
+      דלתות פנדור
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="storageRoom" />
+      מחסן
+    </label>
+  </div>
+  <div>
+    <label for="price">מחיר*</label>
+    <input id="price" formControlName="price" />
+  </div>
+  <div>
+    <label for="entryDate">תאריך כניסה*</label>
+    <input id="entryDate" formControlName="entryDate" />
+  </div>
+  <div>
+    <label for="description">תיאור*</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+  <div>
+    <label for="contactName">שם איש קשר*</label>
+    <input id="contactName" formControlName="contactName" />
+  </div>
+  <div>
+    <label for="contactPhone">טלפון איש קשר*</label>
+    <input id="contactPhone" formControlName="contactPhone" />
+  </div>
+
+  <!-- File Upload Section -->
+  <div>
+    <label for="pictures">תמונות</label>
+    <input type="file" id="pictures" (change)="onFileChange($event)" multiple />
+  </div>
+  <div>
+    <label for="video">וידאו</label>
+    <input id="video" formControlName="video" />
+  </div>
+
+  <!-- Trade Type Selection Section -->
+
+  <button type="submit">המשך לשלב הבא</button>
 </form>

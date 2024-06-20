@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
+import { AuthService } from '../../services/user/auth.service';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -15,17 +16,24 @@ import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 export class CreateNewAdvertisementComponent implements OnInit {
   advertisementForm!: FormGroup | any;
   images: File[] = [];
-
-  constructor(private formBuilder: FormBuilder) {}
+  authService = inject(AuthService);
+  formBuilder = inject(FormBuilder);
 
   ngOnInit(): void {
     // Initializing the FormGroup with all necessary fields as per the AdvertisementsModel
+    const user = this.authService.user.getValue();
     this.advertisementForm = this.formBuilder.group({
       id: [null, Validators.required],
-      city: ['', Validators.required],
+      city: [user?.city.toString() || '', Validators.required],
       tradeType: ['', Validators.required],
-      street: ['', Validators.required],
-      number: [null, Validators.required],
+      street: [
+        this.authService.user.getValue()?.street || '',
+        Validators.required,
+      ],
+      number: [
+        this.authService.user.getValue()?.houseNumber || '',
+        Validators.required,
+      ],
       floor: [null],
       totalFloors: [null],
       onPillars: [false],
@@ -108,6 +116,8 @@ export class CreateNewAdvertisementComponent implements OnInit {
     } else {
       console.log('Form is not valid');
     }
+    alert('Form submitted');
+    alert(this.advertisementForm.get('city').value.toString());
   }
   isActive(type: string): boolean {
     return this.advertisementForm.get('tradeType').value === type;
