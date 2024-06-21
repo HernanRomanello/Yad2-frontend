@@ -122,7 +122,7 @@
   </div>
   <div>
     <label for="showerRooms"> מרפסת*</label>
-    <input id="showerRooms" />
+    <input id="showerRooms" formControlName="balconiesNumber" />
   </div>
   <!-- //TODO: Add formControlName="balcony" database  -->
 
@@ -301,8 +301,11 @@
       placeholder="dd/mm/yyyy"
     />
     <label class="date-checkbox">
-      <input type="checkbox" />
-      כניסה מיידית
+      <div>
+        <input type="checkbox" formControlName="immediate" />כניסה מיידית
+      </div>
+      <div><input type="checkbox" formControlName="flexible" /> גמיש</div>
+      <div><input type="checkbox" formControlName="longTerm" /> לטווח ארוך</div>
     </label>
   </div>
   <!-- File Upload Section -->
