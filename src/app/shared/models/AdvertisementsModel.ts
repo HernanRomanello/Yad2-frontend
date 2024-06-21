@@ -24,7 +24,7 @@ export type AdvertisementsModel = {
   hasImage: boolean;
   hasPrice: boolean;
   moshavOrKibutz: boolean;
-  pirceDiscount: boolean;
+  priceDiscount: boolean;
   publisherIsMiddleMan: boolean;
   publisherIsContractor: boolean;
   balconiesNumber: number;

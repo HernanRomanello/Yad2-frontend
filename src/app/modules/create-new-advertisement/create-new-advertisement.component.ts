@@ -19,12 +19,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
   authService = inject(AuthService);
   formBuilder = inject(FormBuilder);
 
-  ngOnInit(): void {
-    // Initializing the FormGroup with all necessary fields as per the AdvertisementsModel
-    const user = this.authService.user.getValue();
+  ngOnInit() {
     this.advertisementForm = this.formBuilder.group({
-      id: [null, Validators.required],
-      city: [user?.city.toString() || '', Validators.required],
+      city: [this.authService.user.getValue()?.city || '', Validators.required],
       tradeType: ['', Validators.required],
       street: [
         this.authService.user.getValue()?.street || '',
@@ -48,7 +45,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       showerRooms: ['', Validators.required],
       privateParking: [null],
       hasPrivateParking: [false],
-      hasBalcony: [false],
+      hasBolcony: [false],
       hasImage: [false],
       hasPrice: [false],
       moshavOrKibutz: [false],
@@ -89,11 +86,28 @@ export class CreateNewAdvertisementComponent implements OnInit {
       longTerm: [false],
       pictures: [[]], // Assuming an array of Picture type
       video: [''],
-      contactName: [user?.name || '', Validators.required],
-      contactPhone: [user?.phoneNumber || '', Validators.required],
+      contactName: [
+        this.authService.user.getValue()?.name || '',
+        Validators.required,
+      ],
+      contactPhone: [
+        this.authService.user.getValue()?.phoneNumber || '',
+        Validators.required,
+      ],
       standardizationAccepted: [false],
     });
   }
+  checkFormValidation() {
+    for (const controlName in this.advertisementForm.controls) {
+      if (this.advertisementForm.controls.hasOwnProperty(controlName)) {
+        const control = this.advertisementForm.get(controlName);
+        if (control && !control.valid) {
+          console.error(`${controlName} is invalid`, control.errors);
+        }
+      }
+    }
+  }
+
   changeTradeTypeTitle(): string {
     switch (this.advertisementForm.get('tradeType').value) {
       case 'מכירה':
@@ -110,15 +124,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
   }
 
   handleSubmit() {
+    this.authService.postNewAdvertisement(this.advertisementForm.value);
     if (this.advertisementForm.valid) {
-      console.log('Form data:', this.advertisementForm.value);
-      console.log('Uploaded images:', this.images);
     } else {
-      console.log('Form is not valid');
+      this.checkFormValidation();
     }
-    alert('Form submitted');
-    alert(this.advertisementForm.get('city').value.toString());
   }
+
   isActive(type: string): boolean {
     return this.advertisementForm.get('tradeType').value === type;
   }

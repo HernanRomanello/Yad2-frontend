@@ -73,7 +73,7 @@ export class RealEstateAdditionalFiltersComponent {
   }
 
   applyFilters() {
-    console.log(this.filters);
+    // console.log(this.filters);
     // Implement filter logic here
   }
 }
