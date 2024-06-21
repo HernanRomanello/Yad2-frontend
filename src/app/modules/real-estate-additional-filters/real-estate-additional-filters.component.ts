@@ -43,7 +43,7 @@ export class RealEstateAdditionalFiltersComponent {
   } as const;
 
   assetState = ['חדש מקבלן', 'חדש', 'משופץ', 'במצב שמור', 'דרוש שיפוץ'];
-  aptSizeRange: [number, number] = [0, 0];
+  aptSizeRange: [number, number] = [0, 500];
   floorsRange: [string, string] = ['0', '18'];
 
   filters: any = {
@@ -98,7 +98,7 @@ export class RealEstateAdditionalFiltersComponent {
     };
     this.searchService.setFilters({
       ...this.filters,
-      aptSizeRange: [0, 20000],
+      aptSizeRange: [0, 500],
       floorsRange: ['0', '18'],
     });
   }
