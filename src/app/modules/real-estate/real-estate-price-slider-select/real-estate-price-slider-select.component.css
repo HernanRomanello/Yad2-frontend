@@ -136,9 +136,8 @@
 }
 
 .hyphen {
-  height: 10px;
-  width: 16px;
+  height: 1px;
+  width: 10px;
   background-color: black;
-  transform: rotate(90deg);
-  opacity: 0.4;
+  opacity: 1;
 }

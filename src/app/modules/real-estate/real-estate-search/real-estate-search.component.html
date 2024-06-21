@@ -95,7 +95,9 @@
           סינונים נוספים
         </button>
         <div id="additionalFiltersMenu" class="menu hidden">
-          <app-real-estate-additional-filters></app-real-estate-additional-filters>
+          <app-real-estate-additional-filters
+            (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
+          ></app-real-estate-additional-filters>
         </div>
       </div>
 

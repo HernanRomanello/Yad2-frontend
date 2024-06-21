@@ -1,0 +1,24 @@
+export type FilterValue = boolean | undefined;
+export type PropertyFilters = {
+  hasImage: FilterValue;
+  moshavOrKibutz: FilterValue;
+  hasPrice: FilterValue;
+  pirceDiscount: FilterValue;
+  publisherIsMiddleMan: FilterValue;
+  publisherIsContractor: FilterValue;
+  hasPrivateParking: FilterValue;
+  elevator: FilterValue;
+  safeRoom: FilterValue;
+  hasBolcony: FilterValue;
+  airConditioner: FilterValue;
+  storageRoom: FilterValue;
+  renovated: FilterValue;
+  accessibleForDisabled: FilterValue;
+  windowBars: FilterValue;
+  furnished: FilterValue;
+  exclusivity: FilterValue;
+  petsAllowed: FilterValue;
+  forRoommates: FilterValue;
+  floorsRange: [string, string];
+  aptSizeRange: [number, number];
+};

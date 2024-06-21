@@ -10,6 +10,7 @@ import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel'
 import { AuthService } from '../../../services/user/auth.service';
 import { combineLatest, map } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
+import { FilterValue } from '../../../shared/models/Filters';
 @Component({
   selector: 'app-real-estate-results',
   templateUrl: './real-estate-results.component.html',
@@ -42,9 +43,52 @@ export class RealEstateResultsComponent {
         selectedTradeType,
         selectedRoomsAmount,
       ]) => {
+        const filters = this.searchService.getFilters();
+        let booleanFilters: { [key: string]: FilterValue } = Object.keys(
+          filters
+        )
+          .filter(
+            (key: string) =>
+              typeof (filters as any)[key] === 'boolean' ||
+              typeof (filters as any)[key] === 'undefined'
+          )
+          .reduce((acc: any, key: string) => {
+            acc[key] = (filters as any)[key];
+            return acc;
+          }, {});
+        let [aptSizeMin, aptSizeMax] = filters.aptSizeRange;
+        let [floorsMin, floorsMax] = filters.floorsRange.map((n) => {
+          if (n === 'מרתף') return -1;
+          if (n === 'קרקע') return 0;
+          return parseInt(n);
+        });
+
         console.log(selectedPriceRange);
         // all advertisements
         let ads = advertisements;
+
+        // filter only those that hae same booleans as the filters
+        console.log(booleanFilters);
+        ads = ads.filter((ad) =>
+          Object.keys(booleanFilters).every((key) => {
+            if (booleanFilters[key]) {
+              return (ad as any)[key] === booleanFilters[key];
+            }
+            return true;
+          })
+        );
+        // filter by apt size
+        ads = ads.filter(
+          (ad) =>
+            ad.builtSquareMeters >= aptSizeMin &&
+            ad.builtSquareMeters <= aptSizeMax
+        );
+        console.log(floorsMin, floorsMax);
+        // filter by floors
+        ads = ads.filter(
+          (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax
+        );
+
         // filter by property type
         if (selectedPropertyTypes.length > 0) {
           ads = ads.filter((ad) =>
@@ -52,12 +96,13 @@ export class RealEstateResultsComponent {
           );
         }
         // filter by price
-        ads = ads.filter(
-          (ad) =>
-            ad.price >= selectedPriceRange[0] &&
-            ad.price <= selectedPriceRange[1]
-        );
-
+        if (selectedPriceRange[0] !== 0 && selectedPriceRange[1] !== 20000) {
+          ads = ads.filter(
+            (ad) =>
+              ad.price >= selectedPriceRange[0] &&
+              ad.price <= selectedPriceRange[1]
+          );
+        }
         // filter by num rooms
         if (selectedRoomsAmount.length > 0) {
           ads = ads.filter((ad) => selectedRoomsAmount.includes(ad.rooms));

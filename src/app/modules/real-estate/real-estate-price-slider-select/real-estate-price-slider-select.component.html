@@ -1,0 +1,36 @@
+<div class="{{ sliderClass() }}">
+  <div class="price-container">
+    <select
+      class="price"
+      (input)="emitEndIndex($event)"
+      [value]="values[selectedEndIndex]"
+      (input)="manualSelectMaxPrice($event)"
+    >
+      <option *ngFor="let floors of values" [value]="floors">
+        {{ floors }}
+      </option>
+    </select>
+
+    <span class="hyphen"></span>
+    <select
+      (input)="emitStartIndex($event)"
+      [value]="values[selectedStartIndex]"
+      (input)="manualSelectMinPrice($event)"
+      class="price"
+    >
+      <option *ngFor="let floors of values" [value]="floors">
+        {{ floors }}
+      </option>
+    </select>
+  </div>
+
+  <div class="slider">
+    <p-slider
+      (onChange)="emit($event)"
+      [(ngModel)]="rangeValuesBuy"
+      [range]="true"
+      [min]="0"
+      [max]="this.values.length - 1"
+    />
+  </div>
+</div>

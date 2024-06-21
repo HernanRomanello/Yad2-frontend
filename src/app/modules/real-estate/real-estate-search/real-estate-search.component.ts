@@ -42,6 +42,12 @@ export class RealEstateSearchComponent {
   @ViewChild('tradeTypeMenu', { static: false })
   tradeTypeMenu!: ElementRef;
 
+  onCloseAdditionalFiltersMenu(event: any) {
+    this.additionalFiltersMenu.nativeElement
+      .querySelector('.menu')
+      .classList.add('hidden');
+  }
+
   constructor(private router: Router) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
@@ -127,7 +133,6 @@ export class RealEstateSearchComponent {
         break;
       case 'additionalFiltersMenu':
         this.toggleMenuDropdown(this.additionalFiltersMenu);
-
         break;
       case 'tradeTypeMenu':
         this.toggleMenuDropdown(this.tradeTypeMenu);

@@ -1,11 +1,43 @@
 import { Injectable } from '@angular/core';
 import { title } from 'node:process';
 import { BehaviorSubject } from 'rxjs';
+import { PropertyFilters } from '../shared/models/Filters';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
+  private propertyFilters: PropertyFilters = {
+    hasImage: undefined,
+    moshavOrKibutz: undefined,
+    hasPrice: undefined,
+    pirceDiscount: undefined,
+    publisherIsMiddleMan: undefined,
+    publisherIsContractor: undefined,
+    hasPrivateParking: undefined,
+    elevator: undefined,
+    safeRoom: undefined,
+    hasBolcony: undefined,
+    airConditioner: undefined,
+    storageRoom: undefined,
+    renovated: undefined,
+    accessibleForDisabled: undefined,
+    windowBars: undefined,
+    furnished: undefined,
+    exclusivity: undefined,
+    petsAllowed: undefined,
+    forRoommates: undefined,
+    floorsRange: ['0', '18'],
+    aptSizeRange: [0, 20000],
+  };
+
+  getFilters() {
+    return this.propertyFilters;
+  }
+  setFilters(filters: PropertyFilters) {
+    this.propertyFilters = filters;
+  }
+
   adds = [
     {
       title: 'רנט איט מוריה אטריום',
