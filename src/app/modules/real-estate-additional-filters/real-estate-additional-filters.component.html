@@ -78,24 +78,24 @@
         <div class="title">מצב הנכס</div>
         <div>
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="assetState[0]" /> חדש מקבלן (לא
-            גרו בכלל)</label
+            ><input type="checkbox" [(ngModel)]="filters.isNewFromBuilder" />
+            חדש מקבלן (לא גרו בכלל)</label
           >
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="assetState[1]" /> חדש (נכס בן
+            ><input type="checkbox" [(ngModel)]="filters.isNew" /> חדש (נכס בן
             עד 10 שנים)</label
           >
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="assetState[2]" /> משופץ (שופץ
-            ב-5 שנים האחרונות)</label
+            ><input type="checkbox" [(ngModel)]="filters.isRenovated" /> משופץ
+            (שופץ ב-5 שנים האחרונות)</label
           >
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="assetState[3]" /> במצב שמור
-            (במצב טוב, לא שופץ)</label
+            ><input type="checkbox" [(ngModel)]="filters.isWellMaintained" />
+            במצב שמור (במצב טוב, לא שופץ)</label
           >
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="assetState[4]" /> דרוש שיפוץ
-            (זקוק לעבודת שיפוץ)</label
+            ><input type="checkbox" [(ngModel)]="filters.needsRenovation" />
+            דרוש שיפוץ (זקוק לעבודת שיפוץ)</label
           >
         </div>
         <div class="range-slider">

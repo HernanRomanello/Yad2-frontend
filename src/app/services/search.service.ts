@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { title } from 'node:process';
 import { BehaviorSubject } from 'rxjs';
 import { PropertyFilters } from '../shared/models/Filters';
 
@@ -28,7 +27,7 @@ export class SearchService {
     petsAllowed: undefined,
     forRoommates: undefined,
     floorsRange: ['0', '18'],
-    aptSizeRange: [0, 20000],
+    aptSizeRange: [0, 500],
   };
 
   getFilters() {

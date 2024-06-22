@@ -1,8 +1,12 @@
 <form [formGroup]="advertisementForm" (ngSubmit)="handleSubmit()">
-  <div class="advertisement-selection" id="1-Selection">
+  <div class="close-section" *ngIf="false">
     <ng-container>
-      {{ this.changeTradeTypeTitle() }}
-      <!-- Display the current selection -->
+      <span class="section-title">1</span> {{ this.changeTradeTypeTitle() }}
+    </ng-container>
+  </div>
+  <div class="advertisement-selection" id="1-Selection" *ngIf="true">
+    <ng-container>
+      <span class="section-title">1</span> {{ this.changeTradeTypeTitle() }}
     </ng-container>
     <button
       type="button"
@@ -33,307 +37,381 @@
       עסקים למכירה
     </button>
   </div>
-  <div class="advertisement-selection" id="2-Selection">
+
+  <div class="close-section" *ngIf="false">
+    <div><span class="section-title">2</span> <span>כתובת הנכס</span></div>
+  </div>
+
+  <div class="advertisement-selection" id="2-Selection" *ngIf="true">
+    <div><span class="section-title">2</span> <span>כתובת הנכס</span></div>
     <label for="city">ישוב*</label>
     <input
       id="city"
       [value]="authService.user.getValue()?.city"
       formControlName="city"
     />
-  </div>
-  <div>
-    <label for="street">רחוב*</label>
-    <input
-      id="street"
-      [value]="authService.user.getValue()?.street"
-      formControlName="street"
-    />
-  </div>
-  <div>
-    <label for="number">מס׳ בית*</label>
-    <input
-      id="number"
-      [value]="authService.user.getValue()?.houseNumber"
-      formControlName="number"
-    />
-  </div>
-  <div>
-    <label for="floor">קומה*</label>
-    <input id="floor" formControlName="floor" />
-    <label>
-      <input type="checkbox" formControlName="onPillars" />
-      על עמודים
-    </label>
-  </div>
-  <div>
-    <label for="totalFloors">סה״כ קומות בבניין*</label>
-    <input id="totalFloors" formControlName="totalFloors" />
-  </div>
-  <div>
-    <label for="neighborhood">שכונה*</label>
-    <input id="neighborhood" formControlName="neighborhood" />
-  </div>
-  <div>
-    <label for="area">אזור*</label>
-    <input id="area" formControlName="area" />
-  </div>
-
-  <!-- Property Details Section -->
-  <div>
-    <label for="assetType">סוג הנכס*</label>
-    <input id="assetType" formControlName="assetType" />
-  </div>
-  <div>
-    <label for="assetState">מצב הנכס*</label>
-    <input id="assetState" formControlName="assetState" />
-  </div>
-  <div>
-    <label for="view"> כיווני אוויר*</label>
-    <input id="view" formControlName="airDirections" />
-  </div>
-  <div>
-    <label for="view">נוף פתוח*</label>
-    <input id="view" formControlName="view" />
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="rearProperty" />
-      נכס עורפי
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" />
-      אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס, עסקאות
-      באיזור והצעות מקצועיות מיועצי נדל״ן
-    </label>
-  </div>
-  <div>
-    <label for="rooms">מספר חדרים*</label>
-    <input id="rooms" formControlName="rooms" />
-  </div>
-  <div>
-    <label for="showerRooms"> חדרי מקלחת*</label>
-    <input id="showerRooms" formControlName="showerRooms" />
-  </div>
-  <div>
-    <label for="showerRooms"> חניה*</label>
-    <input id="showerRooms" formControlName="privateParking" />
-  </div>
-  <div>
-    <label for="showerRooms"> מרפסת*</label>
-    <input id="showerRooms" formControlName="balconiesNumber" />
-  </div>
-  <!-- //TODO: Add formControlName="balcony" database  -->
-
-  <!-- Boolean Options Section -->
-
-  <!-- <div>
-    <label>
-      <input type="checkbox" formControlName="hasPrivateParking" />
-      חניה פרטית
-    </label>
-  </div> -->
-  <!-- <div>
-    <label>
-      <input type="checkbox" formControlName="hasBalcony" />
-      מרפסת
-    </label>
-  </div> -->
-  <div>
-    <label>
-      <input type="checkbox" formControlName="accessibleForDisabled" />
-      נגיש לנכים
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="airConditioning" />
-      מיזוג
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="windowBars" />
-      סורגים
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="solarWaterHeater" />
-      דוד שמש
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="elevator" />
-      מעלית
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="forRoommates" />
-      לשותפים
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="furnished" />
-      ריהוט
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="separateUnit" />
-      יחידת דיור
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="kosherKitchen" />
-      מטבח כשר
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="petsAllowed" />
-      חיות מחמד
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="renovated" />
-      משופצת
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="safeRoom" />
-      ממ"ד
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="multiLockDoors" />
-      דלתות רב בריח
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" formControlName="storageRoom" />
-      מחסן
-    </label>
-  </div>
-  <div>
-    <label for="">מה חשוב לך שידעו על הנכס?</label>
 
     <div>
-      <label for=""> פרוט הריהוט: (עד 200 תוים) </label>
-
-      <label for="description">תיאור*</label>
-      <textarea
-        id="description"
-        formControlName="furnituredescription"
-      ></textarea>
+      <label for="street">רחוב*</label>
+      <input
+        id="street"
+        [value]="authService.user.getValue()?.street"
+        formControlName="street"
+      />
     </div>
     <div>
-      <label for="description">פרוט הנכס*</label>
-      <textarea id="description" formControlName="description"></textarea>
+      <label for="number">מס׳ בית*</label>
+      <input
+        id="number"
+        [value]="authService.user.getValue()?.houseNumber"
+        formControlName="number"
+      />
+    </div>
+    <div>
+      <label for="floor">קומה*</label>
+      <input id="floor" formControlName="floor" />
+      <label>
+        <input type="checkbox" formControlName="onPillars" />
+        על עמודים
+      </label>
+    </div>
+    <div>
+      <label for="totalFloors">סה״כ קומות בבניין*</label>
+      <input id="totalFloors" formControlName="totalFloors" />
+    </div>
+    <div>
+      <label for="neighborhood">שכונה*</label>
+      <input id="neighborhood" formControlName="neighborhood" />
+    </div>
+    <div>
+      <label for="area">אזור*</label>
+      <input id="area" formControlName="area" />
+    </div>
+
+    <div>
+      <label for="assetType">סוג הנכס*</label>
+      <button
+        type="button"
+        (click)="toggleDropdown(this.isAssetTypeDropdownHidden)"
+      >
+        {{ asset_type ?? "דירה או אולי פנטהאוז?" }}
+      </button>
+      <ul *ngIf="this.isAssetTypeDropdownHidden" class="dropdown-menu">
+        <li
+          *ngFor="let option of assetTypes"
+          (click)="selectAssetType(option, this.isAssetTypeDropdownHidden)"
+        >
+          {{ option }}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <label for="assetState">מצב הנכס*</label>
+      <input id="assetState" formControlName="assetState" />
+    </div>
+    <div>
+      <label for="view"> כיווני אוויר*</label>
+      <input id="view" formControlName="airDirections" />
+    </div>
+    <div>
+      <label for="view">נוף פתוח*</label>
+      <input id="view" formControlName="view" />
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="rearProperty" />
+        נכס עורפי
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" />
+        אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס, עסקאות
+        באיזור והצעות מקצועיות מיועצי נדל״ן
+      </label>
+    </div>
+    <div class="navigation-btn">
+      <button>המשך לשלב הבא</button>
+      <button>חזרה</button>
     </div>
   </div>
-  <div>
-    <label for="price">מספר תשלומים</label>
-    <input id="price" formControlName="numberOfPayments" />
-  </div>
-  <div>
-    <label for="price">ועד בית</label>
-    <input
-      placeholder="תשלום לועד בית"
-      id="price"
-      formControlName="houseCommitteePayment"
-    />
-  </div>
-  <div>
-    <label for="price">ארנונה לחודשים</label>
-    <input
-      placeholder="  סכום ארנונה לתשלום"
-      id="price"
-      formControlName="municipalityMonthlyPropertyTax"
-    />
-  </div>
-  <div>
-    <label for="price"> מ״ר בנוי</label>
-    <input
-      placeholder="כמה מר יש בנכס"
-      id="price"
-      formControlName="builtSquareMeters"
-    />
-  </div>
-  <div>
-    <label for="price"> מ״ר גינה</label>
-    <input id="price" formControlName="gardenSquareMeters" />
-  </div>
-  <div>
-    <label for="price"> גודל במ״ר סך הכל*</label>
-    <input id="price" formControlName="totalSquareMeters" />
-  </div>
-  <div>
-    <label for="price">מחיר*</label>
-    <input id="price" formControlName="price" />
-  </div>
-  <div>
-    <label for="price">מחיר למטר</label>
-    <div></div>
+
+  <div class="close-section" *ngIf="false">
+    <div><span class="section-title">3</span> <span> מאפייני הנכס</span></div>
   </div>
 
-  <!-- <div>
-    <label for="entryDate">תאריך כניסה*</label>
-    <input id="entryDate" formControlName="entryDate" />
-  </div> -->
+  <div class="advertisement-selection" id="3-Selection" *ngIf="true">
+    <div><span class="section-title">3</span> <span> מאפייני הנכס</span></div>
+    <div>
+      <label for="rooms">מספר חדרים*</label>
+      <input id="rooms" formControlName="rooms" />
+    </div>
+    <div>
+      <label for="showerRooms"> חדרי מקלחת*</label>
+      <input id="showerRooms" formControlName="showerRooms" />
+    </div>
+    <div>
+      <label for="showerRooms"> חניה*</label>
+      <input id="showerRooms" formControlName="privateParking" />
+    </div>
+    <div>
+      <label for="showerRooms"> מרפסת*</label>
+      <input id="showerRooms" formControlName="balconiesNumber" />
+    </div>
 
-  <div class="title">תאריך כניסה</div>
-  <div class="date">
-    <input
-      id="entryDate"
-      formControlName="entryDate"
-      class="date-input"
-      type="date"
-      placeholder="dd/mm/yyyy"
-    />
-    <label class="date-checkbox">
+    <div>
+      <label>
+        <input type="checkbox" formControlName="accessibleForDisabled" />
+        נגיש לנכים
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="airConditioning" />
+        מיזוג
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="windowBars" />
+        סורגים
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="solarWaterHeater" />
+        דוד שמש
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="elevator" />
+        מעלית
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="forRoommates" />
+        לשותפים
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="furnished" />
+        ריהוט
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="separateUnit" />
+        יחידת דיור
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="kosherKitchen" />
+        מטבח כשר
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="petsAllowed" />
+        חיות מחמד
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="renovated" />
+        משופצת
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="safeRoom" />
+        ממ"ד
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="multiLockDoors" />
+        דלתות רב בריח
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="storageRoom" />
+        מחסן
+      </label>
+    </div>
+    <div>
+      <label for="">מה חשוב לך שידעו על הנכס?</label>
+
       <div>
-        <input type="checkbox" formControlName="immediate" />כניסה מיידית
+        <label for=""> פרוט הריהוט: (עד 200 תוים) </label>
+
+        <label for="description">תיאור*</label>
+        <textarea
+          id="description"
+          formControlName="furnituredescription"
+        ></textarea>
       </div>
-      <div><input type="checkbox" formControlName="flexible" /> גמיש</div>
-      <div><input type="checkbox" formControlName="longTerm" /> לטווח ארוך</div>
-    </label>
-  </div>
-  <!-- File Upload Section -->
-  <div>
-    <label for="pictures">תמונות</label>
-    <input type="file" id="pictures" (change)="onFileChange($event)" multiple />
-  </div>
-  <div>
-    <label for="video">וידאו</label>
-    <input id="video" formControlName="video" />
+      <div>
+        <label for="description">פרוט הנכס*</label>
+        <textarea id="description" formControlName="description"></textarea>
+      </div>
+    </div>
+    <div class="navigation-btn">
+      <button>המשך לשלב הבא</button>
+      <button>חזרה</button>
+    </div>
   </div>
 
-  <!-- Trade Type Selection Section -->
-
-  <div>
-    <label for="contactName">שם איש קשר*</label>
-    <input
-      id="contactName"
-      formControlName="contactName"
-      [value]="authService.user.getValue()?.name"
-    />
+  <div class="close-section" *ngIf="false">
+    <span class="section-title">4</span> <span> תשלומים, תאריכים ועוד</span>
   </div>
-  <div>
-    <label for="contactPhone">טלפון איש קשר*</label>
-    <input id="contactPhone" formControlName="contactPhone" />
-  </div>
-  <input type="checkbox" formControlName="standardizationAccepted" />
 
-  רק לקרוא ולאשר את התקנון*
-  <button type="submit">המשך לשלב הבא</button>
+  <div class="advertisement-selection" id="4-Selection" *ngIf="true">
+    <div>
+      <span class="section-title">4</span> <span> תשלומים, תאריכים ועוד</span>
+      <div>
+        <label for="price">מספר תשלומים</label>
+        <input id="price" formControlName="numberOfPayments" />
+      </div>
+      <div>
+        <label for="price">ועד בית</label>
+        <input
+          placeholder="תשלום לועד בית"
+          id="price"
+          formControlName="houseCommitteePayment"
+        />
+      </div>
+      <div>
+        <label for="price">ארנונה לחודשים</label>
+        <input
+          placeholder="  סכום ארנונה לתשלום"
+          id="price"
+          formControlName="municipalityMonthlyPropertyTax"
+        />
+      </div>
+      <div>
+        <label for="price"> מ״ר בנוי</label>
+        <input
+          placeholder="כמה מר יש בנכס"
+          id="price"
+          formControlName="builtSquareMeters"
+        />
+      </div>
+      <div>
+        <label for="price"> מ״ר גינה</label>
+        <input id="price" formControlName="gardenSquareMeters" />
+      </div>
+      <div>
+        <label for="price"> גודל במ״ר סך הכל*</label>
+        <input id="price" formControlName="totalSquareMeters" />
+      </div>
+      <div>
+        <label for="price">מחיר*</label>
+        <input id="price" formControlName="price" />
+      </div>
+      <div>
+        <label for="price">מחיר למטר</label>
+        <div></div>
+      </div>
+
+      <div class="title">תאריך כניסה</div>
+      <div class="date">
+        <input
+          id="entryDate"
+          formControlName="entryDate"
+          class="date-input"
+          type="date"
+          placeholder="dd/mm/yyyy"
+        />
+        <label class="date-checkbox">
+          <div>
+            <input type="checkbox" formControlName="immediate" />כניסה מיידית
+          </div>
+          <div><input type="checkbox" formControlName="flexible" /> גמיש</div>
+          <div>
+            <input type="checkbox" formControlName="longTerm" /> לטווח ארוך
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="navigation-btn">
+      <button>המשך לשלב הבא</button>
+      <button>חזרה</button>
+    </div>
+  </div>
+
+  <div class="close-section" *ngIf="false">
+    <span class="section-title">5</span> <span>תמונות וסרטונים </span>
+  </div>
+
+  <div class="advertisement-selection" id="5-Selection" *ngIf="true">
+    <div>
+      <span class="section-title">5</span> <span>תמונות וסרטונים </span>
+      <div>
+        <label for="pictures">תמונות</label>
+        <input type="file" id="pictures" (change)="onFileChange($event)" />
+      </div>
+      <div>
+        <img
+          *ngFor="let image of images"
+          [src]="src(image)"
+          height="100"
+          width="100"
+        />
+      </div>
+
+      <div>
+        <label for="video">וידאו</label>
+        <input
+          id="video"
+          type="file"
+          formControlName="video"
+          (change)="onFileVideoChange($event)"
+        />
+      </div>
+    </div>
+    <div class="navigation-btn">
+      <button>המשך לשלב הבא</button>
+      <button>חזרה</button>
+    </div>
+  </div>
+
+  <div class="close-section" *ngIf="false">
+    <div><span class="section-title">6</span> <span>פרטי התקשרות </span></div>
+  </div>
+
+  <div class="advertisement-selection" id="6-Selection" *ngIf="true">
+    <div><span class="section-title">6</span> <span>פרטי התקשרות </span></div>
+    <div>
+      <label for="contactName">שם איש קשר*</label>
+      <input
+        id="contactName"
+        formControlName="contactName"
+        [value]="authService.user.getValue()?.name"
+      />
+    </div>
+    <div>
+      <label for="contactPhone">טלפון איש קשר*</label>
+      <input id="contactPhone" formControlName="contactPhone" />
+    </div>
+    <input type="checkbox" formControlName="standardizationAccepted" />
+
+    רק לקרוא ולאשר את התקנון*
+    <div class="navigation-btn">
+      <button>המשך לשלב הבא</button>
+      <button>חזרה</button>
+    </div>
+  </div>
+
+  <div class="close-section" *ngIf="false">
+    <div><span class="section-title">7</span> <span> בחירת מסלול</span></div>
+  </div>
+  <div class="advertisement-selection" id="7-Selection" *ngIf="true">
+    <div><span class="section-title">7</span> <span> בחירת מסלול</span></div>
+    <button type="submit">בחירת מסלול</button>
+  </div>
 </form>

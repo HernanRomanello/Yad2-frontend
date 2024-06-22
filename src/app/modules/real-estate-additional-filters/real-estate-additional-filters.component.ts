@@ -42,7 +42,6 @@ export class RealEstateAdditionalFiltersComponent {
     לשותפים: 'forRoommates',
   } as const;
 
-  assetState = ['חדש מקבלן', 'חדש', 'משופץ', 'במצב שמור', 'דרוש שיפוץ'];
   aptSizeRange: [number, number] = [0, 500];
   floorsRange: [string, string] = ['0', '18'];
 
@@ -66,6 +65,11 @@ export class RealEstateAdditionalFiltersComponent {
     exclusivity: undefined,
     petsAllowed: undefined,
     forRoommates: undefined,
+    isNewFromBuilder: undefined,
+    isNew: undefined,
+    isRenovated: undefined,
+    isWellMaintained: undefined,
+    needsRenovation: undefined,
   };
 
   @Output() closeMenu = new EventEmitter<any>();
@@ -95,7 +99,13 @@ export class RealEstateAdditionalFiltersComponent {
       exclusivity: undefined,
       petsAllowed: undefined,
       forRoommates: undefined,
+      isNewFromBuilder: undefined,
+      isNew: undefined,
+      isRenovated: undefined,
+      isWellMaintained: undefined,
+      needsRenovation: undefined,
     };
+
     this.searchService.setFilters({
       ...this.filters,
       aptSizeRange: [0, 500],
@@ -104,13 +114,9 @@ export class RealEstateAdditionalFiltersComponent {
   }
 
   onAptSizeSelected(size: any) {
-    console.log('APT SIZE', size);
-    // console.log(event);
     this.aptSizeRange = size;
   }
   onFloorsSelected(floors: any) {
-    console.log('FLOORS', floors);
-    // console.log(event);
     this.floorsRange = floors;
   }
 
@@ -122,7 +128,5 @@ export class RealEstateAdditionalFiltersComponent {
     };
     this.searchService.setFilters(filters);
     this.close();
-    // console.log(this.filters);
-    // Implement filter logic here
   }
 }

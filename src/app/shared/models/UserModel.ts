@@ -6,7 +6,7 @@ export type UserModel = {
   // id: string;
   // name: string;
   // lastName: string;
-  // email: string;
+  email: string;
   // isAdmin: boolean;
   // age?: number;
   // address?: string;

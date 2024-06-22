@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { AuthService } from '../../services/user/auth.service';
+import { ImageuploadService } from '../../services/imageupload.service';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -15,9 +16,37 @@ import { AuthService } from '../../services/user/auth.service';
 })
 export class CreateNewAdvertisementComponent implements OnInit {
   advertisementForm!: FormGroup | any;
+  asset_type: string | undefined = undefined;
   images: File[] = [];
+  video: File | undefined = undefined;
   authService = inject(AuthService);
+  imageService = inject(ImageuploadService);
   formBuilder = inject(FormBuilder);
+  isAssetTypeDropdownHidden = false;
+  assetTypes = [
+    'דירה',
+    'דירת גן',
+    "בית פרטי/ קוטג'",
+    'גג/ פנטהאוז',
+    'מגרשים',
+    'דופלקס',
+    'תיירות ונופש',
+    'דו משפחתי',
+    'מרתף/ פרטר',
+    'טריפלקס',
+    'יחידת דיור',
+    'משק חקלאי/ נחלה',
+    'משק עזר',
+    'דיור מוגן',
+    'החלפת דירות',
+    'סאבלט',
+    'בניין מגורים (את הבניין כולו)',
+    'סטודיו/ לופט',
+    'מחסן',
+    "קב' רכישה/ זכות לנכס",
+    'חניה',
+    'כללי',
+  ];
 
   ngOnInit() {
     this.advertisementForm = this.formBuilder.group({
@@ -36,7 +65,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
       onPillars: [false],
       neighborhood: ['', Validators.required],
       area: ['', Validators.required],
-      assetType: ['', Validators.required],
       assetState: ['', Validators.required],
       airDirections: [null],
       view: ['', Validators.required],
@@ -120,14 +148,51 @@ export class CreateNewAdvertisementComponent implements OnInit {
   }
 
   onFileChange(event: any) {
-    this.images = event.target.files;
+    let file = event.target.files[0];
+    this.images.push(file);
   }
 
-  handleSubmit() {
-    this.authService.postNewAdvertisement(this.advertisementForm.value);
-    if (this.advertisementForm.valid) {
-    } else {
-      this.checkFormValidation();
+  onFileVideoChange(event: any) {
+    let file = event.target.files[0];
+    this.video = file;
+  }
+  src(image: any) {
+    return URL.createObjectURL(image);
+  }
+  async uploadAllImages() {
+    if (this.images.length === 0) return [];
+    const tasks = this.images.map((image) => {
+      return this.imageService.uploadImage(image);
+    });
+    return await Promise.all(tasks).then((urls) => {
+      return urls.map((u) => u.fileUrl);
+    });
+  }
+  async uploadVideo() {
+    if (!this.video) return '';
+    return await this.imageService
+      .uploadImage(this.video)
+      .then((u) => u.fileUrl);
+  }
+  async handleSubmit() {
+    if (!this.asset_type) {
+      alert('Asset type is required');
+      return;
+    }
+    const form = this.advertisementForm.value;
+    form.assetType = this.asset_type;
+    try {
+      const uploadedImages = await this.uploadAllImages();
+      const video = await this.uploadVideo();
+      form.pictures = uploadedImages;
+      form.video = video;
+      this.authService.postNewAdvertisement(form);
+      if (this.advertisementForm.valid) {
+      } else {
+        this.checkFormValidation();
+      }
+    } catch (error) {
+      console.error('Failed to submit advertisement', error);
     }
   }
 
@@ -136,5 +201,18 @@ export class CreateNewAdvertisementComponent implements OnInit {
   }
   setAdvertisementType(type: string) {
     this.advertisementForm.get('tradeType').setValue(type);
+  }
+
+  toggleDropdown(isHidden: boolean): void {
+    this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
+
+    isHidden = !isHidden;
+  }
+
+  selectAssetType(option: string, isHidden: boolean) {
+    console.log('Selected asset type:', option);
+    this.isAssetTypeDropdownHidden = false;
+    this.asset_type = option;
+    isHidden = false;
   }
 }
