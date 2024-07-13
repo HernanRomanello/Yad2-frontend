@@ -4,45 +4,68 @@
       <span class="section-title">1</span> {{ this.changeTradeTypeTitle() }}
     </ng-container>
   </div>
-  <div class="advertisement-selection" id="1-Selection" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-1" *ngIf="true">
     <ng-container>
       <span class="section-title">1</span> {{ this.changeTradeTypeTitle() }}
     </ng-container>
-    <button
-      type="button"
-      [class.active]="isActive('מכירה')"
-      (click)="setAdvertisementType('מכירה')"
-    >
-      מכירה
-    </button>
-    <button
-      type="button"
-      [class.active]="isActive('השכרה')"
-      (click)="setAdvertisementType('השכרה')"
-    >
-      השכרה
-    </button>
-    <button
-      type="button"
-      [class.active]="isActive('נכס מסחרי')"
-      (click)="setAdvertisementType('נכס מסחרי')"
-    >
-      נכס מסחרי
-    </button>
-    <button
-      type="button"
-      [class.active]="isActive('עסקים למכירה')"
-      (click)="setAdvertisementType('עסקים למכירה')"
-    >
-      עסקים למכירה
-    </button>
+
+    <div class="asset-type-buttons">
+      <button
+        class="asset-type"
+        type="button"
+        [class.active]="isActive('עסקים למכירה')"
+        (click)="setAdvertisementType('עסקים למכירה')"
+      >
+        <div class="part-1">
+          <img src="assets/images/4type.JPG" class="type-pic" alt="ad2" />
+        </div>
+        <div class="btn-text1">עסקים למכירה</div>
+        <div class="btn-text2">הייטק, בתי קפה וכו׳</div>
+      </button>
+      <button
+        class="asset-type"
+        type="button"
+        [class.active]="isActive('נכס מסחרי')"
+        (click)="setAdvertisementType('נכס מסחרי')"
+      >
+        <div class="part-1">
+          <img src="assets/images/3type.JPG" class="type-pic" alt="ad2" />
+        </div>
+        <div class="btn-text1">מסחרי</div>
+        <div class="btn-text2">מחסנים, קליניקות, משרדים</div>
+      </button>
+      <button
+        class="asset-type"
+        type="button"
+        [class.active]="isActive('השכרה')"
+        (click)="setAdvertisementType('השכרה')"
+      >
+        <div class="part-1">
+          <img src="assets/images/2type.JPG" class="type-pic" alt="ad2" />
+        </div>
+        <div class="btn-text1">השכרה</div>
+        <div class="btn-text2"></div>
+      </button>
+      <button
+        class="asset-type"
+        type="button"
+        [class.active]="isActive('מכירה')"
+        (click)="setAdvertisementType('מכירה')"
+      >
+        <div class="part-1">
+          <img src="assets/images/1type.JPG" class="type-pic" alt="ad2" />
+        </div>
+        <div class="btn-text1">מכירה</div>
+        <div class="btn-text2"></div>
+      </button>
+    </div>
   </div>
 
   <div class="close-section" *ngIf="false">
     <div><span class="section-title">2</span> <span>כתובת הנכס</span></div>
   </div>
 
-  <div class="advertisement-selection" id="2-Selection" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-2" *ngIf="true">
     <div><span class="section-title">2</span> <span>כתובת הנכס</span></div>
     <label for="city">ישוב*</label>
     <input
@@ -140,7 +163,7 @@
     <div><span class="section-title">3</span> <span> מאפייני הנכס</span></div>
   </div>
 
-  <div class="advertisement-selection" id="3-Selection" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-3" *ngIf="true">
     <div><span class="section-title">3</span> <span> מאפייני הנכס</span></div>
     <div>
       <label for="rooms">מספר חדרים*</label>
@@ -270,7 +293,7 @@
     <span class="section-title">4</span> <span> תשלומים, תאריכים ועוד</span>
   </div>
 
-  <div class="advertisement-selection" id="4-Selection" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-4" *ngIf="true">
     <div>
       <span class="section-title">4</span> <span> תשלומים, תאריכים ועוד</span>
       <div>
@@ -348,7 +371,7 @@
     <span class="section-title">5</span> <span>תמונות וסרטונים </span>
   </div>
 
-  <div class="advertisement-selection" id="5-Selection" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-5" *ngIf="true">
     <div>
       <span class="section-title">5</span> <span>תמונות וסרטונים </span>
       <div>
@@ -384,7 +407,7 @@
     <div><span class="section-title">6</span> <span>פרטי התקשרות </span></div>
   </div>
 
-  <div class="advertisement-selection" id="6-Selection" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-6" *ngIf="true">
     <div><span class="section-title">6</span> <span>פרטי התקשרות </span></div>
     <div>
       <label for="contactName">שם איש קשר*</label>
@@ -410,7 +433,7 @@
   <div class="close-section" *ngIf="false">
     <div><span class="section-title">7</span> <span> בחירת מסלול</span></div>
   </div>
-  <div class="advertisement-selection" id="7-Selection" *ngIf="true">
+  <div class="advertisement-selection" id="Selection" *ngIf="true">
     <div><span class="section-title">7</span> <span> בחירת מסלול</span></div>
     <button type="submit">בחירת מסלול</button>
   </div>
