@@ -1,13 +1,9 @@
 <form [formGroup]="advertisementForm" (ngSubmit)="handleSubmit()">
-  <div class="close-section" *ngIf="false">
-    <ng-container>
-      <span class="section-title">1</span> {{ this.changeTradeTypeTitle() }}
-    </ng-container>
-  </div>
+  <div class="space1"></div>
   <div class="advertisement-selection" id="Selection-1" *ngIf="true">
-    <ng-container>
-      <span class="section-title">1</span> {{ this.changeTradeTypeTitle() }}
-    </ng-container>
+    <div class="section-title-container">
+      {{ this.changeTradeTypeTitle() }} <span class="section-title">1</span>
+    </div>
 
     <div class="asset-type-buttons">
       <button

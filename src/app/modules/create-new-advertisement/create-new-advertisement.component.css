@@ -70,18 +70,48 @@ button.active {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: rgb(255, 255, 255) !important;
   margin: auto !important;
-  margin-top: 1rem !important;
+  /* margin-top: 1rem !important; */
 }
 
 #Selection-1 {
   height: 360px;
   width: 880px;
   margin: 0px;
-  margin-top: 100px !important;
+  /* margin-top: 100px !important; */
 }
 
 form {
-  background-color: #f8f8f8;
+  background-color: rgb(248, 248, 248);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid rgb(34, 206, 138);
+  color: rgb(34, 206, 138);
+  font-weight: bold;
+  padding: 0.25rem;
+  width: 30px;
+  height: 30px;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+
+.section-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 24px;
+  margin-left: auto;
+  padding: 1.5rem;
+}
+
+.space1 {
+  height: 50px !important;
 }

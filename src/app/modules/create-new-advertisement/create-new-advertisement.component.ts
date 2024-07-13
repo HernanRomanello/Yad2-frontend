@@ -143,7 +143,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       case 'השכרה':
         return 'אני רוצה להשכיר נכס';
       default:
-        return 'אני רוצה למכור נכס';
+        return '   ?מה נפרסם היום';
     }
   }
 
