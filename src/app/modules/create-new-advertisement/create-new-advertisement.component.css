@@ -159,7 +159,7 @@ form {
 }
 
 .large {
-  width: 236px;
+  width: 270px;
 }
 
 .medium {
@@ -198,4 +198,18 @@ form {
 
 .space2 {
   height: 13px;
+}
+
+.light-grey-text {
+  color: #cccccc;
+}
+
+button {
+  cursor: pointer;
+}
+
+.nano-text {
+  font-size: 11px;
+  line-height: 13px;
+  margin: 4px 0px 0px;
 }

@@ -92,6 +92,9 @@
           [value]="authService.user.getValue()?.street"
           formControlName="street"
         />
+        <div class="nano-text">
+          לא ניתן יהיה לעדכן את שם הרחוב לאחר פרסום המודעה
+        </div>
       </div>
 
       <div class="input-container">
@@ -120,7 +123,9 @@
         />
       </div>
       <div class="input-container">
-        <label for="neighborhood">שכונה*</label>
+        <label class="small-text light-grey-text" for="neighborhood"
+          >שכונה</label
+        >
         <input
           class="input large"
           id="neighborhood"
@@ -128,7 +133,7 @@
         />
       </div>
       <div class="input-container">
-        <label for="area">אזור*</label>
+        <label class="small-text light-grey-text" for="area">אזור</label>
         <input class="input large" id="area" formControlName="area" />
       </div>
 

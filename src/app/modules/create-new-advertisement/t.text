@@ -1,12 +1,12 @@
-label .label_label__wdI6G label_flexed__AYAvY {
+p .common-address_cantBeChanged__ZLi_V {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 14px;
+	font-size: 11px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 500;
+	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 20px;
+	line-height: 13px;
 	text-decoration: none solid rgb(54, 54, 54);
 	text-align: start;
 	text-indent: 0px;
@@ -24,19 +24,19 @@ label .label_label__wdI6G label_flexed__AYAvY {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 20px;
-	width: 260px;
+	height: 13px;
+	width: 798px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
 	border-bottom: 0px none rgb(54, 54, 54);
 	border-left: 0px none rgb(54, 54, 54);
-	margin: 0px 0px 4px;
+	margin: 4px 0px 0px;
 	padding: 0px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -45,7 +45,7 @@ label .label_label__wdI6G label_flexed__AYAvY {
 	right: auto;
 	left: auto;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
 	z-index: auto;
 
@@ -63,7 +63,7 @@ label .label_label__wdI6G label_flexed__AYAvY {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: default;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
