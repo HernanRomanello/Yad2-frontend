@@ -177,12 +177,25 @@ form {
 
 .recommend-pic {
   position: absolute;
-  top: 75%;
-}
-
-.instruction {
+  top: 71%;
 }
 
 .Selection-2-content {
   transform: translateX(40px);
+}
+
+.small-text {
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 1rem;
+}
+
+.space2 {
+  height: 13px;
 }
