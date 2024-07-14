@@ -67,8 +67,10 @@
     <div class="section-title-container">
       <span>כתובת הנכס</span> <span class="section-title">2</span>
     </div>
+    <div>סימנו עבורך את שדות החובה, שלא נפספס פרט חשוב</div>
     <label for="city">ישוב*</label>
     <input
+      class="input"
       id="city"
       [value]="authService.user.getValue()?.city"
       formControlName="city"
@@ -77,6 +79,7 @@
     <div>
       <label for="street">רחוב*</label>
       <input
+        class="input"
         id="street"
         [value]="authService.user.getValue()?.street"
         formControlName="street"
@@ -85,6 +88,7 @@
     <div>
       <label for="number">מס׳ בית*</label>
       <input
+        class="input"
         id="number"
         [value]="authService.user.getValue()?.houseNumber"
         formControlName="number"
@@ -94,26 +98,27 @@
       <label for="floor">קומה*</label>
       <input id="floor" formControlName="floor" />
       <label>
-        <input type="checkbox" formControlName="onPillars" />
+        <input class="input" type="checkbox" formControlName="onPillars" />
         על עמודים
       </label>
     </div>
     <div>
       <label for="totalFloors">סה״כ קומות בבניין*</label>
-      <input id="totalFloors" formControlName="totalFloors" />
+      <input class="input" id="totalFloors" formControlName="totalFloors" />
     </div>
     <div>
       <label for="neighborhood">שכונה*</label>
-      <input id="neighborhood" formControlName="neighborhood" />
+      <input class="input" id="neighborhood" formControlName="neighborhood" />
     </div>
     <div>
       <label for="area">אזור*</label>
-      <input id="area" formControlName="area" />
+      <input class="input" id="area" formControlName="area" />
     </div>
 
     <div>
       <label for="assetType">סוג הנכס*</label>
       <button
+        class="input"
         type="button"
         (click)="toggleDropdown(this.isAssetTypeDropdownHidden)"
       >
@@ -130,19 +135,19 @@
     </div>
     <div>
       <label for="assetState">מצב הנכס*</label>
-      <input id="assetState" formControlName="assetState" />
+      <input class="input" id="assetState" formControlName="assetState" />
     </div>
     <div>
       <label for="view"> כיווני אוויר*</label>
-      <input id="view" formControlName="airDirections" />
+      <input class="input" id="view" formControlName="airDirections" />
     </div>
     <div>
       <label for="view">נוף פתוח*</label>
-      <input id="view" formControlName="view" />
+      <input class="input" id="view" formControlName="view" />
     </div>
     <div>
       <label>
-        <input type="checkbox" formControlName="rearProperty" />
+        <input class="input" type="checkbox" formControlName="rearProperty" />
         נכס עורפי
       </label>
     </div>
