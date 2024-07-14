@@ -163,7 +163,7 @@ form {
 }
 
 .medium {
-  width: 96px;
+  width: 125px;
 }
 
 .small {
@@ -185,8 +185,9 @@ form {
 }
 
 .small-text {
-  font-weight: 600;
+  font-weight: 520;
   line-height: 20px;
+  color: #363636;
 }
 
 .input-container {
@@ -212,4 +213,36 @@ button {
   font-size: 11px;
   line-height: 13px;
   margin: 4px 0px 0px;
+}
+
+.orange-small-text {
+  color: rgb(255, 113, 0);
+  height: 23px;
+  margin: 24px 0px;
+  font-weight: 600 !important;
+}
+
+.floor-description,
+.check-input {
+  display: flex;
+  gap: 1rem;
+}
+
+.check-input {
+  justify-content: center;
+  align-items: center;
+  line-height: 16.1px;
+  gap: 0.2rem;
+  transform: translateY(20px);
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+input::placeholder {
+  color: rgb(136, 136, 136, 0.7);
+  padding: 0.5rem;
+  font-size: 16px;
 }

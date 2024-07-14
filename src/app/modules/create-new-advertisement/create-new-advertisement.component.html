@@ -82,6 +82,7 @@
           id="city"
           [value]="authService.user.getValue()?.city"
           formControlName="city"
+          placeholder="  איפה נמצא הנכס?"
         />
       </div>
       <div class="input-container">
@@ -91,11 +92,14 @@
           id="street"
           [value]="authService.user.getValue()?.street"
           formControlName="street"
+          placeholder="  הכנס שם הרחוב"
         />
         <div class="nano-text">
           לא ניתן יהיה לעדכן את שם הרחוב לאחר פרסום המודעה
         </div>
       </div>
+
+      <div class="orange-small-text">לא מצאת את הרחוב?</div>
 
       <div class="input-container">
         <label class="small-text" for="number">מס׳ בית*</label>
@@ -104,24 +108,35 @@
           id="number"
           [value]="authService.user.getValue()?.houseNumber"
           formControlName="number"
+          placeholder="  מספר בית"
         />
       </div>
-      <div class="input-container">
-        <label class="small-text" for="floor">קומה*</label>
-        <input class="input medium" id="floor" formControlName="floor" />
-        <label>
+      <div class="floor-description">
+        <div class="input-container">
+          <label class="small-text" for="floor">קומה*</label>
+          <input
+            class="input medium"
+            id="floor"
+            formControlName="floor"
+            placeholder="מספר קומה"
+          />
+        </div>
+
+        <div class="input-container">
+          <label class="small-text" for="totalFloors">סה״כ קומות בבניין*</label>
+          <input
+            class="input medium"
+            id="totalFloors"
+            formControlName="totalFloors"
+            placeholder="סה״כ קומות "
+          />
+        </div>
+        <div class="check-input">
           <input class="input" type="checkbox" formControlName="onPillars" />
-          על עמודים
-        </label>
+          <label> על עמודים </label>
+        </div>
       </div>
-      <div class="input-container">
-        <label class="small-text" for="totalFloors">סה״כ קומות בבניין*</label>
-        <input
-          class="input medium"
-          id="totalFloors"
-          formControlName="totalFloors"
-        />
-      </div>
+
       <div class="input-container">
         <label class="small-text light-grey-text" for="neighborhood"
           >שכונה</label
