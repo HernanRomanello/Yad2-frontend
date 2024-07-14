@@ -64,105 +64,127 @@
   </div>
 
   <div class="advertisement-selection" id="Selection-2" *ngIf="true">
+    <div>
+      <img src="assets/images/recommend.JPG" class="recommend-pic" alt="ad2" />
+    </div>
     <div class="section-title-container">
-      <span>כתובת הנכס</span> <span class="section-title">2</span>
+      <span class="section-title">2</span> <span>כתובת הנכס</span>
     </div>
-    <div>סימנו עבורך את שדות החובה, שלא נפספס פרט חשוב</div>
-    <label for="city">ישוב*</label>
-    <input
-      class="input"
-      id="city"
-      [value]="authService.user.getValue()?.city"
-      formControlName="city"
-    />
-
-    <div>
-      <label for="street">רחוב*</label>
+    <div class="Selection-2-content">
+      <div class="part1">
+        <div class="instruction">
+          סימנו עבורך את שדות החובה, שלא נפספס פרט חשוב
+        </div>
+      </div>
+      <label for="city">ישוב*</label>
       <input
-        class="input"
-        id="street"
-        [value]="authService.user.getValue()?.street"
-        formControlName="street"
+        class="input large"
+        id="city"
+        [value]="authService.user.getValue()?.city"
+        formControlName="city"
       />
-    </div>
-    <div>
-      <label for="number">מס׳ בית*</label>
-      <input
-        class="input"
-        id="number"
-        [value]="authService.user.getValue()?.houseNumber"
-        formControlName="number"
-      />
-    </div>
-    <div>
-      <label for="floor">קומה*</label>
-      <input id="floor" formControlName="floor" />
-      <label>
-        <input class="input" type="checkbox" formControlName="onPillars" />
-        על עמודים
-      </label>
-    </div>
-    <div>
-      <label for="totalFloors">סה״כ קומות בבניין*</label>
-      <input class="input" id="totalFloors" formControlName="totalFloors" />
-    </div>
-    <div>
-      <label for="neighborhood">שכונה*</label>
-      <input class="input" id="neighborhood" formControlName="neighborhood" />
-    </div>
-    <div>
-      <label for="area">אזור*</label>
-      <input class="input" id="area" formControlName="area" />
-    </div>
 
-    <div>
-      <label for="assetType">סוג הנכס*</label>
-      <button
-        class="input"
-        type="button"
-        (click)="toggleDropdown(this.isAssetTypeDropdownHidden)"
-      >
-        {{ asset_type ?? "דירה או אולי פנטהאוז?" }}
-      </button>
-      <ul *ngIf="this.isAssetTypeDropdownHidden" class="dropdown-menu">
-        <li
-          *ngFor="let option of assetTypes"
-          (click)="selectAssetType(option, this.isAssetTypeDropdownHidden)"
+      <div>
+        <label for="street">רחוב*</label>
+        <input
+          class="input large"
+          id="street"
+          [value]="authService.user.getValue()?.street"
+          formControlName="street"
+        />
+      </div>
+      <div>
+        <label for="number">מס׳ בית*</label>
+        <input
+          class="input medium"
+          id="number"
+          [value]="authService.user.getValue()?.houseNumber"
+          formControlName="number"
+        />
+      </div>
+      <div>
+        <label for="floor">קומה*</label>
+        <input class="input medium" id="floor" formControlName="floor" />
+        <label>
+          <input class="input" type="checkbox" formControlName="onPillars" />
+          על עמודים
+        </label>
+      </div>
+      <div>
+        <label for="totalFloors">סה״כ קומות בבניין*</label>
+        <input
+          class="input medium"
+          id="totalFloors"
+          formControlName="totalFloors"
+        />
+      </div>
+      <div>
+        <label for="neighborhood">שכונה*</label>
+        <input
+          class="input large"
+          id="neighborhood"
+          formControlName="neighborhood"
+        />
+      </div>
+      <div>
+        <label for="area">אזור*</label>
+        <input class="input large" id="area" formControlName="area" />
+      </div>
+
+      <div>
+        <label for="assetType">סוג הנכס*</label>
+        <button
+          class="input large"
+          type="button"
+          (click)="toggleDropdown(this.isAssetTypeDropdownHidden)"
         >
-          {{ option }}
-        </li>
-      </ul>
-    </div>
-    <div>
-      <label for="assetState">מצב הנכס*</label>
-      <input class="input" id="assetState" formControlName="assetState" />
-    </div>
-    <div>
-      <label for="view"> כיווני אוויר*</label>
-      <input class="input" id="view" formControlName="airDirections" />
-    </div>
-    <div>
-      <label for="view">נוף פתוח*</label>
-      <input class="input" id="view" formControlName="view" />
-    </div>
-    <div>
-      <label>
-        <input class="input" type="checkbox" formControlName="rearProperty" />
-        נכס עורפי
-      </label>
-    </div>
-    <div>
-      <label>
-        <input type="checkbox" />
-        אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס, עסקאות
-        באיזור והצעות מקצועיות מיועצי נדל״ן
-      </label>
-    </div>
-    <div class="navigation-btn">
-      <button class="continue-btn">המשך לשלב הבא</button>
-      <button class="return-btn">חזרה</button>
+          {{ asset_type ?? "דירה או אולי פנטהאוז?" }}
+        </button>
+        <ul *ngIf="this.isAssetTypeDropdownHidden" class="dropdown-menu">
+          <li
+            *ngFor="let option of assetTypes"
+            (click)="selectAssetType(option, this.isAssetTypeDropdownHidden)"
+          >
+            {{ option }}
+          </li>
+        </ul>
+      </div>
+      <div>
+        <label for="assetState">מצב הנכס*</label>
+        <input
+          class="input large"
+          id="assetState"
+          formControlName="assetState"
+        />
+      </div>
+      <div>
+        <label for="view"> כיווני אוויר*</label>
+        <input class="input" id="view" formControlName="airDirections" />
+      </div>
+      <div>
+        <label for="view">נוף פתוח*</label>
+        <input class="input" id="view" formControlName="view" />
+      </div>
+      <div>
+        <label>
+          <input class="input" type="checkbox" formControlName="rearProperty" />
+          נכס עורפי
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" />
+          אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס,
+          עסקאות באיזור והצעות מקצועיות מיועצי נדל״ן
+        </label>
+      </div>
+      <div class="navigation-btn">
+        <button class="continue-btn">המשך לשלב הבא</button>
+        <button class="return-btn">חזרה</button>
+      </div>
     </div>
   </div>
+
   <div class="space"></div>
 
   <div class="close-section" *ngIf="false">

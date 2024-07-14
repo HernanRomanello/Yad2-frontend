@@ -83,7 +83,10 @@ button.active {
 }
 
 #Selection-2 {
-  height: 1387.34px;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  justify-content: space-between;
 }
 
 form {
@@ -107,8 +110,6 @@ form {
 
 .section-title-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.5rem;
   font-size: 24px;
   margin-left: auto;
@@ -153,9 +154,8 @@ form {
   height: 42px;
   border: 1px solid rgb(153, 153, 153, 0.7);
   border-radius: 4px;
-
-  /* border: 0px none rgb(54, 54, 54); */
   padding: 1px 2px;
+  direction: rtl;
 }
 
 .large {
@@ -168,4 +168,21 @@ form {
 
 .small {
   width: 65.62px;
+}
+
+.section-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.recommend-pic {
+  position: absolute;
+  top: 75%;
+}
+
+.instruction {
+}
+
+.Selection-2-content {
+  transform: translateX(40px);
 }
