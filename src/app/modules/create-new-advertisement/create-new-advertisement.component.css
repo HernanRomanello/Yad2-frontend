@@ -73,14 +73,17 @@ button.active {
   flex-direction: column;
   background-color: rgb(255, 255, 255) !important;
   margin: auto !important;
+  width: 880px;
+
   /* margin-top: 1rem !important; */
 }
 
 #Selection-1 {
   height: 360px;
-  width: 880px;
-  margin: 0px;
-  /* margin-top: 100px !important; */
+}
+
+#Selection-2 {
+  height: 1387.34px;
 }
 
 form {
@@ -114,4 +117,29 @@ form {
 
 .space1 {
   height: 50px !important;
+}
+
+.space {
+  height: 10px;
+}
+
+.continue-btn {
+  font-weight: 600 !important;
+  background-color: rgb(255, 250, 245);
+  color: rgb(255, 113, 0, 0.8);
+  border: 1px solid rgb(255, 113, 0);
+}
+
+.return-btn {
+  background-color: rgb(255, 255, 255);
+  background-repeat: repeat;
+  border: 1px solid rgb(153, 153, 153);
+}
+.return-btn,
+.continue-btn {
+  line-height: 16.1px;
+  font-size: 14px;
+  padding: 0px 18px;
+  border-radius: 30px;
+  height: 36px;
 }
