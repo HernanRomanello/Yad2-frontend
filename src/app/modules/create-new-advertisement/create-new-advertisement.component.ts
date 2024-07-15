@@ -1,4 +1,11 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -23,6 +30,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
   imageService = inject(ImageuploadService);
   formBuilder = inject(FormBuilder);
   isAssetTypeDropdownHidden = false;
+  isAssetAssetstateDropdownHidden = false;
+  @ViewChild('dropdownIcon', { static: true }) dropdownIcon1!: ElementRef;
+  @ViewChild('dropdownIcon', { static: true }) dropdownIcon2!: ElementRef;
+  constructor(private renderer: Renderer2) {}
   assetTypes = [
     'דירה',
     'דירת גן',
@@ -48,6 +59,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
     'כללי',
   ];
 
+  assetConditions = [
+    'חדש מקבלן (לא גרו בו בכלל)',
+    'חדש (נכס בן עד 10 שנים)',
+    'משופץ (שופץ ב5 השנים האחרונות)',
+    'במצב שמור (במצב טוב, לא שופץ)',
+    'דרוש שיפוץ (זקוק לעבודת שיפוץ)',
+  ];
   ngOnInit() {
     this.advertisementForm = this.formBuilder.group({
       city: [this.authService.user.getValue()?.city || '', Validators.required],
@@ -203,10 +221,16 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.advertisementForm.get('tradeType').setValue(type);
   }
 
-  toggleDropdown(isHidden: boolean): void {
-    this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
-
-    isHidden = !isHidden;
+  toggleDropdown(type: string): void {
+    if (type === 'assetType') {
+      this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
+    } else if (type === 'assetState') {
+      this.isAssetAssetstateDropdownHidden =
+        !this.isAssetAssetstateDropdownHidden;
+    }
+    // const action = this.isAssetTypeDropdownHidden ? 'removeClass' : 'addClass';
+    // this.renderer[action](this.dropdownIcon1.nativeElement, 'rotate-icon');
+    // isHidden = !isHidden;
   }
 
   selectAssetType(option: string, isHidden: boolean) {
@@ -214,5 +238,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.isAssetTypeDropdownHidden = false;
     this.asset_type = option;
     isHidden = false;
+  }
+
+  rotateIcon(isHidden: boolean): string {
+    return !isHidden ? 'material-icons' : 'material-icons rotate-icon';
   }
 }

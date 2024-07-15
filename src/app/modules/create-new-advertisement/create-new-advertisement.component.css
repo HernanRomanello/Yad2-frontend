@@ -313,3 +313,15 @@ i.material-icons {
   overflow-y: auto !important;
   overflow-x: hidden !important;
 }
+.assetState {
+  width: 270px !important;
+}
+
+.dropdown-assetState {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rotate-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}

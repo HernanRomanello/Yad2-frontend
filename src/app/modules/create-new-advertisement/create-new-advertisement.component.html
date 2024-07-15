@@ -175,7 +175,7 @@
         <button
           class="input large dropdown-btn"
           type="button"
-          (click)="toggleDropdown(this.isAssetTypeDropdownHidden)"
+          (click)="toggleDropdown('assetType')"
         >
           {{ asset_type ?? "דירה או אולי פנטהאוז?" }}
           <i class="material-icons">keyboard_arrow_down</i>
@@ -197,6 +197,29 @@
           id="assetState"
           formControlName="assetState"
         />
+      </div>
+      <div class="input-container">
+        <label class="small-text" for="assetState">מצב הנכס*</label>
+        <button
+          class="input large dropdown-btn"
+          type="button"
+          (click)="toggleDropdown('assetState')"
+        >
+          {{ asset_type ?? "משופץ? חדש מקבלן" }}
+          <i #dropdownIcon1 class="material-icons">keyboard_arrow_down</i>
+        </button>
+        <ul
+          *ngIf="this.isAssetAssetstateDropdownHidden"
+          class="dropdown-menu asset dropdown-assetState"
+        >
+          <li
+            class="dropdown-item assetState"
+            *ngFor="let option of assetConditions"
+            (click)="selectAssetType(option, this.isAssetTypeDropdownHidden)"
+          >
+            {{ option }}
+          </li>
+        </ul>
       </div>
       <div class="input-container">
         <label class="small-text" for="view"> כיווני אוויר*</label>
