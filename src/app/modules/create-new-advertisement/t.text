@@ -1,12 +1,12 @@
-hr .common-address_divider__QY6Fz {
+ul .menu-dropdown_list__MbvhJ {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 16.1px;
+	line-height: 18.4px;
 	text-decoration: none solid rgb(54, 54, 54);
 	text-align: start;
 	text-indent: 0px;
@@ -17,26 +17,26 @@ hr .common-address_divider__QY6Fz {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(238, 238, 238);   
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 1px;
-	width: 798px;
+	height: 420px;
+	width: 260px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
 	border-bottom: 0px none rgb(54, 54, 54);
 	border-left: 0px none rgb(54, 54, 54);
-	margin: 24px 0px;
+	margin: 0px;
 	padding: 0px;
-	max-height: none;
-	min-height: 0px;
+	max-height: 420px;
+	min-height: auto;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
 	position: static;
@@ -51,7 +51,7 @@ hr .common-address_divider__QY6Fz {
 
 	/* List */
 	list-style-image: none;
-	list-style-type: disc;
+	list-style-type: none;
 	list-style-position: outside;
 
 	/* Table */
@@ -62,8 +62,8 @@ hr .common-address_divider__QY6Fz {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
-	cursor: auto;
+	overflow: hidden auto;
+	cursor: default;
 	visibility: visible;
 
 	/* Effects */
@@ -71,7 +71,7 @@ hr .common-address_divider__QY6Fz {
 	transition: all 0s ease 0s;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
-	box-sizing: content-box;
+	box-sizing: border-box;
 	resize: none;
 	text-shadow: none;
 	text-overflow: clip;

@@ -10,6 +10,9 @@ button.active {
   position: absolute;
   background-color: white;
   z-index: 1000;
+  transform: translateY(70px);
+  border: transparent !important;
+  border-radius: 4px;
 }
 
 .dropdown-menu li {
@@ -17,9 +20,9 @@ button.active {
   cursor: pointer;
 }
 
-.dropdown-menu li:hover {
+/* .dropdown-menu li:hover {
   background-color: #f0f0f0;
-}
+} */
 
 .hide {
   display: none;
@@ -270,4 +273,43 @@ input::placeholder {
 
 .line2 {
   margin: 20px 40px !important;
+}
+
+.dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 2px;
+}
+.dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+i.material-icons {
+  height: 20px;
+  width: 20px;
+  opacity: 0.5;
+}
+
+.dropdown-item {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.4px;
+  background-color: rgb(255, 255, 255);
+  width: 250px;
+  height: 42px;
+  padding: 5px 12px;
+  min-height: 42px;
+}
+
+.asset {
+  max-height: 420px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
