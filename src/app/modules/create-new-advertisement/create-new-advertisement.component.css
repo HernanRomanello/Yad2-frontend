@@ -254,3 +254,20 @@ input::placeholder {
 .center input::placeholder {
   text-align: center !important;
 }
+
+.nano-gray-text {
+  color: #999999;
+}
+
+.line {
+  width: 112%;
+  height: 1px;
+  background-color: rgb(238, 238, 238, 0.8);
+  margin: 40px !important;
+  margin-bottom: 10px !important;
+  transform: translateX(5%);
+}
+
+.line2 {
+  margin: 20px 40px !important;
+}

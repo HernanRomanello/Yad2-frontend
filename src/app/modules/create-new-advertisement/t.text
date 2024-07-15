@@ -1,4 +1,4 @@
-div .checkbox_y2Checkbox__kIaBN checkbox_center__L__6m common-address_checkboxAlign__diDdx {
+hr .common-address_divider__QY6Fz {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -17,26 +17,26 @@ div .checkbox_y2Checkbox__kIaBN checkbox_center__L__6m common-address_checkboxAl
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(238, 238, 238);   
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 48px;
-	width: 80.3438px;
+	height: 1px;
+	width: 798px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
 	border-bottom: 0px none rgb(54, 54, 54);
 	border-left: 0px none rgb(54, 54, 54);
-	margin: 20px 0px 0px;
+	margin: 24px 0px;
 	padding: 0px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -45,7 +45,7 @@ div .checkbox_y2Checkbox__kIaBN checkbox_center__L__6m common-address_checkboxAl
 	right: auto;
 	left: auto;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
 	z-index: auto;
 
@@ -71,7 +71,7 @@ div .checkbox_y2Checkbox__kIaBN checkbox_center__L__6m common-address_checkboxAl
 	transition: all 0s ease 0s;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
-	box-sizing: border-box;
+	box-sizing: content-box;
 	resize: none;
 	text-shadow: none;
 	text-overflow: clip;
