@@ -246,3 +246,11 @@ input::placeholder {
   padding: 0.5rem;
   font-size: 16px;
 }
+
+.not-allowed {
+  cursor: not-allowed !important;
+}
+
+.center input::placeholder {
+  text-align: center !important;
+}

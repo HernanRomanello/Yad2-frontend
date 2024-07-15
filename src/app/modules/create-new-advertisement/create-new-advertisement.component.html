@@ -100,16 +100,21 @@
       </div>
 
       <div class="orange-small-text">לא מצאת את הרחוב?</div>
-
-      <div class="input-container">
-        <label class="small-text" for="number">מס׳ בית*</label>
-        <input
-          class="input medium"
-          id="number"
-          [value]="authService.user.getValue()?.houseNumber"
-          formControlName="number"
-          placeholder="  מספר בית"
-        />
+      <div class="floor-description">
+        <div class="input-container">
+          <label class="small-text" for="number">מס׳ בית*</label>
+          <input
+            class="input medium center"
+            id="number"
+            [value]="authService.user.getValue()?.houseNumber"
+            formControlName="number"
+            placeholder="  מספר בית"
+          />
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="number">מספר דירה</label>
+          <input class="input medium center" placeholder="  מספר דירה" />
+        </div>
       </div>
       <div class="floor-description">
         <div class="input-container">
@@ -142,14 +147,18 @@
           >שכונה</label
         >
         <input
-          class="input large"
+          class="input large not-allowed"
           id="neighborhood"
           formControlName="neighborhood"
         />
       </div>
       <div class="input-container">
         <label class="small-text light-grey-text" for="area">אזור</label>
-        <input class="input large" id="area" formControlName="area" />
+        <input
+          class="input large not-allowed"
+          id="area"
+          formControlName="area"
+        />
       </div>
 
       <div class="input-container">
