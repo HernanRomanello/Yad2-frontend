@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  NgZone,
   OnInit,
   Renderer2,
   ViewChild,
@@ -15,6 +16,7 @@ import {
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { AuthService } from '../../services/user/auth.service';
 import { ImageuploadService } from '../../services/imageupload.service';
+import { afterNextRender } from '@angular/core';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -24,6 +26,7 @@ import { ImageuploadService } from '../../services/imageupload.service';
 export class CreateNewAdvertisementComponent implements OnInit {
   advertisementForm!: FormGroup | any;
   asset_type: string | undefined = undefined;
+  asset_State: string | undefined = undefined;
   images: File[] = [];
   video: File | undefined = undefined;
   authService = inject(AuthService);
@@ -33,7 +36,30 @@ export class CreateNewAdvertisementComponent implements OnInit {
   isAssetAssetstateDropdownHidden = false;
   @ViewChild('dropdownIcon', { static: true }) dropdownIcon1!: ElementRef;
   @ViewChild('dropdownIcon', { static: true }) dropdownIcon2!: ElementRef;
-  constructor(private renderer: Renderer2) {}
+  @ViewChild('dropdownIcon', { static: true }) clickedElement!: ElementRef;
+
+  constructor(private renderer: Renderer2, private zone: NgZone) {
+    afterNextRender(() => {
+      document.body.addEventListener('click', (event) => {
+        const clickedElement = event.target as HTMLElement;
+        if (
+          clickedElement.classList.contains('dropdown-btn') ||
+          clickedElement.classList.contains('dropdown-item')
+        ) {
+          return;
+        }
+        // this.isAssetTypeDropdownHidden = false;
+        // this.isAssetAssetstateDropdownHidden = false;
+        // alert('clicked');
+        this.zone.run(() => {
+          // This ensures the update occurs within Angular's zone
+          this.isAssetTypeDropdownHidden = false;
+          this.isAssetAssetstateDropdownHidden = false;
+        });
+      });
+    });
+  }
+
   assetTypes = [
     'דירה',
     'דירת גן',
@@ -193,12 +219,15 @@ export class CreateNewAdvertisementComponent implements OnInit {
       .then((u) => u.fileUrl);
   }
   async handleSubmit() {
-    if (!this.asset_type) {
-      alert('Asset type is required');
+    if (!this.asset_type || !this.asset_State) {
+      // alert('Asset type is required');
       return;
     }
+
+    this.defineAssetState();
     const form = this.advertisementForm.value;
     form.assetType = this.asset_type;
+    form.assetState = this.asset_State;
     try {
       const uploadedImages = await this.uploadAllImages();
       const video = await this.uploadVideo();
@@ -214,6 +243,26 @@ export class CreateNewAdvertisementComponent implements OnInit {
     }
   }
 
+  private defineAssetState() {
+    switch (this.asset_State) {
+      case 'חדש מקבלן (לא גרו בו בכלל)':
+        this.advertisementForm.get('isNewFromBuilder').setValue(true);
+        break;
+      case 'חדש (נכס בן עד 10 שנים)':
+        this.advertisementForm.get('isNew').setValue(true);
+        break;
+      case 'משופץ (שופץ ב5 השנים האחרונות)':
+        this.advertisementForm.get('isRenovated').setValue(true);
+        break;
+      case 'במצב שמור (במצב טוב, לא שופץ)':
+        this.advertisementForm.get('isWellMaintained').setValue(true);
+        break;
+      case 'דרוש שיפוץ (זקוק לעבודת שיפוץ)':
+        this.advertisementForm.get('needsRenovation').setValue(true);
+        break;
+    }
+  }
+
   isActive(type: string): boolean {
     return this.advertisementForm.get('tradeType').value === type;
   }
@@ -222,22 +271,32 @@ export class CreateNewAdvertisementComponent implements OnInit {
   }
 
   toggleDropdown(type: string): void {
-    if (type === 'assetType') {
-      this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
-    } else if (type === 'assetState') {
-      this.isAssetAssetstateDropdownHidden =
-        !this.isAssetAssetstateDropdownHidden;
-    }
+    this.openAndCloseButtons(type);
     // const action = this.isAssetTypeDropdownHidden ? 'removeClass' : 'addClass';
     // this.renderer[action](this.dropdownIcon1.nativeElement, 'rotate-icon');
     // isHidden = !isHidden;
   }
 
-  selectAssetType(option: string, isHidden: boolean) {
+  private openAndCloseButtons(type: string) {
+    if (type === 'assetType') {
+      this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
+      this.isAssetAssetstateDropdownHidden = false;
+    } else if (type === 'assetState') {
+      this.isAssetAssetstateDropdownHidden =
+        !this.isAssetAssetstateDropdownHidden;
+      this.isAssetTypeDropdownHidden = false;
+    }
+  }
+
+  selectAssetType(option: string, type: string) {
     console.log('Selected asset type:', option);
-    this.isAssetTypeDropdownHidden = false;
-    this.asset_type = option;
-    isHidden = false;
+    this.openAndCloseButtons(type);
+    if (type === 'assetType') {
+      this.asset_type = option;
+    } else if (type === 'assetState') {
+      this.asset_State = option;
+    }
+    // this.isAssetTypeDropdownHidden = false;
   }
 
   rotateIcon(isHidden: boolean): string {

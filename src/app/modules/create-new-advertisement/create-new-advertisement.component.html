@@ -184,20 +184,20 @@
           <li
             class="dropdown-item"
             *ngFor="let option of assetTypes"
-            (click)="selectAssetType(option, this.isAssetTypeDropdownHidden)"
+            (click)="selectAssetType(option, 'assetType')"
           >
             {{ option }}
           </li>
         </ul>
       </div>
-      <div class="input-container">
+      <!-- <div class="input-container">
         <label class="small-text" for="assetState">מצב הנכס*</label>
         <input
           class="input large"
           id="assetState"
           formControlName="assetState"
         />
-      </div>
+      </div> -->
       <div class="input-container">
         <label class="small-text" for="assetState">מצב הנכס*</label>
         <button
@@ -205,7 +205,7 @@
           type="button"
           (click)="toggleDropdown('assetState')"
         >
-          {{ asset_type ?? "משופץ? חדש מקבלן" }}
+          {{ asset_State ?? "משופץ? חדש מקבלן" }}
           <i #dropdownIcon1 class="material-icons">keyboard_arrow_down</i>
         </button>
         <ul
@@ -215,7 +215,7 @@
           <li
             class="dropdown-item assetState"
             *ngFor="let option of assetConditions"
-            (click)="selectAssetType(option, this.isAssetTypeDropdownHidden)"
+            (click)="selectAssetType(option, 'assetState')"
           >
             {{ option }}
           </li>
