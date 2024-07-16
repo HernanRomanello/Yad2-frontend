@@ -322,6 +322,6 @@ i.material-icons {
 }
 
 .rotate-icon {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease-in-out;
+  transform: rotate(180deg) !important;
+  /* transition: transform 0.3s ease-in-out; */
 }

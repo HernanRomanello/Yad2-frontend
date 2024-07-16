@@ -178,7 +178,9 @@
           (click)="toggleDropdown('assetType')"
         >
           {{ asset_type ?? "דירה או אולי פנטהאוז?" }}
-          <i class="material-icons">keyboard_arrow_down</i>
+          <i #dropdownIconAsset_type class="material-icons"
+            >keyboard_arrow_down</i
+          >
         </button>
         <ul *ngIf="this.isAssetTypeDropdownHidden" class="dropdown-menu asset">
           <li
@@ -190,14 +192,7 @@
           </li>
         </ul>
       </div>
-      <!-- <div class="input-container">
-        <label class="small-text" for="assetState">מצב הנכס*</label>
-        <input
-          class="input large"
-          id="assetState"
-          formControlName="assetState"
-        />
-      </div> -->
+
       <div class="input-container">
         <label class="small-text" for="assetState">מצב הנכס*</label>
         <button
@@ -206,7 +201,9 @@
           (click)="toggleDropdown('assetState')"
         >
           {{ asset_State ?? "משופץ? חדש מקבלן" }}
-          <i #dropdownIcon1 class="material-icons">keyboard_arrow_down</i>
+          <i #dropdownIconAsset_State class="material-icons"
+            >keyboard_arrow_down</i
+          >
         </button>
         <ul
           *ngIf="this.isAssetAssetstateDropdownHidden"

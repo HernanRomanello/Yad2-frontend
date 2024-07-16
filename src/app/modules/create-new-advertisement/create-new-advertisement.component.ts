@@ -6,6 +6,7 @@ import {
   Renderer2,
   ViewChild,
   inject,
+  AfterViewInit, // Add this line
 } from '@angular/core';
 import {
   FormBuilder,
@@ -24,6 +25,7 @@ import { afterNextRender } from '@angular/core';
   styleUrls: ['./create-new-advertisement.component.css'],
 })
 export class CreateNewAdvertisementComponent implements OnInit {
+  // Remove this duplicate function
   advertisementForm!: FormGroup | any;
   asset_type: string | undefined = undefined;
   asset_State: string | undefined = undefined;
@@ -34,9 +36,12 @@ export class CreateNewAdvertisementComponent implements OnInit {
   formBuilder = inject(FormBuilder);
   isAssetTypeDropdownHidden = false;
   isAssetAssetstateDropdownHidden = false;
-  @ViewChild('dropdownIcon', { static: true }) dropdownIcon1!: ElementRef;
-  @ViewChild('dropdownIcon', { static: true }) dropdownIcon2!: ElementRef;
-  @ViewChild('dropdownIcon', { static: true }) clickedElement!: ElementRef;
+  @ViewChild('dropdownIconAsset_State', { static: false })
+  dropdownIconAsset_State!: ElementRef;
+  // @ViewChild('dropdownIconAsset_type', { static: true })
+  // dropdownIconAsset_type!: ElementRef;
+  @ViewChild('dropdownIconAsset_type', { static: false })
+  dropdownIconAsset_type!: ElementRef<HTMLDivElement>;
 
   constructor(private renderer: Renderer2, private zone: NgZone) {
     afterNextRender(() => {
@@ -48,13 +53,12 @@ export class CreateNewAdvertisementComponent implements OnInit {
         ) {
           return;
         }
-        // this.isAssetTypeDropdownHidden = false;
-        // this.isAssetAssetstateDropdownHidden = false;
-        // alert('clicked');
+
         this.zone.run(() => {
-          // This ensures the update occurs within Angular's zone
           this.isAssetTypeDropdownHidden = false;
           this.isAssetAssetstateDropdownHidden = false;
+          this.rotateArrowAssetState('assetState');
+          this.rotateArrowAssetType('assetType');
         });
       });
     });
@@ -272,19 +276,53 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   toggleDropdown(type: string): void {
     this.openAndCloseButtons(type);
-    // const action = this.isAssetTypeDropdownHidden ? 'removeClass' : 'addClass';
-    // this.renderer[action](this.dropdownIcon1.nativeElement, 'rotate-icon');
-    // isHidden = !isHidden;
+
+    this.rotateArrowAssetType(type);
+    this.rotateArrowAssetState(type);
+  }
+
+  private rotateArrowAssetType(type: string) {
+    if (type === 'assetType') {
+      if (this.isAssetTypeDropdownHidden) {
+        this.renderer.addClass(
+          this.dropdownIconAsset_type.nativeElement,
+          'rotate-icon'
+        );
+      } else {
+        this.renderer.removeClass(
+          this.dropdownIconAsset_type.nativeElement,
+          'rotate-icon'
+        );
+      }
+    }
+  }
+
+  private rotateArrowAssetState(type: string) {
+    if (type === 'assetState') {
+      if (this.isAssetAssetstateDropdownHidden) {
+        this.renderer.addClass(
+          this.dropdownIconAsset_State.nativeElement,
+          'rotate-icon'
+        );
+      } else {
+        this.renderer.removeClass(
+          this.dropdownIconAsset_State.nativeElement,
+          'rotate-icon'
+        );
+      }
+    }
   }
 
   private openAndCloseButtons(type: string) {
     if (type === 'assetType') {
       this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
       this.isAssetAssetstateDropdownHidden = false;
+      this.rotateArrowAssetState('assetState');
     } else if (type === 'assetState') {
       this.isAssetAssetstateDropdownHidden =
         !this.isAssetAssetstateDropdownHidden;
       this.isAssetTypeDropdownHidden = false;
+      this.rotateArrowAssetType('assetType');
     }
   }
 
