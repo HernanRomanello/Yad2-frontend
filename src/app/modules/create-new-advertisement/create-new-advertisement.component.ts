@@ -25,7 +25,6 @@ import { afterNextRender } from '@angular/core';
   styleUrls: ['./create-new-advertisement.component.css'],
 })
 export class CreateNewAdvertisementComponent implements OnInit {
-  // Remove this duplicate function
   advertisementForm!: FormGroup | any;
   asset_type: string | undefined = undefined;
   asset_State: string | undefined = undefined;
@@ -41,6 +40,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   @ViewChild('dropdownIconAsset_type', { static: false })
   dropdownIconAsset_type!: ElementRef<HTMLDivElement>;
   AirDirections = [1, 2, 3, 4];
+  viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
 
   constructor(private renderer: Renderer2, private zone: NgZone) {
     afterNextRender(() => {
@@ -114,7 +114,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       area: ['', Validators.required],
       assetState: ['', Validators.required],
       airDirections: [1],
-      view: ['', Validators.required],
+      view: [this.viewOptions[0], Validators.required],
       rearProperty: [false],
       rooms: ['', Validators.required],
       showerRooms: ['', Validators.required],
@@ -185,6 +185,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   selectAirDirections(direction: number) {
     this.advertisementForm.get('airDirections').setValue(direction);
+  }
+
+  selectAirView(view: string) {
+    this.advertisementForm.get('view').setValue(view);
   }
 
   optionClass(option: number): string {

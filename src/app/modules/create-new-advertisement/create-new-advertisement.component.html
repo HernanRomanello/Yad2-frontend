@@ -236,6 +236,20 @@
       </div>
 
       <div class="input-container">
+        <label class="small-text" for="view">כיווני אוויר*</label>
+        <div class="Select-options">
+          <div
+            *ngFor="let view of viewOptions; let i = index"
+            [ngClass]="optionClass(i)"
+            [class.selected]="advertisementForm.get('view').value === view"
+            (click)="selectAirView(view)"
+          >
+            {{ view }}
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="input-container">
         <label class="small-text" for="view">נוף פתוח*</label>
         <input class="input" id="view" formControlName="view" />
       </div>
@@ -244,7 +258,8 @@
           <input class="input" type="checkbox" formControlName="rearProperty" />
           נכס עורפי
         </label>
-      </div>
+      </div> -->
+
       <div class="line line2"></div>
 
       <div>
