@@ -204,8 +204,7 @@ footer button {
 .selected {
   border: 1px solid orange;
 }
-.unselected {
-}
+
 .range-slider {
   font-weight: 400;
   padding: 25px 0px;

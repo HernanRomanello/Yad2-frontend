@@ -71,7 +71,7 @@
     <div class="section-title-container">
       <span class="section-title">2</span> <span>כתובת הנכס</span>
     </div>
-    <div class="Selection-2-content">
+    <div class="">
       <div class="part1">
         <div>סימנו עבורך את שדות החובה, שלא נפספס פרט חשוב</div>
       </div>
@@ -220,7 +220,7 @@
       </div>
 
       <div class="input-container">
-        <label class="small-text" for="view">כיווני אוויר*</label>
+        <label class="small-text" for="view">כיווני אוויר</label>
         <div class="Select-options">
           <div
             *ngFor="let number of AirDirections; let i = index"
@@ -236,7 +236,7 @@
       </div>
 
       <div class="input-container">
-        <label class="small-text" for="view">כיווני אוויר*</label>
+        <label class="small-text" for="view"> נוף פתוח</label>
         <div class="Select-options">
           <div
             *ngFor="let view of viewOptions; let i = index"
@@ -248,27 +248,32 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="input-container">
-        <label class="small-text" for="view">נוף פתוח*</label>
-        <input class="input" id="view" formControlName="view" />
-      </div>
-      <div>
-        <label>
-          <input class="input" type="checkbox" formControlName="rearProperty" />
-          נכס עורפי
-        </label>
-      </div> -->
+      <label class="checkbox-input">
+        <input class="input" type="checkbox" formControlName="rearProperty" />
+        נכס עורפי
+      </label>
 
       <div class="line line2"></div>
 
       <div>
-        <label>
+        <label class="checkbox-input">
           <input type="checkbox" />
           אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס,
           עסקאות באיזור והצעות מקצועיות מיועצי נדל״ן
         </label>
       </div>
+
+      <!-- <label class="checkbox-input">
+        <input type="checkbox" hidden />
+        <span class="custom-checkbox"></span>
+        אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס, עסקאות
+        באיזור והצעות מקצועיות מיועצי נדל"ן
+      </label> -->
+
+      <div class="stages">
+        <img src="assets/images/stages.JPG" class="stages-pic" alt="stages" />
+      </div>
+
       <div class="navigation-btn">
         <button class="continue-btn">המשך לשלב הבא</button>
         <button class="return-btn">חזרה</button>

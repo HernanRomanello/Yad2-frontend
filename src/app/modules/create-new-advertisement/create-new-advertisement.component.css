@@ -77,8 +77,6 @@ button.active {
   background-color: rgb(255, 255, 255) !important;
   margin: auto !important;
   width: 880px;
-
-  /* margin-top: 1rem !important; */
 }
 
 #Selection-1 {
@@ -181,10 +179,6 @@ form {
 .recommend-pic {
   position: absolute;
   top: 71%;
-}
-
-.Selection-2-content {
-  transform: translateX(40px);
 }
 
 .small-text {
@@ -356,4 +350,60 @@ i.material-icons {
 
 .Select-options {
   display: flex;
+}
+
+.checkbox-input {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1rem !important;
+}
+
+.stages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 1rem 0;
+  border: 1px solid rgb(204, 204, 204, 0.3);
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.stages-pic {
+  height: 173px;
+  width: 796px;
+}
+
+.checkbox-input input[type="checkbox"],
+.check-input input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-input input[type="checkbox"]:checked,
+.check-input input[type="checkbox"]:checked {
+  background-color: #ff7100;
+}
+
+.checkbox-input input[type="checkbox"]:checked::after,
+.check-input input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 4px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.asset-stete-checkBox input[type="checkbox"] {
+  transform: translateY(7px);
 }
