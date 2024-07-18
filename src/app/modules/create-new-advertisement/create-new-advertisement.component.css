@@ -330,7 +330,7 @@ i.material-icons {
   /* cursor: pointer;
   padding: 10px;
   border: 1px solid #ccc; */
-  font-size: 14px;
+  /* font-size: 14px;
   font-weight: 400;
   line-height: 16.1px;
   background-color: rgb(255, 250, 245);
@@ -345,7 +345,40 @@ i.material-icons {
   padding: 0px 12px;
   display: flex;
   border-spacing: 0px 0px;
+  cursor: pointer; */
+}
+
+.option {
+  /* cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc; */
+  /* font-size: 14px; */
+  /* font-weight: 400; */
+  line-height: 16.1px;
+  background-color: rgb(255, 255, 255);
+  /* color: rgb(54, 54, 54); */
+  height: 42px;
+  width: 67px;
+  /* border-top: 1px solid rgb(255, 113, 0);
+  border-right: 1px solid rgb(255, 113, 0);
+  border-bottom: 1px solid rgb(255, 113, 0);
+  border-left: 0px none rgb(54, 54, 54); */
+  border: 1px solid #cccccc;
+  /* margin: 0px; */
+  padding: 0px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+}
+.border-option-right {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.border-option-left {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
 }
 
 .Select-options {

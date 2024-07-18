@@ -218,20 +218,20 @@
           </li>
         </ul>
       </div>
-      <!-- <div class="input-container">
+
+      <div class="input-container">
         <label class="small-text" for="view"> כיווני אוויר*</label>
-        <input class="input" id="view" formControlName="airDirections" />
-      </div> -->
-      <div class="Select-options">
-        <div
-          *ngFor="let number of AirDirections"
-          class="Select-option"
-          [class.selected]="
-            advertisementForm.get('airDirections').value === number
-          "
-          (click)="selectAirDirections(number)"
-        >
-          {{ number }}
+        <div class="Select-options">
+          <div
+            *ngFor="let number of AirDirections; let i = index"
+            [ngClass]="optionClass(i)"
+            [class.selected]="
+              advertisementForm.get('airDirections').value === number
+            "
+            (click)="selectAirDirections(number)"
+          >
+            {{ number }}
+          </div>
         </div>
       </div>
       <div class="input-container">

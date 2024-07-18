@@ -1,14 +1,14 @@
-ul .menu-dropdown_list__MbvhJ {
+button #toggle-104 .toggle-button_y2ToggleButton__XQXtp toggle-button_checked__4Ajze toggle-button_group__qfOgU toggle-button_default-size-medium__Wc6gD toggle-button_center__Oj2G7 {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 18.4px;
+	line-height: 16.1px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: start;
+	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,41 +17,41 @@ ul .menu-dropdown_list__MbvhJ {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(255, 250, 245);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 420px;
-	width: 260px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
+	height: 42px;
+	width: 64.7969px;
+	border: ;
+	border-top: 1px solid rgb(255, 113, 0);
+	border-right: 1px solid rgb(255, 113, 0);
+	border-bottom: 1px solid rgb(255, 113, 0);
 	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 0px;
-	max-height: 420px;
-	min-height: auto;
+	padding: 0px 12px;
+	max-height: none;
+	min-height: 42px;
 	max-width: none;
 	min-width: auto;
 
 	/* Positioning */
-	position: static;
-	top: auto;
-	bottom: auto;
-	right: auto;
-	left: auto;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: none;
+	list-style-type: disc;
 	list-style-position: outside;
 
 	/* Table */
@@ -62,14 +62,14 @@ ul .menu-dropdown_list__MbvhJ {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: hidden auto;
-	cursor: default;
+	overflow: visible;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
 	transform: none;
-	transition: all 0s ease 0s;
-	outline: rgb(255, 0, 0) dashed 1px;
+	transition: all 0.1s ease-out 0s;
+	outline: rgb(54, 54, 54) dashed 0px;
 	outline-offset: 0px;
 	box-sizing: border-box;
 	resize: none;
@@ -78,7 +78,7 @@ ul .menu-dropdown_list__MbvhJ {
 	word-wrap: normal;
 	box-shadow: none;
 	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
+	border-top-right-radius: 4px;
 	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 4px;
 }

@@ -187,6 +187,18 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.advertisementForm.get('airDirections').setValue(direction);
   }
 
+  optionClass(option: number): string {
+    switch (option) {
+      case 0:
+        return 'option border-option-right';
+
+      case 3:
+        return 'option border-option-left';
+      default:
+        return 'option';
+    }
+  }
+
   changeTradeTypeTitle(): string {
     switch (this.advertisementForm.get('tradeType').value) {
       case 'מכירה':
