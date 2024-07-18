@@ -38,10 +38,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
   isAssetAssetstateDropdownHidden = false;
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
-  // @ViewChild('dropdownIconAsset_type', { static: true })
-  // dropdownIconAsset_type!: ElementRef;
   @ViewChild('dropdownIconAsset_type', { static: false })
   dropdownIconAsset_type!: ElementRef<HTMLDivElement>;
+  AirDirections = [1, 2, 3, 4];
 
   constructor(private renderer: Renderer2, private zone: NgZone) {
     afterNextRender(() => {
@@ -114,7 +113,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       neighborhood: ['', Validators.required],
       area: ['', Validators.required],
       assetState: ['', Validators.required],
-      airDirections: [null],
+      airDirections: [1],
       view: ['', Validators.required],
       rearProperty: [false],
       rooms: ['', Validators.required],
@@ -182,6 +181,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
         }
       }
     }
+  }
+
+  selectAirDirections(direction: number) {
+    this.advertisementForm.get('airDirections').setValue(direction);
   }
 
   changeTradeTypeTitle(): string {
@@ -334,10 +337,5 @@ export class CreateNewAdvertisementComponent implements OnInit {
     } else if (type === 'assetState') {
       this.asset_State = option;
     }
-    // this.isAssetTypeDropdownHidden = false;
-  }
-
-  rotateIcon(isHidden: boolean): string {
-    return !isHidden ? 'material-icons' : 'material-icons rotate-icon';
   }
 }
