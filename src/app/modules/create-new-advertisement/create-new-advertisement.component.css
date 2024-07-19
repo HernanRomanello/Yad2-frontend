@@ -369,6 +369,10 @@ i.material-icons {
   margin-top: 1rem !important;
 }
 
+#balconiesNumber {
+  width: 54px !important;
+}
+
 .stages {
   display: flex;
   justify-content: center;

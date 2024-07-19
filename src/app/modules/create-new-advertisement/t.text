@@ -1,4 +1,4 @@
-div .stepNavigation {
+button #toggle-126 .toggle-button_y2ToggleButton__XQXtp toggle-button_group__qfOgU toggle-button_default-size-medium__Wc6gD toggle-button_center__Oj2G7 {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -8,7 +8,7 @@ div .stepNavigation {
 	letter-spacing: normal;
 	line-height: 16.1px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: start;
+	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,33 +17,33 @@ div .stepNavigation {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 36px;
-	width: 846px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
-	margin: 50px 0px 0px;
-	padding: 0px 24px;
+	height: 42px;
+	width: 52.7031px;
+	border: 1px solid rgb(204, 204, 204);
+	border-top: 1px solid rgb(204, 204, 204);
+	border-right: 1px solid rgb(204, 204, 204);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	border-left: 1px solid rgb(204, 204, 204);
+	margin: 0px;
+	padding: 0px 12px;
 	max-height: none;
-	min-height: 0px;
+	min-height: 42px;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
-	position: static;
-	top: auto;
-	bottom: auto;
-	right: auto;
-	left: auto;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
 	float: none;
 	display: flex;
 	clear: none;
@@ -63,13 +63,13 @@ div .stepNavigation {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: default;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
 	transform: none;
-	transition: all 0s ease 0s;
-	outline: rgb(255, 0, 0) dashed 1px;
+	transition: all 0.1s ease-out 0s;
+	outline: rgb(54, 54, 54) dashed 0px;
 	outline-offset: 0px;
 	box-sizing: border-box;
 	resize: none;
@@ -77,8 +77,8 @@ div .stepNavigation {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 0px;
+	border-top-left-radius: 4px;
 	border-top-right-radius: 0px;
-	border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 0px;
 }

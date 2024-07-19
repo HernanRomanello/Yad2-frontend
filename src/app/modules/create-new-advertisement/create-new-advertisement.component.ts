@@ -38,6 +38,8 @@ export class CreateNewAdvertisementComponent implements OnInit {
   dropdownIconRooms!: ElementRef<HTMLDivElement>;
   AirDirections = [1, 2, 3, 4];
   ShowerRooms = [1, 2, 3, 4];
+  privateParking = [0, 1, 2, 3];
+  balconiesNumber = [0, 1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
   roomsOptions: string[] = [
     '1',
@@ -144,7 +146,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       rearProperty: [false],
       rooms: ['', Validators.required],
       showerRooms: [this.ShowerRooms[0], Validators.required],
-      privateParking: [null],
+      privateParking: [this.privateParking[0]],
       hasPrivateParking: [false],
       hasBolcony: [false],
       hasImage: [false],
@@ -153,7 +155,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       priceDiscount: [false],
       publisherIsMiddleMan: [false],
       publisherIsContractor: [false],
-      balconiesNumber: [null],
+      balconiesNumber: [this.balconiesNumber[0]],
       accessibleForDisabled: [false],
       airConditioning: [false],
       windowBars: [false],
@@ -217,19 +219,27 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.advertisementForm.get('showerRooms').setValue(rooms);
   }
 
+  selectPrivateParking(parking: number) {
+    this.advertisementForm.get('privateParking').setValue(parking);
+  }
+
+  selectBalconiesNumber(balconies: number) {
+    this.advertisementForm.get('balconiesNumber').setValue(balconies);
+  }
+
   selectAirView(view: string) {
     this.advertisementForm.get('view').setValue(view);
   }
 
-  optionClass(option: number): string {
-    switch (option) {
-      case 0:
-        return 'option border-option-right';
-
-      case 3:
-        return 'option border-option-left';
-      default:
-        return 'option';
+  optionClass(option: number, fiveOptions: boolean): string {
+    if (option === 4 && fiveOptions) {
+      return 'option border-option-left';
+    } else if (option === 3 && !fiveOptions) {
+      return 'option border-option-left';
+    } else if (option === 0) {
+      return 'option border-option-right';
+    } else {
+      return 'option';
     }
   }
 

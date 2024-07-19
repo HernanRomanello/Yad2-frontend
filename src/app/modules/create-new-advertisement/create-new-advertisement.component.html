@@ -224,7 +224,7 @@
         <div class="Select-options">
           <div
             *ngFor="let number of AirDirections; let i = index"
-            [ngClass]="optionClass(i)"
+            [ngClass]="optionClass(i, false)"
             [class.selected]="
               advertisementForm.get('airDirections').value === number
             "
@@ -240,7 +240,7 @@
         <div class="Select-options">
           <div
             *ngFor="let view of viewOptions; let i = index"
-            [ngClass]="optionClass(i)"
+            [ngClass]="optionClass(i, false)"
             [class.selected]="advertisementForm.get('view').value === view"
             (click)="selectAirView(view)"
           >
@@ -327,7 +327,7 @@
           <div class="Select-options">
             <div
               *ngFor="let number of ShowerRooms; let i = index"
-              [ngClass]="optionClass(i)"
+              [ngClass]="optionClass(i, false)"
               [class.selected]="
                 advertisementForm.get('showerRooms').value === number
               "
@@ -338,10 +338,39 @@
           </div>
         </div>
 
-        <div>
-          <label for="showerRooms"> חניה*</label>
-          <input id="showerRooms" formControlName="privateParking" />
+        <div class="input-container">
+          <label class="small-text" for="view"> חניה</label>
+          <div class="Select-options">
+            <div
+              *ngFor="let number of privateParking; let i = index"
+              [ngClass]="optionClass(i, false)"
+              [class.selected]="
+                advertisementForm.get('privateParking').value === number
+              "
+              (click)="selectPrivateParking(number)"
+            >
+              @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
+            </div>
+          </div>
         </div>
+
+        <div class="input-container">
+          <label class="small-text" for="view"> מרפסת</label>
+          <div class="Select-options">
+            <div
+              id="balconiesNumber"
+              *ngFor="let number of balconiesNumber; let i = index"
+              [ngClass]="optionClass(i, true)"
+              [class.selected]="
+                advertisementForm.get('balconiesNumber').value === number
+              "
+              (click)="selectBalconiesNumber(number)"
+            >
+              @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
+            </div>
+          </div>
+        </div>
+
         <div>
           <label for="showerRooms"> מרפסת*</label>
           <input id="showerRooms" formControlName="balconiesNumber" />
