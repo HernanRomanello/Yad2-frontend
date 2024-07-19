@@ -79,7 +79,8 @@ button.active {
   height: 360px;
 }
 
-#Selection-2 {
+#Selection-2,
+#Selection-3 {
   display: flex;
   flex-direction: column;
   direction: rtl;
