@@ -181,7 +181,7 @@ form {
 
 .upgrade-add-pic {
   position: absolute;
-  top: 291%;
+  top: 292.5%;
   right: 50%;
 }
 
@@ -196,6 +196,7 @@ form {
   flex-direction: column;
   gap: 0.25rem;
   padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .space2 {
@@ -262,12 +263,21 @@ input::placeholder {
 
 .line {
   width: 800px;
-
   height: 1px;
-  background-color: rgb(238, 238, 238, 0.8);
+  background-color: rgb(238, 238, 238);
   margin: 40px !important;
   margin-bottom: 10px !important;
   transform: translateX(5%);
+}
+
+.line3 {
+  width: 800px;
+  height: 1px;
+  background-color: rgb(238, 238, 238);
+  /* margin: 40px !important; */
+  margin-bottom: 40px !important;
+  margin-top: 45px !important;
+  /* transform: translateX(5%); */
 }
 
 .line2 {
@@ -288,6 +298,10 @@ input::placeholder {
   background-color: #fff;
   border: 1px solid #ccc;
   font-size: 16px;
+}
+
+#section-title-container3 {
+  transform: translateX(40px);
 }
 
 i.material-icons {
