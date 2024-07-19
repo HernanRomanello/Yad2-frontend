@@ -178,6 +178,12 @@ form {
   top: 71%;
 }
 
+.upgrade-add-pic {
+  position: absolute;
+  top: 291%;
+  right: 50%;
+}
+
 .small-text {
   font-weight: 520;
   line-height: 20px;

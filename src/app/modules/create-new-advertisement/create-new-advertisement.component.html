@@ -280,9 +280,26 @@
     <div><span class="section-title">3</span> <span> מאפייני הנכס</span></div>
   </div>
 
+  <div class="space"></div>
+  <div class="close-section" *ngIf="false">
+    <div class="section-title-container">
+      <span class="section-title">3</span> <span>כתובת הנכס</span>
+    </div>
+  </div>
+
   <div class="advertisement-selection" id="Selection-3" *ngIf="true">
-    <div><span class="section-title">3</span> <span> מאפייני הנכס</span></div>
     <div>
+      <img
+        src="assets/images/upgrade-add.JPG"
+        class="upgrade-add-pic"
+        alt="ad2"
+      />
+
+      <div class="section-title-container">
+        <div>
+          <span class="section-title">3</span> <span> מאפייני הנכס</span>
+        </div>
+      </div>
       <label for="rooms">מספר חדרים*</label>
       <input id="rooms" formControlName="rooms" />
     </div>
