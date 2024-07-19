@@ -37,6 +37,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   @ViewChild('dropdownIconRooms', { static: false })
   dropdownIconRooms!: ElementRef<HTMLDivElement>;
   AirDirections = [1, 2, 3, 4];
+  ShowerRooms = [1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
   roomsOptions: string[] = [
     '1',
@@ -142,7 +143,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       view: [this.viewOptions[0], Validators.required],
       rearProperty: [false],
       rooms: ['', Validators.required],
-      showerRooms: ['', Validators.required],
+      showerRooms: [this.ShowerRooms[0], Validators.required],
       privateParking: [null],
       hasPrivateParking: [false],
       hasBolcony: [false],
@@ -210,6 +211,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   selectAirDirections(direction: number) {
     this.advertisementForm.get('airDirections').setValue(direction);
+  }
+
+  selectShowerRooms(rooms: number) {
+    this.advertisementForm.get('showerRooms').setValue(rooms);
   }
 
   selectAirView(view: string) {
