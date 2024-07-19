@@ -298,10 +298,35 @@
         <div class="section-title-container">
           <span class="section-title">3</span> <span> מאפייני הנכס</span>
         </div>
-
+        <div class="input-container">
+          <label class="small-text" for="assetState">מספר חדרים*</label>
+          <button
+            class="input large dropdown-btn"
+            type="button"
+            (click)="toggleDropdown('assetState')"
+          >
+            {{ asset_Rooms ?? "בחירת מספר חדרים" }}
+            <i #dropdownIconAsset_Rooms class="material-icons"
+              >keyboard_arrow_down</i
+            >
+          </button>
+          <ul
+            *ngIf="this.isAssetAssetstateDropdownHidden"
+            class="dropdown-menu asset dropdown-assetState"
+          >
+            <li
+              class="dropdown-item assetState"
+              *ngFor="let option of roomsOptions"
+              (click)="selectAssetType(option, 'assetState')"
+            >
+              {{ option }}
+            </li>
+          </ul>
+        </div>
         <label for="rooms">מספר חדרים*</label>
         <input id="rooms" formControlName="rooms" />
       </div>
+
       <div>
         <label for="showerRooms"> חדרי מקלחת*</label>
         <input id="showerRooms" formControlName="showerRooms" />

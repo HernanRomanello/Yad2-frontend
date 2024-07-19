@@ -28,6 +28,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   advertisementForm!: FormGroup | any;
   asset_type: string | undefined = undefined;
   asset_State: string | undefined = undefined;
+  asset_Rooms: string | undefined = undefined;
   images: File[] = [];
   video: File | undefined = undefined;
   authService = inject(AuthService);
@@ -41,6 +42,32 @@ export class CreateNewAdvertisementComponent implements OnInit {
   dropdownIconAsset_type!: ElementRef<HTMLDivElement>;
   AirDirections = [1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
+  roomsOptions: string[] = [
+    '1',
+    '1.5',
+    '2',
+    '2.5',
+    '3',
+    '3.5',
+    '4',
+    '4.5',
+    '5',
+    '5.5',
+    '6',
+    '6.5',
+    '7',
+    '7.5',
+    '8',
+    '8.5',
+    '9',
+    '9.5',
+    '10',
+    '10.5',
+    '11',
+    '11.5',
+    '12',
+    '12.5',
+  ];
 
   constructor(private renderer: Renderer2, private zone: NgZone) {
     afterNextRender(() => {
