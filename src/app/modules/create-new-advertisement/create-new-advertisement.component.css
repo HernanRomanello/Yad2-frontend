@@ -20,10 +20,6 @@ button.active {
   cursor: pointer;
 }
 
-/* .dropdown-menu li:hover {
-  background-color: #f0f0f0;
-} */
-
 .hide {
   display: none;
 }
@@ -76,7 +72,7 @@ button.active {
   flex-direction: column;
   background-color: rgb(255, 255, 255) !important;
   margin: auto !important;
-  width: 880px;
+  width: 880px !important;
 }
 
 #Selection-1 {
@@ -88,6 +84,7 @@ button.active {
   flex-direction: column;
   direction: rtl;
   justify-content: space-between;
+  padding-bottom: 2rem;
 }
 
 form {
@@ -257,7 +254,8 @@ input::placeholder {
 }
 
 .line {
-  width: 112%;
+  width: 800px;
+
   height: 1px;
   background-color: rgb(238, 238, 238, 0.8);
   margin: 40px !important;
@@ -369,10 +367,11 @@ i.material-icons {
   border: 1px solid rgb(204, 204, 204, 0.3);
   margin-top: 2rem;
   margin-bottom: 3rem;
+  width: 800px;
 }
 .stages-pic {
   height: 173px;
-  width: 796px;
+  width: 800px;
 }
 
 .checkbox-input input[type="checkbox"],
@@ -406,4 +405,17 @@ i.material-icons {
 
 .asset-stete-checkBox input[type="checkbox"] {
   transform: translateY(7px);
+}
+
+.navigation-btn {
+  line-height: 16.1px;
+  height: 36px;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  direction: ltr;
+}
+
+.Selection-2-content {
+  transform: translateX(-50px);
 }
