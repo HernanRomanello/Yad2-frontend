@@ -186,7 +186,7 @@
           <li
             class="dropdown-item"
             *ngFor="let option of assetTypes"
-            (click)="selectAssetType(option, 'assetType')"
+            (click)="selectOption(option, 'assetType')"
           >
             {{ option }}
           </li>
@@ -212,7 +212,7 @@
           <li
             class="dropdown-item assetState"
             *ngFor="let option of assetConditions"
-            (click)="selectAssetType(option, 'assetState')"
+            (click)="selectOption(option, 'assetState')"
           >
             {{ option }}
           </li>
@@ -303,21 +303,19 @@
           <button
             class="input large dropdown-btn"
             type="button"
-            (click)="toggleDropdown('assetState')"
+            (click)="toggleDropdown('rooms')"
           >
             {{ asset_Rooms ?? "בחירת מספר חדרים" }}
-            <i #dropdownIconAsset_Rooms class="material-icons"
-              >keyboard_arrow_down</i
-            >
+            <i #dropdownIconRooms class="material-icons">keyboard_arrow_down</i>
           </button>
           <ul
-            *ngIf="this.isAssetAssetstateDropdownHidden"
+            *ngIf="this.isRoomsDropdownHidden"
             class="dropdown-menu asset dropdown-assetState"
           >
             <li
               class="dropdown-item assetState"
               *ngFor="let option of roomsOptions"
-              (click)="selectAssetType(option, 'assetState')"
+              (click)="selectOption(option, 'rooms')"
             >
               {{ option }}
             </li>

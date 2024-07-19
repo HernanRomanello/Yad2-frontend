@@ -6,15 +6,8 @@ import {
   Renderer2,
   ViewChild,
   inject,
-  AfterViewInit, // Add this line
 } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-} from '@angular/forms';
-import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/user/auth.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { afterNextRender } from '@angular/core';
@@ -36,10 +29,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
   formBuilder = inject(FormBuilder);
   isAssetTypeDropdownHidden = false;
   isAssetAssetstateDropdownHidden = false;
+  isRoomsDropdownHidden = false;
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
   @ViewChild('dropdownIconAsset_type', { static: false })
   dropdownIconAsset_type!: ElementRef<HTMLDivElement>;
+  @ViewChild('dropdownIconRooms', { static: false })
+  dropdownIconRooms!: ElementRef<HTMLDivElement>;
   AirDirections = [1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
   roomsOptions: string[] = [
@@ -83,8 +79,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
         this.zone.run(() => {
           this.isAssetTypeDropdownHidden = false;
           this.isAssetAssetstateDropdownHidden = false;
+          this.isRoomsDropdownHidden = false;
           this.rotateArrowAssetState('assetState');
           this.rotateArrowAssetType('assetType');
+          this.rotateArrowRooms('rooms');
         });
       });
     });
@@ -334,9 +332,25 @@ export class CreateNewAdvertisementComponent implements OnInit {
           this.dropdownIconAsset_type.nativeElement,
           'rotate-icon'
         );
-      } else {
+      } else if ('assetState') {
         this.renderer.removeClass(
           this.dropdownIconAsset_type.nativeElement,
+          'rotate-icon'
+        );
+      }
+    }
+  }
+
+  private rotateArrowRooms(type: string) {
+    if (type === 'rooms') {
+      if (this.isRoomsDropdownHidden) {
+        this.renderer.addClass(
+          this.dropdownIconRooms.nativeElement,
+          'rotate-icon'
+        );
+      } else {
+        this.renderer.removeClass(
+          this.dropdownIconRooms.nativeElement,
           'rotate-icon'
         );
       }
@@ -363,22 +377,28 @@ export class CreateNewAdvertisementComponent implements OnInit {
     if (type === 'assetType') {
       this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
       this.isAssetAssetstateDropdownHidden = false;
+      this.rotateArrowAssetType('assetType');
       this.rotateArrowAssetState('assetState');
     } else if (type === 'assetState') {
       this.isAssetAssetstateDropdownHidden =
         !this.isAssetAssetstateDropdownHidden;
       this.isAssetTypeDropdownHidden = false;
       this.rotateArrowAssetType('assetType');
+      this.rotateArrowAssetState('assetState');
+    } else if (type === 'rooms') {
+      this.isRoomsDropdownHidden = !this.isRoomsDropdownHidden;
+      this.rotateArrowRooms('rooms');
     }
   }
 
-  selectAssetType(option: string, type: string) {
-    console.log('Selected asset type:', option);
+  selectOption(option: string, type: string) {
     this.openAndCloseButtons(type);
     if (type === 'assetType') {
       this.asset_type = option;
     } else if (type === 'assetState') {
       this.asset_State = option;
+    } else if (type === 'rooms') {
+      this.asset_Rooms = option;
     }
   }
 }
