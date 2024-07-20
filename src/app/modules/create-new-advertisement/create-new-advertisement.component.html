@@ -10,8 +10,8 @@
       <button
         class="asset-type"
         type="button"
-        [class.active]="isActive('עסקים למכירה')"
         (click)="setAdvertisementType('עסקים למכירה')"
+        [class.active]="isActive('עסקים למכירה')"
       >
         <div class="part-1">
           <img src="assets/images/4type.JPG" class="type-pic" alt="ad2" />
@@ -377,10 +377,17 @@
           <div
             class="Feature"
             *ngFor="let item of propertyFeatures; let i = index"
+            (click)="selectPropertyFeatures(i)"
+            [class.selected1]="
+              advertisementForm.get(propertyFeaturesChecked[i].key).value ===
+              true
+            "
           >
             @if(propertyFeaturesIcons[i]!='false'){
 
-            <i class="material-icons">{{ propertyFeaturesIcons[i] }}</i>
+            <i class="material-icons feature-pic">{{
+              propertyFeaturesIcons[i]
+            }}</i>
             } @else{<img
               [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
               class="feature-pic"

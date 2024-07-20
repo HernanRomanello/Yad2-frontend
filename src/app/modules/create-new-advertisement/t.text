@@ -1,4 +1,4 @@
-button #toggle-163 .toggle-button_y2ToggleButton__XQXtp toggle-button_single__YIE4D toggle-button_default-size-medium__Wc6gD toggle-button_right__HVBzJ {
+button #toggle-162 .toggle-button_y2ToggleButton__XQXtp toggle-button_checked__4Ajze toggle-button_single__YIE4D toggle-button_default-size-medium__Wc6gD toggle-button_right__HVBzJ {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -17,7 +17,7 @@ button #toggle-163 .toggle-button_y2ToggleButton__XQXtp toggle-button_single__YI
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(255, 250, 245);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
@@ -26,11 +26,11 @@ button #toggle-163 .toggle-button_y2ToggleButton__XQXtp toggle-button_single__YI
 	/* Box */
 	height: 42px;
 	width: 189px;
-	border: 1px solid rgb(204, 204, 204);
-	border-top: 1px solid rgb(204, 204, 204);
-	border-right: 1px solid rgb(204, 204, 204);
-	border-bottom: 1px solid rgb(204, 204, 204);
-	border-left: 1px solid rgb(204, 204, 204);
+	border: 1px solid rgb(255, 113, 0);
+	border-top: 1px solid rgb(255, 113, 0);
+	border-right: 1px solid rgb(255, 113, 0);
+	border-bottom: 1px solid rgb(255, 113, 0);
+	border-left: 1px solid rgb(255, 113, 0);
 	margin: 0px;
 	padding: 0px 12px;
 	max-height: none;

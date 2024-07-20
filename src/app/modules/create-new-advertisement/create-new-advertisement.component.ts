@@ -86,6 +86,24 @@ export class CreateNewAdvertisementComponent implements OnInit {
     'מחסן',
   ];
 
+  propertyFeaturesChecked: { key: string; checked: boolean }[] = [
+    { key: 'accessibleForDisabled', checked: false }, // גישה לנכים
+    { key: 'airConditioning', checked: false }, // מיזוג
+    { key: 'windowBars', checked: false }, // סורגים
+    { key: 'solarWaterHeater', checked: false }, // דוד שמש
+    { key: 'elevator', checked: false }, // מעלית
+    { key: 'forRoommates', checked: false }, // לשותפים
+    { key: 'furnished', checked: false }, // ריהוט
+    { key: 'separateUnit', checked: false }, // יחידת דיור
+    { key: 'kosherKitchen', checked: false }, // מטבח כשר
+    { key: 'petsAllowed', checked: false }, // חיות מחמד
+    { key: 'renovated', checked: false }, // משופצת
+    { key: 'safeRoom', checked: false }, // ממ"ד
+    { key: 'multiLockDoors', checked: false }, // דלתות רב-בריח
+    { key: 'tornadoAirConditioner', checked: false }, // מזגן טורנדו
+    { key: 'storageRoom', checked: false }, // מחסן
+  ];
+
   propertyFeaturesIcons: string[] = [
     'accessible',
     'ac_unit',
@@ -209,7 +227,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       priceDiscount: [false],
       publisherIsMiddleMan: [false],
       publisherIsContractor: [false],
-      balconiesNumber: [this.balconiesNumber[0]],
+      balconiesNumber: [false],
       accessibleForDisabled: [false],
       airConditioning: [false],
       windowBars: [false],
@@ -283,6 +301,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   selectAirView(view: string) {
     this.advertisementForm.get('view').setValue(view);
+  }
+  selectPropertyFeatures(index: number) {
+    const propertyFeature = this.propertyFeaturesChecked[index];
+    var currentValue = !this.advertisementForm.get(propertyFeature.key).value;
+    this.advertisementForm.get(propertyFeature.key).setValue(currentValue);
   }
 
   optionClass(option: number, fiveOptions: boolean): string {

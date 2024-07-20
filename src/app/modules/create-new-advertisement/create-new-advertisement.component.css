@@ -371,6 +371,17 @@ i.material-icons {
   color: #ff7100;
 }
 
+.selected1 {
+  border: 1px solid rgb(255, 113, 0);
+  background-color: rgb(255, 250, 245) !important;
+  color: #ff7100;
+}
+
+.Feature.selected1 img {
+  filter: invert(46%) sepia(96%) saturate(2239%) hue-rotate(0deg)
+    brightness(140%) contrast(102%);
+}
+
 .Select-options {
   display: flex;
 }
@@ -469,6 +480,13 @@ i.material-icons {
   padding: 12px 12px;
   vertical-align: middle !important;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 70px;
+  vertical-align: middle !important;
+  justify-content: flex-start;
+  white-space: nowrap;
 }
 
 .property-Features {
@@ -477,4 +495,16 @@ i.material-icons {
   grid-template-columns: repeat(4, 1fr);
   margin: auto;
   gap: 1rem;
+  line-height: 20px;
+}
+
+.feature-pic {
+  margin-left: 5px;
+  margin-bottom: 4px;
+  vertical-align: middle;
+}
+
+.Feature:hover .feature-pic {
+  filter: invert(46%) sepia(96%) saturate(2239%) hue-rotate(0deg)
+    brightness(100%) contrast(102%);
 }
