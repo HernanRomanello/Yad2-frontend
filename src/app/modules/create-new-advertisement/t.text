@@ -1,4 +1,4 @@
-button #toggle-126 .toggle-button_y2ToggleButton__XQXtp toggle-button_group__qfOgU toggle-button_default-size-medium__Wc6gD toggle-button_center__Oj2G7 {
+button #toggle-163 .toggle-button_y2ToggleButton__XQXtp toggle-button_single__YIE4D toggle-button_default-size-medium__Wc6gD toggle-button_right__HVBzJ {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -11,7 +11,7 @@ button #toggle-126 .toggle-button_y2ToggleButton__XQXtp toggle-button_group__qfO
 	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
-	vertical-align: baseline;
+	vertical-align: top;
 	white-space: normal;
 	word-spacing: 0px;
 
@@ -25,7 +25,7 @@ button #toggle-126 .toggle-button_y2ToggleButton__XQXtp toggle-button_group__qfO
 
 	/* Box */
 	height: 42px;
-	width: 52.7031px;
+	width: 189px;
 	border: 1px solid rgb(204, 204, 204);
 	border-top: 1px solid rgb(204, 204, 204);
 	border-right: 1px solid rgb(204, 204, 204);
@@ -39,11 +39,11 @@ button #toggle-126 .toggle-button_y2ToggleButton__XQXtp toggle-button_group__qfO
 	min-width: auto;
 
 	/* Positioning */
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
 	display: flex;
 	clear: none;
@@ -78,7 +78,7 @@ button #toggle-126 .toggle-button_y2ToggleButton__XQXtp toggle-button_group__qfO
 	word-wrap: normal;
 	box-shadow: none;
 	border-top-left-radius: 4px;
-	border-top-right-radius: 0px;
+	border-top-right-radius: 4px;
 	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 4px;
 }

@@ -68,6 +68,60 @@ export class CreateNewAdvertisementComponent implements OnInit {
     '12.5',
   ];
 
+  propertyFeatures: string[] = [
+    ' גישה לנכים',
+    'מיזוג',
+    'סורגים',
+    'דוד שמש',
+    'מעלית',
+    'לשותפים',
+    'ריהוט',
+    'יחידת דיור',
+    'מטבח כשר',
+    'חיות מחמד',
+    'משופצת',
+    'ממ"ד',
+    'דלתות רב-בריח',
+    'מזגן טורנדו',
+    'מחסן',
+  ];
+
+  propertyFeaturesIcons: string[] = [
+    'accessible',
+    'ac_unit',
+    'false',
+    'false',
+    'false',
+    'people_outline',
+    'false',
+    'false',
+    'false',
+    'pets',
+    'format_paint',
+    'false',
+    'false',
+    'false',
+    'false',
+  ];
+
+  propertyFeaturesImages: string[] = [
+    'false',
+    'false',
+    'sensor_door',
+    'solar_power',
+    'elevator',
+    'לשותפים',
+    'dresser',
+    'night_shelter',
+    'circle',
+    'חיות מחמד',
+    'משופצת',
+    'deployed_code',
+    'sensor_door',
+    'air_purifier_gen',
+    'inventory_2',
+  ];
+
   constructor(private renderer: Renderer2, private zone: NgZone) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
