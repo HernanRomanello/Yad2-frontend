@@ -454,6 +454,7 @@ i.material-icons {
   display: flex;
   justify-content: space-between;
   direction: ltr;
+  margin-top: 50px;
 }
 
 .Selection-2-content {
@@ -504,7 +505,67 @@ i.material-icons {
   vertical-align: middle;
 }
 
-.Feature:hover .feature-pic {
+.Feature:hover img {
   filter: invert(46%) sepia(96%) saturate(2239%) hue-rotate(0deg)
-    brightness(100%) contrast(102%);
+    brightness(140%) contrast(102%);
+}
+
+.property-description {
+  margin-top: 2.5rem;
+}
+
+.font-17 {
+  font-size: 17.6px !important;
+}
+
+.description-box {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  line-height: 18.4px;
+  text-align: start;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  height: 157.906px;
+  width: 398px;
+  padding: 12px;
+  border: 1px solid rgb(204, 204, 204, 0.7);
+  border-radius: 4px;
+}
+
+textarea:active,
+textarea:focus {
+  border: none !important;
+  outline: 1px solid rgb(0, 0, 0);
+}
+textarea::placeholder {
+  color: rgb(0, 0, 0, 0.3);
+  font-size: 18px;
+  font-weight: 400;
+  text-align: right;
+  padding-top: 0.5rem;
+  font-family: "rubik" sans-serif;
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+}
+
+.description-title {
+  flex-direction: row !important;
+  justify-content: space-between !important;
+}
+
+.content-chars {
+  color: #cccccc;
+}
+
+.nano-text1 {
+  font-size: 11.5px;
+  text-align: start;
+  line-height: 13.8px;
+  height: 13.7969px;
+  margin: 10px 0px 0px;
+  font-weight: 500;
 }

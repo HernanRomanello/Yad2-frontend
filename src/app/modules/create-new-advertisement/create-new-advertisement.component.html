@@ -396,108 +396,53 @@
             {{ item }}
           </div>
         </div>
+        <div class="property-description">
+          <div class="sub-title font-17">מה חשוב לך שידעו על הנכס?</div>
 
-        <!-- <div>
-          <label>
-            <input type="checkbox" formControlName="accessibleForDisabled" />
-            נגיש לנכים
-          </label>
-        </div>
+          <div class="description-box" *ngIf="furnitureDescription">
+            <div class="description-title description-box">
+              <label class="small-text" for="">
+                פרוט הריהוט: (עד 200 תוים)
+              </label>
+              <div class="content-chars">
+                {{
+                  advertisementForm.get("furnituredescription").value.length ||
+                    0
+                }}/200
+              </div>
+            </div>
 
-        <div>
-          <label>
-            <input type="checkbox" formControlName="airConditioning" />
-            מיזוג
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="windowBars" />
-            סורגים
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="solarWaterHeater" />
-            דוד שמש
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="elevator" />
-            מעלית
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="forRoommates" />
-            לשותפים
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="furnished" />
-            ריהוט
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="separateUnit" />
-            יחידת דיור
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="kosherKitchen" />
-            מטבח כשר
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="petsAllowed" />
-            חיות מחמד
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="renovated" />
-            משופצת
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="safeRoom" />
-            ממ"ד
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="multiLockDoors" />
-            דלתות רב בריח
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" formControlName="storageRoom" />
-            מחסן
-          </label>
-        </div> -->
-        <div>
-          <label for="">מה חשוב לך שידעו על הנכס?</label>
-
-          <div>
-            <label for=""> פרוט הריהוט: (עד 200 תוים) </label>
-
-            <label for="description">תיאור*</label>
             <textarea
-              id="description"
+              id="furnituredescription"
+              #furnituredescription
+              (input)="updatefurnitureDescription(furnituredescription.value)"
               formControlName="furnituredescription"
             ></textarea>
           </div>
-          <div>
-            <label for="description">פרוט הנכס*</label>
-            <textarea id="description" formControlName="description"></textarea>
+          <div class="description-box">
+            <label class="small-text" for="description">פרוט הנכס</label>
+
+            <div class="description-title description-box">
+              <label class="" for="description"
+                >הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות</label
+              >
+              <div class="content-chars">
+                {{ advertisementForm.get("description").value.length || 0 }}/400
+              </div>
+            </div>
+
+            <textarea
+              placeholder="זה המקום לתאר את הפרטים הבולטים,למשל,האם נערך שיפוץ במבנה,מה שופץ,כיווני אוויר,האווירה ברחוב וכו'"
+              (input)="updateDescription(description.value)"
+              #description
+              id="description"
+              formControlName="description"
+            ></textarea>
           </div>
+        </div>
+        <div class="nano-text1">
+          אין צורך להוסיף מספר טלפון כחלק מהתיאור, בהמשך התהליך יש אזור מסודר
+          לזה
         </div>
         <div class="navigation-btn">
           <button class="continue-btn">המשך לשלב הבא</button>

@@ -41,6 +41,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   privateParking = [0, 1, 2, 3];
   balconiesNumber = [0, 1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
+  furnitureDescription: boolean = false;
   roomsOptions: string[] = [
     '1',
     '1.5',
@@ -259,7 +260,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       immediate: [false],
       flexible: [false],
       longTerm: [false],
-      pictures: [[]], // Assuming an array of Picture type
+      pictures: [[]],
       video: [''],
       contactName: [
         this.authService.user.getValue()?.name || '',
@@ -306,6 +307,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
     const propertyFeature = this.propertyFeaturesChecked[index];
     var currentValue = !this.advertisementForm.get(propertyFeature.key).value;
     this.advertisementForm.get(propertyFeature.key).setValue(currentValue);
+    if (propertyFeature.key === 'furnished') {
+      if (currentValue) {
+        this.furnitureDescription = true;
+      } else {
+        this.furnitureDescription = false;
+      }
+    }
   }
 
   optionClass(option: number, fiveOptions: boolean): string {
@@ -318,6 +326,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
     } else {
       return 'option';
     }
+  }
+  updateDescription(description: string) {
+    this.advertisementForm.get('description').setValue(description);
+  }
+
+  updatefurnitureDescription(description: string) {
+    this.advertisementForm.get('furnituredescription').setValue(description);
   }
 
   changeTradeTypeTitle(): string {
@@ -360,7 +375,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
   }
   async handleSubmit() {
     if (!this.asset_type || !this.asset_State) {
-      // alert('Asset type is required');
       return;
     }
 
