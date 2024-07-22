@@ -288,7 +288,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
     } else if (textLength >= 104) {
       this.descriptionMessage = 'בול!';
       return '#43c671';
-    } else return '#363636';
+    } else {
+      this.descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
+      return '#363636';
+    }
   }
 
   changeWidth(textLength: number): string {
