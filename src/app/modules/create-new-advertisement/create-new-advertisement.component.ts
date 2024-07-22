@@ -30,6 +30,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   isAssetTypeDropdownHidden = false;
   isAssetAssetstateDropdownHidden = false;
   isRoomsDropdownHidden = false;
+  descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
   @ViewChild('dropdownIconAsset_type', { static: false })
@@ -273,6 +274,43 @@ export class CreateNewAdvertisementComponent implements OnInit {
       standardizationAccepted: [false],
     });
   }
+
+  changeColor(textLength: number): string {
+    if (textLength > 0 && textLength < 8) {
+      this.descriptionMessage = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
+      return 'red';
+    } else if (textLength > 7 && textLength < 32) {
+      this.descriptionMessage = 'יופי, המודעה הולכת לכיוון הנכון';
+      return '#ff7100';
+    } else if (textLength >= 32 && textLength < 104) {
+      this.descriptionMessage = 'אוטוטו...';
+      return '#fbaf02';
+    } else if (textLength > 104) {
+      this.descriptionMessage = 'בול!';
+      return '#43c671';
+    } else return '#363636';
+  }
+
+  updateDescription1(value: string): void {
+    const length = value.length;
+    const maxLength = 400;
+    const strengthPercentage = (length / maxLength) * 100;
+
+    // Update the strength bar width dynamically
+    const strengthBar = document.querySelector('.strength-bar') as HTMLElement;
+    if (strengthBar) {
+      strengthBar.style.width = `${strengthPercentage}%`;
+      // Optional: Change color based on the strength
+      if (strengthPercentage < 33) {
+        strengthBar.style.backgroundColor = '#da2525'; // Weak (red)
+      } else if (strengthPercentage < 66) {
+        strengthBar.style.backgroundColor = '#ffcc00'; // Moderate (yellow)
+      } else {
+        strengthBar.style.backgroundColor = '#4CAF50'; // Strong (green)
+      }
+    }
+  }
+
   checkFormValidation() {
     for (const controlName in this.advertisementForm.controls) {
       if (this.advertisementForm.controls.hasOwnProperty(controlName)) {

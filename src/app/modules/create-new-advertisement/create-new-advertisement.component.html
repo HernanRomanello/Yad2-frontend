@@ -423,15 +423,23 @@
             <label class="small-text" for="description">פרוט הנכס</label>
 
             <div class="description-title description-box">
-              <label class="" for="description"
-                >הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות</label
-              >
+              <label
+                class="input-label"
+                [ngStyle]="{
+                  color: changeColor(
+                    advertisementForm.get('description').value.length || 0
+                  )
+                }"
+                for="description"
+                >{{ descriptionMessage }}
+              </label>
               <div class="content-chars">
                 {{ advertisementForm.get("description").value.length || 0 }}/400
               </div>
             </div>
 
             <textarea
+              maxlength="400"
               placeholder="זה המקום לתאר את הפרטים הבולטים,למשל,האם נערך שיפוץ במבנה,מה שופץ,כיווני אוויר,האווירה ברחוב וכו'"
               (input)="updateDescription(description.value)"
               #description

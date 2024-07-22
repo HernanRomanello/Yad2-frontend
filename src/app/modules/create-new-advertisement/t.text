@@ -1,13 +1,13 @@
-div .product-details_comment__I357K {
+span .strength-bar_text__kDWwf strength-bar_yellow__JR3Oj {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 13.8px;
-	text-decoration: none solid rgb(54, 54, 54);
+	line-height: 16.1px;
+	text-decoration: none solid rgb(251, 175, 2);
 	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
@@ -21,22 +21,22 @@ div .product-details_comment__I357K {
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(251, 175, 2);
 
 	/* Box */
-	height: 13.7969px;
-	width: 400px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
-	margin: 10px 0px 0px;
+	height: 16.0938px;
+	width: 46.6406px;
+	border: 0px none rgb(251, 175, 2);
+	border-top: 0px none rgb(251, 175, 2);
+	border-right: 0px none rgb(251, 175, 2);
+	border-bottom: 0px none rgb(251, 175, 2);
+	border-left: 0px none rgb(251, 175, 2);
+	margin: 0px;
 	padding: 0px;
 	max-height: none;
-	min-height: 0px;
+	min-height: auto;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
 	position: static;
@@ -63,7 +63,7 @@ div .product-details_comment__I357K {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: auto;
+	cursor: default;
 	visibility: visible;
 
 	/* Effects */

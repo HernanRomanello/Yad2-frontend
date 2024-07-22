@@ -125,14 +125,25 @@ form {
 
 .continue-btn {
   font-weight: 600 !important;
-  background-color: rgb(255, 250, 245);
   color: rgb(255, 113, 0, 0.8);
   border: 1px solid rgb(255, 113, 0);
+  background-color: rgb(255, 255, 255);
 }
 
 .return-btn {
   background-color: rgb(255, 255, 255);
   background-repeat: repeat;
+  border: 1px solid rgb(153, 153, 153, 0.5);
+}
+.continue-btn:hover {
+  background-color: rgb(255, 250, 245);
+}
+
+.input-label {
+  margin-bottom: 5px;
+}
+
+.return-btn:hover {
   border: 1px solid rgb(153, 153, 153);
 }
 .return-btn,
@@ -372,7 +383,7 @@ i.material-icons {
 }
 
 .selected1 {
-  border: 1px solid rgb(255, 113, 0);
+  border: 1px solid rgb(255, 113, 0) !important;
   background-color: rgb(255, 250, 245) !important;
   color: #ff7100;
 }
@@ -568,4 +579,19 @@ textarea::placeholder {
   height: 13.7969px;
   margin: 10px 0px 0px;
   font-weight: 500;
+}
+
+/* .strength-bar {
+  width: 400px;
+  height: 10px;
+  background-color: #da2525 !important;
+  border-radius: 10px;
+} */
+
+.strength-bar {
+  width: 100%; /* Full width under the textarea */
+  height: 10px;
+  background-color: #da2525; /* Red color, adjust if you have different colors based on strength */
+  border-radius: 10px;
+  margin-top: 10px; /* Space between the textarea and the strength bar */
 }
