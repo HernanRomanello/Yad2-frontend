@@ -298,10 +298,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     if (textLength >= 100) {
       return '99.5%';
     }
-    const maxLength = 104;
-    // Calculate the number of 4-character groups entered
     var groups = Math.floor(textLength / 4);
-    // Each group represents a 4% increase in progress bar width
     var widthPercent = groups * 4;
     return widthPercent + '%';
   }
