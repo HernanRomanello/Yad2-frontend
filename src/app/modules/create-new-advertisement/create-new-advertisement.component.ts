@@ -285,10 +285,29 @@ export class CreateNewAdvertisementComponent implements OnInit {
     } else if (textLength >= 32 && textLength < 104) {
       this.descriptionMessage = 'אוטוטו...';
       return '#fbaf02';
-    } else if (textLength > 104) {
+    } else if (textLength >= 104) {
       this.descriptionMessage = 'בול!';
       return '#43c671';
     } else return '#363636';
+  }
+
+  changeWidth(textLength: number): string {
+    if (textLength >= 100) {
+      return '99.5%';
+    }
+    const maxLength = 104;
+    // Calculate the number of 4-character groups entered
+    var groups = Math.floor(textLength / 4);
+    // Each group represents a 4% increase in progress bar width
+    var widthPercent = groups * 4;
+    return widthPercent + '%';
+  }
+
+  changeRadius(textLength: number): string {
+    if (textLength >= 103) {
+      return '5px';
+    }
+    return '0px';
   }
 
   checkFormValidation() {

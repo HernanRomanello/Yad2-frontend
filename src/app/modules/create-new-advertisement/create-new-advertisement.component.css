@@ -540,8 +540,8 @@ textarea {
   height: 157.906px;
   width: 398px;
   padding: 12px;
-  border: transparent !important;
-  border-top: 5px solid rgb(238, 238, 238) !important;
+  border: transparent;
+  border-top: 5px solid rgb(238, 238, 238);
   border-radius: 4px;
   outline: 1px solid rgb(204, 204, 204, 0.7);
 }
@@ -575,4 +575,14 @@ textarea::placeholder {
   height: 13.7969px;
   margin: 10px 0px 0px;
   font-weight: 500;
+}
+
+.process-bar {
+  position: relative;
+  top: -158px;
+  right: 0px;
+  width: 0px;
+  height: 5px;
+  z-index: 100 !important;
+  border-top-right-radius: 5px;
 }

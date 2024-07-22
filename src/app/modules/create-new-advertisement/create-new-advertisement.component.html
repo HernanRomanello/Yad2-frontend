@@ -446,6 +446,20 @@
               id="description"
               formControlName="description"
             ></textarea>
+            <div
+              [ngStyle]="{
+                'background-color': changeColor(
+                  advertisementForm.get('description').value.length || 0
+                ),
+                width: changeWidth(
+                  advertisementForm.get('description').value.length || 0
+                ),
+                'border-top-left-radius': changeRadius(
+                  advertisementForm.get('description').value.length || 0
+                )
+              }"
+              class="process-bar"
+            ></div>
           </div>
         </div>
         <div class="nano-text1">
