@@ -483,10 +483,7 @@ i.material-icons {
   line-height: 16.1px;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(204, 204, 204);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-radius: 4px;
   height: 42px;
   width: 189px;
   padding: 12px 12px;
@@ -543,21 +540,20 @@ textarea {
   height: 157.906px;
   width: 398px;
   padding: 12px;
-  border: 1px solid rgb(204, 204, 204, 0.7);
+  border: transparent !important;
+  border-top: 5px solid rgb(238, 238, 238) !important;
   border-radius: 4px;
+  outline: 1px solid rgb(204, 204, 204, 0.7);
 }
 
-textarea:active,
-textarea:focus {
-  border: none !important;
-  outline: 1px solid rgb(0, 0, 0);
+textarea:hover {
+  outline: 0.5px solid rgb(0, 0, 0, 0.5);
 }
 textarea::placeholder {
   color: rgb(0, 0, 0, 0.3);
   font-size: 18px;
   font-weight: 400;
   text-align: right;
-  padding-top: 0.5rem;
   font-family: "rubik" sans-serif;
   letter-spacing: -0.8px;
   line-height: 1.1;
@@ -579,19 +575,4 @@ textarea::placeholder {
   height: 13.7969px;
   margin: 10px 0px 0px;
   font-weight: 500;
-}
-
-/* .strength-bar {
-  width: 400px;
-  height: 10px;
-  background-color: #da2525 !important;
-  border-radius: 10px;
-} */
-
-.strength-bar {
-  width: 100%; /* Full width under the textarea */
-  height: 10px;
-  background-color: #da2525; /* Red color, adjust if you have different colors based on strength */
-  border-radius: 10px;
-  margin-top: 10px; /* Space between the textarea and the strength bar */
 }

@@ -291,26 +291,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
     } else return '#363636';
   }
 
-  updateDescription1(value: string): void {
-    const length = value.length;
-    const maxLength = 400;
-    const strengthPercentage = (length / maxLength) * 100;
-
-    // Update the strength bar width dynamically
-    const strengthBar = document.querySelector('.strength-bar') as HTMLElement;
-    if (strengthBar) {
-      strengthBar.style.width = `${strengthPercentage}%`;
-      // Optional: Change color based on the strength
-      if (strengthPercentage < 33) {
-        strengthBar.style.backgroundColor = '#da2525'; // Weak (red)
-      } else if (strengthPercentage < 66) {
-        strengthBar.style.backgroundColor = '#ffcc00'; // Moderate (yellow)
-      } else {
-        strengthBar.style.backgroundColor = '#4CAF50'; // Strong (green)
-      }
-    }
-  }
-
   checkFormValidation() {
     for (const controlName in this.advertisementForm.controls) {
       if (this.advertisementForm.controls.hasOwnProperty(controlName)) {
