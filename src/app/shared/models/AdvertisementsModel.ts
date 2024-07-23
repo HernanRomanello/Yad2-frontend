@@ -51,7 +51,7 @@ export type AdvertisementsModel = {
   storageRoom: boolean;
   description: string;
   furnituredescription: string;
-  numberOfPayments: number;
+  numberOfPayments: string;
   houseCommitteePayment: number;
   municipalityMonthlyPropertyTax: number;
   builtSquareMeters: number;

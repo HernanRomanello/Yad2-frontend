@@ -22,26 +22,48 @@ export class CreateNewAdvertisementComponent implements OnInit {
   asset_type: string | undefined = undefined;
   asset_State: string | undefined = undefined;
   asset_Rooms: string | undefined = undefined;
+  number_Of_Payments: string = 'לא בחר';
   images: File[] = [];
   video: File | undefined = undefined;
   authService = inject(AuthService);
   imageService = inject(ImageuploadService);
   formBuilder = inject(FormBuilder);
   isAssetTypeDropdownHidden = false;
+  isNumberOfPaymentsTypeDropdownHidden = false;
   isAssetAssetstateDropdownHidden = false;
   isRoomsDropdownHidden = false;
   descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
+
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
   @ViewChild('dropdownIconAsset_type', { static: false })
   dropdownIconAsset_type!: ElementRef<HTMLDivElement>;
   @ViewChild('dropdownIconRooms', { static: false })
   dropdownIconRooms!: ElementRef<HTMLDivElement>;
+
+  @ViewChild('dropdownIconnumber_Of_Payments_type', { static: false })
+  dropdownIconnumber_Of_Payments_type!: ElementRef<HTMLDivElement>;
+
   AirDirections = [1, 2, 3, 4];
   ShowerRooms = [1, 2, 3, 4];
   privateParking = [0, 1, 2, 3];
   balconiesNumber = [0, 1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
+  numberOfPayments: string[] = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    'גמיש',
+  ];
   furnitureDescription: boolean = false;
   roomsOptions: string[] = [
     '1',
@@ -157,9 +179,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
           this.isAssetTypeDropdownHidden = false;
           this.isAssetAssetstateDropdownHidden = false;
           this.isRoomsDropdownHidden = false;
+          this.isNumberOfPaymentsTypeDropdownHidden = false;
           this.rotateArrowAssetState('assetState');
           this.rotateArrowAssetType('assetType');
           this.rotateArrowRooms('rooms');
+          this.rotateArrowNumberOfPayments('numberOfPayments');
         });
       });
     });
@@ -290,6 +314,18 @@ export class CreateNewAdvertisementComponent implements OnInit {
       return '#43c671';
     } else {
       this.descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
+      return '#363636';
+    }
+  }
+
+  changeColorIfSelected(propertyFeature: string): string {
+    if (
+      propertyFeature === 'לא בחר' ||
+      propertyFeature === null ||
+      propertyFeature === undefined
+    ) {
+      return '#FFFFFF';
+    } else {
       return '#363636';
     }
   }
@@ -461,6 +497,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.advertisementForm.get('tradeType').setValue(type);
   }
 
+  set_Number_Of_Payments(type: string) {
+    this.advertisementForm.get('numberOfPayments').setValue(type);
+  }
+
   toggleDropdown(type: string): void {
     this.openAndCloseButtons(type);
 
@@ -486,6 +526,22 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   private rotateArrowRooms(type: string) {
     if (type === 'rooms') {
+      if (this.isRoomsDropdownHidden) {
+        this.renderer.addClass(
+          this.dropdownIconRooms.nativeElement,
+          'rotate-icon'
+        );
+      } else {
+        this.renderer.removeClass(
+          this.dropdownIconRooms.nativeElement,
+          'rotate-icon'
+        );
+      }
+    }
+  }
+
+  private rotateArrowNumberOfPayments(type: string) {
+    if (type === 'numberOfPayments') {
       if (this.isRoomsDropdownHidden) {
         this.renderer.addClass(
           this.dropdownIconRooms.nativeElement,
@@ -531,6 +587,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
     } else if (type === 'rooms') {
       this.isRoomsDropdownHidden = !this.isRoomsDropdownHidden;
       this.rotateArrowRooms('rooms');
+    } else if (type === 'numberOfPayments') {
+      this.isNumberOfPaymentsTypeDropdownHidden =
+        !this.isNumberOfPaymentsTypeDropdownHidden;
+      this.rotateArrowNumberOfPayments('numberOfPayments');
     }
   }
 
@@ -542,6 +602,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
       this.asset_State = option;
     } else if (type === 'rooms') {
       this.asset_Rooms = option;
+    } else if (type === 'numberOfPayments') {
+      this.number_Of_Payments = option;
+      this.set_Number_Of_Payments(option);
     }
   }
 }

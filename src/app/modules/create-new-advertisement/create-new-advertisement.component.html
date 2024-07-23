@@ -561,19 +561,35 @@
       <span class="section-title">4</span> <span>תשלומים, תאריכים ועוד</span>
     </div>
     <div class="Selection-2-content">
-      <div class="part1">
-        <div>סימנו עבורך את שדות החובה, שלא נפספס פרט חשוב</div>
-      </div>
-      <div class="space2"></div>
       <div class="input-container">
-        <label class="small-text" for="city">ישוב*</label>
-        <input
-          class="input large"
-          id="city"
-          [value]="authService.user.getValue()?.city"
-          formControlName="city"
-          placeholder="  איפה נמצא הנכס?"
-        />
+        <label class="small-text" for="numberOfPayments">מספר תשלומים*</label>
+        <button
+          class="input large dropdown-btn"
+          type="button"
+          (click)="toggleDropdown('numberOfPayments')"
+        >
+          <span
+            [ngStyle]="{ color: changeColorIfSelected(number_Of_Payments) }"
+          >
+            {{ number_Of_Payments }}
+          </span>
+
+          <i #dropdownIconnumber_Of_Payments_type class="material-icons"
+            >keyboard_arrow_down</i
+          >
+        </button>
+        <ul
+          *ngIf="this.isNumberOfPaymentsTypeDropdownHidden"
+          class="dropdown-menu asset"
+        >
+          <li
+            class="dropdown-item"
+            *ngFor="let option of numberOfPayments"
+            (click)="selectOption(option, 'numberOfPayments')"
+          >
+            {{ option }}
+          </li>
+        </ul>
       </div>
       <div class="input-container">
         <label class="small-text" for="street">רחוב*</label>
