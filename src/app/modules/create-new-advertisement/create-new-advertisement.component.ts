@@ -542,14 +542,14 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   private rotateArrowNumberOfPayments(type: string) {
     if (type === 'numberOfPayments') {
-      if (this.isRoomsDropdownHidden) {
+      if (this.isNumberOfPaymentsTypeDropdownHidden) {
         this.renderer.addClass(
-          this.dropdownIconRooms.nativeElement,
+          this.dropdownIconnumber_Of_Payments_type.nativeElement,
           'rotate-icon'
         );
       } else {
         this.renderer.removeClass(
-          this.dropdownIconRooms.nativeElement,
+          this.dropdownIconnumber_Of_Payments_type.nativeElement,
           'rotate-icon'
         );
       }
