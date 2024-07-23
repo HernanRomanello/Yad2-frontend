@@ -170,8 +170,13 @@ form {
 }
 
 .input::placeholder {
-  text-align: right !important;
+  text-align: start !important;
   transform: translateX(20px) !important;
+  padding: 10px !important;
+}
+
+.center-placeholder::placeholder {
+  text-align: center !important;
 }
 
 .input:focus {
