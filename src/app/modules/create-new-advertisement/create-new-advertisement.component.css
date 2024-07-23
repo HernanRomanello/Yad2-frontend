@@ -165,8 +165,18 @@ form {
   height: 42px;
   border: 1px solid rgb(153, 153, 153, 0.7);
   border-radius: 4px;
-  padding: 1px 2px;
   direction: rtl;
+  padding-right: 20px !important;
+}
+
+.input::placeholder {
+  text-align: right !important;
+  transform: translateX(20px) !important;
+}
+
+.input:focus {
+  border: 1px solid rgb(54, 54, 54) !important;
+  outline: none !important;
 }
 
 .large {
@@ -195,6 +205,10 @@ form {
   position: absolute;
   top: 457%;
   right: 50%;
+}
+
+.rooms {
+  max-width: 270px !important;
 }
 
 .upgrade-add-pic {
