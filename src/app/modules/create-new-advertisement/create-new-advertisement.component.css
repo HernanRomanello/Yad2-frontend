@@ -80,7 +80,8 @@ button.active {
 }
 
 #Selection-2,
-#Selection-3 {
+#Selection-3,
+#Selection-4 {
   display: flex;
   flex-direction: column;
   direction: rtl;
@@ -188,6 +189,12 @@ form {
 .recommend-pic {
   position: absolute;
   top: 71%;
+}
+
+.insight-pic {
+  position: absolute;
+  top: 457%;
+  right: 50%;
 }
 
 .upgrade-add-pic {
