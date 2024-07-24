@@ -331,6 +331,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
     return averagePrice.toString();
   }
 
+  setDateForToday(): void {
+    const today = new Date().toISOString().substring(0, 10); // Ensures correct format
+    this.advertisementForm.get('entryDate').setValue(today);
+  }
+
   changeColorIfSelected(propertyFeature: string): string {
     if (
       propertyFeature === 'לא בחר' ||

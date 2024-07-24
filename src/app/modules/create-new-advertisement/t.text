@@ -1,14 +1,14 @@
-span .strength-bar_text__kDWwf strength-bar_yellow__JR3Oj {
+input #entranceDate .text-field_input__V7k5T {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 16.1px;
-	text-decoration: none solid rgb(251, 175, 2);
-	text-align: start;
+	line-height: 18.4px;
+	text-decoration: none solid rgb(54, 54, 54);
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -21,20 +21,20 @@ span .strength-bar_text__kDWwf strength-bar_yellow__JR3Oj {
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(251, 175, 2);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 16.0938px;
-	width: 46.6406px;
-	border: 0px none rgb(251, 175, 2);
-	border-top: 0px none rgb(251, 175, 2);
-	border-right: 0px none rgb(251, 175, 2);
-	border-bottom: 0px none rgb(251, 175, 2);
-	border-left: 0px none rgb(251, 175, 2);
+	height: 42px;
+	width: 236px;
+	border: 0px none rgb(54, 54, 54);
+	border-top: 0px none rgb(54, 54, 54);
+	border-right: 0px none rgb(54, 54, 54);
+	border-bottom: 0px none rgb(54, 54, 54);
+	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 0px;
+	padding: 0px 1px 0px 0px;
 	max-height: none;
-	min-height: auto;
+	min-height: 42px;
 	max-width: none;
 	min-width: auto;
 

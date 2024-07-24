@@ -668,6 +668,46 @@
         </div>
       </div>
 
+      <label class="small-text" for="entryDate"> תאריך כניסה*</label>
+
+      <div class="date-container">
+        <div class="">
+          <input
+            class="date-input"
+            id="entryDate"
+            formControlName="entryDate"
+            class="date-input"
+            type="date"
+            placeholder="dd/mm/yyyy"
+          />
+        </div>
+
+        <div class="date-checkbox">
+          <div>
+            <input
+              (change)="setDateForToday()"
+              class="input"
+              type="checkbox"
+              formControlName="immediate"
+            />
+            מיידי
+          </div>
+          <div>
+            <input
+              (change)="setDateForToday()"
+              class="input"
+              type="checkbox"
+              formControlName="flexible"
+            />
+            גמיש
+          </div>
+          <div>
+            <input class="input" type="checkbox" formControlName="longTerm" />
+            לטווח ארוך
+          </div>
+        </div>
+      </div>
+
       <div class="navigation-btn">
         <button class="continue-btn">המשך לשלב הבא</button>
         <button class="return-btn">חזרה</button>

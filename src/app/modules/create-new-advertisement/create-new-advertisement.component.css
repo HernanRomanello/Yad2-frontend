@@ -658,3 +658,32 @@ textarea::placeholder {
   z-index: 100 !important;
   border-top-right-radius: 5px;
 }
+
+.date-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-container {
+  margin-left: auto !important;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: fit-content !important;
+}
+
+.date-input {
+  text-align: right;
+  line-height: 18.4px;
+  font-weight: 400;
+  font-size: 16px;
+  height: 42px;
+  width: 270px !important;
+  padding: 0px 1px 0px 0px;
+}
+
+.date-checkbox {
+  gap: 1rem !important;
+}

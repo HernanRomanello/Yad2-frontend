@@ -266,12 +266,6 @@ footer button {
   width: 201px;
 }
 
-.date-checkbox {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
 .add-checkboxs input[type="checkbox"],
 .add-block input[type="checkbox"] {
   appearance: none;
@@ -303,4 +297,10 @@ footer button {
 
 .asset-stete-checkBox input[type="checkbox"] {
   transform: translateY(7px);
+}
+
+.date-checkbox {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
