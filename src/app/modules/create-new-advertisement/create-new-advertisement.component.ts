@@ -325,11 +325,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     const totalSquareMeters =
       this.advertisementForm.get('totalSquareMeters').value;
     const averagePrice = price / totalSquareMeters;
-    if (
-      isNaN(averagePrice) ||
-      averagePrice === Infinity ||
-      averagePrice === 0
-    ) {
+    if (isNaN(averagePrice) || averagePrice === Infinity || averagePrice <= 1) {
       return '';
     }
     return averagePrice.toString();
