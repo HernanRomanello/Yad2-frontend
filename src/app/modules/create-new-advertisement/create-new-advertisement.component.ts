@@ -34,6 +34,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   isRoomsDropdownHidden = false;
   descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
   minPrice = 0;
+  averagePrice = 0;
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
@@ -317,6 +318,21 @@ export class CreateNewAdvertisementComponent implements OnInit {
       this.descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
       return '#363636';
     }
+  }
+
+  pricePerSquareMeter(): string {
+    const price = this.advertisementForm.get('price').value;
+    const totalSquareMeters =
+      this.advertisementForm.get('totalSquareMeters').value;
+    const averagePrice = price / totalSquareMeters;
+    if (
+      isNaN(averagePrice) ||
+      averagePrice === Infinity ||
+      averagePrice === 0
+    ) {
+      return '';
+    }
+    return averagePrice.toString();
   }
 
   changeColorIfSelected(propertyFeature: string): string {

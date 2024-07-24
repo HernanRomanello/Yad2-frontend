@@ -657,6 +657,18 @@
         </div>
       </div>
 
+      <div class="input-container">
+        <label class="small-text" for="price">מחיר למטר</label>
+        <div class="price-input" style="position: relative">
+          <input
+            class="input large left-Placeholder price-input-text"
+            id="price"
+            [value]="pricePerSquareMeter()"
+          />
+          <span class="shekel">₪</span>
+        </div>
+      </div>
+
       <div class="navigation-btn">
         <button class="continue-btn">המשך לשלב הבא</button>
         <button class="return-btn">חזרה</button>
