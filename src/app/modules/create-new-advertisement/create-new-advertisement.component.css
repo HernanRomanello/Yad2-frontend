@@ -192,6 +192,18 @@ form {
   width: 270px;
 }
 
+.price-input {
+  width: fit-content !important;
+}
+
+.shekel {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20 !important;
+}
+
 .medium {
   width: 125px;
 }

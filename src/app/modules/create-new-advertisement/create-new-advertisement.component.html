@@ -624,14 +624,53 @@
           placeholder="כמה מר יש בנכס"
         />
       </div>
-      <!-- 
-      <div>
-        <label for="price"> מ״ר בנוי</label>
+      <div class="input-container">
+        <label class="small-text" for="gardenSquareMeters"> מ״ר גינה </label>
         <input
-          placeholder="כמה מר יש בנכס"
-          id="price"
-          formControlName="builtSquareMeters"
+          class="input large left-Placeholder"
+          id="gardenSquareMeters"
+          formControlName="gardenSquareMeters"
         />
+      </div>
+
+      <div class="input-container">
+        <label class="small-text" for="gardenSquareMeters"> מ״ר גינה </label>
+        <input
+          class="input large left-Placeholder"
+          id="gardenSquareMeters"
+          formControlName="gardenSquareMeters"
+        />
+      </div>
+
+      <!-- <div class="input-container">
+        <label class="small-text" for="price"> מחיר </label>
+        <div class="price-input">
+          <input
+            class="input large left-Placeholder"
+            id="price"
+            formControlName="price"
+            placeholder="כמה מר יש בנכס"
+          />
+          <span class="shekel">₪</span>
+        </div>
+      </div> -->
+      <div class="input-container">
+        <label class="small-text" for="price">מחיר</label>
+        <div class="price-input" style="position: relative">
+          <!-- Added relative positioning here -->
+          <input
+            class="input large left-Placeholder"
+            id="price"
+            formControlName="price"
+            placeholder="כמה מר יש בנכס"
+          />
+          <span class="shekel">₪</span>
+        </div>
+      </div>
+
+      <!-- <div>
+        <label for="price">מחיר*</label>
+        <input id="price" formControlName="price" />
       </div> -->
 
       <div class="navigation-btn">
