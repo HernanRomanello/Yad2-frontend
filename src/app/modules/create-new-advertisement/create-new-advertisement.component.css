@@ -212,6 +212,10 @@ form {
   width: 65.62px;
 }
 
+.price-input-text::placeholder {
+  transform: translateX(22px) !important;
+}
+
 .section-title-container {
   display: flex;
   align-items: center;

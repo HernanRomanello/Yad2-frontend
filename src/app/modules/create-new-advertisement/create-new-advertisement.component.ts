@@ -33,6 +33,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   isAssetAssetstateDropdownHidden = false;
   isRoomsDropdownHidden = false;
   descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
+  minPrice = 0;
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
@@ -411,8 +412,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
   changeTradeTypeTitle(): string {
     switch (this.advertisementForm.get('tradeType').value) {
       case 'מכירה':
+        this.minPrice = 10000;
         return 'אני רוצה למכור נכס';
       case 'השכרה':
+        this.minPrice = 100;
+
         return 'אני רוצה להשכיר נכס';
       default:
         return '   ?מה נפרסם היום';

@@ -634,44 +634,28 @@
       </div>
 
       <div class="input-container">
-        <label class="small-text" for="gardenSquareMeters"> מ״ר גינה </label>
+        <label class="small-text" for="totalSquareMeters">
+          גודל במ״ר סך הכל*
+        </label>
         <input
           class="input large left-Placeholder"
-          id="gardenSquareMeters"
-          formControlName="gardenSquareMeters"
+          id="totalSquareMeters"
+          formControlName="totalSquareMeters"
         />
       </div>
 
-      <!-- <div class="input-container">
-        <label class="small-text" for="price"> מחיר </label>
-        <div class="price-input">
-          <input
-            class="input large left-Placeholder"
-            id="price"
-            formControlName="price"
-            placeholder="כמה מר יש בנכס"
-          />
-          <span class="shekel">₪</span>
-        </div>
-      </div> -->
       <div class="input-container">
         <label class="small-text" for="price">מחיר</label>
         <div class="price-input" style="position: relative">
-          <!-- Added relative positioning here -->
           <input
-            class="input large left-Placeholder"
+            class="input large left-Placeholder price-input-text"
             id="price"
             formControlName="price"
-            placeholder="כמה מר יש בנכס"
+            placeholder=" סכום מינימלי {{ this.minPrice | number }} "
           />
           <span class="shekel">₪</span>
         </div>
       </div>
-
-      <!-- <div>
-        <label for="price">מחיר*</label>
-        <input id="price" formControlName="price" />
-      </div> -->
 
       <div class="navigation-btn">
         <button class="continue-btn">המשך לשלב הבא</button>
