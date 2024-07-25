@@ -239,6 +239,10 @@ form {
   font-size: 14px !important;
 }
 
+.ultra-light-gray {
+  color: RGB(178, 178, 178, 0.7) !important;
+}
+
 .light-black {
   color: #545454 !important;
 }
@@ -679,6 +683,7 @@ textarea::placeholder {
   justify-content: center;
   align-items: center;
   width: fit-content !important;
+  margin-top: 6px !important;
 }
 
 .date-input {
@@ -691,6 +696,28 @@ textarea::placeholder {
   padding: 0px 1px 0px 0px;
 }
 
+.date-input {
+  text-align: right;
+  line-height: 18.4px;
+  font-weight: 400;
+  font-size: 16px;
+  height: 42px;
+  width: 270px;
+  padding: 10px;
+  border: 1px solid rgb(153, 153, 153, 0.5);
+  border-radius: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.date-input:hover {
+  border: 1px solid rgb(54, 54, 54);
+}
+
 .date-checkbox {
   gap: 1rem !important;
+}
+
+.average-price-div {
+  margin-bottom: 1rem !important;
 }
