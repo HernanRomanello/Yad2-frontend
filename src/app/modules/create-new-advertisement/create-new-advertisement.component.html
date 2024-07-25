@@ -248,8 +248,9 @@
           </div>
         </div>
       </div>
+
       <label class="checkbox-input">
-        <input class="input" type="checkbox" formControlName="rearProperty" />
+        <input class="" type="checkbox" formControlName="rearProperty" />
         נכס עורפי
       </label>
 
@@ -685,8 +686,8 @@
         <div class="date-checkbox">
           <div>
             <input
-              (change)="setDateForToday()"
-              class="input"
+              (change)="setDateForToday('immediate')"
+              class="checkbox"
               type="checkbox"
               formControlName="immediate"
             />
@@ -694,15 +695,19 @@
           </div>
           <div>
             <input
-              (change)="setDateForToday()"
-              class="input"
+              (change)="setDateForToday('flexible')"
+              class="checkbox"
               type="checkbox"
               formControlName="flexible"
             />
             גמיש
           </div>
           <div>
-            <input class="input" type="checkbox" formControlName="longTerm" />
+            <input
+              class="checkbox"
+              type="checkbox"
+              formControlName="longTerm"
+            />
             לטווח ארוך
           </div>
         </div>

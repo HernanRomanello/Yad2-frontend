@@ -498,7 +498,8 @@ i.material-icons {
 }
 
 .checkbox-input input[type="checkbox"],
-.check-input input[type="checkbox"] {
+.check-input input[type="checkbox"],
+input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -508,13 +509,19 @@ i.material-icons {
   cursor: pointer;
 }
 
+.checkbox {
+  border: 1px solid rgb(0, 0, 0, 0.4) !important;
+}
+
 .checkbox-input input[type="checkbox"]:checked,
-.check-input input[type="checkbox"]:checked {
+.check-input input[type="checkbox"]:checked,
+input[type="checkbox"]:checked {
   background-color: #ff7100;
 }
 
 .checkbox-input input[type="checkbox"]:checked::after,
-.check-input input[type="checkbox"]:checked::after {
+.check-input input[type="checkbox"]:checked::after,
+input[type="checkbox"]:checked::after {
   content: "";
   position: absolute;
   top: 1px;

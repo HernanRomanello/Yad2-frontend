@@ -331,9 +331,15 @@ export class CreateNewAdvertisementComponent implements OnInit {
     return averagePrice.toString();
   }
 
-  setDateForToday(): void {
-    const today = new Date().toISOString().substring(0, 10); // Ensures correct format
+  setDateForToday(checkBox: string): void {
+    const today = new Date().toISOString().substring(0, 10);
     this.advertisementForm.get('entryDate').setValue(today);
+    if (checkBox === 'flexible') {
+      this.advertisementForm.get('immediate').setValue(false);
+    }
+    if (checkBox === 'immediate') {
+      this.advertisementForm.get('flexible').setValue(false);
+    }
   }
 
   changeColorIfSelected(propertyFeature: string): string {
