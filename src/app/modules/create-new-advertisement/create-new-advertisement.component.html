@@ -480,80 +480,6 @@
     <span class="section-title">4</span> <span> תשלומים, תאריכים ועוד</span>
   </div>
 
-  <!-- <div class="advertisement-selection" id="Selection-4" *ngIf="true">
-    <div>
-      <span class="section-title">4</span> <span> תשלומים, תאריכים ועוד</span>
-      <div>
-        <label for="price">מספר תשלומים</label>
-        <input id="price" formControlName="numberOfPayments" />
-      </div>
-      <div>
-        <label for="price">ועד בית</label>
-        <input
-          placeholder="תשלום לועד בית"
-          id="price"
-          formControlName="houseCommitteePayment"
-        />
-      </div>
-      <div>
-        <label for="price">ארנונה לחודשים</label>
-        <input
-          placeholder="  סכום ארנונה לתשלום"
-          id="price"
-          formControlName="municipalityMonthlyPropertyTax"
-        />
-      </div>
-      <div>
-        <label for="price"> מ״ר בנוי</label>
-        <input
-          placeholder="כמה מר יש בנכס"
-          id="price"
-          formControlName="builtSquareMeters"
-        />
-      </div>
-      <div>
-        <label for="price"> מ״ר גינה</label>
-        <input id="price" formControlName="gardenSquareMeters" />
-      </div>
-      <div>
-        <label for="price"> גודל במ״ר סך הכל*</label>
-        <input id="price" formControlName="totalSquareMeters" />
-      </div>
-      <div>
-        <label for="price">מחיר*</label>
-        <input id="price" formControlName="price" />
-      </div>
-      <div>
-        <label for="price">מחיר למטר</label>
-        <div></div>
-      </div>
-
-      <div class="title">תאריך כניסה</div>
-      <div class="date">
-        <input
-          id="entryDate"
-          formControlName="entryDate"
-          class="date-input"
-          type="date"
-          placeholder="dd/mm/yyyy"
-        />
-        <label class="date-checkbox">
-          <div>
-            <input type="checkbox" formControlName="immediate" />כניסה מיידית
-          </div>
-          <div><input type="checkbox" formControlName="flexible" /> גמיש</div>
-          <div>
-            <input type="checkbox" formControlName="longTerm" /> לטווח ארוך
-          </div>
-        </label>
-      </div>
-    </div>
-    <div class="navigation-btn">
-      <button class="continue-btn">המשך לשלב הבא</button>
-      <button class="return-btn">חזרה</button>
-    </div>
-  </div> -->
-
   <div class="advertisement-selection" id="Selection-4" *ngIf="true">
     <div>
       <img src="assets/images/insight.JPG" class="insight-pic" alt="ad2" />
@@ -726,12 +652,25 @@
   </div>
 
   <div class="advertisement-selection" id="Selection-5" *ngIf="true">
-    <div>
-      <span class="section-title">5</span> <span>תמונות וסרטונים </span>
-      <div>
-        <label for="pictures">תמונות</label>
-        <input type="file" id="pictures" (change)="onFileChange($event)" />
+    <div class="Selection-5-content">
+      <div id="section-title-container5" class="section-title-container">
+        <span>תמונות וסרטונים </span> <span class="section-title">5</span>
       </div>
+
+      <div class="text-content">
+        <div>
+          ניתן להעלות עד 10 תמונות ע״י גרירה או לחיצה על כפתור הפלוס. אחרי
+          הבחירה, בחרו את מרכז התמונה כדי שתופיע באתר בצורה המוקטנת הטובה ביותר
+        </div>
+
+        <div>אין לכם מה לדאוג, בגלריה התמונה תופיע בגודלה המקורי</div>
+      </div>
+
+      <div class="line line6"></div>
+
+      <label for="pictures">תמונות</label>
+      <input type="file" id="pictures" (change)="onFileChange($event)" />
+
       <div>
         <img
           *ngFor="let image of images"
@@ -751,6 +690,27 @@
         />
       </div>
     </div>
+
+    <!-- upload.component.html -->
+    <div class="upload-container">
+      <div class="upload-card">
+        <!-- <div class="card-header">מסמכים מצורפים</div> -->
+        <div class="card-content">
+          <mat-icon>add_circle_outline</mat-icon>
+          <div class="card-subtitle">גרור ושחרר או העלה את הקובץ שלך</div>
+        </div>
+      </div>
+    </div>
+    <div class="upload-container">
+      <div class="upload-card">
+        <!-- <div class="card-header">סרטונים מצורפים</div> -->
+        <div class="card-content">
+          <mat-icon>add_circle_outline</mat-icon>
+          <div class="card-subtitle">גרור ושחרר או העלה את הקובץ שלך</div>
+        </div>
+      </div>
+    </div>
+
     <div class="navigation-btn">
       <button class="continue-btn">המשך לשלב הבא</button>
       <button class="return-btn">חזרה</button>

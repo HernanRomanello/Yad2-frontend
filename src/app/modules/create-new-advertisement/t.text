@@ -1,4 +1,4 @@
-input #checkbox-131 {
+div .upload-box_uploadBox__6zOdH {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -7,7 +7,7 @@ input #checkbox-131 {
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: 16.1px;
-	text-decoration: none solid rgb(0, 0, 0);
+	text-decoration: none solid rgb(54, 54, 54);
 	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,20 +17,20 @@ input #checkbox-131 {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(238, 238, 238);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(0, 0, 0);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 16px;
-	width: 16px;
-	border: 1px solid rgb(255, 113, 0);
-	border-top: 1px solid rgb(255, 113, 0);
-	border-right: 1px solid rgb(255, 113, 0);
-	border-bottom: 1px solid rgb(255, 113, 0);
-	border-left: 1px solid rgb(255, 113, 0);
+	height: 266.266px;
+	width: 255.344px;
+	border: 0px none rgb(54, 54, 54);
+	border-top: 0px none rgb(54, 54, 54);
+	border-right: 0px none rgb(54, 54, 54);
+	border-bottom: 0px none rgb(54, 54, 54);
+	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
 	padding: 0px;
 	max-height: none;
@@ -45,13 +45,13 @@ input #checkbox-131 {
 	right: 0px;
 	left: 0px;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
 	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: disc;
+	list-style-type: none;
 	list-style-position: outside;
 
 	/* Table */
@@ -63,7 +63,7 @@ input #checkbox-131 {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: pointer;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ input #checkbox-131 {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 }

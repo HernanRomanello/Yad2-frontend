@@ -721,3 +721,66 @@ textarea::placeholder {
 .average-price-div {
   margin-bottom: 1rem !important;
 }
+
+.Selection-5-content {
+  margin-left: auto !important;
+  width: fit-content;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+
+.text-content {
+  text-align: end !important;
+  padding: 0 2rem !important;
+  margin-right: 11px !important;
+}
+
+.line6 {
+  transform: translateX(-8px) !important;
+  max-width: 800px !important;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: rgb(238, 238, 238);
+  height: 266.266px;
+  width: 255.344px;
+  border-radius: 8px;
+}
+
+.upload-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dashed #cccccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  height: 233.266px;
+  width: 245.344px;
+  background-color: rgb(255, 255, 255);
+}
+
+.card-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-icon {
+  font-size: 48px;
+  color: orange;
+}
+
+.card-subtitle {
+  margin-top: 10px;
+}
