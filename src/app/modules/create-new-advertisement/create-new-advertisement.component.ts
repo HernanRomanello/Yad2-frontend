@@ -223,6 +223,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
     'במצב שמור (במצב טוב, לא שופץ)',
     'דרוש שיפוץ (זקוק לעבודת שיפוץ)',
   ];
+  // needsRenovation: boolean;
+  // isWellMaintained: boolean;
+  // isRenovated: boolean;
+  // isNew: boolean;
+  // isNewFromBuilder: boolean;
   ngOnInit() {
     this.advertisementForm = this.formBuilder.group({
       city: [this.authService.user.getValue()?.city || '', Validators.required],
@@ -235,8 +240,8 @@ export class CreateNewAdvertisementComponent implements OnInit {
         this.authService.user.getValue()?.houseNumber || '',
         Validators.required,
       ],
-      floor: [null],
-      totalFloors: [null],
+      floor: [0],
+      totalFloors: [0],
       onPillars: [false],
       neighborhood: ['', Validators.required],
       area: ['', Validators.required],
@@ -252,7 +257,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
       hasBolcony: [false],
       hasImage: [false],
       hasPrice: [false],
-      moshavOrKibutz: [false],
+      // moshavOrKibutz: [false],
+      needsRenovation: [false],
+      isWellMaintained: [false],
+      isRenovated: [false],
+      isNew: [false],
+      // isNewFromBuilder: [false],
+
       priceDiscount: [false],
       publisherIsMiddleMan: [false],
       publisherIsContractor: [false],
@@ -275,14 +286,14 @@ export class CreateNewAdvertisementComponent implements OnInit {
       storageRoom: [false],
       description: ['', Validators.required],
       furnituredescription: ['', Validators.required],
-      numberOfPayments: [null],
-      houseCommitteePayment: [null],
-      municipalityMonthlyPropertyTax: [null],
-      builtSquareMeters: [null],
-      gardenSquareMeters: [null],
-      totalSquareMeters: [null],
-      price: [null, Validators.required],
-      minimumAmount: [null],
+      numberOfPayments: [0],
+      houseCommitteePayment: [0],
+      municipalityMonthlyPropertyTax: [0],
+      builtSquareMeters: [0],
+      gardenSquareMeters: [0],
+      totalSquareMeters: [0],
+      price: [0, Validators.required],
+      minimumAmount: [0],
       pricePerMeter: [0],
       entryDate: ['', Validators.required],
       immediate: [false],
@@ -508,17 +519,19 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
     this.defineAssetState();
 
-    alert(this.advertisementForm.get('pricePerMeter').value);
-
     const form = this.advertisementForm.value;
-    form.assetType = this.asset_type;
-    form.assetState = this.asset_State;
+    // form.assetType = this.asset_type;
+    // form.assetState = this.asset_State;
+    alert(this.advertisementForm.get('tradeType').value);
+    alert(this.advertisementForm.get('assetType').value);
+
     try {
+      this.authService.postNewAdvertisement(form);
+      form.assetState = this.asset_State;
       const uploadedImages = await this.uploadAllImages();
       const video = await this.uploadVideo();
       form.pictures = uploadedImages;
       form.video = video;
-      this.authService.postNewAdvertisement(form);
       if (uploadedImages.length > 0) {
         this.advertisementForm.get('hasImage').setValue(true);
       }

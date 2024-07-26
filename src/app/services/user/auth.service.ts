@@ -136,6 +136,8 @@ export class AuthService {
   }
 
   postNewAdvertisement(NewAdvertisement: any) {
+    console.log(NewAdvertisement);
+    alert('Advertisement added successfully');
     const formData = {
       city: NewAdvertisement.city,
       tradeType: NewAdvertisement.tradeType,
@@ -154,15 +156,15 @@ export class AuthService {
       rooms: NewAdvertisement.rooms,
       showerRooms: NewAdvertisement.showerRooms,
       privateParking: NewAdvertisement.privateParking,
-      hasPrivateParking: NewAdvertisement.privateParking > 0,
-      hasBolcony: NewAdvertisement.balconiesNumber > 0,
-      hasImage: NewAdvertisement.pictures.length > 0,
-      hasPrice: NewAdvertisement.balconiesNumber > 0,
+      hasPrivateParking: NewAdvertisement.hasPrivateParking,
+      hasBolcony: NewAdvertisement.hasBolcony,
+      hasImage: NewAdvertisement.hasImage,
+      hasPrice: NewAdvertisement.hasPrice,
       moshavOrKibutz: false,
-      needsRenovation: false,
-      isWellMaintained: true,
-      isRenovated: false,
-      isNew: false,
+      needsRenovation: NewAdvertisement.needsRenovation,
+      isWellMaintained: NewAdvertisement.isWellMaintained,
+      isRenovated: NewAdvertisement.isRenovated,
+      isNew: NewAdvertisement.isNew,
       isNewFromBuilder: false,
       pirceDiscount: false,
       publisherIsMiddleMan: false,
@@ -195,9 +197,7 @@ export class AuthService {
       totalSquareMeters: NewAdvertisement.totalSquareMeters,
       price: NewAdvertisement.price,
       minimumAmount: NewAdvertisement.tradeType === 'השכרה' ? 100 : 10000,
-      pricePerMeter:
-        NewAdvertisement.price / NewAdvertisement.totalSquareMeters,
-      entryDate: 1656633600,
+      pricePerMeter: NewAdvertisement.pricePerMeter,
       immediate: NewAdvertisement.immediate,
       flexible: NewAdvertisement.flexible,
       longTerm: NewAdvertisement.longTerm,
@@ -208,9 +208,80 @@ export class AuthService {
       standardizationAccepted: NewAdvertisement.standardizationAccepted,
     };
     console.log(formData);
+    const NewAdvertisement1 = {
+      city: NewAdvertisement.city,
+      tradeType: NewAdvertisement.tradeType,
+      street: NewAdvertisement.street,
+      number: NewAdvertisement.number,
+      floor: NewAdvertisement.floor,
+      totalFloors: NewAdvertisement.totalFloors,
+      onPillars: NewAdvertisement.onPillars,
+      neighborhood: NewAdvertisement.neighborhood,
+      area: NewAdvertisement.area,
+      assetType: NewAdvertisement.assetType,
+      assetState: 'משופצת',
+      airDirections: NewAdvertisement.airDirections,
+      view: NewAdvertisement.view,
+      rearProperty: NewAdvertisement.rearProperty,
+      rooms: NewAdvertisement.rooms,
+      showerRooms: NewAdvertisement.showerRooms,
+      privateParking: NewAdvertisement.privateParking,
+      hasPrivateParking: NewAdvertisement.hasPrivateParking,
+      hasBolcony: NewAdvertisement.hasBolcony,
+      hasImage: NewAdvertisement.hasImage,
+      hasPrice: NewAdvertisement.hasPrice,
+      moshavOrKibutz: false,
+      pirceDiscount: false,
+      publisherIsMiddleMan: false,
+      publisherIsContractor: false,
+      balconiesNumber: NewAdvertisement.balconiesNumber,
+      accessibleForDisabled: NewAdvertisement.accessibleForDisabled,
+      airConditioning: NewAdvertisement.airConditioning,
+      windowBars: NewAdvertisement.windowBars,
+      solarWaterHeater: NewAdvertisement.solarWaterHeater,
+      elevator: NewAdvertisement.elevator,
+      forRoommates: NewAdvertisement.forRoommates,
+      furnished: NewAdvertisement.furnished,
+      separateUnit: NewAdvertisement.separateUnit,
+      kosherKitchen: NewAdvertisement.kosherKitchen,
+      petsAllowed: NewAdvertisement.petsAllowed,
+      renovated: NewAdvertisement.renovated,
+      safeRoom: NewAdvertisement.safeRoom,
+      multiLockDoors: NewAdvertisement.multiLockDoors,
+      airConditioner: NewAdvertisement.airConditioner,
+      tornadoAirConditioner: NewAdvertisement.tornadoAirConditioner,
+      storageRoom: NewAdvertisement.storageRoom,
+      description: NewAdvertisement.description,
+      furnituredescription: NewAdvertisement.furnituredescription,
+      numberOfPayments: NewAdvertisement.numberOfPayments,
+      houseCommitteePayment: NewAdvertisement.houseCommitteePayment,
+      municipalityMonthlyPropertyTax:
+        NewAdvertisement.municipalityMonthlyPropertyTax,
+      builtSquareMeters: NewAdvertisement.builtSquareMeters,
+      gardenSquareMeters: NewAdvertisement.gardenSquareMeters,
+      totalSquareMeters: NewAdvertisement.totalSquareMeters,
+      price: NewAdvertisement.price,
+      minimumAmount: NewAdvertisement.minimumAmount,
+      pricePerMeter: NewAdvertisement.pricePerMeter,
+      entryDate: NewAdvertisement.entryDate,
+      immediate: NewAdvertisement.immediate,
+      flexible: NewAdvertisement.flexible,
+      longTerm: NewAdvertisement.longTerm,
+      pictures: [
+        'https://localhost:7211/uploads/10.jpeg',
+        'https://localhost:7211/uploads/11.jpeg',
+        'https://localhost:7211/uploads/12.jpeg',
+      ],
+      video: 'url_to_video',
+      contactName: NewAdvertisement.contactName,
+      contactPhone: NewAdvertisement.contactPhone,
+      standardizationAccepted: NewAdvertisement.standardizationAccepted,
+    };
+
+    console.log(NewAdvertisement1);
 
     this.httpClient
-      .post(`${this.Url}api/Users/CreateAdvertisement`, formData)
+      .post(`${this.Url}api/Users/CreateAdvertisement`, NewAdvertisement1)
       .subscribe((data) => {
         this.UserAdvertisements.next([
           ...this.UserAdvertisements.value,
