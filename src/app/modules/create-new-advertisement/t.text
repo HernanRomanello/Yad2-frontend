@@ -1,4 +1,4 @@
-div .upload-box_uploadBox__6zOdH {
+input .upload-file_upload-input__nX99N {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -12,20 +12,20 @@ div .upload-box_uploadBox__6zOdH {
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: normal;
+	white-space: pre;
 	word-spacing: 0px;
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(238, 238, 238);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 266.266px;
-	width: 255.344px;
+	height: 183.406px;
+	width: 241.344px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
@@ -34,14 +34,14 @@ div .upload-box_uploadBox__6zOdH {
 	margin: 0px;
 	padding: 0px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
-	position: relative;
+	position: absolute;
 	top: 0px;
-	bottom: 0px;
+	bottom: 45.8594px;
 	right: 0px;
 	left: 0px;
 	float: none;
@@ -62,23 +62,23 @@ div .upload-box_uploadBox__6zOdH {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
-	cursor: auto;
+	overflow: clip;
+	cursor: default;
 	visibility: visible;
 
 	/* Effects */
 	transform: none;
-	transition: all 0s ease 0s;
+	transition: all;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
 	box-sizing: border-box;
 	resize: none;
 	text-shadow: none;
-	text-overflow: clip;
+	text-overflow: ellipsis;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
-	border-bottom-left-radius: 8px;
-	border-bottom-right-radius: 8px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }

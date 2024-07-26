@@ -186,7 +186,7 @@
           <li
             class="dropdown-item"
             *ngFor="let option of assetTypes"
-            (click)="selectOption(option, 'assetType')"
+            (click)="selectOption(option, 'assetType'); setAssetType(option)"
           >
             {{ option }}
           </li>
@@ -630,6 +630,7 @@
           </div>
           <div>
             <input
+              (change)="setDateForToday('')"
               class="checkbox"
               type="checkbox"
               formControlName="longTerm"
@@ -668,9 +669,45 @@
 
       <div class="line line6"></div>
 
-      <label for="pictures">תמונות</label>
-      <input type="file" id="pictures" (change)="onFileChange($event)" />
+      <!-- <label for="pictures">תמונות</label> -->
+      <!-- <input type="file" id="pictures" (change)="onFileChange($event)" /> -->
 
+      <!-- <div>
+        <img
+          *ngFor="let image of images"
+          [src]="src(image)"
+          height="100"
+          width="100"
+        />
+      </div> -->
+
+      <!-- <div>
+        <label for="video">וידאו</label>
+        <input
+          id="video"
+          type="file"
+          formControlName="video"
+          (change)="onFileVideoChange($event)"
+        />
+      </div> -->
+    </div>
+    <div class="upload-part">
+      <!-- upload.component.html -->
+      <div class="upload-container">
+        <div class="card-header">תמונות הנכס</div>
+
+        <div class="upload-card">
+          <!-- <div class="card-header">מסמכים מצורפים</div> -->
+          <div class="card-content">
+            <input
+              class="file-input upload-pictures"
+              type="file"
+              id="pictures"
+              (change)="onFileChange($event)"
+            />
+          </div>
+        </div>
+      </div>
       <div>
         <img
           *ngFor="let image of images"
@@ -679,34 +716,19 @@
           width="100"
         />
       </div>
-
-      <div>
-        <label for="video">וידאו</label>
-        <input
-          id="video"
-          type="file"
-          formControlName="video"
-          (change)="onFileVideoChange($event)"
-        />
-      </div>
-    </div>
-
-    <!-- upload.component.html -->
-    <div class="upload-container">
-      <div class="upload-card">
-        <!-- <div class="card-header">מסמכים מצורפים</div> -->
-        <div class="card-content">
-          <mat-icon>add_circle_outline</mat-icon>
-          <div class="card-subtitle">גרור ושחרר או העלה את הקובץ שלך</div>
-        </div>
-      </div>
-    </div>
-    <div class="upload-container">
-      <div class="upload-card">
-        <!-- <div class="card-header">סרטונים מצורפים</div> -->
-        <div class="card-content">
-          <mat-icon>add_circle_outline</mat-icon>
-          <div class="card-subtitle">גרור ושחרר או העלה את הקובץ שלך</div>
+      <div class="upload-container">
+        <div class="card-header">סרטון הנכס</div>
+        <div class="upload-card">
+          <div class="card-content">
+            <input
+              type="file"
+              id="video"
+              class="file-input upload-video"
+              formControlName="video"
+              accept="video/*"
+              (change)="onFileVideoChange($event)"
+            />
+          </div>
         </div>
       </div>
     </div>

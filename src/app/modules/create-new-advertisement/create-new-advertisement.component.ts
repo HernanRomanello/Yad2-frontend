@@ -240,6 +240,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       onPillars: [false],
       neighborhood: ['', Validators.required],
       area: ['', Validators.required],
+      assetType: ['', Validators.required],
       assetState: ['', Validators.required],
       airDirections: [1],
       view: [this.viewOptions[0], Validators.required],
@@ -391,6 +392,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   selectPrivateParking(parking: number) {
     this.advertisementForm.get('privateParking').setValue(parking);
+    if (this.advertisementForm.get('privateParking').value !== 0) {
+      this.advertisementForm.get('hasPrivateParking').setValue(true);
+    } else {
+      this.advertisementForm.get('hasPrivateParking').setValue(false);
+    }
   }
 
   selectBalconiesNumber(balconies: number) {
@@ -473,14 +479,17 @@ export class CreateNewAdvertisementComponent implements OnInit {
       .uploadImage(this.video)
       .then((u) => u.fileUrl);
   }
-  async handleSubmit() {
-    if (!this.asset_type || !this.asset_State) {
-      return;
-    }
 
+  // unsetParameters:string[]=[];
+  async handleSubmit() {
+    // if (!this.asset_type || !this.asset_State) {
+    //   return;
+    // }
     this.defineAssetState();
+
     const form = this.advertisementForm.value;
     form.assetType = this.asset_type;
+    alert(this.advertisementForm.get('assetType').value);
     form.assetState = this.asset_State;
     try {
       const uploadedImages = await this.uploadAllImages();
@@ -526,6 +535,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   set_Number_Of_Payments(type: string) {
     this.advertisementForm.get('numberOfPayments').setValue(type);
+  }
+
+  setAssetType(type: string) {
+    this.advertisementForm.get('assetType').setValue(type);
   }
 
   toggleDropdown(type: string): void {
@@ -625,6 +638,8 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.openAndCloseButtons(type);
     if (type === 'assetType') {
       this.asset_type = option;
+      // alert(option);
+      this.setAssetType(option);
     } else if (type === 'assetState') {
       this.asset_State = option;
     } else if (type === 'rooms') {
