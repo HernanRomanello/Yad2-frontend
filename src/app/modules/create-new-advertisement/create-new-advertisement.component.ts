@@ -495,7 +495,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
     const form = this.advertisementForm.value;
     form.assetType = this.asset_type;
-    alert(this.advertisementForm.get('assetType').value);
     form.assetState = this.asset_State;
     try {
       const uploadedImages = await this.uploadAllImages();
@@ -503,6 +502,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
       form.pictures = uploadedImages;
       form.video = video;
       this.authService.postNewAdvertisement(form);
+      if (uploadedImages.length > 0) {
+        this.advertisementForm.get('hasImage').setValue(true);
+      }
       if (this.advertisementForm.valid) {
       } else {
         this.checkFormValidation();
@@ -644,7 +646,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.openAndCloseButtons(type);
     if (type === 'assetType') {
       this.asset_type = option;
-      // alert(option);
       this.setAssetType(option);
     } else if (type === 'assetState') {
       this.asset_State = option;
