@@ -256,7 +256,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       priceDiscount: [false],
       publisherIsMiddleMan: [false],
       publisherIsContractor: [false],
-      balconiesNumber: [false],
+      balconiesNumber: 0,
       accessibleForDisabled: [false],
       airConditioning: [false],
       windowBars: [false],
@@ -428,6 +428,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
         this.furnitureDescription = false;
       }
     }
+
+    this.advertisementForm
+      .get('airConditioner')
+      .setValue(this.advertisementForm.get('tornadoAirConditioner').value);
   }
 
   optionClass(option: number, fiveOptions: boolean): string {
@@ -496,7 +500,8 @@ export class CreateNewAdvertisementComponent implements OnInit {
     //   return;
     // }
 
-    alert(this.advertisementForm.get('hasPrice').value);
+    alert(this.advertisementForm.get('airConditioner').value);
+    alert(this.advertisementForm.get('tornadoAirConditioner').value);
 
     this.defineAssetState();
 
