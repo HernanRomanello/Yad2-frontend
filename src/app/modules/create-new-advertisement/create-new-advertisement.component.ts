@@ -401,6 +401,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   selectBalconiesNumber(balconies: number) {
     this.advertisementForm.get('balconiesNumber').setValue(balconies);
+    if (this.advertisementForm.get('balconiesNumber').value !== 0) {
+      this.advertisementForm.get('hasBolcony').setValue(true);
+    } else {
+      this.advertisementForm.get('hasBolcony').setValue(false);
+    }
   }
 
   selectAirView(view: string) {
@@ -485,6 +490,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     // if (!this.asset_type || !this.asset_State) {
     //   return;
     // }
+
     this.defineAssetState();
 
     const form = this.advertisementForm.value;
