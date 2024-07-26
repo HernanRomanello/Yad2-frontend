@@ -283,7 +283,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
       totalSquareMeters: [null],
       price: [null, Validators.required],
       minimumAmount: [null],
-      pricePerMeter: [null],
+      pricePerMeter: [0],
       entryDate: ['', Validators.required],
       immediate: [false],
       flexible: [false],
@@ -331,6 +331,12 @@ export class CreateNewAdvertisementComponent implements OnInit {
     const totalSquareMeters =
       this.advertisementForm.get('totalSquareMeters').value;
     const averagePrice = price / totalSquareMeters;
+    if (averagePrice >= 1) {
+      this.advertisementForm.get('pricePerMeter').setValue(averagePrice);
+    } else {
+      this.advertisementForm.get('pricePerMeter').setValue(0);
+    }
+
     if (isNaN(averagePrice) || averagePrice === Infinity || averagePrice <= 1) {
       return '';
     }
@@ -500,10 +506,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
     //   return;
     // }
 
-    alert(this.advertisementForm.get('airConditioner').value);
-    alert(this.advertisementForm.get('tornadoAirConditioner').value);
-
     this.defineAssetState();
+
+    alert(this.advertisementForm.get('pricePerMeter').value);
 
     const form = this.advertisementForm.value;
     form.assetType = this.asset_type;
