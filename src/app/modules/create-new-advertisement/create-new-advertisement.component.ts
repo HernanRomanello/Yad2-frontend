@@ -323,12 +323,18 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   pricePerSquareMeter(): string {
     const price = this.advertisementForm.get('price').value;
+    if (price > 1) {
+      this.advertisementForm.get('hasPrice').setValue(true);
+    } else {
+      this.advertisementForm.get('hasPrice').setValue(false);
+    }
     const totalSquareMeters =
       this.advertisementForm.get('totalSquareMeters').value;
     const averagePrice = price / totalSquareMeters;
     if (isNaN(averagePrice) || averagePrice === Infinity || averagePrice <= 1) {
       return '';
     }
+
     return averagePrice.toString();
   }
 
@@ -485,11 +491,12 @@ export class CreateNewAdvertisementComponent implements OnInit {
       .then((u) => u.fileUrl);
   }
 
-  // unsetParameters:string[]=[];
   async handleSubmit() {
     // if (!this.asset_type || !this.asset_State) {
     //   return;
     // }
+
+    alert(this.advertisementForm.get('hasPrice').value);
 
     this.defineAssetState();
 
