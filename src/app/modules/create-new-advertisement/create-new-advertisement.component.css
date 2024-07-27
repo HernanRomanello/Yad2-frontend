@@ -830,5 +830,7 @@ textarea::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 900px !important;
+  flex-wrap: wrap !important;
   background-color: rgb(255, 255, 255) !important;
 }
