@@ -828,8 +828,9 @@ textarea::placeholder {
 
 .add-images-box {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  direction: rtl;
   max-width: 900px !important;
   flex-wrap: wrap !important;
   background-color: rgb(255, 255, 255) !important;
