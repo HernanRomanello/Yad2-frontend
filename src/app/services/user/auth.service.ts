@@ -1,6 +1,6 @@
 import { Injectable, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { BehaviorSubject, ReplaySubject, filter } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, filter, from } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
@@ -136,9 +136,10 @@ export class AuthService {
   }
 
   postNewAdvertisement(NewAdvertisement: any) {
-    console.log(NewAdvertisement);
-    alert('Advertisement added successfully');
-    const formData = {
+    const date = new Date(NewAdvertisement.entryDate);
+    const milliseconds = date.getTime();
+
+    const NewAdvertisement1 = {
       city: NewAdvertisement.city,
       tradeType: NewAdvertisement.tradeType,
       street: NewAdvertisement.street,
@@ -161,11 +162,6 @@ export class AuthService {
       hasImage: NewAdvertisement.hasImage,
       hasPrice: NewAdvertisement.hasPrice,
       moshavOrKibutz: false,
-      needsRenovation: NewAdvertisement.needsRenovation,
-      isWellMaintained: NewAdvertisement.isWellMaintained,
-      isRenovated: NewAdvertisement.isRenovated,
-      isNew: NewAdvertisement.isNew,
-      isNewFromBuilder: false,
       pirceDiscount: false,
       publisherIsMiddleMan: false,
       publisherIsContractor: false,
@@ -183,7 +179,7 @@ export class AuthService {
       renovated: NewAdvertisement.renovated,
       safeRoom: NewAdvertisement.safeRoom,
       multiLockDoors: NewAdvertisement.multiLockDoors,
-      airConditioner: NewAdvertisement.airConditioner,
+      airConditioner: false,
       tornadoAirConditioner: NewAdvertisement.tornadoAirConditioner,
       storageRoom: NewAdvertisement.storageRoom,
       description: NewAdvertisement.description,
@@ -196,19 +192,24 @@ export class AuthService {
       gardenSquareMeters: NewAdvertisement.gardenSquareMeters,
       totalSquareMeters: NewAdvertisement.totalSquareMeters,
       price: NewAdvertisement.price,
-      minimumAmount: NewAdvertisement.tradeType === 'השכרה' ? 100 : 10000,
-      pricePerMeter: NewAdvertisement.pricePerMeter,
+      minimumAmount: 7000,
+      pricePerMeter: 93.75,
+      entryDate: milliseconds,
       immediate: NewAdvertisement.immediate,
       flexible: NewAdvertisement.flexible,
       longTerm: NewAdvertisement.longTerm,
-      pictures: NewAdvertisement.pictures,
-      video: NewAdvertisement.video,
+      pictures: [
+        'https://localhost:7211/uploads/10.jpeg',
+        'https://localhost:7211/uploads/11.jpeg',
+        'https://localhost:7211/uploads/12.jpeg',
+      ],
+      video: 'url_to_video',
       contactName: NewAdvertisement.contactName,
       contactPhone: NewAdvertisement.contactPhone,
       standardizationAccepted: NewAdvertisement.standardizationAccepted,
     };
-    console.log(formData);
-    const NewAdvertisement1 = {
+
+    const formData = {
       city: NewAdvertisement.city,
       tradeType: NewAdvertisement.tradeType,
       street: NewAdvertisement.street,
@@ -261,9 +262,9 @@ export class AuthService {
       gardenSquareMeters: NewAdvertisement.gardenSquareMeters,
       totalSquareMeters: NewAdvertisement.totalSquareMeters,
       price: NewAdvertisement.price,
-      minimumAmount: NewAdvertisement.minimumAmount,
+      minimumAmount: 100,
       pricePerMeter: NewAdvertisement.pricePerMeter,
-      entryDate: NewAdvertisement.entryDate,
+      entryDate: 1656633600,
       immediate: NewAdvertisement.immediate,
       flexible: NewAdvertisement.flexible,
       longTerm: NewAdvertisement.longTerm,
@@ -275,10 +276,9 @@ export class AuthService {
       video: 'url_to_video',
       contactName: NewAdvertisement.contactName,
       contactPhone: NewAdvertisement.contactPhone,
-      standardizationAccepted: NewAdvertisement.standardizationAccepted,
+      standardizationAccepted: true,
     };
-
-    console.log(NewAdvertisement1);
+    console.log(formData);
 
     this.httpClient
       .post(`${this.Url}api/Users/CreateAdvertisement`, NewAdvertisement1)

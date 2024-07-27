@@ -574,6 +574,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
   set_Number_Of_Payments(type: string) {
     this.advertisementForm.get('numberOfPayments').setValue(type);
   }
+  set_assetState(type: string) {
+    this.advertisementForm.get('assetState').setValue(type);
+  }
+
+  set_Number_Of_Rooms(type: string) {
+    this.advertisementForm.get('rooms').setValue(type);
+  }
 
   setAssetType(type: string) {
     this.advertisementForm.get('assetType').setValue(type);
@@ -679,8 +686,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
       this.setAssetType(option);
     } else if (type === 'assetState') {
       this.asset_State = option;
+      this.set_assetState(option);
     } else if (type === 'rooms') {
       this.asset_Rooms = option;
+      this.set_Number_Of_Rooms(option);
     } else if (type === 'numberOfPayments') {
       this.number_Of_Payments = option;
       this.set_Number_Of_Payments(option);
