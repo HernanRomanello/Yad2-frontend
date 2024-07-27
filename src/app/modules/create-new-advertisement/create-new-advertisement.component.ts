@@ -543,15 +543,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
       if (uploadedImages.length > 0) {
         this.advertisementForm.get('hasImage').setValue(true);
         this.imagesUrl = uploadedImages.map((image) => image);
+        this.advertisementForm.get('pictures').setValue(this.imagesUrl);
+        alert(this.advertisementForm.get('pictures').value);
+        alert(this.imagesUrl);
       }
-      if (uploadedImages.length > 0) {
-        this.advertisementForm.get('hasImage').setValue(true);
-      }
-      // this.authService.postNewAdvertisement(
-      //   form,
-      //   this.imagesUrl,
-      //   this.vidoeUrl
-      // );
+
       if (this.advertisementForm.valid) {
       } else {
         this.checkFormValidation();
