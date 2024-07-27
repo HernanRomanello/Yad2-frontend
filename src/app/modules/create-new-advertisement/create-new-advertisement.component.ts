@@ -24,6 +24,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   asset_Rooms: string | undefined = undefined;
   number_Of_Payments: string = 'לא בחר';
   hasImage: boolean = false;
+  mainImage: File | undefined = undefined;
   images: File[] = [];
   vidoeUrl: string = '';
   imagesUrl: string[] = [];
@@ -492,11 +493,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
     }
   }
 
-  // onFileVideoChange(event: any) {
-  //   let file = event.target.files[0];
-  //   this.video = file;
-  // }
-
   onFileVideoChange(event: Event) {
     const input = event.target as HTMLInputElement;
     if (!input.files?.length) {
@@ -514,12 +510,17 @@ export class CreateNewAdvertisementComponent implements OnInit {
   async uploadAllImages() {
     if (this.images.length === 0) return [];
     const tasks = this.images.map((image) => {
+      if (this.images.length === 1) {
+        this.mainImage = image;
+      }
       return this.imageService.uploadImage(image);
     });
+    alert(tasks);
     return await Promise.all(tasks).then((urls) => {
       return urls.map((u) => u.fileUrl);
     });
   }
+
   async uploadVideo() {
     if (!this.video) return '';
     return await this.imageService

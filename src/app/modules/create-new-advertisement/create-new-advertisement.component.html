@@ -669,28 +669,6 @@
       </div>
 
       <div class="line line6"></div>
-
-      <!-- <label for="pictures">תמונות</label> -->
-      <!-- <input type="file" id="pictures" (change)="onFileChange($event)" /> -->
-
-      <!-- <div>
-        <img
-          *ngFor="let image of images"
-          [src]="src(image)"
-          height="100"
-          width="100"
-        />
-      </div> -->
-
-      <!-- <div>
-        <label for="video">וידאו</label>
-        <input
-          id="video"
-          type="file"
-          formControlName="video"
-          (change)="onFileVideoChange($event)"
-        />
-      </div> -->
     </div>
     <div class="upload-part">
       @if(!this.hasImage ){
@@ -709,14 +687,14 @@
         </div>
       </div>
       }
-      <div>
+      <!-- <div>
         <img
           *ngFor="let image of images"
           [src]="src(image)"
           height="100"
           width="100"
         />
-      </div>
+      </div> -->
       <div class="upload-container">
         <div class="card-header">סרטון הנכס</div>
         <div class="upload-card">
@@ -737,7 +715,46 @@
         </div>
       </div>
     </div>
+    @if(this.hasImage ){
+    <div class="upload-container">
+      <div class="card-header">תמונות הנכס</div>
 
+      <div class="upload-card">
+        <div class="card-content">
+          <input
+            class="file-input upload-pictures"
+            type="file"
+            id="pictures"
+            (change)="onFileChange($event)"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="upload-part">
+      <div
+        *ngFor="let image of images; let i = index"
+        class="upload-container add-images-box"
+      >
+        @if(i===0){
+        <div class="card-header">תמונה ראשית</div>
+        }
+        <img class="add-images" [src]="src(image)" height="185" width="250" />
+      </div>
+      <!-- <div class="add-images">
+        <div class="upload-container">
+          <div class="card-header">תמונה ראשית</div>
+          <div class="upload-card none-border">
+            <div
+              *ngFor="let image of images; let i = index"
+              class="card-content"
+            >
+              <img [src]="src(image)" height="185" width="248" />
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    }
     <div class="navigation-btn">
       <button class="continue-btn">המשך לשלב הבא</button>
       <button class="return-btn">חזרה</button>
