@@ -200,13 +200,9 @@ export class AuthService {
       immediate: NewAdvertisement.immediate,
       flexible: NewAdvertisement.flexible,
       longTerm: NewAdvertisement.longTerm,
-      // pictures: [
-      //   'https://localhost:7211/uploads/10.jpeg',
-      //   'https://localhost:7211/uploads/11.jpeg',
-      //   'https://localhost:7211/uploads/12.jpeg',
-      // ],
+
       pictures: NewAdvertisement.pictures,
-      video: 'url_to_video',
+      video: NewAdvertisement.video,
       contactName: NewAdvertisement.contactName,
       contactPhone: NewAdvertisement.contactPhone,
       standardizationAccepted: NewAdvertisement.standardizationAccepted,

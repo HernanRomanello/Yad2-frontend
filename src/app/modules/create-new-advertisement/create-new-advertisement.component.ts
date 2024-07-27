@@ -23,6 +23,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   asset_State: string | undefined = undefined;
   asset_Rooms: string | undefined = undefined;
   number_Of_Payments: string = 'לא בחר';
+  hasImage: boolean = false;
   images: File[] = [];
   vidoeUrl: string = '';
   imagesUrl: string[] = [];
@@ -225,11 +226,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
     'במצב שמור (במצב טוב, לא שופץ)',
     'דרוש שיפוץ (זקוק לעבודת שיפוץ)',
   ];
-  // needsRenovation: boolean;
-  // isWellMaintained: boolean;
-  // isRenovated: boolean;
-  // isNew: boolean;
-  // isNewFromBuilder: boolean;
   ngOnInit() {
     this.advertisementForm = this.formBuilder.group({
       city: [this.authService.user.getValue()?.city || '', Validators.required],
@@ -288,15 +284,15 @@ export class CreateNewAdvertisementComponent implements OnInit {
       storageRoom: [false],
       description: ['', Validators.required],
       furnituredescription: ['', Validators.required],
-      numberOfPayments: [0],
-      houseCommitteePayment: [0],
-      municipalityMonthlyPropertyTax: [0],
-      builtSquareMeters: [0],
-      gardenSquareMeters: [0],
-      totalSquareMeters: [0],
-      price: [0, Validators.required],
-      minimumAmount: [0],
-      pricePerMeter: [0],
+      numberOfPayments: [null],
+      houseCommitteePayment: [null],
+      municipalityMonthlyPropertyTax: [null],
+      builtSquareMeters: [null],
+      gardenSquareMeters: [null],
+      totalSquareMeters: [null],
+      price: [null, Validators.required],
+      minimumAmount: [null],
+      pricePerMeter: [null],
       entryDate: ['', Validators.required],
       immediate: [false],
       flexible: [false],
@@ -489,6 +485,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
   onFileChange(event: any) {
     let file = event.target.files[0];
     this.images.push(file);
+    if (this.images.length > 0) {
+      this.hasImage = true;
+    } else {
+      this.hasImage = false;
+    }
   }
 
   // onFileVideoChange(event: any) {
@@ -528,7 +529,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   async handleSubmit() {
     this.defineAssetState();
-
+    alert(this.vidoeUrl);
     const form = this.advertisementForm.value;
     alert(this.advertisementForm.get('assetType').value);
 
@@ -539,12 +540,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
       form.pictures = uploadedImages;
       form.video = video;
 
+      this.advertisementForm.get('pictures').setValue(this.imagesUrl);
+      this.advertisementForm.get('video').setValue(this.vidoeUrl);
       if (uploadedImages.length > 0) {
         this.advertisementForm.get('hasImage').setValue(true);
         this.imagesUrl = uploadedImages.map((image) => image);
-        this.advertisementForm.get('pictures').setValue(this.imagesUrl);
-        // alert(this.advertisementForm.get('pictures').value);
-        // alert(this.imagesUrl);
+      } else {
+        this.advertisementForm.get('hasImage').setValue(false);
       }
 
       this.authService.postNewAdvertisement(form);

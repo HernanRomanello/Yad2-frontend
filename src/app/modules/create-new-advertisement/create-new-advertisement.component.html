@@ -693,12 +693,11 @@
       </div> -->
     </div>
     <div class="upload-part">
-      <!-- upload.component.html -->
+      @if(!this.hasImage ){
       <div class="upload-container">
         <div class="card-header">תמונות הנכס</div>
 
         <div class="upload-card">
-          <!-- <div class="card-header">מסמכים מצורפים</div> -->
           <div class="card-content">
             <input
               class="file-input upload-pictures"
@@ -709,6 +708,7 @@
           </div>
         </div>
       </div>
+      }
       <div>
         <img
           *ngFor="let image of images"
@@ -730,6 +730,10 @@
               (change)="onFileVideoChange($event)"
             />
           </div>
+          <video #videoPlayer controls *ngIf="false">
+            <source [src]="this.vidoeUrl" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
