@@ -533,7 +533,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
     alert(this.advertisementForm.get('assetType').value);
 
     try {
-      this.authService.postNewAdvertisement(form);
       form.assetState = this.asset_State;
       const uploadedImages = await this.uploadAllImages();
       const video = await this.uploadVideo();
@@ -544,9 +543,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
         this.advertisementForm.get('hasImage').setValue(true);
         this.imagesUrl = uploadedImages.map((image) => image);
         this.advertisementForm.get('pictures').setValue(this.imagesUrl);
-        alert(this.advertisementForm.get('pictures').value);
-        alert(this.imagesUrl);
+        // alert(this.advertisementForm.get('pictures').value);
+        // alert(this.imagesUrl);
       }
+
+      this.authService.postNewAdvertisement(form);
 
       if (this.advertisementForm.valid) {
       } else {
