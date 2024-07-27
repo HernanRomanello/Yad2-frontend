@@ -24,6 +24,8 @@ export class CreateNewAdvertisementComponent implements OnInit {
   asset_Rooms: string | undefined = undefined;
   number_Of_Payments: string = 'לא בחר';
   images: File[] = [];
+  vidoeUrl: string = '';
+  imagesUrl: string[] = [];
   video: File | undefined = undefined;
   authService = inject(AuthService);
   imageService = inject(ImageuploadService);
@@ -489,9 +491,21 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.images.push(file);
   }
 
-  onFileVideoChange(event: any) {
-    let file = event.target.files[0];
+  // onFileVideoChange(event: any) {
+  //   let file = event.target.files[0];
+  //   this.video = file;
+  // }
+
+  onFileVideoChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (!input.files?.length) {
+      return;
+    }
+    const file = input.files[0];
     this.video = file;
+
+    const videoUrl = URL.createObjectURL(file);
+    this.vidoeUrl = videoUrl;
   }
   src(image: any) {
     return URL.createObjectURL(image);
@@ -513,16 +527,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
   }
 
   async handleSubmit() {
-    // if (!this.asset_type || !this.asset_State) {
-    //   return;
-    // }
-
     this.defineAssetState();
 
     const form = this.advertisementForm.value;
-    // form.assetType = this.asset_type;
-    // form.assetState = this.asset_State;
-    alert(this.advertisementForm.get('tradeType').value);
     alert(this.advertisementForm.get('assetType').value);
 
     try {
@@ -532,9 +539,19 @@ export class CreateNewAdvertisementComponent implements OnInit {
       const video = await this.uploadVideo();
       form.pictures = uploadedImages;
       form.video = video;
+
+      if (uploadedImages.length > 0) {
+        this.advertisementForm.get('hasImage').setValue(true);
+        this.imagesUrl = uploadedImages.map((image) => image);
+      }
       if (uploadedImages.length > 0) {
         this.advertisementForm.get('hasImage').setValue(true);
       }
+      // this.authService.postNewAdvertisement(
+      //   form,
+      //   this.imagesUrl,
+      //   this.vidoeUrl
+      // );
       if (this.advertisementForm.valid) {
       } else {
         this.checkFormValidation();
