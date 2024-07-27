@@ -6,6 +6,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
+import { formatNumber } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -138,6 +139,7 @@ export class AuthService {
   postNewAdvertisement(NewAdvertisement: any) {
     const date = new Date(NewAdvertisement.entryDate);
     const milliseconds = date.getTime();
+    const minAmount = NewAdvertisement.tradeType === 'השכרה' ? 100 : 10000;
 
     const NewAdvertisement1 = {
       city: NewAdvertisement.city,
@@ -192,8 +194,8 @@ export class AuthService {
       gardenSquareMeters: NewAdvertisement.gardenSquareMeters,
       totalSquareMeters: NewAdvertisement.totalSquareMeters,
       price: NewAdvertisement.price,
-      minimumAmount: 7000,
-      pricePerMeter: 93.75,
+      minimumAmount: minAmount,
+      pricePerMeter: NewAdvertisement.pricePerMeter,
       entryDate: milliseconds,
       immediate: NewAdvertisement.immediate,
       flexible: NewAdvertisement.flexible,
