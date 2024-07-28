@@ -561,7 +561,8 @@ input[type="checkbox"]:checked::after {
   transform: translateX(-50px);
 }
 
-.Selection-6-content {
+.Selection-6-content,
+.Selection-7-content {
   margin-left: auto !important;
   margin-right: 40px !important;
 }
@@ -880,4 +881,16 @@ mat-icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.course-note {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weCheck-img {
+  width: 100% !important;
+  transform: translateX(2px) !important;
 }
