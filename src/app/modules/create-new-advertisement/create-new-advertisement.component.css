@@ -81,7 +81,8 @@ button.active {
 
 #Selection-2,
 #Selection-3,
-#Selection-4 {
+#Selection-4,
+#Selection-6 {
   display: flex;
   flex-direction: column;
   direction: rtl;
@@ -553,6 +554,11 @@ input[type="checkbox"]:checked::after {
 
 .Selection-2-content {
   transform: translateX(-50px);
+}
+
+.Selection-6-content {
+  margin-left: auto !important;
+  margin-right: 40px !important;
 }
 
 .sub-title {

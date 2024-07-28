@@ -687,14 +687,7 @@
         </div>
       </div>
       }
-      <!-- <div>
-        <img
-          *ngFor="let image of images"
-          [src]="src(image)"
-          height="100"
-          width="100"
-        />
-      </div> -->
+
       <div class="upload-container">
         <div class="card-header">סרטון הנכס</div>
         <div class="upload-card">
@@ -749,26 +742,66 @@
   <div class="space"></div>
 
   <div class="close-section" *ngIf="false">
-    <div><span class="section-title">6</span> <span>פרטי התקשרות </span></div>
+    <div id="section-title-container6" class="section-title-container">
+      <span>פרטי התקשרות </span> <span class="section-title">6</span>
+    </div>
   </div>
 
   <div class="advertisement-selection" id="Selection-6" *ngIf="true">
-    <div><span class="section-title">6</span> <span>פרטי התקשרות </span></div>
-    <div>
-      <label for="contactName">שם איש קשר*</label>
-      <input
-        id="contactName"
-        formControlName="contactName"
-        [value]="authService.user.getValue()?.name"
-      />
+    <div id="section-title-container5" class="section-title-container">
+      <span class="section-title">6</span> <span>פרטי התקשרות </span>
     </div>
-    <div>
-      <label for="contactPhone">טלפון איש קשר*</label>
-      <input id="contactPhone" formControlName="contactPhone" />
-    </div>
-    <input type="checkbox" formControlName="standardizationAccepted" />
+    <div class="Selection-6-content">
+      <div class="">
+        <div>באיזה מספר המתעניינים יוכלו להשיג אותך?</div>
+      </div>
 
-    רק לקרוא ולאשר את התקנון*
+      <div class="input-container">
+        <label class="small-text" for="owner"> בעלות הנכס</label>
+        <button
+          class="input large dropdown-btn"
+          type="button"
+          [ngStyle]="{ opacity: getColor(asset_owner) }"
+          (click)="toggleDropdown('asset_owner')"
+        >
+          @if(asset_owner ===''){
+          {{ "בעלות הנכס" }}
+          }@else {
+          {{ asset_owner }}
+          }
+          <i #dropdownIconasset_owner class="material-icons"
+            >keyboard_arrow_down</i
+          >
+        </button>
+        <ul
+          *ngIf="this.isAssetAssetOwnerDropdownHidden"
+          class="dropdown-menu asset dropdown-assetState"
+        >
+          <li
+            class="dropdown-item assetState"
+            *ngFor="let option of assetOwner"
+            (click)="selectOption(option, 'asset_owner')"
+          >
+            {{ option }}
+          </li>
+        </ul>
+      </div>
+      <div>
+        <label for="contactName">שם איש קשר*</label>
+        <input
+          id="contactName"
+          formControlName="contactName"
+          [value]="authService.user.getValue()?.name"
+        />
+      </div>
+      <div>
+        <label for="contactPhone">טלפון איש קשר*</label>
+        <input id="contactPhone" formControlName="contactPhone" />
+      </div>
+      <input type="checkbox" formControlName="standardizationAccepted" />
+
+      רק לקרוא ולאשר את התקנון*
+    </div>
     <div class="navigation-btn">
       <button class="continue-btn">המשך לשלב הבא</button>
       <button class="return-btn">חזרה</button>

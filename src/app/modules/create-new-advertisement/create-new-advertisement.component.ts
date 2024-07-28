@@ -22,6 +22,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   asset_type: string | undefined = undefined;
   asset_State: string | undefined = undefined;
   asset_Rooms: string | undefined = undefined;
+  asset_owner: string = '';
   number_Of_Payments: string = 'לא בחר';
   hasImage: boolean = false;
   mainImage: File | undefined = undefined;
@@ -35,6 +36,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   isAssetTypeDropdownHidden = false;
   isNumberOfPaymentsTypeDropdownHidden = false;
   isAssetAssetstateDropdownHidden = false;
+  isAssetAssetOwnerDropdownHidden = false;
   isRoomsDropdownHidden = false;
   descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
   minPrice = 0;
@@ -49,6 +51,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   @ViewChild('dropdownIconnumber_Of_Payments_type', { static: false })
   dropdownIconnumber_Of_Payments_type!: ElementRef<HTMLDivElement>;
+
+  @ViewChild('dropdownIconasset_owner', { static: false })
+  dropdownIconasset_owner!: ElementRef<HTMLDivElement>;
 
   AirDirections = [1, 2, 3, 4];
   ShowerRooms = [1, 2, 3, 4];
@@ -186,10 +191,12 @@ export class CreateNewAdvertisementComponent implements OnInit {
           this.isAssetAssetstateDropdownHidden = false;
           this.isRoomsDropdownHidden = false;
           this.isNumberOfPaymentsTypeDropdownHidden = false;
+          this.isAssetAssetOwnerDropdownHidden = false;
           this.rotateArrowAssetState('assetState');
           this.rotateArrowAssetType('assetType');
           this.rotateArrowRooms('rooms');
           this.rotateArrowNumberOfPayments('numberOfPayments');
+          this.rotateArrowAssetOwner('asset_owner');
         });
       });
     });
@@ -227,6 +234,8 @@ export class CreateNewAdvertisementComponent implements OnInit {
     'במצב שמור (במצב טוב, לא שופץ)',
     'דרוש שיפוץ (זקוק לעבודת שיפוץ)',
   ];
+
+  assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
     this.advertisementForm = this.formBuilder.group({
       city: [this.authService.user.getValue()?.city || '', Validators.required],
@@ -674,6 +683,22 @@ export class CreateNewAdvertisementComponent implements OnInit {
     }
   }
 
+  private rotateArrowAssetOwner(type: string) {
+    if (type === 'asset_owner') {
+      if (this.isAssetAssetOwnerDropdownHidden) {
+        this.renderer.addClass(
+          this.dropdownIconasset_owner.nativeElement,
+          'rotate-icon'
+        );
+      } else {
+        this.renderer.removeClass(
+          this.dropdownIconasset_owner.nativeElement,
+          'rotate-icon'
+        );
+      }
+    }
+  }
+
   private openAndCloseButtons(type: string) {
     if (type === 'assetType') {
       this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
@@ -693,6 +718,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
       this.isNumberOfPaymentsTypeDropdownHidden =
         !this.isNumberOfPaymentsTypeDropdownHidden;
       this.rotateArrowNumberOfPayments('numberOfPayments');
+    } else if (type === 'asset_owner') {
+      this.isAssetAssetOwnerDropdownHidden =
+        !this.isAssetAssetOwnerDropdownHidden;
+      this.rotateArrowAssetOwner('asset_owner');
     }
   }
 
@@ -710,6 +739,16 @@ export class CreateNewAdvertisementComponent implements OnInit {
     } else if (type === 'numberOfPayments') {
       this.number_Of_Payments = option;
       this.set_Number_Of_Payments(option);
+    } else if (type === 'asset_owner') {
+      this.asset_owner = option;
+    }
+  }
+
+  getColor(option: string) {
+    if (option === '') {
+      return '0.6';
+    } else {
+      return '1';
     }
   }
 }
