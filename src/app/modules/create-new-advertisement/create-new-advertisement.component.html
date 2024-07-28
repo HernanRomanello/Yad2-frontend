@@ -786,22 +786,80 @@
           </li>
         </ul>
       </div>
-      <div>
-        <label for="contactName">שם איש קשר*</label>
+
+      <div class="input-container">
+        <label class="small-text" for="contactName"> השם שלך* </label>
         <input
+          class="input large left-Placeholder"
           id="contactName"
           formControlName="contactName"
           [value]="authService.user.getValue()?.name"
         />
       </div>
-      <div>
-        <label for="contactPhone">טלפון איש קשר*</label>
-        <input id="contactPhone" formControlName="contactPhone" />
+      <div class="input-container">
+        <label class="small-text" for="contactPhone"> טלפון* </label>
+        <input
+          class="input large left-Placeholder"
+          id="contactPhone"
+          formControlName="contactPhone"
+          [value]="authService.user.getValue()?.phoneNumber"
+        />
       </div>
-      <input type="checkbox" formControlName="standardizationAccepted" />
+      @if(!this.has2Contacts){
+      <div
+        class="remove-add-contact"
+        style="color: #ff7f30"
+        (click)="Definecontacts(2)"
+      >
+        <mat-icon>control_point</mat-icon>
 
-      רק לקרוא ולאשר את התקנון*
+        <span>הוספת איש קשר נוסף</span>
+      </div>
+      } @if(this.has2Contacts){
+      <div>
+        <div class="input-container">
+          <label class="small-text" for="contactName"> השם שלך* </label>
+          <input class="input large left-Placeholder" id="contactName" />
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="contactPhone"> טלפון* </label>
+          <input class="input large left-Placeholder" id="contactPhone" />
+        </div>
+        <div
+          class="remove-add-contact"
+          style="color: #ff7f30"
+          (click)="Definecontacts(1)"
+        >
+          <mat-icon>remove_circle_outline</mat-icon>
+
+          הסר איש קשר נוסף
+        </div>
+      </div>
+      }
+      <div id="line-page6" class="line"></div>
+
+      <div>
+        <label class="checkbox-input">
+          <input type="checkbox" formControlName="standardizationAccepted" />
+          <div>
+            אני מאשר/ת את
+            <span class="light-opacity-orange">התקנון*</span>
+            ומדיניות הפרטיות באתר
+          </div>
+        </label>
+      </div>
+
+      <div class="choice-note">
+        <div>
+          רגע לפני בחירת מסלול, לא לשכוח להעיף מבט על אופציות השדרוג שלנו
+          <span style="font-weight: 700">שיעשו לך חיים קלים</span>
+        </div>
+        <div>
+          <img class="choice-note-pic" src="assets/images/choice-note.JPG" alt="" />
+        </div>
+      </div>
     </div>
+
     <div class="navigation-btn">
       <button class="continue-btn">המשך לשלב הבא</button>
       <button class="return-btn">חזרה</button>

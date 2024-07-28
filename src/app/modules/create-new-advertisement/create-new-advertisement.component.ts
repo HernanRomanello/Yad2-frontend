@@ -25,6 +25,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   asset_owner: string = '';
   number_Of_Payments: string = 'לא בחר';
   hasImage: boolean = false;
+  has2Contacts: boolean = false;
   mainImage: File | undefined = undefined;
   images: File[] = [];
   vidoeUrl: string = '';
@@ -749,6 +750,14 @@ export class CreateNewAdvertisementComponent implements OnInit {
       return '0.6';
     } else {
       return '1';
+    }
+  }
+
+  Definecontacts(numberOfContacts: number) {
+    if (numberOfContacts === 2) {
+      this.has2Contacts = true;
+    } else {
+      this.has2Contacts = false;
     }
   }
 }

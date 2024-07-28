@@ -312,6 +312,11 @@ button {
   font-weight: 600 !important;
 }
 
+.light-opacity-orange {
+  color: #ff7f30 !important;
+  font-weight: 600 !important;
+}
+
 .floor-description,
 .check-input {
   display: flex;
@@ -840,4 +845,39 @@ textarea::placeholder {
   max-width: 900px !important;
   flex-wrap: wrap !important;
   background-color: rgb(255, 255, 255) !important;
+}
+
+mat-icon {
+  font-size: 12px;
+  width: 12px;
+  height: 12px;
+  margin-left: 2px;
+  margin-top: 3.5px;
+}
+
+.remove-add-contact {
+  cursor: pointer;
+  display: flex;
+  text-align: right;
+  direction: rtl;
+  margin-top: 1rem;
+  margin-bottom: 1rem !important;
+}
+
+#line-page6 {
+  margin: 2rem 0 !important;
+}
+
+.choice-note {
+  font-weight: 400;
+  background-color: rgb(255, 255, 255);
+  height: 76px;
+  width: 798px;
+  border: 1px solid rgb(238, 238, 238);
+  margin: 20px 0px 0px;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

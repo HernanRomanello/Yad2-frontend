@@ -1,4 +1,4 @@
-input .upload-file_upload-input__nX99N {
+div .convince-to-upgrade_convinceToUpgrade__sWi0J {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -12,46 +12,46 @@ input .upload-file_upload-input__nX99N {
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: pre;
+	white-space: normal;
 	word-spacing: 0px;
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 183.406px;
-	width: 241.344px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
-	margin: 0px;
-	padding: 0px;
+	height: 76px;
+	width: 798px;
+	border: 1px solid rgb(238, 238, 238);
+	border-top: 1px solid rgb(238, 238, 238);
+	border-right: 1px solid rgb(238, 238, 238);
+	border-bottom: 1px solid rgb(238, 238, 238);
+	border-left: 1px solid rgb(238, 238, 238);
+	margin: 20px 0px 0px;
+	padding: 15px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
 	min-width: 0px;
 
 	/* Positioning */
-	position: absolute;
-	top: 0px;
-	bottom: 45.8594px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: none;
+	list-style-type: disc;
 	list-style-position: outside;
 
 	/* Table */
@@ -62,8 +62,8 @@ input .upload-file_upload-input__nX99N {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: clip;
-	cursor: default;
+	overflow: visible;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -74,11 +74,11 @@ input .upload-file_upload-input__nX99N {
 	box-sizing: border-box;
 	resize: none;
 	text-shadow: none;
-	text-overflow: ellipsis;
+	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
