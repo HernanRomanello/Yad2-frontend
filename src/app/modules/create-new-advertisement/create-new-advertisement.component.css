@@ -909,3 +909,10 @@ mat-icon {
   margin-left: 160px !important;
   padding-right: 12px !important;
 }
+
+.page7 {
+  margin: unset !important;
+  margin-left: auto !important;
+  margin-right: 2.5rem !important;
+  margin-bottom: 2rem !important;
+}
