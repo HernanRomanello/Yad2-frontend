@@ -920,7 +920,6 @@ mat-icon {
 .course-to-post {
   height: 530.93px !important;
   width: 276px !important;
-  border: 1px solid #ff7100 !important;
 }
 
 .course-to-post-container {
@@ -928,29 +927,36 @@ mat-icon {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  width: 95% !important;
+  margin: auto !important;
+
+  margin-bottom: 2rem !important;
 }
 
 #premium-course {
   border: 2px solid #22c1a1 !important;
   border-radius: 10px;
   height: 530.93px;
-  width: 100%;
+  width: 246px !important;
   display: flex;
   flex-direction: column;
+  margin: auto;
+}
+
+#premium-course-pic,
+#upgrad-course-pic {
+  width: 100% !important;
+  padding: 2px !important;
 }
 
 #premium-course-pic {
-  width: 100% !important;
-  padding: 2px !important;
   height: 446px !important;
-  border: 1px solid #ff7100 !important;
 }
 
 .post-btn-box {
   display: flex;
   justify-content: center !important;
   align-items: center !important;
-  border: 1px solid #50155c !important;
   height: 70px !important;
 }
 
@@ -978,4 +984,6 @@ mat-icon {
   width: 246px;
   border: 1px solid rgb(220, 220, 220);
   border-radius: 10px;
+  margin: auto;
+  margin-top: 27px !important;
 }
