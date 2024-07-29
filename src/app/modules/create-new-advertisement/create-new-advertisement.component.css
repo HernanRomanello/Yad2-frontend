@@ -139,6 +139,7 @@ form {
 }
 .continue-btn:hover {
   background-color: rgb(255, 250, 245);
+  transition: background-color 0.5s ease-in-out;
 }
 
 .input-label {
@@ -147,6 +148,7 @@ form {
 
 .return-btn:hover {
   border: 1px solid rgb(153, 153, 153);
+  transition: border-color 0.5s ease-in-out;
 }
 .return-btn,
 .continue-btn {
@@ -964,10 +966,13 @@ mat-icon {
   font-size: 18px;
   line-height: 20.7px;
   height: 48px;
-  width: 168.906px;
-  padding: 0px 24px;
+  padding: 24px 0px 24px 0px;
   cursor: pointer;
   border-radius: 30px;
+  width: 155.266px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .green-btn {
@@ -975,6 +980,12 @@ mat-icon {
   font-weight: 500;
   color: rgb(255, 255, 255) !important;
   border: 0px none rgb(255, 255, 255) !important;
+  width: 168.906px !important;
+}
+
+.green-btn:hover {
+  background-color: #0e9c64 !important;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .course-to-post-inner-box {
