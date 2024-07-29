@@ -869,6 +869,12 @@ mat-icon {
   margin: 2rem 0 !important;
 }
 
+#line-page7 {
+  margin-right: 7.6rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
 .choice-note {
   font-weight: 400;
   background-color: rgb(255, 255, 255);
@@ -893,4 +899,13 @@ mat-icon {
 .weCheck-img {
   width: 100% !important;
   transform: translateX(2px) !important;
+}
+
+.right-text {
+  text-align: right !important;
+}
+
+.align-right {
+  margin-left: 160px !important;
+  padding-right: 12px !important;
 }
