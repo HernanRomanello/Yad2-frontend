@@ -1,14 +1,14 @@
-div .convince-to-upgrade_convinceToUpgrade__sWi0J {
+button .button_button__KrRYB button_flexed__XqvBS button_default-green__QRVAq button_default-size-large___OdED {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
+	font-weight: 500;
 	letter-spacing: normal;
-	line-height: 16.1px;
-	text-decoration: none solid rgb(54, 54, 54);
-	text-align: start;
+	line-height: 20.7px;
+	text-decoration: none solid rgb(255, 255, 255);
+	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,26 +17,26 @@ div .convince-to-upgrade_convinceToUpgrade__sWi0J {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(14, 156, 100);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(255, 255, 255);
 
 	/* Box */
-	height: 76px;
-	width: 798px;
-	border: 1px solid rgb(238, 238, 238);
-	border-top: 1px solid rgb(238, 238, 238);
-	border-right: 1px solid rgb(238, 238, 238);
-	border-bottom: 1px solid rgb(238, 238, 238);
-	border-left: 1px solid rgb(238, 238, 238);
-	margin: 20px 0px 0px;
-	padding: 15px;
+	height: 48px;
+	width: 168.906px;
+	border: 0px none rgb(255, 255, 255);
+	border-top: 0px none rgb(255, 255, 255);
+	border-right: 0px none rgb(255, 255, 255);
+	border-bottom: 0px none rgb(255, 255, 255);
+	border-left: 0px none rgb(255, 255, 255);
+	margin: 0px;
+	padding: 0px 24px;
 	max-height: none;
-	min-height: 0px;
+	min-height: 48px;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
 	position: static;
@@ -63,7 +63,7 @@ div .convince-to-upgrade_convinceToUpgrade__sWi0J {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: auto;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ div .convince-to-upgrade_convinceToUpgrade__sWi0J {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
 }

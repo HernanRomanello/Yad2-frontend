@@ -916,3 +916,57 @@ mat-icon {
   margin-right: 2.5rem !important;
   margin-bottom: 2rem !important;
 }
+
+.course-to-post {
+  height: 530.93px !important;
+  width: 276px !important;
+  border: 1px solid #ff7100 !important;
+}
+
+.course-to-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#premium-course {
+  border: 2px solid #22c1a1 !important;
+  border-radius: 10px;
+  height: 530.93px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#premium-course-pic {
+  width: 100% !important;
+  padding: 2px !important;
+  height: 446px !important;
+  border: 1px solid #ff7100 !important;
+}
+
+.post-btn-box {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  border: 1px solid #50155c !important;
+  height: 70px !important;
+}
+
+.post-btn {
+  font-size: 18px;
+  line-height: 20.7px;
+  height: 48px;
+  width: 168.906px;
+  padding: 0px 24px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.green-btn {
+  background-color: rgb(15, 202, 128) !important;
+  font-weight: 500;
+  color: rgb(255, 255, 255) !important;
+  border: 0px none rgb(255, 255, 255) !important;
+}
