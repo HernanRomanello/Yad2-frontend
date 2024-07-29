@@ -139,7 +139,7 @@ form {
 }
 .continue-btn:hover {
   background-color: rgb(255, 250, 245);
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .input-label {
@@ -148,7 +148,7 @@ form {
 
 .return-btn:hover {
   border: 1px solid rgb(153, 153, 153);
-  transition: border-color 0.5s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
 }
 .return-btn,
 .continue-btn {
@@ -973,6 +973,7 @@ mat-icon {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1.5rem !important;
 }
 
 .green-btn {
@@ -997,4 +998,8 @@ mat-icon {
   border-radius: 10px;
   margin: auto;
   margin-top: 27px !important;
+}
+
+.margin-extra {
+  margin-right: 2.3rem !important;
 }
