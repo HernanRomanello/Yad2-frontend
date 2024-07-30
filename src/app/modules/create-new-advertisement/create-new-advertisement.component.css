@@ -851,11 +851,17 @@ textarea::placeholder {
 }
 
 mat-icon {
-  font-size: 12px;
-  width: 12px;
-  height: 12px;
-  margin-left: 2px;
-  margin-top: 3.5px;
+  font-size: 13px;
+  width: 13px;
+  height: 13px;
+  margin-left: 3px;
+  margin-top: 3px;
+}
+
+.input:focus + .dropdown,  /* Adjacent sibling selector, if dropdown appears right after input */
+.input:focus ~ .dropdown {
+  /* General sibling selector, if dropdown appears anywhere after input within the same parent */
+  /* background-color: #0e9c64 !important; */
 }
 
 .remove-add-contact {
