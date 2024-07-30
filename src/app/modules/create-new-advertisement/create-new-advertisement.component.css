@@ -1003,3 +1003,7 @@ mat-icon {
 .margin-extra {
   margin-right: 2.3rem !important;
 }
+
+.last-btn {
+  margin-top: 3rem !important;
+}
