@@ -59,6 +59,10 @@ header {
   gap: 5px;
 }
 
+.gray-btn:hover {
+  border: 1px solid rgb(153, 153, 153);
+}
+
 .gray-btn i {
   font-size: 18px !important;
 }
