@@ -1,0 +1,83 @@
+.orange-line {
+  background-color: rgb(255, 255, 255);
+  border-top: 5px solid rgb(255, 113, 0);
+  padding: 0px 20px;
+  width: 1440px;
+  height: 59px;
+
+  display: flex;
+  z-index: 110;
+}
+
+header {
+  line-height: 16.1px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(54, 54, 54);
+  height: 54px;
+  padding: 0px 20px;
+  justify-content: space-between;
+  z-index: 110;
+  position: absolute;
+  top: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
+
+.round {
+  line-height: 16.1px;
+  background-color: rgb(171, 71, 188);
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  margin-left: 6px;
+  border: solid 1px #ff7100;
+  /* padding-top: 2px; */
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gray-btn {
+  line-height: 16.1px;
+  background-color: rgb(255, 255, 255);
+  height: 36px;
+  border: 1px solid rgb(153, 153, 153, 0.5);
+  padding: 0px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.gray-btn i {
+  font-size: 18px !important;
+}
+
+.gray-btns-container {
+  line-height: 16.1px;
+  height: 36px;
+  display: flex;
+  gap: 10px;
+}
+
+.user-area {
+  height: 54px;
+  width: 109.547px;
+  padding: 0px 20px;
+}
+
+.left-side {
+  font-size: 18px;
+  gap: 1rem;
+  margin-right: 2.5rem !important;
+}

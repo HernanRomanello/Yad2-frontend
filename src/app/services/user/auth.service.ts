@@ -67,7 +67,6 @@ export class AuthService {
   IsHeaderAndFooterOpen(Ishide: boolean) {
     this.IsMainHeaderISOpen.next(Ishide);
     this.IsMainFooterISOpen.next(Ishide);
-    alert('IsHeaderAndFooterOpen');
   }
 
   async login(email: string, password: string): Promise<boolean> {

@@ -1,0 +1,45 @@
+<div class="orange-line"></div>
+<header>
+  <div class="header">
+    <div class="right-side flex-center">
+      <div class="gray-btns-container">
+        <button class="gray-btn flex-center">
+          <i class="material-icons">close</i>יציאה
+        </button>
+        <button class="gray-btn">צור קשר</button>
+      </div>
+      <div class="user-area flex-center">
+        @if (authSerrvice.user ) {
+        <div
+          *ngIf="authSerrvice.user | async as user"
+          class=""
+          (mouseover)="isUserAreaDropdownOpen(true)"
+          (mouseleave)="isUserAreaDropdownOpen(false)"
+        >
+          <div class="flex-center">
+            <div class="user-name flex-center">{{ user.name }}</div>
+            <div class="round flex-center">
+              {{ user.email.slice(0, 1) | uppercase }}
+            </div>
+          </div>
+          <div
+            class="menu"
+            *ngIf="this.isUserAreaDropdownVisible"
+            (mouseover)="isUserAreaDropdownOpen(true)"
+            (mouseleave)="isUserAreaDropdownOpen(false)"
+          >
+            <button routerLink="/profile">אזור אישי</button>
+            <button>חיפושים אחרונים</button>
+            <button>התראות</button>
+            <button>התנתקות</button>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    <div class="left-side flex-center">
+      <div>פרסום מודעה חדשה</div>
+      <div><img src="assets/images/logo-default.svg" alt="logo" /></div>
+    </div>
+  </div>
+</header>

@@ -1,4 +1,4 @@
-header .responsive-header-grid_common-header__Yq7xy responsive-header-grid_yad2__skB8w responsive-header-grid_hasShadow__IzP0s header_drawer__aGC5B header_publish-ad-header__tA_pU {
+button .button_button__KrRYB button_flexed__XqvBS button_default-tertiary__Q424q button_default-size-small__xx_BR {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -8,7 +8,7 @@ header .responsive-header-grid_common-header__Yq7xy responsive-header-grid_yad2_
 	letter-spacing: normal;
 	line-height: 16.1px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: start;
+	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -24,30 +24,30 @@ header .responsive-header-grid_common-header__Yq7xy responsive-header-grid_yad2_
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 59px;
-	width: 1423px;
-	border: ;
-	border-top: 5px solid rgb(255, 113, 0);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
-	margin: 0px 0px 50px;
-	padding: 0px 20px;
+	height: 36px;
+	width: 85.7031px;
+	border: 1px solid rgb(153, 153, 153);
+	border-top: 1px solid rgb(153, 153, 153);
+	border-right: 1px solid rgb(153, 153, 153);
+	border-bottom: 1px solid rgb(153, 153, 153);
+	border-left: 1px solid rgb(153, 153, 153);
+	margin: 0px;
+	padding: 0px 18px;
 	max-height: none;
-	min-height: 59px;
+	min-height: 36px;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
 	display: flex;
 	clear: none;
-	z-index: 110;
+	z-index: auto;
 
 	/* List */
 	list-style-image: none;
@@ -63,7 +63,7 @@ header .responsive-header-grid_common-header__Yq7xy responsive-header-grid_yad2_
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: auto;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
@@ -76,9 +76,9 @@ header .responsive-header-grid_common-header__Yq7xy responsive-header-grid_yad2_
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+	box-shadow: none;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
 }

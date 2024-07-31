@@ -1,5 +1,4 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { RealEstateResultsComponent } from '../../real-estate/real-estate-results/real-estate-results.component';
 import { AuthService } from '../../../services/user/auth.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { AuthService } from '../../../services/user/auth.service';
   ],
 })
 export class UserAreaComponent implements OnInit, OnDestroy {
-  constructor(private authService: AuthService) {}
+  authService = inject(AuthService);
   ngOnDestroy(): void {
     this.authService.IsHeaderAndFooterOpen(true);
   }

@@ -31,6 +31,7 @@ import { RealEstatePriceSliderComponent } from './modules/real-estate/real-estat
 import { AdvertisementComponent } from './modules/advertisement/advertisement.component';
 import { FooterComponent } from './modules/footer/footer.component';
 import { CreateNewAdvertisementComponent } from './modules/create-new-advertisement/create-new-advertisement.component';
+import { AlternativeHeaderComponent } from './modules/alternative-header/alternative-header.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CreateNewAdvertisementComponent } from './modules/create-new-advertisem
     AdvertisementComponent,
     FooterComponent,
     CreateNewAdvertisementComponent,
+    AlternativeHeaderComponent,
   ],
   imports: [
     BrowserModule,
