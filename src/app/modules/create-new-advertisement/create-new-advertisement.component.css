@@ -858,12 +858,6 @@ mat-icon {
   margin-top: 3px;
 }
 
-.input:focus + .dropdown,  /* Adjacent sibling selector, if dropdown appears right after input */
-.input:focus ~ .dropdown {
-  /* General sibling selector, if dropdown appears anywhere after input within the same parent */
-  /* background-color: #0e9c64 !important; */
-}
-
 .remove-add-contact {
   cursor: pointer;
   display: flex;

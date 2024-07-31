@@ -25,6 +25,8 @@ export class AuthService {
   >([]);
   UserAdvertisementsStatistics =
     new BehaviorSubject<AdvertisementsModel | null>(null);
+  IsMainHeaderISOpen = new BehaviorSubject<boolean>(true);
+  IsMainFooterISOpen = new BehaviorSubject<boolean>(true);
 
   constructor(private router: Router, private httpClient: HttpClient) {
     afterNextRender(() => {

@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   NgZone,
+  OnDestroy,
   OnInit,
   Renderer2,
   ViewChild,
@@ -17,7 +18,7 @@ import { afterNextRender } from '@angular/core';
   templateUrl: './create-new-advertisement.component.html',
   styleUrls: ['./create-new-advertisement.component.css'],
 })
-export class CreateNewAdvertisementComponent implements OnInit {
+export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   advertisementForm!: FormGroup | any;
   asset_type: string | undefined = undefined;
   asset_State: string | undefined = undefined;
@@ -203,6 +204,15 @@ export class CreateNewAdvertisementComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.IsHeaderAndFooterOpen(true);
+  }
+
+  IsHeaderAndFooterOpen(Ishide: boolean) {
+    this.authService.IsMainHeaderISOpen.next(Ishide);
+    this.authService.IsMainFooterISOpen.next(Ishide);
+  }
+
   assetTypes = [
     'דירה',
     'דירת גן',
@@ -238,6 +248,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
+    this.IsHeaderAndFooterOpen(false);
     this.advertisementForm = this.formBuilder.group({
       city: [this.authService.user.getValue()?.city || '', Validators.required],
       tradeType: ['', Validators.required],

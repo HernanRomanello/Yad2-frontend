@@ -1,4 +1,8 @@
+@if (this.authService.IsMainHeaderISOpen | async) {
 <app-header></app-header>
-<!-- <app-real-estate-additional-filters></app-real-estate-additional-filters> -->
+
+}
 <router-outlet></router-outlet>
+@if (this.authService.IsMainFooterISOpen | async) {
 <app-footer></app-footer>
+}

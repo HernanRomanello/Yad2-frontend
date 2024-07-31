@@ -1,5 +1,7 @@
 import {
   Component,
+  OnDestroy,
+  OnInit,
   ViewChild,
   ViewRef,
   afterRender,
