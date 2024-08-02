@@ -133,8 +133,7 @@ form {
 }
 
 .section-title-container {
-  padding: 1.5rem;
-  padding: 14px 16px 14px 16px !important;
+  padding: 24px 16px !important;
 }
 
 .section-title-container-close {
@@ -289,7 +288,7 @@ form {
 
 .recommend-pic {
   position: absolute;
-  top: 71%;
+  top: 30%;
 }
 
 .insight-pic {
@@ -1044,4 +1043,8 @@ mat-icon {
 .svg-icon {
   width: 24px;
   height: 24px;
+}
+
+div {
+  /* border: 1px solid red !important; */
 }
