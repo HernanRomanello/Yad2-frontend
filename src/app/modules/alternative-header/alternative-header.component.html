@@ -16,8 +16,10 @@
           (mouseover)="isUserAreaDropdownOpen(true)"
           (mouseleave)="isUserAreaDropdownOpen(false)"
         >
-          <div class="flex-center">
-            <div class="user-name flex-center">{{ user.name }}</div>
+          <div routerLink="/profile" class="flex-center">
+            <div class="user-name flex-center">
+              {{ user.name }}
+            </div>
             <div class="round flex-center">
               {{ user.email.slice(0, 1) | uppercase }}
             </div>
@@ -39,7 +41,14 @@
       </div>
     </div>
     <div class="left-side flex-center">
+      @if (this.authSerrvice.UserPageRender.value ==='create-new-advertisement')
+      {
+
       <div>פרסום מודעה חדשה</div>
+      } @if (this.authSerrvice.UserPageRender.value ==='user-area') {
+
+      <div class="user-area-text flex-center">איזור אישי</div>
+      }
       <div><img src="assets/images/logo-default.svg" alt="logo" /></div>
     </div>
   </div>

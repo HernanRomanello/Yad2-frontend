@@ -206,6 +206,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.authService.IsHeaderAndFooterOpen(true);
+    this.authService.SetPageRender('');
   }
 
   assetTypes = [
@@ -244,6 +245,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
     this.authService.IsHeaderAndFooterOpen(false);
+    this.authService.SetPageRender('create-new-advertisement');
     this.advertisementForm = this.formBuilder.group({
       city: [this.authService.user.getValue()?.city || '', Validators.required],
       tradeType: ['', Validators.required],

@@ -1,6 +1,6 @@
 import { Injectable, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { BehaviorSubject, ReplaySubject, filter, from } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject, filter, from } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
@@ -27,6 +27,7 @@ export class AuthService {
     new BehaviorSubject<AdvertisementsModel | null>(null);
   IsMainHeaderISOpen = new BehaviorSubject<boolean>(true);
   IsMainFooterISOpen = new BehaviorSubject<boolean>(true);
+  UserPageRender = new BehaviorSubject<string>('');
 
   constructor(private router: Router, private httpClient: HttpClient) {
     afterNextRender(() => {
@@ -46,6 +47,10 @@ export class AuthService {
           this.isUserLogin.next(false);
         }
       });
+  }
+
+  async SetPageRender(page: string) {
+    this.UserPageRender.next(page);
   }
 
   async register(email: string, password: string, confirmPassword: string) {

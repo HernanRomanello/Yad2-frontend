@@ -13,8 +13,10 @@ export class UserAreaComponent implements OnInit, OnDestroy {
   authService = inject(AuthService);
   ngOnDestroy(): void {
     this.authService.IsHeaderAndFooterOpen(true);
+    this.authService.SetPageRender('');
   }
   ngOnInit(): void {
     this.authService.IsHeaderAndFooterOpen(false);
+    this.authService.SetPageRender('user-area');
   }
 }
