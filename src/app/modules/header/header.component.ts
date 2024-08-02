@@ -1,13 +1,4 @@
-import {
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-  ViewRef,
-  afterRender,
-  inject,
-} from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 
 type MenuTriggers = {

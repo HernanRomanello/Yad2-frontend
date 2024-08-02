@@ -64,15 +64,30 @@ button.active {
 }
 
 .advertisement-selection {
-  border-radius: 10px;
-  border: 1px solid rgb(230, 230, 230);
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.close-section,
+.advertisement-selection {
+  width: 880px !important;
+  margin: auto !important;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(255, 255, 255) !important;
-  margin: auto !important;
-  width: 880px !important;
+  border-radius: 10px;
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.close-section span,
+.close-section div {
+  font-size: 20px !important;
+  color: rgb(54, 54, 54, 0.5);
+  font-weight: 500 !important;
+}
+
+.gray-border {
+  border: 1px solid rgb(54, 54, 54, 0.5) !important;
 }
 
 #Selection-1 {
@@ -109,12 +124,30 @@ form {
   font-weight: 600 !important;
 }
 
-.section-title-container {
+.section-title-container,
+.section-title-container-close {
   display: flex;
   gap: 0.5rem;
   font-size: 24px;
   margin-left: auto;
+}
+
+.section-title-container {
   padding: 1.5rem;
+  padding: 14px 16px 14px 16px !important;
+}
+
+.section-title-container-close {
+  width: 100%;
+  justify-content: space-between;
+  padding: 14px 16px 14px 16px !important;
+}
+
+.section-title-container-close div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .space1 {
@@ -1006,4 +1039,9 @@ mat-icon {
 
 .last-btn {
   margin-top: 3rem !important;
+}
+
+.svg-icon {
+  width: 24px;
+  height: 24px;
 }

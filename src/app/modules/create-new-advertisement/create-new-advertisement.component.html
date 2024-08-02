@@ -1,7 +1,21 @@
 <form [formGroup]="advertisementForm" (ngSubmit)="handleSubmit()">
   <div class="space1"></div>
-
-  <div class="advertisement-selection" id="Selection-1" *ngIf="true">
+  <div class="close-section" id="close-section-1" *ngIf="true">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> אני רוצה להשכיר נכס</span>
+        <span class="section-title gray-border">1</span>
+      </div>
+    </div>
+  </div>
+  <div class="advertisement-selection" id="Selection-1" *ngIf="false">
     <div class="section-title-container">
       {{ this.changeTradeTypeTitle() }} <span class="section-title">1</span>
     </div>
@@ -57,14 +71,26 @@
       </button>
     </div>
   </div>
-  <!-- <div class="space"></div> -->
-  <!-- <div class="close-section" *ngIf="true">
-    <div class="section-title-container">
-      <span class="section-title">2</span> <span>כתובת הנכס</span>
-    </div>
-  </div> -->
+  <div class="space"></div>
 
-  <!-- <div class="advertisement-selection" id="Selection-2" *ngIf="true">
+  <div class="close-section" id="close-section-2" *ngIf="true">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> כתובת הנכס</span>
+        <span class="section-title gray-border">2</span>
+      </div>
+    </div>
+  </div>
+  <div class="space"></div>
+
+  <div class="advertisement-selection" id="Selection-2" *ngIf="false">
     <div>
       <img src="assets/images/recommend.JPG" class="recommend-pic" alt="ad2" />
     </div>
@@ -273,22 +299,47 @@
         <button class="return-btn">חזרה</button>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div class="space"></div> -->
+  <div class="space"></div>
 
   <!-- <div class="close-section" *ngIf="false">
     <div><span class="section-title">3</span> <span> מאפייני הנכס</span></div>
   </div> -->
+  <div class="close-section" id="close-section-3" *ngIf="true">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> על הנכס </span>
+        <span class="section-title gray-border">3</span>
+      </div>
+    </div>
+  </div>
 
-  <!-- <div class="space"></div> -->
-  <!-- <div class="close-section" *ngIf="false">
-    <div class="section-title-container">
-      <span class="section-title">3</span> <span> מאפייני הנכס</span>
+  <div class="space"></div>
+
+  <!-- <div class="close-section" id="close-section-3" *ngIf="true">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> אני רוצה להשכיר נכס</span>
+        <span class="section-title gray-border">1</span>
+      </div>
     </div>
   </div> -->
-
-  <!-- <div class="advertisement-selection" id="Selection-3" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-3" *ngIf="false">
     <div>
       <img
         src="assets/images/upgrade-add.JPG"
@@ -297,7 +348,7 @@
       />
       <div class="Selection-3-content">
         <div id="section-title-container3" class="section-title-container">
-          <span class="section-title">3</span> <span> מאפייני הנכס</span>
+          <span class="section-title">3</span> <span> על הנכס</span>
         </div>
         <div class="input-container">
           <label class="small-text" for="rooms">מספר חדרים*</label>
@@ -473,14 +524,26 @@
         </div>
       </div>
     </div>
-  </div> -->
-  <!-- <div class="space"></div> -->
+  </div>
+  <div class="space"></div>
 
-  <!-- <div class="close-section" *ngIf="false">
-    <span class="section-title">4</span> <span> תשלומים, תאריכים ועוד</span>
-  </div> -->
+  <div class="close-section" id="close-section-4" *ngIf="true">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> תשלומים, תאריכים ועוד </span>
+        <span class="section-title gray-border">4</span>
+      </div>
+    </div>
+  </div>
 
-  <!-- <div class="advertisement-selection" id="Selection-4" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-4" *ngIf="false">
     <div>
       <img src="assets/images/insight.JPG" class="insight-pic" alt="ad2" />
     </div>
@@ -646,14 +709,26 @@
         <button class="return-btn">חזרה</button>
       </div>
     </div>
-  </div> -->
-  <!-- <div class="space"></div> -->
+  </div>
+  <div class="space"></div>
 
-  <!-- <div class="close-section" *ngIf="false">
-    <span class="section-title">5</span> <span>תמונות וסרטונים </span>
-  </div> -->
+  <div class="close-section" id="close-section-5" *ngIf="true">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> תמונות וסרטונים </span>
+        <span class="section-title gray-border">5</span>
+      </div>
+    </div>
+  </div>
 
-  <!-- <div class="advertisement-selection" id="Selection-5" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-5" *ngIf="false">
     <div class="Selection-5-content">
       <div id="section-title-container5" class="section-title-container">
         <span>תמונות וסרטונים </span> <span class="section-title">5</span>
@@ -738,16 +813,26 @@
     </div>
     <div class="space"></div>
     <div class="space"></div>
-  </div> -->
-  <!-- <div class="space"></div> -->
+  </div>
+  <div class="space"></div>
 
-  <!-- <div class="close-section" *ngIf="false">
-    <div id="section-title-container6" class="section-title-container">
-      <span>פרטי התקשרות </span> <span class="section-title">6</span>
+  <div class="close-section" id="close-section-6" *ngIf="true">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> פרטי התקשרות </span>
+        <span class="section-title gray-border">6</span>
+      </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div class="advertisement-selection" id="Selection-6" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-6" *ngIf="false">
     <div id="section-title-container6" class="section-title-container">
       <span class="section-title">6</span> <span>פרטי התקשרות </span>
     </div>
@@ -868,16 +953,26 @@
       <button class="continue-btn">המשך לשלב הבא</button>
       <button class="return-btn">חזרה</button>
     </div>
-  </div> -->
-  <!-- <div class="space"></div> -->
+  </div>
+  <div class="space"></div>
 
-  <!-- <div class="close-section" *ngIf="false">
-    <div id="section-title-container7" class="section-title-container">
-      <span>בחירת מסלול </span><span class="section-title">7</span>
+  <div class="close-section" id="close-section-7" *ngIf="true">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> בחירת מסלול </span>
+        <span class="section-title gray-border">7</span>
+      </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div class="advertisement-selection" id="Selection" *ngIf="true">
+  <div class="advertisement-selection" id="Selection-7" *ngIf="false">
     <div id="section-title-container7" class="section-title-container">
       <span>בחירת מסלול </span><span class="section-title">7</span>
     </div>
@@ -958,6 +1053,6 @@
     </label>
 
     <button class="return-btn page7 last-btn">חזרה</button>
-  </div> -->
+  </div>
 </form>
-<!-- <div class="space"></div> -->
+<div class="space"></div>
