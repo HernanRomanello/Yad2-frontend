@@ -1,10 +1,7 @@
 .orange-line {
-  background-color: rgb(255, 255, 255);
   border-top: 5px solid rgb(255, 113, 0);
-  padding: 0px 20px;
-  width: 1440px;
   height: 59px;
-
+  width: 100vw;
   display: flex;
   z-index: 110;
 }
@@ -14,7 +11,6 @@ header {
   background-color: rgb(255, 255, 255);
   color: rgb(54, 54, 54);
   height: 54px;
-  padding: 0px 20px;
   justify-content: space-between;
   z-index: 110;
   position: absolute;
@@ -80,10 +76,14 @@ header {
   cursor: pointer;
 }
 
-.left-side {
+.right-side {
   font-size: 18px;
   gap: 1rem;
   margin-right: 2.5rem !important;
+}
+
+.left-side {
+  margin-left: 1rem !important;
 }
 
 .user-area-text {
@@ -130,4 +130,9 @@ header {
 
 .border-top {
   border-top: 1px solid rgb(180, 180, 180, 0.3);
+}
+
+div,
+header {
+  /* border: 1px solid red !important; */
 }

@@ -1049,6 +1049,7 @@ mat-icon {
   height: 24px;
 }
 
-div {
+div,
+form {
   /* border: 1px solid red !important; */
 }
