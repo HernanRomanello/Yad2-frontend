@@ -15,6 +15,23 @@ button.active {
   border-radius: 4px;
 }
 
+.check-circle {
+  color: #ffffff;
+  background-color: rgb(13, 172, 108);
+  border-radius: 50%;
+  font-size: 36px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.light-green-circle {
+  border: none !important;
+  background-color: rgb(15, 202, 128, 0.25) !important;
+}
+
 .dropdown-menu li {
   padding: 8px 12px;
   cursor: pointer;
