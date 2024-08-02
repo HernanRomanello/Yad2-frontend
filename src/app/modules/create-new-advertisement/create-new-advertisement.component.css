@@ -297,6 +297,10 @@ form {
   right: 51%;
 }
 
+.spaceship-icon {
+  transform: translateX(65px) !important;
+}
+
 .rooms {
   max-width: 270px !important;
 }
