@@ -1,5 +1,6 @@
 button.active {
-  color: #ff7100;
+  color: #ff5100;
+  font-weight: 600;
 }
 
 .dropdown-menu {
@@ -513,15 +514,10 @@ i.material-icons {
   border-bottom-left-radius: 4px !important;
 }
 
-.selected {
+.selected,
+.selected1 {
   border: 1px solid rgb(255, 113, 0);
   background-color: rgb(255, 250, 245);
-  color: #ff7100;
-}
-
-.selected1 {
-  border: 1px solid rgb(255, 113, 0) !important;
-  background-color: rgb(255, 250, 245) !important;
   color: #ff7100;
 }
 
