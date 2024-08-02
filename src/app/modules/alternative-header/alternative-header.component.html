@@ -8,14 +8,13 @@
         </button>
         <button class="gray-btn">צור קשר</button>
       </div>
-      <div class="user-area flex-center">
+      <div
+        class="user-area flex-center"
+        (mouseover)="isUserAreaDropdownOpen(true)"
+        (mouseleave)="isUserAreaDropdownOpen(false)"
+      >
         @if (authSerrvice.user ) {
-        <div
-          *ngIf="authSerrvice.user | async as user"
-          class=""
-          (mouseover)="isUserAreaDropdownOpen(true)"
-          (mouseleave)="isUserAreaDropdownOpen(false)"
-        >
+        <div *ngIf="authSerrvice.user | async as user" class="">
           <div routerLink="/profile" class="flex-center">
             <div class="user-name flex-center">
               {{ user.name }}
@@ -30,11 +29,43 @@
             (mouseover)="isUserAreaDropdownOpen(true)"
             (mouseleave)="isUserAreaDropdownOpen(false)"
           >
-            <div routerLink="/profile">עריכת פרופיל</div>
-            <div>המודעות שלי</div>
-            <div>חפושים אחרונים</div>
-            <div>חזרה לאתר הראשי</div>
-            <div>התנתקות</div>
+            <div class="menu-bar" routerLink="/profile">
+              <div>עריכת פרופיל</div>
+              <div>
+                <img
+                  class="svg-icon"
+                  src="assets/images/edit-2-svgrepo-com.svg"
+                  alt="logo"
+                />
+              </div>
+            </div>
+            <div class="menu-bar">
+              המודעות שלי<mat-icon>star_border</mat-icon>
+              <!-- <i class="material-icons">star_border_purple500</i> -->
+            </div>
+            <div class="menu-bar">
+              חפושים אחרונים <mat-icon>history</mat-icon>
+            </div>
+            <!-- <div class="menu-bar">חזרה לאתר הראשי<mat-icon>home</mat-icon></div> -->
+            <div class="menu-bar">
+              <div>חזרה לאתר הראשי</div>
+              <img
+                class="svg-icon"
+                src="assets/images/house-floor-svgrepo-com.svg"
+                alt="logo"
+              />
+            </div>
+            <div class="menu-bar border-top">
+              <div>התנתקות</div>
+
+              <div>
+                <img
+                  class="svg-icon"
+                  src="assets/images/door-svgrepo-com.svg"
+                  alt="logo"
+                />
+              </div>
+            </div>
           </div>
         </div>
         }
@@ -49,7 +80,6 @@
 
       <div class="user-area-text flex-center">איזור אישי</div>
       }
-      <div><img src="assets/images/logo-default.svg" alt="logo" /></div>
     </div>
   </div>
 </header>
