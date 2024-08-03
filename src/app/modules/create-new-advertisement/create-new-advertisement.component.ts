@@ -43,6 +43,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
   minPrice = 0;
   averagePrice = 0;
+  hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
+  buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
@@ -604,6 +606,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
   setAdvertisementType(type: string) {
     this.advertisementForm.get('tradeType').setValue(type);
+  }
+
+  onMouseOver(type: string) {
+    this.buttonsTypes.forEach((buttonType, index) => {
+      if (buttonType === type) {
+        this.hoverColors[index] = '#ff5100';
+      } else {
+        this.hoverColors[index] = '#000000';
+      }
+    });
   }
 
   set_Number_Of_Payments(type: string) {
