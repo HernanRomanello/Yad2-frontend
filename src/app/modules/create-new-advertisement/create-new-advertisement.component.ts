@@ -817,6 +817,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   continueToTheNextFormPage(formPageNumber: number) {
     if (this.checkIfThisFormPartIsValid(formPageNumber)) {
+      this.updateIfFormPartCompleted(formPageNumber);
       this.openToEditFormPart(formPageNumber + 1);
       this.scrollToFormPart(formPageNumber + 1);
     }
