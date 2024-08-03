@@ -64,31 +64,8 @@
       </button>
     </div>
   </div>
-  } @else {
-  <div class="close-section" id="close-section-1" *ngIf="false">
-    <div class="section-title-container-close">
-      <div>
-        <img
-          class="svg-icon"
-          src="assets/images/edit-2-svgrepo-com-gray.svg"
-          alt="logo"
-        />
-      </div>
-      <div>
-        <span> אני רוצה להשכיר נכס</span>
-        @if(false){
-
-        <span class="section-title gray-border">1</span>
-        } @else {
-        <span class="section-title light-green-circle">
-          <i class="material-icons check-circle flex-center">check_circle</i>
-        </span>
-
-        }
-      </div>
-    </div>
-  </div>
-  <div class="advertisement-selection" id="Selection-1" *ngIf="true">
+  } @else { @if(this.advertisementForm.get('tradeType').value === ''){
+  <div class="advertisement-selection" id="Selection-1">
     <div class="section-title-container">
       {{ this.changeTradeTypeTitle() }} <span class="section-title">1</span>
     </div>
@@ -151,9 +128,36 @@
       </button>
     </div>
   </div>
+  } @else{
+  <div class="close-section" id="close-section-1">
+    <div class="section-title-container-close">
+      <div>
+        <img
+          class="svg-icon"
+          src="assets/images/edit-2-svgrepo-com-gray.svg"
+          alt="logo"
+        />
+      </div>
+      <div>
+        <span> אני רוצה להשכיר נכס</span>
+        @if(false){
+
+        <span class="section-title gray-border">1</span>
+        } @else {
+        <span class="section-title light-green-circle">
+          <i class="material-icons check-circle flex-center">check_circle</i>
+        </span>
+
+        }
+      </div>
+    </div>
+  </div>
+  }
+
   <div class="space"></div>
 
-  <div class="close-section" id="close-section-2" *ngIf="true">
+  @if(true){
+  <div class="close-section" id="close-section-2">
     <div class="section-title-container-close">
       <div>
         <img
@@ -177,8 +181,8 @@
       </div>
     </div>
   </div>
-
-  <div class="advertisement-selection" id="Selection-2" *ngIf="false">
+  } @else{
+  <div class="advertisement-selection" id="Selection-2">
     <div>
       <img src="assets/images/recommend.JPG" class="recommend-pic" alt="ad2" />
     </div>
@@ -388,10 +392,12 @@
       </div>
     </div>
   </div>
+  }
 
   <div class="space"></div>
 
-  <div class="close-section" id="close-section-3" *ngIf="true">
+  @if(true){
+  <div class="close-section" id="close-section-3">
     <div class="section-title-container-close">
       <div>
         <img
@@ -415,8 +421,8 @@
       </div>
     </div>
   </div>
-
-  <div class="advertisement-selection" id="Selection-3" *ngIf="false">
+  } @else{
+  <div class="advertisement-selection" id="Selection-3">
     <div>
       <img
         src="assets/images/upgrade-add.JPG"
@@ -602,9 +608,12 @@
       </div>
     </div>
   </div>
+  }
+
   <div class="space"></div>
 
-  <div class="close-section" id="close-section-4" *ngIf="true">
+  @if(true){
+  <div class="close-section" id="close-section-4">
     <div class="section-title-container-close">
       <div>
         <img
@@ -628,7 +637,7 @@
       </div>
     </div>
   </div>
-
+  } @else{
   <div class="advertisement-selection" id="Selection-4" *ngIf="false">
     <div>
       <img src="assets/images/insight.JPG" class="insight-pic" alt="ad2" />
@@ -796,9 +805,12 @@
       </div>
     </div>
   </div>
+  }
+
   <div class="space"></div>
 
-  <div class="close-section" id="close-section-5" *ngIf="true">
+  @if(true){
+  <div class="close-section" id="close-section-5">
     <div class="section-title-container-close">
       <div>
         <img
@@ -822,8 +834,8 @@
       </div>
     </div>
   </div>
-
-  <div class="advertisement-selection" id="Selection-5" *ngIf="false">
+  } @else{
+  <div class="advertisement-selection" id="Selection-5">
     <div class="Selection-5-content">
       <div id="section-title-container5" class="section-title-container">
         <span>תמונות וסרטונים </span> <span class="section-title">5</span>
@@ -909,9 +921,12 @@
     <div class="space"></div>
     <div class="space"></div>
   </div>
+  }
+
   <div class="space"></div>
 
-  <div class="close-section" id="close-section-6" *ngIf="true">
+  @if(true){
+  <div class="close-section" id="close-section-6">
     <div class="section-title-container-close">
       <div>
         <img
@@ -935,8 +950,8 @@
       </div>
     </div>
   </div>
-
-  <div class="advertisement-selection" id="Selection-6" *ngIf="false">
+  } @else{
+  <div class="advertisement-selection" id="Selection-6">
     <div id="section-title-container6" class="section-title-container">
       <span class="section-title">6</span> <span>פרטי התקשרות </span>
     </div>
@@ -1058,9 +1073,12 @@
       <button class="return-btn">חזרה</button>
     </div>
   </div>
+  }
+
   <div class="space"></div>
 
-  <div class="close-section" id="close-section-7" *ngIf="true">
+  @if(true){
+  <div class="close-section" id="close-section-7">
     <div class="section-title-container-close">
       <div>
         <img
@@ -1084,7 +1102,7 @@
       </div>
     </div>
   </div>
-
+  } @else{
   <div class="advertisement-selection" id="Selection-7" *ngIf="false">
     <div id="section-title-container7" class="section-title-container">
       <span>בחירת מסלול </span><span class="section-title">7</span>
@@ -1169,6 +1187,6 @@
 
     <button class="return-btn page7 last-btn">חזרה</button>
   </div>
-  }
+  } }
 </form>
 <div class="space"></div>
