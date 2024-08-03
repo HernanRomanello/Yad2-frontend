@@ -181,7 +181,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   constructor(private renderer: Renderer2, private zone: NgZone) {
     afterNextRender(() => {
-      // alert(this.advertisementForm.get('tradeType').value === '');
       document.body.addEventListener('click', (event) => {
         const clickedElement = event.target as HTMLElement;
         if (

@@ -11,7 +11,6 @@
         class="asset-type"
         type="button"
         (click)="setAdvertisementType('עסקים למכירה')"
-        [class.active]="isActive('עסקים למכירה')"
         (mouseover)="onMouseOver('עסקים למכירה')"
         (mouseout)="onMouseOver('')"
       >
@@ -26,7 +25,6 @@
       <button
         class="asset-type"
         type="button"
-        [class.active]="isActive('נכס מסחרי')"
         (click)="setAdvertisementType('נכס מסחרי')"
         (mouseover)="onMouseOver('נכס מסחרי')"
         (mouseout)="onMouseOver('')"
@@ -41,7 +39,6 @@
       <button
         class="asset-type"
         type="button"
-        [class.active]="isActive('השכרה')"
         (click)="setAdvertisementType('השכרה')"
         (mouseover)="onMouseOver('השכרה')"
         (mouseout)="onMouseOver('')"
@@ -55,7 +52,6 @@
       <button
         class="asset-type"
         type="button"
-        [class.active]="isActive('מכירה')"
         (click)="setAdvertisementType('מכירה')"
         (mouseover)="onMouseOver('מכירה')"
         (mouseout)="onMouseOver('')"
@@ -69,7 +65,7 @@
     </div>
   </div>
   } @else {
-  <div class="close-section" id="close-section-1" *ngIf="true">
+  <div class="close-section" id="close-section-1" *ngIf="false">
     <div class="section-title-container-close">
       <div>
         <img
@@ -92,7 +88,7 @@
       </div>
     </div>
   </div>
-  <div class="advertisement-selection" id="Selection-1" *ngIf="false">
+  <div class="advertisement-selection" id="Selection-1" *ngIf="true">
     <div class="section-title-container">
       {{ this.changeTradeTypeTitle() }} <span class="section-title">1</span>
     </div>
@@ -102,48 +98,55 @@
         class="asset-type"
         type="button"
         (click)="setAdvertisementType('עסקים למכירה')"
-        [class.active]="isActive('עסקים למכירה')"
+        (mouseover)="onMouseOver('עסקים למכירה')"
+        (mouseout)="onMouseOver('')"
       >
         <div class="part-1">
           <img src="assets/images/4type.JPG" class="type-pic" alt="ad2" />
         </div>
-        <div class="btn-text1">עסקים למכירה</div>
+        <div class="btn-text1" [ngStyle]="{ color: hoverColors[0] }">
+          עסקים למכירה
+        </div>
         <div class="btn-text2">הייטק, בתי קפה וכו׳</div>
       </button>
       <button
         class="asset-type"
         type="button"
-        [class.active]="isActive('נכס מסחרי')"
         (click)="setAdvertisementType('נכס מסחרי')"
+        (mouseover)="onMouseOver('נכס מסחרי')"
+        (mouseout)="onMouseOver('')"
       >
         <div class="part-1">
           <img src="assets/images/3type.JPG" class="type-pic" alt="ad2" />
         </div>
-        <div class="btn-text1">מסחרי</div>
+        <div class="btn-text1" [ngStyle]="{ color: hoverColors[1] }">מסחרי</div>
         <div class="btn-text2">מחסנים, קליניקות, משרדים</div>
       </button>
+
       <button
         class="asset-type"
         type="button"
-        [class.active]="isActive('השכרה')"
         (click)="setAdvertisementType('השכרה')"
+        (mouseover)="onMouseOver('השכרה')"
+        (mouseout)="onMouseOver('')"
       >
         <div class="part-1">
           <img src="assets/images/2type.JPG" class="type-pic" alt="ad2" />
         </div>
-        <div class="btn-text1">השכרה</div>
+        <div class="btn-text1" [ngStyle]="{ color: hoverColors[2] }">השכרה</div>
         <div class="btn-text2"></div>
       </button>
       <button
         class="asset-type"
         type="button"
-        [class.active]="isActive('מכירה')"
         (click)="setAdvertisementType('מכירה')"
+        (mouseover)="onMouseOver('מכירה')"
+        (mouseout)="onMouseOver('')"
       >
         <div class="part-1">
           <img src="assets/images/1type.JPG" class="type-pic" alt="ad2" />
         </div>
-        <div class="btn-text1">מכירה</div>
+        <div class="btn-text1" [ngStyle]="{ color: hoverColors[3] }">מכירה</div>
         <div class="btn-text2"></div>
       </button>
     </div>
