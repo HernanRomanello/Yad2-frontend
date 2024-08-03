@@ -545,7 +545,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       }
       return this.imageService.uploadImage(image);
     });
-    alert(tasks);
+    // alert(tasks);
     return await Promise.all(tasks).then((urls) => {
       return urls.map((u) => u.fileUrl);
     });
@@ -560,9 +560,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   async handleSubmit() {
     this.defineAssetState();
-    alert(this.vidoeUrl);
+    // alert(this.vidoeUrl);
     const form = this.advertisementForm.value;
-    alert(this.advertisementForm.get('assetType').value);
+    // alert(this.advertisementForm.get('assetType').value);
 
     try {
       form.assetState = this.asset_State;
@@ -789,15 +789,34 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   submitPartOfTheForm(formPageNumber: number) {
-    switch (formPageNumber) {
-      case 0:
-        this.isFormPagesAreCompleted[0] = true;
-        this.isFormPagesHidden[0] = true;
-        this.isFormPagesHidden[1] = false;
+    this.updateIfFormPartCompleted(formPageNumber);
 
-        break;
-    }
+    this.scrollToFormPart(formPageNumber);
+  }
 
+  private updateIfFormPartCompleted(formPageNumber: number) {
+    this.isFormPagesAreCompleted[formPageNumber] = true;
+    this.isFormPagesHidden[formPageNumber] = true;
+    this.isFormPagesHidden[formPageNumber + 1] = false;
+  }
+
+  ReturnToPrevFormPart(formPageNumber: number) {
+    // this.updateIfFormPartCompleted(formPageNumber);
+    this.openToEditFormPart(formPageNumber - 1);
+    this.scrollToFormPart(formPageNumber - 1);
+  }
+
+  openTheFormPart(formPageNumber: number) {}
+
+  openToEditFormPart(formPageNumber: number) {
+    this.isFormPagesHidden.forEach((value, index) => {
+      this.isFormPagesHidden[index] = true;
+    });
+    this.isFormPagesHidden[formPageNumber] = false;
+    this.isFormPagesAreCompleted[formPageNumber] = false;
+  }
+
+  private scrollToFormPart(formPageNumber: number) {
     if (this.isFormPagesAreCompleted[formPageNumber]) {
       setTimeout(() => {
         const nextSection = document.getElementById(

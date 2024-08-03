@@ -98,7 +98,7 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('עסקים למכירה')"
+        (click)="setAdvertisementType('עסקים למכירה'); submitPartOfTheForm(0)"
         (mouseover)="onMouseOver('עסקים למכירה')"
         (mouseout)="onMouseOver('')"
       >
@@ -113,7 +113,7 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('נכס מסחרי')"
+        (click)="setAdvertisementType('נכס מסחרי'); submitPartOfTheForm(0)"
         (mouseover)="onMouseOver('נכס מסחרי')"
         (mouseout)="onMouseOver('')"
       >
@@ -127,7 +127,7 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('השכרה')"
+        (click)="setAdvertisementType('השכרה'); submitPartOfTheForm(0)"
         (mouseover)="onMouseOver('השכרה')"
         (mouseout)="onMouseOver('')"
       >
@@ -140,7 +140,7 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('מכירה')"
+        (click)="setAdvertisementType('מכירה'); submitPartOfTheForm(0)"
         (mouseover)="onMouseOver('מכירה')"
         (mouseout)="onMouseOver('')"
       >
@@ -388,7 +388,9 @@
 
       <div class="navigation-btn">
         <button class="continue-btn">המשך לשלב הבא</button>
-        <button class="return-btn">חזרה</button>
+        <button (click)="ReturnToPrevFormPart(1)" class="return-btn">
+          חזרה
+        </button>
       </div>
     </div>
   </div>
