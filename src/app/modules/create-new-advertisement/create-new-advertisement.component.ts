@@ -815,6 +815,50 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
+  continueToTheNextFormPage(formPageNumber: number) {
+    if (this.checkIfThisFormPartIsValid(formPageNumber)) {
+      this.openToEditFormPart(formPageNumber + 1);
+      this.scrollToFormPart(formPageNumber + 1);
+    }
+  }
+
+  checkIfThisFormPartIsValid(formPageNumber: number) {
+    switch (formPageNumber) {
+      case 1: {
+        return (
+          this.advertisementForm.get('city').valid &&
+          this.advertisementForm.get('street').valid &&
+          this.advertisementForm.get('number').valid &&
+          this.advertisementForm.get('floor').valid &&
+          this.advertisementForm.get('totalFloors').valid &&
+          this.advertisementForm.get('neighborhood').valid &&
+          this.advertisementForm.get('area').valid &&
+          this.advertisementForm.get('assetType').valid &&
+          this.advertisementForm.get('assetState').valid
+        );
+      }
+      case 2: {
+        return this.advertisementForm.get('rooms').valid;
+      }
+      case 3: {
+        return (
+          this.advertisementForm.get('entryDate').valid &&
+          this.advertisementForm.get('totalSquareMeters').valid
+        );
+      }
+      case 4: {
+        return true;
+      }
+      case 5: {
+        return (
+          this.advertisementForm.get('contactName').valid &&
+          this.advertisementForm.get('contactPhone').valid &&
+          this.advertisementForm.get('standardizationAccepted').valid
+        );
+      }
+    }
+  }
+
   private scrollToFormPart(formPageNumber: number) {
     if (this.isFormPagesAreCompleted[formPageNumber]) {
       setTimeout(() => {
