@@ -801,19 +801,18 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   ReturnToPrevFormPart(formPageNumber: number) {
-    // this.updateIfFormPartCompleted(formPageNumber);
     this.openToEditFormPart(formPageNumber - 1);
     this.scrollToFormPart(formPageNumber - 1);
   }
 
-  openTheFormPart(formPageNumber: number) {}
-
   openToEditFormPart(formPageNumber: number) {
-    this.isFormPagesHidden.forEach((value, index) => {
-      this.isFormPagesHidden[index] = true;
-    });
-    this.isFormPagesHidden[formPageNumber] = false;
-    this.isFormPagesAreCompleted[formPageNumber] = false;
+    if (this.isFormPagesAreCompleted[formPageNumber]) {
+      this.isFormPagesHidden.forEach((value, index) => {
+        this.isFormPagesHidden[index] = true;
+      });
+      this.isFormPagesHidden[formPageNumber] = false;
+      this.isFormPagesAreCompleted[formPageNumber] = false;
+    }
   }
 
   private scrollToFormPart(formPageNumber: number) {

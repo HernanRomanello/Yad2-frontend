@@ -1055,6 +1055,7 @@ mat-icon {
 .svg-icon {
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 
 div,

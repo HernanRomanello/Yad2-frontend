@@ -68,11 +68,15 @@
   <div class="close-section" id="close-section-1">
     <div class="section-title-container-close">
       <div>
+        @if(this.isFormPagesAreCompleted[0]){
+
         <img
+          (click)="openToEditFormPart(0)"
           class="svg-icon"
           src="assets/images/edit-2-svgrepo-com-gray.svg"
           alt="logo"
         />
+        }
       </div>
       <div>
         <span> אני רוצה להשכיר נכס</span>
@@ -160,11 +164,15 @@
   <div class="close-section" id="close-section-2">
     <div class="section-title-container-close">
       <div>
+        @if(this.isFormPagesAreCompleted[1]){
+
         <img
+          (click)="openToEditFormPart(1)"
           class="svg-icon"
           src="assets/images/edit-2-svgrepo-com-gray.svg"
           alt="logo"
         />
+        }
       </div>
       <div>
         <span> כתובת הנכס</span>
@@ -402,11 +410,15 @@
   <div class="close-section" id="close-section-3">
     <div class="section-title-container-close">
       <div>
+        @if(this.isFormPagesAreCompleted[2]){
+
         <img
+          (click)="openToEditFormPart(2)"
           class="svg-icon"
           src="assets/images/edit-2-svgrepo-com-gray.svg"
           alt="logo"
         />
+        }
       </div>
       <div>
         <span> על הנכס </span>
@@ -604,7 +616,9 @@
         </div>
         <div class="navigation-btn">
           <button class="continue-btn">המשך לשלב הבא</button>
-          <button class="return-btn">חזרה</button>
+          <button (click)="ReturnToPrevFormPart(2)" class="return-btn">
+            חזרה
+          </button>
         </div>
       </div>
     </div>
@@ -617,11 +631,14 @@
   <div class="close-section" id="close-section-4">
     <div class="section-title-container-close">
       <div>
+        @if(this.isFormPagesAreCompleted[3]){
         <img
+          (click)="openToEditFormPart(3)"
           class="svg-icon"
           src="assets/images/edit-2-svgrepo-com-gray.svg"
           alt="logo"
         />
+        }
       </div>
       <div>
         <span> תשלומים, תאריכים ועוד </span>
@@ -801,7 +818,9 @@
 
       <div class="navigation-btn">
         <button class="continue-btn">המשך לשלב הבא</button>
-        <button class="return-btn">חזרה</button>
+        <button (click)="ReturnToPrevFormPart(3)" class="return-btn">
+          חזרה
+        </button>
       </div>
     </div>
   </div>
@@ -813,11 +832,15 @@
   <div class="close-section" id="close-section-5">
     <div class="section-title-container-close">
       <div>
+        @if(this.isFormPagesAreCompleted[4]){
+
         <img
+          (click)="openToEditFormPart(4)"
           class="svg-icon"
           src="assets/images/edit-2-svgrepo-com-gray.svg"
           alt="logo"
         />
+        }
       </div>
       <div>
         <span> תמונות וסרטונים </span>
@@ -915,7 +938,7 @@
     }
     <div class="navigation-btn">
       <button class="continue-btn">המשך לשלב הבא</button>
-      <button class="return-btn">חזרה</button>
+      <button (click)="ReturnToPrevFormPart(4)" class="return-btn">חזרה</button>
     </div>
     <div class="space"></div>
     <div class="space"></div>
@@ -928,11 +951,15 @@
   <div class="close-section" id="close-section-6">
     <div class="section-title-container-close">
       <div>
+        @if(this.isFormPagesAreCompleted[5]){
+
         <img
+          (click)="openToEditFormPart(5)"
           class="svg-icon"
           src="assets/images/edit-2-svgrepo-com-gray.svg"
           alt="logo"
         />
+        }
       </div>
       <div>
         <span> פרטי התקשרות </span>
@@ -1068,7 +1095,7 @@
 
     <div class="navigation-btn">
       <button class="continue-btn">המשך לשלב הבא</button>
-      <button class="return-btn">חזרה</button>
+      <button (click)="ReturnToPrevFormPart(5)" class="return-btn">חזרה</button>
     </div>
   </div>
   }
@@ -1079,11 +1106,15 @@
   <div class="close-section" id="close-section-7">
     <div class="section-title-container-close">
       <div>
+        @if(this.isFormPagesAreCompleted[6]){
+
         <img
+          (click)="openToEditFormPart(6)"
           class="svg-icon"
           src="assets/images/edit-2-svgrepo-com-gray.svg"
           alt="logo"
         />
+        }
       </div>
       <div>
         <span> בחירת מסלול </span>
@@ -1182,7 +1213,9 @@
       <input type="checkbox" value="true" checked />
     </label>
 
-    <button class="return-btn page7 last-btn">חזרה</button>
+    <button (click)="ReturnToPrevFormPart(6)" class="return-btn page7 last-btn">
+      חזרה
+    </button>
   </div>
   } }
 </form>
