@@ -1,7 +1,7 @@
 <form [formGroup]="advertisementForm" (ngSubmit)="handleSubmit()">
   <div class="space1"></div>
   @if(this.advertisementForm.get('tradeType').value === ''){
-  <div class="advertisement-selection" id="Selection-1">
+  <div class="advertisement-selection">
     <div class="section-title-container">
       {{ this.changeTradeTypeTitle() }} <span class="section-title">1</span>
     </div>
@@ -10,7 +10,7 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('עסקים למכירה')"
+        (click)="setAdvertisementType('עסקים למכירה'); submitPartOfTheForm(0)"
         (mouseover)="onMouseOver('עסקים למכירה')"
         (mouseout)="onMouseOver('')"
       >
@@ -25,7 +25,7 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('נכס מסחרי')"
+        (click)="setAdvertisementType('נכס מסחרי'); submitPartOfTheForm(0)"
         (mouseover)="onMouseOver('נכס מסחרי')"
         (mouseout)="onMouseOver('')"
       >
@@ -39,7 +39,7 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('השכרה')"
+        (click)="setAdvertisementType('השכרה'); submitPartOfTheForm(0)"
         (mouseover)="onMouseOver('השכרה')"
         (mouseout)="onMouseOver('')"
       >
@@ -52,7 +52,7 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('מכירה')"
+        (click)="setAdvertisementType('מכירה'); submitPartOfTheForm(0)"
         (mouseover)="onMouseOver('מכירה')"
         (mouseout)="onMouseOver('')"
       >
@@ -64,71 +64,7 @@
       </button>
     </div>
   </div>
-  } @else { @if(this.advertisementForm.get('tradeType').value === ''){
-  <div class="advertisement-selection" id="Selection-1">
-    <div class="section-title-container">
-      {{ this.changeTradeTypeTitle() }} <span class="section-title">1</span>
-    </div>
-
-    <div class="asset-type-buttons">
-      <button
-        class="asset-type"
-        type="button"
-        (click)="setAdvertisementType('עסקים למכירה')"
-        (mouseover)="onMouseOver('עסקים למכירה')"
-        (mouseout)="onMouseOver('')"
-      >
-        <div class="part-1">
-          <img src="assets/images/4type.JPG" class="type-pic" alt="ad2" />
-        </div>
-        <div class="btn-text1" [ngStyle]="{ color: hoverColors[0] }">
-          עסקים למכירה
-        </div>
-        <div class="btn-text2">הייטק, בתי קפה וכו׳</div>
-      </button>
-      <button
-        class="asset-type"
-        type="button"
-        (click)="setAdvertisementType('נכס מסחרי')"
-        (mouseover)="onMouseOver('נכס מסחרי')"
-        (mouseout)="onMouseOver('')"
-      >
-        <div class="part-1">
-          <img src="assets/images/3type.JPG" class="type-pic" alt="ad2" />
-        </div>
-        <div class="btn-text1" [ngStyle]="{ color: hoverColors[1] }">מסחרי</div>
-        <div class="btn-text2">מחסנים, קליניקות, משרדים</div>
-      </button>
-
-      <button
-        class="asset-type"
-        type="button"
-        (click)="setAdvertisementType('השכרה')"
-        (mouseover)="onMouseOver('השכרה')"
-        (mouseout)="onMouseOver('')"
-      >
-        <div class="part-1">
-          <img src="assets/images/2type.JPG" class="type-pic" alt="ad2" />
-        </div>
-        <div class="btn-text1" [ngStyle]="{ color: hoverColors[2] }">השכרה</div>
-        <div class="btn-text2"></div>
-      </button>
-      <button
-        class="asset-type"
-        type="button"
-        (click)="setAdvertisementType('מכירה')"
-        (mouseover)="onMouseOver('מכירה')"
-        (mouseout)="onMouseOver('')"
-      >
-        <div class="part-1">
-          <img src="assets/images/1type.JPG" class="type-pic" alt="ad2" />
-        </div>
-        <div class="btn-text1" [ngStyle]="{ color: hoverColors[3] }">מכירה</div>
-        <div class="btn-text2"></div>
-      </button>
-    </div>
-  </div>
-  } @else{
+  } @else { @if(isFormPagesHidden[0]){
   <div class="close-section" id="close-section-1">
     <div class="section-title-container-close">
       <div>
@@ -140,23 +76,87 @@
       </div>
       <div>
         <span> אני רוצה להשכיר נכס</span>
-        @if(false){
+        @if(isFormPagesAreCompleted[0]){
 
-        <span class="section-title gray-border">1</span>
-        } @else {
         <span class="section-title light-green-circle">
           <i class="material-icons check-circle flex-center">check_circle</i>
         </span>
+        } @else {
+        <span class="section-title gray-border">1</span>
 
         }
       </div>
+    </div>
+  </div>
+  } @else{
+  <div class="advertisement-selection" id="Selection-1">
+    <div class="section-title-container">
+      {{ this.changeTradeTypeTitle() }} <span class="section-title">1</span>
+    </div>
+
+    <div class="asset-type-buttons">
+      <button
+        class="asset-type"
+        type="button"
+        (click)="setAdvertisementType('עסקים למכירה')"
+        (mouseover)="onMouseOver('עסקים למכירה')"
+        (mouseout)="onMouseOver('')"
+      >
+        <div class="part-1">
+          <img src="assets/images/4type.JPG" class="type-pic" alt="ad2" />
+        </div>
+        <div class="btn-text1" [ngStyle]="{ color: hoverColors[0] }">
+          עסקים למכירה
+        </div>
+        <div class="btn-text2">הייטק, בתי קפה וכו׳</div>
+      </button>
+      <button
+        class="asset-type"
+        type="button"
+        (click)="setAdvertisementType('נכס מסחרי')"
+        (mouseover)="onMouseOver('נכס מסחרי')"
+        (mouseout)="onMouseOver('')"
+      >
+        <div class="part-1">
+          <img src="assets/images/3type.JPG" class="type-pic" alt="ad2" />
+        </div>
+        <div class="btn-text1" [ngStyle]="{ color: hoverColors[1] }">מסחרי</div>
+        <div class="btn-text2">מחסנים, קליניקות, משרדים</div>
+      </button>
+
+      <button
+        class="asset-type"
+        type="button"
+        (click)="setAdvertisementType('השכרה')"
+        (mouseover)="onMouseOver('השכרה')"
+        (mouseout)="onMouseOver('')"
+      >
+        <div class="part-1">
+          <img src="assets/images/2type.JPG" class="type-pic" alt="ad2" />
+        </div>
+        <div class="btn-text1" [ngStyle]="{ color: hoverColors[2] }">השכרה</div>
+        <div class="btn-text2"></div>
+      </button>
+      <button
+        class="asset-type"
+        type="button"
+        (click)="setAdvertisementType('מכירה')"
+        (mouseover)="onMouseOver('מכירה')"
+        (mouseout)="onMouseOver('')"
+      >
+        <div class="part-1">
+          <img src="assets/images/1type.JPG" class="type-pic" alt="ad2" />
+        </div>
+        <div class="btn-text1" [ngStyle]="{ color: hoverColors[3] }">מכירה</div>
+        <div class="btn-text2"></div>
+      </button>
     </div>
   </div>
   }
 
   <div class="space"></div>
 
-  @if(true){
+  @if(isFormPagesHidden[1]){
   <div class="close-section" id="close-section-2">
     <div class="section-title-container-close">
       <div>
@@ -168,14 +168,14 @@
       </div>
       <div>
         <span> כתובת הנכס</span>
-        @if(false){
+        @if(isFormPagesAreCompleted[1]){
 
-        <span class="section-title gray-border">2</span>
-
-        } @else {
         <span class="section-title light-green-circle">
           <i class="material-icons check-circle flex-center">check_circle</i>
         </span>
+
+        } @else {
+        <span class="section-title gray-border">2</span>
 
         }
       </div>
@@ -396,7 +396,7 @@
 
   <div class="space"></div>
 
-  @if(true){
+  @if(isFormPagesHidden[2]){
   <div class="close-section" id="close-section-3">
     <div class="section-title-container-close">
       <div>
@@ -408,14 +408,13 @@
       </div>
       <div>
         <span> על הנכס </span>
-        @if(false){
+        @if(isFormPagesAreCompleted[2]){
 
-        <span class="section-title gray-border">3</span>
-
-        } @else {
         <span class="section-title light-green-circle">
           <i class="material-icons check-circle flex-center">check_circle</i>
         </span>
+        } @else {
+        <span class="section-title gray-border">3</span>
 
         }
       </div>
@@ -612,7 +611,7 @@
 
   <div class="space"></div>
 
-  @if(true){
+  @if(isFormPagesHidden[3]){
   <div class="close-section" id="close-section-4">
     <div class="section-title-container-close">
       <div>
@@ -624,14 +623,13 @@
       </div>
       <div>
         <span> תשלומים, תאריכים ועוד </span>
-        @if(false){
+        @if(isFormPagesAreCompleted[3]){
 
-        <span class="section-title gray-border">4</span>
-
-        } @else {
         <span class="section-title light-green-circle">
           <i class="material-icons check-circle flex-center">check_circle</i>
         </span>
+        } @else {
+        <span class="section-title gray-border">4</span>
 
         }
       </div>
@@ -809,7 +807,7 @@
 
   <div class="space"></div>
 
-  @if(true){
+  @if(isFormPagesHidden[4]){
   <div class="close-section" id="close-section-5">
     <div class="section-title-container-close">
       <div>
@@ -821,14 +819,13 @@
       </div>
       <div>
         <span> תמונות וסרטונים </span>
-        @if(false){
+        @if(isFormPagesAreCompleted[4]){
 
-        <span class="section-title gray-border">5</span>
-
-        } @else {
         <span class="section-title light-green-circle">
           <i class="material-icons check-circle flex-center">check_circle</i>
         </span>
+        } @else {
+        <span class="section-title gray-border">5</span>
 
         }
       </div>
@@ -925,7 +922,7 @@
 
   <div class="space"></div>
 
-  @if(true){
+  @if(isFormPagesHidden[5]){
   <div class="close-section" id="close-section-6">
     <div class="section-title-container-close">
       <div>
@@ -937,14 +934,13 @@
       </div>
       <div>
         <span> פרטי התקשרות </span>
-        @if(false){
+        @if(isFormPagesAreCompleted[5]){
 
-        <span class="section-title gray-border">6</span>
-
-        } @else {
         <span class="section-title light-green-circle">
           <i class="material-icons check-circle flex-center">check_circle</i>
         </span>
+        } @else {
+        <span class="section-title gray-border">6</span>
 
         }
       </div>
@@ -1077,7 +1073,7 @@
 
   <div class="space"></div>
 
-  @if(true){
+  @if(isFormPagesHidden[6]){
   <div class="close-section" id="close-section-7">
     <div class="section-title-container-close">
       <div>
@@ -1089,14 +1085,13 @@
       </div>
       <div>
         <span> בחירת מסלול </span>
-        @if(false){
+        @if(isFormPagesAreCompleted[6]){
 
-        <span class="section-title gray-border">7</span>
-
-        } @else {
         <span class="section-title light-green-circle">
           <i class="material-icons check-circle flex-center">check_circle</i>
         </span>
+        } @else {
+        <span class="section-title gray-border">7</span>
 
         }
       </div>

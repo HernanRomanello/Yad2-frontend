@@ -45,6 +45,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   averagePrice = 0;
   hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
+  isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
+  isFormPagesAreCompleted: boolean[] = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
@@ -601,9 +611,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
-  isActive(type: string): boolean {
-    return this.advertisementForm.get('tradeType').value === type;
-  }
   setAdvertisementType(type: string) {
     this.advertisementForm.get('tradeType').setValue(type);
   }
@@ -778,6 +785,28 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       this.has2Contacts = true;
     } else {
       this.has2Contacts = false;
+    }
+  }
+
+  submitPartOfTheForm(formPageNumber: number) {
+    switch (formPageNumber) {
+      case 0:
+        this.isFormPagesAreCompleted[0] = true;
+        this.isFormPagesHidden[0] = true;
+        this.isFormPagesHidden[1] = false;
+
+        break;
+    }
+
+    if (this.isFormPagesAreCompleted[formPageNumber]) {
+      setTimeout(() => {
+        const nextSection = document.getElementById(
+          `Selection-${formPageNumber + 2}`
+        );
+        if (nextSection) {
+          nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   }
 }
