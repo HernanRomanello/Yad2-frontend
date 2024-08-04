@@ -315,12 +315,20 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       storageRoom: [false],
       description: ['', Validators.required],
       furnituredescription: ['', Validators.required],
-      numberOfPayments: [null],
+      numberOfPayments: [
+        '',
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+      ],
       houseCommitteePayment: [null],
       municipalityMonthlyPropertyTax: [null],
       builtSquareMeters: [null],
       gardenSquareMeters: [null],
-      totalSquareMeters: [null],
+      totalSquareMeters: [
+        '',
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+      ],
       price: [null, Validators.required],
       minimumAmount: [null],
       pricePerMeter: [null],
@@ -816,21 +824,31 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   continueToTheNextFormPage(formPageNumber: number) {
-    if (true) {
-      // this.updateIfFormPartCompleted(formPageNumber);
-      // this.openToEditFormPart(formPageNumber + 1);
-      // this.scrollToFormPart(formPageNumber + 1);
+    // if (this.checkIfThisFormPartIsValid(formPageNumber)) {
+    //   this.updateIfFormPartCompleted(formPageNumber);
+    //   this.continueToTheNextFormPage(formPageNumber);
+    // }
+
+    if (formPageNumber != 3) {
       this.updateIfFormPartCompleted(formPageNumber);
       this.continueToTheNextFormPage(formPageNumber);
     }
+    alert(
+      'numberOfPayments ' + this.advertisementForm.get('numberOfPayments').valid
+    );
+    alert(
+      'totalSquareMeters ' +
+        this.advertisementForm.get('totalSquareMeters').valid
+    );
+    alert('entryDate ' + this.advertisementForm.get('entryDate').valid);
   }
 
-  checkTheFormPartIfIsValid(formPageNumber: number) {
-    if (this.checkIfThisFormPartIsValid(formPageNumber)) {
-      this.updateIfFormPartCompleted(formPageNumber);
-      this.continueToTheNextFormPage(formPageNumber);
-    }
-  }
+  // checkTheFormPartIfIsValid(formPageNumber: number) {
+  //   if (this.checkIfThisFormPartIsValid(formPageNumber)) {
+  //     this.updateIfFormPartCompleted(formPageNumber);
+  //     this.continueToTheNextFormPage(formPageNumber);
+  //   }
+  // }
 
   checkIfThisFormPartIsValid(formPageNumber: number) {
     switch (formPageNumber) {
@@ -857,7 +875,11 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         );
       }
       case 4: {
-        return true;
+        return (
+          this.advertisementForm.get('totalSquareMeters').valid &&
+          this.advertisementForm.get('numberOfPayments').valid &&
+          this.advertisementForm.get('entryDate').valid
+        );
       }
       case 5: {
         return (
