@@ -26,8 +26,6 @@ export class RealEstateResultsComponent {
 
   hoverIndex: number = -1;
 
-  // input selected property types
-
   $apartments = combineLatest([
     this.advertisementService.Advertisements,
     this.searchService.selectedPropertyTypes,
@@ -64,10 +62,8 @@ export class RealEstateResultsComponent {
         });
 
         console.log(selectedPriceRange);
-        // all advertisements
         let ads = advertisements;
 
-        // filter only those that hae same booleans as the filters
         console.log(booleanFilters);
         ads = ads.filter((ad) =>
           Object.keys(booleanFilters).every((key) => {
@@ -77,25 +73,21 @@ export class RealEstateResultsComponent {
             return true;
           })
         );
-        // filter by apt size
         ads = ads.filter(
           (ad) =>
             ad.builtSquareMeters >= aptSizeMin &&
             ad.builtSquareMeters <= aptSizeMax
         );
         console.log(floorsMin, floorsMax);
-        // filter by floors
         ads = ads.filter(
           (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax
         );
 
-        // filter by property type
         if (selectedPropertyTypes.length > 0) {
           ads = ads.filter((ad) =>
             selectedPropertyTypes.includes(ad.assetType)
           );
         }
-        // filter by price
         if (selectedPriceRange[0] !== 0 && selectedPriceRange[1] !== 20000) {
           ads = ads.filter(
             (ad) =>
@@ -103,12 +95,10 @@ export class RealEstateResultsComponent {
               ad.price <= selectedPriceRange[1]
           );
         }
-        // filter by num rooms
         if (selectedRoomsAmount.length > 0) {
           ads = ads.filter((ad) => selectedRoomsAmount.includes(ad.rooms));
         }
 
-        // fitler by search type
         ads = ads.filter((ad) => ad.tradeType === selectedTradeType);
         return ads;
       }

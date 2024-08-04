@@ -816,10 +816,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   continueToTheNextFormPage(formPageNumber: number) {
+    if (true) {
+      // this.updateIfFormPartCompleted(formPageNumber);
+      // this.openToEditFormPart(formPageNumber + 1);
+      // this.scrollToFormPart(formPageNumber + 1);
+      this.updateIfFormPartCompleted(formPageNumber);
+      this.continueToTheNextFormPage(formPageNumber);
+    }
+  }
+
+  checkTheFormPartIfIsValid(formPageNumber: number) {
     if (this.checkIfThisFormPartIsValid(formPageNumber)) {
       this.updateIfFormPartCompleted(formPageNumber);
-      this.openToEditFormPart(formPageNumber + 1);
-      this.scrollToFormPart(formPageNumber + 1);
+      this.continueToTheNextFormPage(formPageNumber);
     }
   }
 
