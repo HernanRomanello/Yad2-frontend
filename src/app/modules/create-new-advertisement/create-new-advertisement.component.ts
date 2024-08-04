@@ -8,7 +8,14 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../../services/user/auth.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { afterNextRender } from '@angular/core';
@@ -269,8 +276,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         this.authService.user.getValue()?.houseNumber || '',
         Validators.required,
       ],
-      floor: [0],
-      totalFloors: [0],
+      floor: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      totalFloors: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       onPillars: [false],
       neighborhood: ['', Validators.required],
       area: ['', Validators.required],
@@ -317,8 +324,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       furnituredescription: ['', Validators.required],
       numberOfPayments: [
         '',
-        Validators.required,
-        Validators.pattern('^[0-9]*$'),
+        [Validators.required],
+        // Validators.pattern('^[0-9]*$'),
       ],
       houseCommitteePayment: [null],
       municipalityMonthlyPropertyTax: [null],
@@ -326,10 +333,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       gardenSquareMeters: [null],
       totalSquareMeters: [
         '',
-        Validators.required,
-        Validators.pattern('^[0-9]*$'),
+        [Validators.required, Validators.pattern('^[0-9]*$')],
       ],
-      price: [null, Validators.required],
+      price: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
       minimumAmount: [null],
       pricePerMeter: [null],
       entryDate: ['', Validators.required],
@@ -369,6 +375,18 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
+  checkIfFloorNumberValid(floor: string, totalFloors: string): void {
+    const floorNum = parseInt(floor, 10);
+    const totalFloorsNum = parseInt(totalFloors, 10);
+
+    if (
+      !isNaN(floorNum) &&
+      !isNaN(totalFloorsNum) &&
+      floorNum > totalFloorsNum
+    ) {
+      this.advertisementForm.get('totalFloors').setValue(floor);
+    }
+  }
   pricePerSquareMeter(): string {
     const price = this.advertisementForm.get('price').value;
     if (price > 1) {
@@ -824,31 +842,11 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   continueToTheNextFormPage(formPageNumber: number) {
-    // if (this.checkIfThisFormPartIsValid(formPageNumber)) {
-    //   this.updateIfFormPartCompleted(formPageNumber);
-    //   this.continueToTheNextFormPage(formPageNumber);
-    // }
-
-    if (formPageNumber != 3) {
+    if (this.checkIfThisFormPartIsValid(formPageNumber)) {
       this.updateIfFormPartCompleted(formPageNumber);
       this.continueToTheNextFormPage(formPageNumber);
     }
-    alert(
-      'numberOfPayments ' + this.advertisementForm.get('numberOfPayments').valid
-    );
-    alert(
-      'totalSquareMeters ' +
-        this.advertisementForm.get('totalSquareMeters').valid
-    );
-    alert('entryDate ' + this.advertisementForm.get('entryDate').valid);
   }
-
-  // checkTheFormPartIfIsValid(formPageNumber: number) {
-  //   if (this.checkIfThisFormPartIsValid(formPageNumber)) {
-  //     this.updateIfFormPartCompleted(formPageNumber);
-  //     this.continueToTheNextFormPage(formPageNumber);
-  //   }
-  // }
 
   checkIfThisFormPartIsValid(formPageNumber: number) {
     switch (formPageNumber) {

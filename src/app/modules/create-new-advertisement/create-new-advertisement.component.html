@@ -247,16 +247,21 @@
         <div class="input-container">
           <label class="small-text" for="floor">קומה*</label>
           <input
+            #floorInput
             class="input medium center-placeholder"
             id="floor"
             formControlName="floor"
             placeholder="מספר קומה"
+            (input)="
+              checkIfFloorNumberValid(floorInput.value, totalFloorInput.value)
+            "
           />
         </div>
 
         <div class="input-container">
           <label class="small-text" for="totalFloors">סה״כ קומות בבניין*</label>
           <input
+            #totalFloorInput
             class="input medium center-placeholder"
             id="totalFloors"
             formControlName="totalFloors"
