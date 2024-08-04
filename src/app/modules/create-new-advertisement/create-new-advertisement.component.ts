@@ -322,11 +322,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       storageRoom: [false],
       description: ['', Validators.required],
       furnituredescription: ['', Validators.required],
-      numberOfPayments: [
-        '',
-        [Validators.required],
-        // Validators.pattern('^[0-9]*$'),
-      ],
+      numberOfPayments: [null, [Validators.required]],
       houseCommitteePayment: [null],
       municipalityMonthlyPropertyTax: [null],
       builtSquareMeters: [null],
@@ -350,7 +346,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       ],
       contactPhone: [
         this.authService.user.getValue()?.phoneNumber || '',
-        Validators.required,
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+          Validators.minLength(10),
+          Validators.maxLength(10),
+        ],
       ],
       standardizationAccepted: [false],
     });
@@ -793,6 +794,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     } else if (type === 'numberOfPayments') {
       this.number_Of_Payments = option;
       this.set_Number_Of_Payments(option);
+      alert(this.advertisementForm.get('numberOfPayments').value);
     } else if (type === 'asset_owner') {
       this.asset_owner = option;
     }
@@ -869,21 +871,18 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       case 3: {
         return (
           this.advertisementForm.get('entryDate').valid &&
-          this.advertisementForm.get('totalSquareMeters').valid
+          this.advertisementForm.get('totalSquareMeters').valid &&
+          this.advertisementForm.get('numberOfPayments').valid
         );
       }
       case 4: {
-        return (
-          this.advertisementForm.get('totalSquareMeters').valid &&
-          this.advertisementForm.get('numberOfPayments').valid &&
-          this.advertisementForm.get('entryDate').valid
-        );
+        return true;
       }
       case 5: {
         return (
           this.advertisementForm.get('contactName').valid &&
           this.advertisementForm.get('contactPhone').valid &&
-          this.advertisementForm.get('standardizationAccepted').valid
+          this.advertisementForm.get('standardizationAccepted').value === true
         );
       }
     }

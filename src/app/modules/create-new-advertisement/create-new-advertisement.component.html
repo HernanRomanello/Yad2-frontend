@@ -679,6 +679,13 @@
           type="button"
           (click)="toggleDropdown('numberOfPayments')"
         >
+          <!-- <li
+            class="dropdown-item assetState"
+            *ngFor="let option of roomsOptions"
+            (click)="selectOption(option, 'rooms')"
+          >
+            {{ option }}
+          </li> -->
           <span
             [ngStyle]="{ color: changeColorIfSelected(number_Of_Payments) }"
           >
