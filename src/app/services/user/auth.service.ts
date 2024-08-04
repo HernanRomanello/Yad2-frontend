@@ -205,7 +205,7 @@ export class AuthService {
       gardenSquareMeters: NewAdvertisement.gardenSquareMeters,
       totalSquareMeters: NewAdvertisement.totalSquareMeters,
       price: NewAdvertisement.price,
-      minimumAmount: minAmount,
+      minimumAmount: '7000',
       pricePerMeter: NewAdvertisement.pricePerMeter,
       entryDate: milliseconds,
       immediate: NewAdvertisement.immediate,
@@ -213,7 +213,7 @@ export class AuthService {
       longTerm: NewAdvertisement.longTerm,
 
       pictures: NewAdvertisement.pictures,
-      video: NewAdvertisement.video,
+      video: 'url_to_video',
       contactName: NewAdvertisement.contactName,
       contactPhone: NewAdvertisement.contactPhone,
       standardizationAccepted: NewAdvertisement.standardizationAccepted,
