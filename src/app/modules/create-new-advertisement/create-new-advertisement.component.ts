@@ -62,6 +62,15 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     false,
     false,
   ];
+  isFormPagesAreSubmitted: boolean[] = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
@@ -844,6 +853,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   continueToTheNextFormPage(formPageNumber: number) {
+    this.isFormPagesAreSubmitted[formPageNumber - 1] = true;
     if (this.checkIfThisFormPartIsValid(formPageNumber)) {
       this.updateIfFormPartCompleted(formPageNumber);
       this.continueToTheNextFormPage(formPageNumber);
@@ -853,17 +863,36 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   checkIfThisFormPartIsValid(formPageNumber: number) {
     switch (formPageNumber) {
       case 1: {
-        return (
-          this.advertisementForm.get('city').valid &&
-          this.advertisementForm.get('street').valid &&
-          this.advertisementForm.get('number').valid &&
-          this.advertisementForm.get('floor').valid &&
-          this.advertisementForm.get('totalFloors').valid &&
-          this.advertisementForm.get('neighborhood').valid &&
-          this.advertisementForm.get('area').valid &&
-          this.advertisementForm.get('assetType').valid &&
-          this.advertisementForm.get('assetState').valid
-        );
+        const mustFieldsInFormPart1 = [
+          'city',
+          'street',
+          'number',
+          'floor',
+          'totalFloors',
+          'neighborhood',
+          'area',
+          'assetType',
+          'assetState',
+        ];
+
+        for (const field of mustFieldsInFormPart1) {
+          const fieldControl = this.advertisementForm.get(field);
+          const element = document.getElementById(field);
+
+          if (!fieldControl.valid) {
+            if (element) {
+              element.classList.add('border-invalid');
+            }
+
+            return false;
+          } else {
+            if (element) {
+              element.classList.remove('border-invalid');
+            }
+          }
+        }
+
+        return true;
       }
       case 2: {
         return this.advertisementForm.get('rooms').valid;

@@ -1058,6 +1058,10 @@ mat-icon {
   cursor: pointer;
 }
 
+.border-invalid {
+  border: 1px solid red !important;
+}
+
 /* div,
 form {
   border: 1px solid red !important; 
