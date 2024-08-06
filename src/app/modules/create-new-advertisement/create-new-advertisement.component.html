@@ -211,6 +211,7 @@
           formControlName="city"
           placeholder="  איפה נמצא הנכס?"
         />
+        <div id="city-error" class="error-text">שדה חובה</div>
       </div>
       <div class="input-container">
         <label class="small-text" for="street">רחוב*</label>
@@ -221,6 +222,7 @@
           formControlName="street"
           placeholder="  הכנס שם הרחוב"
         />
+        <div id="city-error" class="error-text">שדה חובה</div>
         <div class="nano-text">
           לא ניתן יהיה לעדכן את שם הרחוב לאחר פרסום המודעה
         </div>
@@ -239,8 +241,8 @@
           />
         </div>
         <div class="input-container">
-          <label class="small-text" for="number">מספר דירה</label>
-          <input class="input medium center" placeholder="  מספר דירה" />
+          <!-- <label class="small-text" for="number">מספר דירה</label>
+          <input class="input medium center" placeholder="  מספר דירה" /> -->
         </div>
       </div>
       <div class="floor-description">
@@ -253,6 +255,7 @@
             formControlName="floor"
             placeholder="מספר קומה"
           />
+          <div id="floor-error" class="error-text">שדה חובה</div>
         </div>
 
         <div class="input-container">
@@ -264,9 +267,10 @@
             formControlName="totalFloors"
             placeholder="סה״כ קומות "
           />
+          <div id="totalFloors-error" class="error-text">שדה חובה</div>
         </div>
-        <div class="check-input">
-          <input class="input" type="checkbox" formControlName="onPillars" />
+        <div class="check-input margin-bottom">
+          <input class="checkbox" type="checkbox" formControlName="onPillars" />
           <label> על עמודים </label>
         </div>
       </div>
@@ -311,6 +315,7 @@
             >keyboard_arrow_down</i
           >
         </button>
+        <div id="assetType-error" class="error-text">שדה חובה</div>
         <ul *ngIf="this.isAssetTypeDropdownHidden" class="dropdown-menu asset">
           <li
             class="dropdown-item"
@@ -335,6 +340,9 @@
             >keyboard_arrow_down</i
           >
         </button>
+        <div id="assetState-error" class="error-text">
+          שדה לא חוקי - מצב הנכס
+        </div>
         <ul
           *ngIf="this.isAssetAssetstateDropdownHidden"
           class="dropdown-menu asset dropdown-assetState"

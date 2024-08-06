@@ -1062,6 +1062,18 @@ mat-icon {
   border: 1px solid red !important;
 }
 
+.border-invalid::placeholder {
+  color: #363636 !important;
+}
+
+.error-text {
+  color: red;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
 /* div,
 form {
   border: 1px solid red !important; 

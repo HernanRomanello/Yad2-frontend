@@ -866,11 +866,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         const mustFieldsInFormPart1 = [
           'city',
           'street',
-          'number',
           'floor',
           'totalFloors',
-          'neighborhood',
-          'area',
           'assetType',
           'assetState',
         ];
