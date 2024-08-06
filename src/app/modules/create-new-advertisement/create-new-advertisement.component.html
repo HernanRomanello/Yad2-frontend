@@ -463,6 +463,7 @@
         <div class="input-container">
           <label class="small-text" for="rooms">מספר חדרים*</label>
           <button
+            id="rooms"
             class="input large dropdown-btn"
             type="button"
             (click)="toggleDropdown('rooms')"
@@ -470,6 +471,7 @@
             {{ asset_Rooms ?? "בחירת מספר חדרים" }}
             <i #dropdownIconRooms class="material-icons">keyboard_arrow_down</i>
           </button>
+          <div id="rooms-error" class="error-text">שדה חובה</div>
           <ul
             *ngIf="this.isRoomsDropdownHidden"
             class="dropdown-menu asset dropdown-assetState rooms"
@@ -682,17 +684,11 @@
       <div class="input-container">
         <label class="small-text" for="numberOfPayments">מספר תשלומים*</label>
         <button
+          id="numberOfPayments"
           class="input large dropdown-btn"
           type="button"
           (click)="toggleDropdown('numberOfPayments')"
         >
-          <!-- <li
-            class="dropdown-item assetState"
-            *ngFor="let option of roomsOptions"
-            (click)="selectOption(option, 'rooms')"
-          >
-            {{ option }}
-          </li> -->
           <span
             [ngStyle]="{ color: changeColorIfSelected(number_Of_Payments) }"
           >
@@ -703,6 +699,7 @@
             >keyboard_arrow_down</i
           >
         </button>
+        <div id="numberOfPayments-error" class="error-text">שדה חובה</div>
         <ul
           *ngIf="this.isNumberOfPaymentsTypeDropdownHidden"
           class="dropdown-menu asset"
@@ -763,10 +760,11 @@
           גודל במ״ר סך הכל*
         </label>
         <input
-          class="input large left-Placeholder"
           id="totalSquareMeters"
+          class="input large left-Placeholder"
           formControlName="totalSquareMeters"
         />
+        <div id="totalSquareMeters-error" class="error-text">שדה חובה</div>
       </div>
 
       <div class="input-container">
@@ -798,8 +796,8 @@
       <div class="date-container">
         <div class="">
           <input
-            class="date-input"
             id="entryDate"
+            class="date-input"
             formControlName="entryDate"
             class="date-input"
             type="date"
@@ -838,6 +836,7 @@
           </div>
         </div>
       </div>
+      <div id="entryDate-error" class="error-text">תאריך שהוזן לא תקין.</div>
 
       <div class="navigation-btn">
         <button (click)="continueToTheNextFormPage(3)" class="continue-btn">
@@ -1046,20 +1045,22 @@
       <div class="input-container">
         <label class="small-text" for="contactName"> השם שלך* </label>
         <input
-          class="input large left-Placeholder"
           id="contactName"
+          class="input large left-Placeholder"
           formControlName="contactName"
           [value]="authService.user.getValue()?.name"
         />
+        <div id="contactName-error" class="error-text">שדה חובה</div>
       </div>
       <div class="input-container">
         <label class="small-text" for="contactPhone"> טלפון* </label>
         <input
-          class="input large left-Placeholder"
           id="contactPhone"
+          class="input large left-Placeholder"
           formControlName="contactPhone"
           [value]="authService.user.getValue()?.phoneNumber"
         />
+        <div id="contactPhone-error" class="error-text">שדה חובה</div>
       </div>
       @if(!this.has2Contacts){
       <div
@@ -1103,6 +1104,9 @@
             ומדיניות הפרטיות באתר
           </div>
         </label>
+      </div>
+      <div id="standardizationAccepted-error" class="error-text">
+        חובה לאשר את התקנון.
       </div>
 
       <div class="choice-note">

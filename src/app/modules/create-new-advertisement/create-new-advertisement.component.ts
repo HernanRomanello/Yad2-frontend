@@ -803,7 +803,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     } else if (type === 'numberOfPayments') {
       this.number_Of_Payments = option;
       this.set_Number_Of_Payments(option);
-      alert(this.advertisementForm.get('numberOfPayments').value);
     } else if (type === 'asset_owner') {
       this.asset_owner = option;
     }
@@ -872,56 +871,70 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           'assetState',
         ];
 
-        let validForm = true;
-        for (const field of mustFieldsInFormPart1) {
-          const fieldControl = this.advertisementForm.get(field);
-          const element = document.getElementById(field);
-          const elementErrorText = document.getElementById(`${field}-error`);
-
-          if (!fieldControl.valid) {
-            console.error(
-              `${field} is invalid test`,
-              fieldControl.errors,
-              fieldControl.value,
-              fieldControl.classList
-            );
-            if (element && elementErrorText) {
-              element.classList.add('border-invalid');
-              elementErrorText.classList.add('display-block');
-            }
-
-            validForm = false;
-          } else {
-            if (element && elementErrorText) {
-              element.classList.remove('border-invalid');
-              elementErrorText.classList.remove('display-block');
-            }
-          }
-        }
-
-        return validForm;
+        return this.checkInputs(mustFieldsInFormPart1, true);
       }
       case 2: {
-        return this.advertisementForm.get('rooms').valid;
+        const mustFieldsInFormPart2 = ['rooms'];
+        return this.checkInputs(mustFieldsInFormPart2, true);
       }
       case 3: {
-        return (
-          this.advertisementForm.get('entryDate').valid &&
-          this.advertisementForm.get('totalSquareMeters').valid &&
-          this.advertisementForm.get('numberOfPayments').valid
-        );
+        const mustFieldsInFormPart3 = [
+          'entryDate',
+          'totalSquareMeters',
+          'numberOfPayments',
+        ];
+        return this.checkInputs(mustFieldsInFormPart3, true);
       }
-      case 4: {
+
+      case 5: {
+        const mustFieldsInFormPart5 = [
+          'contactName',
+          'contactPhone',
+          'standardizationAccepted',
+        ];
+
+        const errorStandardizationAccepted = document.getElementById(
+          'standardizationAccepted-error'
+        );
+        if (errorStandardizationAccepted) {
+          if (
+            this.advertisementForm.get('standardizationAccepted').value ===
+            false
+          ) {
+            errorStandardizationAccepted.classList.add('display-block');
+          } else {
+            errorStandardizationAccepted.classList.remove('display-block');
+          }
+        }
+        return this.checkInputs(mustFieldsInFormPart5, true);
+      }
+      default: {
         return true;
       }
-      case 5: {
-        return (
-          this.advertisementForm.get('contactName').valid &&
-          this.advertisementForm.get('contactPhone').valid &&
-          this.advertisementForm.get('standardizationAccepted').value === true
-        );
+    }
+  }
+
+  checkInputs(mustFieldsInFormPart1: string[], validForm: boolean) {
+    for (const field of mustFieldsInFormPart1) {
+      const fieldControl = this.advertisementForm.get(field);
+      const element = document.getElementById(field);
+      const elementErrorText = document.getElementById(`${field}-error`);
+
+      if (!fieldControl.valid) {
+        if (element && elementErrorText) {
+          element.classList.add('border-invalid');
+          elementErrorText.classList.add('display-block');
+        }
+
+        validForm = false;
+      } else {
+        if (element && elementErrorText) {
+          element.classList.remove('border-invalid');
+          elementErrorText.classList.remove('display-block');
+        }
       }
     }
+    return validForm;
   }
 
   private scrollToFormPart(formPageNumber: number) {

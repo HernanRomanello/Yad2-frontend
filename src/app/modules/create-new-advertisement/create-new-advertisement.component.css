@@ -208,7 +208,7 @@ form {
   font-size: 16px;
   line-height: 18.4px;
   font-weight: 400;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255) !important;
   color: rgb(54, 54, 54);
   height: 42px;
   border: 1px solid rgb(153, 153, 153, 0.7);
@@ -1079,7 +1079,6 @@ mat-icon {
   margin-bottom: 20px;
 }
 
-/* div,
-form {
-  border: 1px solid red !important; 
-} */
+#standardizationAccepted-error {
+  transform: translateX(-16px) !important;
+}
