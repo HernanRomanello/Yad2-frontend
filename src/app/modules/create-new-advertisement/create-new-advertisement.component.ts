@@ -875,16 +875,23 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           'assetState',
         ];
 
+        let validForm = true;
         for (const field of mustFieldsInFormPart1) {
           const fieldControl = this.advertisementForm.get(field);
           const element = document.getElementById(field);
 
           if (!fieldControl.valid) {
+            console.error(
+              `${field} is invalid test`,
+              fieldControl.errors,
+              fieldControl.value,
+              fieldControl.classList
+            );
             if (element) {
               element.classList.add('border-invalid');
             }
 
-            return false;
+            validForm = false;
           } else {
             if (element) {
               element.classList.remove('border-invalid');
@@ -892,7 +899,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           }
         }
 
-        return true;
+        return validForm;
       }
       case 2: {
         return this.advertisementForm.get('rooms').valid;
