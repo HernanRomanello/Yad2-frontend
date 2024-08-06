@@ -876,6 +876,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         for (const field of mustFieldsInFormPart1) {
           const fieldControl = this.advertisementForm.get(field);
           const element = document.getElementById(field);
+          const elementErrorText = document.getElementById(`${field}-error`);
 
           if (!fieldControl.valid) {
             console.error(
@@ -884,14 +885,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
               fieldControl.value,
               fieldControl.classList
             );
-            if (element) {
+            if (element && elementErrorText) {
               element.classList.add('border-invalid');
+              elementErrorText.classList.add('display-block');
             }
 
             validForm = false;
           } else {
-            if (element) {
+            if (element && elementErrorText) {
               element.classList.remove('border-invalid');
+              elementErrorText.classList.remove('display-block');
             }
           }
         }
