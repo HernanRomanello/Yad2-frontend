@@ -132,6 +132,10 @@ header {
   border-top: 1px solid rgb(180, 180, 180, 0.3);
 }
 
+img {
+  cursor: pointer;
+}
+
 div,
 header {
   /* border: 1px solid red !important; */
