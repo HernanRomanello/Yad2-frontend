@@ -37,8 +37,6 @@ const containerSelected = {
 export class RealEstateRoomsAmountComponent {
   selectedRooms: string[] = [];
   rooms = ['1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5', '5.5', '+6'];
-  // event emitter for selected
-  // property type
 
   selectedRoom_1: string | undefined;
   selectedRoom_2: string | undefined;
@@ -47,10 +45,22 @@ export class RealEstateRoomsAmountComponent {
   @Output() propertyRoomSelected = new EventEmitter<string[]>();
 
   emit() {
+    let index1 = this.selectedRoom_1
+      ? this.rooms.indexOf(this.selectedRoom_1)
+      : -1;
+    let index2 = this.selectedRoom_2
+      ? this.rooms.indexOf(this.selectedRoom_2)
+      : -1;
+
+    if (this.selectedRoom_1 && this.selectedRoom_2 === undefined) {
+      this.propertyRoomSelected.emit([this.rooms[index1]]);
+    }
+
     if (this.selectedRoom_1 && this.selectedRoom_2) {
-      let index1 = this.rooms.indexOf(this.selectedRoom_1);
-      let index2 = this.rooms.indexOf(this.selectedRoom_2);
-      let selected = this.rooms.slice(index1, index2 + 1);
+      let selected =
+        index1 <= index2
+          ? this.rooms.slice(index1, index2 + 1)
+          : this.rooms.slice(index2, index1 + 1);
       this.propertyRoomSelected.emit(selected);
     }
   }
@@ -71,7 +81,6 @@ export class RealEstateRoomsAmountComponent {
 
   updateBarStyle() {
     if (this.selectedRoom_1 && !this.selectedRoom_2) {
-      // clear children of bar and add new children
       this.bar.nativeElement.innerHTML = '';
       for (let i = 0; i < this.rooms.length; i++) {
         let div = document.createElement('button');
