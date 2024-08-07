@@ -10,7 +10,12 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('עסקים למכירה'); submitPartOfTheForm(0)"
+        [ngStyle]="{ 'border-color': ClickBorderColors[0] }"
+        (click)="
+          setAdvertisementType('עסקים למכירה');
+          submitPartOfTheForm(0);
+          isActive('עסקים למכירה')
+        "
         (mouseover)="onMouseOver('עסקים למכירה')"
         (mouseout)="onMouseOver('')"
       >
@@ -23,6 +28,7 @@
         <div class="btn-text2">הייטק, בתי קפה וכו׳</div>
       </button>
       <button
+        [ngStyle]="{ 'border-color': ClickBorderColors[1] }"
         class="asset-type"
         type="button"
         (click)="
@@ -41,9 +47,14 @@
       </button>
 
       <button
+        [ngStyle]="{ 'border-color': ClickBorderColors[2] }"
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('השכרה'); submitPartOfTheForm(0)"
+        (click)="
+          setAdvertisementType('השכרה');
+          submitPartOfTheForm(0);
+          isActive('השכרה')
+        "
         (mouseover)="onMouseOver('השכרה')"
         (mouseout)="onMouseOver('')"
       >
@@ -54,9 +65,14 @@
         <div class="btn-text2"></div>
       </button>
       <button
+        [ngStyle]="{ 'border-color': ClickBorderColors[3] }"
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('מכירה'); submitPartOfTheForm(0)"
+        (click)="
+          setAdvertisementType('מכירה');
+          submitPartOfTheForm(0);
+          isActive('מכירה')
+        "
         (mouseover)="onMouseOver('מכירה')"
         (mouseout)="onMouseOver('')"
       >
@@ -104,6 +120,7 @@
 
     <div class="asset-type-buttons">
       <button
+        [ngStyle]="{ 'border-color': ClickBorderColors[0] }"
         class="asset-type"
         type="button"
         (click)="
@@ -123,6 +140,7 @@
         <div class="btn-text2">הייטק, בתי קפה וכו׳</div>
       </button>
       <button
+        [ngStyle]="{ 'border-color': ClickBorderColors[1] }"
         class="asset-type"
         type="button"
         (click)="
@@ -141,6 +159,7 @@
       </button>
 
       <button
+        [ngStyle]="{ 'border-color': ClickBorderColors[2] }"
         class="asset-type"
         type="button"
         (click)="
@@ -158,6 +177,7 @@
         <div class="btn-text2"></div>
       </button>
       <button
+        [ngStyle]="{ 'border-color': ClickBorderColors[3] }"
         class="asset-type"
         type="button"
         (click)="

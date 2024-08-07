@@ -1088,7 +1088,3 @@ mat-icon {
 #standardizationAccepted-error {
   transform: translateX(-16px) !important;
 }
-
-.btn-text1:active {
-  background-color: aqua !important;
-}

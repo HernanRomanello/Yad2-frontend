@@ -51,7 +51,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   minPrice = 0;
   averagePrice = 0;
   hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
-  // buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
+  ClickBorderColors: string[] = ['#cccccc', '#cccccc', '#cccccc', '#cccccc'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
   chosenTradeType: string = '';
   isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
@@ -541,8 +541,10 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.buttonsTypes.forEach((buttonType, index) => {
       if (buttonType === this.chosenTradeType) {
         this.hoverColors[index] = '#ff5100';
+        this.ClickBorderColors[index] = '#ff5100';
       } else {
         this.hoverColors[index] = '#000000';
+        this.ClickBorderColors[index] = '#cccccc';
       }
     });
   }
@@ -669,7 +671,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       if (buttonType === type) {
         this.hoverColors[index] = '#ff5100';
       } else if (index !== ActiveIndex) {
-        // alert('index :' + index + ' ActiveIndex' + ActiveIndex);
         this.hoverColors[index] = '#000000';
       }
     });
