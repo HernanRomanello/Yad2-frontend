@@ -35,12 +35,12 @@ export class RealEstatePriceSliderComponent {
     const value = (event.target as HTMLInputElement).value;
     const onlyNumerics = value.replace(/\D/g, '');
     const element = event.target as HTMLInputElement;
+
     const number = parseInt(onlyNumerics);
     if (isNaN(number) || number < this.rangeValuesBuyMinMax[0]) {
       element.value = this.formatPrice(this.rangeValuesBuy[0]);
       return;
     }
-
     this.rangeValuesBuy = [number, this.rangeValuesBuy[1]];
     element.value = this.formatPrice(number);
   }

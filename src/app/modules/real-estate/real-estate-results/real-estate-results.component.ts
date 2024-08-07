@@ -88,7 +88,7 @@ export class RealEstateResultsComponent {
             selectedPropertyTypes.includes(ad.assetType)
           );
         }
-        if (selectedPriceRange[0] !== 0 && selectedPriceRange[1] !== 20000) {
+        if (selectedPriceRange[0] !== 0 || selectedPriceRange[1] !== 20000) {
           ads = ads.filter(
             (ad) =>
               ad.price >= selectedPriceRange[0] &&
