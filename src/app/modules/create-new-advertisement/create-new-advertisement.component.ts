@@ -51,7 +51,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   minPrice = 0;
   averagePrice = 0;
   hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
+  // buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
+  chosenTradeType: string = '';
   isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
   isFormPagesAreCompleted: boolean[] = [
     false,
@@ -534,6 +536,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   updatefurnitureDescription(description: string) {
     this.advertisementForm.get('furnituredescription').setValue(description);
   }
+  isActive(type: string): void {
+    this.chosenTradeType = type;
+    this.buttonsTypes.forEach((buttonType, index) => {
+      if (buttonType === this.chosenTradeType) {
+        this.hoverColors[index] = '#ff5100';
+      } else {
+        this.hoverColors[index] = '#000000';
+      }
+    });
+  }
 
   changeTradeTypeTitle(): string {
     switch (this.advertisementForm.get('tradeType').value) {
@@ -653,11 +665,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   onMouseOver(type: string) {
     this.buttonsTypes.forEach((buttonType, index) => {
+      const ActiveIndex = this.buttonsTypes.indexOf(this.chosenTradeType);
       if (buttonType === type) {
         this.hoverColors[index] = '#ff5100';
-      } else {
+      } else if (index !== ActiveIndex) {
+        // alert('index :' + index + ' ActiveIndex' + ActiveIndex);
         this.hoverColors[index] = '#000000';
       }
+    });
+  }
+
+  onMouseClick(type: string) {
+    this.buttonsTypes.forEach((buttonType, index) => {
+      this.hoverColors[index] = buttonType === type ? '#ff5100' : '#000000';
     });
   }
 

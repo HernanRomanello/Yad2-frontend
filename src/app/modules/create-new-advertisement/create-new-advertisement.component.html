@@ -1,9 +1,9 @@
 <form [formGroup]="advertisementForm" (ngSubmit)="handleSubmit()">
   <div class="space1"></div>
   @if(this.advertisementForm.get('tradeType').value === ''){
-  <div class="advertisement-selection">
+  <div class="advertisement-selection" id="Selection-1">
     <div class="section-title-container">
-      {{ this.changeTradeTypeTitle() }} <span class="section-title">1</span>
+      {{ this.changeTradeTypeTitle() }}<span class="section-title">1</span>
     </div>
 
     <div class="asset-type-buttons">
@@ -25,7 +25,11 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('נכס מסחרי'); submitPartOfTheForm(0)"
+        (click)="
+          setAdvertisementType('נכס מסחרי');
+          submitPartOfTheForm(0);
+          isActive('נכס מסחרי')
+        "
         (mouseover)="onMouseOver('נכס מסחרי')"
         (mouseout)="onMouseOver('')"
       >
@@ -102,7 +106,11 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('עסקים למכירה'); submitPartOfTheForm(0)"
+        (click)="
+          setAdvertisementType('עסקים למכירה');
+          submitPartOfTheForm(0);
+          isActive('עסקים למכירה')
+        "
         (mouseover)="onMouseOver('עסקים למכירה')"
         (mouseout)="onMouseOver('')"
       >
@@ -117,7 +125,11 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('נכס מסחרי'); submitPartOfTheForm(0)"
+        (click)="
+          setAdvertisementType('נכס מסחרי');
+          submitPartOfTheForm(0);
+          isActive('נכס מסחרי')
+        "
         (mouseover)="onMouseOver('נכס מסחרי')"
         (mouseout)="onMouseOver('')"
       >
@@ -131,7 +143,11 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('השכרה'); submitPartOfTheForm(0)"
+        (click)="
+          setAdvertisementType('השכרה');
+          submitPartOfTheForm(0);
+          isActive('השכרה')
+        "
         (mouseover)="onMouseOver('השכרה')"
         (mouseout)="onMouseOver('')"
       >
@@ -144,7 +160,11 @@
       <button
         class="asset-type"
         type="button"
-        (click)="setAdvertisementType('מכירה'); submitPartOfTheForm(0)"
+        (click)="
+          setAdvertisementType('מכירה');
+          submitPartOfTheForm(0);
+          isActive('מכירה')
+        "
         (mouseover)="onMouseOver('מכירה')"
         (mouseout)="onMouseOver('')"
       >

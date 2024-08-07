@@ -1,0 +1,15 @@
+<!-- Modal Overlay -->
+<div class="modal-overlay" *ngIf="isVisible" (click)="closeModal()"></div>
+
+<!-- Modal Content -->
+<div class="modal-content" *ngIf="isVisible">
+  <h2>שינוי מהירות פרסום</h2>
+  <p>
+    רעיון מהירות פרסום הוא חיבור המשתמש? <br />תכלול הערות שינוי ולא שבירה לי
+    שבוע.
+  </p>
+  <div class="modal-actions">
+    <button (click)="confirm()">המשך לפרסום</button>
+    <button (click)="closeModal()">שנה רעיון</button>
+  </div>
+</div>

@@ -32,6 +32,7 @@ import { AdvertisementComponent } from './modules/advertisement/advertisement.co
 import { FooterComponent } from './modules/footer/footer.component';
 import { CreateNewAdvertisementComponent } from './modules/create-new-advertisement/create-new-advertisement.component';
 import { AlternativeHeaderComponent } from './modules/alternative-header/alternative-header.component';
+import { InteractiveModalComponent } from './modules/interactive-modal/interactive-modal.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AlternativeHeaderComponent } from './modules/alternative-header/alterna
     FooterComponent,
     CreateNewAdvertisementComponent,
     AlternativeHeaderComponent,
+    InteractiveModalComponent,
   ],
   imports: [
     BrowserModule,
