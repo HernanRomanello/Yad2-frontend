@@ -1,15 +1,29 @@
 <!-- Modal Overlay -->
-<div class="modal-overlay" *ngIf="isVisible" (click)="closeModal()"></div>
+<div
+  class="modal-overlay"
+  *ngIf="modalstate.isModalVisible.getValue()"
+  (click)="closeModal()"
+></div>
 
 <!-- Modal Content -->
-<div class="modal-content" *ngIf="isVisible">
-  <h2>שינוי מהירות פרסום</h2>
+<div
+  ngClass="{{ modalContent.class }}"
+  *ngIf="modalstate.isModalVisible.getValue()"
+>
+  <h2 (click)="modalstate.setModalContent(1)">{{ modalContent.title }}</h2>
   <p>
     רעיון מהירות פרסום הוא חיבור המשתמש? <br />תכלול הערות שינוי ולא שבירה לי
     שבוע.
   </p>
   <div class="modal-actions">
-    <button (click)="confirm()">המשך לפרסום</button>
-    <button (click)="closeModal()">שנה רעיון</button>
+    <button ngClass="{{ modalContent.leftButtonClass }}" (click)="confirm()">
+      {{ modalContent.leftButtonContent }}
+    </button>
+    <button
+      ngClass="{{ modalContent.rightButtonClass }}"
+      (click)="closeModal()"
+    >
+      {{ modalContent.rightButtonContent }}
+    </button>
   </div>
 </div>

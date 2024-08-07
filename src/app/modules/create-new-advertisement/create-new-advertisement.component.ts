@@ -19,6 +19,7 @@ import {
 import { AuthService } from '../../services/user/auth.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { afterNextRender } from '@angular/core';
+import { ModalStateService } from '../../services/modal-state.service';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -207,7 +208,11 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     'inventory_2',
   ];
 
-  constructor(private renderer: Renderer2, private zone: NgZone) {
+  constructor(
+    private renderer: Renderer2,
+    private zone: NgZone,
+    private modalstate: ModalStateService
+  ) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
         const clickedElement = event.target as HTMLElement;
@@ -610,9 +615,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   async handleSubmit() {
     this.defineAssetState();
-    // alert(this.vidoeUrl);
     const form = this.advertisementForm.value;
-    // alert(this.advertisementForm.get('assetType').value);
 
     try {
       form.assetState = this.asset_State;
@@ -674,6 +677,10 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         this.hoverColors[index] = '#000000';
       }
     });
+  }
+
+  showOrHideModal(isVisible: boolean) {
+    this.modalstate.isModalVisible.next(isVisible);
   }
 
   onMouseClick(type: string) {

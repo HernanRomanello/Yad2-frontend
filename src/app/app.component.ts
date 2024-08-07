@@ -1,12 +1,25 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from './services/user/auth.service';
+import { ModalStateService } from './services/modal-state.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'angular-Yad2';
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    document.body.addEventListener('click', this.handleBodyClick);
+  }
   authService = inject(AuthService);
+  modalStateService = inject(ModalStateService);
+  renderer = inject(Renderer2);
+
+  handleBodyClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+
+    if (target.classList.value === 'modal-overlay') {
+      this.modalStateService.openOrCloseModal(false);
+    }
+  };
 }

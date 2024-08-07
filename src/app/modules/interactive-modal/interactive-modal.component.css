@@ -4,22 +4,27 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 999;
 }
 
-.modal-content {
+.exit-from-CreateAd {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
   max-width: 400px;
-  background: white;
+  /* background: white; */
   padding: 20px;
   z-index: 1000;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  background-color: rgb(255, 255, 255);
+  height: 200.438px;
+  width: 337.75px;
+  border-radius: 10px;
 }
 
 .modal-actions {
@@ -29,14 +34,26 @@
 }
 
 button {
-  padding: 10px 20px;
-  border: none;
-  background-color: orange;
-  color: white;
-  border-radius: 4px;
   cursor: pointer;
 }
+.left-button,
+.right-button {
+  height: 36px;
+  line-height: 16.1px;
+  border-radius: 30px;
+  margin: 0px 5px;
+  padding: 0px 18px;
+  font-weight: 600 !important;
+}
 
-button:hover {
-  opacity: 0.9;
+.left-button {
+  border: none;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 113, 0);
+}
+
+.right-button {
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 113, 0);
+  border: 1px solid rgb(255, 113, 0);
 }

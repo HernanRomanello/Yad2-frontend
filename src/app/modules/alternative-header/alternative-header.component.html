@@ -3,7 +3,13 @@
   <div class="header">
     <div class="left-side flex-center">
       <div class="gray-btns-container">
-        <button class="gray-btn flex-center">
+        <button
+          class="gray-btn flex-center"
+          (click)="
+            this.modalStateSerrvice.openOrCloseModal(true);
+            this.modalStateSerrvice.setModalContent(0)
+          "
+        >
           <i class="material-icons">close</i>יציאה
         </button>
         <button class="gray-btn">צור קשר</button>

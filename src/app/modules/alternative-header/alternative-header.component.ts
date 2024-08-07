@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
+import { ModalStateService } from '../../services/modal-state.service';
 
 @Component({
   selector: 'app-alternative-header',
@@ -8,6 +9,7 @@ import { AuthService } from '../../services/user/auth.service';
 })
 export class AlternativeHeaderComponent {
   authSerrvice = inject(AuthService);
+  modalStateSerrvice = inject(ModalStateService);
   isUserAreaDropdownVisible = false;
 
   isUserAreaDropdownOpen(isUserAreaDropdownOpen: boolean) {
