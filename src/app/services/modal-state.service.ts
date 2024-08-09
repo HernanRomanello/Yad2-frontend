@@ -22,11 +22,15 @@ export class ModalStateService {
   modals: ModalContent[] = [
     {
       title: 'יציאה מתהליך פרסום',
+      titleClass: 'title-exit',
       class: 'exit-from-CreateAd',
       rightButtonClass: 'right-button',
       leftButtonClass: 'left-button',
       rightButtonContent: 'יציאה ללא שמירה',
       leftButtonContent: 'חזרה לפרסום',
+      line1: ' ?לצאת מתהליך פרסום המודעה החדשה',
+      line2: ' כל הפעולות שעשית לא ישמרו',
+      innerBoxClass: 'inner-box-exit',
     },
   ];
   constructor() {}

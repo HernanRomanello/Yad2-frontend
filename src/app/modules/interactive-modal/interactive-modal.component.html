@@ -1,29 +1,37 @@
-<!-- Modal Overlay -->
 <div
   class="modal-overlay"
   *ngIf="modalstate.isModalVisible.getValue()"
   (click)="closeModal()"
 ></div>
 
-<!-- Modal Content -->
 <div
   ngClass="{{ modalContent.class }}"
   *ngIf="modalstate.isModalVisible.getValue()"
 >
-  <h2 (click)="modalstate.setModalContent(1)">{{ modalContent.title }}</h2>
-  <p>
-    רעיון מהירות פרסום הוא חיבור המשתמש? <br />תכלול הערות שינוי ולא שבירה לי
-    שבוע.
-  </p>
-  <div class="modal-actions">
-    <button ngClass="{{ modalContent.leftButtonClass }}" (click)="confirm()">
-      {{ modalContent.leftButtonContent }}
-    </button>
-    <button
-      ngClass="{{ modalContent.rightButtonClass }}"
-      (click)="closeModal()"
+  <div ngClass="{{ modalContent.innerBoxClass }}">
+    <i (click)="closeModal()" class="material-icons">close</i>
+    <h2
+      ngClass="{{ modalContent.titleClass }}"
+      (click)="modalstate.setModalContent(1)"
     >
-      {{ modalContent.rightButtonContent }}
-    </button>
+      {{ modalContent.title }}
+    </h2>
+    <div>{{ modalContent.line1 }}</div>
+    <div>{{ modalContent.line2 }}</div>
+    <div class="modal-actions">
+      <button
+        ngClass="{{ modalContent.leftButtonClass }}"
+        (click)="closeModal()"
+      >
+        {{ modalContent.leftButtonContent }}
+      </button>
+      <button
+        (click)="closeModal()"
+        routerLink="/."
+        ngClass="{{ modalContent.rightButtonClass }}"
+      >
+        {{ modalContent.rightButtonContent }}
+      </button>
+    </div>
   </div>
 </div>
