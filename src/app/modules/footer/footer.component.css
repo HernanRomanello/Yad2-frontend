@@ -14,7 +14,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  max-height: 561.4px;
+  /* max-height: 561.4px; */
 }
 
 .app-explanation {
@@ -28,6 +28,7 @@
   margin: 0 !important;
   padding: 0 !important;
   color: rgb(153, 153, 153) !important;
+  line-height: 16.1px !important;
 }
 
 .AllRightAreSave {
@@ -36,8 +37,9 @@
 .categories {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
-  width: 950px;
+  width: 1050px;
   gap: 1rem !important;
+  transform: translateX(-50px);
 }
 
 .categories div {
@@ -47,9 +49,10 @@
 }
 
 .category-title {
-  font-size: 18px !important;
+  font-size: 17px !important;
   font-weight: 500 !important;
   margin-bottom: 1rem !important;
+  color: #ffffff !important;
 }
 
 .two-col {
@@ -92,6 +95,8 @@
 .logos {
   display: flex;
   gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .circle {
@@ -106,4 +111,10 @@
 
 .google-img {
   transform: translateX(2px);
+}
+
+.version {
+  color: #ffffff !important;
+  line-height: 16.1px !important;
+  /* margin: 1rem 0 !important; */
 }

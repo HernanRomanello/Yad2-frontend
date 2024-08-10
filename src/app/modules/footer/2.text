@@ -1,4 +1,4 @@
-ul .bottom-links_aboutLinks__1NdFx {
+span .footer_environments__lLs21 {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -7,8 +7,8 @@ ul .bottom-links_aboutLinks__1NdFx {
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: 16.1px;
-	text-decoration: none solid rgb(153, 153, 153);
-	text-align: start;
+	text-decoration: none solid rgb(255, 255, 255);
+	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -21,17 +21,17 @@ ul .bottom-links_aboutLinks__1NdFx {
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(153, 153, 153);
+	color: rgb(255, 255, 255);
 
 	/* Box */
-	height: 23px;
+	height: 16.0938px;
 	width: 950px;
-	border: 0px none rgb(153, 153, 153);
-	border-top: 0px none rgb(153, 153, 153);
-	border-right: 0px none rgb(153, 153, 153);
-	border-bottom: 0px none rgb(153, 153, 153);
-	border-left: 0px none rgb(153, 153, 153);
-	margin: 20px 0px;
+	border: 0px none rgb(255, 255, 255);
+	border-top: 0px none rgb(255, 255, 255);
+	border-right: 0px none rgb(255, 255, 255);
+	border-bottom: 0px none rgb(255, 255, 255);
+	border-left: 0px none rgb(255, 255, 255);
+	margin: 10px 0px 0px;
 	padding: 0px;
 	max-height: none;
 	min-height: 0px;
@@ -45,13 +45,13 @@ ul .bottom-links_aboutLinks__1NdFx {
 	right: auto;
 	left: auto;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
 	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: none;
+	list-style-type: disc;
 	list-style-position: outside;
 
 	/* Table */
