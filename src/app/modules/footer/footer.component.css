@@ -126,9 +126,22 @@
 .align-start {
   text-align: start !important;
   width: fit-content;
-  margin-right: 75px;
+  margin-right: 60px;
 }
 
 div {
   border: solid 1px red !important;
+}
+
+.align-text-end li {
+  /* text-align: end !important; */
+  /* margin-right: auto; */
+  width: fit-content !important;
+  margin-right: 75px;
+  flex-wrap: nowrap !important;
+}
+
+.align-text-center li {
+  /* text-align: end !important; */
+  margin-right: 1.5rem;
 }
