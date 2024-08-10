@@ -71,3 +71,39 @@
 .footer-links a {
   color: rgb(153, 153, 153) !important;
 }
+
+.footer-links {
+  display: flex;
+  direction: rtl;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline !important;
+}
+
+.logos img {
+  width: 20px;
+  height: 20px;
+  background-color: #000000 !important;
+}
+
+.logos {
+  display: flex;
+  gap: 1rem;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: #000000 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-img {
+  transform: translateX(2px);
+}

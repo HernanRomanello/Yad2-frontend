@@ -1,4 +1,4 @@
-hr .footer_divider__Or2x4 {
+ul .bottom-links_aboutLinks__1NdFx {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -7,7 +7,7 @@ hr .footer_divider__Or2x4 {
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: 16.1px;
-	text-decoration: none solid rgb(204, 204, 204);
+	text-decoration: none solid rgb(153, 153, 153);
 	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,21 +17,21 @@ hr .footer_divider__Or2x4 {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(90, 90, 90);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(204, 204, 204);
+	color: rgb(153, 153, 153);
 
 	/* Box */
-	height: 1px;
-	width: 420px;
-	border: 0px none rgb(204, 204, 204);
-	border-top: 0px none rgb(204, 204, 204);
-	border-right: 0px none rgb(204, 204, 204);
-	border-bottom: 0px none rgb(204, 204, 204);
-	border-left: 0px none rgb(204, 204, 204);
-	margin: 0px 265px;
+	height: 23px;
+	width: 950px;
+	border: 0px none rgb(153, 153, 153);
+	border-top: 0px none rgb(153, 153, 153);
+	border-right: 0px none rgb(153, 153, 153);
+	border-bottom: 0px none rgb(153, 153, 153);
+	border-left: 0px none rgb(153, 153, 153);
+	margin: 20px 0px;
 	padding: 0px;
 	max-height: none;
 	min-height: 0px;
@@ -45,13 +45,13 @@ hr .footer_divider__Or2x4 {
 	right: auto;
 	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: disc;
+	list-style-type: none;
 	list-style-position: outside;
 
 	/* Table */
@@ -71,7 +71,7 @@ hr .footer_divider__Or2x4 {
 	transition: all;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
-	box-sizing: content-box;
+	box-sizing: border-box;
 	resize: none;
 	text-shadow: none;
 	text-overflow: clip;
