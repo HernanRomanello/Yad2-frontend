@@ -18,7 +18,6 @@ import { LoginComponent } from './modules/login/login.component';
 import { RegistrationFormComponent } from './modules/registration-form/registration-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatIconModule } from '@angular/material/icon';
-import { TestComponent } from './test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -40,7 +39,6 @@ import { InteractiveModalComponent } from './modules/interactive-modal/interacti
     HeaderComponent,
     LoginComponent,
     RegistrationFormComponent,
-    TestComponent,
     AdvertisementComponent,
     FooterComponent,
     CreateNewAdvertisementComponent,

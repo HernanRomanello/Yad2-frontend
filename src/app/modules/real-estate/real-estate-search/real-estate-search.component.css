@@ -96,7 +96,7 @@
   text-align: left;
 }
 
-.price-btn {
+.price-btn .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -248,11 +248,19 @@ i {
 
 .alert-btn {
   border: transparent !important;
-  color: rgb(255, 113, 0) !important;
-  font-weight: 650;
-  opacity: 0.8;
+  color: #ff7100 !important;
+  font-weight: 550;
+  padding: 0 !important;
+  transform: translateX(10px);
 }
 
 .space {
   width: 4px;
+}
+
+.bell-img {
+  width: 20px;
+  height: 17px;
+  font-weight: 700;
+  transform: translatey(2px) translateX(-4px);
 }
