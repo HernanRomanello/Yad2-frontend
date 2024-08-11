@@ -32,7 +32,11 @@
       (mouseover)="openMenu('menu_FavoriteAds')"
       (mouseleave)="closeMenu('menu_FavoriteAds')"
     >
-      <button class="light">מודעות שאהבתי</button>
+      <button class="light favorite-btn">
+        <div>מודעות שאהבתי</div>
+
+        <div><i class="material-icons">favorite_border</i></div>
+      </button>
       <div class="menu" *ngIf="menus['menu_FavoriteAds']"></div>
     </div>
 

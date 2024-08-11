@@ -90,3 +90,19 @@ button {
 .user-name {
   font-size: 14px !important;
 }
+
+.light div,
+.favorite-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favorite-btn {
+  gap: 5px;
+}
+
+.light div i {
+  color: #363636;
+  transform: translateY(2px);
+}
