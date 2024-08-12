@@ -110,7 +110,6 @@ button {
 
 .Post-Btn button i {
   font-size: 20px !important;
-  /* margin-left: 4px; */
   opacity: 0.8 !important;
   transform: translateY(1px) translateX(3px);
 }
