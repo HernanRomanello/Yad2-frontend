@@ -1,14 +1,14 @@
-a .button_button__KrRYB button_flexed__XqvBS button_default-secondary__S52cD button_mobile-size-medium__9vkbz button_desktop-size-small__jN5Ak button-with-icon_withIcon__LBolK button-with-icon_mobile-icon-medium__8CPa4 button-with-icon_desktop-icon-small__TIw0T button-with-icon_default-icon-color-secondary__ImbeC button-with-icon_right__PWXgZ publish-ad_button__J2sIB {
+a .option_option__pRljk option_hoisted__c9Slr {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 500;
+	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 16.1px;
-	text-decoration: none solid rgb(255, 113, 0);
-	text-align: start;
+	line-height: 50px;
+	text-decoration: none solid rgb(54, 54, 54);
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,30 +17,33 @@ a .button_button__KrRYB button_flexed__XqvBS button_default-secondary__S52cD but
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 250, 245);
+	background-color: rgb(248, 248, 248);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(255, 113, 0);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 36px;
-	width: 134.359px;
-	border: 1px soli...gb(255, 113, 0);
-	border-left: 1px solid rgb(255, 113, 0);
+	height: 50px;
+	width: 202.719px;
+	border: 0px none rgb(54, 54, 54);
+	border-top: 0px none rgb(54, 54, 54);
+	border-right: 0px none rgb(54, 54, 54);
+	border-bottom: 0px none rgb(54, 54, 54);
+	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 0px 12px 0px 18px;
+	padding: 0px 20px 0px 30px;
 	max-height: none;
-	min-height: 36px;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
-	position: static;
-	top: auto;
-	bottom: auto;
-	right: auto;
-	left: auto;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
 	float: none;
 	display: flex;
 	clear: none;
@@ -48,7 +51,7 @@ a .button_button__KrRYB button_flexed__XqvBS button_default-secondary__S52cD but
 
 	/* List */
 	list-style-image: none;
-	list-style-type: disc;
+	list-style-type: none;
 	list-style-position: outside;
 
 	/* Table */
@@ -74,8 +77,8 @@ a .button_button__KrRYB button_flexed__XqvBS button_default-secondary__S52cD but
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }

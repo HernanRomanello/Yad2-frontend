@@ -9,26 +9,29 @@
 
     @if (authSerrvice.user ) {
     <div
+      class="btn"
       *ngIf="authSerrvice.user | async as user"
       class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_User')"
       (mouseleave)="closeMenu('menu_User')"
     >
-      <div style="display: flex">
+      <div class="user-name-btn" style="display: flex">
         <button class="user-name">{{ user.name }}</button>
         <div class="round">{{ user.name.slice(0, 2) }}</div>
       </div>
-      <div class="menu" *ngIf="menus['menu_User']">
-        <button routerLink="/profile" mat-menu-item>אזור אישי</button>
-        <button mat-menu-item>חיפושים אחרונים</button>
-        <button mat-menu-item>התראות</button>
-        <button mat-menu-item>התנתקות</button>
+      <div class="menu-user-area-btn" *ngIf="menus['menu_User']">
+        <button class="user-area-btn" routerLink="/profile" mat-menu-item>
+          אזור אישי
+        </button>
+        <button class="user-area-btn">חיפושים אחרונים</button>
+        <button class="user-area-btn">התראות</button>
+        <button class="user-area-btn">התנתקות</button>
       </div>
     </div>
     } @else { }
 
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_FavoriteAds')"
       (mouseleave)="closeMenu('menu_FavoriteAds')"
     >
@@ -42,7 +45,7 @@
   </div>
   <div class="right-side">
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_Yad2Magazine')"
       (mouseleave)="closeMenu('menu_Yad2Magazine')"
     >
@@ -51,7 +54,7 @@
     </div>
 
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_proffesionals')"
       (mouseleave)="closeMenu('menu_proffesionals')"
     >
@@ -72,7 +75,7 @@
     </div>
 
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_Pets')"
       (mouseleave)="closeMenu('menu_Pets')"
     >
@@ -92,7 +95,7 @@
     </div>
 
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_BusinessesforSale')"
       (mouseleave)="closeMenu('menu_BusinessesforSale')"
     >
@@ -109,7 +112,7 @@
     </div>
 
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_JobsIL')"
       (mouseleave)="closeMenu('menu_JobsIL')"
     >
@@ -142,7 +145,7 @@
     </div>
 
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_Yad2')"
       (mouseleave)="closeMenu('menu_Yad2')"
     >
@@ -163,7 +166,7 @@
     </div>
 
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_Cars')"
       (mouseleave)="closeMenu('menu_Cars')"
     >
@@ -182,7 +185,7 @@
     </div>
 
     <div
-      class="menu-container menu-button-trigger-area"
+      class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_RealEstate')"
       (mouseleave)="closeMenu('menu_RealEstate')"
     >
