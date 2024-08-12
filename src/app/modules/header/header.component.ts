@@ -18,7 +18,7 @@ type MenuTriggers = {
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
   _LogoPic = 'assets/images/logo-default.svg';

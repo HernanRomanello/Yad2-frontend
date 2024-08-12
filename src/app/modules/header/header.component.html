@@ -23,12 +23,76 @@
         <button class="user-area-btn" routerLink="/profile" mat-menu-item>
           אזור אישי
         </button>
-        <button class="user-area-btn">חיפושים אחרונים</button>
+        <button class="user-area-btn">
+          חיפושים אחרונים <mat-icon>history</mat-icon>
+        </button>
         <button class="user-area-btn">התראות</button>
-        <button class="user-area-btn">התנתקות</button>
+        <button class="user-area-btn border-top">
+          התנתקות
+          <img
+            class="svg-icon"
+            src="assets/images/door-svgrepo-com.svg"
+            alt="logo"
+          />
+        </button>
       </div>
     </div>
     } @else { }
+
+    <!-- @if (authSerrvice.user ) {
+      <div *ngIf="authSerrvice.user | async as user" class="">
+        <div routerLink="/profile" class="flex-center">
+          <div class="user-name flex-center">
+            {{ user.name }}
+          </div>
+          <div class="round flex-center">
+            {{ user.email.slice(0, 1) | uppercase }}
+          </div>
+        </div>
+        <div
+          class="menu"
+          *ngIf="this.isUserAreaDropdownVisible"
+          (mouseover)="isUserAreaDropdownOpen(true)"
+          (mouseleave)="isUserAreaDropdownOpen(false)"
+        >
+          <div class="menu-bar" routerLink="/profile">
+            <div>עריכת פרופיל</div>
+            <div>
+              <img
+                class="svg-icon"
+                src="assets/images/edit-2-svgrepo-com.svg"
+                alt="logo"
+              />
+            </div>
+          </div>
+          <div class="menu-bar">
+            המודעות שלי<mat-icon>star_border</mat-icon>
+          </div>
+          <div class="menu-bar">
+            חפושים אחרונים <mat-icon>history</mat-icon>
+          </div>
+          <div class="menu-bar">
+            <div>חזרה לאתר הראשי</div>
+            <img
+              class="svg-icon"
+              src="assets/images/house-floor-svgrepo-com.svg"
+              alt="logo"
+            />
+          </div>
+          <div class="menu-bar border-top">
+            <div>התנתקות</div>
+
+            <div>
+              <img
+                class="svg-icon"
+                src="assets/images/door-svgrepo-com.svg"
+                alt="logo"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      } -->
 
     <div
       class="menu-container menu-button-trigger-area btn"

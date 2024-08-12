@@ -170,10 +170,21 @@ div {
 
 button,
 .user-name,
-.btn {
+.btn,
+.user-name-btn {
   cursor: pointer;
 }
 
 .user-name-btn {
-  padding-right: 12px;
+  padding-right: 1rem;
+}
+
+.svg-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.border-top {
+  border-top: 1px solid rgb(180, 180, 180, 0.3);
 }
