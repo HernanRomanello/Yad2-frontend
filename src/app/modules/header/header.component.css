@@ -1,12 +1,35 @@
-.mat-toolbar-row {
-  justify-content: space-between;
-  padding: 0 20px;
-  background-color: rgb(255, 255, 255);
+.header,
+.left-side,
+.right-side {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  align-items: center;
+  background-color: #ffffff;
   height: 64px !important;
 }
-.header {
-  border-bottom: 1px solid lightgray;
+
+.header,
+.right-side {
+  justify-content: space-between;
 }
+
+.right-side {
+  width: 60vw !important;
+  margin-left: 0 !important;
+}
+
+.left-side {
+  width: 30vw !important;
+  margin-left: 1rem !important;
+  gap: 1rem;
+}
+
+.logo-btn {
+  width: 73;
+  height: 37;
+  transform: translateX(-16px);
+}
+
 button {
   background-color: transparent;
   border: none;
@@ -74,15 +97,13 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 14px !important;
-  font-weight: 500;
-  text-decoration: none solid rgb(54, 54, 54);
   border: 1px solid #fc8c31;
   border-radius: 30px;
-
   line-height: 16.1px;
-  width: 150px !important;
   height: 36px;
-  padding: 18px !important;
+  width: 134.359px;
+  padding: 0px 12px 0px 18px;
+  white-space: nowrap;
   color: #fc8c31;
   font-weight: bold !important;
 }
@@ -98,11 +119,11 @@ button {
   align-items: center;
 }
 
-.favorite-btn {
-  gap: 5px;
-}
-
 .light div i {
   color: #363636;
   transform: translateY(2px);
+}
+
+div {
+  /* border: 1px solid red !important; */
 }

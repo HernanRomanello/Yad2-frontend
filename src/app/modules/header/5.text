@@ -1,13 +1,13 @@
-input #city .input large ng-dirty ng-valid ng-touched {
+a .button_button__KrRYB button_flexed__XqvBS button_default-secondary__S52cD button_mobile-size-medium__9vkbz button_desktop-size-small__jN5Ak button-with-icon_withIcon__LBolK button-with-icon_mobile-icon-medium__8CPa4 button-with-icon_desktop-icon-small__TIw0T button-with-icon_default-icon-color-secondary__ImbeC button-with-icon_right__PWXgZ publish-ad_button__J2sIB {
 	/* Font & Text */
-	font-family: Arial;
-	font-size: 16px;
+	font-family: Rubik, sans-serif;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
+	font-weight: 500;
 	letter-spacing: normal;
-	line-height: 18.4px;
-	text-decoration: none solid rgb(0, 0, 0);
+	line-height: 16.1px;
+	text-decoration: none solid rgb(255, 113, 0);
 	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,24 +17,21 @@ input #city .input large ng-dirty ng-valid ng-touched {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(232, 240, 254);
+	background-color: rgb(255, 250, 245);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(0, 0, 0);
+	color: rgb(255, 113, 0);
 
 	/* Box */
-	height: 42px;
-	width: 270px;
-	border: 1px solid rgba(153, 153, 153, 0.7);
-	border-top: 1px solid rgba(153, 153, 153, 0.7);
-	border-right: 1px solid rgba(153, 153, 153, 0.7);
-	border-bottom: 1px solid rgba(153, 153, 153, 0.7);
-	border-left: 1px solid rgba(153, 153, 153, 0.7);
+	height: 36px;
+	width: 134.359px;
+	border: 1px soli...gb(255, 113, 0);
+	border-left: 1px solid rgb(255, 113, 0);
 	margin: 0px;
-	padding: 1px 20px 1px 2px;
+	padding: 0px 12px 0px 18px;
 	max-height: none;
-	min-height: auto;
+	min-height: 36px;
 	max-width: none;
 	min-width: auto;
 
@@ -45,7 +42,7 @@ input #city .input large ng-dirty ng-valid ng-touched {
 	right: auto;
 	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
@@ -62,8 +59,8 @@ input #city .input large ng-dirty ng-valid ng-touched {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: clip;
-	cursor: text;
+	overflow: visible;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +74,8 @@ input #city .input large ng-dirty ng-valid ng-touched {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
 }

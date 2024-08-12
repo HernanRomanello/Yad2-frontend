@@ -1,7 +1,7 @@
-<mat-toolbar class="header" color="rgb(255,255,255)">
-  <mat-toolbar-row>
+<header class="header">
+  <div class="left-side">
     <div class="Post-Btn">
-      <button class="light" mat-button routerLink="create-advertisement">
+      <button class="light" routerLink="create-advertisement">
         פרסום הודעה
         <i class="material-icons">add</i>
       </button>
@@ -39,7 +39,8 @@
       </button>
       <div class="menu" *ngIf="menus['menu_FavoriteAds']"></div>
     </div>
-
+  </div>
+  <div class="right-side">
     <div
       class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_Yad2Magazine')"
@@ -202,9 +203,8 @@
       </div>
     </div>
 
-    <button routerLink="/" mat-button [matMenuTriggerFor]="menu12">
+    <button class="logo-btn" routerLink="/">
       <img src="{{ _LogoPic }}" alt="logo" />
     </button>
-    <mat-menu #menu12="matMenu"> </mat-menu>
-  </mat-toolbar-row>
-</mat-toolbar>
+  </div>
+</header>
