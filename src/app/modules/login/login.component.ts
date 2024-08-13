@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,14 +8,18 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private authService: AuthService,
     private formbuilder: FormBuilder
   ) {}
+  ngOnDestroy(): void {
+    this.authService.IsHeaderAndFooterOpen(true);
+  }
 
   ngOnInit(): void {
+    this.authService.IsHeaderAndFooterOpen(false);
     this.loginForm = this.formbuilder.group({
       email: this.formbuilder.control('', Validators.required),
       password: this.formbuilder.control('', Validators.required),
