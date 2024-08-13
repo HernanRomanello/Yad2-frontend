@@ -7,7 +7,7 @@
       </button>
     </div>
 
-    @if (authSerrvice.user ) {
+    <!-- @if (authSerrvice.user ) { -->
     <div
       class="btn"
       *ngIf="authSerrvice.user | async as user"
@@ -16,8 +16,23 @@
       (mouseleave)="closeMenu('menu_User')"
     >
       <div class="user-name-btn" style="display: flex">
-        <button class="user-name">{{ user.name }}</button>
-        <div class="round">{{ user.name.slice(0, 2) }}</div>
+        <button class="user-name">
+          @if (authSerrvice.user ) {
+
+          {{ user.name }}
+          }@else { התחברות }
+        </button>
+        <div [ngClass]="getCircleClass(authSerrvice.user.getValue())">
+          @if (authSerrvice.user ) {
+          {{ user.name.slice(0, 2) }}
+          }@else {
+          <img
+            class="svg-icon user-img"
+            src="assets/images/user.svg"
+            alt="logo"
+          />
+          }
+        </div>
       </div>
       <div class="menu-user-area-btn" *ngIf="menus['menu_User']">
         <button class="user-area-btn" routerLink="/profile">
@@ -53,7 +68,7 @@
         </button>
       </div>
     </div>
-    } @else { }
+    <!-- } -->
 
     <div
       class="menu-container menu-button-trigger-area btn"

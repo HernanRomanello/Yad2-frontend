@@ -38,21 +38,29 @@ button {
   align-items: center;
 }
 
-.round {
+.round,
+.round-gray {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fc8c31;
   border-radius: 50%;
   text-align: center;
-  border: 1px solid #fc8c31;
   line-height: 16.1px;
-  text-decoration: none solid rgb(54, 54, 54);
   text-align: center;
   background-color: #fff1e6;
   height: 40px;
   width: 40px;
   margin: 12px 0 12px 0px;
+}
+
+.round {
+  color: #fc8c31;
+  border: 1px solid #fc8c31;
+  text-decoration: none solid rgb(54, 54, 54);
+}
+
+.round-gray {
+  background-color: #f8f8f8;
 }
 .heart-button {
   color: transparent;

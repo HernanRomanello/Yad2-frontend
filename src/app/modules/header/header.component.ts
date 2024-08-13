@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
+import { UserModel } from '../../shared/models/UserModel';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -44,5 +45,12 @@ export class HeaderComponent {
 
   closeMenu(menu: keyof MenuTriggers) {
     this.menus[menu] = false;
+  }
+
+  // getCircleClass(IsUserConnected: boolean): string {
+  //   return IsUserConnected ? 'round' : 'round-gray';
+  // }
+  getCircleClass(isUserConnected: UserModel | null | undefined): string {
+    return isUserConnected ? 'round' : 'round-gray';
   }
 }
