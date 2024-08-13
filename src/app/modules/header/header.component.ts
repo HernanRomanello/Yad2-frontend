@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { UserModel } from '../../shared/models/UserModel';
 
@@ -21,9 +21,18 @@ type MenuTriggers = {
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
+  ngOnDestroy(): void {
+    this.authSerrvice.isUserLogin.unsubscribe();
+  }
+  ngOnInit(): void {
+    this.authSerrvice.isUserLogin.subscribe(
+      (status) => (this.isUserConnected = status)
+    );
+  }
   _LogoPic = 'assets/images/logo-default.svg';
   authSerrvice = inject(AuthService);
+  isUserConnected: boolean = false;
 
   menus: MenuTriggers = {
     menu_User: false,
@@ -47,10 +56,10 @@ export class HeaderComponent {
     this.menus[menu] = false;
   }
 
-  // getCircleClass(IsUserConnected: boolean): string {
-  //   return IsUserConnected ? 'round' : 'round-gray';
-  // }
-  getCircleClass(isUserConnected: UserModel | null | undefined): string {
-    return isUserConnected ? 'round' : 'round-gray';
+  getCircleClass(): string {
+    this.authSerrvice.isUserLogin.subscribe(
+      (status) => (this.isUserConnected = status)
+    );
+    return this.isUserConnected ? 'round' : 'round-gray';
   }
 }

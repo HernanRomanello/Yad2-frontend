@@ -17,12 +17,12 @@
     >
       <div class="user-name-btn" style="display: flex">
         <button class="user-name">
-          @if (authSerrvice.user ) {
+          @if (this.isUserConnected) {
 
           {{ user.name }}
           }@else { התחברות }
         </button>
-        <div [ngClass]="getCircleClass(authSerrvice.user.getValue())">
+        <div [ngClass]="getCircleClass()">
           @if (authSerrvice.user ) {
           {{ user.name.slice(0, 2) }}
           }@else {
@@ -57,7 +57,10 @@
             alt="logo"
           />
         </button>
-        <button class="user-area-btn border-top">
+        <button
+          (click)="this.authSerrvice.logout()"
+          class="user-area-btn border-top"
+        >
           <div>התנתקות</div>
 
           <img

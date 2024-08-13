@@ -97,6 +97,13 @@ export class AuthService {
     return false;
   }
 
+  async logout() {
+    this.isUserLogin.next(false);
+    this.access_token.next(undefined);
+    localStorage.setItem('access_token', '');
+    this.router.navigate(['/login']);
+  }
+
   GetUserDatails() {
     this.httpClient
       .get<UserModel>(`${this.Url}api/Users/User`)
