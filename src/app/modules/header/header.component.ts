@@ -1,6 +1,8 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { UserModel } from '../../shared/models/UserModel';
+import { ModalStateService } from '../../services/modal-state.service';
+import { ModalContent } from '../../shared/models/Modal';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -23,21 +25,14 @@ type MenuTriggers = {
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   userName: string = '';
-  ngOnDestroy(): void {
-    this.authSerrvice.isUserLogin.unsubscribe();
-    this.authSerrvice.user.unsubscribe();
-  }
-  ngOnInit(): void {
-    this.authSerrvice.isUserLogin.subscribe(
-      (status) => (this.isUserConnected = status)
-    );
-    this.authSerrvice.user.subscribe((user: UserModel | null | undefined) => {
-      this.userName = user?.name || '';
-    });
-  }
+  modalContent!: ModalContent;
+  isUserAreaDropdownVisible = false;
+
   _LogoPic = 'assets/images/logo-default.svg';
   authSerrvice = inject(AuthService);
+  modalStateSerrvice = inject(ModalStateService);
   isUserConnected: boolean = false;
+  firstLetterUserEmailAddress = '';
 
   menus: MenuTriggers = {
     menu_User: false,
@@ -52,6 +47,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
     menu_Cars: false,
     menu_RealEstate: false,
   };
+
+  isUserAreaDropdownOpen(isUserAreaDropdownOpen: boolean) {
+    this.isUserAreaDropdownVisible = isUserAreaDropdownOpen;
+  }
+
+  ngOnDestroy(): void {
+    this.authSerrvice.isUserLogin.unsubscribe();
+    this.authSerrvice.user.unsubscribe();
+  }
+  ngOnInit(): void {
+    this.authSerrvice.isUserLogin.subscribe(
+      (status) => (this.isUserConnected = status)
+    );
+    this.authSerrvice.user.subscribe((user: UserModel | null | undefined) => {
+      this.userName = user?.name || '';
+      this.firstLetterUserEmailAddress = user?.email[0].toUpperCase() || '';
+    });
+  }
 
   openMenu(menu: keyof MenuTriggers) {
     this.menus[menu] = true;

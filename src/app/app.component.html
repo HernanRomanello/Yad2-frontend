@@ -1,9 +1,9 @@
-@if (this.authService.IsMainHeaderISOpen | async) {
+<!-- @if (this.authService.IsMainHeaderISOpen | async) { -->
 <app-header></app-header>
 
-} @else {
-<app-alternative-header></app-alternative-header>
-}
+<!-- } @else { -->
+<!-- <app-alternative-header></app-alternative-header> -->
+<!-- } -->
 <router-outlet></router-outlet>
 @if (this.authService.IsMainFooterISOpen | async) {
 <app-footer></app-footer>

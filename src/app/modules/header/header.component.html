@@ -1,3 +1,5 @@
+@if (this.authSerrvice.IsMainHeaderISOpen | async) {
+
 <header class="header">
   <div class="left-side">
     <div class="Post-Btn">
@@ -259,3 +261,96 @@
     </button>
   </div>
 </header>
+} @else {
+<div class="orange-line"></div>
+<header>
+  <div class="header2">
+    <div class="left-side2 flex-center2">
+      <div class="gray-btns-container2">
+        <button
+          class="gray-btn2 flex-center2"
+          (click)="
+            this.modalStateSerrvice.openOrCloseModal(true);
+            this.modalStateSerrvice.setModalContent(0)
+          "
+        >
+          <i class="material-icons">close</i>יציאה
+        </button>
+        <button class="gray-btn2">צור קשר</button>
+      </div>
+      <div
+        class="user-area2 flex-center2"
+        (mouseover)="isUserAreaDropdownOpen(true)"
+        (mouseleave)="isUserAreaDropdownOpen(false)"
+      >
+        <div>
+          <div routerLink="/profile" class="flex-center2">
+            <div class="user-name2 flex-center2">
+              {{ this.userName }}
+            </div>
+            <div class="round2 flex-center2">
+              {{ this.firstLetterUserEmailAddress }}
+            </div>
+          </div>
+          <div
+            class="menu2"
+            *ngIf="this.isUserAreaDropdownVisible"
+            (mouseover)="isUserAreaDropdownOpen(true)"
+            (mouseleave)="isUserAreaDropdownOpen(false)"
+          >
+            <div class="menu-bar2" routerLink="/profile">
+              <div>עריכת פרופיל</div>
+              <div>
+                <img
+                  class="svg-icon2"
+                  src="assets/images/edit-2-svgrepo-com.svg"
+                  alt="logo"
+                />
+              </div>
+            </div>
+            <div class="menu-bar2">
+              המודעות שלי<mat-icon>star_border</mat-icon>
+            </div>
+            <div class="menu-bar2">
+              חפושים אחרונים <mat-icon>history</mat-icon>
+            </div>
+            <div class="menu-bar2">
+              <div>חזרה לאתר הראשי</div>
+              <img
+                class="svg-icon2"
+                src="assets/images/house-floor-svgrepo-com.svg"
+                alt="logo"
+              />
+            </div>
+            <div class="menu-bar2 border-top2">
+              <div (click)="authSerrvice.logout()">התנתקות</div>
+
+              <div>
+                <img
+                  class="svg-icon2"
+                  src="assets/images/door-svgrepo-com.svg"
+                  alt="logo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-side2 flex-center2">
+      @if (this.authSerrvice.UserPageRender.value ==='create-new-advertisement')
+      {
+
+      <div>פרסום מודעה חדשה</div>
+      } @if (this.authSerrvice.UserPageRender.value ==='user-area') {
+
+      <div class="user-area-text2 flex-center2">איזור אישי</div>
+      }
+      <div routerLink="/">
+        <img src="assets/images/logo-default.svg" alt="logo" />
+      </div>
+    </div>
+  </div>
+</header>
+
+}
