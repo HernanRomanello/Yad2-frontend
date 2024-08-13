@@ -136,10 +136,6 @@ button {
   transform: translateY(2px);
 }
 
-div {
-  /* border: 1px solid red !important; */
-}
-
 .user-area-btn:hover,
 .right-side div:hover,
 .btn:hover,
@@ -185,7 +181,8 @@ img,
   height: 24px;
 }
 
-.border-top {
+.border-top,
+.border-top2 {
   border-top: 1px solid rgb(180, 180, 180, 0.3);
 }
 
@@ -354,8 +351,4 @@ img,
 .svg-icon2 {
   width: 20px;
   height: 45px;
-}
-
-.border-top2 {
-  border-top: 1px solid rgb(180, 180, 180, 0.3);
 }
