@@ -19,14 +19,13 @@
         (mouseover)="isUserAreaDropdownOpen(true)"
         (mouseleave)="isUserAreaDropdownOpen(false)"
       >
-        @if (authSerrvice.user ) {
-        <div *ngIf="authSerrvice.user | async as user" class="">
+        <div>
           <div routerLink="/profile" class="flex-center">
             <div class="user-name flex-center">
-              {{ user.name }}
+              {{ this.userName }}
             </div>
             <div class="round flex-center">
-              {{ user.email.slice(0, 1) | uppercase }}
+              {{ this.firstLetterUserEmailAddress }}
             </div>
           </div>
           <div
@@ -60,7 +59,7 @@
               />
             </div>
             <div class="menu-bar border-top">
-              <div>התנתקות</div>
+              <div (click)="authSerrvice.logout()">התנתקות</div>
 
               <div>
                 <img
@@ -72,7 +71,6 @@
             </div>
           </div>
         </div>
-        }
       </div>
     </div>
     <div class="right-side flex-center">

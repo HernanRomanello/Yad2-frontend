@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
+import { AuthService } from '../../services/user/auth.service';
 
 @Component({
   selector: 'app-interactive-modal',
@@ -11,6 +12,7 @@ export class InteractiveModalComponent implements OnInit {
   modalContent!: ModalContent;
 
   modalstate = inject(ModalStateService);
+  authSerrvice = inject(AuthService);
 
   ngOnInit() {
     this.modalstate.currentModalContent.subscribe((content) => {

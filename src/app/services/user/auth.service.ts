@@ -1,4 +1,4 @@
-import { Injectable, afterNextRender } from '@angular/core';
+import { Injectable, NgZone, OnInit, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject, ReplaySubject, Subject, filter, from } from 'rxjs';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { formatNumber } from '@angular/common';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService implements OnInit {
   Url = environment.URl;
   access_token = new BehaviorSubject<string | null | undefined>('');
   isUserLogin = new ReplaySubject<boolean>(1);
@@ -28,11 +28,23 @@ export class AuthService {
   IsMainHeaderISOpen = new BehaviorSubject<boolean>(true);
   IsMainFooterISOpen = new BehaviorSubject<boolean>(true);
   UserPageRender = new BehaviorSubject<string>('');
+  userName = new BehaviorSubject<string>('');
+  firstLetterUserEmailAddress = new BehaviorSubject<string>('');
+  userName1 = new ReplaySubject<string>(1);
+  firstLetterUserEmailAddress1 = new ReplaySubject<string>(1);
 
-  constructor(private router: Router, private httpClient: HttpClient) {
+  constructor(
+    private router: Router,
+    private httpClient: HttpClient,
+    ngZone: NgZone
+  ) {
     afterNextRender(() => {
       this.access_token.next(localStorage.getItem('access_token'));
+      // this.ngZone.runOutsideAngular(() => {
+      //   this.GetUserDatails();
+      // });
     });
+
     this.access_token
       .pipe(filter((it) => it !== undefined))
       .subscribe((token) => {
@@ -47,6 +59,13 @@ export class AuthService {
           this.isUserLogin.next(false);
         }
       });
+  }
+  ngOnInit(): void {
+    this.GetUserDatails();
+  }
+
+  navigateTo(path: string) {
+    this.router.navigate([path]);
   }
 
   async SetPageRender(page: string) {
@@ -101,7 +120,8 @@ export class AuthService {
     this.isUserLogin.next(false);
     this.access_token.next(undefined);
     localStorage.setItem('access_token', '');
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
+    this.navigateTo('/login');
   }
 
   GetUserDatails() {
@@ -110,8 +130,17 @@ export class AuthService {
       .subscribe(async (response) => {
         if (response) {
           this.user.next(response);
+          this.saveUserDetails(response.name, response.email);
         }
       });
+  }
+
+  private saveUserDetails(name: string, email: string) {
+    if (!name || !email) {
+      return;
+    }
+    this.userName1.next(name.valueOf());
+    this.firstLetterUserEmailAddress1.next(email[0].valueOf().toUpperCase());
   }
 
   GetUsersAdvertisements() {
