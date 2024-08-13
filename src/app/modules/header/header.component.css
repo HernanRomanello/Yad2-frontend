@@ -46,7 +46,6 @@ button {
   border-radius: 50%;
   text-align: center;
   border: 1px solid #fc8c31;
-  font-size: 14px;
   line-height: 16.1px;
   text-decoration: none solid rgb(54, 54, 54);
   text-align: center;
@@ -95,7 +94,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px !important;
   border: 1px solid #fc8c31;
   border-radius: 30px;
   line-height: 16.1px;
@@ -114,7 +112,6 @@ button {
 }
 
 .user-name {
-  font-size: 14px !important;
   padding-left: 1rem;
 }
 
@@ -166,12 +163,14 @@ div {
   width: 202.719px;
   top: 64.3px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(-5rem);
 }
 
 button,
 .user-name,
 .btn,
-.user-name-btn {
+.user-name-btn,
+.svg-icon {
   cursor: pointer;
 }
 
@@ -182,9 +181,35 @@ button,
 .svg-icon {
   width: 24px;
   height: 24px;
-  cursor: pointer;
 }
 
 .border-top {
   border-top: 1px solid rgb(180, 180, 180, 0.3);
+}
+
+.menu-user-area-btn button,
+.user-name,
+.Post-Btn button,
+.round {
+  font-size: 14px !important;
+}
+
+.menu-user-area-btn img,
+.menu-user-area-btn mat-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 0.5rem;
+  font-size: 24px;
+}
+
+.menu-user-area-btn button div {
+  opacity: 0.7;
+}
+
+.user-img {
+  transform: scaleX(1.4) scaleY(1.2);
+}
+
+.bell-img {
+  transform: scaleX(1) scaleY(0.8);
 }

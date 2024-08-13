@@ -20,15 +20,31 @@
         <div class="round">{{ user.name.slice(0, 2) }}</div>
       </div>
       <div class="menu-user-area-btn" *ngIf="menus['menu_User']">
-        <button class="user-area-btn" routerLink="/profile" mat-menu-item>
-          אזור אישי
+        <button class="user-area-btn" routerLink="/profile">
+          <div>אזור אישי</div>
+
+          <img
+            class="svg-icon user-img"
+            src="assets/images/user.svg"
+            alt="logo"
+          />
         </button>
         <button class="user-area-btn">
-          חיפושים אחרונים <mat-icon>history</mat-icon>
+          <div>חיפושים אחרונים</div>
+          <mat-icon>history</mat-icon>
         </button>
-        <button class="user-area-btn">התראות</button>
+        <button class="user-area-btn">
+          <div>התראות</div>
+
+          <img
+            class="svg-icon bell-img"
+            src="assets/images/bell1.svg"
+            alt="logo"
+          />
+        </button>
         <button class="user-area-btn border-top">
-          התנתקות
+          <div>התנתקות</div>
+
           <img
             class="svg-icon"
             src="assets/images/door-svgrepo-com.svg"
@@ -38,61 +54,6 @@
       </div>
     </div>
     } @else { }
-
-    <!-- @if (authSerrvice.user ) {
-      <div *ngIf="authSerrvice.user | async as user" class="">
-        <div routerLink="/profile" class="flex-center">
-          <div class="user-name flex-center">
-            {{ user.name }}
-          </div>
-          <div class="round flex-center">
-            {{ user.email.slice(0, 1) | uppercase }}
-          </div>
-        </div>
-        <div
-          class="menu"
-          *ngIf="this.isUserAreaDropdownVisible"
-          (mouseover)="isUserAreaDropdownOpen(true)"
-          (mouseleave)="isUserAreaDropdownOpen(false)"
-        >
-          <div class="menu-bar" routerLink="/profile">
-            <div>עריכת פרופיל</div>
-            <div>
-              <img
-                class="svg-icon"
-                src="assets/images/edit-2-svgrepo-com.svg"
-                alt="logo"
-              />
-            </div>
-          </div>
-          <div class="menu-bar">
-            המודעות שלי<mat-icon>star_border</mat-icon>
-          </div>
-          <div class="menu-bar">
-            חפושים אחרונים <mat-icon>history</mat-icon>
-          </div>
-          <div class="menu-bar">
-            <div>חזרה לאתר הראשי</div>
-            <img
-              class="svg-icon"
-              src="assets/images/house-floor-svgrepo-com.svg"
-              alt="logo"
-            />
-          </div>
-          <div class="menu-bar border-top">
-            <div>התנתקות</div>
-
-            <div>
-              <img
-                class="svg-icon"
-                src="assets/images/door-svgrepo-com.svg"
-                alt="logo"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      } -->
 
     <div
       class="menu-container menu-button-trigger-area btn"
