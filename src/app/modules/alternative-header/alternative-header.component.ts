@@ -20,12 +20,13 @@ export class AlternativeHeaderComponent implements OnInit, OnDestroy {
   isUserAreaDropdownVisible = false;
 
   ngOnInit(): void {
-    this.authSerrvice.userName1.subscribe((name) => {
-      this.userName = name;
-    });
-    this.authSerrvice.firstLetterUserEmailAddress1.subscribe((letter) => {
-      this.firstLetterUserEmailAddress = letter;
-    });
+    // this.authSerrvice.userName1.subscribe((name) => {
+    //   this.userName = name;
+    // });
+    // this.authSerrvice.firstLetterUserEmailAddress1.subscribe((letter) => {
+    //   this.firstLetterUserEmailAddress = letter;
+    // });
+    this.authSerrvice.GetUserDatails();
   }
 
   isUserAreaDropdownOpen(isUserAreaDropdownOpen: boolean) {
