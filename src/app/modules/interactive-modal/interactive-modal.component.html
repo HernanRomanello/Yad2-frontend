@@ -26,7 +26,8 @@
         {{ modalContent.leftButtonContent }}
       </button>
       <button
-        (click)="closeModal(); this.authSerrvice.navigateTo('/')"
+        routerLink="/"
+        (click)="closeModal()"
         ngClass="{{ modalContent.rightButtonClass }}"
       >
         {{ modalContent.rightButtonContent }}

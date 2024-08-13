@@ -40,9 +40,6 @@ export class AuthService implements OnInit {
   ) {
     afterNextRender(() => {
       this.access_token.next(localStorage.getItem('access_token'));
-      // this.ngZone.runOutsideAngular(() => {
-      //   this.GetUserDatails();
-      // });
     });
 
     this.access_token
@@ -62,10 +59,6 @@ export class AuthService implements OnInit {
   }
   ngOnInit(): void {
     this.GetUserDatails();
-  }
-
-  navigateTo(path: string) {
-    this.router.navigate([path]);
   }
 
   async SetPageRender(page: string) {
@@ -120,8 +113,7 @@ export class AuthService implements OnInit {
     this.isUserLogin.next(false);
     this.access_token.next(undefined);
     localStorage.setItem('access_token', '');
-    // this.router.navigate(['/login']);
-    this.navigateTo('/login');
+    this.router.navigate(['/login']);
   }
 
   GetUserDatails() {
