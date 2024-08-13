@@ -9,8 +9,6 @@
 
     <!-- @if (authSerrvice.user ) { -->
     <div
-      class="btn"
-      *ngIf="authSerrvice.user | async as user"
       class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_User')"
       (mouseleave)="closeMenu('menu_User')"
@@ -19,12 +17,12 @@
         <button class="user-name">
           @if (this.isUserConnected) {
 
-          {{ user.name }}
+          {{ this.userName }}
           }@else { התחברות }
         </button>
         <div [ngClass]="getCircleClass()">
-          @if (authSerrvice.user ) {
-          {{ user.name.slice(0, 2) }}
+          @if (this.isUserConnected) {
+          {{ this.userName.slice(0, 2) }}
           }@else {
           <img
             class="svg-icon user-img"
@@ -35,6 +33,7 @@
         </div>
       </div>
       <div class="menu-user-area-btn" *ngIf="menus['menu_User']">
+        @if (this.isUserConnected) {
         <button class="user-area-btn" routerLink="/profile">
           <div>אזור אישי</div>
 
@@ -44,10 +43,13 @@
             alt="logo"
           />
         </button>
+        }
+
         <button class="user-area-btn">
           <div>חיפושים אחרונים</div>
           <mat-icon>history</mat-icon>
         </button>
+        @if (this.isUserConnected) { }
         <button class="user-area-btn">
           <div>התראות</div>
 
@@ -57,6 +59,7 @@
             alt="logo"
           />
         </button>
+        @if (this.isUserConnected) {
         <button
           (click)="this.authSerrvice.logout()"
           class="user-area-btn border-top"
@@ -69,9 +72,9 @@
             alt="logo"
           />
         </button>
+        }
       </div>
     </div>
-    <!-- } -->
 
     <div
       class="menu-container menu-button-trigger-area btn"
@@ -79,9 +82,11 @@
       (mouseleave)="closeMenu('menu_FavoriteAds')"
     >
       <button class="light favorite-btn">
-        <div>מודעות שאהבתי</div>
+        <div class="favorite-text-btn">מודעות שאהבתי</div>
 
-        <div><i class="material-icons">favorite_border</i></div>
+        <div>
+          <i class="material-icons">favorite_border</i>
+        </div>
       </button>
       <div class="menu" *ngIf="menus['menu_FavoriteAds']"></div>
     </div>

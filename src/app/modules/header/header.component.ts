@@ -22,13 +22,18 @@ type MenuTriggers = {
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  userName: string = '';
   ngOnDestroy(): void {
     this.authSerrvice.isUserLogin.unsubscribe();
+    this.authSerrvice.user.unsubscribe();
   }
   ngOnInit(): void {
     this.authSerrvice.isUserLogin.subscribe(
       (status) => (this.isUserConnected = status)
     );
+    this.authSerrvice.user.subscribe((user: UserModel | null | undefined) => {
+      this.userName = user?.name || '';
+    });
   }
   _LogoPic = 'assets/images/logo-default.svg';
   authSerrvice = inject(AuthService);

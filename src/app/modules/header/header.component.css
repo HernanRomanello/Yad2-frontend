@@ -140,17 +140,6 @@ div {
   /* border: 1px solid red !important; */
 }
 
-.user-area-btn {
-  line-height: 50px;
-  background-color: #fbfdfe;
-  height: 50px;
-  padding: 0px 20px 0px 30px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 .user-area-btn:hover,
 .left-side div:hover,
 .right-side div:hover,
@@ -221,4 +210,20 @@ button,
 
 .bell-img {
   transform: scaleX(1) scaleY(0.8);
+}
+
+.user-area-btn {
+  line-height: 50px;
+  background-color: #fbfdfe;
+  height: 50px;
+  padding: 0px 20px 0px 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  white-space: nowrap !important;
+}
+
+.favorite-text-btn {
+  width: 103px !important;
 }
