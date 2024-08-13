@@ -30,7 +30,6 @@ import { RealEstatePriceSliderComponent } from './modules/real-estate/real-estat
 import { AdvertisementComponent } from './modules/advertisement/advertisement.component';
 import { FooterComponent } from './modules/footer/footer.component';
 import { CreateNewAdvertisementComponent } from './modules/create-new-advertisement/create-new-advertisement.component';
-import { AlternativeHeaderComponent } from './modules/alternative-header/alternative-header.component';
 import { InteractiveModalComponent } from './modules/interactive-modal/interactive-modal.component';
 
 @NgModule({
@@ -42,7 +41,6 @@ import { InteractiveModalComponent } from './modules/interactive-modal/interacti
     AdvertisementComponent,
     FooterComponent,
     CreateNewAdvertisementComponent,
-    AlternativeHeaderComponent,
     InteractiveModalComponent,
   ],
   imports: [
