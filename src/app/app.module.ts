@@ -31,6 +31,7 @@ import { AdvertisementComponent } from './modules/advertisement/advertisement.co
 import { FooterComponent } from './modules/footer/footer.component';
 import { CreateNewAdvertisementComponent } from './modules/create-new-advertisement/create-new-advertisement.component';
 import { InteractiveModalComponent } from './modules/interactive-modal/interactive-modal.component';
+import { PostAdConfirmationModalComponent } from './modules/post-ad-confirmation-modal/post-ad-confirmation-modal.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { InteractiveModalComponent } from './modules/interactive-modal/interacti
     FooterComponent,
     CreateNewAdvertisementComponent,
     InteractiveModalComponent,
+    PostAdConfirmationModalComponent,
   ],
   imports: [
     BrowserModule,

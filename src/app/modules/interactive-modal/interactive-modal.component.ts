@@ -6,7 +6,7 @@ import { AuthService } from '../../services/user/auth.service';
 @Component({
   selector: 'app-interactive-modal',
   templateUrl: './interactive-modal.component.html',
-  styleUrls: ['./interactive-modal.component.css'], // Corrected from 'styleUrl'
+  styleUrls: ['./interactive-modal.component.css'],
 })
 export class InteractiveModalComponent implements OnInit {
   modalContent!: ModalContent;
