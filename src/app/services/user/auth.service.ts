@@ -1,12 +1,11 @@
-import { Injectable, NgZone, OnInit, afterNextRender } from '@angular/core';
+import { Injectable, OnInit, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { BehaviorSubject, ReplaySubject, Subject, filter, from } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, filter } from 'rxjs';
 import { Router } from '@angular/router';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
-import { formatNumber } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -27,17 +26,15 @@ export class AuthService implements OnInit {
     new BehaviorSubject<AdvertisementsModel | null>(null);
   IsMainHeaderISOpen = new BehaviorSubject<boolean>(true);
   IsMainFooterISOpen = new BehaviorSubject<boolean>(true);
+  IsalternativeHeaderISOpen = new BehaviorSubject<boolean>(false);
+  IsUserareaISOpen = new BehaviorSubject<boolean>(false);
   UserPageRender = new BehaviorSubject<string>('');
   userName = new BehaviorSubject<string>('');
   firstLetterUserEmailAddress = new BehaviorSubject<string>('');
   userName1 = new ReplaySubject<string>(1);
   firstLetterUserEmailAddress1 = new ReplaySubject<string>(1);
 
-  constructor(
-    private router: Router,
-    private httpClient: HttpClient,
-    ngZone: NgZone
-  ) {
+  constructor(private router: Router, private httpClient: HttpClient) {
     afterNextRender(() => {
       this.access_token.next(localStorage.getItem('access_token'));
     });
@@ -81,9 +78,9 @@ export class AuthService implements OnInit {
         }
       });
   }
-  IsHeaderAndFooterOpen(Ishide: boolean) {
-    this.IsMainHeaderISOpen.next(Ishide);
-    this.IsMainFooterISOpen.next(Ishide);
+  IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
+    this.IsMainHeaderISOpen.next(IsHeaderhide);
+    this.IsMainFooterISOpen.next(IsFooterhide);
   }
 
   async login(email: string, password: string): Promise<boolean> {

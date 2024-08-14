@@ -1,4 +1,5 @@
-@if (this.authSerrvice.IsMainHeaderISOpen | async) {
+@if ((this.authSerrvice.IsMainHeaderISOpen | async)) {
+@if(!(this.authSerrvice.IsalternativeHeaderISOpen | async)) {
 
 <header class="header">
   <div class="left-side">
@@ -261,7 +262,7 @@
     </button>
   </div>
 </header>
-} @else {
+} } @if((this.authSerrvice.IsalternativeHeaderISOpen | async)) {
 <div class="orange-line"></div>
 <header>
   <div class="header2">

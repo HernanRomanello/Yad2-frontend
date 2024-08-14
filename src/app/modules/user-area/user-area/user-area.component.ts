@@ -12,11 +12,13 @@ import { AuthService } from '../../../services/user/auth.service';
 export class UserAreaComponent implements OnInit, OnDestroy {
   authService = inject(AuthService);
   ngOnDestroy(): void {
-    this.authService.IsHeaderAndFooterOpen(true);
+    this.authService.IsalternativeHeaderISOpen.next(false);
+    this.authService.IsHeaderAndFooterOpen(false, false);
     this.authService.SetPageRender('');
   }
   ngOnInit(): void {
-    this.authService.IsHeaderAndFooterOpen(false);
+    this.authService.IsalternativeHeaderISOpen.next(true);
+    this.authService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('user-area');
   }
 }
