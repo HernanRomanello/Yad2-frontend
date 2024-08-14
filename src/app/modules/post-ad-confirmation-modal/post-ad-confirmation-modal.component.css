@@ -1,0 +1,124 @@
+.modal-overlay {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(248, 248, 248);
+  z-index: 20;
+}
+
+.post-ad-box {
+  position: fixed;
+  height: 439.062px;
+  width: 880px;
+  margin: 50px 0px 0px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  z-index: 2000 !important;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: calc(548px - 439.062px - 64px) 280px 0 280px !important;
+}
+
+.post-ad-box,
+.routing-btn-box,
+.post-add-btn-box,
+.post-add-btn-container,
+.text-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-ad-box,
+.post-add-btn-container,
+.text-box {
+  flex-direction: column;
+}
+
+.tnx-sentence,
+.routing-btn-box,
+.orange-link {
+  color: #ff7100;
+}
+
+.post-add-btn-box > button {
+  line-height: 16.1px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(54, 54, 54);
+  height: 36px;
+  border: 1px solid rgb(153, 153, 153, 0.6);
+  padding: 0px 22px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.post-add-btn-container {
+  line-height: 16.1px;
+  background-color: rgb(248, 248, 248);
+  height: 135px;
+  width: 600px;
+  margin: 20px 0px 0px;
+  border-radius: 5px;
+  margin: 1rem;
+}
+
+.post-add-btn-box > button,
+.routing-btn-box > div,
+.orange-link {
+  cursor: pointer;
+}
+
+.user-area-link {
+  border-right: 1px solid rgb(54, 54, 54, 0.3);
+  border-left: 1px solid rgb(54, 54, 54, 0.3);
+}
+
+.tnx-sentence {
+  font-size: 24px;
+  padding-bottom: 2px;
+}
+.add-question {
+  font-size: 18px;
+}
+
+.post-add-btn-box {
+  justify-content: space-between;
+}
+
+.routing-btn-box > div {
+  padding: 0px 10px;
+  height: 16px;
+}
+
+img {
+  height: 86px;
+  width: 320px;
+}
+
+.post-add-btn-box {
+  gap: 24px;
+}
+
+.post-add-btn-container {
+  gap: 30px;
+}
+
+.routing-btn-box div {
+  height: 16.1px !important;
+}
+
+.move-up {
+  transform: translateY(-3px);
+}
+
+.span {
+  line-height: 16.1px !important;
+}
+
+.routing-btn-box {
+  margin-top: 1rem;
+}
+
+.text-line {
+  padding: 8px;
+}
