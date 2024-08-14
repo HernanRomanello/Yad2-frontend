@@ -15,7 +15,7 @@
   margin: 50px 0px 0px;
   border-radius: 10px;
   background-color: #ffffff;
-  z-index: 2000 !important;
+  z-index: 20 !important;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   margin: calc(548px - 439.062px - 64px) 280px 0 280px !important;
 }
