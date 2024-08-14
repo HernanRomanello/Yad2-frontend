@@ -10,7 +10,6 @@
       </button>
     </div>
 
-    <!-- @if (authSerrvice.user ) { -->
     <div
       class="menu-container menu-button-trigger-area"
       (mouseover)="openMenu('menu_User')"
@@ -268,6 +267,7 @@
   <div class="header2">
     <div class="left-side2 flex-center2">
       <div class="gray-btns-container2">
+        @if(!(this.authSerrvice.IsUserAreaISOpen | async)){
         <button
           class="gray-btn2 flex-center2"
           (click)="
@@ -278,6 +278,15 @@
           <i class="material-icons">close</i>יציאה
         </button>
         <button class="gray-btn2">צור קשר</button>
+        }@else {
+
+        <div class="Post-Btn">
+          <button class="light" routerLink="create-advertisement">
+            פרסום הודעה
+            <i class="material-icons">add</i>
+          </button>
+        </div>
+        }
       </div>
       <div
         class="user-area2 flex-center2"
@@ -286,16 +295,27 @@
       >
         <div>
           <div routerLink="/profile" class="flex-center2">
+            @if(!(this.authSerrvice.IsUserAreaISOpen | async)) {
             <div class="user-name2 flex-center2">
               {{ this.userName }}
             </div>
+
             <div class="round2 flex-center2">
               {{ this.firstLetterUserEmailAddress }}
             </div>
+            }@else {
+            <div class="round2 flex-center2 move-left">
+              {{ this.firstLetterUserEmailAddress }}
+            </div>
+
+            }
           </div>
           <div
             class="menu2"
-            *ngIf="this.isUserAreaDropdownVisible"
+            *ngIf="
+              this.isUserAreaDropdownVisible &&
+              !(this.authSerrvice.IsUserAreaISOpen | async)
+            "
             (mouseover)="isUserAreaDropdownOpen(true)"
             (mouseleave)="isUserAreaDropdownOpen(false)"
           >
@@ -338,6 +358,7 @@
         </div>
       </div>
     </div>
+
     <div class="right-side2 flex-center2">
       @if (this.authSerrvice.UserPageRender.value ==='create-new-advertisement')
       {

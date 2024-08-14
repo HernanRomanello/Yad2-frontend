@@ -352,3 +352,6 @@ img,
   width: 20px;
   height: 45px;
 }
+.move-left {
+  transform: translateX(-25px);
+}
