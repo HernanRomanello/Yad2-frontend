@@ -16,6 +16,8 @@ export class UserAreaComponent implements OnInit, OnDestroy {
     this.authService.IsUserAreaISOpen.next(false);
     this.authService.IsHeaderAndFooterOpen(false, false);
     this.authService.SetPageRender('');
+    window.scrollTo(0, 0);
+    window.location.reload();
   }
   ngOnInit(): void {
     this.authService.IsUserAreaISOpen.next(true);

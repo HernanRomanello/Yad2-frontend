@@ -3,6 +3,7 @@ import { AuthService } from '../../services/user/auth.service';
 import { UserModel } from '../../shared/models/UserModel';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
+import { Router } from '@angular/router';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -27,10 +28,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userName: string = '';
   modalContent!: ModalContent;
   isUserAreaDropdownVisible = false;
-
   _LogoPic = 'assets/images/logo-default.svg';
   authSerrvice = inject(AuthService);
   modalStateSerrvice = inject(ModalStateService);
+  router = inject(Router);
   isUserConnected: boolean = false;
   firstLetterUserEmailAddress = '';
 
