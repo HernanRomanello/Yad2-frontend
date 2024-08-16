@@ -230,7 +230,7 @@ export class AuthService implements OnInit {
       gardenSquareMeters: NewAdvertisement.gardenSquareMeters,
       totalSquareMeters: NewAdvertisement.totalSquareMeters,
       price: NewAdvertisement.price,
-      minimumAmount: '7000',
+      minimumAmount: '100',
       pricePerMeter: NewAdvertisement.pricePerMeter,
       entryDate: milliseconds,
       immediate: NewAdvertisement.immediate,

@@ -21,6 +21,7 @@ import { ImageuploadService } from '../../services/imageupload.service';
 import { afterNextRender } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
 import { filter, first, take } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -75,6 +76,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     false,
     false,
   ];
+  router = inject(Router);
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
@@ -374,6 +376,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       ],
       standardizationAccepted: [false],
     });
+  }
+  openSuccessCreationModal() {
+    const interval = setInterval(() => {
+      clearInterval(interval);
+      this.router.navigate(['/confirmation-modal']);
+    }, 15000);
   }
 
   changeColor(textLength: number): string {
