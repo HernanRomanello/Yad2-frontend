@@ -16,6 +16,10 @@
   margin-right: 0 !important;
 }
 
+.right-side .light {
+  padding: 4.75px !important;
+}
+
 .left-side {
   width: 30vw !important;
   margin-left: 20px !important;
