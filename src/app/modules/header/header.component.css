@@ -135,6 +135,15 @@ button {
   transform: translateY(2px);
 }
 
+.light {
+  color: #363636;
+  font-weight: 450 !important;
+}
+
+.favorite-btn {
+  text-wrap: nowrap;
+  font-weight: 400 !important;
+}
 .user-area-btn:hover,
 .right-side div:hover,
 .btn:hover,
