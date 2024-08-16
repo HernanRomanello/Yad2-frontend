@@ -34,7 +34,6 @@
 
 .small-pic {
   flex: 1;
-  /* height: 140px; */
   background-size: cover;
   background-position: center;
   max-height: 215px;
@@ -91,7 +90,6 @@
   border: 0px none rgb(255, 255, 255);
   padding: 0px 18px;
   min-height: 36px;
-  cursor: pointer;
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -101,6 +99,11 @@
 .call-button i {
   margin-left: 8px;
   font-size: 24px;
+}
+
+.call-button,
+img {
+  cursor: pointer;
 }
 
 .call-button:hover {
