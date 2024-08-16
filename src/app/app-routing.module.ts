@@ -5,6 +5,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { authGuard } from './Guards/auth.guard';
 import { AdvertisementComponent } from './modules/advertisement/advertisement.component';
 import { CreateNewAdvertisementComponent } from './modules/create-new-advertisement/create-new-advertisement.component';
+import { PostAdConfirmationModalComponent } from './modules/post-ad-confirmation-modal/post-ad-confirmation-modal.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
     component: CreateNewAdvertisementComponent,
     title: 'Create New Advertisement',
     canActivate: [authGuard],
+  },
+
+  {
+    path: 'confirmation-modal',
+    component: PostAdConfirmationModalComponent,
   },
   {
     path: 'profile',

@@ -10,9 +10,11 @@ export class PostAdConfirmationModalComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService) {}
   ngOnDestroy(): void {
     this.authService.IsalternativeHeaderISOpen.next(false);
+    this.authService.IsMainFooterISOpen.next(true);
   }
 
   ngOnInit() {
     this.authService.IsalternativeHeaderISOpen.next(true);
+    this.authService.IsMainFooterISOpen.next(false);
   }
 }
