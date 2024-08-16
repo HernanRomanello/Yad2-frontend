@@ -299,6 +299,11 @@ img,
   gap: 10px;
 }
 
+.gray-btns-container2 button {
+  font-size: 14px !important;
+  font-weight: 300 !important;
+}
+
 .user-area2 {
   height: 54px;
   width: 109.547px;
