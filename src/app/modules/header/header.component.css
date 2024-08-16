@@ -18,8 +18,7 @@
 
 .left-side {
   width: 30vw !important;
-  margin-left: 1rem !important;
-  /* gap: 1rem; */
+  margin-left: 20px !important;
 }
 
 .logo-btn {
@@ -173,7 +172,8 @@ img,
 }
 
 .user-name-btn {
-  padding-right: 1rem;
+  padding-right: 6px;
+  padding-left: 6px;
 }
 
 .svg-icon {
