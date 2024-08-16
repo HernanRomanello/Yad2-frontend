@@ -55,6 +55,11 @@ form,
   width: 440px;
 }
 
+.button-container button,
+.submit-button {
+  cursor: pointer;
+}
+
 /* .login-container {
   display: flex;
   flex-direction: column;
