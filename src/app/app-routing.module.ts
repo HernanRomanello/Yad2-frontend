@@ -11,6 +11,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     title: 'Sign in',
+    // canActivate: [authGuard],
   },
   {
     path: 'register',
@@ -26,6 +27,7 @@ const routes: Routes = [
     path: 'create-advertisement',
     component: CreateNewAdvertisementComponent,
     title: 'Create New Advertisement',
+    canActivate: [authGuard],
   },
   {
     path: 'profile',
@@ -42,7 +44,7 @@ const routes: Routes = [
         (m) => m.RealEstateModule
       ),
     title: 'Main Page',
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
 ];
 

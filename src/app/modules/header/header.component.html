@@ -20,7 +20,7 @@
           @if (this.isUserConnected) {
 
           {{ this.userName }}
-          }@else { התחברות }
+          }@else { <span routerLink="login">התחברות</span> }
         </button>
         <div [ngClass]="getCircleClass()">
           @if (this.isUserConnected) {
