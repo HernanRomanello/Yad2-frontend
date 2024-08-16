@@ -317,7 +317,7 @@ img,
 }
 
 .left-side2 {
-  margin-left: 1rem !important;
+  margin-left: 20px !important;
 }
 
 .user-area-text2 {
@@ -359,4 +359,13 @@ img,
 }
 .move-left {
   transform: translateX(-25px);
+}
+
+.close-btn {
+  gap: 5px;
+  transform: translateX(-2px);
+}
+
+.close-btn-container {
+  max-width: 86px;
 }

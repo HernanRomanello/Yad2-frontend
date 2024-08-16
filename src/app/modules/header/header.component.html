@@ -269,13 +269,15 @@
       <div class="gray-btns-container2">
         @if(!(this.authSerrvice.IsUserAreaISOpen | async)){
         <button
-          class="gray-btn2 flex-center2"
+          class="gray-btn2 close-btn-container flex-center2"
           (click)="
             this.modalStateSerrvice.openOrCloseModal(true);
             this.modalStateSerrvice.setModalContent(0)
           "
         >
-          <i class="material-icons">close</i>יציאה
+          <span class="flex-center2 close-btn"
+            ><i class="material-icons">close</i>יציאה</span
+          >
         </button>
         <button class="gray-btn2">צור קשר</button>
         }@else {
