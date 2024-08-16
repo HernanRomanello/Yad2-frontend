@@ -15,6 +15,16 @@
   border-bottom-right-radius: 12px;
 }
 
+.main-img {
+  flex: 2;
+  height: 440px;
+  background-size: cover;
+  background-position: center;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  max-width: 790px !important;
+}
+
 .pics {
   flex: 1;
   display: flex;
@@ -24,9 +34,11 @@
 
 .small-pic {
   flex: 1;
-  height: 140px;
+  /* height: 140px; */
   background-size: cover;
   background-position: center;
+  max-height: 215px;
+  max-width: 393.3px;
 }
 
 .pic2 {

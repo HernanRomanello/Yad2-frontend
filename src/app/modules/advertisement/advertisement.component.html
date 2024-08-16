@@ -1,7 +1,7 @@
 <div class="advertisement-page">
   <div class="pics-container">
     <div class="pics">
-      <div
+      <!-- <div
         class="small-pic pic1"
         [style.background-image]="'url(' + advertisement.pictures[1].url + ')'"
       ></div>
@@ -9,11 +9,41 @@
         class="small-pic pic2"
         [style.background-image]="'url(' + advertisement.pictures[2].url + ')'"
       ></div>
+    </div> -->
+      <img
+        *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+        [src]="advertisement.pictures[1].url"
+        class="small-pic pic1"
+        alt="Advertisement Image"
+      />
+      <img
+        *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+        [src]="advertisement.pictures[2].url"
+        class="small-pic pic2"
+        alt="Advertisement Image"
+      />
     </div>
-    <div
+    <!-- <div
       class="main-pic"
       [style.background-image]="'url(' + advertisement.pictures[0].url + ')'"
-    ></div>
+    ></div> -->
+    <img
+      *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+      [src]="advertisement.pictures[0].url"
+      class="main-pic"
+      alt="Advertisement Image"
+    />
+
+    <!-- <div>
+      <img
+        class="main-pic"
+        routerLink="/advertisement/{{ advertisement.id }}"
+        *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+        [src]="advertisement.pictures[0].url"
+        class="card-img"
+        alt="Advertisement Image"
+      />
+    </div> -->
   </div>
 
   <div class="contact-card">
