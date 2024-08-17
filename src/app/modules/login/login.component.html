@@ -1,71 +1,92 @@
 <div class="container">
-  <div class="img"><img src="assets/images/login-pic.JPG" alt="" /></div>
-  <div class="form">
-    <div class="img"><img src="assets/images/logo-default.svg" alt="" /></div>
-    <div>כניסה למתווכים</div>
-    <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
-      <div>היי, טוב לראות אותך</div>
-      <div class="form-group">
-        <label for="email">מייל</label>
-        <div class="">
-          <input
-            id="email"
-            type="text"
-            class="input-box"
-            formControlName="email"
-            placeholder="yourmail@email.co.il"
-          />
+  <div class="left-part">
+    <div class="img"><img src="assets/images/login-pic.JPG" alt="" /></div>
+  </div>
+  <div class="right-part">
+    <div class="form">
+      <div routerLink="/" class="logo-link">
+        <img src="assets/images/logo-default.svg" alt="" />
+      </div>
+      <div class="middleman-link">כניסה למתווכים</div>
+      <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+        <div class="welcome-text">היי, טוב לראות אותך</div>
+        <div class="form-group">
+          <label for="email">מייל</label>
+          <div class="">
+            <input
+              id="email"
+              type="text"
+              class="input-box"
+              formControlName="email"
+              placeholder="yourmail@email.co.il"
+            />
 
-          <div
-            *ngIf="
-              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
-            "
-            class="error-message"
-          >
-            Please enter a email
+            <div
+              *ngIf="
+                loginForm.get('email')?.invalid &&
+                loginForm.get('email')?.touched
+              "
+              class="error-message"
+            >
+              Please enter a email
+            </div>
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="password">סיסמה</label>
-        <div class="">
-          <input
-            id="password"
-            type="password"
-            class="input-box"
-            formControlName="password"
-            placeholder="הקלדת סיסמה"
-          />
+        <div class="form-group">
+          <label for="password">סיסמה</label>
+          <div class="">
+            <input
+              id="password"
+              type="password"
+              class="input-box"
+              formControlName="password"
+              placeholder="הקלדת סיסמה"
+            />
 
-          <div
-            class="error-message"
-            *ngIf="
-              loginForm.get('password')?.invalid &&
-              loginForm.get('password')?.touched
-            "
-          >
-            Please enter a password
+            <div
+              class="error-message"
+              *ngIf="
+                loginForm.get('password')?.invalid &&
+                loginForm.get('password')?.touched
+              "
+            >
+              Please enter a password
+            </div>
+          </div>
+          <label>שכחתי סיסמה</label>
+        </div>
+        <button class="submit-button" type="submit">התחברות</button>
+        <div class="login-container">
+          <div class="button-container">
+            <button class="login-button apple">
+              <div class="img">
+                <span>אפל</span>
+                <img
+                  class="social-network-img"
+                  src="assets/images/apple-black.svg"
+                  alt=""
+                />
+              </div>
+            </button>
+            <button class="login-button google">
+              <div class="img">
+                <span>גוגל</span>
+                <img
+                  class="social-network-img"
+                  src="assets/images/google.svg"
+                  alt=""
+                />
+              </div>
+            </button>
           </div>
         </div>
-        <div>שכחתי סיסמה</div>
-      </div>
-      <button class="submit-button" type="submit">התחברות</button>
-      <div class="login-container">
-        <div class="button-container">
-          <button class="login-button apple">
-            <img src="path/to/apple-logo.png" alt="Apple" /> אפל
-          </button>
-          <button class="login-button google">
-            <img src="path/to/google-logo.png" alt="Google" /> גוגל
-          </button>
-        </div>
-      </div>
 
-      <div>
-        אין לך חשבון?<span class="register-link" routerLink="/register"
-          >להרשמה</span
-        >
-      </div>
-    </form>
+        <div class="register-link-container">
+          אין לך חשבון?<span class="register-link" routerLink="/register"
+            >להרשמה</span
+          >
+        </div>
+      </form>
+    </div>
   </div>
 </div>
