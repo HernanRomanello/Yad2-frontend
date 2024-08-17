@@ -4,7 +4,11 @@
   width: 100vw;
 }
 
-.container {
+.container,
+.input,
+.submit-button-container,
+.login-container,
+.button-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,6 +17,13 @@
 .right-part,
 .left-part {
   height: 100%;
+}
+
+.right-part,
+.left-part,
+.login-container,
+.button-container {
+  background-color: aqua !important;
   width: 100%;
 }
 
@@ -92,6 +103,12 @@ button,
 .welcome-text,
 .middleman-link {
   text-align: center;
+}
+
+.welcome-text {
+  line-height: 32.4px;
+  font-size: 24px;
+  padding: 3rem;
 }
 
 .logo-link {
