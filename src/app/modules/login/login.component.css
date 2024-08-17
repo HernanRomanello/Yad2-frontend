@@ -8,7 +8,8 @@
 .input,
 .submit-button-container,
 .login-container,
-.button-container {
+.button-container,
+.form-group {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +24,6 @@
 .left-part,
 .login-container,
 .button-container {
-  background-color: aqua !important;
   width: 100%;
 }
 
@@ -48,11 +48,18 @@ form {
 }
 
 .input-box {
-  font-size: 16px;
   line-height: 18.4px;
   color: rgb(0, 0, 0);
   border: 1px solid rgb(54, 54, 54);
   padding: 10px 15px 10px 35px;
+}
+
+.middleman-link,
+.input-box,
+label,
+button,
+.right-part {
+  font-size: 16px;
 }
 
 .input-box,
@@ -79,17 +86,27 @@ form,
 .submit-button,
 .input-box {
   height: 50px;
-  width: 76.3%;
 }
 
 .input-box {
-  text-align: right;
+  text-align: right !important;
+}
+
+.submit-button,
+.input-container {
+  width: 84.4% !important;
+}
+
+.input-box,
+label {
+  width: 100% !important;
 }
 
 .button-container button,
 .submit-button,
 button,
-.register-link {
+.register-link,
+.middleman-link {
   cursor: pointer;
 }
 
@@ -105,27 +122,40 @@ button,
   text-align: center;
 }
 
+.middleman-link {
+  padding: 1rem;
+}
+
 .welcome-text {
   line-height: 32.4px;
   font-size: 24px;
   padding: 3rem;
+  margin-top: 1rem;
 }
 
 .logo-link {
-  padding: 1rem;
+  padding: 0 20px;
+  padding-top: 24px;
   display: flex;
   justify-content: right !important;
   width: 100%;
 }
 
 .logo-link img {
-  margin-right: 12% !important;
+  margin-right: 10% !important;
 }
 
 div,
 form,
-img {
+img,
+label {
   border: solid 1px red !important;
+}
+
+label,
+.input-container {
+  background-color: aqua !important;
+  /* align-items: flex-end !important; */
 }
 
 form div {

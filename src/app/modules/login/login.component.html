@@ -11,49 +11,54 @@
       <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
         <div class="welcome-text">היי, טוב לראות אותך</div>
         <div class="form-group">
-          <label for="email">מייל</label>
-          <div class="input">
-            <input
-              id="email"
-              type="text"
-              class="input-box"
-              formControlName="email"
-              placeholder="yourmail@email.co.il"
-            />
+          <div class="input-container">
+            <label for="email">מייל</label>
+            <div class="input">
+              <input
+                id="email"
+                type="text"
+                class="input-box"
+                formControlName="email"
+                placeholder="yourmail@email.co.il"
+              />
 
-            <div
-              *ngIf="
-                loginForm.get('email')?.invalid &&
-                loginForm.get('email')?.touched
-              "
-              class="error-message"
-            >
-              Please enter a email
+              <div
+                *ngIf="
+                  loginForm.get('email')?.invalid &&
+                  loginForm.get('email')?.touched
+                "
+                class="error-message"
+              >
+                Please enter a email
+              </div>
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="password">סיסמה</label>
-          <div class="input">
-            <input
-              id="password"
-              type="password"
-              class="input-box"
-              formControlName="password"
-              placeholder="הקלדת סיסמה"
-            />
 
-            <div
-              class="error-message"
-              *ngIf="
-                loginForm.get('password')?.invalid &&
-                loginForm.get('password')?.touched
-              "
-            >
-              Please enter a password
+        <div class="form-group">
+          <div class="input-container">
+            <label for="password">סיסמה</label>
+            <div class="input">
+              <input
+                id="password"
+                type="password"
+                class="input-box"
+                formControlName="password"
+                placeholder="הקלדת סיסמה"
+              />
+
+              <div
+                class="error-message"
+                *ngIf="
+                  loginForm.get('password')?.invalid &&
+                  loginForm.get('password')?.touched
+                "
+              >
+                Please enter a password
+              </div>
             </div>
+            <label>שכחתי סיסמה</label>
           </div>
-          <label>שכחתי סיסמה</label>
         </div>
         <div class="submit-button-container">
           <button class="submit-button" type="submit">התחברות</button>
