@@ -126,6 +126,11 @@ form,
   background-color: rgb(255, 113, 0);
   border: 1px solid rgb(255, 113, 0);
   color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #d86000;
 }
 .submit-button,
 .login-button {
@@ -179,7 +184,8 @@ form,
 .submit-button,
 button,
 .register-link,
-.middleman-link {
+.middleman-link,
+.logo-link {
   cursor: pointer;
 }
 
@@ -259,4 +265,10 @@ form div {
 
 input {
   border-color: #cccccc !important;
+}
+
+input:focus,
+input:hover {
+  border-color: #000000 !important;
+  outline: none;
 }
