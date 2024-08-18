@@ -9,10 +9,41 @@
 .submit-button-container,
 .login-container,
 .button-container,
-.form-group {
+.form-group,
+.button-container,
+.img,
+.connect-lable {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.connect-lable {
+  width: 510px;
+}
+
+.line {
+  height: 1px;
+  background-color: rgba(211, 211, 211, 0.5);
+  color: transparent;
+}
+.lable-text {
+  text-align: center;
+  color: #cccccc;
+  font-size: 14px !important;
+}
+
+.img {
+  gap: 2px;
+}
+.form-container {
+  margin-top: 2px;
+}
+
+.login-box {
+  flex-direction: column;
+  gap: 2rem;
+  margin: auto !important;
 }
 
 .right-part,
@@ -27,6 +58,10 @@
   width: 100%;
 }
 
+.button-container {
+  gap: 1rem;
+}
+
 form {
   text-align: start;
   color: rgb(54, 54, 54);
@@ -38,10 +73,16 @@ form {
 .middleman-link,
 form {
   width: 73.3%;
-  margin-left: 50px;
+  margin-left: 65px;
 }
 
-.form {
+.middleman-link,
+form {
+  max-width: 510px;
+}
+
+.form,
+.login-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,9 +97,12 @@ form {
 
 .middleman-link,
 .input-box,
-label,
+.label,
+.orange-label,
 button,
-.right-part {
+.right-part,
+.apple,
+.google {
   font-size: 16px;
 }
 
@@ -69,18 +113,31 @@ form {
 
 .input-box,
 form,
-.submit-button {
+.submit-button,
+.login-button {
   background-color: rgb(255, 255, 255);
 }
 
 .submit-button {
-  font-size: 16px;
   line-height: 18.4px;
   background-color: rgb(255, 113, 0);
   border: 1px solid rgb(255, 113, 0);
+  color: #ffffff;
   margin: 10px 0px 0px;
-  padding: 0px 20px;
+}
+.submit-button,
+.login-button {
   border-radius: 30px;
+  padding: 0px 20px;
+  flex: 1 1 0%;
+}
+
+.login-button {
+  line-height: 18.4px;
+  height: 50px;
+  border: 1px solid rgb(211, 192, 176);
+  margin: 5px 0px 0px;
+  max-width: 209px;
 }
 
 .submit-button,
@@ -88,20 +145,34 @@ form,
   height: 50px;
 }
 
-.input-box {
-  text-align: right !important;
-}
-
 .submit-button,
-.input-container {
+.input-container,
+.login-box {
   width: 84.4% !important;
 }
 
 .input-box,
-label {
+.label {
+  text-align: right !important;
+  padding-bottom: 0.25rem;
+}
+
+.input-box,
+.label,
+.orange-label,
+.submit-button {
   width: 100% !important;
 }
 
+.orange-label,
+.register-link {
+  color: #ff7100;
+}
+
+.orange-label {
+  padding-top: 1rem;
+  font-weight: 600 !important;
+}
 .button-container button,
 .submit-button,
 button,
@@ -111,8 +182,17 @@ button,
 }
 
 .social-network-img {
-  width: 26px;
+  width: 24px;
   height: 26px;
+  padding: 2px;
+}
+
+.apple-img {
+  transform: translateY(-3px);
+}
+
+.google-img {
+  transform: translateY(-1px);
 }
 
 .register-link-container,
@@ -135,27 +215,27 @@ button,
 
 .logo-link {
   padding: 0 20px;
-  padding-top: 24px;
+  padding-top: 28px;
   display: flex;
   justify-content: right !important;
   width: 100%;
 }
 
 .logo-link img {
-  margin-right: 10% !important;
+  margin-right: 12% !important;
 }
 
 div,
 form,
 img,
-label {
-  border: solid 1px red !important;
+.label {
+  /* border: solid 1px red !important; */
 }
 
-label,
-.input-container {
-  background-color: aqua !important;
-  /* align-items: flex-end !important; */
+.label,
+.input-container,
+.orange-label {
+  width: 100% !important;
 }
 
 form div {

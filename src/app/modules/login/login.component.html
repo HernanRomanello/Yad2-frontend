@@ -7,94 +7,104 @@
       <div routerLink="/" class="logo-link">
         <img src="assets/images/logo-default.svg" alt="" />
       </div>
-      <div class="middleman-link">כניסה למתווכים</div>
-      <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
-        <div class="welcome-text">היי, טוב לראות אותך</div>
-        <div class="form-group">
-          <div class="input-container">
-            <label for="email">מייל</label>
-            <div class="input">
-              <input
-                id="email"
-                type="text"
-                class="input-box"
-                formControlName="email"
-                placeholder="yourmail@email.co.il"
-              />
+      <div class="form-container">
+        <div class="middleman-link">כניסה למתווכים</div>
+        <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+          <div class="welcome-text">היי, טוב לראות אותך</div>
+          <div class="login-box">
+            <div class="form-group">
+              <div class="input-container">
+                <div class="label" for="email">מייל</div>
+                <div class="input">
+                  <input
+                    id="email"
+                    type="text"
+                    class="input-box"
+                    formControlName="email"
+                    placeholder="yourmail@email.co.il"
+                  />
 
-              <div
-                *ngIf="
-                  loginForm.get('email')?.invalid &&
-                  loginForm.get('email')?.touched
-                "
-                class="error-message"
-              >
-                Please enter a email
+                  <div
+                    *ngIf="
+                      loginForm.get('email')?.invalid &&
+                      loginForm.get('email')?.touched
+                    "
+                    class="error-message"
+                  >
+                    Please enter a email
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="form-group">
-          <div class="input-container">
-            <label for="password">סיסמה</label>
-            <div class="input">
-              <input
-                id="password"
-                type="password"
-                class="input-box"
-                formControlName="password"
-                placeholder="הקלדת סיסמה"
-              />
+            <div class="form-group">
+              <div class="input-container">
+                <div class="label" for="password">סיסמה</div>
+                <div class="input">
+                  <input
+                    id="password"
+                    type="password"
+                    class="input-box"
+                    formControlName="password"
+                    placeholder="הקלדת סיסמה"
+                  />
 
-              <div
-                class="error-message"
-                *ngIf="
-                  loginForm.get('password')?.invalid &&
-                  loginForm.get('password')?.touched
-                "
-              >
-                Please enter a password
+                  <div
+                    class="error-message"
+                    *ngIf="
+                      loginForm.get('password')?.invalid &&
+                      loginForm.get('password')?.touched
+                    "
+                  >
+                    Please enter a password
+                  </div>
+                </div>
+                <div class="orange-label">שכחתי סיסמה</div>
               </div>
             </div>
-            <label>שכחתי סיסמה</label>
-          </div>
-        </div>
-        <div class="submit-button-container">
-          <button class="submit-button" type="submit">התחברות</button>
-        </div>
-
-        <div class="login-container">
-          <div class="button-container">
-            <button class="login-button apple">
-              <div class="img">
-                <span>אפל</span>
-                <img
-                  class="social-network-img"
-                  src="assets/images/apple-black.svg"
-                  alt=""
-                />
+            <div class="submit-button-box">
+              <div class="submit-button-container">
+                <button class="submit-button" type="submit">התחברות</button>
               </div>
-            </button>
-            <button class="login-button google">
-              <div class="img">
-                <span>גוגל</span>
-                <img
-                  class="social-network-img"
-                  src="assets/images/google.svg"
-                  alt=""
-                />
-              </div>
-            </button>
+            </div>
+            <div class="connect-lable">
+              <div class="line">f</div>
+              <div class="lable-text"><span>או התחברו דרך</span></div>
+              <div class="line">f</div>
+            </div>
           </div>
-        </div>
+          <div class="login-container">
+            <div class="button-container">
+              <button class="login-button apple">
+                <div class="img">
+                  <span>אפל</span>
+                  <img
+                    class="social-network-img apple-img"
+                    src="assets/images/apple-black.svg"
+                    alt=""
+                  />
+                </div>
+              </button>
+              <button class="login-button google">
+                <div class="img">
+                  <span>גוגל</span>
+                  <img
+                    class="social-network-img google-img"
+                    src="assets/images/google.svg"
+                    alt=""
+                  />
+                </div>
+              </button>
+            </div>
+          </div>
 
-        <div class="register-link-container">
-          אין לך חשבון?<span class="register-link" routerLink="/register"
-            >להרשמה</span
-          >
-        </div>
-      </form>
+          <div class="register-link-container">
+            אין לך חשבון?<span class="register-link" routerLink="/register"
+              >להרשמה</span
+            >
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
