@@ -19,7 +19,7 @@
 }
 
 .connect-lable {
-  width: 510px;
+  /* margin-bottom: 12px; */
 }
 
 .line {
@@ -31,6 +31,8 @@
   text-align: center;
   color: #cccccc;
   font-size: 14px !important;
+  text-wrap: nowrap;
+  /* margin: 20px 0px 10px; */
 }
 
 .img {
@@ -123,7 +125,6 @@ form,
   background-color: rgb(255, 113, 0);
   border: 1px solid rgb(255, 113, 0);
   color: #ffffff;
-  margin: 10px 0px 0px;
 }
 .submit-button,
 .login-button {
@@ -240,4 +241,8 @@ img,
 
 form div {
   width: 100%;
+}
+
+input {
+  border-color: #cccccc !important;
 }
