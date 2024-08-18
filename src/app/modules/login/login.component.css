@@ -1,6 +1,5 @@
 .container {
   background-color: #fff8ef;
-  height: 120vh;
   width: 100vw;
 }
 
@@ -16,10 +15,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.connect-lable {
-  /* margin-bottom: 12px; */
 }
 
 .line {
@@ -84,10 +79,16 @@ form {
 }
 
 .form,
-.login-box {
+.login-box,
+.register-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.register-box {
+  gap: 0.5rem;
+  transform: translateY(-12px);
 }
 
 .input-box {
@@ -182,6 +183,15 @@ button,
   cursor: pointer;
 }
 
+.register-link {
+  font-weight: 550;
+  padding-right: 4px;
+}
+
+.register-link-container {
+  margin-top: 20px !important;
+}
+
 .social-network-img {
   width: 24px;
   height: 26px;
@@ -231,6 +241,10 @@ form,
 img,
 .label {
   /* border: solid 1px red !important; */
+}
+
+form {
+  transform: translateY(-4px);
 }
 
 .label,
