@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit, OnDestroy {
+  formSubmitted = false;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {}
   ngOnDestroy(): void {
     this.authService.IsHeaderAndFooterOpen(true, true);
+    this.formSubmitted = false;
     // window.location.reload();
   }
 
@@ -29,12 +31,24 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
 
   async handleSubmit() {
+    this.formSubmitted = true;
     const email: string = this.loginForm.get('email')?.value;
     const password: string = this.loginForm.get('password')?.value;
 
     const loggedIn = await this.authService.login(email, password);
     if (loggedIn) {
       this.router.navigate(['/']);
+    }
+  }
+
+  togglePasswordVisibility() {
+    const passwordInput = document.getElementById(
+      'password'
+    ) as HTMLInputElement;
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
     }
   }
 }

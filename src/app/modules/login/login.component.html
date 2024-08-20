@@ -49,15 +49,14 @@
                     placeholder="yourmail@email.co.il"
                   />
 
-                  <!-- <div
+                  <div
                     *ngIf="
-                      loginForm.get('email')?.invalid &&
-                      loginForm.get('email')?.touched
+                      loginForm.get('email')?.invalid && this.formSubmitted
                     "
                     class="error-message"
                   >
-                    Please enter a email
-                  </div> -->
+                    לא לשכוח את המייל
+                  </div>
                 </div>
               </div>
             </div>
@@ -65,24 +64,34 @@
             <div class="form-group">
               <div class="input-container">
                 <div class="label" for="password">סיסמה</div>
-                <div class="input">
-                  <input
-                    id="password"
-                    type="password"
-                    class="input-box"
-                    formControlName="password"
-                    placeholder="הקלדת סיסמה"
-                  />
-
-                  <!-- <div
+                <div class="input-container">
+                  <div class="input password">
+                    <input
+                      id="password"
+                      type="password"
+                      class="input-box"
+                      formControlName="password"
+                      placeholder="הקלדת סיסמה"
+                    />
+                    <div
+                      class="password-exposed-btn"
+                      (click)="togglePasswordVisibility()"
+                    >
+                      <img
+                        class="password-exposed-btn"
+                        src="assets/images/password-exposed.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div
                     class="error-message"
                     *ngIf="
-                      loginForm.get('password')?.invalid &&
-                      loginForm.get('password')?.touched
+                      loginForm.get('password')?.invalid && this.formSubmitted
                     "
                   >
-                    Please enter a password
-                  </div> -->
+                    לא לשכוח להזין סיסמה
+                  </div>
                 </div>
                 <div class="orange-label">שכחתי סיסמה</div>
               </div>

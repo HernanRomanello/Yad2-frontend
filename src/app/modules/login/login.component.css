@@ -1,7 +1,7 @@
 .container {
   background-color: #fff8ef !important;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .container,
@@ -23,6 +23,25 @@
 .option-images {
   gap: 4rem;
 }
+.password-exposed-btn {
+  height: 15px;
+  width: 20px;
+  position: absolute;
+  height: 22px;
+  width: 40px;
+  left: 0px;
+}
+
+.password-exposed-btn img:hover {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) hue-rotate(0deg)
+    brightness(80%) contrast(90%);
+}
+
+.password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
 .line {
   height: 1px;
@@ -32,8 +51,18 @@
 .lable-text {
   text-align: center;
   color: #cccccc;
-  font-size: 14px !important;
   text-wrap: nowrap;
+}
+
+.error-message,
+.lable-text {
+  font-size: 14px !important;
+}
+
+.error-message {
+  color: #ff2a2b;
+  text-align: end;
+  padding-top: 5px;
 }
 
 .img {
@@ -68,7 +97,7 @@
 form {
   text-align: start;
   color: rgb(54, 54, 54);
-  height: 596.641px;
+  /* height: 596.641px; */
 
   box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
 }
@@ -87,7 +116,9 @@ form {
 .form,
 .login-box,
 .register-box,
-.option-img-container {
+.option-img-container,
+.input-container,
+.input {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -224,7 +255,8 @@ form,
 button,
 .register-link,
 .middleman-link,
-.logo-link {
+.logo-link,
+.password-exposed-btn img {
   cursor: pointer;
 }
 
@@ -234,7 +266,8 @@ button,
 }
 
 .register-link-container {
-  margin-top: 20px !important;
+  /* margin: 20px !important; */
+  padding: 20px;
 }
 
 .social-network-img {
@@ -304,6 +337,10 @@ form div {
 
 input {
   border-color: #cccccc !important;
+}
+input::placeholder {
+  /* color: #cccccc !important; */
+  opacity: 0.7;
 }
 
 input:focus,
