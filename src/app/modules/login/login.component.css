@@ -1,6 +1,7 @@
 .container {
   background-color: #fff8ef;
   width: 100vw;
+  height: 100vh;
 }
 
 .container,
@@ -11,10 +12,16 @@
 .form-group,
 .button-container,
 .img,
-.connect-lable {
+.connect-lable,
+.option-images,
+.left-part {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.option-images {
+  gap: 4rem;
 }
 
 .line {
@@ -80,10 +87,36 @@ form {
 
 .form,
 .login-box,
-.register-box {
+.register-box,
+.option-img-container,
+.option-images div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.option-images,
+.option-img-container,
+.option-text {
+  align-items: end;
+  max-width: 450px;
+}
+
+.option-img-container {
+  gap: 2rem;
+  margin: auto;
+}
+
+.option-text div {
+  font-size: 36px;
+  line-height: 41.4px;
+}
+.option-images div {
+  gap: 1rem;
+}
+
+.option-images div img {
+  width: 60px;
+  height: 60px;
 }
 
 .register-box {

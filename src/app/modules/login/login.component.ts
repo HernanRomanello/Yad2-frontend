@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {}
   ngOnDestroy(): void {
     this.authService.IsHeaderAndFooterOpen(true, true);
-    window.location.reload();
+    // window.location.reload();
   }
 
   ngOnInit(): void {
