@@ -1,5 +1,5 @@
 .container {
-  background-color: #fff8ef;
+  background-color: #fff8ef !important;
   width: 100vw;
   height: 100vh;
 }
@@ -34,7 +34,6 @@
   color: #cccccc;
   font-size: 14px !important;
   text-wrap: nowrap;
-  /* margin: 20px 0px 10px; */
 }
 
 .img {
@@ -88,8 +87,7 @@ form {
 .form,
 .login-box,
 .register-box,
-.option-img-container,
-.option-images div {
+.option-img-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,16 +100,24 @@ form {
 }
 
 .option-img-container {
-  gap: 2rem;
+  gap: 2.5rem;
   margin: auto;
+  transform: translateY(27%);
 }
 
 .option-text div {
   font-size: 36px;
   line-height: 41.4px;
+  text-align: end;
+  text-wrap: wrap;
 }
 .option-images div {
-  gap: 1rem;
+  text-wrap: nowrap;
+  text-align: center;
+}
+
+.img-text {
+  padding: 10px 0;
 }
 
 .option-images div img {
