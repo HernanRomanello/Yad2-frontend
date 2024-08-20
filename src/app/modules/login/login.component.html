@@ -55,7 +55,10 @@
                     "
                     class="error-message"
                   >
-                    לא לשכוח את המייל
+                    @if(loginForm.get('email')?.value === ''){ לא לשכוח את המייל
+                    }@else if(loginForm.get('email')?.touched){
+                    <span> ?&#64; משהו לא תקין במייל, אולי התפספס</span>
+                    }
                   </div>
                 </div>
               </div>
@@ -90,15 +93,24 @@
                       loginForm.get('password')?.invalid && this.formSubmitted
                     "
                   >
-                    לא לשכוח להזין סיסמה
+                    @if(loginForm.get('password')?.value === ''){ לא לשכוח להזין
+                    סיסמה }
                   </div>
                 </div>
                 <div class="orange-label">שכחתי סיסמה</div>
               </div>
             </div>
-            <div class="submit-button-box">
-              <div class="submit-button-container">
-                <button class="submit-button" type="submit">התחברות</button>
+            <div class="submit-container">
+              <div class="submit-button-box">
+                <div
+                  class="error-message"
+                  *ngIf="loginForm.get('email')?.invalid && this.formSubmitted"
+                >
+                  @if( true ){ אימייל או סיסמה אינם תקינים }
+                </div>
+                <div class="submit-button-container">
+                  <button class="submit-button" type="submit">התחברות</button>
+                </div>
               </div>
             </div>
 

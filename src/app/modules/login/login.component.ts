@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.authService.IsHeaderAndFooterOpen(false, false);
     this.loginForm = this.formbuilder.group({
-      email: this.formbuilder.control('', Validators.required),
+      email: this.formbuilder.control('', [
+        Validators.required,
+        Validators.email,
+      ]),
       password: this.formbuilder.control('', Validators.required),
     });
   }
