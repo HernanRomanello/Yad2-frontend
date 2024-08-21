@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -11,18 +11,29 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
-  styleUrl: './registration-form.component.css',
+  styleUrls: [
+    './registration-form.component.css',
+    '../login/login.component.css',
+  ],
 })
-export class RegistrationFormComponent implements OnInit {
+export class RegistrationFormComponent implements OnInit, OnDestroy {
+  formSubmitted = false;
+
   constructor(
     private router: Router,
     private authService: AuthService,
     private formbuilder: FormBuilder
   ) {}
+  ngOnDestroy(): void {
+    this.formSubmitted = false;
+    this.authService.IsHeaderAndFooterOpen(true, true);
+  }
 
   signupForm!: FormGroup;
 
   ngOnInit(): void {
+    this.authService.IsHeaderAndFooterOpen(false, false);
+
     this.signupForm = this.formbuilder.group({
       email: this.formbuilder.control('', [
         Validators.required,
@@ -62,17 +73,18 @@ export class RegistrationFormComponent implements OnInit {
       ConfirmPassword: confirmPassword,
     };
     if (password !== confirmPassword) {
-      alert('Passwords do not match');
+      // alert('Passwords do not match');
       return;
     }
 
     this.authService.register(email, password, confirmPassword);
+    this.formSubmitted = true;
     if (this.signupForm.valid) {
       this.router.navigate(['/']);
       return;
     }
     if (validLogin) {
-      alert('"Registration failed. Please enter all fields correctly."');
+      // alert('"Registration failed. Please enter all fields correctly."');
       return;
     }
   }
@@ -85,5 +97,16 @@ export class RegistrationFormComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  togglePasswordVisibility() {
+    const passwordInput = document.getElementById(
+      'password'
+    ) as HTMLInputElement;
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
+    }
   }
 }

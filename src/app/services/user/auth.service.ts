@@ -63,7 +63,7 @@ export class AuthService implements OnInit {
   }
 
   async register(email: string, password: string, confirmPassword: string) {
-    alert('User registered successfully');
+    // alert('User registered successfully');
     const user = {
       Email: email,
       Password: password,
@@ -100,7 +100,7 @@ export class AuthService implements OnInit {
       }
     } catch (error) {
       console.error('Login failed:', error);
-      alert('Login failed, please check your email and password.');
+      // alert('Login failed, please check your email and password.');
     }
 
     return false;

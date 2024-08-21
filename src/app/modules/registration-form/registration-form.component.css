@@ -1,4 +1,4 @@
-.container {
+/* .container {
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
@@ -6,6 +6,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
 }
+
+
 
 .form-group {
   margin-bottom: 20px;
@@ -57,4 +59,32 @@ label {
 
 .submit-button:hover {
   background-color: #0056b3;
+} */
+
+.left-part,
+.right-part,
+.form-container {
+  background-color: #fff8ef !important;
+  border: 1px solid red !important;
+}
+
+div,
+form {
+}
+
+.left-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-part {
+  height: 873px !important;
+}
+
+.left-part,
+.right-part,
+.form-container {
+  background-color: #fff8ef !important;
+  border: 2px solid #fff8ef !important;
 }
