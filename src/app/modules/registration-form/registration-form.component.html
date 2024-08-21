@@ -64,202 +64,207 @@
     <button class="submit-button" type="submit">Submit</button>
   </form>
 </div> -->
-<div class="container">
-  <div class="left-part">
-    <!-- <div class="img"><img src="assets/images/login-pic.JPG" alt="" /></div> -->
-    <div class="option-img-container">
-      <div class="option-text">
-        <div>.לקנות מהר, למכור מהר</div>
-        <div>.ויש לנו אחלה כלים לזה</div>
-      </div>
-      <div class="option-images">
-        <div>
-          <div><img src="assets/images/icon_profile.svg" alt="" /></div>
-          <div class="img-text">אזור אישי</div>
-        </div>
 
-        <div>
-          <div><img src="assets/images/icon_publish.svg" alt="" /></div>
-          <div class="img-text">פרסום מודעה</div>
+<div class="box">
+  <div class="container">
+    <div class="left-part">
+      <!-- <div class="img"><img src="assets/images/login-pic.JPG" alt="" /></div> -->
+      <div class="option-img-container">
+        <div class="option-text">
+          <div>.לקנות מהר, למכור מהר</div>
+          <div>.ויש לנו אחלה כלים לזה</div>
         </div>
-        <div>
-          <div><img src="assets/images/icon_chat.svg" alt="" /></div>
-          <div class="img-text">צ׳אט</div>
-        </div>
-        <div>
-          <div><img src="assets/images/icon_alert.svg" alt="" /></div>
-          <div class="img-text">התראות</div>
+        <div class="option-images">
+          <div>
+            <div><img src="assets/images/icon_profile.svg" alt="" /></div>
+            <div class="img-text">אזור אישי</div>
+          </div>
+
+          <div>
+            <div><img src="assets/images/icon_publish.svg" alt="" /></div>
+            <div class="img-text">פרסום מודעה</div>
+          </div>
+          <div>
+            <div><img src="assets/images/icon_chat.svg" alt="" /></div>
+            <div class="img-text">צ׳אט</div>
+          </div>
+          <div>
+            <div><img src="assets/images/icon_alert.svg" alt="" /></div>
+            <div class="img-text">התראות</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="right-part">
-    <div class="form">
-      <div routerLink="/" class="logo-link">
-        <img src="assets/images/logo-default.svg" alt="" />
-      </div>
-      <div class="form-container">
-        <div class="middleman-link">כניסה למתווכים</div>
-        <form [formGroup]="signupForm" (ngSubmit)="handleSubmit()">
-          <div class="welcome-text">היי, טוב לראות אותך</div>
-          <div class="login-box">
-            <div class="form-group">
-              <div class="input-container">
-                <div class="label" for="email">מייל</div>
-                <div class="input">
-                  <input
-                    id="email"
-                    type="text"
-                    class="input-box"
-                    formControlName="email"
-                    placeholder="yourmail@email.co.il"
-                  />
-
-                  <div
-                    *ngIf="
-                      signupForm.get('email')?.invalid && this.formSubmitted
-                    "
-                    class="error-message"
-                  >
-                    @if(signupForm.get('email')?.value === ''){ לא לשכוח את
-                    המייל }@else if(signupForm.get('email')?.touched){
-                    <span> ?&#64; משהו לא תקין במייל, אולי התפספס</span>
-                    }
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="input-container">
-                <div class="label" for="password">סיסמה</div>
+    <div class="right-part">
+      <div class="form">
+        <div routerLink="/" class="logo-link">
+          <img src="assets/images/logo-default.svg" alt="" />
+        </div>
+        <div class="form-container">
+          <!-- <div class="middleman-link">כניסה למתווכים</div> -->
+          <form [formGroup]="signupForm" (ngSubmit)="handleSubmit()">
+            <div class="welcome-text">היי, נעים להכיר</div>
+            <div class="login-box">
+              <div class="form-group">
                 <div class="input-container">
-                  <div class="input password">
+                  <div class="label" for="email">מייל</div>
+                  <div class="input">
                     <input
-                      id="password"
-                      type="password"
+                      id="email"
+                      type="text"
                       class="input-box"
-                      formControlName="password"
-                      placeholder="הקלדת סיסמה"
+                      formControlName="email"
+                      placeholder="yourmail@email.co.il"
                     />
+
                     <div
-                      class="password-exposed-btn"
-                      (click)="togglePasswordVisibility()"
+                      *ngIf="
+                        signupForm.get('email')?.invalid && this.formSubmitted
+                      "
+                      class="error-message"
                     >
-                      <img
-                        class="password-exposed-btn"
-                        [src]="
-                          this.inputsStyleService.switchPasswordVisibility(
-                            this.isPasswordHidden
-                          )
-                        "
-                        alt=""
-                      />
+                      @if(signupForm.get('email')?.value === ''){ לא לשכוח את
+                      המייל }@else if(signupForm.get('email')?.touched){
+                      <span> ?&#64; משהו לא תקין במייל, אולי התפספס</span>
+                      }
                     </div>
-                  </div>
-                  <div
-                    class="error-message"
-                    *ngIf="
-                      signupForm.get('password')?.invalid && this.formSubmitted
-                    "
-                  >
-                    @if(signupForm.get('password')?.value === ''){ לא לשכוח
-                    להזין סיסמה }
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <div class="input-container">
-                <div class="label" for="confirmPassword">אימות סיסמה</div>
+
+              <div class="form-group">
                 <div class="input-container">
-                  <div class="input password">
-                    <input
-                      id="confirmPassword"
-                      type="password"
-                      class="input-box"
-                      formControlName="confirmPassword"
-                      placeholder="הקלדת סיסמה"
-                    />
+                  <div class="label" for="password">סיסמה</div>
+                  <div class="input-container">
+                    <div class="input password">
+                      <input
+                        id="password"
+                        type="password"
+                        class="input-box"
+                        formControlName="password"
+                        placeholder="הקלדת סיסמה"
+                      />
+                      <div
+                        class="password-exposed-btn-container"
+                        (click)="togglePasswordVisibility()"
+                      >
+                        <img
+                          class="password-exposed-btn"
+                          [src]="
+                            this.inputsStyleService.switchPasswordVisibility(
+                              this.isPasswordHidden
+                            )
+                          "
+                          alt=""
+                        />
+                      </div>
+                    </div>
                     <div
-                      class="password-exposed-btn"
-                      (click)="togglePasswordVisibility()"
+                      class="error-message"
+                      *ngIf="
+                        signupForm.get('password')?.invalid &&
+                        this.formSubmitted
+                      "
                     >
-                      <img
-                        class="password-exposed-btn"
-                        [src]="
-                          this.inputsStyleService.switchPasswordVisibility(
-                            this.isPasswordHidden
-                          )
-                        "
-                        alt=""
-                      />
+                      @if(signupForm.get('password')?.value === ''){ לא לשכוח
+                      להזין סיסמה }
                     </div>
                   </div>
-                  <div
-                    class="error-message"
-                    *ngIf="
-                      signupForm.get('password')?.invalid && this.formSubmitted
-                    "
-                  >
-                    @if(signupForm.get('password')?.value === ''){ לא לשכוח
-                    להזין סיסמה }
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-container">
+                  <div class="label" for="confirmPassword">אימות סיסמה</div>
+                  <div class="input-container">
+                    <div class="input password">
+                      <input
+                        id="confirmPassword"
+                        type="password"
+                        class="input-box"
+                        formControlName="confirmPassword"
+                        placeholder="הקלדת סיסמה"
+                      />
+                      <div
+                        class="password-exposed-btn-container"
+                        (click)="togglePasswordVisibility()"
+                      >
+                        <img
+                          class="password-exposed-btn"
+                          [src]="
+                            this.inputsStyleService.switchPasswordVisibility(
+                              this.isPasswordHidden
+                            )
+                          "
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="error-message"
+                      *ngIf="
+                        signupForm.get('password')?.invalid &&
+                        this.formSubmitted
+                      "
+                    >
+                      @if(signupForm.get('password')?.value === ''){ לא לשכוח
+                      להזין סיסמה }
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="submit-container">
+                <div class="submit-button-box">
+                  <div class="error-message padding" *ngIf="this.formSubmitted">
+                    @if( signupForm.get('password')?.valid &&
+                    signupForm.get('email')?.valid ){ אימייל או סיסמה אינם
+                    תקינים }
+                  </div>
+                  <div class="submit-button-container">
+                    <button class="submit-button" type="submit">המשך</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="register-box">
+                <div class="connect-lable">
+                  <div class="line">f</div>
+                  <div class="lable-text"><span>או התחברו דרך</span></div>
+                  <div class="line">f</div>
+                </div>
+
+                <div class="login-container">
+                  <div class="button-container">
+                    <button class="login-button apple">
+                      <div class="img">
+                        <span>אפל</span>
+                        <img
+                          class="social-network-img apple-img"
+                          src="assets/images/apple-black.svg"
+                          alt=""
+                        />
+                      </div>
+                    </button>
+                    <button class="login-button google">
+                      <div class="img">
+                        <span>גוגל</span>
+                        <img
+                          class="social-network-img google-img"
+                          src="assets/images/google.svg"
+                          alt=""
+                        />
+                      </div>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="submit-container">
-              <div class="submit-button-box">
-                <div class="error-message padding" *ngIf="this.formSubmitted">
-                  @if( signupForm.get('password')?.valid &&
-                  signupForm.get('email')?.valid ){ אימייל או סיסמה אינם תקינים
-                  }
-                </div>
-                <div class="submit-button-container">
-                  <button class="submit-button" type="submit">התחברות</button>
-                </div>
-              </div>
+            <div class="register-link-container">
+              כבר יש לך חשבון?<span class="register-link" routerLink="/login"
+                >להתחברות</span
+              >
             </div>
-
-            <div class="register-box">
-              <div class="connect-lable">
-                <div class="line">f</div>
-                <div class="lable-text"><span>או התחברו דרך</span></div>
-                <div class="line">f</div>
-              </div>
-
-              <div class="login-container">
-                <div class="button-container">
-                  <button class="login-button apple">
-                    <div class="img">
-                      <span>אפל</span>
-                      <img
-                        class="social-network-img apple-img"
-                        src="assets/images/apple-black.svg"
-                        alt=""
-                      />
-                    </div>
-                  </button>
-                  <button class="login-button google">
-                    <div class="img">
-                      <span>גוגל</span>
-                      <img
-                        class="social-network-img google-img"
-                        src="assets/images/google.svg"
-                        alt=""
-                      />
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="register-link-container">
-            כבר יש לך חשבון?<span class="register-link" routerLink="/login"
-              >להתחברות</span
-            >
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>

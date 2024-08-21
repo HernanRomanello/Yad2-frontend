@@ -1,7 +1,15 @@
 .container {
-  background-color: #fff8ef !important;
   width: 100vw;
   height: 100vh;
+}
+.container,
+.form-container,
+.box {
+  background-color: #fff8ef !important;
+}
+
+.box {
+  height: 113.5vh !important;
 }
 
 .container,
@@ -24,10 +32,19 @@
   gap: 4rem;
 }
 .password-exposed-btn {
-  height: 15px;
   width: 20px;
   position: absolute;
   height: 22px;
+  width: 40px;
+  left: 0px;
+  top: 15px;
+}
+
+.password-exposed-btn-container {
+  width: 20px;
+  /* position: absolute; */
+  /* height: 22px; */
+  /* height: 50px; */
   width: 40px;
   left: 0px;
 }
@@ -97,7 +114,6 @@
 form {
   text-align: start;
   color: rgb(54, 54, 54);
-  /* height: 596.641px; */
 
   box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
 }
@@ -118,7 +134,8 @@ form {
 .register-box,
 .option-img-container,
 .input-container,
-.input {
+.input,
+.left-part {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -320,7 +337,8 @@ button,
 div,
 form,
 img,
-.label {
+.label,
+button {
   /* border: solid 1px red !important; */
 }
 
