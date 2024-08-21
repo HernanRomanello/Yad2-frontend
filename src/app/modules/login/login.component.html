@@ -102,7 +102,7 @@
             </div>
             <div class="submit-container">
               <div class="submit-button-box">
-                <div class="error-message" *ngIf="this.formSubmitted">
+                <div class="error-message padding" *ngIf="this.formSubmitted">
                   @if( loginForm.get('password')?.valid &&
                   loginForm.get('email')?.valid ){ אימייל או סיסמה אינם תקינים }
                 </div>
