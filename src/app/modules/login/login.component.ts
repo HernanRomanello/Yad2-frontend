@@ -1,7 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { InputsStyleService } from '../../services/inputs-style.service';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   formSubmitted = false;
+  inputsStyleService = inject(InputsStyleService);
+  isPasswordHidden = true;
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -22,6 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.isPasswordHidden = true;
     this.authService.IsHeaderAndFooterOpen(false, false);
     this.loginForm = this.formbuilder.group({
       email: this.formbuilder.control('', [
@@ -45,6 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   togglePasswordVisibility() {
+    this.isPasswordHidden = !this.isPasswordHidden;
     const passwordInput = document.getElementById(
       'password'
     ) as HTMLInputElement;
