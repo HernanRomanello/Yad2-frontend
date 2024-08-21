@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../services/user/auth.service';
 import { Router } from '@angular/router';
+import { InputsStyleService } from '../../services/inputs-style.service';
 
 @Component({
   selector: 'app-registration-form',
@@ -18,6 +19,8 @@ import { Router } from '@angular/router';
 })
 export class RegistrationFormComponent implements OnInit, OnDestroy {
   formSubmitted = false;
+  isPasswordHidden = true;
+  inputsStyleService = inject(InputsStyleService);
 
   constructor(
     private router: Router,
@@ -100,6 +103,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   }
 
   togglePasswordVisibility() {
+    this.isPasswordHidden = !this.isPasswordHidden;
     const passwordInput = document.getElementById(
       'password'
     ) as HTMLInputElement;

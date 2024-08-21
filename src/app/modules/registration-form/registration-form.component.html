@@ -148,7 +148,11 @@
                     >
                       <img
                         class="password-exposed-btn"
-                        src="assets/images/password-exposed.svg"
+                        [src]="
+                          this.inputsStyleService.switchPasswordVisibility(
+                            this.isPasswordHidden
+                          )
+                        "
                         alt=""
                       />
                     </div>
@@ -183,7 +187,11 @@
                     >
                       <img
                         class="password-exposed-btn"
-                        src="assets/images/password-exposed.svg"
+                        [src]="
+                          this.inputsStyleService.switchPasswordVisibility(
+                            this.isPasswordHidden
+                          )
+                        "
                         alt=""
                       />
                     </div>
