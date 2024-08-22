@@ -29,7 +29,8 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   ) {}
   ngOnDestroy(): void {
     this.formSubmitted = false;
-    this.authService.IsHeaderAndFooterOpen(true, true);
+    // this.authService.IsHeaderAndFooterOpen(true, true);
+    // window.location.reload();
   }
 
   signupForm!: FormGroup;
@@ -83,7 +84,8 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     this.authService.register(email, password, confirmPassword);
     this.formSubmitted = true;
     if (this.signupForm.valid) {
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
+      this.inputsStyleService.navigateTomainPage();
       return;
     }
     if (validLogin) {

@@ -30,7 +30,10 @@
     </div>
     <div class="right-part">
       <div class="form">
-        <div routerLink="/" class="logo-link">
+        <div
+          (click)="this.inputsStyleService.navigateTomainPage()"
+          class="logo-link"
+        >
           <img src="assets/images/logo-default.svg" alt="" />
         </div>
         <div class="form-container">

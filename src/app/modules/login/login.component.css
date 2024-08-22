@@ -272,7 +272,7 @@ form,
 button,
 .register-link,
 .middleman-link,
-.logo-link,
+.logo-link img,
 .password-exposed-btn img {
   cursor: pointer;
 }

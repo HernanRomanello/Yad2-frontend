@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private formbuilder: FormBuilder
   ) {}
   ngOnDestroy(): void {
-    this.authService.IsHeaderAndFooterOpen(true, true);
+    // this.authService.IsHeaderAndFooterOpen(true, true);
     this.formSubmitted = false;
     // window.location.reload();
   }
@@ -46,7 +46,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     const loggedIn = await this.authService.login(email, password);
     if (loggedIn) {
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
+      this.inputsStyleService.navigateTomainPage();
     }
   }
 
