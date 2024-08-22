@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { inject } from '@angular/core';
 
@@ -14,16 +13,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   formSubmitted = false;
   inputsStyleService = inject(InputsStyleService);
   isPasswordHidden = true;
+  isPasswordIsValid = true;
 
   constructor(
-    private router: Router,
     private authService: AuthService,
     private formbuilder: FormBuilder
   ) {}
   ngOnDestroy(): void {
-    // this.authService.IsHeaderAndFooterOpen(true, true);
     this.formSubmitted = false;
-    // window.location.reload();
   }
 
   ngOnInit(): void {
@@ -45,9 +42,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     const password: string = this.loginForm.get('password')?.value;
 
     const loggedIn = await this.authService.login(email, password);
+
     if (loggedIn) {
-      // this.router.navigate(['/']);
       this.inputsStyleService.navigateTomainPage();
+    } else {
+      if (
+        this.loginForm.get('password')?.valid &&
+        this.loginForm.get('email')?.valid
+      ) {
+        this.isPasswordIsValid = false;
+      }
     }
   }
 

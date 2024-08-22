@@ -24,4 +24,14 @@ export class InputsStyleService {
     this.router.navigate(['/']);
     this.reloloadPage();
   }
+
+  changeBorderColor(consitions: any, Class: string): string {
+    const className = Class;
+    const borderClass = consitions ? 'red-border' : 'gray-border';
+    return className + ' ' + borderClass;
+  }
+
+  hideErorMessage(consition: boolean): void {
+    consition = false;
+  }
 }

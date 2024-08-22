@@ -611,7 +611,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       }
       return this.imageService.uploadImage(image);
     });
-    // alert(tasks);
     return await Promise.all(tasks).then((urls) => {
       return urls.map((u) => u.fileUrl);
     });

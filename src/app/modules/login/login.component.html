@@ -48,7 +48,12 @@
                     <input
                       id="email"
                       type="text"
-                      class="input-box"
+                      [ngClass]="
+                        this.inputsStyleService.changeBorderColor(
+                          loginForm.get('email')?.invalid && this.formSubmitted,
+                          'input-box'
+                        )
+                      "
                       formControlName="email"
                       placeholder="yourmail@email.co.il"
                     />
@@ -60,7 +65,7 @@
                       class="error-message"
                     >
                       @if(loginForm.get('email')?.value === ''){ לא לשכוח את
-                      המייל }@else if(loginForm.get('email')?.touched){
+                      המייל } @else if(loginForm.get('email')?.touched){
                       <span> ?&#64; משהו לא תקין במייל, אולי התפספס</span>
                       }
                     </div>
@@ -74,9 +79,16 @@
                   <div class="input-container">
                     <div class="input password">
                       <input
+                        (input)="this.isPasswordIsValid = true"
                         id="password"
                         type="password"
-                        class="input-box"
+                        [ngClass]="
+                          this.inputsStyleService.changeBorderColor(
+                            loginForm.get('password')?.invalid &&
+                              this.formSubmitted,
+                            'input-box'
+                          )
+                        "
                         formControlName="password"
                         placeholder="הקלדת סיסמה"
                       />
@@ -111,8 +123,7 @@
               <div class="submit-container">
                 <div class="submit-button-box">
                   <div class="error-message padding" *ngIf="this.formSubmitted">
-                    @if( loginForm.get('password')?.valid &&
-                    loginForm.get('email')?.valid ){ אימייל או סיסמה אינם תקינים
+                    @if( !this.isPasswordIsValid ){ אימייל או סיסמה אינם תקינים
                     }
                   </div>
                   <div class="submit-button-container">

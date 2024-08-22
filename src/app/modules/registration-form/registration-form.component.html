@@ -115,7 +115,13 @@
                     <input
                       id="email"
                       type="text"
-                      class="input-box"
+                      [ngClass]="
+                        this.inputsStyleService.changeBorderColor(
+                          signupForm.get('email')?.invalid &&
+                            this.formSubmitted,
+                          'input-box'
+                        )
+                      "
                       formControlName="email"
                       placeholder="yourmail@email.co.il"
                     />
@@ -143,7 +149,13 @@
                       <input
                         id="password"
                         type="password"
-                        class="input-box"
+                        [ngClass]="
+                          this.inputsStyleService.changeBorderColor(
+                            signupForm.get('password')?.invalid &&
+                              this.formSubmitted,
+                            'input-box'
+                          )
+                        "
                         formControlName="password"
                         placeholder="הקלדת סיסמה"
                       />
