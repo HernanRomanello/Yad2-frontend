@@ -195,7 +195,13 @@
                       <input
                         id="confirmPassword"
                         type="password"
-                        class="input-box"
+                        [ngClass]="
+                          this.inputsStyleService.changeBorderColor(
+                            signupForm.get('password')?.invalid &&
+                              this.formSubmitted,
+                            'input-box'
+                          )
+                        "
                         formControlName="confirmPassword"
                         placeholder="הקלדת סיסמה"
                       />

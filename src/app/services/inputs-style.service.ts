@@ -30,8 +30,4 @@ export class InputsStyleService {
     const borderClass = consitions ? 'red-border' : 'gray-border';
     return className + ' ' + borderClass;
   }
-
-  hideErorMessage(consition: boolean): void {
-    consition = false;
-  }
 }
