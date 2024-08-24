@@ -344,14 +344,6 @@ button,
   margin-right: 12% !important;
 }
 
-div,
-form,
-img,
-.label,
-button {
-  /* border: solid 1px red !important; */
-}
-
 form {
   transform: translateY(-4px);
 }

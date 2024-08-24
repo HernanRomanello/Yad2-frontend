@@ -115,6 +115,7 @@
   color: rgb(153, 153, 153) !important;
   height: 30px;
   width: 101.625px;
+  padding-left: 0.25rem;
 }
 
 .sort-container {
