@@ -237,8 +237,9 @@
                 <div class="submit-button-box">
                   <div class="error-message padding" *ngIf="this.formSubmitted">
                     @if( signupForm.get('password')?.valid &&
-                    signupForm.get('email')?.valid ){ אימייל או סיסמה אינם
-                    תקינים }
+                    signupForm.get('email')?.valid ){
+                    {{ this.passworError }}
+                    }
                   </div>
                   <div class="submit-button-container">
                     <button class="submit-button" type="submit">המשך</button>

@@ -21,6 +21,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   formSubmitted = false;
   isPasswordHidden = true;
   inputsStyleService = inject(InputsStyleService);
+  passworError: string = 'לא לשכוח להזין סיסמה';
 
   constructor(
     private router: Router,
@@ -70,26 +71,23 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     const password: string = this.signupForm.get('password')?.value;
     const confirmPassword: string =
       this.signupForm.get('confirmPassword')?.value;
+    this.formSubmitted = true;
     const validLogin = this.areFieldsEmpty(this.signupForm);
-    const user = {
-      Email: email,
-      Password: password,
-      ConfirmPassword: confirmPassword,
-    };
+    if (password.length < 8) {
+      this.passworError = 'נבקש שהסיסמה תכלול אותיות באנגלית וספרות';
+      return;
+    }
     if (password !== confirmPassword) {
-      // alert('Passwords do not match');
       return;
     }
 
     this.authService.register(email, password, confirmPassword);
-    this.formSubmitted = true;
     if (this.signupForm.valid) {
-      // this.router.navigate(['/']);
       this.inputsStyleService.navigateTomainPage();
       return;
     }
     if (validLogin) {
-      // alert('"Registration failed. Please enter all fields correctly."');
+      alert('"Registration failed. Please enter all fields correctly."');
       return;
     }
   }
@@ -109,10 +107,18 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     const passwordInput = document.getElementById(
       'password'
     ) as HTMLInputElement;
-    if (passwordInput.type === 'password') {
+    const confirmPasswordInput = document.getElementById(
+      'confirmPassword'
+    ) as HTMLInputElement;
+    if (
+      passwordInput.type === 'password' ||
+      confirmPasswordInput.type === 'password'
+    ) {
       passwordInput.type = 'text';
+      confirmPasswordInput.type = 'text';
     } else {
       passwordInput.type = 'password';
+      confirmPasswordInput.type = 'password';
     }
   }
 }

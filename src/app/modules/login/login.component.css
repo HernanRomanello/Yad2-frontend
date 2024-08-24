@@ -280,7 +280,7 @@ button,
 .register-link,
 .middleman-link,
 .logo-link img,
-.password-exposed-btn img {
+.password-exposed-btn {
   cursor: pointer;
 }
 
