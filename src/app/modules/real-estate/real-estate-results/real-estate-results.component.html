@@ -1,11 +1,14 @@
 <div *ngIf="this.$apartments | async as apartments">
   <div class="sort-container">
-    <div class="sort-btn">
+    <div
+      class="sort-btn"
+      (click)="this.isSortDropdownOpen = !this.isSortDropdownOpen"
+    >
       <div>
         <i class="material-icons">keyboard_arrow_down</i>
         <span class="result">מיון לפי</span><span class="date"> תאריך </span>
       </div>
-      @if(false){
+      @if(this.isSortDropdownOpen){
       <div class="sort-dropdown">
         <div id="date" class="sort-option">
           <span>

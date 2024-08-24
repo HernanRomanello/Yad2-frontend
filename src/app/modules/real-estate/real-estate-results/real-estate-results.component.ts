@@ -3,6 +3,7 @@ import {
   Input,
   OnChanges,
   SimpleChanges,
+  afterNextRender,
   inject,
 } from '@angular/core';
 import { AdvertisementService } from '../../../services/advertisement.service';
@@ -24,8 +25,17 @@ export class RealEstateResultsComponent {
   searchService = inject(SearchService);
   authSerivce = inject(AuthService);
   sortType: string[] = ['date', 'price-asc', 'price-desc', 'location'];
+  isSortDropdownOpen: boolean = false;
 
   hoverIndex: number = -1;
+
+  constructor() {
+    afterNextRender(() => {
+      document.body.addEventListener('click', (event) => {
+        this.isSortDropdownOpen = false;
+      });
+    });
+  }
 
   $apartments = combineLatest([
     this.advertisementService.Advertisements,
