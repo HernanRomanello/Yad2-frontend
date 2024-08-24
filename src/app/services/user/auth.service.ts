@@ -1,7 +1,7 @@
 import { Injectable, OnInit, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject, ReplaySubject, filter } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, Scroll } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
@@ -72,11 +72,12 @@ export class AuthService implements OnInit {
       .post<any>(`${this.Url}api/Users/signup`, user)
       .subscribe(async (response) => {
         if (response) {
-          await this.login(email, password);
-          this.router.navigate(['/']);
-          setInterval(() => {
-            window.location.reload();
-          }, 100);
+          const success = await this.login(email, password);
+          if (success) {
+            setInterval(() => {
+              window.location.reload();
+            }, 100);
+          }
         }
       });
   }
@@ -98,6 +99,8 @@ export class AuthService implements OnInit {
       if (accessToken) {
         localStorage.setItem('access_token', accessToken);
         this.access_token.next(accessToken);
+        this.router.navigate(['/']);
+
         return true;
       }
     } catch (error) {

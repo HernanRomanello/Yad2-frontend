@@ -17,7 +17,6 @@ import { InputsStyleService } from '../../services/inputs-style.service';
   ],
 })
 export class RegistrationFormComponent implements OnInit, OnDestroy {
-  formSubmitted = false;
   passwordSubmitted = false;
   emailSubmitted = false;
   email = false;
@@ -30,7 +29,6 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     private formbuilder: FormBuilder
   ) {}
   ngOnDestroy(): void {
-    this.formSubmitted = false;
     this.passwordSubmitted = false;
     this.emailSubmitted = false;
   }
@@ -89,10 +87,8 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     const password: string = this.signupForm.get('password')?.value;
     const confirmPassword: string =
       this.signupForm.get('confirmPassword')?.value;
-    this.formSubmitted = true;
     this.passwordSubmitted = true;
     this.emailSubmitted = true;
-    const validLogin = this.areFieldsEmpty(this.signupForm);
 
     if (password !== confirmPassword) {
       this.paswwordDontMatchError = 'הסיסמאות אינן תואמות';
@@ -100,23 +96,6 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     }
 
     await this.authService.register(email, password, confirmPassword);
-    if (this.signupForm.valid) {
-      // this.inputsStyleService.navigateTomainPage();
-      return;
-    }
-    if (validLogin) {
-      return;
-    }
-  }
-
-  areFieldsEmpty(form: FormGroup): boolean {
-    for (const controlName in form.controls) {
-      const control = form.get(controlName);
-      if (control && control.value.trim() === '') {
-        return true;
-      }
-    }
-    return false;
   }
 
   togglePasswordVisibility() {
