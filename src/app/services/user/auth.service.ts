@@ -62,24 +62,34 @@ export class AuthService implements OnInit {
     this.UserPageRender.next(page);
   }
 
-  async register(email: string, password: string, confirmPassword: string) {
+  async register(
+    email: string,
+    password: string,
+    confirmPassword: string
+  ): Promise<boolean> {
     const user = {
       Email: email,
       Password: password,
       ConfirmPassword: confirmPassword,
     };
-    this.httpClient
-      .post<any>(`${this.Url}api/Users/signup`, user)
-      .subscribe(async (response) => {
-        if (response) {
-          const success = await this.login(email, password);
-          if (success) {
-            setInterval(() => {
-              window.location.reload();
-            }, 100);
-          }
+
+    try {
+      const response = await this.httpClient
+        .post<any>(`${this.Url}api/Users/signup`, user)
+        .toPromise();
+
+      if (response) {
+        const success = await this.login(email, password);
+        if (success) {
+          return true;
         }
-      });
+      }
+
+      return false;
+    } catch (error) {
+      console.error('Registration failed:', error);
+      return false;
+    }
   }
 
   IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {

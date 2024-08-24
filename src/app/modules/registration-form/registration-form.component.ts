@@ -95,7 +95,15 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
       return;
     }
 
-    await this.authService.register(email, password, confirmPassword);
+    const loggedIn = await this.authService.register(
+      email,
+      password,
+      confirmPassword
+    );
+
+    if (loggedIn) {
+      this.inputsStyleService.navigateTomainPage();
+    }
   }
 
   togglePasswordVisibility() {

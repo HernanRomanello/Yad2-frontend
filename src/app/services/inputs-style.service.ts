@@ -17,6 +17,7 @@ export class InputsStyleService {
     setInterval(() => {
       window.location.reload();
     }, 100);
+    scrollTo(0, 0);
   }
 
   navigateTomainPage(): void {
