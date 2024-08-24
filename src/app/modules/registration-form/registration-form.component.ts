@@ -21,7 +21,9 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   formSubmitted = false;
   isPasswordHidden = true;
   inputsStyleService = inject(InputsStyleService);
-  passworError: string = 'לא לשכוח להזין סיסמה';
+  paswwordDontMatchError: string = '';
+
+  // passwordError: string = 'לא לשכוח להזין סיסמה';
 
   constructor(
     private router: Router,
@@ -47,23 +49,31 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
       password: this.formbuilder.control('', [
         Validators.required,
         this.passwordValidator,
+        Validators.minLength(8),
+        Validators.maxLength(20),
       ]),
-      confirmPassword: this.formbuilder.control('', Validators.required),
+      confirmPassword: this.formbuilder.control('', [Validators.required]),
     });
   }
   passwordValidator(control: AbstractControl): Validators | null {
     const password: string = control.value;
 
     if (!password) {
-      return { passwordError: 'Please enter a password' };
+      return { passwordError: 'לא לשכוח להזין סיסמה' };
     }
 
-    const strongPasswordPattern =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordContainsNumbers = /[0-9]/.test(password);
+    const passwordContainsLetters = /[a-zA-Z]/.test(password);
 
-    return strongPasswordPattern.test(password)
-      ? null
-      : { passwordError: 'Password is not strong enough' };
+    if (!passwordContainsNumbers || !passwordContainsLetters) {
+      return { passwordError: ' נבקש שהסיסמה תכלול אותיות באנגלית וספרות   ' };
+    }
+
+    if (password.length < 8 || password.length <= 20) {
+      return { passwordError: '  נבקש סיסמה באורך 8-20 תווים ' };
+    }
+
+    return null;
   }
 
   async handleSubmit() {
@@ -73,11 +83,9 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
       this.signupForm.get('confirmPassword')?.value;
     this.formSubmitted = true;
     const validLogin = this.areFieldsEmpty(this.signupForm);
-    if (password.length < 8) {
-      this.passworError = 'נבקש שהסיסמה תכלול אותיות באנגלית וספרות';
-      return;
-    }
+
     if (password !== confirmPassword) {
+      this.paswwordDontMatchError = 'הסיסמאות אינן תואמות';
       return;
     }
 
@@ -87,7 +95,6 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
       return;
     }
     if (validLogin) {
-      alert('"Registration failed. Please enter all fields correctly."');
       return;
     }
   }

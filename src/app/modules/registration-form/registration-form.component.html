@@ -174,7 +174,7 @@
                         />
                       </div>
                     </div>
-                    <div
+                    <!-- <div
                       class="error-message"
                       *ngIf="
                         signupForm.get('password')?.invalid &&
@@ -183,7 +183,7 @@
                     >
                       @if(signupForm.get('password')?.value === ''){ לא לשכוח
                       להזין סיסמה }
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -227,20 +227,23 @@
                         this.formSubmitted
                       "
                     >
-                      @if(signupForm.get('password')?.value === ''){ לא לשכוח
-                      להזין סיסמה }
+                      @if( signupForm.get('password')?.errors?.['passwordError']
+                      ){
+
+                      {{ signupForm.get('password')?.errors?.['passwordError'] }}
+                      } @else { {{ this.paswwordDontMatchError }} }
                     </div>
                   </div>
                 </div>
               </div>
               <div class="submit-container">
                 <div class="submit-button-box">
-                  <div class="error-message padding" *ngIf="this.formSubmitted">
+                  <!-- <div class="error-message padding" *ngIf="this.formSubmitted">
                     @if( signupForm.get('password')?.valid &&
                     signupForm.get('email')?.valid ){
                     {{ this.passworError }}
                     }
-                  </div>
+                  </div> -->
                   <div class="submit-button-container">
                     <button class="submit-button" type="submit">המשך</button>
                   </div>
