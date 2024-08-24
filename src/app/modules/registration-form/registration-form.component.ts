@@ -6,7 +6,6 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { AuthService } from '../../services/user/auth.service';
-import { Router } from '@angular/router';
 import { InputsStyleService } from '../../services/inputs-style.service';
 
 @Component({
@@ -19,21 +18,30 @@ import { InputsStyleService } from '../../services/inputs-style.service';
 })
 export class RegistrationFormComponent implements OnInit, OnDestroy {
   formSubmitted = false;
+  passwordSubmitted = false;
+  emailSubmitted = false;
+  email = false;
   isPasswordHidden = true;
   inputsStyleService = inject(InputsStyleService);
   paswwordDontMatchError: string = '';
 
-  // passwordError: string = 'לא לשכוח להזין סיסמה';
-
   constructor(
-    private router: Router,
     private authService: AuthService,
     private formbuilder: FormBuilder
   ) {}
   ngOnDestroy(): void {
     this.formSubmitted = false;
-    // this.authService.IsHeaderAndFooterOpen(true, true);
-    // window.location.reload();
+    this.passwordSubmitted = false;
+    this.emailSubmitted = false;
+  }
+
+  hiddeError(isSubmitted: string) {
+    if (isSubmitted === 'email') {
+      this.emailSubmitted = false;
+    }
+    if (isSubmitted === 'password') {
+      this.passwordSubmitted = false;
+    }
   }
 
   signupForm!: FormGroup;
@@ -82,6 +90,8 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     const confirmPassword: string =
       this.signupForm.get('confirmPassword')?.value;
     this.formSubmitted = true;
+    this.passwordSubmitted = true;
+    this.emailSubmitted = true;
     const validLogin = this.areFieldsEmpty(this.signupForm);
 
     if (password !== confirmPassword) {

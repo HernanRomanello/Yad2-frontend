@@ -115,10 +115,11 @@
                     <input
                       id="email"
                       type="text"
+                      (input)="this.hiddeError('email')"
                       [ngClass]="
                         this.inputsStyleService.changeBorderColor(
                           signupForm.get('email')?.invalid &&
-                            this.formSubmitted,
+                            this.emailSubmitted,
                           'input-box'
                         )
                       "
@@ -128,7 +129,7 @@
 
                     <div
                       *ngIf="
-                        signupForm.get('email')?.invalid && this.formSubmitted
+                        signupForm.get('email')?.invalid && this.emailSubmitted
                       "
                       class="error-message"
                     >
@@ -149,10 +150,11 @@
                       <input
                         id="password"
                         type="password"
+                        (input)="this.hiddeError('password')"
                         [ngClass]="
                           this.inputsStyleService.changeBorderColor(
                             signupForm.get('password')?.invalid &&
-                              this.formSubmitted,
+                              this.passwordSubmitted,
                             'input-box'
                           )
                         "
@@ -195,10 +197,11 @@
                       <input
                         id="confirmPassword"
                         type="password"
+                        (input)="this.hiddeError('password')"
                         [ngClass]="
                           this.inputsStyleService.changeBorderColor(
                             signupForm.get('password')?.invalid &&
-                              this.formSubmitted,
+                              this.passwordSubmitted,
                             'input-box'
                           )
                         "
@@ -224,7 +227,7 @@
                       class="error-message"
                       *ngIf="
                         signupForm.get('password')?.invalid &&
-                        this.formSubmitted
+                        this.passwordSubmitted
                       "
                     >
                       @if( signupForm.get('password')?.errors?.['passwordError']
