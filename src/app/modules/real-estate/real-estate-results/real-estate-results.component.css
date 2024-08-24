@@ -5,22 +5,6 @@
   overflow: hidden;
 }
 
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  text-align: right;
-  margin-left: auto;
-  border-radius: 12px;
-  width: 742px;
-  height: 377;
-  padding: 1rem;
-  align-items: center;
-  border: 1px solid rgb(238, 238, 238);
-  justify-content: flex-end;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
-}
-
 .like-button-selected {
   color: red !important;
 }
@@ -54,25 +38,42 @@
   flex-direction: column;
 }
 
-.tags {
+.tags,
+.sort-dropdown div,
+.price,
+.container,
+.list-tags,
+.sort-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+.tags,
+.sort-dropdown div,
+.sort-container {
+  justify-content: space-between;
+}
+
+.price,
+.list-tag {
+  justify-content: center;
 }
 
 .price {
   font-size: 20px;
   font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-right: 40px !important;
 }
 
 .title {
-  font-size: 16px;
   font-weight: bold;
   margin: 4px 0;
+}
+
+.title,
+.date,
+.result,
+.sort-dropdown div {
+  font-size: 16px;
 }
 
 .result-list {
@@ -89,12 +90,10 @@
 }
 
 .list-tags {
-  display: flex;
   flex-direction: row;
-  justify-content: center;
+
   gap: 1rem;
   align-self: flex-end;
-  align-items: center;
 }
 
 .last-row {
@@ -106,7 +105,7 @@
 .result {
   direction: rtl;
   margin-right: 1rem;
-  font-size: 16px;
+
   font-weight: 400;
   line-height: 18.4px;
   text-decoration: none solid rgb(153, 153, 153);
@@ -117,12 +116,27 @@
 }
 
 .sort-container {
+  margin-right: 1rem;
+}
+
+.sort-container,
+.container {
   position: relative;
-  display: flex;
-  margin-left: auto;
   width: 742px;
   padding: 1rem;
-  justify-content: space-between;
+  background-color: violet;
+  margin-left: auto;
+}
+
+.container {
+  flex-direction: row;
+  text-align: right;
+  border-radius: 12px;
+  height: 377;
+
+  border: 1px solid rgb(238, 238, 238);
+  justify-content: flex-end;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
 }
 
 i {
@@ -137,7 +151,6 @@ i {
 }
 
 .date {
-  font-size: 16px;
   font-weight: 400;
   line-height: 18.4px;
   text-decoration: none solid rgb(54, 54, 54);
@@ -146,7 +159,8 @@ i {
 .sort-btn,
 i,
 .like-button,
-.container {
+.container,
+.sort-dropdown div {
   cursor: pointer;
 }
 
@@ -156,4 +170,36 @@ i,
 
 .sort-dropdown {
   position: absolute;
+  transform: translateY(16px);
+  z-index: 100;
+}
+
+.svg-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sort-option {
+  height: 42.3906px;
+  width: 192.094px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sort-option:hover {
+  background-color: #f8f8f8 !important;
+}
+
+.sort-option span {
+  padding: 0.5rem;
+}
+
+#date {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#location {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
