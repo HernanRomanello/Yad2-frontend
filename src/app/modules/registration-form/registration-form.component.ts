@@ -99,9 +99,9 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.authService.register(email, password, confirmPassword);
+    await this.authService.register(email, password, confirmPassword);
     if (this.signupForm.valid) {
-      this.inputsStyleService.navigateTomainPage();
+      // this.inputsStyleService.navigateTomainPage();
       return;
     }
     if (validLogin) {

@@ -63,7 +63,6 @@ export class AuthService implements OnInit {
   }
 
   async register(email: string, password: string, confirmPassword: string) {
-    // alert('User registered successfully');
     const user = {
       Email: email,
       Password: password,
@@ -75,9 +74,13 @@ export class AuthService implements OnInit {
         if (response) {
           await this.login(email, password);
           this.router.navigate(['/']);
+          setInterval(() => {
+            window.location.reload();
+          }, 100);
         }
       });
   }
+
   IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
     this.IsMainHeaderISOpen.next(IsHeaderhide);
     this.IsMainFooterISOpen.next(IsFooterhide);
@@ -95,12 +98,10 @@ export class AuthService implements OnInit {
       if (accessToken) {
         localStorage.setItem('access_token', accessToken);
         this.access_token.next(accessToken);
-        // console.log(this.UserFavoriteAdvertisements.getValue());
         return true;
       }
     } catch (error) {
       console.error('Login failed:', error);
-      // alert('Login failed, please check your email and password.');
     }
 
     return false;
