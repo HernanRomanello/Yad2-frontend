@@ -1,0 +1,84 @@
+button .common-button is-quarterly is-full-width is-rounded u-margin-top-5 {
+	/* Font & Text */
+	font-family: Rubik, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	line-height: 18.4px;
+	text-decoration: none solid rgb(255, 113, 0);
+	text-align: center;
+	text-indent: 0px;
+	text-transform: none;
+	vertical-align: baseline;
+	white-space: nowrap;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgb(255, 255, 255);
+	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	color: rgb(255, 113, 0);
+
+	/* Box */
+	height: 50px;
+	width: 212.5px;
+	border: 1px solid rgb(255, 113, 0);
+	border-top: 1px solid rgb(255, 113, 0);
+	border-right: 1px solid rgb(255, 113, 0);
+	border-bottom: 1px solid rgb(255, 113, 0);
+	border-left: 1px solid rgb(255, 113, 0);
+	margin: 5px 0px 0px;
+	padding: 0px 20px;
+	max-height: none;
+	min-height: auto;
+	max-width: none;
+	min-width: auto;
+
+	/* Positioning */
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
+	float: none;
+	display: flex;
+	clear: none;
+	z-index: auto;
+
+	/* List */
+	list-style-image: none;
+	list-style-type: disc;
+	list-style-position: outside;
+
+	/* Table */
+	border-collapse: separate;
+	border-spacing: 0px 0px;
+	caption-side: top;
+	empty-cells: show;
+	table-layout: auto;
+
+	/* Miscellaneous */
+	overflow: visible;
+	cursor: pointer;
+	visibility: visible;
+
+	/* Effects */
+	transform: none;
+	transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+	outline: rgb(255, 113, 0) dashed 0px;
+	outline-offset: 0px;
+	box-sizing: border-box;
+	resize: none;
+	text-shadow: none;
+	text-overflow: clip;
+	word-wrap: normal;
+	box-shadow: none;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}

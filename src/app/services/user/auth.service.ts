@@ -1,7 +1,7 @@
 import { Injectable, OnInit, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject, ReplaySubject, filter } from 'rxjs';
-import { Router, Scroll } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';

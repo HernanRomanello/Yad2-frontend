@@ -42,9 +42,7 @@
 
 .password-exposed-btn-container {
   width: 20px;
-  /* position: absolute; */
-  /* height: 22px; */
-  /* height: 50px; */
+
   width: 40px;
   left: 0px;
 }
@@ -84,6 +82,10 @@
 
 .img {
   gap: 2px;
+}
+.login-button:hover {
+  border: 1px solid rgb(255, 113, 0) !important;
+  color: rgb(255, 113, 0) !important;
 }
 .form-container {
   margin-top: 2px;
@@ -239,6 +241,7 @@ form,
   border: 1px solid rgb(211, 192, 176);
   margin: 5px 0px 0px;
   max-width: 209px;
+  transition: all 0.1s linear;
 }
 
 .submit-button,
