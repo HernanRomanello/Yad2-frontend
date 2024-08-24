@@ -1,8 +1,16 @@
 <div *ngIf="this.$apartments | async as apartments">
   <div class="sort-container">
     <div class="sort-btn">
-      <i class="material-icons">keyboard_arrow_down</i>
-      <span class="result">מיון לפי</span><span class="date"> תאריך </span>
+      <div>
+        <i class="material-icons">keyboard_arrow_down</i>
+        <span class="result">מיון לפי</span><span class="date"> תאריך </span>
+      </div>
+      <div class="sort-dropdown">
+        <div id="date">תאריך</div>
+        <div id="price-asc">מחיר - מהזול ליקר</div>
+        <div id="price-desc">מחיר - מהיקר לזול</div>
+        <div id="location">קרוב אלי</div>
+      </div>
     </div>
 
     <div class="result">

@@ -23,6 +23,7 @@ export class RealEstateResultsComponent {
   advertisementService = inject(AdvertisementService);
   searchService = inject(SearchService);
   authSerivce = inject(AuthService);
+  sortType: string[] = ['date', 'price-asc', 'price-desc', 'location'];
 
   hoverIndex: number = -1;
 

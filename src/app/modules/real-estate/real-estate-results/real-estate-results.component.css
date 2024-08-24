@@ -149,3 +149,11 @@ i,
 .container {
   cursor: pointer;
 }
+
+.sort-btn {
+  position: relative;
+}
+
+.sort-dropdown {
+  position: absolute;
+}
