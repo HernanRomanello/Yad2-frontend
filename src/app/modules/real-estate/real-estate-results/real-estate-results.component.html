@@ -1,49 +1,72 @@
 <div *ngIf="this.$apartments | async as apartments">
   <div class="sort-container">
-    <div
-      class="sort-btn"
-      (click)="this.isSortDropdownOpen = !this.isSortDropdownOpen"
-    >
+    <div class="sort-btn" (click)="SortDropdownOpen()">
       <div>
         <i class="material-icons">keyboard_arrow_down</i>
-        <span class="result">מיון לפי</span><span class="date"> תאריך </span>
+        <span class="result">מיון לפי</span
+        ><span class="date"> {{ this.sortTypeChosen }} </span>
       </div>
       @if(this.isSortDropdownOpen){
       <div class="sort-dropdown">
-        <div id="date" class="sort-option">
+        <div id="date" class="sort-option" (click)="sortResults('תאריך')">
           <span>
+            @if(this.sortTypeChecked[0]){
             <img
               class="svg-icon"
               src="assets/images/check-orange.svg"
               alt="check"
-          /></span>
+            />
+            }
+          </span>
           <span>תאריך</span>
         </div>
-        <div id="price-asc" class="sort-option">
+        <div
+          id="price-asc"
+          class="sort-option"
+          (click)="sortResults('מחיר - מהזול ליקר')"
+        >
           <span>
+            @if(this.sortTypeChecked[1]){
             <img
               class="svg-icon"
               src="assets/images/check-orange.svg"
               alt="check"
-          /></span>
+            />
+            }
+          </span>
           <span>מחיר - מהזול ליקר</span>
         </div>
-        <div id="price-desc" class="sort-option">
+        <div
+          id="price-desc"
+          class="sort-option"
+          (click)="sortResults('מחיר - מהיקר לזול')"
+        >
           <span>
+            @if(this.sortTypeChecked[2]){
             <img
               class="svg-icon"
               src="assets/images/check-orange.svg"
               alt="check"
-          /></span>
+            />
+            }
+          </span>
           <span>מחיר - מהיקר לזול</span>
         </div>
-        <div id="location" class="sort-option">
+        <div
+          id="location"
+          class="sort-option"
+          (click)="sortResults('קרוב אלי')"
+        >
           <span>
+            @if(this.sortTypeChecked[3]){
             <img
               class="svg-icon"
               src="assets/images/check-orange.svg"
               alt="check"
-          /></span>
+            />
+            }
+          </span>
+
           <span>קרוב אלי</span>
         </div>
         <!-- <div id="price-asc">מחיר - מהזול ליקר</div>

@@ -24,16 +24,47 @@ export class RealEstateResultsComponent {
   advertisementService = inject(AdvertisementService);
   searchService = inject(SearchService);
   authSerivce = inject(AuthService);
-  sortType: string[] = ['date', 'price-asc', 'price-desc', 'location'];
+  sortType: string[] = [
+    'תאריך',
+    'מחיר - מהזול ליקר',
+    'מחיר - מהיקר לזול',
+    'קרוב אלי',
+  ];
+  sortTypeChecked: boolean[] = [true, false, false, false];
+  sortTypeChosen: string = 'תאריך';
   isSortDropdownOpen: boolean = false;
 
   hoverIndex: number = -1;
 
   constructor() {
-    afterNextRender(() => {
-      document.body.addEventListener('click', (event) => {
-        this.isSortDropdownOpen = false;
-      });
+    document.body.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+
+      if (
+        !target.classList.contains('result') &&
+        !target.classList.contains('date') &&
+        !target.classList.contains('material-icons')
+      ) {
+        if (this.isSortDropdownOpen.valueOf() === true) {
+          this.SortDropdownOpen();
+        }
+      }
+    });
+  }
+
+  SortDropdownOpen(): void {
+    // alert('open');
+    this.isSortDropdownOpen = !this.isSortDropdownOpen;
+  }
+
+  sortResults(sortType: string): void {
+    this.sortType.forEach((type, index) => {
+      if (type === sortType) {
+        this.sortTypeChecked[index] = true;
+        this.sortTypeChosen = sortType;
+      } else {
+        this.sortTypeChecked[index] = false;
+      }
     });
   }
 
