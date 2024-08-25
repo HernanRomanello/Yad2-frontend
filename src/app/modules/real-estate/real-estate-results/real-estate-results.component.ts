@@ -1,15 +1,8 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  afterNextRender,
-  inject,
-} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AdvertisementService } from '../../../services/advertisement.service';
 import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel';
 import { AuthService } from '../../../services/user/auth.service';
-import { combineLatest, map } from 'rxjs';
+import { BehaviorSubject, combineLatest, map } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
 import { FilterValue } from '../../../shared/models/Filters';
 @Component({
@@ -24,6 +17,10 @@ export class RealEstateResultsComponent {
   advertisementService = inject(AdvertisementService);
   searchService = inject(SearchService);
   authSerivce = inject(AuthService);
+
+  $sortedApartments: BehaviorSubject<AdvertisementsModel[]> =
+    new BehaviorSubject<AdvertisementsModel[]>([]);
+  apartmentsAmount: number = 0;
   sortType: string[] = [
     'תאריך',
     'מחיר - מהזול ליקר',
@@ -37,6 +34,7 @@ export class RealEstateResultsComponent {
   hoverIndex: number = -1;
 
   constructor() {
+    // this.$sortedApartments = this.$apartments as any;
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
 
@@ -50,6 +48,40 @@ export class RealEstateResultsComponent {
         }
       }
     });
+  }
+
+  sortByFilter(sortTypeChosen: string): void {
+    switch (sortTypeChosen) {
+      case 'מחיר - מהזול ליקר':
+        this.$apartments
+          .pipe(
+            map((apartments) => {
+              return [...apartments].sort((a, b) => a.price - b.price);
+            })
+          )
+          .subscribe((sortedApartments) => {
+            this.$sortedApartments.next(sortedApartments) as any;
+          });
+
+        break;
+      case 'מחיר - מהיקר לזול':
+        this.$apartments
+          .pipe(
+            map((apartments) => {
+              return apartments.sort((a, b) => b.price - a.price) as any;
+            })
+          )
+          .subscribe((sortedApartments) => {
+            this.$sortedApartments.next(sortedApartments);
+          });
+        break;
+      case 'קרוב אלי':
+      case 'תאריך':
+        // this.$sortedApartments = this.$apartments as any;
+        this.$sortedApartments.next(this.$apartments as any);
+
+        break;
+    }
   }
 
   SortDropdownOpen(): void {
@@ -66,6 +98,7 @@ export class RealEstateResultsComponent {
         this.sortTypeChecked[index] = false;
       }
     });
+    this.sortByFilter(sortType);
   }
 
   $apartments = combineLatest([
@@ -142,6 +175,7 @@ export class RealEstateResultsComponent {
         }
 
         ads = ads.filter((ad) => ad.tradeType === selectedTradeType);
+        this.apartmentsAmount = ads.length;
         return ads;
       }
     )
