@@ -76,9 +76,28 @@ export class RealEstateResultsComponent {
           });
         break;
       case 'קרוב אלי':
+        this.$apartments
+          .pipe(
+            map((apartments) => {
+              return [...apartments].sort((a, b) => a.id - b.id);
+            })
+          )
+          .subscribe((sortedApartments) => {
+            this.$sortedApartments.next(sortedApartments) as any;
+          });
+
+        break;
       case 'תאריך':
         // this.$sortedApartments = this.$apartments as any;
-        this.$sortedApartments.next(this.$apartments as any);
+        this.$apartments
+          .pipe(
+            map((apartments) => {
+              return apartments.sort((a, b) => b.id - a.id) as any;
+            })
+          )
+          .subscribe((sortedApartments) => {
+            this.$sortedApartments.next(sortedApartments);
+          });
 
         break;
     }
