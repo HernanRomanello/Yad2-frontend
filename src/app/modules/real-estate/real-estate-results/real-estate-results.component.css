@@ -149,8 +149,6 @@ i {
   text-decoration: none solid rgb(54, 54, 54);
   text-align: center;
   vertical-align: middle;
-  height: 20px;
-  width: 20px;
 }
 
 .date {
@@ -205,4 +203,15 @@ i,
 #location {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.material-icons {
+  font-size: 20px;
+  line-height: 23px;
+  transform: scaleX(1.2) scaleY(1.2) translateY(-1px);
+  opacity: 0.75;
+}
+
+.date {
+  padding-left: 5px;
 }
