@@ -215,3 +215,7 @@ i,
 .date {
   padding-left: 5px;
 }
+
+.rotate {
+  transform: scaleX(1.2) scaleY(1.2) translateY(-1px) rotate(180deg);
+}

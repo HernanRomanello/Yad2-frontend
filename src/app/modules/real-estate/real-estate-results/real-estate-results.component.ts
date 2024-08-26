@@ -1,4 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  Renderer2,
+  ViewChild,
+  viewChild,
+} from '@angular/core';
 import { AdvertisementService } from '../../../services/advertisement.service';
 import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel';
 import { AuthService } from '../../../services/user/auth.service';
@@ -30,10 +38,12 @@ export class RealEstateResultsComponent implements OnInit {
   sortTypeChecked: boolean[] = [true, false, false, false];
   sortTypeChosen: string = 'תאריך';
   isSortDropdownOpen: boolean = false;
+  @ViewChild('sortDropdown', { static: false })
+  sortDropdown!: ElementRef;
 
   hoverIndex: number = -1;
 
-  constructor() {
+  constructor(private render: Renderer2) {
     // this.$sortedApartments = this.$apartments as any;
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
@@ -107,8 +117,12 @@ export class RealEstateResultsComponent implements OnInit {
   }
 
   SortDropdownOpen(): void {
-    // alert('open');
     this.isSortDropdownOpen = !this.isSortDropdownOpen;
+    if (this.isSortDropdownOpen) {
+      this.render.addClass(this.sortDropdown.nativeElement, 'rotate');
+    } else {
+      this.render.removeClass(this.sortDropdown.nativeElement, 'rotate');
+    }
   }
 
   sortResults(sortType: string): void {
