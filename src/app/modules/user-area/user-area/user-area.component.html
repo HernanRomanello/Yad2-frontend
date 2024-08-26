@@ -1,5 +1,17 @@
 <div class="user-area-container">
+  <div class="user-content">
+    <router-outlet></router-outlet>
+  </div>
   <div class="sidebar">
+    <div class="user-profile-box">
+      <div>
+        <div class="round">
+          {{ this.UserEmailAddress[0] }}
+        </div>
+      </div>
+      <div>{{ this.userName }} {{ this.userLastname }}</div>
+      <div>{{ this.UserEmailAddress }}</div>
+    </div>
     <ul>
       <li>
         <a routerLink="user-advertisement" routerLinkActive="active"
@@ -28,8 +40,5 @@
         >
       </li>
     </ul>
-  </div>
-  <div class="content">
-    <router-outlet></router-outlet>
   </div>
 </div>

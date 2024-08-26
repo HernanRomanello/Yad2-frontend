@@ -1,10 +1,13 @@
 .user-area-container {
   display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
 }
 
-.content {
+.user-content {
   flex-grow: 1;
-  padding: 20px;
+  height: max-content;
+  /* padding: 20px; */
 }
 
 .sidebar {
@@ -12,7 +15,7 @@
   background-color: rgb(48, 49, 63);
   padding: 10px;
   border-left: 1px solid #dee2e6;
-  position: absolute;
+  /* position: absolute; */
   top: 59px;
   bottom: 0;
   right: 0;
@@ -36,11 +39,18 @@
   font-weight: bold;
 }
 
-.user-area-container .content {
-  margin-right: 200px;
+.user-profile-box {
+  background-color: aqua !important;
 }
 
-.outlined-heart-icon {
-  color: #ff0000;
-  font-size: 24px;
+.round {
+  line-height: 16.1px;
+  background-color: rgb(171, 71, 188);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  margin-left: 6px;
+  border: solid 1px #ff7100;
 }

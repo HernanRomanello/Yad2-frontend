@@ -1,5 +1,6 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/user/auth.service';
+import { UserModel } from '../../../shared/models/UserModel';
 
 @Component({
   selector: 'app-user-area',
@@ -11,17 +12,27 @@ import { AuthService } from '../../../services/user/auth.service';
 })
 export class UserAreaComponent implements OnInit, OnDestroy {
   authService = inject(AuthService);
+  userName: string = '';
+  userLastname: string = '';
+  UserEmailAddress: string = '';
   ngOnDestroy(): void {
     this.authService.isUserAreaOpen(false);
     this.authService.IsHeaderAndFooterOpen(false, false);
     this.authService.SetPageRender('');
     window.scrollTo(0, 0);
     window.location.reload();
+    this.authService.user.unsubscribe();
   }
   ngOnInit(): void {
     this.authService.isUserAreaOpen(true);
     this.authService.IsalternativeHeaderISOpen.next(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('user-area');
+
+    this.authService.user.subscribe((user: UserModel | null | undefined) => {
+      this.userName = user?.name || '';
+      this.userLastname = user?.lastName || '';
+      this.UserEmailAddress = user?.email || '';
+    });
   }
 }
