@@ -390,3 +390,7 @@ img,
 .Post-Btn button {
   font-weight: 700 !important;
 }
+
+.increase-height {
+  height: 60px !important;
+}

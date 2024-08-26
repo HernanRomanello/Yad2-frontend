@@ -264,7 +264,7 @@
 } } @if((this.authSerrvice.IsalternativeHeaderISOpen | async)) {
 <div class="orange-line"></div>
 <header>
-  <div class="header2">
+  <div [ngClass]="setHeaderHeight()">
     <div class="left-side2 flex-center2">
       <div class="gray-btns-container2">
         @if(!(this.authSerrvice.IsUserAreaISOpen | async)){
