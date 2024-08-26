@@ -114,7 +114,7 @@ button {
   padding: 0px 12px 0px 18px;
   white-space: nowrap;
   color: #fc8c31;
-  font-weight: bold !important;
+  font-size: 55px !important;
 }
 
 .Post-Btn button:hover {
@@ -385,4 +385,8 @@ img,
 
 .close-btn-container {
   max-width: 86px;
+}
+
+.Post-Btn button {
+  font-weight: 700 !important;
 }
