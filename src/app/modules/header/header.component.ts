@@ -5,14 +5,12 @@ import {
   Inject,
   OnDestroy,
   OnInit,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { UserModel } from '../../shared/models/UserModel';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
-import { Router } from '@angular/router';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -41,7 +39,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   authSerrvice = inject(AuthService);
   modalStateSerrvice = inject(ModalStateService);
   router = Inject;
-  render = inject(Renderer2);
   isUserConnected: boolean = false;
   firstLetterUserEmailAddress = '';
   @ViewChild('alternativeHeader', { static: false })
@@ -69,13 +66,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authSerrvice.user.unsubscribe();
   }
   ngOnInit(): void {
-    // if (this.authSerrvice.IsUserAreaISOpen) {
-    //   this.render.addClass(
-    //     this.alternativeHeader.nativeElement,
-    //     'increase-height'
-    //   );
-    // }
-
     this.authSerrvice.isUserLogin.subscribe(
       (status) => (this.isUserConnected = status)
     );
@@ -83,10 +73,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.userName = user?.name || '';
       this.firstLetterUserEmailAddress = user?.email[0].toUpperCase() || '';
     });
-
-    // if (this.authSerrvice.IsUserAreaISOpen) {
-    //   alert('2');
-    // }
   }
 
   setHeaderHeight(): string {

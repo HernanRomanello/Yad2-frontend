@@ -28,7 +28,6 @@ export class AuthService implements OnInit {
   IsMainFooterISOpen = new BehaviorSubject<boolean>(true);
   IsalternativeHeaderISOpen = new BehaviorSubject<boolean>(false);
   IsUserAreaISOpen = new BehaviorSubject<boolean>(false);
-  IsCreateAdvertisementISOpen = new BehaviorSubject<boolean>(false);
   UserPageRender = new BehaviorSubject<string>('');
   userName = new BehaviorSubject<string>('');
   firstLetterUserEmailAddress = new BehaviorSubject<string>('');
