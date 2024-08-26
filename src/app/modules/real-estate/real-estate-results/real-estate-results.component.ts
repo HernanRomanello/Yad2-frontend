@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AdvertisementService } from '../../../services/advertisement.service';
 import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel';
 import { AuthService } from '../../../services/user/auth.service';
@@ -13,7 +13,7 @@ import { FilterValue } from '../../../shared/models/Filters';
     // '../../user-area/user-advertisement/user-advertisement.component.css',
   ],
 })
-export class RealEstateResultsComponent {
+export class RealEstateResultsComponent implements OnInit {
   advertisementService = inject(AdvertisementService);
   searchService = inject(SearchService);
   authSerivce = inject(AuthService);
@@ -48,6 +48,9 @@ export class RealEstateResultsComponent {
         }
       }
     });
+  }
+  ngOnInit(): void {
+    this.sortByFilter('תאריך');
   }
 
   sortByFilter(sortTypeChosen: string): void {
