@@ -20,14 +20,18 @@
           <a routerLink="user-advertisement" routerLinkActive="active"
             >המודעות שלי</a
           >
-          <img class="svg-icon" src="assets/images/key.svg" alt="adds" />
+          <img
+            class="svg-icon key-img"
+            src="assets/images/key.svg"
+            alt="adds"
+          />
         </li>
         <li>
           <a routerLink="edit-details" routerLinkActive="active">עדכון פרטים</a>
           <img class="svg-icon" src="assets/images/pencil.svg" alt="adds" />
         </li>
         <li>
-          <a routerLink="statistic" routerLinkActive="active">סטיסטיקה</a>
+          <a routerLink="statistic" routerLinkActive="active">סטטיסטיקות</a>
           <img
             class="svg-icon"
             src="assets/images/stats-svgrepo-com.svg"
@@ -65,11 +69,7 @@
             <img class="icons" src="assets/images/phone.svg" alt="adds" />
           </button>
           <button class="accessibility-btn">
-            <img
-              class="icons"
-              src="assets/images/accessibility.svg"
-              alt="adds"
-            />
+            <i class="material-icons">accessibility</i>
           </button>
         </div>
         <div class="user-loguot-btns" (click)="this.authService.logout()">

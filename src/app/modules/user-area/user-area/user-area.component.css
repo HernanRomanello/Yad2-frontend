@@ -7,11 +7,16 @@
 .user-area-container,
 .user-profile-box,
 .sidebar li,
-.user-accessibility-btns-container {
+.user-accessibility-btns-container,
+.user-loguot-btns,
+.user-accessibility-btns,
+.user-logout-container {
   display: flex;
 }
 .round,
-.sidebar li {
+.sidebar li,
+.user-loguot-btns,
+.user-accessibility-btns {
   justify-content: center;
   align-items: center;
 }
@@ -24,6 +29,11 @@
 .sidebar li {
   gap: 5px;
   height: 48.39px;
+  line-height: 18.1px;
+}
+
+.user-accessibility-btns {
+  gap: 0.75rem;
 }
 
 .user-profile-box {
@@ -32,7 +42,8 @@
 
 .sidebar,
 .user-profile-box,
-.user-accessibility-btns-container {
+.user-accessibility-btns-container,
+.user-logout-container {
   flex-direction: column;
 }
 
@@ -102,8 +113,11 @@
   border: solid 1px #ff7100;
   margin: 1rem;
   transform: translateY(8px) translateX(16px);
-  padding: 1rem;
   font-weight: 350 !important;
+}
+
+.round {
+  padding: 1rem;
 }
 
 .user-name {
@@ -125,15 +139,21 @@
   transform: scaleY(1.1);
 }
 
-.icons {
+.icons,
+.material-icons,
+.svg-icon {
   width: 24px;
   height: 24px;
-  border: transparent;
+}
+
+.svg-icon {
+  height: 16px;
+  transform: translateY(-2px);
 }
 
 .user-accessibility-btns-container {
   flex: 1;
-  background-color: #ff7100 !important;
+  /* background-color: #ff7100 !important; */
 }
 
 .user-accessibility-btns button {
@@ -147,11 +167,43 @@
   border-radius: 30px;
   background-color: #eeeeee;
 }
+.user-accessibility-btns button,
+.user-loguot-btns,
+.sidebar li {
+  cursor: pointer;
+}
 
-.contact-btn :hover {
+.sidebar li:hover {
+  background-color: #23242c !important;
+}
+
+.contact-btn:hover {
   background-color: rgb(209, 209, 209);
 }
 
 .accessibility-btn {
   background-color: #012f75 !important;
+  border: 1px solid #ffffff !important;
+}
+
+.material-icons {
+  color: #ffffff;
+}
+
+.user-logout-container {
+  gap: 0.75rem;
+  padding-bottom: 24px;
+}
+
+.user-loguot-btns {
+  font-weight: 300;
+}
+
+.links {
+  /* background-color: #ff7100 !important; */
+  transform: translateY(-8px);
+}
+
+.key-img {
+  transform: scaleY(0.8);
 }
