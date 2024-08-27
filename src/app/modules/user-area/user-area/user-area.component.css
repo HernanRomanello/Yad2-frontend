@@ -1,3 +1,7 @@
+.user-area-container {
+  background-color: #f8f8f8;
+}
+
 .round,
 .sidebar,
 .user-area-container,
@@ -94,4 +98,11 @@
   font-size: 20px;
   margin-left: 6px;
   border: solid 1px #ff7100;
+  margin: 1rem;
+  transform: translateY(8px);
+}
+
+.user-name {
+  font-size: 20px;
+  font-weight: 600;
 }
