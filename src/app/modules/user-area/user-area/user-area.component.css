@@ -53,7 +53,7 @@
 }
 
 .sidebar {
-  width: 235px;
+  min-width: 235px;
   background-color: rgb(48, 49, 63);
   border-left: 1px solid #dee2e6;
   top: 59px;
@@ -77,7 +77,12 @@
 .user-profile-box {
   background-color: aqua !important;
   height: 155.094px;
+}
+
+.links,
+.user-profile-box {
   width: 100%;
+  padding: 0 2rem;
 }
 
 .round {
