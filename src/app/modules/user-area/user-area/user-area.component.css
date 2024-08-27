@@ -1,12 +1,19 @@
 .round,
 .sidebar,
 .user-area-container,
-.user-profile-box {
+.user-profile-box,
+.sidebar li {
   display: flex;
 }
-.round {
+.round,
+.sidebar li {
   justify-content: center;
   align-items: center;
+}
+
+.sidebar li {
+  gap: 5px;
+  height: 48.39px;
 }
 
 .user-profile-box {
@@ -23,8 +30,6 @@
   align-items: end;
 }
 
-.user-profile-box div {
-}
 .sidebar {
   color: #ffffff;
 }
@@ -34,11 +39,21 @@
   height: max-content;
 }
 
+.user-content {
+  height: calc(100vh - 59px);
+  overflow-y: auto;
+}
+
+.user-content::-webkit-scrollbar {
+  display: none;
+}
+
 .sidebar {
   width: 235px;
   background-color: rgb(48, 49, 63);
   border-left: 1px solid #dee2e6;
   top: 59px;
+  height: calc(100vh - 59px);
 }
 
 .sidebar ul {
@@ -47,7 +62,7 @@
 }
 
 .sidebar li {
-  margin: 10px 0;
+  font-size: 16px;
 }
 
 .sidebar a {
