@@ -6,7 +6,8 @@
 .sidebar,
 .user-area-container,
 .user-profile-box,
-.sidebar li {
+.sidebar li,
+.user-accessibility-btns-container {
   display: flex;
 }
 .round,
@@ -15,7 +16,8 @@
   align-items: center;
 }
 
-.sidebar li {
+.sidebar li,
+.user-accessibility-btns-container {
   justify-content: flex-end;
 }
 
@@ -29,7 +31,8 @@
 }
 
 .sidebar,
-.user-profile-box {
+.user-profile-box,
+.user-accessibility-btns-container {
   flex-direction: column;
 }
 
@@ -83,7 +86,8 @@
 }
 
 .links,
-.user-profile-box {
+.user-profile-box,
+.user-accessibility-btns-container {
   width: 100%;
   padding: 0 2rem;
 }
@@ -119,4 +123,14 @@
   padding: 3px 0;
   font-weight: 500;
   transform: scaleY(1.1);
+}
+
+.icons {
+  width: 24px;
+  height: 24px;
+}
+
+.user-accessibility-btns-container {
+  flex: 1;
+  background-color: #ff7100 !important;
 }
