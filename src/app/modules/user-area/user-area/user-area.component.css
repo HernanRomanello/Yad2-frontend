@@ -79,7 +79,6 @@
 }
 
 .user-profile-box {
-  background-color: aqua !important;
   height: 155.094px;
 }
 
@@ -90,19 +89,34 @@
 }
 
 .round {
-  line-height: 16.1px;
-  background-color: rgb(171, 71, 188);
+  background-color: #ab47bc;
   height: 46px;
   width: 46px;
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 26px;
   margin-left: 6px;
   border: solid 1px #ff7100;
   margin: 1rem;
-  transform: translateY(8px);
+  transform: translateY(8px) translateX(16px);
+  padding: 1rem;
+  font-weight: 350 !important;
 }
 
 .user-name {
   font-size: 20px;
   font-weight: 600;
+}
+
+.user-email {
+  color: #cccccc;
+}
+.user-email,
+.round {
+  line-height: 16.1px;
+}
+
+.user-email {
+  padding: 3px 0;
+  font-weight: 500;
+  transform: scaleY(1.1);
 }

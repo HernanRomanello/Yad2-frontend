@@ -6,11 +6,13 @@
     <div class="user-profile-box">
       <div>
         <div class="round">
-          {{ this.UserEmailAddress[0] }}
+          {{ this.UserEmailAddress[0] | uppercase }}
         </div>
       </div>
       <div class="user-name">{{ this.userName }} {{ this.userLastname }}</div>
-      <div class="user-email">{{ this.UserEmailAddress }}</div>
+      <div class="user-email">
+        {{ this.UserEmailAddress }}
+      </div>
     </div>
     <div class="links">
       <ul>
