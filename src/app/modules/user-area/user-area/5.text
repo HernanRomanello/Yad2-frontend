@@ -1,4 +1,4 @@
-img .profile-badge_img__4CG3m {
+a .menu-side-button_box__pVHgp menu-side-button_white__hcQgv {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -6,8 +6,8 @@ img .profile-badge_img__4CG3m {
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 18.4px;
-	text-decoration: none solid rgba(0, 0, 0, 0);
+	line-height: 0px;
+	text-decoration: none solid rgb(0, 0, 0);
 	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,26 +17,26 @@ img .profile-badge_img__4CG3m {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(209, 209, 209);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgba(0, 0, 0, 0);
+	color: rgb(0, 0, 0);
 
 	/* Box */
-	height: 46px;
-	width: 46px;
-	border: 0px none rgba(0, 0, 0, 0);
-	border-top: 0px none rgba(0, 0, 0, 0);
-	border-right: 0px none rgba(0, 0, 0, 0);
-	border-bottom: 0px none rgba(0, 0, 0, 0);
-	border-left: 0px none rgba(0, 0, 0, 0);
+	height: 42px;
+	width: 84.5px;
+	border: 1px solid rgb(0, 0, 0);
+	border-top: 1px solid rgb(0, 0, 0);
+	border-right: 1px solid rgb(0, 0, 0);
+	border-bottom: 1px solid rgb(0, 0, 0);
+	border-left: 1px solid rgb(0, 0, 0);
 	margin: 0px;
-	padding: 0px;
+	padding: 8px 0px;
 	max-height: none;
-	min-height: 0px;
-	max-width: 100%;
-	min-width: 0px;
+	min-height: auto;
+	max-width: none;
+	min-width: 78px;
 
 	/* Positioning */
 	position: static;
@@ -45,7 +45,7 @@ img .profile-badge_img__4CG3m {
 	right: auto;
 	left: auto;
 	float: none;
-	display: inline;
+	display: block;
 	clear: none;
 	z-index: auto;
 
@@ -62,8 +62,8 @@ img .profile-badge_img__4CG3m {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: clip;
-	cursor: auto;
+	overflow: visible;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ img .profile-badge_img__4CG3m {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 50%;
-	border-top-right-radius: 50%;
-	border-bottom-left-radius: 50%;
-	border-bottom-right-radius: 50%;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
 }

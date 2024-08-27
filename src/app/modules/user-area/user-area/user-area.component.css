@@ -128,9 +128,30 @@
 .icons {
   width: 24px;
   height: 24px;
+  border: transparent;
 }
 
 .user-accessibility-btns-container {
   flex: 1;
   background-color: #ff7100 !important;
+}
+
+.user-accessibility-btns button {
+  font-size: 16px;
+  text-align: center;
+  padding: 8px 0px;
+  border: 1px solid rgb(0, 0, 0);
+  height: 42px;
+  width: 84.5px;
+  min-width: 78px;
+  border-radius: 30px;
+  background-color: #eeeeee;
+}
+
+.contact-btn :hover {
+  background-color: rgb(209, 209, 209);
+}
+
+.accessibility-btn {
+  background-color: #012f75 !important;
 }
