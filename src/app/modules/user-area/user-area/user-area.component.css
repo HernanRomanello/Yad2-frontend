@@ -12,6 +12,10 @@
 }
 
 .sidebar li {
+  justify-content: flex-end;
+}
+
+.sidebar li {
   gap: 5px;
   height: 48.39px;
 }
