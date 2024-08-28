@@ -20,7 +20,26 @@ export class UserAdvertisementComponent {
 
   currentSlide = 0;
 
-  goToSlide(index: number) {
-    this.currentSlide = index;
+  goToSlide(
+    currentIndex: number,
+    increment: boolean,
+    decrement: boolean,
+    totalSlides: number
+  ) {
+    if (increment) {
+      currentIndex++;
+    } else if (decrement) {
+      currentIndex--;
+    }
+
+    if (currentIndex < 0) {
+      currentIndex = 0;
+    }
+
+    if (currentIndex > totalSlides) {
+      // currentIndex = totalSlides;
+    }
+
+    this.currentSlide = currentIndex;
   }
 }

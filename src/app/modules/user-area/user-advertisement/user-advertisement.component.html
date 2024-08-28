@@ -57,12 +57,18 @@
             <div class="slider-indicators1 slider-arrows">
               <span class="dark-circle">
                 <img
+                  (click)="
+                    goToSlide(i, true, false, advertisement.pictures.length)
+                  "
                   src="assets/images/next-arrow.svg"
                   class="arrow-pic"
                   alt="ad2"
               /></span>
               <span class="dark-circle">
                 <img
+                  (click)="
+                    goToSlide(i, false, true, advertisement.pictures.length)
+                  "
                   src="assets/images/prev-arrow.svg"
                   class="arrow-pic"
                   alt="ad2"
@@ -79,7 +85,6 @@
                   *ngFor="let image of advertisement.pictures; let i = index"
                   class="dot"
                   [ngClass]="{ active: i === currentSlide }"
-                  (click)="goToSlide(i)"
                 ></span>
               </div>
               <!-- <div class="slider-indicators">
