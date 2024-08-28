@@ -11,7 +11,8 @@
   align-items: flex-end;
 }
 .sort-btns-container {
-  /* justify-content: flex-start; */
+  gap: 0.5rem;
+  padding: 1.25rem 0;
 }
 .sort-btns-container,
 .label {
@@ -21,20 +22,20 @@
 .label {
   justify-content: center !important;
   text-align: center !important;
-  background-color: aqua;
 }
 
 .component-content {
   width: 74.4vw;
-  width: minmax(74.4vw, 1044px) !important;
+  max-width: 1044px;
   margin: auto;
-  padding: 1rem 18px 0.25rem 0;
+  /* padding: 1rem 18px 0.25rem 0; */
+  margin-top: 1rem;
 }
 
 .main-title {
   font-size: 24px;
-  /* line-height: 27.6px; */
   height: 51.5938px;
+  padding: 10px 0;
 }
 
 .main-title {
@@ -53,17 +54,13 @@ i.material-icons {
 }
 
 .input {
-  font-size: 16px;
-  /* line-height: 18.4px; */
-  /* font-weight: 400; */
   background-color: rgb(255, 255, 255) !important;
-  /* color: rgb(54, 54, 54); */
-  /* height: 42px; */
   border: 1px solid rgb(153, 153, 153, 0.7);
   border-radius: 4px;
-  /* direction: rtl; */
-  /* padding-right: 20px !important; */
-  /* display: none !important; */
+}
+
+.input {
+  font-size: 16px;
 }
 
 .input {
@@ -73,7 +70,6 @@ i.material-icons {
 .input::placeholder {
   text-align: start !important;
   transform: translateX(20px) !important;
-  /* padding: 10px !important; */
 }
 
 .large {
@@ -90,21 +86,13 @@ i.material-icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 8px 16px; */
   background-color: #fff;
   border: 1px solid #ccc;
   font-size: 16px;
-  background-color: yellow !important;
   height: 42px;
 }
 
 .input-container {
-  /* display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem; */
-  background-color: aqua;
   height: fit-content;
 }
 
