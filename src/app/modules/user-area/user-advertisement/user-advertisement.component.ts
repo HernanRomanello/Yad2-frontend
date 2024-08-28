@@ -5,10 +5,7 @@ import { AdvertisementService } from '../../../services/advertisement.service';
 @Component({
   selector: 'app-user-advertisement',
   templateUrl: './user-advertisement.component.html',
-  styleUrls: [
-    './user-advertisement.component.css',
-    '../../real-estate/real-estate-results/real-estate-results.component.css',
-  ],
+  styleUrl: './user-advertisement.component.css',
 })
 export class UserAdvertisementComponent {
   authService = inject(AuthService);

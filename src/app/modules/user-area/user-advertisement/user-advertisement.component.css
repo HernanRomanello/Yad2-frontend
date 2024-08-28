@@ -1,7 +1,31 @@
-/* .card {
-  margin-bottom: 20px;
+* {
+  direction: rtl;
 }
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-} */
+
+.main-title {
+  display: flex;
+}
+.main-title {
+  align-items: flex-end;
+}
+.main-title {
+}
+
+.component-content {
+  width: 74.6vw;
+  margin: auto;
+  padding: 1rem 18px 0.25rem 0;
+}
+
+.main-title {
+  background-color: aliceblue;
+  font-size: 24px;
+  line-height: 27.6px;
+  height: 51.5938px;
+  /* padding: 0px 0px 24px; */
+  /* padding: 2rem; */
+}
+
+.main-title {
+  width: 100%;
+}

@@ -1,14 +1,14 @@
-a .menu-side-button_box__pVHgp menu-side-button_white__hcQgv {
+h1 .title_title__vMDg2 {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 16px;
+	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 0px;
+	line-height: 27.6px;
 	text-decoration: none solid rgb(0, 0, 0);
-	text-align: center;
+	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,26 +17,26 @@ a .menu-side-button_box__pVHgp menu-side-button_white__hcQgv {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(209, 209, 209);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(0, 0, 0);
 
 	/* Box */
-	height: 42px;
-	width: 84.5px;
-	border: 1px solid rgb(0, 0, 0);
-	border-top: 1px solid rgb(0, 0, 0);
-	border-right: 1px solid rgb(0, 0, 0);
-	border-bottom: 1px solid rgb(0, 0, 0);
-	border-left: 1px solid rgb(0, 0, 0);
+	height: 51.5938px;
+	width: 1044px;
+	border: 0px none rgb(0, 0, 0);
+	border-top: 0px none rgb(0, 0, 0);
+	border-right: 0px none rgb(0, 0, 0);
+	border-bottom: 0px none rgb(0, 0, 0);
+	border-left: 0px none rgb(0, 0, 0);
 	margin: 0px;
-	padding: 8px 0px;
+	padding: 0px 0px 24px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: 78px;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -63,7 +63,7 @@ a .menu-side-button_box__pVHgp menu-side-button_white__hcQgv {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: pointer;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ a .menu-side-button_box__pVHgp menu-side-button_white__hcQgv {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
