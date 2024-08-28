@@ -10,4 +10,11 @@ import { AdvertisementService } from '../../../services/advertisement.service';
 export class UserAdvertisementComponent {
   authService = inject(AuthService);
   advertisementService = inject(AdvertisementService);
+  assetTypes: string[] = [];
+
+  setAssetType(option: any) {}
+
+  selectOption(option: any, text: string) {}
+
+  toggleDropdown(text: string) {}
 }

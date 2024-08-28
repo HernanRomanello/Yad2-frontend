@@ -1,6 +1,48 @@
 <div class="component-content">
   <div class="main-title">המודעות שלי</div>
-
+  <div class="sort-btns-container">
+    <div class="label">סינון לפי:</div>
+    <div class="input-container">
+      <button
+        id="CategoryType"
+        class="input large dropdown-btn"
+        type="button"
+        (click)="toggleDropdown('')"
+      >
+        {{ "  קטגוריה" }}
+        <i #sortCategoryDropdown class="material-icons">keyboard_arrow_down</i>
+      </button>
+      <ul *ngIf="false" class="dropdown-menu asset">
+        <li
+          class="dropdown-item"
+          *ngFor="let option of assetTypes"
+          (click)="selectOption(option, 'assetType'); setAssetType(option)"
+        >
+          {{ option }}
+        </li>
+      </ul>
+    </div>
+    <div class="input-container">
+      <button
+        id="CategoryType"
+        class="input large dropdown-btn"
+        type="button"
+        (click)="toggleDropdown('')"
+      >
+        {{ "  סטטוס" }}
+        <i #sortCategoryDropdown class="material-icons">keyboard_arrow_down</i>
+      </button>
+      <ul *ngIf="false" class="dropdown-menu asset">
+        <li
+          class="dropdown-item"
+          *ngFor="let option of assetTypes"
+          (click)="selectOption(option, 'assetType'); setAssetType(option)"
+        >
+          {{ option }}
+        </li>
+      </ul>
+    </div>
+  </div>
   <div>
     <div class="result-list">
       <div

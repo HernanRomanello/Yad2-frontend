@@ -2,30 +2,112 @@
   direction: rtl;
 }
 
-.main-title {
+.main-title,
+.sort-btns-container,
+.label {
   display: flex;
 }
 .main-title {
   align-items: flex-end;
 }
-.main-title {
+.sort-btns-container {
+  /* justify-content: flex-start; */
+}
+.sort-btns-container,
+.label {
+  align-items: center;
+}
+
+.label {
+  justify-content: center !important;
+  text-align: center !important;
+  background-color: aqua;
 }
 
 .component-content {
-  width: 74.6vw;
+  width: 74.4vw;
+  width: minmax(74.4vw, 1044px) !important;
   margin: auto;
   padding: 1rem 18px 0.25rem 0;
 }
 
 .main-title {
-  background-color: aliceblue;
   font-size: 24px;
-  line-height: 27.6px;
+  /* line-height: 27.6px; */
   height: 51.5938px;
-  /* padding: 0px 0px 24px; */
-  /* padding: 2rem; */
 }
 
 .main-title {
   width: 100%;
+}
+
+i.material-icons {
+  height: 20px;
+  width: 20px;
+  opacity: 0.5;
+}
+
+.input:focus {
+  border: 1px solid rgb(54, 54, 54) !important;
+  outline: none !important;
+}
+
+.input {
+  font-size: 16px;
+  /* line-height: 18.4px; */
+  /* font-weight: 400; */
+  background-color: rgb(255, 255, 255) !important;
+  /* color: rgb(54, 54, 54); */
+  /* height: 42px; */
+  border: 1px solid rgb(153, 153, 153, 0.7);
+  border-radius: 4px;
+  /* direction: rtl; */
+  /* padding-right: 20px !important; */
+  /* display: none !important; */
+}
+
+.input {
+  cursor: pointer;
+}
+
+.input::placeholder {
+  text-align: start !important;
+  transform: translateX(20px) !important;
+  /* padding: 10px !important; */
+}
+
+.large {
+  width: 270px;
+}
+
+.dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 2px;
+}
+.dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 8px 16px; */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: yellow !important;
+  height: 42px;
+}
+
+.input-container {
+  /* display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem; */
+  background-color: aqua;
+  height: fit-content;
+}
+
+div {
+  border: solid 1px red !important;
 }
