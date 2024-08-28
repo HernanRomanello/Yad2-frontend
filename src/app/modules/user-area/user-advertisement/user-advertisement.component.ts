@@ -17,4 +17,10 @@ export class UserAdvertisementComponent {
   selectOption(option: any, text: string) {}
 
   toggleDropdown(text: string) {}
+
+  currentSlide = 0;
+
+  goToSlide(index: number) {
+    this.currentSlide = index;
+  }
 }

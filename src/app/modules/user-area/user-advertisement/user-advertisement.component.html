@@ -46,13 +46,55 @@
   <div>
     <div class="result-list">
       <div
-        class="container"
+        class="ad-container"
         *ngFor="
           let advertisement of authService.UserAdvertisements | async;
           let i = index
         "
       >
-        <div class="advertisement-details">
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slider-indicators1 slider-arrows">
+              <span class="dark-circle">
+                <img
+                  src="assets/images/next-arrow.svg"
+                  class="arrow-pic"
+                  alt="ad2"
+              /></span>
+              <span class="dark-circle">
+                <img
+                  src="assets/images/prev-arrow.svg"
+                  class="arrow-pic"
+                  alt="ad2"
+              /></span>
+            </div>
+            <div
+              class="slide"
+              *ngFor="let image of advertisement.pictures; let i = index"
+              [ngClass]="{ active: i === currentSlide }"
+            >
+              <img class="card-img" [src]="image.url" [alt]="image" />
+              <div class="slider-indicators1">
+                <span
+                  *ngFor="let image of advertisement.pictures; let i = index"
+                  class="dot"
+                  [ngClass]="{ active: i === currentSlide }"
+                  (click)="goToSlide(i)"
+                ></span>
+              </div>
+              <!-- <div class="slider-indicators">
+                <span
+                  *ngFor="let image of advertisement.pictures; let i = index"
+                  class="dot"
+                  [ngClass]="{ active: i === currentSlide }"
+                  (click)="goToSlide(i)"
+                ></span>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="advertisement-details">
           <div class="title">
             {{ advertisement.street + " " + advertisement.number }}
           </div>
@@ -88,15 +130,15 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="image">
+        </div> -->
+        <!-- <div class="image">
           <img
             *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
             [src]="advertisement.pictures[0].url"
             class="card-img"
             alt="Advertisement Image"
           />
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

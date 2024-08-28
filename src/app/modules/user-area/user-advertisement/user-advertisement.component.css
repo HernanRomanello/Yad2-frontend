@@ -5,7 +5,8 @@
 .main-title,
 .sort-btns-container,
 .label,
-.input {
+.input,
+.slider-indicators1 {
   display: flex;
 }
 .main-title {
@@ -16,7 +17,9 @@
   padding: 1.25rem 0;
 }
 .sort-btns-container,
-.label {
+.label,
+.slider-indicators1,
+.slider-arrows {
   align-items: center;
 }
 
@@ -24,9 +27,14 @@
   padding: 0.75rem !important;
 }
 
-.label {
+.label,
+.slider-indicators1 {
   justify-content: center !important;
   text-align: center !important;
+}
+
+.slider-arrows {
+  justify-content: space-between !important;
 }
 .label {
   max-width: 50px;
@@ -62,10 +70,14 @@ i.material-icons {
 }
 
 .input {
-  background-color: rgb(255, 255, 255) !important;
   border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   color: rgb(54, 54, 54, 0.4);
+}
+
+.ad-container,
+.input {
+  background-color: rgb(255, 255, 255);
 }
 
 .input {
@@ -107,4 +119,89 @@ i.material-icons {
 
 div {
   /* border: solid 1px red !important; */
+}
+
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+}
+
+.slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.slide {
+  min-width: 100%;
+  transition: transform 0.5s ease;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.slider-indicators {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 5px;
+  background-color: #ddd;
+  background-color: #cccccc;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #666;
+  background-color: #ffffff;
+}
+
+.slider-indicators1 {
+  width: 275px;
+  transform: translateY(-28px) !important;
+  position: absolute;
+  height: 18px;
+}
+
+.card-img {
+  width: 275px;
+  height: 280px;
+  border-radius: 0.5rem;
+}
+
+.slider-arrows {
+  padding: 1rem;
+  height: 100%;
+  transform: translateY(5px) !important;
+}
+
+.arrow-pic {
+  width: 30px;
+  height: 30px;
+}
+
+.dark-circle {
+  width: 30px;
+  height: 30px;
+  background-color: #000000;
+}
+
+.dot,
+.dark-circle {
+  border-radius: 50%;
 }

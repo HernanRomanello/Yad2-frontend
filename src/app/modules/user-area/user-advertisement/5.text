@@ -1,14 +1,14 @@
-button #CategoryType .input large dropdown-btn {
+div .swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-rtl swiper_swiper__b4Yty imagesSwiper image-swiper_swiper__kNvWR image-swiper_hasPagination__jdCLO {
 	/* Font & Text */
-	font-family: Rubik;
+	font-family: Rubik, sans-serif;
 	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: normal;
+	line-height: 18.4px;
 	text-decoration: none solid rgb(0, 0, 0);
-	text-align: center;
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,41 +17,41 @@ button #CategoryType .input large dropdown-btn {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(238, 238, 238);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(0, 0, 0);
 
 	/* Box */
-	height: 44px;
-	width: 240px;
-	border: 1px solid rgb(204, 204, 204);
-	border-top: 1px solid rgb(204, 204, 204);
-	border-right: 1px solid rgb(204, 204, 204);
-	border-bottom: 1px solid rgb(204, 204, 204);
-	border-left: 1px solid rgb(204, 204, 204);
+	height: 280px;
+	width: 275px;
+	border: 0px none rgb(0, 0, 0);
+	border-top: 0px none rgb(0, 0, 0);
+	border-right: 0px none rgb(0, 0, 0);
+	border-bottom: 0px none rgb(0, 0, 0);
+	border-left: 0px none rgb(0, 0, 0);
 	margin: 0px;
-	padding: 16px;
+	padding: 0px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
 	min-width: 0px;
 
 	/* Positioning */
-	position: static;
-	top: auto;
-	bottom: auto;
-	right: auto;
-	left: auto;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
-	z-index: auto;
+	z-index: 0;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: disc;
+	list-style-type: none;
 	list-style-position: outside;
 
 	/* Table */
@@ -62,8 +62,8 @@ button #CategoryType .input large dropdown-btn {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
-	cursor: pointer;
+	overflow: hidden;
+	cursor: default;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ button #CategoryType .input large dropdown-btn {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
