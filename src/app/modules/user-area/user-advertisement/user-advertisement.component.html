@@ -74,20 +74,41 @@
                   alt="ad2"
               /></span>
             </div>
-            <div
+            <!-- <div
               class="slide"
               *ngFor="let image of advertisement.pictures; let i = index"
-              [ngClass]="{ active: i === currentSlide }"
             >
               <img class="card-img" [src]="image.url" [alt]="image" />
               <div class="slider-indicators1">
                 <span
                   *ngFor="let image of advertisement.pictures; let i = index"
                   class="dot"
-                  [ngClass]="{ active: i === currentSlide }"
                 ></span>
               </div>
-              <!-- <div class="slider-indicators">
+            </div> -->
+            @for (image of advertisement.pictures; track $index) {
+            <div class="slide">
+              @for (image of advertisement.pictures; track $index) {
+              @if($index== 0){
+
+              <img class="card-img" [src]="image.url" [alt]="image" />
+              <div class="slider-indicators1">
+                @for (image of advertisement.pictures; track $index) {
+                @if($index== 0){
+                <span class="dot dot-active"></span>
+
+                } @else {
+                <span class="dot"></span>
+                } }
+              </div>
+              } }
+            </div>
+
+            }
+            <!-- <div class="slider-indicators">
+                 [ngClass]="{ active: i === currentSlide }"
+              [ngClass]="{ active: i === currentSlide }"
+
                 <span
                   *ngFor="let image of advertisement.pictures; let i = index"
                   class="dot"
@@ -95,7 +116,6 @@
                   (click)="goToSlide(i)"
                 ></span>
               </div> -->
-            </div>
           </div>
         </div>
 

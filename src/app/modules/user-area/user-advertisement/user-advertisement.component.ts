@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/user/auth.service';
 import { AdvertisementService } from '../../../services/advertisement.service';
 
@@ -7,10 +7,19 @@ import { AdvertisementService } from '../../../services/advertisement.service';
   templateUrl: './user-advertisement.component.html',
   styleUrl: './user-advertisement.component.css',
 })
-export class UserAdvertisementComponent {
+export class UserAdvertisementComponent implements OnInit {
+  ngOnInit(): void {
+    this.authService.UserAdvertisements.subscribe((ads) => {
+      ads.forEach((value, index) => {
+        this.currentSlides[index] = 0;
+      });
+    });
+  }
   authService = inject(AuthService);
   advertisementService = inject(AdvertisementService);
   assetTypes: string[] = [];
+  currentSlides: { [adIndex: number]: number } = {};
+  userAdvertisements = this.authService.UserAdvertisements;
 
   setAssetType(option: any) {}
 
