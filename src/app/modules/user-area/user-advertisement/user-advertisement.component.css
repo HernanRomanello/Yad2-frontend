@@ -84,7 +84,8 @@ i.material-icons {
   font-size: 16px;
 }
 
-.input {
+.input,
+.dark-circle {
   cursor: pointer;
 }
 

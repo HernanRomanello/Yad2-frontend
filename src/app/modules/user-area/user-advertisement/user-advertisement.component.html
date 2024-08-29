@@ -58,7 +58,7 @@
               <span class="dark-circle">
                 <img
                   (click)="
-                    goToSlide(i, true, false, advertisement.pictures.length)
+                    goToSlide(false, true, advertisement.pictures.length)
                   "
                   src="assets/images/next-arrow.svg"
                   class="arrow-pic"
@@ -67,7 +67,7 @@
               <span class="dark-circle">
                 <img
                   (click)="
-                    goToSlide(i, false, true, advertisement.pictures.length)
+                    goToSlide(true, false, advertisement.pictures.length)
                   "
                   src="assets/images/prev-arrow.svg"
                   class="arrow-pic"

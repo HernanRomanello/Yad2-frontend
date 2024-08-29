@@ -20,26 +20,17 @@ export class UserAdvertisementComponent {
 
   currentSlide = 0;
 
-  goToSlide(
-    currentIndex: number,
-    increment: boolean,
-    decrement: boolean,
-    totalSlides: number
-  ) {
+  goToSlide(increment: boolean, decrement: boolean, totalSlides: number) {
     if (increment) {
-      currentIndex++;
+      this.currentSlide++;
+      if (this.currentSlide + 1 >= totalSlides) {
+        this.currentSlide = totalSlides - 1;
+      }
     } else if (decrement) {
-      currentIndex--;
+      this.currentSlide--;
+      if (this.currentSlide < 0) {
+        this.currentSlide = 0;
+      }
     }
-
-    if (currentIndex < 0) {
-      currentIndex = 0;
-    }
-
-    if (currentIndex > totalSlides) {
-      // currentIndex = totalSlides;
-    }
-
-    this.currentSlide = currentIndex;
   }
 }
