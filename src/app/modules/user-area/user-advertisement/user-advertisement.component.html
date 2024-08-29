@@ -45,13 +45,16 @@
   </div>
   <div>
     <div class="result-list">
-      <div
+      <!-- <div
         class="ad-container"
         *ngFor="
           let advertisement of authService.UserAdvertisements | async;
           let i = index
         "
-      >
+      > -->
+      @for (advertisement of authService.UserAdvertisements | async; track
+      $index) {
+      <div class="ad-container">
         <div class="slider-container">
           <div class="slider">
             <div class="slider-indicators1 slider-arrows">
@@ -90,7 +93,6 @@
             <div class="slide">
               @for (image of advertisement.pictures; track $index) {
               @if($index== 0){
-
               <img class="card-img" [src]="image.url" [alt]="image" />
               <div class="slider-indicators1">
                 @for (image of advertisement.pictures; track $index) {
@@ -118,8 +120,9 @@
               </div> -->
           </div>
         </div>
-
-        <!-- <div class="advertisement-details">
+      </div>
+      }
+      <!-- <div class="advertisement-details">
           <div class="title">
             {{ advertisement.street + " " + advertisement.number }}
           </div>
@@ -156,7 +159,7 @@
             </div>
           </div>
         </div> -->
-        <!-- <div class="image">
+      <!-- <div class="image">
           <img
             *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
             [src]="advertisement.pictures[0].url"
@@ -164,7 +167,7 @@
             alt="Advertisement Image"
           />
         </div> -->
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </div>
