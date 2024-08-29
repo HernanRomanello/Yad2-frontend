@@ -11,7 +11,12 @@ export class UserAdvertisementComponent implements OnInit {
   ngOnInit(): void {
     this.authService.UserAdvertisements.subscribe((ads) => {
       ads.forEach((value, index) => {
-        this.currentSlides[index] = 0;
+        if (index > 2) {
+          this.currentSlides[index] = 0;
+          this.currentSlidesId[index] = value.id;
+        } else {
+          this.currentSlides[index] = 2;
+        }
       });
     });
   }
@@ -19,6 +24,7 @@ export class UserAdvertisementComponent implements OnInit {
   advertisementService = inject(AdvertisementService);
   assetTypes: string[] = [];
   currentSlides: { [adIndex: number]: number } = {};
+  currentSlidesId: { [id: number]: number } = {};
   userAdvertisements = this.authService.UserAdvertisements;
 
   setAssetType(option: any) {}
