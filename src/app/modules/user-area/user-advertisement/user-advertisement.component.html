@@ -54,7 +54,12 @@
               <span class="dark-circle">
                 <img
                   (click)="
-                    goToSlide(false, true, advertisement.pictures.length)
+                    goToSlide(
+                      false,
+                      true,
+                      advertisement.pictures.length,
+                      advertisement.id
+                    )
                   "
                   src="assets/images/next-arrow.svg"
                   class="arrow-pic"
@@ -63,7 +68,12 @@
               <span class="dark-circle">
                 <img
                   (click)="
-                    goToSlide(true, false, advertisement.pictures.length)
+                    goToSlide(
+                      true,
+                      false,
+                      advertisement.pictures.length,
+                      advertisement.id
+                    )
                   "
                   src="assets/images/prev-arrow.svg"
                   class="arrow-pic"

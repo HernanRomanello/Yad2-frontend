@@ -44,23 +44,44 @@ export class UserAdvertisementComponent implements OnInit {
   findAdIndexById(id: number): number {
     for (const key in this.currentSlidesData) {
       if (this.currentSlidesData[key].id === id) {
-        return this.currentSlidesData[key].adIndex; // Return the adIndex of the matched object
+        return this.currentSlidesData[key].adIndex;
       }
     }
-    return -1; // Return -1 if the id is not found
+    return -1;
   }
 
-  goToSlide(increment: boolean, decrement: boolean, totalSlides: number) {
-    // if (increment) {
-    //   this.currentSlide++;
-    //   if (this.currentSlide + 1 >= totalSlides) {
-    //     this.currentSlide = totalSlides - 1;
-    //   }
-    // } else if (decrement) {
-    //   this.currentSlide--;
-    //   if (this.currentSlide < 0) {
-    //     this.currentSlide = 0;
-    //   }
-    // }
+  goToSlide(
+    increment: boolean,
+    decrement: boolean,
+    totalSlides: number,
+    id: number
+  ) {
+    const ImageNumber = this.findAdIndexById(id);
+    for (const key in this.currentSlidesData) {
+      if (this.currentSlidesData[key].id === id) {
+        if (increment) {
+          this.currentSlidesData[key].adIndex++;
+          if (ImageNumber + 1 >= totalSlides) {
+            this.currentSlidesData[key].adIndex = totalSlides - 1;
+          }
+        } else if (decrement) {
+          this.currentSlidesData[key].adIndex--;
+          if (ImageNumber < 0) {
+            this.currentSlidesData[key].adIndex = 0;
+          }
+        }
+      }
+    }
+    if (increment) {
+      // this.currentSlide++;
+      if (ImageNumber + 1 >= totalSlides) {
+        // this.currentSlide = totalSlides - 1;
+      }
+    } else if (decrement) {
+      // this.currentSlide--;
+      if (ImageNumber < 0) {
+        // this.currentSlide = 0;
+      }
+    }
   }
 }
