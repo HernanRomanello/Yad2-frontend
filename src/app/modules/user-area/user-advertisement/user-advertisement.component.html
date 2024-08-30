@@ -49,7 +49,7 @@
       $index) {
       <div class="ad-container">
         <div class="slider-container">
-          <div class="slider" (mouseenter)="showArrow(advertisement.id)">
+          <div class="slider">
             <div class="slider-indicators slider-arrows">
               @if(findIfIsVisibleById(advertisement.id)){
               <span class="dark-circle">
@@ -84,7 +84,7 @@
               }
             </div>
 
-            <div class="slide">
+            <div (mouseenter)="showArrow(advertisement.id, true)" class="slide">
               @for (image of advertisement.pictures; track $index) {
               @if($index== this.findAdIndexById(advertisement.id)){
               <img class="card-img" [src]="image.url" [alt]="image" />

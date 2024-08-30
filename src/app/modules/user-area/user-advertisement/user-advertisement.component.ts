@@ -28,7 +28,7 @@ export class UserAdvertisementComponent implements OnInit {
         this.currentSlidesData[index] = {
           adIndex: 0,
           id: value.id,
-          isVisible: true,
+          isVisible: false,
         };
       });
     });
@@ -82,7 +82,12 @@ export class UserAdvertisementComponent implements OnInit {
     }
   }
 
-  showArrow(id: number) {
-    // alert(id);
+  showArrow(id: number, isVisible: boolean) {
+    for (const key in this.currentSlidesData) {
+      if (this.currentSlidesData[key].id === id) {
+        this.currentSlidesData[key].isVisible = isVisible;
+        console.log(this.currentSlidesData);
+      }
+    }
   }
 }
