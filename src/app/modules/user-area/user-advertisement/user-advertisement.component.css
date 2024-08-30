@@ -2,6 +2,13 @@
   direction: rtl;
 }
 
+.ad-container {
+  display: grid;
+}
+.ad-container {
+  grid-template-columns: 26.3% 35.4% 35%;
+}
+
 .main-title,
 .sort-btns-container,
 .label,
@@ -143,18 +150,11 @@ div {
   transition: transform 0.5s ease;
 }
 
-img {
-  width: 100%;
-}
-
 .dot {
   height: 8px;
   width: 8px;
   margin: 0 5px;
-  background-color: #ddd;
   background-color: #cccccc;
-  display: inline-block;
-  cursor: pointer;
 }
 
 .dot-active {
@@ -189,11 +189,14 @@ img {
   width: 30px;
   height: 30px;
   background-color: #000000;
-
-  /* display: none; */
 }
 
 .dot,
 .dark-circle {
   border-radius: 50%;
+}
+
+.ad-content,
+.advertisement-content {
+  background: red;
 }
