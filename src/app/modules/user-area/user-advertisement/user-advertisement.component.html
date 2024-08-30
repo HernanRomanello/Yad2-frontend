@@ -107,17 +107,72 @@
         </div>
         <div class="advertisement-content">
           <div>
-            <div>₪{{ advertisement.price }}</div>
-            <div>
+            <div class="ad-data ad-price">
+              ₪{{ advertisement.price | number }}
+            </div>
+            <div class="ad-data ad-address">
               <span>{{ advertisement.assetType }}</span>
               <span>{{ advertisement.city }}</span>
               <span>{{ advertisement.street }}</span>
               <span>{{ advertisement.number }}</span>
             </div>
-            <div>{{ advertisement.price }}</div>
+            <div class="ad-data ad-size">
+              <span>{{ advertisement.rooms }}חדרים</span>
+              <span> <li></li></span>
+              <span>{{ advertisement.totalSquareMeters }} מ"ר</span>
+            </div>
           </div>
           <div>
-            <div></div>
+            <div class="icon-circle-container">
+              <div>
+                <div>
+                  <div class="icon-circle">
+                    <img
+                      class="icon-pic"
+                      src="assets/images/edit-pencil.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div>עריכה</div>
+              </div>
+              <div>
+                <div>
+                  <div class="icon-circle">
+                    <img
+                      class="icon-pic"
+                      src="assets/images/upload-arrow.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div>הקפצה</div>
+              </div>
+              <div>
+                <div>
+                  <div class="icon-circle">
+                    <img
+                      class="icon-pic snow-icon"
+                      src="assets/images/snow-svgrepo.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div>הקפאה</div>
+              </div>
+              <div>
+                <div>
+                  <div class="icon-circle">
+                    <img
+                      class="icon-pic bin-icon"
+                      src="assets/images/remove-bin-delete.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div>הסרה</div>
+              </div>
+            </div>
             <div></div>
           </div>
         </div>

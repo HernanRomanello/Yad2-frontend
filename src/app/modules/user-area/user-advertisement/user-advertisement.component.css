@@ -13,20 +13,34 @@
 .sort-btns-container,
 .label,
 .input,
-.slider-indicators {
+.slider-indicators,
+.dropdown-btn,
+.slider,
+.ad-data,
+.icon-circle,
+.icon-circle-container {
   display: flex;
 }
-.main-title {
+.main-title,
+.icon-circle-container {
   align-items: flex-end;
 }
 .sort-btns-container {
   gap: 0.5rem;
   padding: 1.25rem 0;
 }
+
+.icon-circle-container {
+  gap: 1.5rem;
+  width: 85%;
+  padding: 0 2rem;
+}
 .sort-btns-container,
 .label,
 .slider-indicators,
-.slider-arrows {
+.slider-arrows,
+.dropdown-btn,
+.icon-circle-container {
   align-items: center;
 }
 
@@ -35,7 +49,8 @@
 }
 
 .label,
-.slider-indicators {
+.slider-indicators,
+.icon-circle {
   justify-content: center !important;
   text-align: center !important;
 }
@@ -43,12 +58,20 @@
 .slide {
 }
 
-.slider-arrows {
+.slider-arrows,
+.dropdown-btn {
   justify-content: space-between !important;
 }
 .label {
   max-width: 50px;
   text-wrap: nowrap;
+}
+
+.ad-price {
+  font-weight: 600 !important;
+}
+.ad-price {
+  font-size: 20px;
 }
 
 .component-content {
@@ -90,8 +113,13 @@ i.material-icons {
   background-color: rgb(255, 255, 255);
 }
 
-.input {
+.input,
+.dropdown-btn,
+.ad-size {
   font-size: 16px;
+}
+.ad-address {
+  font-size: 18px;
 }
 
 .input,
@@ -109,19 +137,23 @@ i.material-icons {
 }
 
 .dropdown-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1px 2px;
-}
-.dropdown-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  font-size: 16px;
   height: 44px;
+}
+
+.icon-circle,
+.dropdown-btn {
+  border: 1px solid #cccccc;
+}
+
+.icon-circle {
+  width: 48px;
+  height: 48px;
+}
+
+.ad-container,
+.dropdown-btn {
+  background-color: #ffffff;
 }
 
 .input-container {
@@ -139,7 +171,6 @@ div {
 }
 
 .slider {
-  display: flex;
   overflow: hidden;
   width: 100%;
   position: relative;
@@ -192,11 +223,20 @@ div {
 }
 
 .dot,
-.dark-circle {
+.dark-circle,
+.icon-circle {
   border-radius: 50%;
 }
 
-.ad-content,
-.advertisement-content {
-  background: red;
+.icon-pic {
+  transform: scaleX(0.8) scaleY(0.75);
+}
+
+.snow-icon {
+  transform: scaleX(0.5) scaleY(0.5) !important;
+  opacity: 0.8;
+}
+.bin-icon {
+  transform: scaleX(0.7) scaleY(0.6) !important;
+  opacity: 0.8;
 }
