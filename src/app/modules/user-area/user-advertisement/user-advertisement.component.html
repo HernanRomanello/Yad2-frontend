@@ -76,11 +76,11 @@
             <!-- @for (image of advertisement.pictures; track $index) { -->
             <div class="slide">
               @for (image of advertisement.pictures; track $index) {
-              @if($index== 0){
+              @if($index== this.findAdIndexById(advertisement.id)){
               <img class="card-img" [src]="image.url" [alt]="image" />
               <div class="slider-indicators1">
                 @for (image of advertisement.pictures; track $index) {
-                @if($index== 0){
+                @if($index== this.findAdIndexById(advertisement.id)){
                 <span class="dot dot-active"></span>
 
                 } @else {
