@@ -23,16 +23,9 @@ export class UserAdvertisementComponent implements OnInit {
   ngOnInit(): void {
     this.authService.UserAdvertisements.subscribe((ads) => {
       ads.forEach((value, index) => {
-        if (index > 2) {
-          this.currentSlidesData[index] = { adIndex: 0, id: value.id };
-        } else {
-          this.currentSlidesData[index] = { adIndex: 2, id: value.id };
-        }
+        this.currentSlidesData[index] = { adIndex: 0, id: value.id };
       });
     });
-    console.log('Current Slides Data:', this.currentSlidesData); // Verify the data
-
-    console.log('index   ' + this.findAdIndexById(20));
   }
 
   setAssetType(option: any) {}
@@ -70,17 +63,6 @@ export class UserAdvertisementComponent implements OnInit {
             this.currentSlidesData[key].adIndex = 0;
           }
         }
-      }
-    }
-    if (increment) {
-      // this.currentSlide++;
-      if (ImageNumber + 1 >= totalSlides) {
-        // this.currentSlide = totalSlides - 1;
-      }
-    } else if (decrement) {
-      // this.currentSlide--;
-      if (ImageNumber < 0) {
-        // this.currentSlide = 0;
       }
     }
   }
