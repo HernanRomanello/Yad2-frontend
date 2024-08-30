@@ -28,7 +28,7 @@ export class UserAdvertisementComponent implements OnInit {
         this.currentSlidesData[index] = {
           adIndex: 0,
           id: value.id,
-          isVisible: false,
+          isVisible: true,
         };
       });
     });
@@ -83,6 +83,6 @@ export class UserAdvertisementComponent implements OnInit {
   }
 
   showArrow(id: number) {
-    alert(id);
+    // alert(id);
   }
 }

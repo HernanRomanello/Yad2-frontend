@@ -48,12 +48,9 @@
       @for (advertisement of authService.UserAdvertisements | async; track
       $index) {
       <div class="ad-container">
-        <div
-          class="slider-container"
-          (mouseenter)="showArrow(advertisement.id)"
-        >
-          <div class="slider">
-            <div class="slider-indicators1 slider-arrows">
+        <div class="slider-container">
+          <div class="slider" (mouseenter)="showArrow(advertisement.id)">
+            <div class="slider-indicators slider-arrows">
               @if(findIfIsVisibleById(advertisement.id)){
               <span class="dark-circle">
                 <img
@@ -91,7 +88,7 @@
               @for (image of advertisement.pictures; track $index) {
               @if($index== this.findAdIndexById(advertisement.id)){
               <img class="card-img" [src]="image.url" [alt]="image" />
-              <div class="slider-indicators1">
+              <div class="slider-indicators">
                 @for (image of advertisement.pictures; track $index) {
                 @if($index== this.findAdIndexById(advertisement.id)){
                 <span class="dot dot-active"></span>
