@@ -138,16 +138,10 @@ div {
 .slide {
   min-width: 100%;
   transition: transform 0.5s ease;
-  /* display: none; */
-}
-
-.slide.active {
-  display: block;
 }
 
 img {
   width: 100%;
-  /* display: block; */
 }
 
 .slider-indicators {
@@ -165,11 +159,6 @@ img {
   background-color: #cccccc;
   display: inline-block;
   cursor: pointer;
-}
-
-.dot.active {
-  background-color: #666;
-  background-color: #ffffff;
 }
 
 .dot-active {
@@ -204,6 +193,8 @@ img {
   width: 30px;
   height: 30px;
   background-color: #000000;
+
+  /* display: none; */
 }
 
 .dot,

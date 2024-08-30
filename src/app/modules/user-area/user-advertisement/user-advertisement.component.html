@@ -48,9 +48,13 @@
       @for (advertisement of authService.UserAdvertisements | async; track
       $index) {
       <div class="ad-container">
-        <div class="slider-container">
+        <div
+          class="slider-container"
+          (mouseenter)="showArrow(advertisement.id)"
+        >
           <div class="slider">
             <div class="slider-indicators1 slider-arrows">
+              @if(findIfIsVisibleById(advertisement.id)){
               <span class="dark-circle">
                 <img
                   (click)="
@@ -64,7 +68,8 @@
                   src="assets/images/next-arrow.svg"
                   class="arrow-pic"
                   alt="ad2"
-              /></span>
+                />
+              </span>
               <span class="dark-circle">
                 <img
                   (click)="
@@ -79,11 +84,9 @@
                   class="arrow-pic"
                   alt="ad2"
               /></span>
+              }
             </div>
 
-            <!-- <div #index>{{ this.currentSlides[$index] }}</div> -->
-
-            <!-- @for (image of advertisement.pictures; track $index) { -->
             <div class="slide">
               @for (image of advertisement.pictures; track $index) {
               @if($index== this.findAdIndexById(advertisement.id)){
@@ -99,19 +102,6 @@
               </div>
               } }
             </div>
-
-            <!-- } -->
-            <!-- <div class="slider-indicators">
-                 [ngClass]="{ active: i === currentSlide }"
-              [ngClass]="{ active: i === currentSlide }"
-
-                <span
-                  *ngFor="let image of advertisement.pictures; let i = index"
-                  class="dot"
-                  [ngClass]="{ active: i === currentSlide }"
-                  (click)="goToSlide(i)"
-                ></span>
-              </div> -->
           </div>
         </div>
       </div>

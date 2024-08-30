@@ -17,13 +17,19 @@ export class UserAdvertisementComponent implements OnInit {
   authService = inject(AuthService);
   advertisementService = inject(AdvertisementService);
   assetTypes: string[] = [];
-  currentSlidesData: { [key: number]: { adIndex: number; id: number } } = {};
+  currentSlidesData: {
+    [key: number]: { adIndex: number; id: number; isVisible: boolean };
+  } = {};
   userAdvertisements = this.authService.UserAdvertisements;
 
   ngOnInit(): void {
     this.authService.UserAdvertisements.subscribe((ads) => {
       ads.forEach((value, index) => {
-        this.currentSlidesData[index] = { adIndex: 0, id: value.id };
+        this.currentSlidesData[index] = {
+          adIndex: 0,
+          id: value.id,
+          isVisible: false,
+        };
       });
     });
   }
@@ -41,6 +47,15 @@ export class UserAdvertisementComponent implements OnInit {
       }
     }
     return -1;
+  }
+
+  findIfIsVisibleById(id: number): boolean {
+    for (const key in this.currentSlidesData) {
+      if (this.currentSlidesData[key].id === id) {
+        return this.currentSlidesData[key].isVisible;
+      }
+    }
+    return false;
   }
 
   goToSlide(
@@ -65,5 +80,9 @@ export class UserAdvertisementComponent implements OnInit {
         }
       }
     }
+  }
+
+  showArrow(id: number) {
+    alert(id);
   }
 }
