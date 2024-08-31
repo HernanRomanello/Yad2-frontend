@@ -26,7 +26,8 @@
 
 .result-list,
 .add-data-container,
-.icon-div {
+.icon-div,
+.stats-information-btn {
   flex-direction: column;
 }
 .result-list {
@@ -50,7 +51,9 @@
 .result-list,
 .add-data-container,
 .dot-symbol,
-.icon-div {
+.icon-div,
+.stats-information-btn,
+.stats-information {
   display: flex;
 }
 .main-title,
@@ -74,7 +77,9 @@
 }
 
 .icon-div,
-.add-data-container {
+.add-data-container,
+.stats-information-btn,
+.ad-data {
   gap: 0.25rem;
 }
 
@@ -90,8 +95,11 @@
   align-items: center;
 }
 
-.ad-data {
-  gap: 0.25rem;
+.stats-information-container {
+  gap: 3rem;
+}
+.stats-information-container {
+  transform: translateY(-0.5rem);
 }
 
 .input {
@@ -118,7 +126,9 @@
 }
 
 .slider-arrows,
-.dropdown-btn {
+.dropdown-btn,
+.stats-information-btn,
+.stats-information {
   justify-content: space-between !important;
 }
 .label {
@@ -156,10 +166,24 @@
 i.material-icons {
   transform: translateY(-1px);
 }
-i.material-icons,
-.small-icon-circle {
+i.material-icons {
   height: 20px;
   width: 20px;
+}
+
+.small-icon-circle,
+.stats-num {
+  height: 24px;
+  width: 24px;
+  padding: 2px;
+}
+
+.stats-num {
+  padding-bottom: 1.5rem;
+}
+
+#eye-icon {
+  transform: scaleX(1.01) scaleY(0.85);
 }
 
 .input:focus {
@@ -181,7 +205,8 @@ i.material-icons,
 .input,
 .dropdown-btn,
 .ad-size,
-.icon-circle-container {
+.icon-circle-container,
+.stats-information {
   font-size: 16px;
 }
 .ad-address {
@@ -211,6 +236,10 @@ i.material-icons,
 .icon-circle,
 .dropdown-btn {
   border: 1px solid #cccccc;
+}
+
+.stats-information {
+  font-weight: bold;
 }
 
 .icon-circle {
@@ -313,4 +342,16 @@ div {
 .bin-icon {
   transform: scaleX(0.7) scaleY(0.6) !important;
   opacity: 0.8;
+}
+
+.stats-information-btn {
+  height: 46px;
+  width: 60px;
+}
+
+.stats-information-btn-text {
+  font-size: 12px;
+}
+.stats-information-btn-text {
+  color: #999999;
 }
