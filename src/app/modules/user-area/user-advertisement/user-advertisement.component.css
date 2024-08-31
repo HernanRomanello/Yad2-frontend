@@ -294,8 +294,9 @@ div {
   height: 18px;
 }
 
-.card-img {
+.user-card-img {
   height: 280px;
+  width: 260px !important;
   border-radius: 0.5rem;
 }
 /* .card-img,
