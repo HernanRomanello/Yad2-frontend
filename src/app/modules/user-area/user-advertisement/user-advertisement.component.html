@@ -110,17 +110,16 @@
             <div class="ad-data ad-price">
               {{ advertisement.price | number : "1.0-0" }} ₪&nbsp;
             </div>
-
             <div class="ad-data ad-address">
-              <span>{{ advertisement.assetType }}</span>
-              <span>{{ advertisement.city }}</span>
-              <span>{{ advertisement.street }}</span>
-              <span>{{ advertisement.number }}</span>
+              <div>{{ advertisement.assetType }},</div>
+              <div>{{ advertisement.city }},</div>
+              <div>{{ advertisement.street }}</div>
+              <div>{{ advertisement.number }}</div>
             </div>
             <div class="ad-data ad-size">
-              <span>{{ advertisement.rooms }}חדרים</span>
-              <span> <li></li></span>
-              <span>{{ advertisement.totalSquareMeters }} מ"ר</span>
+              <div>{{ advertisement.rooms }}חדרים</div>
+              <div><li></li></div>
+              <div>{{ advertisement.totalSquareMeters }} מ"ר</div>
             </div>
           </div>
           <div class="icon-circle-container">
