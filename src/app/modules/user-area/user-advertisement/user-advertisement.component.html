@@ -47,170 +47,186 @@
     <div class="result-list">
       @for (advertisement of authService.UserAdvertisements | async; track
       $index) {
-      <div class="ad-container">
-        <div class="slider-container">
-          <div
-            (mouseenter)="showArrow(advertisement.id, true)"
-            (mouseleave)="showArrow(advertisement.id, false)"
-            class="slider"
-          >
-            <div class="slider-indicators slider-arrows">
-              @if(findIfIsVisibleById(advertisement.id)){
-              <span class="dark-circle">
-                <img
-                  (click)="
-                    goToSlide(
-                      false,
-                      true,
-                      advertisement.pictures.length,
-                      advertisement.id
-                    )
-                  "
-                  src="assets/images/next-arrow.svg"
-                  class="arrow-pic"
-                  alt="ad2"
-                />
-              </span>
-              <span class="dark-circle">
-                <img
-                  (click)="
-                    goToSlide(
-                      true,
-                      false,
-                      advertisement.pictures.length,
-                      advertisement.id
-                    )
-                  "
-                  src="assets/images/prev-arrow.svg"
-                  class="arrow-pic"
-                  alt="ad2"
-              /></span>
-              }
-            </div>
-
-            <div class="slide">
-              @for (image of advertisement.pictures; track $index) {
-              @if($index== this.findAdIndexById(advertisement.id)){
-              <div class="">
-                <img class="user-card-img" [src]="image.url" [alt]="image" />
+      <div class="ad">
+        <div class="ad-container">
+          <div class="slider-container">
+            <div
+              (mouseenter)="showArrow(advertisement.id, true)"
+              (mouseleave)="showArrow(advertisement.id, false)"
+              class="slider"
+            >
+              <div class="slider-indicators slider-arrows">
+                @if(findIfIsVisibleById(advertisement.id)){
+                <span class="dark-circle">
+                  <img
+                    (click)="
+                      goToSlide(
+                        false,
+                        true,
+                        advertisement.pictures.length,
+                        advertisement.id
+                      )
+                    "
+                    src="assets/images/next-arrow.svg"
+                    class="arrow-pic"
+                    alt="ad2"
+                  />
+                </span>
+                <span class="dark-circle">
+                  <img
+                    (click)="
+                      goToSlide(
+                        true,
+                        false,
+                        advertisement.pictures.length,
+                        advertisement.id
+                      )
+                    "
+                    src="assets/images/prev-arrow.svg"
+                    class="arrow-pic"
+                    alt="ad2"
+                /></span>
+                }
               </div>
-              <div class="slider-indicators">
+
+              <div class="slide">
                 @for (image of advertisement.pictures; track $index) {
                 @if($index== this.findAdIndexById(advertisement.id)){
-                <span class="dot dot-active"></span>
+                <div class="">
+                  <img class="user-card-img" [src]="image.url" [alt]="image" />
+                </div>
+                <div class="slider-indicators">
+                  @for (image of advertisement.pictures; track $index) {
+                  @if($index== this.findAdIndexById(advertisement.id)){
+                  <span class="dot dot-active"></span>
 
-                } @else {
-                <span class="dot"></span>
+                  } @else {
+                  <span class="dot"></span>
+                  } }
+                </div>
                 } }
               </div>
-              } }
             </div>
+          </div>
+          <div class="advertisement-content">
+            <div class="add-data-container">
+              <div class="ad-data ad-price">
+                {{ advertisement.price | number : "1.0-0" }} ₪&nbsp;
+              </div>
+              <div class="ad-data ad-address">
+                <div>{{ advertisement.assetType }},</div>
+                <div>{{ advertisement.city }},</div>
+                <div>{{ advertisement.street }}</div>
+                <div>{{ advertisement.number }}</div>
+              </div>
+              <div class="ad-data ad-size">
+                <div class="ad-data">
+                  <div>{{ advertisement.rooms }}</div>
+                  <div>חדרים</div>
+                  <span class="dot-symbol"><li></li></span>
+                </div>
+                <div class="ad-data move-right">
+                  <div>{{ advertisement.totalSquareMeters }}</div>
+                  <div>מ"ר</div>
+                </div>
+              </div>
+            </div>
+            <div class="icon-circle-container">
+              <div class="icon-div">
+                <div>
+                  <div class="icon-circle">
+                    <img
+                      class="icon-pic"
+                      src="assets/images/edit-pencil.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div>עריכה</div>
+              </div>
+              <div class="icon-div">
+                <div>
+                  <div class="icon-circle">
+                    <img
+                      class="icon-pic"
+                      src="assets/images/upload-arrow.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div>הקפצה</div>
+              </div>
+              <div class="icon-div">
+                <div>
+                  <div class="icon-circle">
+                    <img
+                      class="icon-pic snow-icon"
+                      src="assets/images/snow-svgrepo.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div>הקפאה</div>
+              </div>
+              <div class="icon-div">
+                <div>
+                  <div class="icon-circle">
+                    <img
+                      class="icon-pic bin-icon"
+                      src="assets/images/remove-bin-delete.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div>הסרה</div>
+              </div>
+            </div>
+            <div class="stats-information-container">
+              <div class="stats-information-btn">
+                <div class="stats-information">
+                  <div class="stats-num">741</div>
+                  <div class="small-icon-circle light-pink">
+                    <img
+                      id="eye-icon"
+                      class="icon-pic"
+                      src="assets/images/eye-pink.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div class="stats-information-btn-text">צפו במודעה</div>
+              </div>
+              <div class="stats-information-btn">
+                <div class="stats-information">
+                  <div class="stats-num">14</div>
+                  <div class="small-icon-circle light-red">
+                    <img
+                      class="icon-pic"
+                      src="assets/images/heart-red-small.svg"
+                      alt="edit-pencil"
+                    />
+                  </div>
+                </div>
+                <div class="stats-information-btn-text">שמרו אותה</div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-content">1</div>
+        </div>
+        <div class="add-details">
+          <div class="add-details-btn">
+            <div>שיתוף מודעה</div>
+            <div class="or-sign">|</div>
+            <div>צפייה במודעה</div>
+          </div>
+          <div class="add-details-btn">
+            <div>נוצרה ב-14.8.2024</div>
+            <div class="or-sign">|</div>
+            <div>תאריך תפוגה 24.9.2024</div>
+            <div class="or-sign">|</div>
+            <div>מס' מודעה {{ advertisement.id }}</div>
           </div>
         </div>
-        <div class="advertisement-content">
-          <div class="add-data-container">
-            <div class="ad-data ad-price">
-              {{ advertisement.price | number : "1.0-0" }} ₪&nbsp;
-            </div>
-            <div class="ad-data ad-address">
-              <div>{{ advertisement.assetType }},</div>
-              <div>{{ advertisement.city }},</div>
-              <div>{{ advertisement.street }}</div>
-              <div>{{ advertisement.number }}</div>
-            </div>
-            <div class="ad-data ad-size">
-              <div class="ad-data">
-                <div>{{ advertisement.rooms }}</div>
-                <div>חדרים</div>
-                <span class="dot-symbol"><li></li></span>
-              </div>
-              <div class="ad-data move-right">
-                <div>{{ advertisement.totalSquareMeters }}</div>
-                <div>מ"ר</div>
-              </div>
-            </div>
-          </div>
-          <div class="icon-circle-container">
-            <div class="icon-div">
-              <div>
-                <div class="icon-circle">
-                  <img
-                    class="icon-pic"
-                    src="assets/images/edit-pencil.svg"
-                    alt="edit-pencil"
-                  />
-                </div>
-              </div>
-              <div>עריכה</div>
-            </div>
-            <div class="icon-div">
-              <div>
-                <div class="icon-circle">
-                  <img
-                    class="icon-pic"
-                    src="assets/images/upload-arrow.svg"
-                    alt="edit-pencil"
-                  />
-                </div>
-              </div>
-              <div>הקפצה</div>
-            </div>
-            <div class="icon-div">
-              <div>
-                <div class="icon-circle">
-                  <img
-                    class="icon-pic snow-icon"
-                    src="assets/images/snow-svgrepo.svg"
-                    alt="edit-pencil"
-                  />
-                </div>
-              </div>
-              <div>הקפאה</div>
-            </div>
-            <div class="icon-div">
-              <div>
-                <div class="icon-circle">
-                  <img
-                    class="icon-pic bin-icon"
-                    src="assets/images/remove-bin-delete.svg"
-                    alt="edit-pencil"
-                  />
-                </div>
-              </div>
-              <div>הסרה</div>
-            </div>
-          </div>
-          <div class="stats-information-container">
-            <div class="stats-information-btn">
-              <div class="stats-information">
-                <div class="stats-num">741</div>
-                <div class="small-icon-circle light-pink">
-                  <img
-                    id="eye-icon"
-                    class="icon-pic"
-                    src="assets/images/eye-pink.svg"
-                    alt="edit-pencil"
-                  />
-                </div>
-              </div>
-              <div class="stats-information-btn-text">צפו במודעה</div>
-            </div>
-            <div class="stats-information-btn">
-              <div class="stats-information">
-                <div class="stats-num">14</div>
-                <div class="small-icon-circle light-red">
-                  <img
-                    class="icon-pic"
-                    src="assets/images/heart-red-small.svg"
-                    alt="edit-pencil"
-                  />
-                </div>
-              </div>
-              <div class="stats-information-btn-text">שמרו אותה</div>
-            </div>
-          </div>
-        </div>
-        <div class="ad-content">1</div>
       </div>
       }
     </div>

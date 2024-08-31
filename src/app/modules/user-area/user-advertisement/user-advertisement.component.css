@@ -14,9 +14,24 @@
 }
 
 .ad-container {
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
-  border-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   gap: 1.5rem;
+}
+.add-details {
+  height: 43.36px;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.ad-container,
+.add-details {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
+}
+
+.add-details-btn,
+.sort-btns-container {
+  gap: 0.5rem;
 }
 
 .ad-container,
@@ -53,7 +68,9 @@
 .dot-symbol,
 .icon-div,
 .stats-information-btn,
-.stats-information {
+.stats-information,
+.add-details,
+.add-details-btn {
   display: flex;
 }
 .main-title,
@@ -61,7 +78,6 @@
   align-items: flex-end;
 }
 .sort-btns-container {
-  gap: 0.5rem;
   padding: 1.25rem 0;
 }
 
@@ -111,7 +127,8 @@
 .icon-circle,
 .small-icon-circle,
 .dot-symbol,
-.icon-div {
+.icon-div,
+.add-details-btn {
   justify-content: center !important;
   text-align: center !important;
 }
@@ -128,7 +145,8 @@
 .slider-arrows,
 .dropdown-btn,
 .stats-information-btn,
-.stats-information {
+.stats-information,
+.add-details {
   justify-content: space-between !important;
 }
 .label {
@@ -198,7 +216,8 @@ i.material-icons {
 }
 
 .ad-container,
-.input {
+.input,
+.add-details {
   background-color: rgb(255, 255, 255);
 }
 
@@ -299,19 +318,6 @@ div {
   width: 265px !important;
   border-radius: 0.5rem;
 }
-/* .card-img,
-.slider-indicators,
-.slide,
-.slider-container {
-  border-radius: 0.5rem !important;
-  width: 275px;
-}
-
-.slider-container {
-
-  height: 280px;
-  width: 275px;
-} */
 
 .slider-arrows {
   height: 100%;
@@ -366,4 +372,8 @@ div {
 }
 .stats-information-btn-text {
   color: #999999;
+}
+
+.or-sign {
+  font-size: 16px;
 }
