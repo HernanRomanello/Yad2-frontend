@@ -117,9 +117,15 @@
               <div>{{ advertisement.number }}</div>
             </div>
             <div class="ad-data ad-size">
-              <div>{{ advertisement.rooms }}חדרים</div>
-              <div><li></li></div>
-              <div>{{ advertisement.totalSquareMeters }} מ"ר</div>
+              <div class="ad-data">
+                <div>{{ advertisement.rooms }}</div>
+                <div>חדרים</div>
+                <span class="dot-symbol"><li></li></span>
+              </div>
+              <div class="ad-data move-right">
+                <div>{{ advertisement.totalSquareMeters }}</div>
+                <div>מ"ר</div>
+              </div>
             </div>
           </div>
           <div class="icon-circle-container">

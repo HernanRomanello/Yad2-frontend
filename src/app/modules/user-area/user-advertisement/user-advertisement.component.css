@@ -47,7 +47,8 @@
 .stats-information,
 .stats-information-container,
 .result-list,
-.add-data-container {
+.add-data-container,
+.dot-symbol {
   display: flex;
 }
 .main-title,
@@ -77,7 +78,8 @@
 .dropdown-btn,
 .icon-circle-container,
 .stats-information,
-.stats-information-container {
+.stats-information-container,
+.dot-symbol {
   align-items: center;
 }
 
@@ -92,9 +94,19 @@
 .label,
 .slider-indicators,
 .icon-circle,
-.small-icon-circle {
+.small-icon-circle,
+.dot-symbol {
   justify-content: center !important;
   text-align: center !important;
+}
+
+.dot-symbol {
+  padding: 0 0.2rem;
+  transform: scale(0.7);
+}
+
+.move-right {
+  transform: translateX(1rem);
 }
 
 .slider-arrows,
