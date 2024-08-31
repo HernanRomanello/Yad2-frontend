@@ -273,7 +273,6 @@ div {
 }
 
 .slide {
-  min-width: 100%;
   transition: transform 0.5s ease;
 }
 
@@ -296,10 +295,22 @@ div {
 }
 
 .card-img {
-  width: 275px;
   height: 280px;
   border-radius: 0.5rem;
 }
+/* .card-img,
+.slider-indicators,
+.slide,
+.slider-container {
+  border-radius: 0.5rem !important;
+  width: 275px;
+}
+
+.slider-container {
+
+  height: 280px;
+  width: 275px;
+} */
 
 .slider-arrows {
   height: 100%;
