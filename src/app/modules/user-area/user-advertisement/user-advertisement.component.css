@@ -16,6 +16,8 @@
 .ad-container {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
   border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 1.5rem;
 }
 
 .result-list {
@@ -48,6 +50,11 @@
 .sort-btns-container {
   gap: 0.5rem;
   padding: 1.25rem 0;
+}
+
+.add-data-container {
+  margin-right: 0.25rem;
+  padding: 0.5rem;
 }
 
 .icon-circle-container {
@@ -88,10 +95,13 @@
 }
 
 .ad-price {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 .ad-price {
   font-size: 20px;
+}
+.ad-price {
+  transform: scaleY(1.07);
 }
 
 .component-content {

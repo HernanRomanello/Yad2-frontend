@@ -106,10 +106,11 @@
           </div>
         </div>
         <div class="advertisement-content">
-          <div>
+          <div class="add-data-container">
             <div class="ad-data ad-price">
-              ₪{{ advertisement.price | number }}
+              {{ advertisement.price | number : "1.0-0" }} ₪&nbsp;
             </div>
+
             <div class="ad-data ad-address">
               <span>{{ advertisement.assetType }}</span>
               <span>{{ advertisement.city }}</span>
