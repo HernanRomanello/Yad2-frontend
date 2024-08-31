@@ -1,4 +1,4 @@
-div .swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-rtl swiper_swiper__b4Yty imagesSwiper image-swiper_swiper__kNvWR image-swiper_hasPagination__jdCLO {
+div .feed-item-grid_content__pn3As {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -17,37 +17,37 @@ div .swiper-container swiper-container-initialized swiper-container-horizontal s
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(238, 238, 238);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(0, 0, 0);
 
 	/* Box */
-	height: 280px;
-	width: 275px;
+	height: 312px;
+	width: 1044px;
 	border: 0px none rgb(0, 0, 0);
 	border-top: 0px none rgb(0, 0, 0);
 	border-right: 0px none rgb(0, 0, 0);
 	border-bottom: 0px none rgb(0, 0, 0);
 	border-left: 0px none rgb(0, 0, 0);
 	margin: 0px;
-	padding: 0px;
+	padding: 16px;
 	max-height: none;
-	min-height: 0px;
+	min-height: 280px;
 	max-width: none;
 	min-width: 0px;
 
 	/* Positioning */
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
-	z-index: 0;
+	z-index: auto;
 
 	/* List */
 	list-style-image: none;
@@ -62,7 +62,7 @@ div .swiper-container swiper-container-initialized swiper-container-horizontal s
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: hidden;
+	overflow: visible;
 	cursor: default;
 	visibility: visible;
 
