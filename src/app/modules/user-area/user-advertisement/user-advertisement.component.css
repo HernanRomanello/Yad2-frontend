@@ -132,10 +132,7 @@
 }
 
 .stats-information-container {
-  gap: 3rem;
-}
-.stats-information-container {
-  transform: translateY(-0.5rem);
+  gap: 40px;
 }
 
 .add-details {
