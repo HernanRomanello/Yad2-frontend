@@ -45,9 +45,11 @@
   gap: 0.5rem;
 }
 
-.ad-container,
 .slider-arrows {
   padding: 1rem;
+}
+.ad-container {
+  padding: 1rem 0.5rem;
 }
 
 .input {
@@ -100,14 +102,9 @@
   padding: 1.25rem 0;
 }
 
-.add-data-container {
-  margin-right: 0.25rem;
-}
-
 .icon-circle-container {
   gap: 1.5rem;
-  width: 85%;
-  padding: 0 1rem;
+  padding: 0 10px;
 }
 
 .icon-div,
@@ -220,7 +217,6 @@ i.material-icons {
 .stats-num {
   height: 24px;
   width: 24px;
-  padding: 2px;
 }
 
 .stats-num {
@@ -301,10 +297,6 @@ i.material-icons {
 
 .input-container {
   height: fit-content;
-}
-
-div {
-  /* border: solid 1px red !important; */
 }
 
 .slider-container {
