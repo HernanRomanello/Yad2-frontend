@@ -7,7 +7,7 @@
   display: grid;
 }
 .ad-container {
-  grid-template-columns: 26.3% 35.4% 35%;
+  grid-template-columns: 28.5% 31.6% 34.77%;
 }
 .advertisement-content {
   grid-template-rows: 31% 53% 16%;
@@ -16,7 +16,7 @@
 .ad-container {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .add-details {
   height: 43.36px;
@@ -312,10 +312,6 @@ div {
   position: relative;
 }
 
-.slide {
-  transition: transform 0.5s ease;
-}
-
 .dot {
   height: 8px;
   width: 8px;
@@ -400,4 +396,8 @@ div {
 .small-icon-pic {
   height: 20px;
   width: 20px;
+}
+
+.ad-content {
+  background-color: aqua !important;
 }
