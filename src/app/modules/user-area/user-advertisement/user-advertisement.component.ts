@@ -74,7 +74,7 @@ export class UserAdvertisementComponent implements OnInit {
           }
         } else if (decrement) {
           this.currentSlidesData[key].adIndex--;
-          if (ImageNumber < 0) {
+          if (ImageNumber <= 0) {
             this.currentSlidesData[key].adIndex = 0;
           }
         }
