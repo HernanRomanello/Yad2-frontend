@@ -208,10 +208,6 @@
   padding: 10px 0;
 }
 
-.main-title {
-  width: 100%;
-}
-
 i.material-icons {
   transform: translateY(-1px);
 }
@@ -319,7 +315,6 @@ div {
 
 .slider {
   overflow: hidden;
-  width: 100%;
   position: relative;
 }
 
@@ -341,14 +336,22 @@ div {
 }
 
 .user-card-img {
-  height: 100%;
-  width: 100%;
   border-radius: 0.5rem;
 }
 
+.user-card-img,
+.slider,
+.main-title {
+  width: 100%;
+}
+
 .slider-arrows {
-  height: 100%;
   transform: translateY(5px) !important;
+}
+
+.slider-arrows,
+.user-card-img {
+  height: 100%;
 }
 
 .arrow-pic {
