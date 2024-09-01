@@ -39,6 +39,13 @@
   padding: 1rem;
 }
 
+.input {
+  padding: 0.75rem !important;
+}
+.add-details,
+.add-data-container {
+  padding: 0.5rem !important;
+}
 .result-list,
 .add-data-container,
 .icon-div,
@@ -70,7 +77,8 @@
 .stats-information-btn,
 .stats-information,
 .add-details,
-.add-details-btn {
+.add-details-btn,
+.link-btn {
   display: flex;
 }
 .main-title,
@@ -83,7 +91,6 @@
 
 .add-data-container {
   margin-right: 0.25rem;
-  padding: 0.5rem;
 }
 
 .icon-circle-container {
@@ -99,6 +106,10 @@
   gap: 0.25rem;
 }
 
+.link-btn {
+  gap: 2px;
+}
+
 .sort-btns-container,
 .label,
 .slider-indicators,
@@ -107,7 +118,8 @@
 .icon-circle-container,
 .stats-information,
 .stats-information-container,
-.dot-symbol {
+.dot-symbol,
+.add-details {
   align-items: center;
 }
 
@@ -118,8 +130,8 @@
   transform: translateY(-0.5rem);
 }
 
-.input {
-  padding: 0.75rem !important;
+.add-details {
+  background-color: rgb(249, 249, 249) !important;
 }
 
 .label,
@@ -128,7 +140,8 @@
 .small-icon-circle,
 .dot-symbol,
 .icon-div,
-.add-details-btn {
+.add-details-btn,
+.link-btn {
   justify-content: center !important;
   text-align: center !important;
 }
@@ -136,6 +149,13 @@
 .dot-symbol {
   padding: 0 0.2rem;
   transform: scale(0.7);
+}
+
+#external-link {
+  transform: translateY(1.5px);
+}
+#link {
+  transform: translateX(-6px) scaleX(0.9);
 }
 
 .move-right {
@@ -225,7 +245,8 @@ i.material-icons {
 .dropdown-btn,
 .ad-size,
 .icon-circle-container,
-.stats-information {
+.stats-information,
+.or-sign {
   font-size: 16px;
 }
 .ad-address {
@@ -374,6 +395,7 @@ div {
   color: #999999;
 }
 
-.or-sign {
-  font-size: 16px;
+.small-icon-pic {
+  height: 20px;
+  width: 20px;
 }

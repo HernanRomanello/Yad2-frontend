@@ -1,4 +1,4 @@
-div .feed-item-grid_content__pn3As {
+div .feed-item-grid_info__bm8Xp {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -17,14 +17,14 @@ div .feed-item-grid_content__pn3As {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(249, 249, 249);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(0, 0, 0);
 
 	/* Box */
-	height: 312px;
+	height: 43.3594px;
 	width: 1044px;
 	border: 0px none rgb(0, 0, 0);
 	border-top: 0px none rgb(0, 0, 0);
@@ -32,9 +32,9 @@ div .feed-item-grid_content__pn3As {
 	border-bottom: 0px none rgb(0, 0, 0);
 	border-left: 0px none rgb(0, 0, 0);
 	margin: 0px;
-	padding: 16px;
+	padding: 12px;
 	max-height: none;
-	min-height: 280px;
+	min-height: 0px;
 	max-width: none;
 	min-width: 0px;
 
