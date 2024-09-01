@@ -388,10 +388,12 @@ div {
   width: 60px;
 }
 
-.stats-information-btn-text {
+.stats-information-btn-text,
+.light-gray-small-text {
   font-size: 12px;
 }
-.stats-information-btn-text {
+.stats-information-btn-text,
+.light-gray-small-text {
   color: #999999;
 }
 
