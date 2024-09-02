@@ -3,11 +3,15 @@
 }
 
 .ad-container,
-.advertisement-content {
+.advertisement-content,
+.ad-content {
   display: grid;
 }
 .ad-container {
   grid-template-columns: 28.5% 31.6% 35.32%;
+}
+.ad-content {
+  grid-template-rows: 85.6% 14.2%;
 }
 .advertisement-content {
   grid-template-rows: 31% 53% 16%;
@@ -16,9 +20,13 @@
 .ad-container {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  gap: 1rem;
   height: 312px !important;
 }
+.ad-container,
+.ad-container {
+  gap: 1rem;
+}
+
 .add-details {
   height: 43.36px;
   border-bottom-right-radius: 0.5rem;
@@ -62,7 +70,8 @@
 .result-list,
 .add-data-container,
 .icon-div,
-.stats-information-btn {
+.stats-information-btn,
+.promotion-information-content {
   flex-direction: column;
 }
 .result-list {
@@ -94,7 +103,9 @@
 .link-btn,
 .promotion-information,
 .promotion-information-details,
-.info-insight {
+.info-insight,
+.bit-option,
+.promotion-information-content {
   display: flex;
 }
 .main-title,
@@ -133,7 +144,8 @@
 .stats-information-container,
 .dot-symbol,
 .add-details,
-.info-insight {
+.info-insight,
+.bit-option {
   align-items: center;
 }
 
@@ -191,6 +203,9 @@
 
 .ad-price {
   font-weight: 500 !important;
+}
+.upgrade-btn {
+  font-weight: 600 !important;
 }
 .ad-price {
   font-size: 20px;
@@ -265,7 +280,8 @@ i.material-icons {
 
 .input,
 .dark-circle,
-.icon-circle {
+.icon-circle,
+.upgrade-btn {
   cursor: pointer;
 }
 
@@ -364,6 +380,26 @@ i.material-icons {
   background-color: #000000;
 }
 
+.upgrade-btn {
+  border-radius: 30px;
+}
+.upgrade-btn:hover {
+  background-color: rgb(10, 61, 143);
+}
+.upgrade-btn {
+  border: none;
+}
+.upgrade-btn {
+  background-color: rgb(53, 120, 229);
+}
+.upgrade-btn {
+  color: rgb(255, 255, 255);
+}
+.upgrade-btn {
+  height: 36px;
+  width: 86px;
+}
+
 .dot,
 .dark-circle,
 .icon-circle,
@@ -415,14 +451,15 @@ i.material-icons {
   height: 70px;
 }
 
-.info-insight {
-  background-color: aqua;
-}
-
 .bit {
   width: 32px;
   height: 32px;
 }
 
-.promotion-information {
+.promotion-information-content {
+  gap: 0.5rem !important;
+  padding: 2rem 1.5rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: 1px solid rgb(222, 222, 222);
 }
