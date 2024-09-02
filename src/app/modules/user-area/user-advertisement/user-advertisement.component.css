@@ -11,7 +11,7 @@
   grid-template-columns: 28.5% 31.6% 35.32%;
 }
 .ad-content {
-  grid-template-rows: 85.6% 14.2%;
+  grid-template-rows: 85.8% 14.2%;
 }
 .advertisement-content {
   grid-template-rows: 31% 53% 16%;
@@ -145,7 +145,8 @@
 .dot-symbol,
 .add-details,
 .info-insight,
-.bit-option {
+.bit-option,
+.promotion-information {
   align-items: center;
 }
 
@@ -204,7 +205,9 @@
 .ad-price {
   font-weight: 500 !important;
 }
-.upgrade-btn {
+.upgrade-btn,
+.turquoise-text,
+.info-insight-text {
   font-weight: 600 !important;
 }
 .ad-price {
@@ -271,7 +274,8 @@ i.material-icons {
 .ad-size,
 .icon-circle-container,
 .stats-information,
-.or-sign {
+.or-sign,
+.info-insight-text {
   font-size: 16px;
 }
 .ad-address {
@@ -461,5 +465,24 @@ i.material-icons {
   padding: 2rem 1.5rem;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+}
+
+.promotion-information {
+  padding: 0 1rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.promotion-information,
+.promotion-information-content {
   border: 1px solid rgb(222, 222, 222);
+  border-top: transparent;
+}
+
+.turquoise-text {
+  color: #52b799;
+}
+.turquoise-text {
+  padding: 0.25rem;
+  font-size: 17px;
 }
