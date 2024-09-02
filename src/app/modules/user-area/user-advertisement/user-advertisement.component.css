@@ -7,7 +7,7 @@
   display: grid;
 }
 .ad-container {
-  grid-template-columns: 28.5% 31.6% 34.77%;
+  grid-template-columns: 28.5% 31.6% 35.32%;
 }
 .advertisement-content {
   grid-template-rows: 31% 53% 16%;
@@ -403,4 +403,14 @@ i.material-icons {
 
 .ad-content {
   background-color: aqua !important;
+}
+
+.green-spaceship {
+  width: 65px;
+  height: 70px;
+}
+
+.bit {
+  width: 32px;
+  height: 32px;
 }
