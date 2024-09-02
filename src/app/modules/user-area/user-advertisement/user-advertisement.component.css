@@ -91,7 +91,10 @@
 .stats-information,
 .add-details,
 .add-details-btn,
-.link-btn {
+.link-btn,
+.promotion-information,
+.promotion-information-details,
+.info-insight {
   display: flex;
 }
 .main-title,
@@ -111,7 +114,8 @@
 .icon-div,
 .add-data-container,
 .stats-information-btn,
-.ad-data {
+.ad-data,
+.promotion-information-details {
   gap: 0.25rem;
 }
 
@@ -128,7 +132,8 @@
 .stats-information,
 .stats-information-container,
 .dot-symbol,
-.add-details {
+.add-details,
+.info-insight {
   align-items: center;
 }
 
@@ -136,7 +141,8 @@
   gap: 40px;
 }
 
-.add-details {
+.add-details,
+.promotion-information {
   background-color: rgb(249, 249, 249) !important;
 }
 
@@ -147,7 +153,8 @@
 .dot-symbol,
 .icon-div,
 .add-details-btn,
-.link-btn {
+.link-btn,
+.promotion-information-details {
   justify-content: center !important;
   text-align: center !important;
 }
@@ -172,7 +179,9 @@
 .dropdown-btn,
 .stats-information-btn,
 .stats-information,
-.add-details {
+.add-details,
+.promotion-information,
+.info-insight {
   justify-content: space-between !important;
 }
 .label {
@@ -401,16 +410,19 @@ i.material-icons {
   width: 20px;
 }
 
-.ad-content {
-  background-color: aqua !important;
-}
-
 .green-spaceship {
   width: 65px;
   height: 70px;
 }
 
+.info-insight {
+  background-color: aqua;
+}
+
 .bit {
   width: 32px;
   height: 32px;
+}
+
+.promotion-information {
 }
