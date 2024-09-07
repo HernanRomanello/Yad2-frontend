@@ -105,7 +105,8 @@
 .promotion-information-details,
 .info-insight,
 .bit-option,
-.promotion-information-content {
+.promotion-information-content,
+.promotion-indicators {
   display: flex;
 }
 .main-title,
@@ -146,7 +147,8 @@
 .add-details,
 .info-insight,
 .bit-option,
-.promotion-information {
+.promotion-information,
+.promotion-indicators {
   align-items: center;
 }
 
@@ -167,7 +169,8 @@
 .icon-div,
 .add-details-btn,
 .link-btn,
-.promotion-information-details {
+.promotion-information-details,
+.promotion-indicators {
   justify-content: center !important;
   text-align: center !important;
 }
@@ -359,8 +362,9 @@ i.material-icons {
   height: 18px;
 }
 
-.promotion {
-  transform: translateY(1000%) !important;
+.promotion-indicators {
+  margin: auto !important;
+  transform: translateY(100%) !important;
 }
 
 .user-card-img {
