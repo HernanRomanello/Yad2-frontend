@@ -383,6 +383,12 @@ i.material-icons {
 .slider-arrows,
 .user-card-img {
   height: 100%;
+}
+.slider-arrows,
+.user-card-img,
+.ad-content,
+.advertisement-content,
+.slider-container {
   max-height: 280px;
 }
 
