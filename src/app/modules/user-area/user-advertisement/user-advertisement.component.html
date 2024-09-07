@@ -221,7 +221,7 @@
                     <span>,</span>
                   </div>
                   <div>ממליצים בחום לשדרג ולהשכיר</div>
-                  <div>מהר</div>
+                  <!-- <div>מהר</div> -->
                 </div>
                 <img
                   class="green-spaceship"
@@ -238,6 +238,30 @@
               </div>
               <div>
                 <button class="upgrade-btn">שדרוג</button>
+              </div>
+              <div class="arrows-pic-round-div">
+                <span class="">
+                  <img
+                    (click)="
+                      this.firstPromotionSliderIsVisible =
+                        !this.firstPromotionSliderIsVisible
+                    "
+                    src="assets/images/circle-round-arrow-next.svg"
+                    class="arrow-pic-round"
+                    alt="ad2"
+                  />
+                </span>
+                <span class="">
+                  <img
+                    (click)="
+                      this.firstPromotionSliderIsVisible =
+                        !this.firstPromotionSliderIsVisible
+                    "
+                    src="assets/images/circle-round-arrow-prev.svg"
+                    class="arrow-pic-round"
+                    alt="ad2"
+                  />
+                </span>
               </div>
               <div class="promotion-indicators">
                 <span

@@ -106,7 +106,8 @@
 .info-insight,
 .bit-option,
 .promotion-information-content,
-.promotion-indicators {
+.promotion-indicators,
+.arrows-pic-round-div {
   display: flex;
 }
 .main-title,
@@ -147,7 +148,8 @@
 .add-details,
 .bit-option,
 .promotion-information,
-.promotion-indicators {
+.promotion-indicators,
+.arrows-pic-round-div {
   align-items: center;
 }
 
@@ -196,7 +198,8 @@
 .stats-information,
 .add-details,
 .promotion-information,
-.info-insight {
+.info-insight,
+.arrows-pic-round-div {
   justify-content: space-between !important;
 }
 .label {
@@ -281,6 +284,13 @@ i.material-icons {
 .info-insight-text {
   font-size: 16px;
 }
+
+.info-insight-text {
+  padding: 0 !important;
+  height: fit-content;
+  line-height: 1.25 !important;
+}
+
 .ad-address {
   font-size: 18px;
 }
@@ -288,7 +298,8 @@ i.material-icons {
 .input,
 .dark-circle,
 .icon-circle,
-.upgrade-btn {
+.upgrade-btn,
+.arrow-pic-round {
   cursor: pointer;
 }
 
@@ -357,13 +368,12 @@ i.material-icons {
 
 .slider-indicators {
   transform: translateY(-28px) !important;
-  position: absolute;
   height: 18px;
 }
 
 .promotion-indicators {
   margin: auto !important;
-  transform: translateY(100%) !important;
+  transform: translateY(320%) !important;
 }
 
 .user-card-img {
@@ -406,6 +416,20 @@ i.material-icons {
 .arrow-pic {
   width: 30px;
   height: 30px;
+}
+.arrow-pic-round {
+  width: 35px;
+  height: 35px;
+}
+
+.arrows-pic-round-div {
+  width: 315px;
+  transform: translateY(370%) scaleX(1.125);
+}
+
+.slider-indicators,
+.arrows-pic-round-div {
+  position: absolute;
 }
 
 .dark-circle {
@@ -498,7 +522,7 @@ i.material-icons {
 }
 
 .promotion-information-content {
-  gap: 0.5rem !important;
+  gap: 4px !important;
   padding: 2rem 1.5rem;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
