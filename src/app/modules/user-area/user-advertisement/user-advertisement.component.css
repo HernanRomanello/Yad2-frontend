@@ -207,7 +207,8 @@
 }
 .upgrade-btn,
 .turquoise-text,
-.info-insight-text {
+.info-insight-text,
+.bold {
   font-weight: 600 !important;
 }
 .ad-price {
@@ -340,12 +341,16 @@ i.material-icons {
 .dot {
   height: 8px;
   width: 8px;
-  margin: 0 5px;
+  margin: 0 2px;
   background-color: #cccccc;
 }
 
 .dot-active {
   background-color: #ffffff !important;
+}
+
+.red {
+  background-color: red !important;
 }
 
 .slider-indicators {
@@ -354,12 +359,15 @@ i.material-icons {
   height: 18px;
 }
 
+.promotion {
+  transform: translateY(1000%) !important;
+}
+
 .user-card-img {
   border-radius: 0.5rem;
 }
 
 .user-card-img,
-.slider,
 .main-title {
   width: 100%;
 }
@@ -371,6 +379,7 @@ i.material-icons {
 .slider-arrows,
 .user-card-img {
   height: 100%;
+  max-height: 280px;
 }
 
 .arrow-pic {
@@ -421,6 +430,9 @@ i.material-icons {
 .icon-pic {
   transform: scaleX(0.8) scaleY(0.75);
 }
+.lg-text {
+  transform: scaleY(1.1);
+}
 
 .snow-icon {
   transform: scaleX(0.5) scaleY(0.5) !important;
@@ -458,6 +470,9 @@ i.material-icons {
 .bit {
   width: 26px;
   height: 25px;
+}
+.underline {
+  text-decoration: underline;
 }
 
 .promotion-information-content {
