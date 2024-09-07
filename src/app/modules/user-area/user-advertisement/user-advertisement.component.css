@@ -444,6 +444,12 @@ i.material-icons {
   width: 30px;
   height: 30px;
   background-color: #000000;
+  opacity: 0.5;
+  transition: all ease-in-out 0.5s;
+}
+
+.dark-circle:hover {
+  opacity: 1;
 }
 
 .upgrade-btn {
