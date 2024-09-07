@@ -35,11 +35,11 @@ export class UserAdvertisementComponent implements OnInit {
     });
   }
 
-  changeColor(condition: boolean): string {
+  changeColor(condition: boolean, color1: string, color2: string): string {
     if (condition) {
-      return '#363636';
+      return color1;
     } else {
-      return '#cccccc';
+      return color2;
     }
   }
 

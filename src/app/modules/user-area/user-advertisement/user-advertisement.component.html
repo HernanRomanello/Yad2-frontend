@@ -243,13 +243,21 @@
                 <span
                   class="dot"
                   [ngStyle]="{
-                    background: changeColor(this.firstPromotionSliderIsVisible)
+                    background: changeColor(
+                      this.firstPromotionSliderIsVisible,
+                      '#363636',
+                      '#cccccc'
+                    )
                   }"
                 ></span>
                 <span
                   class="dot"
                   [ngStyle]="{
-                    background: changeColor(!this.firstPromotionSliderIsVisible)
+                    background: changeColor(
+                      !this.firstPromotionSliderIsVisible,
+                      '#363636',
+                      '#cccccc'
+                    )
                   }"
                 ></span>
               </div>
