@@ -57,7 +57,7 @@
   padding: 1rem;
 }
 .ad-container {
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.5rem 1rem 0;
 }
 
 .input {
@@ -390,6 +390,18 @@ i.material-icons {
 .advertisement-content,
 .slider-container {
   max-height: 280px;
+}
+.slider-arrows,
+.user-card-img,
+.ad-content,
+.advertisement-content,
+.slider-container,
+.promotion-information-content {
+  min-width: 275px;
+}
+
+.promotion-information-content {
+  max-height: 240px;
 }
 
 .arrow-pic {

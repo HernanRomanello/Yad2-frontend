@@ -17,6 +17,7 @@ export class UserAdvertisementComponent implements OnInit {
   authService = inject(AuthService);
   advertisementService = inject(AdvertisementService);
   assetTypes: string[] = [];
+  firstPromotionSliderIsVisible = true;
   currentSlidesData: {
     [key: number]: { adIndex: number; id: number; isVisible: boolean };
   } = {};
@@ -32,6 +33,14 @@ export class UserAdvertisementComponent implements OnInit {
         };
       });
     });
+  }
+
+  changeColor(condition: boolean): string {
+    if (condition) {
+      return '#363636';
+    } else {
+      return '#cccccc';
+    }
   }
 
   setAssetType(option: any) {}

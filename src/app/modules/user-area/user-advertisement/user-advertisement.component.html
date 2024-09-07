@@ -240,8 +240,18 @@
                 <button class="upgrade-btn">שדרוג</button>
               </div>
               <div class="promotion-indicators">
-                <span class="dot one"></span>
-                <span class="dot two"></span>
+                <span
+                  class="dot"
+                  [ngStyle]="{
+                    background: changeColor(this.firstPromotionSliderIsVisible)
+                  }"
+                ></span>
+                <span
+                  class="dot"
+                  [ngStyle]="{
+                    background: changeColor(!this.firstPromotionSliderIsVisible)
+                  }"
+                ></span>
               </div>
             </div>
 
