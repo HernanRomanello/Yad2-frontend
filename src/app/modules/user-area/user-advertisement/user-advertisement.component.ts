@@ -21,12 +21,20 @@ export class UserAdvertisementComponent implements OnInit {
   currentSlidesData: {
     [key: number]: { adIndex: number; id: number; isVisible: boolean };
   } = {};
+  currentSlidesPromotionAd: {
+    [key: number]: { adIndex: number; id: number; isVisible: boolean };
+  } = {};
   userAdvertisements = this.authService.UserAdvertisements;
 
   ngOnInit(): void {
     this.authService.UserAdvertisements.subscribe((ads) => {
       ads.forEach((value, index) => {
         this.currentSlidesData[index] = {
+          adIndex: 0,
+          id: value.id,
+          isVisible: false,
+        };
+        this.currentSlidesPromotionAd[index] = {
           adIndex: 0,
           id: value.id,
           isVisible: false,
@@ -58,10 +66,10 @@ export class UserAdvertisementComponent implements OnInit {
     return -1;
   }
 
-  findIfIsVisibleById(id: number): boolean {
-    for (const key in this.currentSlidesData) {
-      if (this.currentSlidesData[key].id === id) {
-        return this.currentSlidesData[key].isVisible;
+  findIfIsVisibleById(id: number, arrows: any): boolean {
+    for (const key in arrows) {
+      if (arrows[key].id === id) {
+        return arrows[key].isVisible;
       }
     }
     return false;
@@ -91,11 +99,10 @@ export class UserAdvertisementComponent implements OnInit {
     }
   }
 
-  showArrow(id: number, isVisible: boolean) {
-    for (const key in this.currentSlidesData) {
-      if (this.currentSlidesData[key].id === id) {
-        this.currentSlidesData[key].isVisible = isVisible;
-        console.log(this.currentSlidesData);
+  showArrow(id: number, imgArrowsIsVisible: boolean, arrows: any) {
+    for (const key in arrows) {
+      if (arrows[key].id === id) {
+        arrows[key].isVisible = imgArrowsIsVisible;
       }
     }
   }
