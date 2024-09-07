@@ -145,7 +145,6 @@
 .stats-information-container,
 .dot-symbol,
 .add-details,
-.info-insight,
 .bit-option,
 .promotion-information,
 .promotion-indicators {
@@ -485,8 +484,9 @@ i.material-icons {
 }
 
 .green-spaceship {
-  width: 65px;
+  width: 70px;
   height: 70px;
+  transform: translateY(-0.75rem);
 }
 
 .bit {
