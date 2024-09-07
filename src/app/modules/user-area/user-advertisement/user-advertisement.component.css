@@ -157,6 +157,10 @@
   gap: 40px;
 }
 
+.bit-option {
+  transform: translateY(-6px);
+}
+
 .add-details,
 .promotion-information {
   background-color: rgb(249, 249, 249) !important;
