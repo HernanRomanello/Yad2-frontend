@@ -54,7 +54,7 @@
 }
 
 .slider-arrows {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .ad-container {
   padding: 1rem 0.5rem 1rem 0;
@@ -443,13 +443,12 @@ i.material-icons {
 .dark-circle {
   width: 30px;
   height: 30px;
-  background-color: #000000;
-  opacity: 0.5;
+  background-color: rgb(0, 0, 0, 0.5);
   transition: all ease-in-out 0.5s;
 }
 
 .dark-circle:hover {
-  opacity: 1;
+  background-color: rgb(0, 0, 0);
 }
 
 .upgrade-btn {
