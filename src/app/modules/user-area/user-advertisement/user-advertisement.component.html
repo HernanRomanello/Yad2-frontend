@@ -214,7 +214,10 @@
             <div class="promotion-information-content">
               <div class="info-insight">
                 <div class="info-insight-text">
-                  <div>מיום שפרסמת את המודעה והנכס</div>
+                  <div>
+                    <span class="turquoise-text">לפני שמורידים </span>
+                    <span>את המחיר במודעה</span>
+                  </div>
                   <div>
                     <span>לא מושכר, הפסדת</span>
                     <span class="turquoise-text">2,850 ₪</span>
@@ -239,29 +242,31 @@
               <div>
                 <button class="upgrade-btn">שדרוג</button>
               </div>
-              <div class="arrows-pic-round-div">
-                <span class="">
-                  <img
-                    (click)="
-                      this.firstPromotionSliderIsVisible =
-                        !this.firstPromotionSliderIsVisible
-                    "
-                    src="assets/images/circle-round-arrow-next.svg"
-                    class="arrow-pic-round"
-                    alt="ad2"
-                  />
-                </span>
-                <span class="">
-                  <img
-                    (click)="
-                      this.firstPromotionSliderIsVisible =
-                        !this.firstPromotionSliderIsVisible
-                    "
-                    src="assets/images/circle-round-arrow-prev.svg"
-                    class="arrow-pic-round"
-                    alt="ad2"
-                  />
-                </span>
+              <div class="arrows-pic-round-div-container">
+                <div class="arrows-pic-round-div">
+                  <span class="">
+                    <img
+                      (click)="
+                        this.firstPromotionSliderIsVisible =
+                          !this.firstPromotionSliderIsVisible
+                      "
+                      src="assets/images/circle-round-arrow-next.svg"
+                      class="arrow-pic-round"
+                      alt="ad2"
+                    />
+                  </span>
+                  <span class="">
+                    <img
+                      (click)="
+                        this.firstPromotionSliderIsVisible =
+                          !this.firstPromotionSliderIsVisible
+                      "
+                      src="assets/images/circle-round-arrow-prev.svg"
+                      class="arrow-pic-round"
+                      alt="ad2"
+                    />
+                  </span>
+                </div>
               </div>
               <div class="promotion-indicators">
                 <span

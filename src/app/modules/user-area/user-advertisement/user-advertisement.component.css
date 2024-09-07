@@ -211,7 +211,6 @@
   font-weight: 500 !important;
 }
 .upgrade-btn,
-.turquoise-text,
 .info-insight-text,
 .bold {
   font-weight: 600 !important;
@@ -289,6 +288,7 @@ i.material-icons {
   padding: 0 !important;
   height: fit-content;
   line-height: 1.25 !important;
+  word-spacing: -0.05em !important;
 }
 
 .ad-address {
@@ -424,7 +424,11 @@ i.material-icons {
 
 .arrows-pic-round-div {
   width: 315px;
-  transform: translateY(370%) scaleX(1.125);
+  transform: translateY(10%) scaleX(1.125);
+}
+
+.arrows-pic-round-div-container {
+  position: relative;
 }
 
 .slider-indicators,
@@ -544,8 +548,4 @@ i.material-icons {
 
 .turquoise-text {
   color: #52b799;
-}
-.turquoise-text {
-  padding: 0.25rem;
-  font-size: 17px;
 }
