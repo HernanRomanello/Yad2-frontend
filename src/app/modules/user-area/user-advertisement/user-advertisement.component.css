@@ -525,6 +525,9 @@ i.material-icons {
   width: 26px;
   height: 25px;
 }
+.bit {
+  transform: translateY(3px);
+}
 .underline {
   text-decoration: underline;
 }
