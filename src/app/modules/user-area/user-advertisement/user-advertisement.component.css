@@ -216,7 +216,8 @@
 }
 .upgrade-btn,
 .info-insight-text,
-.bold {
+.bold,
+.AI-ad {
   font-weight: 600 !important;
 }
 .ad-price {
@@ -284,7 +285,8 @@ i.material-icons {
 .icon-circle-container,
 .stats-information,
 .or-sign,
-.info-insight-text {
+.info-insight-text,
+.AI-ad {
   font-size: 16px;
 }
 
@@ -295,7 +297,8 @@ i.material-icons {
   word-spacing: -0.05em !important;
 }
 
-.ad-address {
+.ad-address,
+.medium-size {
   font-size: 18px;
 }
 
@@ -560,4 +563,8 @@ i.material-icons {
 
 .turquoise-text {
   color: #52b799;
+}
+
+.orange {
+  background-color: #d86000;
 }
