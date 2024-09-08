@@ -228,6 +228,7 @@
                 )
               "
             >
+              @if(false){
               <div class="info-insight">
                 <div class="info-insight-text">
                   <div>
@@ -254,6 +255,35 @@
               <div>
                 <button class="upgrade-btn">שדרוג</button>
               </div>
+              }@else {
+              <div class="info-insight">
+                <div class="info-insight-text">
+                  <div>
+                    <span class="turquoise-text">לפני שמורידים </span>
+                    <span>את המחיר במודעה</span>
+                    <span>,</span>
+                  </div>
+                  <div>אנחנו ממליצים לשדרג ולמכור</div>
+                  <div>בדיוק במחיר שרצית</div>
+                </div>
+                <img
+                  class="green-spaceship"
+                  src="assets/images/light-green-spaceship.svg"
+                  alt="green-spaceship"
+                />
+              </div>
+
+              <div class="bit-option">
+                <span>עכשיו אפשר לשלם על השדרוג גם באמצאות</span>
+                <span>
+                  <img class="bit" src="assets/images/bit.svg" alt="bit"
+                /></span>
+              </div>
+              <div>
+                <button class="upgrade-btn">רכישת תגיות</button>
+              </div>
+
+              }
               @if(findIfIsVisibleById(advertisement.id,this.currentSlidesPromotionAd)){
               <div class="arrows-pic-round-div-container">
                 <div class="arrows-pic-round-div">

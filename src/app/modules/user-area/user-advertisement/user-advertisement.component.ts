@@ -53,7 +53,6 @@ export class UserAdvertisementComponent implements OnInit {
           secondPromotionSliderColor: '#363636',
         };
       });
-      console.log(this.currentSlidesPromotionIndex);
     });
   }
 
