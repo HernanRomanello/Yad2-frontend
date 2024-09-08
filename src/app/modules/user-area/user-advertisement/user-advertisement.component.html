@@ -260,19 +260,18 @@
                   <span class="">
                     <img
                       (click)="
-                        this.firstPromotionSliderIsVisible =
-                          !this.firstPromotionSliderIsVisible
+                        setColors(advertisement.id, '#cccccc', '#363636')
                       "
                       src="assets/images/circle-round-arrow-next.svg"
                       class="arrow-pic-round"
                       alt="ad2"
                     />
                   </span>
+
                   <span class="">
                     <img
                       (click)="
-                        this.firstPromotionSliderIsVisible =
-                          !this.firstPromotionSliderIsVisible
+                        setColors(advertisement.id, '#363636', '#cccccc')
                       "
                       src="assets/images/circle-round-arrow-prev.svg"
                       class="arrow-pic-round"
@@ -286,21 +285,13 @@
                 <span
                   class="dot"
                   [ngStyle]="{
-                    background: changeColor(
-                      this.firstPromotionSliderIsVisible,
-                      '#363636',
-                      '#cccccc'
-                    )
+                    background: changeColor(1, advertisement.id)
                   }"
                 ></span>
                 <span
                   class="dot"
                   [ngStyle]="{
-                    background: changeColor(
-                      !this.firstPromotionSliderIsVisible,
-                      '#363636',
-                      '#cccccc'
-                    )
+                    background: changeColor(0, advertisement.id)
                   }"
                 ></span>
               </div>

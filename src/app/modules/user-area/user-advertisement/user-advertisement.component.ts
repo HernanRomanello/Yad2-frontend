@@ -17,14 +17,21 @@ export class UserAdvertisementComponent implements OnInit {
   authService = inject(AuthService);
   advertisementService = inject(AdvertisementService);
   assetTypes: string[] = [];
-  firstPromotionSliderIsVisible = true;
+  userAdvertisements = this.authService.UserAdvertisements;
   currentSlidesData: {
     [key: number]: { adIndex: number; id: number; isVisible: boolean };
   } = {};
   currentSlidesPromotionAd: {
     [key: number]: { adIndex: number; id: number; isVisible: boolean };
   } = {};
-  userAdvertisements = this.authService.UserAdvertisements;
+  currentSlidesPromotionIndex: {
+    [key: number]: {
+      adIndex: number;
+      id: number;
+      currentPromotionSliderColor: string;
+      secondPromotionSliderColor: string;
+    };
+  } = {};
 
   ngOnInit(): void {
     this.authService.UserAdvertisements.subscribe((ads) => {
@@ -39,16 +46,35 @@ export class UserAdvertisementComponent implements OnInit {
           id: value.id,
           isVisible: false,
         };
+        this.currentSlidesPromotionIndex[index] = {
+          adIndex: 0,
+          id: value.id,
+          currentPromotionSliderColor: '#cccccc',
+          secondPromotionSliderColor: '#363636',
+        };
       });
+      console.log(this.currentSlidesPromotionIndex);
     });
   }
 
-  changeColor(condition: boolean, color1: string, color2: string): string {
-    if (condition) {
-      return color1;
-    } else {
-      return color2;
+  changeColor(currentIndex: number, advertisementId: number): string {
+    if (currentIndex == 0) {
+      return this.currentSlidesPromotionIndex[advertisementId]
+        .currentPromotionSliderColor;
     }
+    if (currentIndex == 1) {
+      return this.currentSlidesPromotionIndex[advertisementId]
+        .secondPromotionSliderColor;
+    }
+
+    return '';
+  }
+
+  setColors(adID: number, ColorFrstDot: string, colorSecondDot: string) {
+    this.currentSlidesPromotionIndex[adID].currentPromotionSliderColor =
+      ColorFrstDot;
+    this.currentSlidesPromotionIndex[adID].secondPromotionSliderColor =
+      colorSecondDot;
   }
 
   setAssetType(option: any) {}
