@@ -259,7 +259,13 @@
               }@else {
               <div class="info-insight-second-slider">
                 <div class="info-insight">
-                  <div class="">
+                  <div
+                    [ngClass]="{
+                      'move-up1':
+                        currentSlidesPromotionIndex[advertisement.id]
+                          .currentPromotionSliderColor === '#363636'
+                    }"
+                  >
                     <div class="AI-ad">
                       <span>חדש</span>
                       <span>!</span>
@@ -270,14 +276,28 @@
                     <div>מהיום תוכל לצרף תגיות יחודיות</div>
                     <div>שמתאימות בדיוק למודעה שלך</div>
                   </div>
-                  <img
-                    class="ad-AI"
-                    src="assets/images/Advertising-Drawing-images.svg"
-                    alt="ad-AI"
-                  />
+                  <div
+                    [ngClass]="{
+                      'move-down':
+                        currentSlidesPromotionIndex[advertisement.id]
+                          .currentPromotionSliderColor === '#363636'
+                    }"
+                  >
+                    <img
+                      class="ad-AI"
+                      src="assets/images/Advertising-Drawing-images.svg"
+                      alt="ad-AI"
+                    />
+                  </div>
                 </div>
 
-                <div>
+                <div
+                  [ngClass]="{
+                    'move-up2':
+                      currentSlidesPromotionIndex[advertisement.id]
+                        .currentPromotionSliderColor === '#363636'
+                  }"
+                >
                   <button class="upgrade-btn-AI orange">רכישת תגיות</button>
                 </div>
               </div>

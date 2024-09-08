@@ -596,19 +596,15 @@ i.material-icons {
   background-color: rgb(255, 113, 0);
 }
 
-.info-insight-second-slider {
-  transform: translateY(-1rem);
-}
-
-.promotion-indicators {
-  /* margin-top: 4px !important; */
-  /* background-color: #d86000; */
-  /* transform: translateY(-2px) !important; */
-  /* height: 15px; */
-}
-
 .move-up {
-  /* background-color: aqua !important; */
-  /* display: none; */
   transform: translateY(-11px);
+}
+.move-up1 {
+  transform: translateY(-10px);
+}
+.move-up2 {
+  transform: translateY(-30px);
+}
+.move-down {
+  transform: translateY(6px);
 }
