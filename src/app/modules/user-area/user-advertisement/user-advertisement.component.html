@@ -257,58 +257,83 @@
                 <button class="upgrade-btn">שדרוג</button>
               </div>
               }@else {
-              <div class="info-insight">
-                <div class="">
-                  <div class="AI-ad">
-                    <span>חדש</span>
-                    <span>!</span>
-                    <span> תגיות</span>
-                    <span class="medium-size"> AI </span>
-                    <span>למודעה</span>
+              <div class="info-insight-second-slider">
+                <div class="info-insight">
+                  <div class="">
+                    <div class="AI-ad">
+                      <span>חדש</span>
+                      <span>!</span>
+                      <span> תגיות</span>
+                      <span class="medium-size"> AI </span>
+                      <span>למודעה</span>
+                    </div>
+                    <div>מהיום תוכל לצרף תגיות יחודיות</div>
+                    <div>שמתאימות בדיוק למודעה שלך</div>
                   </div>
-                  <div>מהיום תוכל לצרף תגיות יחודיות</div>
-                  <div>שמתאימות בדיוק למודעה שלך</div>
+                  <img
+                    class="ad-AI"
+                    src="assets/images/Advertising-Drawing-images.svg"
+                    alt="ad-AI"
+                  />
                 </div>
-                <img
-                  class="ad-AI"
-                  src="assets/images/Advertising-Drawing-images.svg"
-                  alt="ad-AI"
-                />
+
+                <div>
+                  <button class="upgrade-btn-AI orange">רכישת תגיות</button>
+                </div>
+              </div>
+              }
+              <div
+                [ngClass]="{
+                  'move-up':
+                    currentSlidesPromotionIndex[advertisement.id]
+                      .currentPromotionSliderColor === '#363636'
+                }"
+              >
+                @if(findIfIsVisibleById(advertisement.id,this.currentSlidesPromotionAd)){
+                <div class="arrows-pic-round-div-container">
+                  <div class="arrows-pic-round-div">
+                    <span class="">
+                      <img
+                        (click)="
+                          setColors(advertisement.id, '#cccccc', '#363636')
+                        "
+                        src="assets/images/circle-round-arrow-next.svg"
+                        class="arrow-pic-round"
+                        alt="ad2"
+                      />
+                    </span>
+
+                    <span class="">
+                      <img
+                        (click)="
+                          setColors(advertisement.id, '#363636', '#cccccc')
+                        "
+                        src="assets/images/circle-round-arrow-prev.svg"
+                        class="arrow-pic-round"
+                        alt="ad2"
+                      />
+                    </span>
+                  </div>
+                </div>
+                }
+                <div class="promotion-indicators">
+                  <span
+                    class="dot"
+                    [ngStyle]="{
+                      background: changeColor(1, advertisement.id)
+                    }"
+                  ></span>
+                  <span
+                    class="dot"
+                    [ngStyle]="{
+                      background: changeColor(0, advertisement.id)
+                    }"
+                  ></span>
+                </div>
               </div>
 
               <div>
-                <button class="upgrade-btn-AI orange">רכישת תגיות</button>
-              </div>
-
-              }
-              @if(findIfIsVisibleById(advertisement.id,this.currentSlidesPromotionAd)){
-              <div class="arrows-pic-round-div-container">
-                <div class="arrows-pic-round-div">
-                  <span class="">
-                    <img
-                      (click)="
-                        setColors(advertisement.id, '#cccccc', '#363636')
-                      "
-                      src="assets/images/circle-round-arrow-next.svg"
-                      class="arrow-pic-round"
-                      alt="ad2"
-                    />
-                  </span>
-
-                  <span class="">
-                    <img
-                      (click)="
-                        setColors(advertisement.id, '#363636', '#cccccc')
-                      "
-                      src="assets/images/circle-round-arrow-prev.svg"
-                      class="arrow-pic-round"
-                      alt="ad2"
-                    />
-                  </span>
-                </div>
-              </div>
-              }
-              <div class="promotion-indicators">
+                <!-- <div class="promotion-indicators">
                 <span
                   class="dot"
                   [ngStyle]="{
@@ -321,6 +346,7 @@
                     background: changeColor(0, advertisement.id)
                   }"
                 ></span>
+              </div> -->
               </div>
             </div>
 

@@ -387,6 +387,10 @@ i.material-icons {
   margin: auto !important;
   transform: translateY(320%) !important;
 }
+.promotion-indicators {
+  margin: auto !important;
+  transform: translateY(420%) !important;
+}
 
 .user-card-img {
   border-radius: 0.5rem;
@@ -480,7 +484,6 @@ i.material-icons {
 .upgrade-btn,
 .upgrade-btn-AI {
   height: 36px;
-  /* width: 86px; */
 }
 .upgrade-btn {
   width: 86px;
@@ -591,4 +594,21 @@ i.material-icons {
 }
 .orange {
   background-color: rgb(255, 113, 0);
+}
+
+.info-insight-second-slider {
+  transform: translateY(-1rem);
+}
+
+.promotion-indicators {
+  /* margin-top: 4px !important; */
+  /* background-color: #d86000; */
+  /* transform: translateY(-2px) !important; */
+  /* height: 15px; */
+}
+
+.move-up {
+  /* background-color: aqua !important; */
+  /* display: none; */
+  transform: translateY(-11px);
 }
