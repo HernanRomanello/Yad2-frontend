@@ -217,7 +217,8 @@
 .upgrade-btn,
 .info-insight-text,
 .bold,
-.AI-ad {
+.AI-ad,
+.upgrade-btn-AI {
   font-weight: 600 !important;
 }
 .ad-price {
@@ -306,7 +307,8 @@ i.material-icons {
 .dark-circle,
 .icon-circle,
 .upgrade-btn,
-.arrow-pic-round {
+.arrow-pic-round,
+.upgrade-btn-AI {
   cursor: pointer;
 }
 
@@ -454,24 +456,35 @@ i.material-icons {
   background-color: rgb(0, 0, 0);
 }
 
-.upgrade-btn {
+.upgrade-btn,
+.upgrade-btn-AI {
   border-radius: 30px;
 }
 .upgrade-btn:hover {
   background-color: rgb(10, 61, 143);
 }
-.upgrade-btn {
+.upgrade-btn,
+.upgrade-btn-AI {
   border: none;
 }
 .upgrade-btn {
   background-color: rgb(53, 120, 229);
 }
-.upgrade-btn {
+.upgrade-btn,
+.upgrade-btn-AI {
   color: rgb(255, 255, 255);
 }
-.upgrade-btn {
+.upgrade-btn,
+.upgrade-btn-AI {
   height: 36px;
+  /* width: 86px; */
+}
+.upgrade-btn {
   width: 86px;
+}
+.upgrade-btn,
+.upgrade-btn-AI {
+  padding: 0px 18px;
 }
 
 .dot,
@@ -565,6 +578,9 @@ i.material-icons {
   color: #52b799;
 }
 
-.orange {
+.orange:hover {
   background-color: #d86000;
+}
+.orange {
+  background-color: rgb(255, 113, 0);
 }
