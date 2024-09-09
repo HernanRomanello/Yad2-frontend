@@ -93,7 +93,17 @@
                 </span>
                 }
               </div>
-
+              <div class="ad-status-container">
+                <div class="status-div basic-status">מודעה בסיסית</div>
+                <div class="status-div active-div">
+                  <span>פעילה</span>
+                  <img
+                    class="active-circle"
+                    src="assets/images/dot-active.svg"
+                    alt="active-circle"
+                  />
+                </div>
+              </div>
               <div class="slide">
                 @for (image of advertisement.pictures; track $index) {
                 @if($index== this.findAdIndexById(advertisement.id)){

@@ -35,7 +35,8 @@
 
 .slider,
 .slider-container,
-.slider-indicators {
+.slider-indicators,
+.ad-status-container {
   width: 275px;
 }
 .slider,
@@ -55,6 +56,10 @@
   gap: 0.2rem;
 }
 
+.ad-status-container {
+  gap: 6px;
+}
+
 .slider-arrows {
   padding: 0.5rem;
 }
@@ -62,7 +67,8 @@
   padding: 1rem 0.5rem 1rem 0;
 }
 
-.input {
+.input,
+.ad-status-container {
   padding: 0.75rem !important;
 }
 .AI-ad {
@@ -76,7 +82,8 @@
 .add-data-container,
 .icon-div,
 .stats-information-btn,
-.promotion-information-content {
+.promotion-information-content,
+.active-div {
   flex-direction: column;
 }
 .result-list {
@@ -112,7 +119,10 @@
 .bit-option,
 .promotion-information-content,
 .promotion-indicators,
-.arrows-pic-round-div {
+.arrows-pic-round-div,
+.ad-status-container,
+.active-div,
+.status-div {
   display: flex;
 }
 .main-title,
@@ -154,7 +164,8 @@
 .bit-option,
 .promotion-information,
 .promotion-indicators,
-.arrows-pic-round-div {
+.arrows-pic-round-div,
+.ad-status-container {
   align-items: center;
 }
 
@@ -180,7 +191,8 @@
 .add-details-btn,
 .link-btn,
 .promotion-information-details,
-.promotion-indicators {
+.promotion-indicators,
+.status-div {
   justify-content: center !important;
   text-align: center !important;
 }
@@ -219,14 +231,22 @@
 .ad-price {
   font-family: "Arial", sans-serif;
   letter-spacing: -0.02em;
+}
+.ad-price,
+.status-div {
   font-weight: 500 !important;
+}
+
+.active-div {
+  padding-right: 1rem !important;
 }
 
 .upgrade-btn,
 .info-insight-text,
 .bold,
 .AI-ad,
-.upgrade-btn-AI {
+.upgrade-btn-AI,
+.status-div {
   font-weight: 600 !important;
 }
 .ad-price {
@@ -277,15 +297,35 @@ i.material-icons {
 }
 
 .input {
-  border: 1px solid rgb(204, 204, 204);
-  border-radius: 4px;
   color: rgb(54, 54, 54, 0.4);
 }
+.input,
+.status-div {
+  border: 1px solid rgb(204, 204, 204);
+}
 
+.basic-status {
+  background-color: rgb(238, 238, 238) !important;
+  padding-top: 2px !important;
+}
+
+.input,
+.status-div {
+  border-radius: 4px;
+}
 .ad-container,
 .input,
-.add-details {
+.add-details,
+.status-div {
   background-color: rgb(255, 255, 255);
+}
+.status-div {
+  padding: 0px 8px;
+  height: 26px;
+}
+.active-circle {
+  width: 50px !important;
+  height: 50px !important;
 }
 
 .input,
@@ -448,12 +488,15 @@ i.material-icons {
   transform: translateY(10%) scaleX(1.125);
 }
 
-.arrows-pic-round-div-container {
+.arrows-pic-round-div-container,
+.status-div {
   position: relative;
 }
 
 .slider-indicators,
-.arrows-pic-round-div {
+.arrows-pic-round-div,
+.ad-status-container,
+.active-circle {
   position: absolute;
 }
 
@@ -505,7 +548,8 @@ i.material-icons {
 .dot,
 .dark-circle,
 .icon-circle,
-.small-icon-circle {
+.small-icon-circle,
+.active-circle {
   border-radius: 50%;
 }
 

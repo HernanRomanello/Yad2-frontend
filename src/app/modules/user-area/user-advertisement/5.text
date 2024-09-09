@@ -1,42 +1,42 @@
-mark {
+span .active-flag_active__FrhPt {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
 	letter-spacing: normal;
-	line-height: 19.008px;
-	text-decoration: none solid rgb(82, 183, 153);
+	line-height: 16.1px;
+	text-decoration: none solid rgb(54, 54, 54);
 	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: normal;
+	white-space: nowrap;
 	word-spacing: 0px;
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(82, 183, 153);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: auto;
-	width: auto;
-	border: 0px none rgb(82, 183, 153);
-	border-top: 0px none rgb(82, 183, 153);
-	border-right: 0px none rgb(82, 183, 153);
-	border-bottom: 0px none rgb(82, 183, 153);
-	border-left: 0px none rgb(82, 183, 153);
+	height: 26.0938px;
+	width: 64.2656px;
+	border: 1px solid rgb(204, 204, 204);
+	border-top: 1px solid rgb(204, 204, 204);
+	border-right: 1px solid rgb(204, 204, 204);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	border-left: 1px solid rgb(204, 204, 204);
 	margin: 0px;
-	padding: 0px;
+	padding: 4px 8px;
 	max-height: none;
-	min-height: 0px;
-	max-width: none;
-	min-width: 0px;
+	min-height: auto;
+	max-width: 100%;
+	min-width: auto;
 
 	/* Positioning */
 	position: static;
@@ -45,7 +45,7 @@ mark {
 	right: auto;
 	left: auto;
 	float: none;
-	display: inline;
+	display: block;
 	clear: none;
 	z-index: auto;
 
@@ -62,8 +62,8 @@ mark {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
-	cursor: default;
+	overflow: hidden;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -74,11 +74,11 @@ mark {
 	box-sizing: border-box;
 	resize: none;
 	text-shadow: none;
-	text-overflow: clip;
+	text-overflow: ellipsis;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }
