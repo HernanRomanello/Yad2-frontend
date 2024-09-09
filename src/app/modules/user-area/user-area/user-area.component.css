@@ -26,6 +26,11 @@
   justify-content: flex-end;
 }
 
+/* .sidebar li {
+  width: 230px;
+  padding-right: 4rem !important;
+} */
+
 .sidebar li {
   gap: 5px;
   height: 48.39px;
@@ -76,6 +81,10 @@
   border-left: 1px solid #dee2e6;
   top: 59px;
   height: calc(100vh - 59px);
+}
+
+.sidebar {
+  max-width: 245px !important;
 }
 
 .sidebar ul {
