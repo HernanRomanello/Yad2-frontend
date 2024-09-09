@@ -217,8 +217,11 @@
 }
 
 .ad-price {
+  font-family: "Arial", sans-serif;
+  letter-spacing: -0.02em;
   font-weight: 500 !important;
 }
+
 .upgrade-btn,
 .info-insight-text,
 .bold,
