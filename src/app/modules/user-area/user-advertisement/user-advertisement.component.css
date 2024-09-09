@@ -309,6 +309,10 @@ i.material-icons {
   padding-top: 2px !important;
 }
 
+.active-circle {
+  transform: translateX(2rem) translateY(-2px);
+}
+
 .input,
 .status-div {
   border-radius: 4px;
