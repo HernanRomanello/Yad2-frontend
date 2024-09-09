@@ -90,6 +90,16 @@ export class UserAdvertisementComponent implements OnInit {
     }
     return -1;
   }
+  aggregateZerosToIDNumber(id: number): string {
+    var ID = id.toString();
+    var newID = '';
+    for (var i = 0; i < 8 - ID.length; i++) {
+      newID += '0';
+    }
+    newID += ID;
+
+    return newID;
+  }
 
   findIfIsVisibleById(id: number, arrows: any): boolean {
     for (const key in arrows) {

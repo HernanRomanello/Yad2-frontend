@@ -352,22 +352,7 @@
                 </div>
               </div>
 
-              <div>
-                <!-- <div class="promotion-indicators">
-                <span
-                  class="dot"
-                  [ngStyle]="{
-                    background: changeColor(1, advertisement.id)
-                  }"
-                ></span>
-                <span
-                  class="dot"
-                  [ngStyle]="{
-                    background: changeColor(0, advertisement.id)
-                  }"
-                ></span>
-              </div> -->
-              </div>
+              <div></div>
             </div>
 
             <div class="promotion-information">
@@ -408,7 +393,9 @@
             <div class="or-sign">|</div>
             <div>תאריך תפוגה 24.9.2024</div>
             <div class="or-sign">|</div>
-            <div>מס' מודעה {{ advertisement.id }}</div>
+            <div>
+              מס' מודעה {{ aggregateZerosToIDNumber(advertisement.id) }}
+            </div>
           </div>
         </div>
       </div>
