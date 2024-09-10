@@ -56,24 +56,67 @@ export class UserAdvertisementComponent implements OnInit {
     });
   }
 
+  findAdSliderColor(advertisementId: number): string {
+    for (const key in this.currentSlidesPromotionIndex) {
+      if (this.currentSlidesPromotionIndex.hasOwnProperty(key)) {
+        const slide = this.currentSlidesPromotionIndex[key];
+        if (slide.id == advertisementId) {
+          return slide.secondPromotionSliderColor;
+        }
+      }
+    }
+    return '#cccccc';
+  }
+
   changeColor(currentIndex: number, advertisementId: number): string {
     if (currentIndex == 0) {
-      return this.currentSlidesPromotionIndex[advertisementId]
-        .currentPromotionSliderColor;
-    }
-    if (currentIndex == 1) {
-      return this.currentSlidesPromotionIndex[advertisementId]
-        .secondPromotionSliderColor;
+      for (const key in this.currentSlidesPromotionIndex) {
+        if (this.currentSlidesPromotionIndex.hasOwnProperty(key)) {
+          const slide = this.currentSlidesPromotionIndex[key];
+          if (slide.id == advertisementId) {
+            return slide.currentPromotionSliderColor;
+          }
+        }
+      }
     }
 
+    if (currentIndex == 1) {
+      for (const key in this.currentSlidesPromotionIndex) {
+        if (this.currentSlidesPromotionIndex.hasOwnProperty(key)) {
+          const slide = this.currentSlidesPromotionIndex[key];
+          if (slide.id == advertisementId) {
+            return slide.secondPromotionSliderColor;
+          }
+        }
+      }
+    }
     return '';
   }
 
-  setColors(adID: number, ColorFrstDot: string, colorSecondDot: string) {
-    this.currentSlidesPromotionIndex[adID].currentPromotionSliderColor =
-      ColorFrstDot;
-    this.currentSlidesPromotionIndex[adID].secondPromotionSliderColor =
-      colorSecondDot;
+  setColors(adID: number, newcolor: string, arrow: string) {
+    for (const key in this.currentSlidesPromotionIndex) {
+      if (this.currentSlidesPromotionIndex.hasOwnProperty(key)) {
+        const slide = this.currentSlidesPromotionIndex[key];
+        if (slide.id == adID) {
+          if (arrow === 'rightArrow') {
+            slide.secondPromotionSliderColor = '#363636';
+            slide.currentPromotionSliderColor = '#cccccc';
+          } else if (arrow === 'leftArrow') {
+            slide.secondPromotionSliderColor = '#cccccc';
+            slide.currentPromotionSliderColor = '#363636';
+          }
+        }
+      }
+    }
+
+    // if (arrow === 'rightArrow') {
+    // } else if (arrow === 'leftArrow') {
+    // }
+
+    const color = this.findAdSliderColor(adID);
+    // alert(color);
+    // alert(adID);
+    // alert(newcolor);
   }
 
   setAssetType(option: any) {}

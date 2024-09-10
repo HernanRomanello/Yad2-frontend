@@ -9,7 +9,7 @@
         type="button"
         (click)="toggleDropdown('')"
       >
-        {{ "  קטגוריה" }}
+        {{ " קטגוריה" }}
         <i #sortCategoryDropdown class="material-icons">keyboard_arrow_down</i>
       </button>
       <ul *ngIf="false" class="dropdown-menu asset">
@@ -29,7 +29,7 @@
         type="button"
         (click)="toggleDropdown('')"
       >
-        {{ "  סטטוס" }}
+        {{ " סטטוס" }}
         <i #sortCategoryDropdown class="material-icons">keyboard_arrow_down</i>
       </button>
       <ul *ngIf="false" class="dropdown-menu asset">
@@ -50,15 +50,54 @@
       <div class="ad">
         <div class="ad-container">
           <div class="slider-container">
-            <div class="slider">
-              <div class="slider-indicators slider-arrows"></div>
+            <div
+              (mouseenter)="
+                showArrow(advertisement.id, true, this.currentSlidesData)
+              "
+              (mouseleave)="
+                showArrow(advertisement.id, false, this.currentSlidesData)
+              "
+              class="slider"
+            >
+              <div class="slider-indicators slider-arrows">
+                @if(findIfIsVisibleById(advertisement.id,this.currentSlidesData)){
+                <span class="dark-circle">
+                  <img
+                    (click)="
+                      goToSlide(
+                        false,
+                        true,
+                        advertisement.pictures.length,
+                        advertisement.id
+                      )
+                    "
+                    src="assets/images/next-arrow.svg"
+                    class="arrow-pic"
+                    alt="ad2"
+                  />
+                </span>
+                <span class="dark-circle">
+                  <img
+                    (click)="
+                      goToSlide(
+                        true,
+                        false,
+                        advertisement.pictures.length,
+                        advertisement.id
+                      )
+                    "
+                    src="assets/images/prev-arrow.svg"
+                    class="arrow-pic"
+                    alt="ad2"
+                  />
+                </span>
+                }
+              </div>
 
               <div class="slide">
                 @for (image of advertisement.pictures; track $index) {
                 @if($index== this.findAdIndexById(advertisement.id)){
-                <div class="">
-                  <img class="user-card-img" [src]="image.url" [alt]="image" />
-                </div>
+                <img class="user-card-img" [src]="image.url" [alt]="image" />
                 <div class="slider-indicators">
                   @for (image of advertisement.pictures; track $index) {
                   @if($index== this.findAdIndexById(advertisement.id)){
@@ -175,15 +214,176 @@
               </div>
             </div>
           </div>
-          <div class="ad-content">1</div>
+          <div class="ad-content">
+            <div
+              class="promotion-information-content"
+              (mouseenter)="
+                showArrow(advertisement.id, true, this.currentSlidesPromotionAd)
+              "
+              (mouseleave)="
+                showArrow(
+                  advertisement.id,
+                  false,
+                  this.currentSlidesPromotionAd
+                )
+              "
+            >
+              @if(this.currentSlidesPromotionIndex[advertisement.id]
+              .currentPromotionSliderColor !=='#363636'){
+              <div class="info-insight">
+                <div class="info-insight-text">
+                  <div>
+                    <span class="turquoise-text">לפני שמורידים </span>
+                    <span>את המחיר במודעה</span>
+                    <span>,</span>
+                  </div>
+                  <div>אנחנו ממליצים לשדרג ולמכור</div>
+                  <div>בדיוק במחיר שרצית</div>
+                </div>
+                <img
+                  class="green-spaceship"
+                  src="assets/images/light-green-spaceship.svg"
+                  alt="green-spaceship"
+                />
+              </div>
+
+              <div class="bit-option">
+                <span>עכשיו אפשר לשלם על השדרוג גם באמצאות</span>
+                <span>
+                  <img class="bit" src="assets/images/bit.svg" alt="bit"
+                /></span>
+              </div>
+              <div>
+                <button class="upgrade-btn">שדרוג</button>
+              </div>
+              }@else {
+              <div class="info-insight-second-slider">
+                <div class="info-insight">
+                  <div class="">
+                    <div class="AI-ad">
+                      <span>חדש</span>
+                      <span>!</span>
+                      <span> תגיות</span>
+                      <span class="medium-size"> AI </span>
+                      <span>למודעה</span>
+                    </div>
+                    <div>מהיום תוכל לצרף תגיות יחודיות</div>
+                    <div>שמתאימות בדיוק למודעה שלך</div>
+                  </div>
+                  <img
+                    class="ad-AI"
+                    src="assets/images/Advertising-Drawing-images.svg"
+                    alt="ad-AI"
+                  />
+                </div>
+
+                <div>
+                  <button class="upgrade-btn-AI orange">רכישת תגיות</button>
+                </div>
+              </div>
+              }
+              <div
+                [ngClass]="{
+                  'move-up':
+                    currentSlidesPromotionIndex[advertisement.id]
+                      .currentPromotionSliderColor === '#363636'
+                }"
+              >
+                @if(findIfIsVisibleById(advertisement.id,this.currentSlidesPromotionAd)){
+                <div class="arrows-pic-round-div-container">
+                  <div class="arrows-pic-round-div">
+                    <span class="">
+                      <img
+                        (click)="
+                          setColors(advertisement.id, '#cccccc', '#363636')
+                        "
+                        src="assets/images/circle-round-arrow-next.svg"
+                        class="arrow-pic-round"
+                        alt="ad2"
+                      />
+                    </span>
+
+                    <span class="">
+                      <img
+                        (click)="
+                          setColors(advertisement.id, '#363636', '#cccccc')
+                        "
+                        src="assets/images/circle-round-arrow-prev.svg"
+                        class="arrow-pic-round"
+                        alt="ad2"
+                      />
+                    </span>
+                  </div>
+                </div>
+                }
+                <div class="promotion-indicators">
+                  <span
+                    class="dot"
+                    [ngStyle]="{
+                      background: changeColor(1, advertisement.id)
+                    }"
+                  ></span>
+                  <span
+                    class="dot"
+                    [ngStyle]="{
+                      background: changeColor(0, advertisement.id)
+                    }"
+                  ></span>
+                </div>
+              </div>
+
+              <div>
+                <!-- <div class="promotion-indicators">
+                <span
+                  class="dot"
+                  [ngStyle]="{
+                    background: changeColor(1, advertisement.id)
+                  }"
+                ></span>
+                <span
+                  class="dot"
+                  [ngStyle]="{
+                    background: changeColor(0, advertisement.id)
+                  }"
+                ></span>
+              </div> -->
+              </div>
+            </div>
+
+            <div class="promotion-information">
+              <div class="promotion-information-details">
+                <div class="bold lg-text">80%</div>
+                <div>חוזק המודעה שלך</div>
+              </div>
+              <div class="underline bold">השלימו</div>
+            </div>
+          </div>
         </div>
         <div class="add-details">
           <div class="add-details-btn">
+            <div>
+              <img
+                id="link"
+                class="small-icon-pic"
+                src="assets/images/link.svg"
+                alt="external-link"
+              />
+            </div>
             <div>שיתוף מודעה</div>
             <div class="or-sign">|</div>
-            <div>צפייה במודעה</div>
+            <div class="link-btn">
+              <div>
+                <img
+                  id="external-link"
+                  class="small-icon-pic"
+                  src="assets/images/external-link.svg"
+                  alt="external-link"
+                />
+              </div>
+              <div>צפייה במודעה</div>
+            </div>
           </div>
-          <div class="add-details-btn">
+          <div class="add-details-btn light-gray-small-text">
             <div>נוצרה ב-14.8.2024</div>
             <div class="or-sign">|</div>
             <div>תאריך תפוגה 24.9.2024</div>

@@ -241,8 +241,7 @@
               "
             >
               <!-- problem here focus -->
-              @if(this.currentSlidesPromotionIndex[0]
-              .currentPromotionSliderColor !=='#363636'){
+              @if(true){
               <div class="info-insight">
                 <div class="info-insight-text">
                   <div>
@@ -324,7 +323,7 @@
                     <span class="">
                       <img
                         (click)="
-                          setColors(advertisement.id, '#cccccc', '#363636')
+                          setColors(advertisement.id, '#cccccc', 'rightArrow')
                         "
                         src="assets/images/circle-round-arrow-next.svg"
                         class="arrow-pic-round"
@@ -335,7 +334,7 @@
                     <span class="">
                       <img
                         (click)="
-                          setColors(advertisement.id, '#363636', '#cccccc')
+                          setColors(advertisement.id, '#363636', 'leftArrow')
                         "
                         src="assets/images/circle-round-arrow-prev.svg"
                         class="arrow-pic-round"
@@ -348,7 +347,7 @@
                 <div class="promotion-indicators">
                   <!-- problem here -->
                   <!-- problem here changeColor function-->
-                  <!-- <span
+                  <span
                     class="dot"
                     [ngStyle]="{
                       background: changeColor(1, advertisement.id)
@@ -359,7 +358,7 @@
                     [ngStyle]="{
                       background: changeColor(0, advertisement.id)
                     }"
-                  ></span> -->
+                  ></span>
                 </div>
                 <!-- problem here changeColor function-->
               </div>
