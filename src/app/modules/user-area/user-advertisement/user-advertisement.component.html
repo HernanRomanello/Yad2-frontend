@@ -224,7 +224,9 @@
               </div>
             </div>
           </div>
+          <!-- problem here -->
           <div class="ad-content">
+            <!-- problem here -->
             <div
               class="promotion-information-content"
               (mouseenter)="
@@ -238,7 +240,8 @@
                 )
               "
             >
-              @if(this.currentSlidesPromotionIndex[advertisement.id]
+              <!-- problem here focus -->
+              @if(this.currentSlidesPromotionIndex[0]
               .currentPromotionSliderColor !=='#363636'){
               <div class="info-insight">
                 <div class="info-insight-text">
@@ -312,13 +315,9 @@
                 </div>
               </div>
               }
-              <div
-                [ngClass]="{
-                  'move-up':
-                    currentSlidesPromotionIndex[advertisement.id]
-                      .currentPromotionSliderColor === '#363636'
-                }"
-              >
+
+              <!-- problem here focus -->
+              <div>
                 @if(findIfIsVisibleById(advertisement.id,this.currentSlidesPromotionAd)){
                 <div class="arrows-pic-round-div-container">
                   <div class="arrows-pic-round-div">
@@ -347,7 +346,9 @@
                 </div>
                 }
                 <div class="promotion-indicators">
-                  <span
+                  <!-- problem here -->
+                  <!-- problem here changeColor function-->
+                  <!-- <span
                     class="dot"
                     [ngStyle]="{
                       background: changeColor(1, advertisement.id)
@@ -358,13 +359,13 @@
                     [ngStyle]="{
                       background: changeColor(0, advertisement.id)
                     }"
-                  ></span>
+                  ></span> -->
                 </div>
+                <!-- problem here changeColor function-->
               </div>
-
               <div></div>
             </div>
-
+            <!-- problem here -->
             <div class="promotion-information">
               <div class="promotion-information-details">
                 <div class="bold lg-text">80%</div>
@@ -373,6 +374,7 @@
               <div class="underline bold">השלימו</div>
             </div>
           </div>
+          <!-- problem here -->
         </div>
         <div class="add-details">
           <div class="add-details-btn">

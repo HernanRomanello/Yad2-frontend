@@ -104,13 +104,10 @@
 .user-profile-box,
 .user-accessibility-btns-container {
   width: 100%;
-  /* padding: 0 2rem; */
 }
 
 .user-profile-box,
 .sidebar li {
-  /* width: 230px;
-  padding-right: 4rem !important; */
   padding-right: calc(22px);
   margin: 0 10px;
 }
