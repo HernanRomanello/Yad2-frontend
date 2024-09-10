@@ -30,6 +30,7 @@ export class UserAdvertisementComponent implements OnInit {
       id: number;
       currentPromotionSliderColor: string;
       secondPromotionSliderColor: string;
+      isFirstSliderIsVisible: boolean;
     };
   } = {};
 
@@ -51,21 +52,22 @@ export class UserAdvertisementComponent implements OnInit {
           id: value.id,
           currentPromotionSliderColor: '#cccccc',
           secondPromotionSliderColor: '#363636',
+          isFirstSliderIsVisible: true,
         };
       });
     });
   }
 
-  findAdSliderColor(advertisementId: number): string {
+  findIfTheFirstSlideIsVisibleById(advertisementId: number): boolean {
     for (const key in this.currentSlidesPromotionIndex) {
       if (this.currentSlidesPromotionIndex.hasOwnProperty(key)) {
         const slide = this.currentSlidesPromotionIndex[key];
         if (slide.id == advertisementId) {
-          return slide.secondPromotionSliderColor;
+          return slide.isFirstSliderIsVisible;
         }
       }
     }
-    return '#cccccc';
+    return true;
   }
 
   changeColor(currentIndex: number, advertisementId: number): string {
@@ -101,9 +103,11 @@ export class UserAdvertisementComponent implements OnInit {
           if (arrow === 'rightArrow') {
             slide.secondPromotionSliderColor = '#363636';
             slide.currentPromotionSliderColor = '#cccccc';
+            slide.isFirstSliderIsVisible = true;
           } else if (arrow === 'leftArrow') {
             slide.secondPromotionSliderColor = '#cccccc';
             slide.currentPromotionSliderColor = '#363636';
+            slide.isFirstSliderIsVisible = false;
           }
         }
       }
@@ -113,7 +117,6 @@ export class UserAdvertisementComponent implements OnInit {
     // } else if (arrow === 'leftArrow') {
     // }
 
-    const color = this.findAdSliderColor(adID);
     // alert(color);
     // alert(adID);
     // alert(newcolor);

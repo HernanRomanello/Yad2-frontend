@@ -241,7 +241,7 @@
               "
             >
               <!-- problem here focus -->
-              @if(true){
+              @if(findIfTheFirstSlideIsVisibleById(advertisement.id)){
               <div class="info-insight">
                 <div class="info-insight-text">
                   <div>
@@ -273,9 +273,9 @@
                 <div class="info-insight">
                   <div
                     [ngClass]="{
-                      'move-up1':
-                        currentSlidesPromotionIndex[advertisement.id]
-                          .currentPromotionSliderColor === '#363636'
+                      'move-up1': !findIfTheFirstSlideIsVisibleById(
+                        advertisement.id
+                      )
                     }"
                   >
                     <div class="AI-ad">
@@ -290,9 +290,9 @@
                   </div>
                   <div
                     [ngClass]="{
-                      'move-down':
-                        currentSlidesPromotionIndex[advertisement.id]
-                          .currentPromotionSliderColor === '#363636'
+                      'move-down': !findIfTheFirstSlideIsVisibleById(
+                        advertisement.id
+                      )
                     }"
                   >
                     <img
@@ -305,9 +305,9 @@
 
                 <div
                   [ngClass]="{
-                    'move-up2':
-                      currentSlidesPromotionIndex[advertisement.id]
-                        .currentPromotionSliderColor === '#363636'
+                    'move-up2': !findIfTheFirstSlideIsVisibleById(
+                      advertisement.id
+                    )
                   }"
                 >
                   <button class="upgrade-btn-AI orange">רכישת תגיות</button>

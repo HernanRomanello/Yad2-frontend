@@ -660,6 +660,7 @@ i.material-icons {
 
 .move-up {
   transform: translateY(-16px);
+  background-color: aqua !important;
 }
 .move-up1 {
   transform: translateY(-10px);
