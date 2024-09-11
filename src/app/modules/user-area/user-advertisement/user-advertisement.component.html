@@ -316,7 +316,11 @@
               }
 
               <!-- problem here focus -->
-              <div>
+              <div
+                [ngClass]="{
+                  'move-up': !findIfTheFirstSlideIsVisibleById(advertisement.id)
+                }"
+              >
                 @if(findIfIsVisibleById(advertisement.id,this.currentSlidesPromotionAd)){
                 <div class="arrows-pic-round-div-container">
                   <div class="arrows-pic-round-div">
