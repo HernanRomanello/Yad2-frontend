@@ -144,7 +144,10 @@
                 </div>
               </div>
             </div>
-            <div class="icon-circle-container">
+            <div
+              routerLink="/edit-advertisement/{{ advertisement.id }}"
+              class="icon-circle-container"
+            >
               <div class="icon-div">
                 <div>
                   <div class="icon-circle">
@@ -155,7 +158,12 @@
                     />
                   </div>
                 </div>
-                <div>עריכה</div>
+                <div
+                  class="pointer"
+                  routerLink="/edit-advertisement/{{ advertisement.id }}"
+                >
+                  עריכה
+                </div>
               </div>
               <div class="icon-div">
                 <div>

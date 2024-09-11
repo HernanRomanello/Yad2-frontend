@@ -112,14 +112,6 @@ export class UserAdvertisementComponent implements OnInit {
         }
       }
     }
-
-    // if (arrow === 'rightArrow') {
-    // } else if (arrow === 'leftArrow') {
-    // }
-
-    // alert(color);
-    // alert(adID);
-    // alert(newcolor);
   }
 
   setAssetType(option: any) {}

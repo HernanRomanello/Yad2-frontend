@@ -360,7 +360,8 @@ i.material-icons {
 .icon-circle,
 .upgrade-btn,
 .arrow-pic-round,
-.upgrade-btn-AI {
+.upgrade-btn-AI,
+.pointer {
   cursor: pointer;
 }
 
@@ -443,6 +444,12 @@ i.material-icons {
 
 .user-card-img {
   border-radius: 0.5rem;
+}
+.user-card-img:hover {
+  border-radius: 0.5rem;
+
+  transform: translateX(-100%) !important;
+  display: none;
 }
 
 .user-card-img,

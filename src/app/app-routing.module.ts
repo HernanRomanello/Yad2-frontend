@@ -6,13 +6,13 @@ import { authGuard } from './Guards/auth.guard';
 import { AdvertisementComponent } from './modules/advertisement/advertisement.component';
 import { CreateNewAdvertisementComponent } from './modules/create-new-advertisement/create-new-advertisement.component';
 import { PostAdConfirmationModalComponent } from './modules/post-ad-confirmation-modal/post-ad-confirmation-modal.component';
+import { EditAdvertisementComponent } from './modules/edit-advertisement/edit-advertisement.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
     title: 'Sign in',
-    // canActivate: [authGuard],
   },
   {
     path: 'register',
@@ -28,6 +28,13 @@ const routes: Routes = [
     path: 'create-advertisement',
     component: CreateNewAdvertisementComponent,
     title: 'Create New Advertisement',
+    canActivate: [authGuard],
+  },
+
+  {
+    path: 'edit-advertisement/:id',
+    component: EditAdvertisementComponent,
+    title: 'Edit Advertisement',
     canActivate: [authGuard],
   },
 
