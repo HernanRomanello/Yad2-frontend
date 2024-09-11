@@ -1,0 +1,24 @@
+* {
+  direction: rtl;
+}
+
+.form {
+}
+
+#edit-advertisement {
+  margin-top: 70px !important;
+  padding: unset !important;
+  /* padding: 1rem 3rem !important; */
+}
+
+.section-title-container,
+form,
+.section-title-container {
+  padding: unset !important;
+  margin: unset !important;
+}
+
+.advertisement-selection {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+}

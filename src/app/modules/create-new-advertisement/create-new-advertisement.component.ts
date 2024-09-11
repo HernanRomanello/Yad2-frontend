@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-new-advertisement',
   templateUrl: './create-new-advertisement.component.html',
-  styleUrls: ['./create-new-advertisement.component.css'],
+  styleUrl: './create-new-advertisement.component.css',
 })
 export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   advertisementForm!: FormGroup | any;
