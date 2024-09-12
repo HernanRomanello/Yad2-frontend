@@ -2,13 +2,9 @@
   direction: rtl;
 }
 
-.form {
-}
-
 #edit-advertisement {
   margin-top: 70px !important;
   padding: unset !important;
-  /* padding: 1rem 3rem !important; */
 }
 
 .section-title-container,
