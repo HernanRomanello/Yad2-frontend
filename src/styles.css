@@ -1,5 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @font-face {
@@ -23,12 +21,9 @@ body {
 }
 body {
   margin: 0;
-  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
   color: #363636;
-}
-/* .light {
   font-family: Rubik !important;
-} */
+}
 
 button[mat-menu-item] {
   color: #4a4a4a;
@@ -36,12 +31,6 @@ button[mat-menu-item] {
 button.light {
   font-family: Rubik !important;
   font-weight: 100 !important;
-}
-p,
-div,
-button,
-h1 {
-  font-family: Rubik !important;
 }
 
 * {

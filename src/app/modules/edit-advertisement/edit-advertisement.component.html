@@ -1,17 +1,11 @@
-<form (ngSubmit)="handleSubmit()">
-  <div id="edit-advertisement" class="advertisement-selection">
-    <span>עריכת פרטי הנכס </span>
-    <div class="section-title-container"></div>
-    <div class="input-container">
-      <label class="small-text light-grey-text" for="assetType"
-        >סוג הנכס*
-      </label>
-      <input
-        class="input large not-allowed light-grey-text"
-        id="assetType"
-        formControlName="assetType"
-        [value]="this.advertisement.assetType"
-      />
+<form id="edit-advertisement" class="advertisement-selection">
+  <span class="title">עריכת פרטי הנכס </span>
+  <div class="input-container">
+    <label class="small-text light-grey-text" for="assetType">סוג הנכס* </label>
+    <div class="edit-inputs">
+      <div id="assetType" class="data-input fill-block large light-grey-text">
+        {{ this.advertisement.assetType }}
+      </div>
     </div>
   </div>
 </form>

@@ -1,10 +1,29 @@
 * {
   direction: rtl;
+  font-size: 14px !important;
+  font-weight: unset !important;
+}
+
+.data-input {
+  display: flex;
+}
+.data-input {
+  align-items: center;
 }
 
 #edit-advertisement {
   margin-top: 70px !important;
-  padding: unset !important;
+  padding: 30px 40px !important;
+}
+
+.title {
+  font-size: 24px !important;
+}
+.title {
+  font-weight: 300 !important;
+}
+.title {
+  margin-bottom: 1rem;
 }
 
 .section-title-container,
@@ -17,4 +36,26 @@ form,
 .advertisement-selection {
   justify-content: flex-start !important;
   align-items: flex-start !important;
+}
+
+form {
+  background-color: #f8f8f8 !important;
+}
+
+.data-input {
+  height: 40px !important;
+  width: 261.359px !important;
+}
+
+.not-allowed {
+  cursor: default !important;
+}
+
+.fill-block {
+  text-indent: 8px;
+  background-color: rgb(255, 255, 255, 0.3);
+  border: 1px solid rgb(238, 238, 238, 0.7) !important;
+  border-radius: 4px;
+  padding: 0.25rem;
+  color: rgb(204, 204, 204, 0.5) !important;
 }
