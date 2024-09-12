@@ -33,6 +33,7 @@ type MenuTriggers = {
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   userName: string = '';
+  userLastName: string = '';
   modalContent!: ModalContent;
   isUserAreaDropdownVisible = false;
   _LogoPic = 'assets/images/logo-default.svg';
@@ -71,6 +72,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     );
     this.authSerrvice.user.subscribe((user: UserModel | null | undefined) => {
       this.userName = user?.name || '';
+      this.userLastName = user?.lastName || '';
       this.firstLetterUserEmailAddress = user?.email[0].toUpperCase() || '';
     });
   }

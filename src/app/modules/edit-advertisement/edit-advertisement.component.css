@@ -4,6 +4,12 @@
   font-weight: unset !important;
 }
 
+.edit-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(245, 245, 245);
+}
+
 .data-input {
   display: flex;
 }
@@ -12,7 +18,7 @@
 }
 
 #edit-advertisement {
-  margin-top: 70px !important;
+  /* margin-top: 70px !important; */
   padding: 30px 40px !important;
 }
 
@@ -29,8 +35,8 @@
 .section-title-container,
 form,
 .section-title-container {
-  padding: unset !important;
-  margin: unset !important;
+  /* padding: unset !important; */
+  /* margin: unset !important; */
 }
 
 .advertisement-selection {

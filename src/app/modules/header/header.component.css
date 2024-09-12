@@ -35,17 +35,28 @@
 button {
   background-color: transparent;
   border: none;
-
-  font-size: 16px !important;
-  display: flex;
   align-items: center;
+}
+
+.edit-ad-header,
+.button,
+.round,
+.round-gray,
+.user-name,
+.logo-img {
+  display: flex;
+}
+
+.round,
+.round-gray,
+.user-name,
+.logo-img {
+  align-items: center;
+  justify-content: center;
 }
 
 .round,
 .round-gray {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 50%;
   text-align: center;
   line-height: 16.1px;
@@ -259,11 +270,19 @@ img,
   background-color: rgb(255, 255, 255);
   color: rgb(54, 54, 54);
   height: 54px;
-  justify-content: space-between;
   z-index: 110;
   position: absolute;
   top: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+}
+
+.edit-ad-header,
+.header2 {
+  justify-content: space-between;
+}
+
+.edit-ad-header {
+  padding: 0 100px 0 130px;
 }
 
 .header2 {
@@ -283,6 +302,10 @@ img,
   color: white;
   margin-left: 6px;
   border: solid 1px #ff7100;
+}
+
+.user-name {
+  color: #ff7100;
 }
 
 .flex-center2 {
@@ -305,7 +328,9 @@ img,
   border: 1px solid rgb(153, 153, 153);
 }
 
-.gray-btn2 i {
+.gray-btn2 i,
+.post-ad,
+.right-side2 {
   font-size: 18px !important;
 }
 
@@ -328,9 +353,12 @@ img,
 }
 
 .right-side2 {
-  font-size: 18px;
   gap: 1rem;
   margin-right: 2.5rem !important;
+}
+
+.post-ad-box {
+  gap: 0.5rem;
 }
 
 .left-side2 {
@@ -362,7 +390,6 @@ img,
   height: 50px;
   width: 200.71px;
   font-weight: 300;
-  padding: 20px 0 30px 0;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -393,4 +420,27 @@ img,
 
 .increase-height {
   height: 60px !important;
+}
+
+.edit-ad-header {
+  height: 55px;
+}
+
+#orange-user {
+  height: 20px;
+  width: 20px;
+}
+
+.user-name,
+button,
+.contact {
+  font-size: 16px !important;
+}
+
+.user-name {
+  gap: 0.25rem;
+}
+
+#orange-user {
+  transform: translateY(2px);
 }
