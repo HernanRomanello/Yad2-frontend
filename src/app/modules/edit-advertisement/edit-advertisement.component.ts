@@ -201,5 +201,18 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
 
   selectAirDirections(direction: number) {
     this.advertisementForm.get('airDirections').setValue(direction);
+    this.advertisement.airDirections = direction;
+  }
+
+  optionClass(option: number, fiveOptions: boolean): string {
+    if (option === 4 && fiveOptions) {
+      return 'option border-option-left';
+    } else if (option === 3 && !fiveOptions) {
+      return 'option border-option-left';
+    } else if (option === 0) {
+      return 'option border-option-right';
+    } else {
+      return 'option';
+    }
   }
 }

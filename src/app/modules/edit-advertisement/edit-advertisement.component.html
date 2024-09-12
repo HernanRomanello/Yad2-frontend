@@ -49,6 +49,19 @@
           </li>
         </ul>
       </div>
+      <div class="input-container">
+        <label class="small-text" for="view">כיווני אוויר</label>
+        <div class="Select-options">
+          <div
+            *ngFor="let number of AirDirections; let i = index"
+            [ngClass]="optionClass(i, false)"
+            [class.selected]="advertisement.airDirections.valueOf() === number"
+            (click)="selectAirDirections(number)"
+          >
+            {{ number }}
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </div>
