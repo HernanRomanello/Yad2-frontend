@@ -1,4 +1,10 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { ActivatedRoute } from '@angular/router';
@@ -17,8 +23,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   advertisementForm: FormGroup | any;
-  isAssetAssetstateDropdownHidden = false;
-  asset_State ='';
+  isAssetAssetstateDropdownHidden = true;
+  asset_State = '';
 
   assetConditions = [
     'חדש מקבלן (לא גרו בו בכלל)',
@@ -51,9 +57,15 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
           )
           .subscribe((response) => {
             this.advertisement = response;
+            this.asset_State = this.advertisement.assetState;
             console.log(this.advertisement);
           });
       }
+    });
+    afterNextRender(() => {
+      document.body.addEventListener('click', (event) => {
+        this.closeAllDropdowns();
+      });
     });
   }
 
@@ -148,7 +160,6 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
       ],
       standardizationAccepted: [false],
     });
-
   }
 
   toggleDropdown(btnType: string) {}
@@ -171,7 +182,12 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     //   this.asset_owner = option;
     // }
     if (type === 'assetState') {
-        this.asset_State = option;
-        this.set_assetState(option);
+      this.asset_State = option;
+    }
+    this.closeAllDropdowns();
+  }
+
+  closeAllDropdowns() {
+    this.isAssetAssetstateDropdownHidden = true;
   }
 }

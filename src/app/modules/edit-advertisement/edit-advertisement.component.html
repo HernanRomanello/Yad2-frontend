@@ -8,7 +8,7 @@
       </label>
       <div class="edit-inputs">
         <div id="assetType" class="data-input fill-block large light-grey-text">
-          {{ this.advertisement.assetType }}
+          {{ this.asset_State }}
         </div>
         <div class="input-container">
           <label class="small-text" for="number">מס' דירה</label>
@@ -22,15 +22,18 @@
           id="assetState"
           class="data large dropdown-btn"
           type="button"
-          (click)="toggleDropdown('assetState')"
+          (click)="
+            this.isAssetAssetstateDropdownHidden =
+              !this.isAssetAssetstateDropdownHidden
+          "
         >
-          {{ advertisement.assetState }}
+          {{ this.asset_State }}
           <i #dropdownIconAsset_State class="material-icons"
             >keyboard_arrow_down</i
           >
         </button>
         <ul
-          *ngIf="this.isAssetAssetstateDropdownHidden"
+          *ngIf="!this.isAssetAssetstateDropdownHidden"
           class="dropdown-menu asset dropdown-assetState"
         >
           <li
