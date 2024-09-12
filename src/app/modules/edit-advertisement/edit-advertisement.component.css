@@ -156,3 +156,40 @@ form {
 #assetState {
   padding: 0.5rem !important;
 }
+
+.selected,
+.option:hover {
+  border: 1px solid #cccccc !important;
+}
+
+.option:hover,
+.option {
+  background-color: rgb(255, 255, 255);
+}
+
+.selected:hover,
+.option:hover,
+.option {
+  border: 1px solid rgb(172, 172, 172) !important;
+}
+
+.option {
+  line-height: 16.1px;
+  height: 40px !important;
+  width: 63.3281px !important;
+  border: 1px solid #cccccc;
+  padding: 0px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: rgb(238, 238, 238) !important;
+  color: #000000 !important;
+}
+
+.selected:hover {
+  background-color: rgb(204, 204, 204) !important;
+}
