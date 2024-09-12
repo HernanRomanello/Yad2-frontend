@@ -15,8 +15,13 @@
   width: 100%;
 }
 
-.data-input {
+.data-input,
+.edit-inputs {
   display: flex;
+}
+
+.edit-inputs {
+  flex-direction: column;
 }
 .data-input {
   align-items: center;
@@ -76,4 +81,12 @@ form {
 
 .data {
   border: solid 1px #cccccc;
+}
+
+.edit-inputs {
+  gap: 6px !important;
+}
+
+.data:focus {
+  padding: 0.5rem;
 }
