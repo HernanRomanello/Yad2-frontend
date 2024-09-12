@@ -262,6 +262,7 @@
   </div>
 </header>
 } } @if((this.authSerrvice.IsalternativeHeaderISOpen | async)) {
+@if(!(this.authSerrvice.ISEditAdvertisementISOpen | async)) {
 <div class="orange-line"></div>
 <header>
   <div [ngClass]="setHeaderHeight()">
@@ -376,5 +377,8 @@
     </div>
   </div>
 </header>
-
-}
+} @else if((this.authSerrvice.ISEditAdvertisementISOpen | async)) {
+<div routerLink="/">
+  <img src="assets/images/logo-default.svg" alt="logo" />
+</div>
+} }

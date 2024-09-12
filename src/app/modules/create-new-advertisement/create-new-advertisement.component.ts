@@ -8,19 +8,11 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/user/auth.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { afterNextRender } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
-import { filter, first, take } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({

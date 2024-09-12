@@ -17,7 +17,21 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   advertisementForm: FormGroup | any;
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    // IsMainHeaderISOpen = new BehaviorSubject<boolean>(true);
+    // IsMainFooterISOpen = new BehaviorSubject<boolean>(true);
+    // IsalternativeHeaderISOpen = new BehaviorSubject<boolean>(false);
+    // ISEditAdvertisementISOpen = new BehaviorSubject<boolean>(false);
+    // IsUserAreaISOpen = new BehaviorSubject<boolean>(false);
+    this.authService.ISEditAdvertisementISOpen.next(false);
+    this.authService.IsalternativeHeaderISOpen.next(false);
+    this.authService.IsHeaderAndFooterOpen(true, true);
+    this.authService.SetPageRender('');
+    // this.authService.IsalternativeHeaderISOpen.next(true);
+    // this.authService.IsMainFooterISOpen.next(true);
+    // this.authService.IsMainHeaderISOpen.next(false);
+    // this.authService.IsUserAreaISOpen.next(false);
+  }
   authService = inject(AuthService);
   route = inject(ActivatedRoute);
   formBuilder = inject(FormBuilder);
@@ -43,6 +57,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.authService.IsalternativeHeaderISOpen.next(true);
+    this.authService.ISEditAdvertisementISOpen.next(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
     this.advertisementForm = this.formBuilder.group({
       city: [this.authService.user.getValue()?.city || '', Validators.required],
