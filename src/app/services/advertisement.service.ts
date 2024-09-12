@@ -15,6 +15,7 @@ export class AdvertisementService {
   UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
   advertisementResult: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
   constructor(private router: Router, private httpClient: HttpClient) {
     this.GetAdvertisements();
   }

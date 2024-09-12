@@ -14,6 +14,7 @@ import { ImageuploadService } from '../../services/imageupload.service';
 import { afterNextRender } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
 import { Router } from '@angular/router';
+import { AdvertisementService } from '../../services/advertisement.service';
 
 @Component({
   selector: 'app-create-new-advertisement',

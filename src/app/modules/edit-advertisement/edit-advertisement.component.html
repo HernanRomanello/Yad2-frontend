@@ -29,6 +29,18 @@
             >keyboard_arrow_down</i
           >
         </button>
+        <ul
+          *ngIf="this.isAssetAssetstateDropdownHidden"
+          class="dropdown-menu asset dropdown-assetState"
+        >
+          <li
+            class="dropdown-item assetState"
+            *ngFor="let option of assetConditions"
+            (click)="selectOption(option, 'assetState')"
+          >
+            {{ option }}
+          </li>
+        </ul>
       </div>
     </div>
   </form>

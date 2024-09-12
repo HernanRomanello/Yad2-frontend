@@ -17,6 +17,16 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   advertisementForm: FormGroup | any;
+  isAssetAssetstateDropdownHidden = false;
+  asset_State ='';
+
+  assetConditions = [
+    'חדש מקבלן (לא גרו בו בכלל)',
+    'חדש (נכס בן עד 10 שנים)',
+    'משופץ (שופץ ב5 השנים האחרונות)',
+    'במצב שמור (במצב טוב, לא שופץ)',
+    'דרוש שיפוץ (זקוק לעבודת שיפוץ)',
+  ];
   ngOnDestroy(): void {
     this.authService.ISEditAdvertisementISOpen.next(false);
     this.authService.IsalternativeHeaderISOpen.next(false);
@@ -138,9 +148,30 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
       ],
       standardizationAccepted: [false],
     });
+
   }
 
   toggleDropdown(btnType: string) {}
 
   async handleSubmit() {}
+
+  selectOption(option: string, type: string) {
+    // this.openAndCloseButtons(type);
+    // if (type === 'assetType') {
+    //   this.asset_type = option;
+    //   this.setAssetType(option);
+    // } else
+    // } else if (type === 'rooms') {
+    //   this.asset_Rooms = option;
+    //   this.set_Number_Of_Rooms(option);
+    // } else if (type === 'numberOfPayments') {
+    //   this.number_Of_Payments = option;
+    //   this.set_Number_Of_Payments(option);
+    // } else if (type === 'asset_owner') {
+    //   this.asset_owner = option;
+    // }
+    if (type === 'assetState') {
+        this.asset_State = option;
+        this.set_assetState(option);
+  }
 }
