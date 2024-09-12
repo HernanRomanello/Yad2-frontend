@@ -79,13 +79,10 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
       hasBolcony: [false],
       hasImage: [false],
       hasPrice: [false],
-      // moshavOrKibutz: [false],
       needsRenovation: [false],
       isWellMaintained: [false],
       isRenovated: [false],
       isNew: [false],
-      // isNewFromBuilder: [false],
-
       priceDiscount: [false],
       publisherIsMiddleMan: [false],
       publisherIsContractor: [false],
@@ -142,6 +139,8 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
       standardizationAccepted: [false],
     });
   }
+
+  toggleDropdown(btnType: string) {}
 
   async handleSubmit() {}
 }

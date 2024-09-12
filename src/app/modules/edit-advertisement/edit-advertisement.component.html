@@ -13,8 +13,22 @@
         <div class="input-container">
           <label class="small-text" for="number">מס' דירה</label>
           <input class="data" id="" />
-          <!-- <input class="data input medium center" id="apartament-number" /> -->
         </div>
+      </div>
+      <div class="input-container">
+        <label class="small-text" for="number">מצב הנכס*</label>
+        <!-- <input class="data" id="" /> -->
+        <button
+          id="assetState"
+          class="data large dropdown-btn"
+          type="button"
+          (click)="toggleDropdown('assetState')"
+        >
+          {{ advertisement.assetState }}
+          <i #dropdownIconAsset_State class="material-icons"
+            >keyboard_arrow_down</i
+          >
+        </button>
       </div>
     </div>
   </form>
