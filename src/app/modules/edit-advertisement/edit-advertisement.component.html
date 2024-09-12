@@ -3,12 +3,12 @@
   <form id="edit-advertisement" class="advertisement-selection">
     <span class="title">עריכת פרטי הנכס </span>
     <div class="input-container">
-      <label class="small-text light-grey-text" for="assetType"
-        >סוג הנכס*
-      </label>
       <div class="edit-inputs">
+        <label class="small-text light-grey-text" for="assetType"
+          >סוג הנכס*
+        </label>
         <div id="assetType" class="data-input fill-block large light-grey-text">
-          {{ this.asset_State }}
+          {{ advertisement.assetType }}
         </div>
         <div class="input-container">
           <label class="small-text" for="number">מס' דירה</label>
@@ -17,27 +17,32 @@
       </div>
       <div class="input-container">
         <label class="small-text" for="number">מצב הנכס*</label>
-        <!-- <input class="data" id="" /> -->
         <button
           id="assetState"
           class="data large dropdown-btn"
           type="button"
+          [ngStyle]="{
+            border: this.isAssetAssetstateDropdownHidden
+              ? 'solid 1px #cccccc '
+              : 'solid 2px #363636 '
+          }"
           (click)="
             this.isAssetAssetstateDropdownHidden =
               !this.isAssetAssetstateDropdownHidden
           "
         >
           {{ this.asset_State }}
-          <i #dropdownIconAsset_State class="material-icons"
+          <!-- <i #dropdownIconAsset_State class="material-icons"
             >keyboard_arrow_down</i
-          >
+          > -->
+          <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
         </button>
         <ul
           *ngIf="!this.isAssetAssetstateDropdownHidden"
-          class="dropdown-menu asset dropdown-assetState"
+          class="dropdown-select"
         >
           <li
-            class="dropdown-item assetState"
+            class="dropdown-option"
             *ngFor="let option of assetConditions"
             (click)="selectOption(option, 'assetState')"
           >

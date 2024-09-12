@@ -25,6 +25,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisementForm: FormGroup | any;
   isAssetAssetstateDropdownHidden = true;
   asset_State = '';
+  AirDirections = [1, 2, 3, 4];
 
   assetConditions = [
     'חדש מקבלן (לא גרו בו בכלל)',
@@ -90,7 +91,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
       neighborhood: ['', Validators.required],
       area: ['', Validators.required],
       assetType: ['', Validators.required],
-      assetState: ['', Validators.required],
+      assetState: [this.asset_State, Validators.required],
       airDirections: [1],
       view: ['', Validators.required],
       rearProperty: [false],
@@ -181,13 +182,24 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     // } else if (type === 'asset_owner') {
     //   this.asset_owner = option;
     // }
-    if (type === 'assetState') {
-      this.asset_State = option;
-    }
+    this.SetDropDownVAlue(type, option, 'assetState');
     this.closeAllDropdowns();
+
+    console.log(this.advertisementForm.value);
+  }
+
+  private SetDropDownVAlue(type: string, option: string, dropdownType: string) {
+    if (type === dropdownType) {
+      this.asset_State = option;
+      this.advertisementForm.get(dropdownType).setValue(option);
+    }
   }
 
   closeAllDropdowns() {
     this.isAssetAssetstateDropdownHidden = true;
+  }
+
+  selectAirDirections(direction: number) {
+    this.advertisementForm.get('airDirections').setValue(direction);
   }
 }
