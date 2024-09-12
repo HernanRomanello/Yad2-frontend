@@ -2,19 +2,20 @@
   <div class="space-block">.</div>
   <form id="edit-advertisement" class="advertisement-selection">
     <span class="title">עריכת פרטי הנכס </span>
-    <div class="input-container">
-      <div class="edit-inputs">
+    <div class="edit-inputs">
+      <div class="input-container">
         <label class="small-text light-grey-text" for="assetType"
           >סוג הנכס*
         </label>
         <div id="assetType" class="data-input fill-block large light-grey-text">
           {{ advertisement.assetType }}
         </div>
-        <div class="input-container">
-          <label class="small-text" for="number">מס' דירה</label>
-          <input class="data" id="" />
-        </div>
       </div>
+      <div class="input-container">
+        <label class="small-text" for="number">מס' דירה</label>
+        <input class="data" id="" />
+      </div>
+
       <div class="input-container">
         <label class="small-text" for="number">מצב הנכס*</label>
         <button
@@ -32,9 +33,7 @@
           "
         >
           {{ this.asset_State }}
-          <!-- <i #dropdownIconAsset_State class="material-icons"
-            >keyboard_arrow_down</i
-          > -->
+
           <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
         </button>
         <ul

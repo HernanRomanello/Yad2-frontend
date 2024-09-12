@@ -48,6 +48,18 @@ li {
   align-items: center;
 }
 
+.edit-inputs {
+  margin: 22px 0 !important;
+}
+
+.edit-inputs {
+  gap: 1rem !important;
+}
+
+.input-container {
+  padding: 0 !important;
+}
+
 #edit-advertisement {
   padding: 30px 40px !important;
 }
