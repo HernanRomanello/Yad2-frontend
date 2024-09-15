@@ -22,7 +22,8 @@ li {
 .data-input,
 .edit-inputs,
 .dropdown-option,
-.dropdown-select {
+.dropdown-select,
+.address-info-box {
   display: flex;
 }
 
@@ -41,9 +42,11 @@ li {
 }
 
 .edit-inputs,
-.dropdown-select {
+.dropdown-select,
+.address-info-box {
   flex-direction: column;
 }
+
 .data-input {
   align-items: center;
 }
@@ -96,7 +99,8 @@ form {
 .data-input,
 .data,
 .dropdown-option,
-.dropdown-select {
+.dropdown-select,
+.address-info {
   width: 261.359px !important;
 }
 
@@ -204,4 +208,19 @@ form {
   height: 10px !important;
   border: solid white;
   left: 6px !important;
+}
+
+.address-info {
+  font-size: 11px !important;
+  word-spacing: -0.05rem !important;
+  line-height: 1.2 !important;
+}
+
+.medium-size {
+  width: 130.766px !important;
+}
+
+.large-size {
+  width: 176.766px !important;
+  height: 38px !important;
 }

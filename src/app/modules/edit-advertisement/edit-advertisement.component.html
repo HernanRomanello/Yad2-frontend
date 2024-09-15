@@ -90,7 +90,73 @@
         />
         נכס עורפי
       </label>
-      <button type="submit">submit</button>
+
+      <div class="input-container">
+        <label class="small-text light-grey-text" for="city">ישוב* </label>
+        <div id="city" class="data-input fill-block large light-grey-text">
+          {{ advertisement.city }}
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="small-text light-grey-text" for="street">רחוב* </label>
+        <div id="street" class="data-input fill-block large light-grey-text">
+          {{ advertisement.street }}
+        </div>
+        <div class="address-info-box address-info">
+          המידע הזה מגיע מגוף ממשלתי, אם הרחוב שלך לא מופיע, מומלץ לבחור רחוב
+          קרוב אליך
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label class="small-text light-grey-text" for="number">מס' בית* </label>
+        <div
+          id="number"
+          class="data-input fill-block medium-size light-grey-text"
+        >
+          {{ advertisement.number }}
+        </div>
+      </div>
+
+      <div class="floor-description">
+        <div class="input-container">
+          <!-- <input
+          #floorInput
+          class="input medium center-placeholder"
+          id="floor"
+          formControlName="floor"
+          placeholder="מספר קומה"
+          /> -->
+          <div class="input-container">
+            <label class="small-text light-grey-text" for="floor">קומה*</label>
+            <div
+              id="floor"
+              class="data-input fill-block medium-size light-grey-text large-size"
+            >
+              {{ advertisement.floor }}
+            </div>
+          </div>
+          <div id="floor-error" class="error-text">שדה חובה</div>
+        </div>
+
+        <div class="input-container">
+          <label class="small-text" for="totalFloors">סה״כ קומות בבניין*</label>
+          <input
+            #totalFloorInput
+            class="data medium large-size"
+            id="totalFloors"
+            formControlName="totalFloors"
+            placeholder="הכנסת סה״כ קומות "
+          />
+          <!-- <div id="totalFloors-error" class="error-text">שדה חובה</div> -->
+        </div>
+        <div class="check-input margin-bottom">
+          <input class="checkbox" type="checkbox" formControlName="onPillars" />
+          <label> על עמודים </label>
+        </div>
+      </div>
+
+      <!-- <button type="submit">submit</button> -->
     </div>
   </form>
 </div>
