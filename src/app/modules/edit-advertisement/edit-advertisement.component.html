@@ -218,26 +218,25 @@
       <div class="property-Features">
         <div
           class="Feature"
-          *ngFor="
-            let item of advertisementService.propertyFeatures;
-            let i = index
-          "
-          [class.selected1]=""
+          *ngFor="let item of propertyFeatures; let i = index"
+          (click)="selectPropertyFeatures(i)"
         >
-          @if(advertisementService.propertyFeaturesIcons[i]!='false'){
+          <!-- @if(advertisementService.propertyFeaturesIcons[i]!='false'){
 
           <i class="material-icons feature-pic">{{
             advertisementService.propertyFeaturesIcons[i]
           }}</i>
           } @else{<img
-            [src]="
-              'assets/images/' +
-              advertisementService.propertyFeaturesImages[i] +
-              '.svg'
-            "
+            [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
             class="feature-pic"
             alt="feature"
           />}
+          {{ item }} -->
+          <img
+            [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
+            class="feature-pic"
+            alt="feature"
+          />
           {{ item }}
         </div>
       </div>

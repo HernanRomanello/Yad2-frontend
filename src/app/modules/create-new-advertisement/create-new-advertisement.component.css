@@ -1089,3 +1089,8 @@ mat-icon {
 #standardizationAccepted-error {
   transform: translateX(-16px) !important;
 }
+
+.feature-pic {
+  width: 18px !important;
+  height: 18px !important;
+}

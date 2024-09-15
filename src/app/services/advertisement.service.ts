@@ -22,7 +22,7 @@ export class AdvertisementService {
   balconiesNumber = [0, 1, 2, 3];
   propertyFeaturesIcons: string[] = [
     'accessible',
-    'ac_unit',
+    'false',
     'false',
     'false',
     'false',
@@ -40,7 +40,7 @@ export class AdvertisementService {
 
   propertyFeaturesImages: string[] = [
     'false',
-    'false',
+    'cold-svgrepo-com',
     'sensor_door',
     'solar_power',
     'elevator',

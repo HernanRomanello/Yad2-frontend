@@ -285,3 +285,8 @@ form {
   width: fit-content !important;
   height: fit-content !important;
 }
+
+.feature-pic {
+  width: 18px !important;
+  height: 18px !important;
+}
