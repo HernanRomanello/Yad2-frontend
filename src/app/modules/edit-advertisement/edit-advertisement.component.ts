@@ -60,7 +60,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
           .subscribe((response) => {
             this.advertisement = response;
             this.asset_State = this.advertisement.assetState;
-            console.log(this.advertisement);
+            console.log(this.advertisement.rearProperty.valueOf());
           });
       }
     });
@@ -75,6 +75,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     this.authService.IsalternativeHeaderISOpen.next(true);
     this.authService.ISEditAdvertisementISOpen.next(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
+
     this.advertisementForm = this.formBuilder.group({
       city: [this.authService.user.getValue()?.city || '', Validators.required],
       tradeType: ['', Validators.required],
@@ -95,7 +96,9 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
       assetState: [this.asset_State, Validators.required],
       airDirections: [1],
       view: ['', Validators.required],
-      rearProperty: [false],
+      rearProperty: [
+        this.advertisement.rearProperty.valueOf() === true || false,
+      ],
       rooms: ['', Validators.required],
       showerRooms: ['', Validators.required],
       privateParking: [false],
@@ -166,23 +169,11 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
 
   toggleDropdown(btnType: string) {}
 
-  async handleSubmit() {}
+  async handleSubmit() {
+    console.log(this.advertisementForm.value);
+  }
 
   selectOption(option: string, type: string) {
-    // this.openAndCloseButtons(type);
-    // if (type === 'assetType') {
-    //   this.asset_type = option;
-    //   this.setAssetType(option);
-    // } else
-    // } else if (type === 'rooms') {
-    //   this.asset_Rooms = option;
-    //   this.set_Number_Of_Rooms(option);
-    // } else if (type === 'numberOfPayments') {
-    //   this.number_Of_Payments = option;
-    //   this.set_Number_Of_Payments(option);
-    // } else if (type === 'asset_owner') {
-    //   this.asset_owner = option;
-    // }
     this.SetDropDownVAlue(type, option, 'assetState');
     this.closeAllDropdowns();
 
@@ -199,8 +190,6 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   closeAllDropdowns() {
     this.isAssetAssetstateDropdownHidden = true;
   }
-
-  selectAirView(view: string) {}
 
   selectBtnOption(direction: number, type: string, view: string) {
     if (type === 'airDirections') {

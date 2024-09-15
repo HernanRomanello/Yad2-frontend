@@ -1,6 +1,11 @@
-<div [formGroup]="advertisementForm" class="edit-container">
+<div class="edit-container">
   <div class="space-block">.</div>
-  <form id="edit-advertisement" class="advertisement-selection">
+  <form
+    [formGroup]="advertisementForm"
+    id="edit-advertisement"
+    class="advertisement-selection"
+    (ngSubmit)="handleSubmit()"
+  >
     <span class="title">עריכת פרטי הנכס </span>
     <div class="edit-inputs">
       <div class="input-container">
@@ -77,9 +82,14 @@
         </div>
       </div>
       <label class="checkbox-input">
-        <input class="" type="checkbox" formControlName="rearProperty" />
+        <input
+          type="checkbox"
+          formControlName="rearProperty"
+          [checked]="this.advertisement.rearProperty.valueOf()"
+        />
         נכס עורפי
       </label>
+      <button type="submit">submit</button>
     </div>
   </form>
 </div>
