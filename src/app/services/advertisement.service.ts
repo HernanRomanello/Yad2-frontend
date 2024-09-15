@@ -81,6 +81,7 @@ export class AdvertisementService {
     'מזגן טורנדו',
     'מחסן',
   ];
+  ShowerRooms = [1, 2, 3, 4];
 
   constructor(private router: Router, private httpClient: HttpClient) {
     this.GetAdvertisements();

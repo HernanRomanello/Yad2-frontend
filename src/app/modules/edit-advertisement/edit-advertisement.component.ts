@@ -23,71 +23,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
   asset_State = '';
-  AirDirections = [1, 2, 3, 4];
-  viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
-  privateParking = [0, 1, 2, 3];
-  balconiesNumber = [0, 1, 2, 3];
-  propertyFeaturesIcons: string[] = [
-    'accessible',
-    'ac_unit',
-    'false',
-    'false',
-    'false',
-    'people_outline',
-    'false',
-    'false',
-    'false',
-    'pets',
-    'format_paint',
-    'false',
-    'false',
-    'false',
-    'false',
-  ];
 
-  propertyFeaturesImages: string[] = [
-    'false',
-    'false',
-    'sensor_door',
-    'solar_power',
-    'elevator',
-    'לשותפים',
-    'dresser',
-    'night_shelter',
-    'circle',
-    'חיות מחמד',
-    'משופצת',
-    'deployed_code',
-    'sensor_door',
-    'air_purifier_gen',
-    'inventory_2',
-  ];
-
-  assetConditions = [
-    'חדש מקבלן (לא גרו בו בכלל)',
-    'חדש (נכס בן עד 10 שנים)',
-    'משופץ (שופץ ב5 השנים האחרונות)',
-    'במצב שמור (במצב טוב, לא שופץ)',
-    'דרוש שיפוץ (זקוק לעבודת שיפוץ)',
-  ];
-
-  propertyFeatures: string[] = [
-    ' גישה לנכים',
-    'מיזוג',
-    'סורגים',
-    'דוד שמש',
-    'מעלית',
-    'לשותפים',
-    'ריהוט',
-    'יחידת דיור',
-    'מטבח כשר',
-    'חיות מחמד',
-    'משופצת',
-    'ממ"ד',
-    'דלתות רב-בריח',
-    'מזגן טורנדו',
-    'מחסן',
-  ];
   ngOnDestroy(): void {
     this.authService.ISEditAdvertisementISOpen.next(false);
     this.authService.IsalternativeHeaderISOpen.next(false);

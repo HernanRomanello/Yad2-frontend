@@ -70,6 +70,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     false,
   ];
   router = inject(Router);
+  advertisementService = inject(AdvertisementService);
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
@@ -84,11 +85,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   @ViewChild('dropdownIconasset_owner', { static: false })
   dropdownIconasset_owner!: ElementRef<HTMLDivElement>;
 
-  AirDirections = [1, 2, 3, 4];
-  ShowerRooms = [1, 2, 3, 4];
-  privateParking = [0, 1, 2, 3];
-  balconiesNumber = [0, 1, 2, 3, 4];
-  viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
   numberOfPayments: string[] = [
     '1',
     '2',
@@ -132,24 +128,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     '12.5',
   ];
 
-  propertyFeatures: string[] = [
-    ' גישה לנכים',
-    'מיזוג',
-    'סורגים',
-    'דוד שמש',
-    'מעלית',
-    'לשותפים',
-    'ריהוט',
-    'יחידת דיור',
-    'מטבח כשר',
-    'חיות מחמד',
-    'משופצת',
-    'ממ"ד',
-    'דלתות רב-בריח',
-    'מזגן טורנדו',
-    'מחסן',
-  ];
-
   propertyFeaturesChecked: { key: string; checked: boolean }[] = [
     { key: 'accessibleForDisabled', checked: false }, // גישה לנכים
     { key: 'airConditioning', checked: false }, // מיזוג
@@ -166,42 +144,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     { key: 'multiLockDoors', checked: false }, // דלתות רב-בריח
     { key: 'tornadoAirConditioner', checked: false }, // מזגן טורנדו
     { key: 'storageRoom', checked: false }, // מחסן
-  ];
-
-  propertyFeaturesIcons: string[] = [
-    'accessible',
-    'ac_unit',
-    'false',
-    'false',
-    'false',
-    'people_outline',
-    'false',
-    'false',
-    'false',
-    'pets',
-    'format_paint',
-    'false',
-    'false',
-    'false',
-    'false',
-  ];
-
-  propertyFeaturesImages: string[] = [
-    'false',
-    'false',
-    'sensor_door',
-    'solar_power',
-    'elevator',
-    'לשותפים',
-    'dresser',
-    'night_shelter',
-    'circle',
-    'חיות מחמד',
-    'משופצת',
-    'deployed_code',
-    'sensor_door',
-    'air_purifier_gen',
-    'inventory_2',
   ];
 
   constructor(
@@ -266,14 +208,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     'כללי',
   ];
 
-  assetConditions = [
-    'חדש מקבלן (לא גרו בו בכלל)',
-    'חדש (נכס בן עד 10 שנים)',
-    'משופץ (שופץ ב5 השנים האחרונות)',
-    'במצב שמור (במצב טוב, לא שופץ)',
-    'דרוש שיפוץ (זקוק לעבודת שיפוץ)',
-  ];
-
   assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
     this.authService.IsalternativeHeaderISOpen.next(true);
@@ -298,11 +232,14 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       assetType: ['', Validators.required],
       assetState: ['', Validators.required],
       airDirections: [1],
-      view: [this.viewOptions[0], Validators.required],
+      view: [this.advertisementService.viewOptions[0], Validators.required],
       rearProperty: [false],
       rooms: ['', Validators.required],
-      showerRooms: [this.ShowerRooms[0], Validators.required],
-      privateParking: [this.privateParking[0]],
+      showerRooms: [
+        this.advertisementService.ShowerRooms[0],
+        Validators.required,
+      ],
+      privateParking: [this.advertisementService.privateParking[0]],
       hasPrivateParking: [false],
       hasBolcony: [false],
       hasImage: [false],

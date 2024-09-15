@@ -389,7 +389,7 @@
         >
           <li
             class="dropdown-item assetState"
-            *ngFor="let option of assetConditions"
+            *ngFor="let option of advertisementService.assetConditions"
             (click)="selectOption(option, 'assetState')"
           >
             {{ option }}
@@ -401,7 +401,10 @@
         <label class="small-text" for="view">כיווני אוויר</label>
         <div class="Select-options">
           <div
-            *ngFor="let number of AirDirections; let i = index"
+            *ngFor="
+              let number of advertisementService.AirDirections;
+              let i = index
+            "
             [ngClass]="optionClass(i, false)"
             [class.selected]="
               advertisementForm.get('airDirections').value === number
@@ -417,7 +420,7 @@
         <label class="small-text" for="view"> נוף פתוח</label>
         <div class="Select-options">
           <div
-            *ngFor="let view of viewOptions; let i = index"
+            *ngFor="let view of advertisementService.viewOptions; let i = index"
             [ngClass]="optionClass(i, false)"
             [class.selected]="advertisementForm.get('view').value === view"
             (click)="selectAirView(view)"
@@ -530,7 +533,10 @@
           <label class="small-text" for="view"> חדרי מקלחת</label>
           <div class="Select-options">
             <div
-              *ngFor="let number of ShowerRooms; let i = index"
+              *ngFor="
+                let number of advertisementService.ShowerRooms;
+                let i = index
+              "
               [ngClass]="optionClass(i, false)"
               [class.selected]="
                 advertisementForm.get('showerRooms').value === number
@@ -546,7 +552,10 @@
           <label class="small-text" for="view"> חניה</label>
           <div class="Select-options">
             <div
-              *ngFor="let number of privateParking; let i = index"
+              *ngFor="
+                let number of advertisementService.privateParking;
+                let i = index
+              "
               [ngClass]="optionClass(i, false)"
               [class.selected]="
                 advertisementForm.get('privateParking').value === number
@@ -563,7 +572,10 @@
           <div class="Select-options">
             <div
               id="balconiesNumber"
-              *ngFor="let number of balconiesNumber; let i = index"
+              *ngFor="
+                let number of advertisementService.balconiesNumber;
+                let i = index
+              "
               [ngClass]="optionClass(i, true)"
               [class.selected]="
                 advertisementForm.get('balconiesNumber').value === number
@@ -580,20 +592,20 @@
         <div class="property-Features">
           <div
             class="Feature"
-            *ngFor="let item of propertyFeatures; let i = index"
+            *ngFor="let item of advertisementService.propertyFeatures; let i = index"
             (click)="selectPropertyFeatures(i)"
             [class.selected1]="
               advertisementForm.get(propertyFeaturesChecked[i].key).value ===
               true
             "
           >
-            @if(propertyFeaturesIcons[i]!='false'){
+            @if(advertisementService.propertyFeaturesIcons[i]!='false'){
 
             <i class="material-icons feature-pic">{{
-              propertyFeaturesIcons[i]
+              advertisementService.propertyFeaturesIcons[i]
             }}</i>
             } @else{<img
-              [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
+              [src]="'assets/images/' + advertisementService.propertyFeaturesImages[i] + '.svg'"
               class="feature-pic"
               alt="feature"
             />}

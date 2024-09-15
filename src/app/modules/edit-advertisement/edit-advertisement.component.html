@@ -46,7 +46,7 @@
         >
           <li
             class="dropdown-option"
-            *ngFor="let option of assetConditions"
+            *ngFor="let option of advertisementService.assetConditions"
             (click)="selectOption(option, 'assetState')"
           >
             {{ option }}
@@ -57,7 +57,10 @@
         <label class="small-text" for="view">כיווני אוויר</label>
         <div class="Select-options">
           <div
-            *ngFor="let number of AirDirections; let i = index"
+            *ngFor="
+              let number of advertisementService.AirDirections;
+              let i = index
+            "
             [ngClass]="optionClass(i, false)"
             [class.selected]="advertisement.airDirections === number"
             (click)="selectBtnOption(number, 'airDirections', 'none')"
@@ -71,7 +74,7 @@
         <label class="small-text" for="view"> נוף פתוח</label>
         <div class="Select-options">
           <div
-            *ngFor="let view of viewOptions; let i = index"
+            *ngFor="let view of advertisementService.viewOptions; let i = index"
             [ngClass]="optionClass(i, false)"
             [class.selected]="this.advertisement.view === view"
             (click)="selectBtnOption(0, 'view', view)"
@@ -174,7 +177,10 @@
         <label class="small-text" for="privateParking">חניה</label>
         <div class="Select-options">
           <div
-            *ngFor="let number of privateParking; let i = index"
+            *ngFor="
+              let number of advertisementService.privateParking;
+              let i = index
+            "
             [ngClass]="[optionClass(i, false), 'small-option']"
             [class.selected]="advertisement.privateParking === number"
             (click)="selectBtnOption(number, 'privateParking', 'none')"
@@ -187,7 +193,10 @@
         <label class="small-text" for="balconiesNumber">מרפסת</label>
         <div class="Select-options">
           <div
-            *ngFor="let number of balconiesNumber; let i = index"
+            *ngFor="
+              let number of advertisementService.balconiesNumber;
+              let i = index
+            "
             [ngClass]="[optionClass(i, false), 'small-option']"
             [class.selected]="advertisement.balconiesNumber === number"
             (click)="selectBtnOption(number, 'balconiesNumber', 'none')"
@@ -208,13 +217,17 @@
           "
           [class.selected1]=""
         >
-          @if(propertyFeaturesIcons[i]!='false'){
+          @if(advertisementService.propertyFeaturesIcons[i]!='false'){
 
           <i class="material-icons feature-pic">{{
-            propertyFeaturesIcons[i]
+            advertisementService.propertyFeaturesIcons[i]
           }}</i>
           } @else{<img
-            [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
+            [src]="
+              'assets/images/' +
+              advertisementService.propertyFeaturesImages[i] +
+              '.svg'
+            "
             class="feature-pic"
             alt="feature"
           />}
