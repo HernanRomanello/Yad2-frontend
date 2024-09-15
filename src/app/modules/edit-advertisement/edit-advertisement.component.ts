@@ -10,7 +10,6 @@ import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { catchError } from 'rxjs';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -22,11 +21,12 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
-  advertisementForm: FormGroup | any;
   isAssetAssetstateDropdownHidden = true;
   asset_State = '';
   AirDirections = [1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
+  privateParking = [0, 1, 2, 3];
+  balconiesNumber = [0, 1, 2, 3];
 
   assetConditions = [
     'חדש מקבלן (לא גרו בו בכלל)',
@@ -44,9 +44,21 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
 
   authService = inject(AuthService);
   route = inject(ActivatedRoute);
-  formBuilder = inject(FormBuilder);
+  advertisementService = inject(AdvertisementService);
 
-  constructor(private advertisementService: AdvertisementService) {
+  constructor() {
+    afterNextRender(() => {
+      document.body.addEventListener('click', (event) => {
+        this.closeAllDropdowns();
+      });
+    });
+  }
+
+  ngOnInit(): void {
+    this.authService.IsalternativeHeaderISOpen.next(true);
+    this.authService.ISEditAdvertisementISOpen.next(true);
+    this.authService.IsHeaderAndFooterOpen(true, false);
+
     this.route.params.subscribe((params) => {
       if (params['id']) {
         this.advertisementService
@@ -60,129 +72,23 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
           .subscribe((response) => {
             this.advertisement = response;
             this.asset_State = this.advertisement.assetState;
+            console.log(this.advertisement);
           });
       }
     });
-    afterNextRender(() => {
-      document.body.addEventListener('click', (event) => {
-        this.closeAllDropdowns();
-      });
-    });
   }
 
-  ngOnInit(): void {
-    this.authService.IsalternativeHeaderISOpen.next(true);
-    this.authService.ISEditAdvertisementISOpen.next(true);
-    this.authService.IsHeaderAndFooterOpen(true, false);
-
-    this.advertisementForm = this.formBuilder.group({
-      city: [this.authService.user.getValue()?.city || '', Validators.required],
-      tradeType: ['', Validators.required],
-      street: [
-        this.authService.user.getValue()?.street || '',
-        Validators.required,
-      ],
-      number: [
-        this.authService.user.getValue()?.houseNumber || '',
-        Validators.required,
-      ],
-      floor: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      totalFloors: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      onPillars: [false],
-      neighborhood: ['', Validators.required],
-      area: ['', Validators.required],
-      assetType: ['', Validators.required],
-      assetState: [this.asset_State, Validators.required],
-      airDirections: [1],
-      view: ['', Validators.required],
-      rearProperty: [
-        this.advertisement.rearProperty.valueOf() === true || false,
-      ],
-      rooms: ['', Validators.required],
-      showerRooms: ['', Validators.required],
-      privateParking: [false],
-      hasPrivateParking: [false],
-      hasBolcony: [false],
-      hasImage: [false],
-      hasPrice: [false],
-      needsRenovation: [false],
-      isWellMaintained: [false],
-      isRenovated: [false],
-      isNew: [false],
-      priceDiscount: [false],
-      publisherIsMiddleMan: [false],
-      publisherIsContractor: [false],
-      balconiesNumber: 0,
-      accessibleForDisabled: [false],
-      airConditioning: [false],
-      windowBars: [false],
-      solarWaterHeater: [false],
-      elevator: [false],
-      forRoommates: [false],
-      furnished: [false],
-      separateUnit: [false],
-      kosherKitchen: [false],
-      petsAllowed: [false],
-      renovated: [false],
-      safeRoom: [false],
-      multiLockDoors: [false],
-      airConditioner: [false],
-      tornadoAirConditioner: [false],
-      storageRoom: [false],
-      description: ['', Validators.required],
-      furnituredescription: ['', Validators.required],
-      numberOfPayments: [null, [Validators.required]],
-      houseCommitteePayment: [null],
-      municipalityMonthlyPropertyTax: [null],
-      builtSquareMeters: [null],
-      gardenSquareMeters: [null],
-      totalSquareMeters: [
-        '',
-        [Validators.required, Validators.pattern('^[0-9]*$')],
-      ],
-      price: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
-      minimumAmount: [null],
-      pricePerMeter: [null],
-      entryDate: ['', Validators.required],
-      immediate: [false],
-      flexible: [false],
-      longTerm: [false],
-      pictures: [[]],
-      video: [''],
-      contactName: [
-        this.authService.user.getValue()?.name || '',
-        Validators.required,
-      ],
-      contactPhone: [
-        this.authService.user.getValue()?.phoneNumber || '',
-        [
-          Validators.required,
-          Validators.pattern('^[0-9]*$'),
-          Validators.minLength(10),
-          Validators.maxLength(10),
-        ],
-      ],
-      standardizationAccepted: [false],
-    });
-  }
-
-  toggleDropdown(btnType: string) {}
-
-  async handleSubmit() {
-    console.log(this.advertisementForm.value);
-  }
+  async handleSubmit() {}
 
   selectOption(option: string, type: string) {
     this.SetDropDownVAlue(type, option, 'assetState');
     this.closeAllDropdowns();
-
-    console.log(this.advertisementForm.value);
   }
 
   private SetDropDownVAlue(type: string, option: string, dropdownType: string) {
     if (type === dropdownType) {
       this.asset_State = option;
-      this.advertisementForm.get(dropdownType).setValue(option);
+      this.advertisement.assetState = option;
     }
   }
 
@@ -190,16 +96,18 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     this.isAssetAssetstateDropdownHidden = true;
   }
 
-  selectBtnOption(direction: number, type: string, view: string) {
+  selectBtnOption(number: number, type: string, option: string) {
     if (type === 'airDirections') {
-      this.advertisementForm.get(type).setValue(direction);
-      this.advertisement.airDirections = direction;
+      this.advertisement.airDirections = number;
+    } else if (type === 'view') {
+      this.advertisement.view = option;
+    } else if (type === 'privateParking') {
+      this.advertisement.privateParking = number;
+    } else if (type === 'balconiesNumber') {
+      this.advertisement.balconiesNumber = number;
     }
-    if (type === 'view') {
-      this.advertisementForm.get('view').setValue(view);
-      this.advertisement.view = view;
-    }
-    console.log(this.advertisementForm.value);
+
+    console.log(this.advertisement);
   }
 
   optionClass(option: number, fiveOptions: boolean): string {

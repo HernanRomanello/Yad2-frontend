@@ -257,3 +257,7 @@ form {
 .erase-btn {
   transform: translateX(-430%) translateY(150%);
 }
+
+.small-option {
+  width: 47.5px !important;
+}

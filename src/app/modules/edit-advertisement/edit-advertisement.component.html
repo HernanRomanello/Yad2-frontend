@@ -1,7 +1,6 @@
 <div class="edit-container">
   <div class="space-block">.</div>
   <form
-    [formGroup]="advertisementForm"
     id="edit-advertisement"
     class="advertisement-selection"
     (ngSubmit)="handleSubmit()"
@@ -60,7 +59,7 @@
           <div
             *ngFor="let number of AirDirections; let i = index"
             [ngClass]="optionClass(i, false)"
-            [class.selected]="advertisement.airDirections.valueOf() === number"
+            [class.selected]="advertisement.airDirections === number"
             (click)="selectBtnOption(number, 'airDirections', 'none')"
           >
             {{ number }}
@@ -85,7 +84,6 @@
         <input
           class="checkbox"
           type="checkbox"
-          formControlName="rearProperty"
           [checked]="this.advertisement.rearProperty.valueOf()"
         />
         נכס עורפי
@@ -120,13 +118,6 @@
 
       <div class="floor-description">
         <div class="input-container">
-          <!-- <input
-          #floorInput
-          class="input medium center-placeholder"
-          id="floor"
-          formControlName="floor"
-          placeholder="מספר קומה"
-          /> -->
           <div class="input-container">
             <label class="small-text light-grey-text" for="floor">קומה*</label>
             <div
@@ -145,14 +136,52 @@
             #totalFloorInput
             class="data medium large-size"
             id="totalFloors"
-            formControlName="totalFloors"
             placeholder="הכנסת סה״כ קומות "
           />
-          <!-- <div id="totalFloors-error" class="error-text">שדה חובה</div> -->
+          <div id="totalFloors-error" class="error-text">שדה חובה</div>
         </div>
         <div class="check-input margin-bottom">
-          <input class="checkbox" type="checkbox" formControlName="onPillars" />
+          <input class="checkbox" type="checkbox" />
           <label> על עמודים </label>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label class="small-text light-grey-text" for="number"
+          >מספר חדרים*
+        </label>
+        <div
+          id="number"
+          class="data-input fill-block medium-size light-grey-text"
+        >
+          {{ this.advertisement.rooms }}
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label class="small-text" for="privateParking">חניה</label>
+        <div class="Select-options">
+          <div
+            *ngFor="let number of privateParking; let i = index"
+            [ngClass]="[optionClass(i, false), 'small-option']"
+            [class.selected]="advertisement.privateParking === number"
+            (click)="selectBtnOption(number, 'privateParking', 'none')"
+          >
+            @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
+          </div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="small-text" for="balconiesNumber">מרפסת</label>
+        <div class="Select-options">
+          <div
+            *ngFor="let number of balconiesNumber; let i = index"
+            [ngClass]="[optionClass(i, false), 'small-option']"
+            [class.selected]="advertisement.balconiesNumber === number"
+            (click)="selectBtnOption(number, 'balconiesNumber', 'none')"
+          >
+            @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
+          </div>
         </div>
       </div>
 
