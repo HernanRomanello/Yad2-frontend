@@ -200,6 +200,8 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     this.isAssetAssetstateDropdownHidden = true;
   }
 
+  selectAirView(view: string) {}
+
   selectBtnOption(direction: number, type: string, view: string) {
     if (type === 'airDirections') {
       this.advertisementForm.get(type).setValue(direction);
@@ -207,6 +209,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     }
     if (type === 'view') {
       this.advertisementForm.get('view').setValue(view);
+      this.advertisement.view = view;
     }
     console.log(this.advertisementForm.value);
   }

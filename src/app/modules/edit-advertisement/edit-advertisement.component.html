@@ -1,4 +1,4 @@
-<div class="edit-container">
+<div [formGroup]="advertisementForm" class="edit-container">
   <div class="space-block">.</div>
   <form id="edit-advertisement" class="advertisement-selection">
     <span class="title">עריכת פרטי הנכס </span>
@@ -62,19 +62,24 @@
           </div>
         </div>
       </div>
+
       <div class="input-container">
         <label class="small-text" for="view"> נוף פתוח</label>
         <div class="Select-options">
           <div
             *ngFor="let view of viewOptions; let i = index"
             [ngClass]="optionClass(i, false)"
-            [class.selected]="advertisementForm.get('view').value === view"
+            [class.selected]="this.advertisement.view === view"
             (click)="selectBtnOption(0, 'view', view)"
           >
             {{ view }}
           </div>
         </div>
       </div>
+      <label class="checkbox-input">
+        <input class="" type="checkbox" formControlName="rearProperty" />
+        נכס עורפי
+      </label>
     </div>
   </form>
 </div>
