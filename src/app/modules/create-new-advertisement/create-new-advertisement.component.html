@@ -431,7 +431,7 @@
       </div>
 
       <label class="checkbox-input">
-        <input class="" type="checkbox" formControlName="rearProperty" />
+        <input type="checkbox" formControlName="rearProperty" />
         נכס עורפי
       </label>
 
@@ -592,7 +592,10 @@
         <div class="property-Features">
           <div
             class="Feature"
-            *ngFor="let item of advertisementService.propertyFeatures; let i = index"
+            *ngFor="
+              let item of advertisementService.propertyFeatures;
+              let i = index
+            "
             (click)="selectPropertyFeatures(i)"
             [class.selected1]="
               advertisementForm.get(propertyFeaturesChecked[i].key).value ===
@@ -605,7 +608,11 @@
               advertisementService.propertyFeaturesIcons[i]
             }}</i>
             } @else{<img
-              [src]="'assets/images/' + advertisementService.propertyFeaturesImages[i] + '.svg'"
+              [src]="
+                'assets/images/' +
+                advertisementService.propertyFeaturesImages[i] +
+                '.svg'
+              "
               class="feature-pic"
               alt="feature"
             />}

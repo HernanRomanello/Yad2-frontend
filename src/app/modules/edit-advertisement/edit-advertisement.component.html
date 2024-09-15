@@ -87,7 +87,9 @@
         <input
           class="checkbox"
           type="checkbox"
+          #frontProperty
           [checked]="this.advertisement.rearProperty.valueOf()"
+          (input)="this.advertisement.rearProperty = frontProperty.checked"
         />
         נכס עורפי
       </label>
@@ -156,7 +158,12 @@
           </div>
         </div>
         <div class="check-input margin-bottom">
-          <input class="checkbox" type="checkbox" />
+          <input
+            #onPillars
+            class="checkbox"
+            type="checkbox"
+            (input)="this.advertisement.onPillars = onPillars.checked"
+          />
           <label> על עמודים </label>
         </div>
       </div>
@@ -206,7 +213,7 @@
         </div>
       </div>
 
-      <div class="sub-title">מאפייני הנכס</div>
+      <div class="sub-title-">מאפייני הנכס</div>
 
       <div class="property-Features">
         <div

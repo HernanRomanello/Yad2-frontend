@@ -261,3 +261,27 @@ form {
 .small-option {
   width: 47.5px !important;
 }
+
+.sub-title- {
+  font-weight: 550 !important;
+}
+.sub-title- {
+  font-size: 16.8px !important;
+}
+
+.Feature {
+  height: 36px !important;
+  width: 138px !important;
+}
+.Feature {
+  border-radius: 17px !important;
+}
+.Feature:hover {
+  border: 1px solid rgb(204, 204, 204) !important;
+}
+
+.property-Features {
+  gap: 1rem !important;
+  width: fit-content !important;
+  height: fit-content !important;
+}
