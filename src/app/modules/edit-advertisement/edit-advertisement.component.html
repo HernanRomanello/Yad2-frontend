@@ -56,9 +56,22 @@
             *ngFor="let number of AirDirections; let i = index"
             [ngClass]="optionClass(i, false)"
             [class.selected]="advertisement.airDirections.valueOf() === number"
-            (click)="selectAirDirections(number)"
+            (click)="selectBtnOption(number, 'airDirections', 'none')"
           >
             {{ number }}
+          </div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="small-text" for="view"> נוף פתוח</label>
+        <div class="Select-options">
+          <div
+            *ngFor="let view of viewOptions; let i = index"
+            [ngClass]="optionClass(i, false)"
+            [class.selected]="advertisementForm.get('view').value === view"
+            (click)="selectBtnOption(0, 'view', view)"
+          >
+            {{ view }}
           </div>
         </div>
       </div>

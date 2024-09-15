@@ -26,6 +26,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   isAssetAssetstateDropdownHidden = true;
   asset_State = '';
   AirDirections = [1, 2, 3, 4];
+  viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
 
   assetConditions = [
     'חדש מקבלן (לא גרו בו בכלל)',
@@ -199,9 +200,15 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     this.isAssetAssetstateDropdownHidden = true;
   }
 
-  selectAirDirections(direction: number) {
-    this.advertisementForm.get('airDirections').setValue(direction);
-    this.advertisement.airDirections = direction;
+  selectBtnOption(direction: number, type: string, view: string) {
+    if (type === 'airDirections') {
+      this.advertisementForm.get(type).setValue(direction);
+      this.advertisement.airDirections = direction;
+    }
+    if (type === 'view') {
+      this.advertisementForm.get('view').setValue(view);
+    }
+    console.log(this.advertisementForm.value);
   }
 
   optionClass(option: number, fiveOptions: boolean): string {
