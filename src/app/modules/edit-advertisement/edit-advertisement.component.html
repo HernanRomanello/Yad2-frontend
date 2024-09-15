@@ -136,9 +136,21 @@
             #totalFloorInput
             class="data medium large-size"
             id="totalFloors"
+            formControlName="totalFloors"
             placeholder="הכנסת סה״כ קומות "
+            [value]="
+              advertisement.totalFloors > 0 ? advertisement.totalFloors : ''
+            "
           />
-          <div id="totalFloors-error" class="error-text">שדה חובה</div>
+          <img
+            (click)="clearTotalFloors()"
+            class="erase-btn"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
+          <div id="totalFloors-error" class="error-text">
+            זהו שדה חובה - סה"כ קומות בבניין
+          </div>
         </div>
         <div class="check-input margin-bottom">
           <input class="checkbox" type="checkbox" />

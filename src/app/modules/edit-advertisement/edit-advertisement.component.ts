@@ -80,6 +80,11 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
 
   async handleSubmit() {}
 
+  clearTotalFloors() {
+    // this.advertisementForm.get('totalFloors').setValue(0);
+    this.advertisement.totalFloors = 0;
+  }
+
   selectOption(option: string, type: string) {
     this.SetDropDownVAlue(type, option, 'assetState');
     this.closeAllDropdowns();
