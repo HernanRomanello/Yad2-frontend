@@ -197,6 +197,31 @@
         </div>
       </div>
 
+      <div class="sub-title">מאפייני הנכס</div>
+
+      <div class="property-Features">
+        <div
+          class="Feature"
+          *ngFor="
+            let item of advertisementService.propertyFeatures;
+            let i = index
+          "
+          [class.selected1]=""
+        >
+          @if(propertyFeaturesIcons[i]!='false'){
+
+          <i class="material-icons feature-pic">{{
+            propertyFeaturesIcons[i]
+          }}</i>
+          } @else{<img
+            [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
+            class="feature-pic"
+            alt="feature"
+          />}
+          {{ item }}
+        </div>
+      </div>
+
       <!-- <button type="submit">submit</button> -->
     </div>
   </form>
