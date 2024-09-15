@@ -193,3 +193,15 @@ form {
 .selected:hover {
   background-color: rgb(204, 204, 204) !important;
 }
+
+.checkbox {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+.checkbox:checked::after {
+  width: 10px;
+  height: 10px !important;
+  border: solid white;
+  left: 6px !important;
+}

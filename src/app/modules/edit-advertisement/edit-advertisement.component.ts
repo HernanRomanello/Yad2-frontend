@@ -60,7 +60,6 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
           .subscribe((response) => {
             this.advertisement = response;
             this.asset_State = this.advertisement.assetState;
-            console.log(this.advertisement.rearProperty.valueOf());
           });
       }
     });
