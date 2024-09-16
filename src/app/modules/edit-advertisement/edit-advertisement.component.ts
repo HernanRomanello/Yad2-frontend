@@ -10,6 +10,7 @@ import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { catchError } from 'rxjs';
+import { InputsStyleService } from '../../services/inputs-style.service';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -23,6 +24,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
   asset_State = '';
+  descriptionMessage = '';
 
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
@@ -85,6 +87,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   authService = inject(AuthService);
   route = inject(ActivatedRoute);
   advertisementService = inject(AdvertisementService);
+  inputsStyleService = inject(InputsStyleService);
 
   constructor() {
     afterNextRender(() => {
@@ -134,6 +137,39 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
         currentValueIndex as keyof typeof this.advertisement
       ] as boolean) = updatedValue;
     }
+  }
+
+  changeColor(textLength: number): string {
+    if (textLength === 0) {
+      return 'fill-loading-bar';
+    }
+
+    if (textLength > 0 && textLength <= 30) {
+      this.descriptionMessage = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
+
+      return 'red-gradient fill-loading-bar';
+    } else if (textLength > 30 && textLength <= 100) {
+      this.descriptionMessage = 'יופי, המודעה הולכת לכיוון הנכון';
+      return 'yellow-gradient fill-loading-bar';
+    } else if (textLength >= 100 && textLength <= 130) {
+      this.descriptionMessage = 'אוטוטו...';
+      return 'light-yellow-gradient fill-loading-bar';
+    } else if (textLength >= 160) {
+      this.descriptionMessage = 'בול!';
+      return 'green-gradient fill-loading-bar';
+    } else {
+      this.descriptionMessage = 'ממליצים לך בחום להוסיף תיאור';
+    }
+
+    return 'fill-loading-bar';
+  }
+
+  changeWidth(textLength: number): string {
+    if (textLength >= 160) {
+      return '100%';
+    }
+    var width = textLength * 1.8125;
+    return width + 'px';
   }
 
   findPropertyFeature(index: number): any {

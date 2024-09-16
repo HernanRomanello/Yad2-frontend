@@ -375,21 +375,21 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
-  changeWidth(textLength: number): string {
-    if (textLength >= 100) {
-      return '99.5%';
-    }
-    var groups = Math.floor(textLength / 4);
-    var widthPercent = groups * 4;
-    return widthPercent + '%';
-  }
+  // changeWidth(textLength: number): string {
+  //   if (textLength >= 100) {
+  //     return '99.5%';
+  //   }
+  //   var groups = Math.floor(textLength / 4);
+  //   var widthPercent = groups * 4;
+  //   return widthPercent + '%';
+  // }
 
-  changeRadius(textLength: number): string {
-    if (textLength >= 103) {
-      return '5px';
-    }
-    return '0px';
-  }
+  // changeRadius(textLength: number): string {
+  //   if (textLength >= 103) {
+  //     return '5px';
+  //   }
+  //   return '0px';
+  // }
 
   checkFormValidation() {
     for (const controlName in this.advertisementForm.controls) {

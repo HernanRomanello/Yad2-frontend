@@ -19,12 +19,17 @@ li {
   width: 100%;
 }
 
+.loading-bar {
+  font-size: 16px !important;
+}
+
 .data-input,
 .edit-inputs,
 .dropdown-option,
 .dropdown-select,
 .address-info-box,
-.squre {
+.squre,
+.loading-bar {
   display: flex;
 }
 
@@ -49,7 +54,8 @@ li {
 }
 
 .data-input,
-.squre {
+.squre,
+.loading-bar {
   align-items: center;
 }
 
@@ -184,6 +190,10 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loading-bar {
+  justify-content: center;
 }
 
 .erase-btn,
@@ -325,4 +335,106 @@ form {
 
 textarea {
   border: none !important;
+}
+
+.loading-bar {
+  position: relative;
+  width: 290.672px;
+}
+.fill-loading-bar,
+.loading-bar {
+  height: 30px;
+  background-color: rgb(243, 240, 240);
+
+  color: rgb(85, 85, 85);
+  border-bottom: 1px solid rgb(221, 221, 221);
+  margin: 0px 0px 0px 6px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px 0px inset,
+    rgb(255, 255, 255) 0px -1px 1px 0px, rgb(255, 255, 255) 0px 1px 0px 0px;
+  border-radius: 15px;
+}
+
+.fill-loading-bar {
+  position: absolute;
+  max-width: 290.672px !important;
+}
+
+.descriptionMessage {
+  position: absolute;
+  z-index: 100;
+}
+
+.red-gradient {
+  background: linear-gradient(
+    135deg,
+    #f14913 25%,
+    #f36436 0px,
+    #f36436 50%,
+    #f14913 0px,
+    #f14913 75%,
+    #f36436 0px,
+    #f36436
+  );
+}
+.yellow-gradient {
+  background: linear-gradient(
+    135deg,
+    #fbaf00 25%,
+    #fcbb26 0px,
+    #fcbb26 50%,
+    #fbaf00 0px,
+    #fbaf00 75%,
+    #fcbb26 0px,
+    #fcbb26
+  );
+}
+.light-yellow-gradient {
+  background: linear-gradient(
+    135deg,
+    #d4df63 25%,
+    #ccd948 0px,
+    #ccd948 50%,
+    #d4df63 0px,
+    #d4df63 75%,
+    #ccd948 0px,
+    #ccd948
+  );
+}
+.green-gradient {
+  background: linear-gradient(
+    135deg,
+    #43c770 25%,
+    #5fcf85 0px,
+    #5fcf85 50%,
+    #43c770 0px,
+    #43c770 75%,
+    #5fcf85 0px,
+    #5fcf85
+  );
+}
+
+.red-gradient,
+.yellow-gradient,
+.light-yellow-gradient,
+.green-gradient {
+  background-size: 200% 100%;
+  animation: gradient-animation-right 5s linear infinite;
+}
+
+@keyframes gradient-animation-right {
+  0% {
+    background-position: 100%;
+  }
+  25% {
+    background-position: 10% 30% 10%;
+  }
+  50% {
+    background-position: 30% 25% 10%;
+  }
+  75% {
+    background-position: 10% 10% 30%;
+  }
+  100% {
+    background-position: 0%;
+  }
 }

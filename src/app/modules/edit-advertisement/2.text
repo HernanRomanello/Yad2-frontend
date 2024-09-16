@@ -1,36 +1,36 @@
-input #checkbocBtnpets {
+div .percentage {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 13.3333px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: normal;
-	text-decoration: none solid rgb(0, 0, 0);
-	text-align: start;
+	text-decoration: none solid rgb(85, 85, 85);
+	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
-	vertical-align: middle;
+	vertical-align: baseline;
 	white-space: normal;
 	word-spacing: 0px;
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
-	background-image: none;
-	background-position: 0% 0%;
+	background-color: rgb(241, 73, 19);
+	background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 0px, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0));
+	background-position: 23.8711px 0px;
 	background-repeat: repeat;
-	color: rgb(0, 0, 0);
+	color: rgb(85, 85, 85);
 
 	/* Box */
-	height: 36px;
-	width: 138px;
-	border: 0px none rgb(0, 0, 0);
-	border-top: 0px none rgb(0, 0, 0);
-	border-right: 0px none rgb(0, 0, 0);
-	border-bottom: 0px none rgb(0, 0, 0);
-	border-left: 0px none rgb(0, 0, 0);
+	height: 30px;
+	width: 56.1875px;
+	border: 0px none rgb(85, 85, 85);
+	border-top: 0px none rgb(85, 85, 85);
+	border-right: 0px none rgb(85, 85, 85);
+	border-bottom: 0px none rgb(85, 85, 85);
+	border-left: 0px none rgb(85, 85, 85);
 	margin: 0px;
 	padding: 0px;
 	max-height: none;
@@ -40,14 +40,14 @@ input #checkbocBtnpets {
 
 	/* Positioning */
 	position: absolute;
-	top: -1px;
+	top: 1px;
 	bottom: -1px;
-	right: 0px;
-	left: 0px;
+	right: 1px;
+	left: 1px;
 	float: none;
 	display: block;
 	clear: none;
-	z-index: 999;
+	z-index: auto;
 
 	/* List */
 	list-style-image: none;
@@ -63,7 +63,7 @@ input #checkbocBtnpets {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: pointer;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ input #checkbocBtnpets {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 17px;
-	border-top-right-radius: 17px;
-	border-bottom-left-radius: 17px;
-	border-bottom-right-radius: 17px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
