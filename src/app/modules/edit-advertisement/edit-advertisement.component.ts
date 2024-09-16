@@ -124,31 +124,16 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     const propertyFeature = this.propertyFeaturesChecked[index];
     const currentValueIndex = propertyFeature.key;
 
-    // Ensure the key exists in the advertisement object
     if (currentValueIndex in this.advertisement) {
-      // Access the current value and assert it as boolean
       const currentValue = this.advertisement[
         currentValueIndex as keyof typeof this.advertisement
       ] as boolean;
 
-      // Toggle the current value
       const updatedValue = !currentValue;
-
-      // Update the advertisement property with the new value (ensure it's boolean)
       (this.advertisement[
         currentValueIndex as keyof typeof this.advertisement
       ] as boolean) = updatedValue;
-
-      // Handle specific cases for 'furnished'
-      //   if (currentValueIndex === 'furnished') {
-      //   }
-      // } else {
-      //   console.error(
-      //     `Key '${currentValueIndex}' does not exist on advertisement.`
-      //   );
     }
-
-    console.log(this.advertisement);
   }
 
   findPropertyFeature(index: number): any {

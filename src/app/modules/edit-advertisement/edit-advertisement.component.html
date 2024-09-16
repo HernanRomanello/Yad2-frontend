@@ -220,7 +220,7 @@
           class="Feature"
           *ngFor="let item of propertyFeatures; let i = index"
           (click)="selectPropertyFeatures(i)"
-          [class.selected1]="this.findPropertyFeature(i) === true"
+          [class.selected2]="this.findPropertyFeature(i) === true"
         >
           <!-- @if(advertisementService.propertyFeaturesIcons[i]!='false'){
 

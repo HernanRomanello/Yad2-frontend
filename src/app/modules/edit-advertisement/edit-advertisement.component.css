@@ -298,3 +298,14 @@ form {
 .feature-pic {
   transform: translateY(2px);
 }
+
+.selected2,
+.selected2:hover {
+  color: #000000 !important;
+}
+.selected2 {
+  background-color: rgb(238, 238, 238) !important;
+}
+.selected2:hover {
+  background-color: #cccccc !important;
+}
