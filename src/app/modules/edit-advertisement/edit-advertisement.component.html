@@ -319,6 +319,43 @@
             [value]="advertisement.description"
           ></textarea>
         </div>
+        <div class="fill-info">
+          אין צורך להוסיף מספר טלפון כחלק מהתיאור, בהמשך התהליך יש אזור מסודר
+          לזה
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="small-text" for="number">מצב הנכס*</label>
+        <button
+          id="assetState"
+          class="data large dropdown-btn"
+          type="button"
+          [ngStyle]="{
+            border: this.isAssetAssetstateDropdownHidden
+              ? 'solid 1px #cccccc '
+              : 'solid 2px #363636 '
+          }"
+          (click)="
+            this.isAssetAssetstateDropdownHidden =
+              !this.isAssetAssetstateDropdownHidden
+          "
+        >
+          {{ this.asset_State }}
+
+          <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
+        </button>
+        <ul
+          *ngIf="!this.isAssetAssetstateDropdownHidden"
+          class="dropdown-select"
+        >
+          <li
+            class="dropdown-option"
+            *ngFor="let option of advertisementService.assetConditions"
+            (click)="selectOption(option, 'assetState')"
+          >
+            {{ option }}
+          </li>
+        </ul>
       </div>
     </div>
   </form>

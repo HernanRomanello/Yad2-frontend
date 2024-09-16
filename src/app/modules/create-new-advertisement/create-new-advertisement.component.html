@@ -768,7 +768,7 @@
         >
           <li
             class="dropdown-item"
-            *ngFor="let option of numberOfPayments"
+            *ngFor="let option of advertisementService.numberOfPayments"
             (click)="selectOption(option, 'numberOfPayments')"
           >
             {{ option }}

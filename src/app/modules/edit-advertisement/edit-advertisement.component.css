@@ -248,6 +248,9 @@ form {
 
 .address-info {
   font-size: 11px !important;
+}
+.address-info,
+.fill-info {
   word-spacing: -0.05rem !important;
   line-height: 1.2 !important;
 }
@@ -379,6 +382,10 @@ textarea {
   margin: 0.5rem 0;
 }
 
+.fill-info {
+  font-size: 12px !important;
+}
+
 .loading-bar {
   width: 290.672px;
   height: 30px;
@@ -397,7 +404,6 @@ textarea {
 
 .fill-loading-bar {
   max-width: 290.672px !important;
-  /* height: 30px; */
 }
 
 .descriptionMessage {
