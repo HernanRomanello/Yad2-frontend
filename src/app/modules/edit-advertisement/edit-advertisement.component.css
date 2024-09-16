@@ -219,11 +219,6 @@ form {
   cursor: pointer;
 }
 
-.selected {
-  background-color: rgb(238, 238, 238) !important;
-  color: #000000 !important;
-}
-
 .selected:hover {
   background-color: rgb(204, 204, 204) !important;
 }
@@ -338,13 +333,6 @@ form {
   transform: translateY(2px);
 }
 
-.selected2,
-.selected2:hover {
-  color: #000000 !important;
-}
-.selected2 {
-  background-color: rgb(238, 238, 238) !important;
-}
 .selected2:hover {
   background-color: #cccccc !important;
 }
@@ -510,4 +498,21 @@ textarea {
 }
 .content-chars {
   color: #555555 !important;
+}
+
+.selected3,
+.selected2,
+.selected {
+  background-color: rgb(238, 238, 238) !important;
+}
+
+.selected3:hover {
+  background-color: #cccccc !important;
+}
+.selected3:hover,
+.selected3,
+.selected,
+.selected2,
+.selected2:hover {
+  color: #000000 !important;
 }

@@ -62,7 +62,7 @@
               let i = index
             "
             [ngClass]="optionClass(i, false)"
-            [class.selected]="advertisement.airDirections === number"
+            [class.selected3]="advertisement.airDirections === number"
             (click)="selectBtnOption(number, 'airDirections', 'none')"
           >
             {{ number }}
@@ -76,7 +76,7 @@
           <div
             *ngFor="let view of advertisementService.viewOptions; let i = index"
             [ngClass]="optionClass(i, false)"
-            [class.selected]="this.advertisement.view === view"
+            [class.selected3]="this.advertisement.view === view"
             (click)="selectBtnOption(0, 'view', view)"
           >
             {{ view }}
@@ -189,7 +189,7 @@
               let i = index
             "
             [ngClass]="[optionClass(i, false), 'small-option']"
-            [class.selected]="advertisement.privateParking === number"
+            [class.selected3]="advertisement.privateParking === number"
             (click)="selectBtnOption(number, 'privateParking', 'none')"
           >
             @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
@@ -205,7 +205,7 @@
               let i = index
             "
             [ngClass]="[optionClass(i, false), 'small-option']"
-            [class.selected]="advertisement.balconiesNumber === number"
+            [class.selected3]="advertisement.balconiesNumber === number"
             (click)="selectBtnOption(number, 'balconiesNumber', 'none')"
           >
             @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
