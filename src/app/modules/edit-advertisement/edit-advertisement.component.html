@@ -222,17 +222,6 @@
           (click)="selectPropertyFeatures(i)"
           [class.selected2]="this.findPropertyFeature(i) === true"
         >
-          <!-- @if(advertisementService.propertyFeaturesIcons[i]!='false'){
-
-          <i class="material-icons feature-pic">{{
-            advertisementService.propertyFeaturesIcons[i]
-          }}</i>
-          } @else{<img
-            [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
-            class="feature-pic"
-            alt="feature"
-          />}
-          {{ item }} -->
           <img
             id="{{ propertyFeaturesImages[i] }}"
             [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
@@ -244,8 +233,24 @@
           </span>
         </div>
       </div>
+      <div class="sub-title-">מה חשוב לך שידעו על הנכס?</div>
 
-      <!-- <button type="submit">submit</button> -->
+      <div class="description-box" *ngIf="advertisement.furnished">
+        <div class="description-title description-box">
+          <label class="small-text" for=""> פרוט הריהוט: (עד 200 תוים) </label>
+          <div class="content-chars">
+            {{ advertisement.furnituredescription.length || 0 }}/200
+          </div>
+        </div>
+        <textarea
+          id="furnituredescription"
+          #furnituredescription
+          formControlName="furnituredescription"
+          (input)="
+            this.advertisement.furnituredescription = furnituredescription.value
+          "
+        ></textarea>
+      </div>
     </div>
   </form>
 </div>
