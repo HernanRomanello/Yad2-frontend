@@ -171,6 +171,11 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     var width = textLength * 1.8125;
     return width + 'px';
   }
+  changeHieght(textLength: number): string {
+    var height = textLength <= 7 ? textLength * 4.5 : 30;
+
+    return height + 'px';
+  }
 
   findPropertyFeature(index: number): any {
     const propertyFeature = this.propertyFeaturesChecked[index];

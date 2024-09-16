@@ -29,7 +29,9 @@ li {
 .dropdown-select,
 .address-info-box,
 .squre,
-.loading-bar {
+.loading-bar,
+.text-length-box,
+.description-box {
   display: flex;
 }
 
@@ -49,13 +51,22 @@ li {
 
 .edit-inputs,
 .dropdown-select,
-.address-info-box {
+.address-info-box,
+.text-length-box {
   flex-direction: column;
+}
+
+.text-length-box {
+  gap: 0.5rem;
+}
+.text-length-box {
+  padding: 0.5rem;
 }
 
 .data-input,
 .squre,
-.loading-bar {
+.loading-bar,
+.description-box {
   align-items: center;
 }
 
@@ -194,6 +205,12 @@ form {
 
 .loading-bar {
   justify-content: center;
+}
+.description-box {
+  justify-content: space-between;
+}
+.description-box {
+  padding-left: 0.25rem;
 }
 
 .erase-btn,
@@ -356,7 +373,7 @@ textarea {
 
 .fill-loading-bar {
   max-width: 290.672px !important;
-  height: 29px;
+  /* height: 30px; */
 }
 
 .descriptionMessage {
@@ -440,4 +457,15 @@ textarea {
   100% {
     background-position: 0%;
   }
+}
+
+.sub-title- {
+  margin-top: 20px;
+}
+
+.content-chars {
+  font-size: 19.2px !important;
+}
+.content-chars {
+  color: #555555 !important;
 }

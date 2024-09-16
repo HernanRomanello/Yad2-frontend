@@ -236,24 +236,31 @@
       <div class="sub-title-">מה חשוב לך שידעו על הנכס?</div>
 
       <div class="description-box" *ngIf="advertisement.furnished">
-        <label class="small-text" for=""> פרוט הריהוט: (עד 200 תוים) </label>
-        <div class="description-title description-box">
-          <div class="loading-bar">
-            <span class="descriptionMessage">
-              {{ this.descriptionMessage }}</span
-            >
-          </div>
-          <div
-            [ngClass]="
-              changeColor(advertisement.furnituredescription.length || 0)
-            "
-            [ngStyle]="{
-              width: changeWidth(advertisement.furnituredescription.length || 0)
-            }"
-          ></div>
+        <div class="text-length-box">
+          <label class="small-text" for=""> פרוט הריהוט: (עד 200 תוים) </label>
+          <div class="description-title description-box">
+            <div class="loading-bar">
+              <span class="descriptionMessage">
+                {{ this.descriptionMessage }}
+              </span>
+            </div>
+            <div
+              [ngClass]="
+                changeColor(advertisement.furnituredescription.length || 0)
+              "
+              [ngStyle]="{
+                width: changeWidth(
+                  advertisement.furnituredescription.length || 0
+                ),
+                height: changeHieght(
+                  advertisement.furnituredescription.length || 0
+                )
+              }"
+            ></div>
 
-          <div class="content-chars">
-            {{ advertisement.furnituredescription.length || 0 }}/200
+            <div class="content-chars">
+              {{ advertisement.furnituredescription.length || 0 }}/200
+            </div>
           </div>
         </div>
         <textarea
