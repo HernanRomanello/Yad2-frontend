@@ -234,7 +234,6 @@ form {
 
 .checkbox {
   border-radius: 2px !important;
-  position: relative;
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -274,7 +273,10 @@ form {
   width: 34px;
   height: 22px;
 }
-.data {
+.data,
+.checkbox,
+.loading-bar,
+.textarea {
   position: relative;
 }
 
@@ -352,10 +354,10 @@ form {
 
 textarea {
   border: none !important;
+  margin: 1rem 0;
 }
 
 .loading-bar {
-  position: relative;
   width: 290.672px;
   height: 30px;
 }

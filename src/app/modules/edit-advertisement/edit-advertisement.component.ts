@@ -190,6 +190,9 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   clearTotalFloors() {
     this.advertisement.totalFloors = 0;
   }
+  clearFurnitureDescription() {
+    this.advertisement.furnituredescription = '';
+  }
 
   selectOption(option: string, type: string) {
     this.SetDropDownVAlue(type, option, 'assetState');

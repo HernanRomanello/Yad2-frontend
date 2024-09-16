@@ -263,14 +263,23 @@
             </div>
           </div>
         </div>
-        <textarea
-          id="furnituredescription"
-          #furnituredescription
-          (input)="
-            this.advertisement.furnituredescription = furnituredescription.value
-          "
-          [value]="advertisement.furnituredescription"
-        ></textarea>
+        <div class="textarea">
+          <img
+            (click)="clearFurnitureDescription()"
+            class="erase-btn"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
+          <textarea
+            id="furnituredescription"
+            #furnituredescription
+            (input)="
+              this.advertisement.furnituredescription =
+                furnituredescription.value
+            "
+            [value]="advertisement.furnituredescription"
+          ></textarea>
+        </div>
       </div>
     </div>
   </form>
