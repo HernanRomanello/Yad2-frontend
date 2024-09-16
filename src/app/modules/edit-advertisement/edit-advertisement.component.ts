@@ -141,32 +141,49 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   changeColor(textLength: number): string {
-    if (textLength <= 1) {
-      this.descriptionFurnitureMessage = 'ממליצים לך בחום להוסיף תיאור';
-      return 'fill-loading-bar';
+    let message = 'ממליצים לך בחום להוסיף תיאור';
+    let className = 'fill-loading-bar';
+
+    switch (true) {
+      case textLength <= 1:
+        message = 'ממליצים לך בחום להוסיף תיאור';
+        className = 'fill-loading-bar';
+        break;
+
+      case textLength > 0 && textLength <= 30:
+        message = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
+        className = 'red-gradient fill-loading-bar';
+        break;
+
+      case textLength > 30 && textLength <= 60:
+        message = 'יופי, המודעה הולכת לכיוון הנכון';
+        className = 'dark-yellow-gradient fill-loading-bar';
+        break;
+
+      case textLength > 60 && textLength <= 100:
+        message = 'עוד ממש קצת וזה שם';
+        className = 'yellow-gradient fill-loading-bar';
+        break;
+
+      case textLength >= 100 && textLength <= 130:
+        message = 'אוטוטו...';
+        className = 'light-yellow-gradient fill-loading-bar';
+        break;
+
+      case textLength >= 130:
+        message = 'בול!';
+        className = 'green-gradient fill-loading-bar';
+        break;
+
+      default:
+        message = 'ממליצים לך בחום להוסיף תיאור';
+        className = 'fill-loading-bar';
+        break;
     }
 
-    if (textLength > 0 && textLength <= 30) {
-      this.descriptionFurnitureMessage = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
+    this.descriptionFurnitureMessage = message;
 
-      return 'red-gradient fill-loading-bar';
-    } else if (textLength > 30 && textLength <= 60) {
-      this.descriptionFurnitureMessage = 'יופי, המודעה הולכת לכיוון הנכון';
-      return 'dark-yellow-gradient fill-loading-bar';
-    } else if (textLength > 60 && textLength <= 100) {
-      this.descriptionFurnitureMessage = 'עוד ממש קצת וזה שם';
-      return 'yellow-gradient fill-loading-bar';
-    } else if (textLength >= 100 && textLength <= 130) {
-      this.descriptionFurnitureMessage = 'אוטוטו...';
-      return 'light-yellow-gradient fill-loading-bar';
-    } else if (textLength >= 130) {
-      this.descriptionFurnitureMessage = 'בול!';
-      return 'green-gradient fill-loading-bar';
-    } else {
-      this.descriptionFurnitureMessage = 'ממליצים לך בחום להוסיף תיאור';
-    }
-
-    return 'fill-loading-bar';
+    return className;
   }
 
   changeWidth(textLength: number): string {
