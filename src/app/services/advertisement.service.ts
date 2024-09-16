@@ -64,6 +64,24 @@ export class AdvertisementService {
     'דרוש שיפוץ (זקוק לעבודת שיפוץ)',
   ];
 
+  propertyFeaturesChecked: { key: string; checked: boolean }[] = [
+    { key: 'accessibleForDisabled', checked: false }, // גישה לנכים
+    { key: 'airConditioning', checked: false }, // מיזוג
+    { key: 'windowBars', checked: false }, // סורגים
+    { key: 'solarWaterHeater', checked: false }, // דוד שמש
+    { key: 'elevator', checked: false }, // מעלית
+    { key: 'forRoommates', checked: false }, // לשותפים
+    { key: 'furnished', checked: false }, // ריהוט
+    { key: 'separateUnit', checked: false }, // יחידת דיור
+    { key: 'kosherKitchen', checked: false }, // מטבח כשר
+    { key: 'petsAllowed', checked: false }, // חיות מחמד
+    { key: 'renovated', checked: false }, // משופצת
+    { key: 'safeRoom', checked: false }, // ממ"ד
+    { key: 'multiLockDoors', checked: false }, // דלתות רב-בריח
+    { key: 'tornadoAirConditioner', checked: false }, // מזגן טורנדו
+    { key: 'storageRoom', checked: false }, // מחסן
+  ];
+
   propertyFeatures: string[] = [
     ' גישה לנכים',
     'מיזוג',

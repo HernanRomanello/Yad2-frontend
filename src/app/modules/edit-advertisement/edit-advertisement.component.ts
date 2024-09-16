@@ -104,8 +104,13 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   async handleSubmit() {}
 
   selectPropertyFeatures(index: number) {
-    // const propertyFeature = this.propertyFeaturesChecked[index];
-    // var currentValue = !this.advertisementForm.get(propertyFeature.key).value;
+    const propertyFeature =
+      this.advertisementService.propertyFeaturesChecked[index];
+    // const index = propertyFeature.key.value
+
+    const currentValue = propertyFeature.key;
+    console.log(currentValue);
+    // var currentValue = !this.advertisement.propertyFeature.key.value;
     // this.advertisementForm.get(propertyFeature.key).setValue(currentValue);
     // if (propertyFeature.key === 'furnished') {
     //   if (currentValue) {
@@ -114,10 +119,12 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     //     this.furnitureDescription = false;
     //   }
     // }
+
     // this.advertisementForm
     //   .get('airConditioner')
     //   .setValue(this.advertisementForm.get('tornadoAirConditioner').value);
   }
+
   clearTotalFloors() {
     this.advertisement.totalFloors = 0;
   }

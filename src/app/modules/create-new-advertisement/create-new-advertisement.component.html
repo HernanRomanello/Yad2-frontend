@@ -598,8 +598,9 @@
             "
             (click)="selectPropertyFeatures(i)"
             [class.selected1]="
-              advertisementForm.get(propertyFeaturesChecked[i].key).value ===
-              true
+              advertisementForm.get(
+                advertisementService.propertyFeaturesChecked[i].key
+              ).value === true
             "
           >
             @if(advertisementService.propertyFeaturesIcons[i]!='false'){
