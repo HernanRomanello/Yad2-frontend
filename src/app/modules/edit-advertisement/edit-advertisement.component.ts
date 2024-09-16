@@ -154,7 +154,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     } else if (textLength >= 100 && textLength <= 130) {
       this.descriptionMessage = 'אוטוטו...';
       return 'light-yellow-gradient fill-loading-bar';
-    } else if (textLength >= 160) {
+    } else if (textLength >= 130) {
       this.descriptionMessage = 'בול!';
       return 'green-gradient fill-loading-bar';
     } else {

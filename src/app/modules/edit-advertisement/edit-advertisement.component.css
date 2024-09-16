@@ -340,10 +340,10 @@ textarea {
 .loading-bar {
   position: relative;
   width: 290.672px;
+  height: 30px;
 }
 .fill-loading-bar,
 .loading-bar {
-  height: 30px;
   background-color: rgb(243, 240, 240);
 
   color: rgb(85, 85, 85);
@@ -355,13 +355,16 @@ textarea {
 }
 
 .fill-loading-bar {
-  position: absolute;
   max-width: 290.672px !important;
+  height: 29px;
 }
 
 .descriptionMessage {
-  position: absolute;
   z-index: 100;
+}
+.descriptionMessage,
+.fill-loading-bar {
+  position: absolute;
 }
 
 .red-gradient {
