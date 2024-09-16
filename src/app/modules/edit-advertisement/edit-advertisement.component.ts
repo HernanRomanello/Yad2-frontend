@@ -24,6 +24,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
   asset_State = '';
+  descriptionFurnitureMessage = '';
   descriptionMessage = '';
 
   propertyFeaturesImages: string[] = [
@@ -140,25 +141,29 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   changeColor(textLength: number): string {
-    if (textLength === 0) {
+    if (textLength <= 1) {
+      this.descriptionFurnitureMessage = 'ממליצים לך בחום להוסיף תיאור';
       return 'fill-loading-bar';
     }
 
     if (textLength > 0 && textLength <= 30) {
-      this.descriptionMessage = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
+      this.descriptionFurnitureMessage = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
 
       return 'red-gradient fill-loading-bar';
-    } else if (textLength > 30 && textLength <= 100) {
-      this.descriptionMessage = 'יופי, המודעה הולכת לכיוון הנכון';
+    } else if (textLength > 30 && textLength <= 60) {
+      this.descriptionFurnitureMessage = 'יופי, המודעה הולכת לכיוון הנכון';
+      return 'dark-yellow-gradient fill-loading-bar';
+    } else if (textLength > 60 && textLength <= 100) {
+      this.descriptionFurnitureMessage = 'עוד ממש קצת וזה שם';
       return 'yellow-gradient fill-loading-bar';
     } else if (textLength >= 100 && textLength <= 130) {
-      this.descriptionMessage = 'אוטוטו...';
+      this.descriptionFurnitureMessage = 'אוטוטו...';
       return 'light-yellow-gradient fill-loading-bar';
     } else if (textLength >= 130) {
-      this.descriptionMessage = 'בול!';
+      this.descriptionFurnitureMessage = 'בול!';
       return 'green-gradient fill-loading-bar';
     } else {
-      this.descriptionMessage = 'ממליצים לך בחום להוסיף תיאור';
+      this.descriptionFurnitureMessage = 'ממליצים לך בחום להוסיף תיאור';
     }
 
     return 'fill-loading-bar';

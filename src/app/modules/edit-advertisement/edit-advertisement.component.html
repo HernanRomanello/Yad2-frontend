@@ -241,6 +241,53 @@
           <div class="description-title description-box">
             <div class="loading-bar">
               <span class="descriptionMessage">
+                {{ this.descriptionFurnitureMessage }}
+              </span>
+            </div>
+            <div
+              [ngClass]="
+                changeColor(advertisement.furnituredescription.length || 0)
+              "
+              [ngStyle]="{
+                width: changeWidth(
+                  advertisement.furnituredescription.length || 0
+                ),
+                height: changeHieght(
+                  advertisement.furnituredescription.length || 0
+                )
+              }"
+            ></div>
+
+            <div class="content-chars">
+              {{ advertisement.furnituredescription.length || 0 }}/200
+            </div>
+          </div>
+        </div>
+        <div class="textarea">
+          <img
+            (click)="clearFurnitureDescription()"
+            class="erase-furnituredescription-btn"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
+          <textarea
+            maxlength="200"
+            id="furnituredescription"
+            #furnituredescription
+            (input)="
+              this.advertisement.furnituredescription =
+                furnituredescription.value
+            "
+            [value]="advertisement.furnituredescription"
+          ></textarea>
+        </div>
+      </div>
+      <div class="description-box">
+        <div class="text-length-box">
+          <label class="small-text" for=""> פרוט הנכס </label>
+          <div class="description-title description-box">
+            <div class="loading-bar">
+              <span class="descriptionMessage">
                 {{ this.descriptionMessage }}
               </span>
             </div>
@@ -266,11 +313,12 @@
         <div class="textarea">
           <img
             (click)="clearFurnitureDescription()"
-            class="erase-btn"
+            class="erase-furnituredescription-btn"
             src="assets/images/close-sm.svg"
             alt=""
           />
           <textarea
+            maxlength="200"
             id="furnituredescription"
             #furnituredescription
             (input)="

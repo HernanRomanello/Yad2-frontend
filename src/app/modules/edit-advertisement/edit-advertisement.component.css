@@ -214,7 +214,8 @@ form {
 }
 
 .erase-btn,
-.option {
+.option,
+.erase-furnituredescription-btn {
   cursor: pointer;
 }
 
@@ -269,7 +270,8 @@ form {
   padding: 0.5rem;
 }
 
-.erase-btn {
+.erase-btn,
+.erase-furnituredescription-btn {
   width: 34px;
   height: 22px;
 }
@@ -280,11 +282,15 @@ form {
   position: relative;
 }
 
-.erase-btn {
+.erase-btn,
+.erase-furnituredescription-btn {
   position: absolute !important;
 }
 .erase-btn {
   transform: translateX(-430%) translateY(150%);
+}
+.erase-furnituredescription-btn {
+  transform: translateX(-1070%) translateY(100%);
 }
 
 .small-option {
@@ -305,7 +311,8 @@ form {
 .Feature {
   border-radius: 17px !important;
 }
-.Feature:hover {
+.Feature:hover,
+.textarea {
   border: 1px solid rgb(204, 204, 204) !important;
 }
 
@@ -355,6 +362,21 @@ form {
 textarea {
   border: none !important;
   margin: 1rem 0;
+  width: 304px !important;
+  background-color: transparent !important;
+}
+textarea:focus,
+textarea:hover,
+textarea {
+  outline: none !important;
+  border: none !important;
+}
+
+.textarea {
+  width: 398px !important;
+}
+.textarea {
+  margin: 0.5rem 0;
 }
 
 .loading-bar {
@@ -408,6 +430,18 @@ textarea {
     #fbaf00 75%,
     #fcbb26 0px,
     #fcbb26
+  );
+}
+.dark-yellow-gradient {
+  background: linear-gradient(
+    135deg,
+    #f3ac36 25%,
+    #f19e13 0px,
+    #f19e13 50%,
+    #f3ac36 0px,
+    #f3ac36 75%,
+    #f19e13 0px,
+    #f19e13
   );
 }
 .light-yellow-gradient {
