@@ -322,3 +322,7 @@ form {
 .selected2:hover img {
   filter: grayscale(100%) brightness(0%) !important;
 }
+
+textarea {
+  border: none !important;
+}

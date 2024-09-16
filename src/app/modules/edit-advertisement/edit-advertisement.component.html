@@ -236,8 +236,8 @@
       <div class="sub-title-">מה חשוב לך שידעו על הנכס?</div>
 
       <div class="description-box" *ngIf="advertisement.furnished">
+        <label class="small-text" for=""> פרוט הריהוט: (עד 200 תוים) </label>
         <div class="description-title description-box">
-          <label class="small-text" for=""> פרוט הריהוט: (עד 200 תוים) </label>
           <div class="content-chars">
             {{ advertisement.furnituredescription.length || 0 }}/200
           </div>
@@ -245,11 +245,26 @@
         <textarea
           id="furnituredescription"
           #furnituredescription
-          formControlName="furnituredescription"
           (input)="
             this.advertisement.furnituredescription = furnituredescription.value
           "
+          [value]="advertisement.furnituredescription"
         ></textarea>
+        <!-- <div
+        [ngStyle]="{
+          'background-color': inputsStyleService.changeColor(
+            advertisementForm.get('description').value.length || 0,
+            this.descriptionMessage
+          ),
+          width: changeWidth(
+            advertisementForm.get('description').value.length || 0
+          ),
+          'border-top-left-radius': changeRadius(
+            advertisementForm.get('description').value.length || 0
+          )
+        }"
+        class="process-bar"
+      ></div> -->
       </div>
     </div>
   </form>

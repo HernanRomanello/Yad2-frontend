@@ -692,6 +692,7 @@ textarea {
   border-top: 5px solid rgb(238, 238, 238);
   border-radius: 4px;
   outline: 1px solid rgb(204, 204, 204, 0.7);
+  resize: none !important;
 }
 
 textarea:hover {
