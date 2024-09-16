@@ -15,6 +15,7 @@ import { afterNextRender } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
 import { Router } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
+import { InputsStyleService } from '../../services/inputs-style.service';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -71,6 +72,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   ];
   router = inject(Router);
   advertisementService = inject(AdvertisementService);
+  inputsStyleService = inject(InputsStyleService);
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;

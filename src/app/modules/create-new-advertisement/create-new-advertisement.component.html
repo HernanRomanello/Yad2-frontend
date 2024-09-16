@@ -672,8 +672,9 @@
             ></textarea>
             <div
               [ngStyle]="{
-                'background-color': changeColor(
-                  advertisementForm.get('description').value.length || 0
+                'background-color': inputsStyleService.changeColor(
+                  advertisementForm.get('description').value.length || 0,
+                  this.descriptionMessage
                 ),
                 width: changeWidth(
                   advertisementForm.get('description').value.length || 0

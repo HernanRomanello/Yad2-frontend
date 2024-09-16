@@ -31,4 +31,23 @@ export class InputsStyleService {
     const borderClass = consitions ? 'red-border' : 'gray-border';
     return className + ' ' + borderClass;
   }
+
+  changeColor(textLength: number, massage: string): string {
+    if (textLength > 0 && textLength < 8) {
+      massage = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
+      return 'red';
+    } else if (textLength > 7 && textLength < 32) {
+      massage = 'יופי, המודעה הולכת לכיוון הנכון';
+      return '#ff7100';
+    } else if (textLength >= 32 && textLength < 104) {
+      massage = 'אוטוטו...';
+      return '#fbaf02';
+    } else if (textLength >= 104) {
+      massage = 'בול!';
+      return '#43c671';
+    } else {
+      massage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
+      return '#363636';
+    }
+  }
 }
