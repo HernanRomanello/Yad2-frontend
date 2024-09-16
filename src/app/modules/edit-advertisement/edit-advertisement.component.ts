@@ -24,8 +24,6 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
   asset_State = '';
-  descriptionFurnitureMessage = '';
-  descriptionMessage = '';
 
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
@@ -181,9 +179,45 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
         break;
     }
 
-    this.descriptionFurnitureMessage = message;
+    // this.descriptionFurnitureMessage = message;
 
     return className;
+  }
+
+  changeText(textLength: number): string {
+    let message = '';
+
+    switch (true) {
+      case textLength <= 1:
+        message = 'ממליצים לך בחום להוסיף תיאור';
+        break;
+
+      case textLength > 0 && textLength <= 30:
+        message = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
+        break;
+
+      case textLength > 30 && textLength <= 60:
+        message = 'יופי, המודעה הולכת לכיוון הנכון';
+        break;
+
+      case textLength > 60 && textLength <= 100:
+        message = 'עוד ממש קצת וזה שם';
+        break;
+
+      case textLength >= 100 && textLength <= 130:
+        message = 'אוטוטו...';
+        break;
+
+      case textLength >= 130:
+        message = 'בול!';
+        break;
+
+      default:
+        message = 'ממליצים לך בחום להוסיף תיאור';
+        break;
+    }
+
+    return message;
   }
 
   changeWidth(textLength: number): string {

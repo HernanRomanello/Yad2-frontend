@@ -241,7 +241,7 @@
           <div class="description-title description-box">
             <div class="loading-bar">
               <span class="descriptionMessage">
-                {{ this.descriptionFurnitureMessage }}
+                {{ this.changeText(advertisement.furnituredescription.length) }}
               </span>
             </div>
             <div
@@ -273,10 +273,10 @@
           <textarea
             maxlength="200"
             id="furnituredescription"
-            #furnituredescription
+            #furnitureDescription
             (input)="
               this.advertisement.furnituredescription =
-                furnituredescription.value
+                furnitureDescription.value
             "
             [value]="advertisement.furnituredescription"
           ></textarea>
@@ -288,25 +288,19 @@
           <div class="description-title description-box">
             <div class="loading-bar">
               <span class="descriptionMessage">
-                {{ this.descriptionMessage }}
+                {{ this.changeText(advertisement.description.length) }}
               </span>
             </div>
             <div
-              [ngClass]="
-                changeColor(advertisement.furnituredescription.length || 0)
-              "
+              [ngClass]="changeColor(advertisement.description.length || 0)"
               [ngStyle]="{
-                width: changeWidth(
-                  advertisement.furnituredescription.length || 0
-                ),
-                height: changeHieght(
-                  advertisement.furnituredescription.length || 0
-                )
+                width: changeWidth(advertisement.description.length || 0),
+                height: changeHieght(advertisement.description.length || 0)
               }"
             ></div>
 
             <div class="content-chars">
-              {{ advertisement.furnituredescription.length || 0 }}/200
+              {{ advertisement.description.length || 0 }}/400
             </div>
           </div>
         </div>
@@ -318,14 +312,11 @@
             alt=""
           />
           <textarea
-            maxlength="200"
-            id="furnituredescription"
-            #furnituredescription
-            (input)="
-              this.advertisement.furnituredescription =
-                furnituredescription.value
-            "
-            [value]="advertisement.furnituredescription"
+            maxlength="400"
+            id="assetDescription"
+            #assetDescription
+            (input)="this.advertisement.description = assetDescription.value"
+            [value]="advertisement.description"
           ></textarea>
         </div>
       </div>
