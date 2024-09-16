@@ -309,3 +309,16 @@ form {
 .selected2:hover {
   background-color: #cccccc !important;
 }
+
+#tap-faucet-svgrepo-com {
+  transform: translateY(-1px) !important;
+}
+
+.Feature:hover img {
+  filter: invert(32%) sepia(82%) saturate(2842%) hue-rotate(10deg)
+    brightness(95%) contrast(95%) !important;
+}
+
+.selected2:hover img {
+  filter: grayscale(100%) brightness(0%) !important;
+}
