@@ -58,6 +58,23 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     'מזגן טורנדו',
   ];
 
+  propertyFeaturesChecked: { key: string; checked: boolean }[] = [
+    { key: 'airConditioning', checked: false }, // מיזוג
+    { key: 'safeRoom', checked: false }, // ממ"ד
+    { key: 'storageRoom', checked: false }, // מחסן
+    { key: 'furnished', checked: false }, // ריהוט
+    { key: 'accessibleForDisabled', checked: false }, // גישה לנכים
+    { key: 'elevator', checked: false }, // מעלית
+    { key: 'renovated', checked: false }, // משופצת
+    { key: 'windowBars', checked: false }, // סורגים
+    { key: 'forRoommates', checked: false }, // לשותפים
+    { key: 'petsAllowed', checked: false }, // חיות מחמד
+    { key: 'kosherKitchen', checked: false }, // מטבח כשר
+    { key: 'solarWaterHeater', checked: false }, // דוד שמש
+    { key: 'multiLockDoors', checked: false }, // דלתות רב-בריח
+    { key: 'tornadoAirConditioner', checked: false }, // מזגן טורנדו
+  ];
+
   ngOnDestroy(): void {
     this.authService.ISEditAdvertisementISOpen.next(false);
     this.authService.IsalternativeHeaderISOpen.next(false);
@@ -104,25 +121,44 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   async handleSubmit() {}
 
   selectPropertyFeatures(index: number) {
-    const propertyFeature =
-      this.advertisementService.propertyFeaturesChecked[index];
-    // const index = propertyFeature.key.value
+    const propertyFeature = this.propertyFeaturesChecked[index];
+    const currentValueIndex = propertyFeature.key;
 
-    const currentValue = propertyFeature.key;
-    console.log(currentValue);
-    // var currentValue = !this.advertisement.propertyFeature.key.value;
-    // this.advertisementForm.get(propertyFeature.key).setValue(currentValue);
-    // if (propertyFeature.key === 'furnished') {
-    //   if (currentValue) {
-    //     this.furnitureDescription = true;
-    //   } else {
-    //     this.furnitureDescription = false;
-    //   }
-    // }
+    // Ensure the key exists in the advertisement object
+    if (currentValueIndex in this.advertisement) {
+      // Access the current value and assert it as boolean
+      const currentValue = this.advertisement[
+        currentValueIndex as keyof typeof this.advertisement
+      ] as boolean;
 
-    // this.advertisementForm
-    //   .get('airConditioner')
-    //   .setValue(this.advertisementForm.get('tornadoAirConditioner').value);
+      // Toggle the current value
+      const updatedValue = !currentValue;
+
+      // Update the advertisement property with the new value (ensure it's boolean)
+      (this.advertisement[
+        currentValueIndex as keyof typeof this.advertisement
+      ] as boolean) = updatedValue;
+
+      // Handle specific cases for 'furnished'
+      //   if (currentValueIndex === 'furnished') {
+      //   }
+      // } else {
+      //   console.error(
+      //     `Key '${currentValueIndex}' does not exist on advertisement.`
+      //   );
+    }
+
+    console.log(this.advertisement);
+  }
+
+  findPropertyFeature(index: number): any {
+    const propertyFeature = this.propertyFeaturesChecked[index];
+    const currentValueIndex = propertyFeature.key;
+    if (currentValueIndex in this.advertisement) {
+      return this.advertisement[
+        currentValueIndex as keyof typeof this.advertisement
+      ];
+    }
   }
 
   clearTotalFloors() {
