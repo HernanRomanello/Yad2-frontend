@@ -36,7 +36,7 @@
               !this.isAssetAssetstateDropdownHidden
           "
         >
-          {{ this.asset_State }}
+          {{ this.advertisement.assetState }}
 
           <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
         </button>
@@ -325,33 +325,33 @@
         </div>
       </div>
       <div class="input-container">
-        <label class="small-text" for="number">מצב הנכס*</label>
+        <label class="small-text" for="number">מספר תשלומים *</label>
         <button
           id="assetState"
           class="data large dropdown-btn"
           type="button"
           [ngStyle]="{
-            border: this.isAssetAssetstateDropdownHidden
+            border: this.isNumberOfPaymentsDropdownHidden
               ? 'solid 1px #cccccc '
               : 'solid 2px #363636 '
           }"
           (click)="
-            this.isAssetAssetstateDropdownHidden =
-              !this.isAssetAssetstateDropdownHidden
+            this.isNumberOfPaymentsDropdownHidden =
+              !this.isNumberOfPaymentsDropdownHidden
           "
         >
-          {{ this.asset_State }}
+          {{ this.advertisement.numberOfPayments }}
 
           <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
         </button>
         <ul
-          *ngIf="!this.isAssetAssetstateDropdownHidden"
+          *ngIf="!this.isNumberOfPaymentsDropdownHidden"
           class="dropdown-select"
         >
           <li
             class="dropdown-option"
-            *ngFor="let option of advertisementService.assetConditions"
-            (click)="selectOption(option, 'assetState')"
+            *ngFor="let option of advertisementService.numberOfPayments"
+            (click)="selectOption(option, 'numberOfPayments')"
           >
             {{ option }}
           </li>

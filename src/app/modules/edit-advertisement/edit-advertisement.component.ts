@@ -23,6 +23,7 @@ import { InputsStyleService } from '../../services/inputs-style.service';
 export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
+  isNumberOfPaymentsDropdownHidden = true;
   asset_State = '';
 
   propertyFeaturesImages: string[] = [
@@ -254,19 +255,18 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   selectOption(option: string, type: string) {
-    this.SetDropDownVAlue(type, option, 'assetState');
-    this.closeAllDropdowns();
-  }
-
-  private SetDropDownVAlue(type: string, option: string, dropdownType: string) {
-    if (type === dropdownType) {
-      this.asset_State = option;
+    if (type === 'assetState') {
       this.advertisement.assetState = option;
     }
+    if (type === 'numberOfPayments') {
+      this.advertisement.numberOfPayments = option;
+    }
+    this.closeAllDropdowns();
   }
 
   closeAllDropdowns() {
     this.isAssetAssetstateDropdownHidden = true;
+    this.isNumberOfPaymentsDropdownHidden = true;
   }
 
   selectBtnOption(number: number, type: string, option: string) {
