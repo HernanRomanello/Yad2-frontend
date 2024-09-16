@@ -290,3 +290,11 @@ form {
   width: 18px !important;
   height: 18px !important;
 }
+
+#drawers-svgrepo-com {
+  transform: scale(2) translateY(1px);
+}
+
+.feature-pic {
+  transform: translateY(2px);
+}

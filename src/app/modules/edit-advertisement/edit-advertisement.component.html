@@ -233,11 +233,14 @@
           />}
           {{ item }} -->
           <img
+            id="{{ propertyFeaturesImages[i] }}"
             [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
             class="feature-pic"
             alt="feature"
           />
-          {{ item }}
+          <span>
+            {{ item }}
+          </span>
         </div>
       </div>
 

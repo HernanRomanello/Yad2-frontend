@@ -23,47 +23,22 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
   asset_State = '';
-  propertyFeaturesIcons: string[] = [
-    'false',
-    'accessible',
-    'false',
-    'false',
-    'false',
-    'people_outline',
-    'false',
-    'false',
-    'false',
-    'pets',
-    'format_paint',
-    'false',
-    'false',
-    'false',
-    'false',
-  ];
 
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
-    'night_shelter',
-    // 'sensor_door',
+    'cube-escape-svgrepo-com',
     'inventory_2',
-    // 'solar_power',
     'drawers-svgrepo-com',
     'accessibility-svgrepo-com',
     'elevator-svgrepo-com',
-    // 'לשותפים',
     'paint-svgrepo-com',
-
     'grid-svgrepo-com',
     'people-svgrepo-com',
-    'dresser',
-    'night_shelter',
-    'circle',
-    'חיות מחמד',
-    'משופצת',
-    'deployed_code',
+    'dog-bold-svgrepo-com',
+    'tap-faucet-svgrepo-com',
+    'solar-battery-4-svgrepo-com',
     'sensor_door',
-    'air_purifier_gen',
-    'inventory_2',
+    'cold-svgrepo-com',
   ];
 
   propertyFeatures: string[] = [
