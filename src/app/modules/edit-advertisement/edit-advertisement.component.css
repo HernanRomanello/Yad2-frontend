@@ -522,3 +522,7 @@ textarea {
 .payment-option {
   font-size: 15px !important;
 }
+
+#builtSquareMeters {
+  width: 205.906px !important;
+}
