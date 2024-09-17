@@ -1,10 +1,4 @@
-import {
-  afterNextRender,
-  Component,
-  inject,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { ActivatedRoute } from '@angular/router';
@@ -25,6 +19,7 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   isAssetAssetstateDropdownHidden = true;
   isNumberOfPaymentsDropdownHidden = true;
   asset_State = '';
+  numberValuesForForm: (string | number)[] = new Array(5);
 
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
@@ -109,6 +104,22 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
         this.closeAllDropdowns();
       }
     });
+    document.addEventListener('keyup', (event) => {
+      // this.formatNumbersInTheForm();
+      console.log(this.addCommasToNumber1('1234567.89')); // Output: "1,234,567.89"
+      console.log(this.addCommasToNumber1('abc')); // Output: "abc" (unchanged)
+      console.log(this.addCommasToNumber1('894d8 8des4efw 8ewq94d')); // Output: "" (unchanged)
+      console.log(this.addCommasToNumber1('888w 9wd9q ')); // Output: "" (unchanged)
+      console.log(this.addCommasToNumber1('4fe89wef4 44')); // Output: "" (unchanged)
+      console.log(this.addCommasToNumber1('4fe89wef4 44')); // Output: "" (unchanged)
+      console.log(this.addCommasToNumber1('8888')); // Output: "" (unchanged)
+      console.log(this.addCommasToNumber1('88888977')); // Output: "" (unchanged)
+      const target = event.target as HTMLElement;
+      this.formatNumbersInTheForm(target.id);
+      // alert(target.id);
+    });
+
+    // Helper method to add commas to a number string
   }
 
   openAndCloseDropdown(type: string, dropdownTypeWasClicked: boolean) {
@@ -164,6 +175,49 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
+  formatNumbersInTheForm(id: string) {
+    const AllNumbersInputsInForm = document.getElementById(id);
+    const input = AllNumbersInputsInForm as HTMLInputElement;
+    input.value = this.addCommasToNumber(input.value);
+    //   for (let i = 0; i < AllNumbersInputsInForm.length; i++) {
+    //     const input = AllNumbersInputsInForm[i] as HTMLInputElement;
+    //     // alert(input.value);
+    //     input.value = this.addCommasToNumber(input.value);
+    //   }
+  }
+
+  addCommasToNumber(num: string): string {
+    const number = parseInt(num);
+    // alert(number);
+    // if (isNaN(number)) {
+    //   alert('not a number');
+    //   return num;
+    // }
+
+    if (!/^\d+$/.test(num)) {
+      // alert('Input is not a valid number');
+      return num;
+    }
+
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  addCommasToNumber1(num: string): string {
+    // Convert input to a number
+    const number = parseFloat(num);
+
+    // Check if the conversion resulted in a valid number
+    if (isNaN(number)) {
+      return num; // Return the original input if it's not a valid number
+    }
+
+    // Convert the valid number back to a string and add commas
+    return number.toLocaleString(); // Using toLocaleString for formatting
+  }
+
+  removeCommasFromNumberAndParseInt(value: string): number {
+    return parseFloat(value.replace(/,/g, ''));
+  }
   changeColor(textLength: number): string {
     let message = 'ממליצים לך בחום להוסיף תיאור';
     let className = 'fill-loading-bar';

@@ -365,11 +365,12 @@
         <label class="small-text" for="number">ועד בית </label>
         <input
           #houseCommitteePayment
-          class="data"
+          class="data number-input"
           id="houseCommitteePayment"
-          [value]="advertisement.houseCommitteePayment | number"
+          [value]="advertisement.houseCommitteePayment.toString()"
           (input)="
-            advertisement.houseCommitteePayment = +houseCommitteePayment.value
+            advertisement.houseCommitteePayment =
+              removeCommasFromNumberAndParseInt(houseCommitteePayment.value)
           "
         />
       </div>
@@ -377,12 +378,14 @@
         <label class="small-text" for="number"> ארנונה לחודשיים </label>
         <input
           #municipalityMonthlyPropertyTax
-          class="data"
+          class="data number-input"
           id="municipalityMonthlyPropertyTax"
-          [value]="advertisement.municipalityMonthlyPropertyTax | number"
+          [value]="advertisement.municipalityMonthlyPropertyTax.toString()"
           (input)="
             advertisement.municipalityMonthlyPropertyTax =
-              +municipalityMonthlyPropertyTax.value
+              removeCommasFromNumberAndParseInt(
+                municipalityMonthlyPropertyTax.value
+              )
           "
         />
       </div>
@@ -390,30 +393,41 @@
         <label class="small-text" for="number"> מ"ר בנוי </label>
         <input
           #builtSquareMeters
-          class="data"
+          class="data number-input"
           id="builtSquareMeters"
-          [value]="advertisement.builtSquareMeters | number"
-          (input)="advertisement.builtSquareMeters = +builtSquareMeters.value"
+          [value]="advertisement.builtSquareMeters.toString()"
+          (input)="
+            advertisement.builtSquareMeters = removeCommasFromNumberAndParseInt(
+              builtSquareMeters.value
+            )
+          "
         />
       </div>
       <div class="input-container">
         <label class="small-text" for="number"> גודל במ"ר סך הכל* </label>
         <input
           #totalSquareMeters
-          class="data"
+          class="data number-input"
           id="totalSquareMeters"
-          [value]="advertisement.totalSquareMeters | number"
-          (input)="advertisement.totalSquareMeters = +totalSquareMeters.value"
+          [value]="advertisement.totalSquareMeters.toString()"
+          (input)="
+            advertisement.totalSquareMeters = removeCommasFromNumberAndParseInt(
+              totalSquareMeters.value
+            )
+          "
         />
       </div>
       <div class="input-container">
         <label class="small-text" for="number"> מחיר </label>
         <input
           #price
-          class="data"
+          class="data number-input"
+          type="text"
           id="price"
-          [value]="advertisement.price | number"
-          (input)="advertisement.price = +price.value"
+          [value]="advertisement.price.toString()"
+          (input)="
+            advertisement.price = removeCommasFromNumberAndParseInt(price.value)
+          "
         />
       </div>
     </div>

@@ -526,3 +526,7 @@ textarea {
 #builtSquareMeters {
   width: 205.906px !important;
 }
+
+.display-none {
+  display: none !important;
+}
