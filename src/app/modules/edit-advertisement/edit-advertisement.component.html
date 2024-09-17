@@ -367,7 +367,11 @@
           #houseCommitteePayment
           class="data number-input"
           id="houseCommitteePayment"
-          [value]="advertisement.houseCommitteePayment.toString()"
+          [value]="
+            advertisement.houseCommitteePayment.toString() === 'NaN'
+              ? ''
+              : advertisement.houseCommitteePayment.toString()
+          "
           (input)="
             advertisement.houseCommitteePayment =
               removeCommasFromNumberAndParseInt(houseCommitteePayment.value)
@@ -380,7 +384,11 @@
           #municipalityMonthlyPropertyTax
           class="data number-input"
           id="municipalityMonthlyPropertyTax"
-          [value]="advertisement.municipalityMonthlyPropertyTax.toString()"
+          [value]="
+            advertisement.municipalityMonthlyPropertyTax.toString() === 'NaN'
+              ? ''
+              : advertisement.municipalityMonthlyPropertyTax.toString()
+          "
           (input)="
             advertisement.municipalityMonthlyPropertyTax =
               removeCommasFromNumberAndParseInt(
@@ -395,7 +403,11 @@
           #builtSquareMeters
           class="data number-input"
           id="builtSquareMeters"
-          [value]="advertisement.builtSquareMeters.toString()"
+          [value]="
+            advertisement.builtSquareMeters.toString() === 'NaN'
+              ? ''
+              : advertisement.builtSquareMeters.toString()
+          "
           (input)="
             advertisement.builtSquareMeters = removeCommasFromNumberAndParseInt(
               builtSquareMeters.value
@@ -409,7 +421,11 @@
           #totalSquareMeters
           class="data number-input"
           id="totalSquareMeters"
-          [value]="advertisement.totalSquareMeters.toString()"
+          [value]="
+            advertisement.totalSquareMeters.toString() === 'NaN'
+              ? ''
+              : advertisement.totalSquareMeters.toString()
+          "
           (input)="
             advertisement.totalSquareMeters = removeCommasFromNumberAndParseInt(
               totalSquareMeters.value
@@ -425,14 +441,12 @@
           type="text"
           id="price"
           [value]="
-            advertisement.price.toString() === '0'
+            advertisement.price.toString() === 'NaN'
               ? ''
               : advertisement.price.toString()
           "
           (input)="
-            advertisement.price = this.testIfIsVAidNumber(price.value)
-              ? removeCommasFromNumberAndParseInt(price.value)
-              : 0
+            advertisement.price = removeCommasFromNumberAndParseInt(price.value)
           "
           placeholder="{{
             advertisement.tradeType === 'השכרה'

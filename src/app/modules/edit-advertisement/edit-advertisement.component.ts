@@ -173,10 +173,15 @@ export class EditAdvertisementComponent
   }
 
   formatNumbersInTheForm(id: string) {
-    // alert(id);
     const AllNumbersInputsInForm = document.getElementById(id);
     const input = AllNumbersInputsInForm as HTMLInputElement;
     input.value = this.addCommasToNumber(input.value);
+    // if (NewValue === 'NaN') {
+    //   return;
+    //   input.value = '';
+    // } else {
+    //   input.value = NewValue;
+    // }
   }
 
   initialFormatNumberInForm() {
@@ -241,7 +246,7 @@ export class EditAdvertisementComponent
     return className;
   }
 
-  testIfIsVAidNumber(value: string): boolean {
+  testIfIsValidNumber(value: string): boolean {
     return /^\d+$/.test(value);
   }
 
