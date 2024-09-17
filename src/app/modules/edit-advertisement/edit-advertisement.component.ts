@@ -90,11 +90,36 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   inputsStyleService = inject(InputsStyleService);
 
   constructor() {
-    afterNextRender(() => {
-      document.body.addEventListener('click', (event) => {
+    document.body.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      const clickOutsdieDropdown =
+        !target.classList.contains('dropdown-btn') ||
+        target.classList.contains(
+          'input-container' ||
+            'advertisement' ||
+            'space-block' ||
+            'edit-container'
+        );
+
+      // alert(target.classList);
+      // alert(clickOutsdieDropdown);
+      if (clickOutsdieDropdown === true) {
+        // alert(clickOutsdieDropdown);
+        // document.body.click();
         this.closeAllDropdowns();
-      });
+      }
     });
+  }
+
+  openAndCloseDropdown(type: string, dropdownTypeWasClicked: boolean) {
+    const dropdownTypeWasClickedState = dropdownTypeWasClicked;
+    const dropdownTypeWasClickedNewState = !dropdownTypeWasClickedState;
+    this.closeAllDropdowns();
+    if (type === 'assetState') {
+      this.isAssetAssetstateDropdownHidden = dropdownTypeWasClickedNewState;
+    } else if (type === 'numberOfPayments') {
+      this.isNumberOfPaymentsDropdownHidden = dropdownTypeWasClickedNewState;
+    }
   }
 
   ngOnInit(): void {

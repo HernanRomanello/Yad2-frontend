@@ -32,8 +32,10 @@
               : 'solid 2px #363636 '
           }"
           (click)="
-            this.isAssetAssetstateDropdownHidden =
-              !this.isAssetAssetstateDropdownHidden
+            this.openAndCloseDropdown(
+              'assetState',
+              this.isAssetAssetstateDropdownHidden
+            )
           "
         >
           {{ this.advertisement.assetState }}
@@ -336,8 +338,10 @@
               : 'solid 2px #363636 '
           }"
           (click)="
-            this.isNumberOfPaymentsDropdownHidden =
-              !this.isNumberOfPaymentsDropdownHidden
+            this.openAndCloseDropdown(
+              'numberOfPayments',
+              this.isNumberOfPaymentsDropdownHidden
+            )
           "
         >
           {{ this.advertisement.numberOfPayments }}
