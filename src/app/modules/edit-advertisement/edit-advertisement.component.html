@@ -27,7 +27,7 @@
             this.isHouseNumberEraseBtnHidden = false
           "
         />
-        @if(!this.isHouseNumberEraseBtnHidden){
+        @if(!this.isHouseNumberEraseBtnHidden && HouseNumber.value.length > 0){
         <img
           (click)="clearInputValue('houseNumber'); HouseNumber.value = ''"
           class="erase-input-btn"
@@ -159,7 +159,6 @@
             #TotalFloorInput
             class="data medium large-size"
             id="totalFloors"
-            formControlName="totalFloors"
             placeholder="הכנסת סה״כ קומות "
             [value]="
               advertisement.totalFloors.toString() === 'NaN' ||
@@ -175,7 +174,8 @@
             "
           />
 
-          @if(!this.isTotalFloorsEraseBtnHidden){
+          @if(!this.isTotalFloorsEraseBtnHidden && TotalFloorInput.value.length
+          > 0){
           <img
             (click)="clearInputValue('totalFloors'); TotalFloorInput.value = ''"
             class="erase-btn"
@@ -294,7 +294,8 @@
           </div>
         </div>
         <div class="textarea">
-          @if(!this.isFurnitureDescriptionEraseBtnHidden){
+          @if(!this.isFurnitureDescriptionEraseBtnHidden &&
+          furnitureDescription.value.length > 0){
           <img
             (click)="clearInputValue('furnituredescription')"
             class="erase-furnituredescription-btn"
@@ -308,7 +309,8 @@
             #furnitureDescription
             (input)="
               this.advertisement.furnituredescription =
-                furnitureDescription.value
+                furnitureDescription.value;
+              this.isFurnitureDescriptionEraseBtnHidden = false
             "
             [value]="advertisement.furnituredescription"
           ></textarea>
@@ -337,7 +339,8 @@
           </div>
         </div>
         <div class="textarea">
-          @if(!this.isDescriptionEraseBtnHidden){
+          @if(!this.isDescriptionEraseBtnHidden && assetDescription.value.length
+          > 0){
           <img
             (click)="clearInputValue('description')"
             class="erase-furnituredescription-btn"
@@ -349,7 +352,10 @@
             maxlength="400"
             id="assetDescription"
             #assetDescription
-            (input)="this.advertisement.description = assetDescription.value"
+            (input)="
+              this.advertisement.description = assetDescription.value;
+              this.isDescriptionEraseBtnHidden = false
+            "
             [value]="advertisement.description"
           ></textarea>
         </div>
@@ -396,6 +402,7 @@
       <div class="input-container">
         <label class="small-text" for="number">ועד בית </label>
         <input
+          placeholder="הכנסת סכום תשלום לועד בית"
           #houseCommitteePayment
           class="data number-input"
           id="houseCommitteePayment"
@@ -411,7 +418,8 @@
             this.isHouseCommitteePaymentEraseBtnHidden = false
           "
         />
-        @if(!this.isHouseCommitteePaymentEraseBtnHidden){
+        @if(!this.isHouseCommitteePaymentEraseBtnHidden &&
+        houseCommitteePayment.value.length > 0){
         <img
           (click)="
             clearInputValue('houseCommitteePayment');
@@ -426,6 +434,7 @@
       <div class="input-container">
         <label class="small-text" for="number"> ארנונה לחודשיים </label>
         <input
+          placeholder="סכום הארנונה לתשלום"
           #municipalityMonthlyPropertyTax
           class="data number-input"
           id="municipalityMonthlyPropertyTax"
@@ -443,7 +452,8 @@
             this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden = false
           "
         />
-        @if(!this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden){
+        @if(!this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden &&
+        municipalityMonthlyPropertyTax.value.length > 0){
         <img
           (click)="
             clearInputValue('municipalityMonthlyPropertyTax');
@@ -458,6 +468,7 @@
       <div class="input-container">
         <label class="small-text" for="number"> מ"ר בנוי </label>
         <input
+          placeholder="כמה מ{{ this.apostrophe }}ר בנוי יש בנכס"
           #builtSquareMeters
           class="data number-input"
           id="builtSquareMeters"
@@ -474,7 +485,8 @@
             this.isBuiltSquareMetersEraseBtnHidden = false
           "
         />
-        @if(!this.isBuiltSquareMetersEraseBtnHidden){
+        @if(!this.isBuiltSquareMetersEraseBtnHidden &&
+        builtSquareMeters.value.length > 0){
         <img
           (click)="
             clearInputValue('builtSquareMeters'); builtSquareMeters.value = ''
@@ -504,7 +516,8 @@
             this.isTotalSquareMetersEraseBtnHidden = false
           "
         />
-        @if(!this.isTotalSquareMetersEraseBtnHidden){
+        @if(!this.isTotalSquareMetersEraseBtnHidden &&
+        totalSquareMeters.value.length > 0){
         <img
           (click)="
             clearInputValue('totalSquareMeters'); totalSquareMeters.value = ''
@@ -540,7 +553,7 @@
               : 'סכום מינימלי 10,000'
           }}"
         />
-        @if(!this.isPriceEraseBtnHidden){
+        @if(!this.isPriceEraseBtnHidden && price.value.length > 0){
         <div class="currency move-right">&#x20AA;</div>
         <img
           (click)="clearInputValue('price'); price.value = ''"

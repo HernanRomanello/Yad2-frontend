@@ -39,6 +39,7 @@ export class EditAdvertisementComponent
   isTotalSquareMetersEraseBtnHidden = true;
   isMunicipalityMonthlyPropertyTaxEraseBtnHidden = true;
   isHouseCommitteePaymentEraseBtnHidden = true;
+  apostrophe = '"';
 
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
