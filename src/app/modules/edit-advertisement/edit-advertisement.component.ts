@@ -238,9 +238,11 @@ export class EditAdvertisementComponent
         break;
     }
 
-    // this.descriptionFurnitureMessage = message;
-
     return className;
+  }
+
+  testIfIsVAidNumber(value: string): boolean {
+    return /^\d+$/.test(value);
   }
 
   changeText(textLength: number): string {
