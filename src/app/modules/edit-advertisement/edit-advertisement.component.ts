@@ -187,6 +187,11 @@ export class EditAdvertisementComponent
     const AllNumbersInputsInForm = document.getElementById(id);
     const input = AllNumbersInputsInForm as HTMLInputElement;
     input.value = this.addCommasToNumber(input.value);
+    input.focus();
+  }
+  activateFocusById(id: string) {
+    const input = document.getElementById(id) as HTMLInputElement;
+    input.focus();
   }
 
   initialFormatNumberInForm() {
@@ -327,18 +332,22 @@ export class EditAdvertisementComponent
       case 'houseCommitteePayment':
         this.advertisement.houseCommitteePayment = 0;
         this.isHouseCommitteePaymentEraseBtnHidden = true;
+        this.activateFocusById('houseCommitteePayment');
         break;
       case 'municipalityMonthlyPropertyTax':
         this.advertisement.municipalityMonthlyPropertyTax = 0;
         this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden = true;
+        this.activateFocusById('municipalityMonthlyPropertyTax');
         break;
       case 'totalSquareMeters':
         this.advertisement.totalSquareMeters = 0;
         this.isTotalSquareMetersEraseBtnHidden = true;
+        this.activateFocusById('totalSquareMeters');
         break;
       case 'price':
         this.advertisement.price = 0;
         this.isPriceEraseBtnHidden = true;
+        this.activateFocusById('price');
         break;
       case 'description':
         this.advertisement.description = '';
@@ -351,14 +360,17 @@ export class EditAdvertisementComponent
       case 'builtSquareMeters':
         this.advertisement.builtSquareMeters = 0;
         this.isBuiltSquareMetersEraseBtnHidden = true;
+        this.activateFocusById('builtSquareMeters');
         break;
       case 'totalFloors':
         this.advertisement.totalFloors = 0;
         this.isTotalFloorsEraseBtnHidden = true;
+        this.activateFocusById('totalFloors');
         break;
       case 'houseNumber':
         this.houseNumber = '';
         this.isHouseNumberEraseBtnHidden = true;
+        this.activateFocusById('houseNumber');
         break;
     }
   }
