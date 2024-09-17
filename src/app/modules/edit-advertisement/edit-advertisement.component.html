@@ -22,16 +22,20 @@
           class="data"
           id=""
           [value]="this.houseNumber"
-          (input)="this.houseNumber = HouseNumber.value"
+          (input)="
+            this.houseNumber = HouseNumber.value;
+            this.isHouseNumberEraseBtnHidden = false
+          "
         />
+        @if(!this.isHouseNumberEraseBtnHidden){
         <img
           (click)="clearInputValue('houseNumber')"
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
         />
+        }
       </div>
-
       <div class="input-container">
         <label class="small-text" for="number">מצב הנכס*</label>
         <button
@@ -152,21 +156,33 @@
         <div class="input-container">
           <label class="small-text" for="totalFloors">סה״כ קומות בבניין*</label>
           <input
-            #totalFloorInput
+            #TotalFloorInput
             class="data medium large-size"
             id="totalFloors"
             formControlName="totalFloors"
             placeholder="הכנסת סה״כ קומות "
             [value]="
-              advertisement.totalFloors > 0 ? advertisement.totalFloors : ''
+              advertisement.totalFloors.toString() === 'NaN' ||
+              advertisement.totalFloors === 0
+                ? ''
+                : advertisement.totalFloors.toString()
+            "
+            (input)="
+              advertisement.totalFloors = removeCommasFromNumberAndParseInt(
+                TotalFloorInput.value
+              );
+              this.isTotalFloorsEraseBtnHidden = false
             "
           />
+
+          @if(!this.isTotalFloorsEraseBtnHidden){
           <img
             (click)="clearInputValue('totalFloors')"
             class="erase-btn"
             src="assets/images/close-sm.svg"
             alt=""
           />
+          }
           <div id="totalFloors-error" class="error-text">
             זהו שדה חובה - סה"כ קומות בבניין
           </div>
@@ -278,12 +294,14 @@
           </div>
         </div>
         <div class="textarea">
+          @if(!this.isFurnitureDescriptionEraseBtnHidden){
           <img
             (click)="clearInputValue('furnituredescription')"
             class="erase-furnituredescription-btn"
             src="assets/images/close-sm.svg"
             alt=""
           />
+          }
           <textarea
             maxlength="200"
             id="furnituredescription"
@@ -319,12 +337,14 @@
           </div>
         </div>
         <div class="textarea">
+          @if(!this.isDescriptionEraseBtnHidden){
           <img
             (click)="clearInputValue('description')"
             class="erase-furnituredescription-btn"
             src="assets/images/close-sm.svg"
             alt=""
           />
+          }
           <textarea
             maxlength="400"
             id="assetDescription"
@@ -387,15 +407,18 @@
           "
           (input)="
             advertisement.houseCommitteePayment =
-              removeCommasFromNumberAndParseInt(houseCommitteePayment.value)
+              removeCommasFromNumberAndParseInt(houseCommitteePayment.value);
+            this.isHouseCommitteePaymentEraseBtnHidden = false
           "
         />
+        @if(!this.isHouseCommitteePaymentEraseBtnHidden){
         <img
           (click)="clearInputValue('houseCommitteePayment')"
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
         />
+        }
       </div>
       <div class="input-container">
         <label class="small-text" for="number"> ארנונה לחודשיים </label>
@@ -413,15 +436,18 @@
             advertisement.municipalityMonthlyPropertyTax =
               removeCommasFromNumberAndParseInt(
                 municipalityMonthlyPropertyTax.value
-              )
+              );
+            this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden = false
           "
         />
+        @if(!this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden){
         <img
           (click)="clearInputValue('municipalityMonthlyPropertyTax')"
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
         />
+        }
       </div>
       <div class="input-container">
         <label class="small-text" for="number"> מ"ר בנוי </label>
@@ -438,15 +464,18 @@
           (input)="
             advertisement.builtSquareMeters = removeCommasFromNumberAndParseInt(
               builtSquareMeters.value
-            )
+            );
+            this.isBuiltSquareMetersEraseBtnHidden = false
           "
         />
+        @if(!this.isBuiltSquareMetersEraseBtnHidden){
         <img
           (click)="clearInputValue('builtSquareMeters')"
           class="erase-input-btn medium-input"
           src="assets/images/close-sm.svg"
           alt=""
         />
+        }
       </div>
       <div class="input-container">
         <label class="small-text" for="number"> גודל במ"ר סך הכל* </label>
@@ -463,15 +492,18 @@
           (input)="
             advertisement.totalSquareMeters = removeCommasFromNumberAndParseInt(
               totalSquareMeters.value
-            )
+            );
+            this.isTotalSquareMetersEraseBtnHidden = false
           "
         />
+        @if(!this.isTotalSquareMetersEraseBtnHidden){
         <img
           (click)="clearInputValue('totalSquareMeters')"
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
         />
+        }
       </div>
       <div class="input-container price-box">
         <label class="small-text" for="number"> מחיר </label>
@@ -487,7 +519,10 @@
               : advertisement.price.toString()
           "
           (input)="
-            advertisement.price = removeCommasFromNumberAndParseInt(price.value)
+            advertisement.price = removeCommasFromNumberAndParseInt(
+              price.value
+            );
+            this.isPriceEraseBtnHidden = false
           "
           placeholder="{{
             advertisement.tradeType === 'השכרה'
@@ -496,12 +531,14 @@
           }}"
         />
         <div class="currency">&#x20AA;</div>
+        @if(!this.isPriceEraseBtnHidden){
         <img
           (click)="clearInputValue('price')"
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
         />
+        }
       </div>
     </div>
   </form>

@@ -30,6 +30,15 @@ export class EditAdvertisementComponent
   asset_State = '';
   houseNumber: string = '';
   numberValuesForForm: (string | number)[] = new Array(5);
+  isHouseNumberEraseBtnHidden = true;
+  isTotalFloorsEraseBtnHidden = true;
+  isBuiltSquareMetersEraseBtnHidden = true;
+  isFurnitureDescriptionEraseBtnHidden = true;
+  isDescriptionEraseBtnHidden = true;
+  isPriceEraseBtnHidden = true;
+  isTotalSquareMetersEraseBtnHidden = true;
+  isMunicipalityMonthlyPropertyTaxEraseBtnHidden = true;
+  isHouseCommitteePaymentEraseBtnHidden = true;
 
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
@@ -317,30 +326,39 @@ export class EditAdvertisementComponent
     switch (inputName) {
       case 'houseCommitteePayment':
         this.advertisement.houseCommitteePayment = 0;
+        this.isHouseCommitteePaymentEraseBtnHidden = true;
         break;
       case 'municipalityMonthlyPropertyTax':
         this.advertisement.municipalityMonthlyPropertyTax = 0;
+        this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden = true;
         break;
       case 'totalSquareMeters':
         this.advertisement.totalSquareMeters = 0;
+        this.isTotalSquareMetersEraseBtnHidden = true;
         break;
       case 'price':
         this.advertisement.price = 0;
+        this.isPriceEraseBtnHidden = true;
         break;
       case 'description':
         this.advertisement.description = '';
+        this.isDescriptionEraseBtnHidden = true;
         break;
       case 'furnituredescription':
         this.advertisement.furnituredescription = '';
+        this.isFurnitureDescriptionEraseBtnHidden = true;
         break;
       case 'builtSquareMeters':
         this.advertisement.builtSquareMeters = 0;
+        this.isBuiltSquareMetersEraseBtnHidden = true;
         break;
       case 'totalFloors':
         this.advertisement.totalFloors = 0;
+        this.isTotalFloorsEraseBtnHidden = true;
         break;
       case 'houseNumber':
         this.houseNumber = '';
+        this.isHouseNumberEraseBtnHidden = true;
         break;
     }
   }
