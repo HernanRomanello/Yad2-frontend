@@ -213,7 +213,8 @@ form {
 
 .erase-btn,
 .option,
-.erase-furnituredescription-btn {
+.erase-furnituredescription-btn,
+.erase-input-btn {
   cursor: pointer;
 }
 
@@ -267,19 +268,23 @@ form {
 }
 
 .erase-btn,
-.erase-furnituredescription-btn {
+.erase-furnituredescription-btn,
+.erase-input-btn {
   width: 34px;
   height: 22px;
 }
 .data,
 .checkbox,
 .loading-bar,
-.textarea {
+.textarea,
+.input-container {
   position: relative;
 }
 
 .erase-btn,
-.erase-furnituredescription-btn {
+.erase-furnituredescription-btn,
+.currency,
+.erase-input-btn {
   position: absolute !important;
 }
 .erase-btn {
@@ -529,4 +534,24 @@ textarea {
 
 .display-none {
   display: none !important;
+}
+
+.currency {
+  color: #999999;
+}
+
+.currency {
+  transform: translateX(-2050%) translateY(170%) scale(1.4);
+}
+.erase-input-btn {
+  transform: translateX(-680%) translateY(155%);
+  /* display: none; */
+}
+
+.medium-input {
+  transform: translateX(-520%) translateY(155%);
+}
+
+.visible {
+  display: block !important;
 }

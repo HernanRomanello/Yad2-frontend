@@ -17,7 +17,19 @@
       </div>
       <div class="input-container">
         <label class="small-text" for="number">מס' דירה</label>
-        <input class="data" id="" />
+        <input
+          #HouseNumber
+          class="data"
+          id=""
+          [value]="this.houseNumber"
+          (input)="this.houseNumber = HouseNumber.value"
+        />
+        <img
+          (click)="clearInputValue('houseNumber')"
+          class="erase-input-btn"
+          src="assets/images/close-sm.svg"
+          alt=""
+        />
       </div>
 
       <div class="input-container">
@@ -150,7 +162,7 @@
             "
           />
           <img
-            (click)="clearTotalFloors()"
+            (click)="clearInputValue('totalFloors')"
             class="erase-btn"
             src="assets/images/close-sm.svg"
             alt=""
@@ -267,7 +279,7 @@
         </div>
         <div class="textarea">
           <img
-            (click)="clearFurnitureDescription()"
+            (click)="clearInputValue('furnituredescription')"
             class="erase-furnituredescription-btn"
             src="assets/images/close-sm.svg"
             alt=""
@@ -308,7 +320,7 @@
         </div>
         <div class="textarea">
           <img
-            (click)="clearAssetDescription()"
+            (click)="clearInputValue('description')"
             class="erase-furnituredescription-btn"
             src="assets/images/close-sm.svg"
             alt=""
@@ -368,7 +380,8 @@
           class="data number-input"
           id="houseCommitteePayment"
           [value]="
-            advertisement.houseCommitteePayment.toString() === 'NaN'
+            advertisement.houseCommitteePayment.toString() === 'NaN' ||
+            advertisement.houseCommitteePayment === 0
               ? ''
               : advertisement.houseCommitteePayment.toString()
           "
@@ -376,6 +389,12 @@
             advertisement.houseCommitteePayment =
               removeCommasFromNumberAndParseInt(houseCommitteePayment.value)
           "
+        />
+        <img
+          (click)="clearInputValue('houseCommitteePayment')"
+          class="erase-input-btn"
+          src="assets/images/close-sm.svg"
+          alt=""
         />
       </div>
       <div class="input-container">
@@ -385,7 +404,8 @@
           class="data number-input"
           id="municipalityMonthlyPropertyTax"
           [value]="
-            advertisement.municipalityMonthlyPropertyTax.toString() === 'NaN'
+            advertisement.municipalityMonthlyPropertyTax.toString() === 'NaN' ||
+            advertisement.municipalityMonthlyPropertyTax === 0
               ? ''
               : advertisement.municipalityMonthlyPropertyTax.toString()
           "
@@ -396,6 +416,12 @@
               )
           "
         />
+        <img
+          (click)="clearInputValue('municipalityMonthlyPropertyTax')"
+          class="erase-input-btn"
+          src="assets/images/close-sm.svg"
+          alt=""
+        />
       </div>
       <div class="input-container">
         <label class="small-text" for="number"> מ"ר בנוי </label>
@@ -404,7 +430,8 @@
           class="data number-input"
           id="builtSquareMeters"
           [value]="
-            advertisement.builtSquareMeters.toString() === 'NaN'
+            advertisement.builtSquareMeters.toString() === 'NaN' ||
+            advertisement.builtSquareMeters === 0
               ? ''
               : advertisement.builtSquareMeters.toString()
           "
@@ -414,6 +441,12 @@
             )
           "
         />
+        <img
+          (click)="clearInputValue('builtSquareMeters')"
+          class="erase-input-btn medium-input"
+          src="assets/images/close-sm.svg"
+          alt=""
+        />
       </div>
       <div class="input-container">
         <label class="small-text" for="number"> גודל במ"ר סך הכל* </label>
@@ -422,7 +455,8 @@
           class="data number-input"
           id="totalSquareMeters"
           [value]="
-            advertisement.totalSquareMeters.toString() === 'NaN'
+            advertisement.totalSquareMeters.toString() === 'NaN' ||
+            advertisement.totalSquareMeters === 0
               ? ''
               : advertisement.totalSquareMeters.toString()
           "
@@ -432,8 +466,14 @@
             )
           "
         />
+        <img
+          (click)="clearInputValue('totalSquareMeters')"
+          class="erase-input-btn"
+          src="assets/images/close-sm.svg"
+          alt=""
+        />
       </div>
-      <div class="input-container">
+      <div class="input-container price-box">
         <label class="small-text" for="number"> מחיר </label>
         <input
           #price
@@ -441,7 +481,8 @@
           type="text"
           id="price"
           [value]="
-            advertisement.price.toString() === 'NaN'
+            advertisement.price.toString() === 'NaN' ||
+            advertisement.price === 0
               ? ''
               : advertisement.price.toString()
           "
@@ -454,8 +495,14 @@
               : 'סכום מינימלי 10,000'
           }}"
         />
+        <div class="currency">&#x20AA;</div>
+        <img
+          (click)="clearInputValue('price')"
+          class="erase-input-btn"
+          src="assets/images/close-sm.svg"
+          alt=""
+        />
       </div>
-      <div class="currency">&#x20AA;</div>
     </div>
   </form>
 </div>

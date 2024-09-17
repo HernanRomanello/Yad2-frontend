@@ -4,6 +4,7 @@ import {
   inject,
   OnDestroy,
   OnInit,
+  Renderer2,
 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
@@ -27,6 +28,7 @@ export class EditAdvertisementComponent
   isAssetAssetstateDropdownHidden = true;
   isNumberOfPaymentsDropdownHidden = true;
   asset_State = '';
+  houseNumber: string = '';
   numberValuesForForm: (string | number)[] = new Array(5);
 
   propertyFeaturesImages: string[] = [
@@ -92,7 +94,7 @@ export class EditAdvertisementComponent
   advertisementService = inject(AdvertisementService);
   inputsStyleService = inject(InputsStyleService);
 
-  constructor() {
+  constructor(render: Renderer2) {
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
       const clickOutsdieDropdown =
@@ -176,12 +178,6 @@ export class EditAdvertisementComponent
     const AllNumbersInputsInForm = document.getElementById(id);
     const input = AllNumbersInputsInForm as HTMLInputElement;
     input.value = this.addCommasToNumber(input.value);
-    // if (NewValue === 'NaN') {
-    //   return;
-    //   input.value = '';
-    // } else {
-    //   input.value = NewValue;
-    // }
   }
 
   initialFormatNumberInForm() {
@@ -312,11 +308,41 @@ export class EditAdvertisementComponent
   clearTotalFloors() {
     this.advertisement.totalFloors = 0;
   }
-  clearFurnitureDescription() {
-    this.advertisement.furnituredescription = '';
-  }
+
   clearAssetDescription() {
     this.advertisement.description = '';
+  }
+
+  clearInputValue(inputName: string) {
+    switch (inputName) {
+      case 'houseCommitteePayment':
+        this.advertisement.houseCommitteePayment = 0;
+        break;
+      case 'municipalityMonthlyPropertyTax':
+        this.advertisement.municipalityMonthlyPropertyTax = 0;
+        break;
+      case 'totalSquareMeters':
+        this.advertisement.totalSquareMeters = 0;
+        break;
+      case 'price':
+        this.advertisement.price = 0;
+        break;
+      case 'description':
+        this.advertisement.description = '';
+        break;
+      case 'furnituredescription':
+        this.advertisement.furnituredescription = '';
+        break;
+      case 'builtSquareMeters':
+        this.advertisement.builtSquareMeters = 0;
+        break;
+      case 'totalFloors':
+        this.advertisement.totalFloors = 0;
+        break;
+      case 'houseNumber':
+        this.houseNumber = '';
+        break;
+    }
   }
 
   selectOption(option: string, type: string) {
