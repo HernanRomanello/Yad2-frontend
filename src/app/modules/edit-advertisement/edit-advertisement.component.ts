@@ -1,4 +1,10 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +20,9 @@ import { InputsStyleService } from '../../services/inputs-style.service';
     '../create-new-advertisement/create-new-advertisement.component.css',
   ],
 })
-export class EditAdvertisementComponent implements OnInit, OnDestroy {
+export class EditAdvertisementComponent
+  implements OnInit, OnDestroy, AfterViewInit
+{
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
   isNumberOfPaymentsDropdownHidden = true;
@@ -105,6 +113,9 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
       this.formatNumbersInTheForm(target.id);
     });
   }
+  ngAfterViewInit(): void {
+    this.initialFormatNumberInForm();
+  }
 
   openAndCloseDropdown(type: string, dropdownTypeWasClicked: boolean) {
     const dropdownTypeWasClickedState = dropdownTypeWasClicked;
@@ -139,6 +150,8 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
           });
       }
     });
+
+    this.initialFormatNumberInForm();
   }
 
   async handleSubmit() {}
@@ -160,9 +173,17 @@ export class EditAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   formatNumbersInTheForm(id: string) {
+    // alert(id);
     const AllNumbersInputsInForm = document.getElementById(id);
     const input = AllNumbersInputsInForm as HTMLInputElement;
     input.value = this.addCommasToNumber(input.value);
+  }
+
+  initialFormatNumberInForm() {
+    this.formatNumbersInTheForm('houseCommitteePayment');
+    this.formatNumbersInTheForm('municipalityMonthlyPropertyTax');
+    this.formatNumbersInTheForm('totalSquareMeters');
+    this.formatNumbersInTheForm('price');
   }
 
   addCommasToNumber(num: string): string {
