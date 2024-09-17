@@ -545,13 +545,12 @@ textarea {
 }
 .erase-input-btn {
   transform: translateX(-680%) translateY(155%);
-  /* display: none; */
 }
 
 .medium-input {
   transform: translateX(-520%) translateY(155%);
 }
 
-.visible {
-  display: block !important;
+.move-right {
+  transform: translateX(-1900%) translateY(170%) scale(1.4);
 }

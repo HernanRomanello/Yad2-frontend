@@ -540,14 +540,16 @@
               : 'סכום מינימלי 10,000'
           }}"
         />
-        <div class="currency">&#x20AA;</div>
         @if(!this.isPriceEraseBtnHidden){
+        <div class="currency move-right">&#x20AA;</div>
         <img
           (click)="clearInputValue('price'); price.value = ''"
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
         />
+        }@else {
+        <div class="currency">&#x20AA;</div>
         }
       </div>
     </div>
