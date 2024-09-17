@@ -29,7 +29,7 @@
         />
         @if(!this.isHouseNumberEraseBtnHidden){
         <img
-          (click)="clearInputValue('houseNumber')"
+          (click)="clearInputValue('houseNumber'); HouseNumber.value = ''"
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
@@ -177,7 +177,7 @@
 
           @if(!this.isTotalFloorsEraseBtnHidden){
           <img
-            (click)="clearInputValue('totalFloors')"
+            (click)="clearInputValue('totalFloors'); TotalFloorInput.value = ''"
             class="erase-btn"
             src="assets/images/close-sm.svg"
             alt=""
@@ -413,7 +413,10 @@
         />
         @if(!this.isHouseCommitteePaymentEraseBtnHidden){
         <img
-          (click)="clearInputValue('houseCommitteePayment')"
+          (click)="
+            clearInputValue('houseCommitteePayment');
+            houseCommitteePayment.value = ''
+          "
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
@@ -442,7 +445,10 @@
         />
         @if(!this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden){
         <img
-          (click)="clearInputValue('municipalityMonthlyPropertyTax')"
+          (click)="
+            clearInputValue('municipalityMonthlyPropertyTax');
+            municipalityMonthlyPropertyTax.value = ''
+          "
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
@@ -470,7 +476,9 @@
         />
         @if(!this.isBuiltSquareMetersEraseBtnHidden){
         <img
-          (click)="clearInputValue('builtSquareMeters')"
+          (click)="
+            clearInputValue('builtSquareMeters'); builtSquareMeters.value = ''
+          "
           class="erase-input-btn medium-input"
           src="assets/images/close-sm.svg"
           alt=""
@@ -498,7 +506,9 @@
         />
         @if(!this.isTotalSquareMetersEraseBtnHidden){
         <img
-          (click)="clearInputValue('totalSquareMeters')"
+          (click)="
+            clearInputValue('totalSquareMeters'); totalSquareMeters.value = ''
+          "
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
@@ -533,7 +543,7 @@
         <div class="currency">&#x20AA;</div>
         @if(!this.isPriceEraseBtnHidden){
         <img
-          (click)="clearInputValue('price')"
+          (click)="clearInputValue('price'); price.value = ''"
           class="erase-input-btn"
           src="assets/images/close-sm.svg"
           alt=""
