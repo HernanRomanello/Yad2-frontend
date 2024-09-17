@@ -43,9 +43,6 @@ li {
 }
 
 .dropdown-option {
-  padding: 1rem;
-}
-.dropdown-option {
   height: 400px !important;
 }
 
@@ -130,6 +127,7 @@ form {
 }
 .dropdown-option:hover {
   background-color: #0078d7;
+  color: white;
 }
 
 .not-allowed,
@@ -515,4 +513,12 @@ textarea {
 .selected2,
 .selected2:hover {
   color: #000000 !important;
+}
+
+.dropdown-option {
+  padding: 3px 6px !important;
+}
+
+.payment-option {
+  font-size: 15px !important;
 }
