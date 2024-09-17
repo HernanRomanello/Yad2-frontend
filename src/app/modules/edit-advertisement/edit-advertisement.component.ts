@@ -1,10 +1,13 @@
 import {
   AfterViewInit,
   Component,
+  ElementRef,
   inject,
   OnDestroy,
   OnInit,
   Renderer2,
+  ViewChild,
+  viewChild,
 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
@@ -40,6 +43,9 @@ export class EditAdvertisementComponent
   isMunicipalityMonthlyPropertyTaxEraseBtnHidden = true;
   isHouseCommitteePaymentEraseBtnHidden = true;
   apostrophe = '"';
+  calendarIsdisabled = false;
+  @ViewChild('entryDate', { static: false })
+  entryDate!: ElementRef<HTMLDivElement>;
 
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
@@ -208,6 +214,50 @@ export class EditAdvertisementComponent
     }
 
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  setDateForToday(checkBox: string): void {
+    const today = new Date().toISOString().substring(0, 10);
+    this.advertisement.entryDate = today;
+    if (checkBox === 'flexible') {
+      if (this.entryDate) {
+        this.entryDate.nativeElement.style.opacity = '0.5';
+        (this.entryDate.nativeElement as HTMLInputElement).disabled = true;
+      }
+    }
+    if (checkBox === 'immediate') {
+      this.entryDate.nativeElement.style.opacity = '0.5';
+    }
+  }
+
+  disableCalendar(input1: boolean, input2: boolean) {
+    if (input1 === true || input2 === true) {
+      alert('input1: ' + input1 + ' input2: ' + input2);
+      this.calendarIsdisabled = true;
+    } else {
+      this.calendarIsdisabled = false;
+    }
+  }
+
+  formatDateString(dateString: string): string {
+    const date = new Date(dateString);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+  }
+
+  toDateString(date: string): string {
+    const [year, month, day] = date.split('-').map(Number);
+
+    const newDate = new Date(year, month - 1, day);
+
+    const formattedDateString =
+      newDate.toISOString().split('T')[0] + 'T00:00:00.0';
+
+    return formattedDateString;
   }
 
   removeCommasFromNumberAndParseInt(value: string): number {

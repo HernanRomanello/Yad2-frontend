@@ -565,6 +565,55 @@
         <div class="currency">&#x20AA;</div>
         }
       </div>
+      <label class="small-text" for="entryDate"> תאריך כניסה*</label>
+
+      <div class="date-container">
+        <div class="">
+          <input
+            id="entryDate"
+            class="date-input"
+            formControlName="entryDate"
+            class="date-input"
+            type="date"
+            placeholder="dd/mm/yyyy"
+            #entryDate
+            [value]="formatDateString(advertisement.entryDate)"
+            (input)="
+              advertisement.entryDate = this.toDateString(entryDate.value)
+            "
+          />
+        </div>
+
+        <div class="date-checkbox">
+          <div>
+            <input
+              (change)="setDateForToday('immediate')"
+              class="checkbox"
+              type="checkbox"
+              #immediate
+              (input)="
+                flexible.checked = false;
+                disableCalendar(flexible.checked, immediate.checked)
+              "
+            />
+            מיידי
+          </div>
+          <div>
+            <input
+              (change)="setDateForToday('flexible')"
+              class="checkbox"
+              type="checkbox"
+              #flexible
+              (input)="
+                immediate.checked = false;
+                disableCalendar(flexible.checked, immediate.checked)
+              "
+            />
+            גמיש
+          </div>
+        </div>
+      </div>
+      <div id="entryDate-error" class="error-text">תאריך שהוזן לא תקין.</div>
     </div>
   </form>
 </div>
