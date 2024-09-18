@@ -194,7 +194,6 @@ export class EditAdvertisementComponent
     const AllNumbersInputsInForm = document.getElementById(id);
     const input = AllNumbersInputsInForm as HTMLInputElement;
     input.value = this.addCommasToNumber(input.value);
-    input.focus();
   }
   activateFocusById(id: string) {
     const input = document.getElementById(id) as HTMLInputElement;
