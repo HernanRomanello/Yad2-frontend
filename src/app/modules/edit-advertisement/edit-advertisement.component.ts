@@ -231,9 +231,7 @@ export class EditAdvertisementComponent
 
   disableCalendar(input1: boolean, input2: boolean) {
     if (input1 === true || input2 === true) {
-      alert('input1: ' + input1 + ' input2: ' + input2);
       this.calendarIsdisabled = true;
-    } else {
       this.calendarIsdisabled = false;
     }
   }

@@ -554,3 +554,8 @@ textarea {
 .move-right {
   transform: translateX(-1900%) translateY(170%) scale(1.4);
 }
+
+.date-input {
+  width: 209px !important;
+  display: none;
+}
