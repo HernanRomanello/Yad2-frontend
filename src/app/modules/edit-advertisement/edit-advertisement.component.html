@@ -612,6 +612,18 @@
         </div>
       </div>
       <div id="entryDate-error" class="error-text">תאריך שהוזן לא תקין.</div>
+
+      <label class="checkbox-input">
+        <input
+          class="checkbox"
+          type="checkbox"
+          #LongTerm
+          [checked]="this.advertisement.rearProperty.valueOf()"
+          (input)="this.advertisement.longTerm = LongTerm.checked"
+        />
+        לטווח ארוך
+      </label>
+      
     </div>
   </form>
 </div>

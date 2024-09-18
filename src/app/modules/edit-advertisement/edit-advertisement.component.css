@@ -197,11 +197,11 @@ form {
   border: 1px solid #cccccc;
   padding: 0px 12px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-.loading-bar {
+.loading-bar,
+.option {
   justify-content: center;
 }
 .description-box {
@@ -557,5 +557,5 @@ textarea {
 
 .date-input {
   width: 209px !important;
-  display: none;
+  /* display: none; */
 }

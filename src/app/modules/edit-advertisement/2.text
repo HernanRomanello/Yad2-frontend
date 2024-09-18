@@ -1,38 +1,38 @@
-textarea #furnitureInfo {
+div .wrapper {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: normal;
-	text-decoration: none solid rgb(0, 0, 0);
-	text-align: start;
+	text-decoration: none solid rgb(51, 51, 51);
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: pre-wrap;
+	white-space: normal;
 	word-spacing: 0px;
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(0, 0, 0);
+	color: rgb(51, 51, 51);
 
 	/* Box */
-	height: 118px;
-	width: 312.812px;
-	border: 1px solid rgb(204, 204, 204);
-	border-top: 1px solid rgb(204, 204, 204);
-	border-right: 1px solid rgb(204, 204, 204);
-	border-bottom: 1px solid rgb(204, 204, 204);
-	border-left: 1px solid rgb(204, 204, 204);
+	height: 193.188px;
+	width: 752px;
+	border: 0px none rgb(51, 51, 51);
+	border-top: 0px none rgb(51, 51, 51);
+	border-right: 0px none rgb(51, 51, 51);
+	border-bottom: 0px none rgb(51, 51, 51);
+	border-left: 0px none rgb(51, 51, 51);
 	margin: 0px;
-	padding: 16px 10px 20px 70px;
+	padding: 10px 20px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
@@ -45,7 +45,7 @@ textarea #furnitureInfo {
 	right: auto;
 	left: auto;
 	float: none;
-	display: inline-block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
@@ -62,8 +62,8 @@ textarea #furnitureInfo {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: auto;
-	cursor: text;
+	overflow: visible;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -75,10 +75,10 @@ textarea #furnitureInfo {
 	resize: none;
 	text-shadow: none;
 	text-overflow: clip;
-	word-wrap: break-word;
+	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
