@@ -104,7 +104,8 @@ li {
   align-items: flex-start !important;
 }
 
-form {
+form,
+.WeCheck-ad {
   background-color: #f8f8f8 !important;
 }
 
@@ -555,7 +556,17 @@ textarea {
   transform: translateX(-1900%) translateY(170%) scale(1.4);
 }
 
-.date-input {
+#entryDate {
   width: 209px !important;
-  /* display: none; */
+  height: 38px !important;
+}
+
+.WeCheck-ad {
+  height: 193px !important;
+  width: 793px !important;
+}
+
+.WeCheck-container {
+  width: 100%;
+  margin: auto;
 }

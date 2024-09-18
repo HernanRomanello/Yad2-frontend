@@ -18,7 +18,6 @@ import { LoginComponent } from './modules/login/login.component';
 import { RegistrationFormComponent } from './modules/registration-form/registration-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatIconModule } from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -33,6 +32,12 @@ import { CreateNewAdvertisementComponent } from './modules/create-new-advertisem
 import { InteractiveModalComponent } from './modules/interactive-modal/interactive-modal.component';
 import { PostAdConfirmationModalComponent } from './modules/post-ad-confirmation-modal/post-ad-confirmation-modal.component';
 import { EditAdvertisementComponent } from './modules/edit-advertisement/edit-advertisement.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as moment from 'moment';
+import 'moment/locale/he';
+
+moment.locale('he');
 
 @NgModule({
   declarations: [
@@ -63,6 +68,9 @@ import { EditAdvertisementComponent } from './modules/edit-advertisement/edit-ad
     SidebarModule,
     ListboxModule,
     FormsModule,
+    BrowserModule,
+    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [
     provideClientHydration(),
