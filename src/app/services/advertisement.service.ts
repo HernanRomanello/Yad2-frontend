@@ -211,4 +211,8 @@ export class AdvertisementService {
     }
     return selected;
   }
+
+  src(image: any) {
+    return URL.createObjectURL(image);
+  }
 }

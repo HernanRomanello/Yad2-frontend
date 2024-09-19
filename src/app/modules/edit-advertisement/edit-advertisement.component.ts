@@ -32,6 +32,8 @@ export class EditAdvertisementComponent
   isNumberOfPaymentsDropdownHidden = true;
   asset_State = '';
   houseNumber: string = '';
+  images: File[] = [];
+  mainImageURL: string = '';
   numberValuesForForm: (string | number)[] = new Array(5);
   isHouseNumberEraseBtnHidden = true;
   isTotalFloorsEraseBtnHidden = true;
@@ -144,6 +146,22 @@ export class EditAdvertisementComponent
     } else if (type === 'numberOfPayments') {
       this.isNumberOfPaymentsDropdownHidden = dropdownTypeWasClickedNewState;
     }
+  }
+
+  onFileChange(event: any): string {
+    let file = event.target.files[0];
+    this.images.push(file);
+    console.log(console.log(this.images));
+
+    // console.log(this.images);
+    if (this.images.length > 0) {
+      this.advertisement.hasImage = true;
+    } else {
+      this.advertisement.hasImage = false;
+    }
+
+    this.mainImageURL = URL.createObjectURL(file);
+    return URL.createObjectURL(file);
   }
 
   ngOnInit(): void {

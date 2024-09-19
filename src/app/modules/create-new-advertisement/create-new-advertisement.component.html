@@ -1018,7 +1018,12 @@
         @if(i===0){
         <div class="card-header">תמונה ראשית</div>
         }
-        <img class="add-images" [src]="src(image)" height="185" width="250" />
+        <img
+          class="add-images"
+          [src]="this.advertisementService.src(image)"
+          height="185"
+          width="250"
+        />
       </div>
     </div>
     }

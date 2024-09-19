@@ -484,9 +484,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     const videoUrl = URL.createObjectURL(file);
     this.vidoeUrl = videoUrl;
   }
-  src(image: any) {
-    return URL.createObjectURL(image);
-  }
+
   async uploadAllImages() {
     if (this.images.length === 0) return [];
     const tasks = this.images.map((image) => {

@@ -31,7 +31,9 @@ li {
 .squre,
 .loading-bar,
 .text-length-box,
-.description-box {
+.description-box,
+.upload-img-card,
+.option {
   display: flex;
 }
 
@@ -49,7 +51,8 @@ li {
 .edit-inputs,
 .dropdown-select,
 .address-info-box,
-.text-length-box {
+.text-length-box,
+.upload-img-card {
   flex-direction: column;
 }
 
@@ -63,8 +66,10 @@ li {
 .data-input,
 .squre,
 .loading-bar,
-.description-box {
-  align-items: center;
+.description-box,
+.upload-img-card,
+.option {
+  align-items: center !important;
 }
 
 .edit-inputs {
@@ -197,13 +202,12 @@ form,
   width: 63.3281px !important;
   border: 1px solid #cccccc;
   padding: 0px 12px;
-  display: flex;
-  align-items: center;
 }
 
 .loading-bar,
-.option {
-  justify-content: center;
+.option,
+.upload-img-card {
+  justify-content: center !important;
 }
 .description-box {
   justify-content: space-between;
@@ -221,11 +225,6 @@ form,
 
 .selected:hover {
   background-color: rgb(204, 204, 204) !important;
-}
-
-.checkbox {
-  height: 20px !important;
-  width: 20px !important;
 }
 
 .checkbox {
@@ -407,72 +406,58 @@ textarea {
 }
 
 .red-gradient {
-  background: linear-gradient(
-    135deg,
-    #f14913 25%,
-    #f36436 0px,
-    #f36436 50%,
-    #f14913 0px,
-    #f14913 75%,
-    #f36436 0px,
-    #f36436
+  background: repeating-linear-gradient(
+    -45deg,
+    #f14913,
+    #f14913 10px,
+    #f36436 10px,
+    #f36436 20px
   );
 }
 .yellow-gradient {
-  background: linear-gradient(
-    135deg,
-    #fbaf00 25%,
-    #fcbb26 0px,
-    #fcbb26 50%,
-    #fbaf00 0px,
-    #fbaf00 75%,
-    #fcbb26 0px,
-    #fcbb26
+  background: repeating-linear-gradient(
+    -45deg,
+    #fbaf00,
+    #fbaf00 10px,
+    #fcbb26 10px,
+    #fcbb26 20px
   );
 }
 .dark-yellow-gradient {
-  background: linear-gradient(
-    135deg,
-    #f3ac36 25%,
-    #f19e13 0px,
-    #f19e13 50%,
-    #f3ac36 0px,
-    #f3ac36 75%,
-    #f19e13 0px,
-    #f19e13
+  background: repeating-linear-gradient(
+    -45deg,
+    #f3ac36,
+    #f3ac36 10px,
+    #f19e13 10px,
+    #f19e13 20px
   );
 }
 .light-yellow-gradient {
-  background: linear-gradient(
-    135deg,
-    #d4df63 25%,
-    #ccd948 0px,
-    #ccd948 50%,
-    #d4df63 0px,
-    #d4df63 75%,
-    #ccd948 0px,
-    #ccd948
+  background: repeating-linear-gradient(
+    -45deg,
+    #d4df63,
+    #d4df63 10px,
+    #ccd948 10px,
+    #ccd948 20px
   );
 }
 .green-gradient {
-  background: linear-gradient(
-    135deg,
-    #43c770 25%,
-    #5fcf85 0px,
-    #5fcf85 50%,
-    #43c770 0px,
-    #43c770 75%,
-    #5fcf85 0px,
-    #5fcf85
+  background: repeating-linear-gradient(
+    -45deg,
+    #43c770,
+    #43c770 10px,
+    #5fcf85 10px,
+    #5fcf85 20px
   );
 }
 
 .red-gradient,
 .yellow-gradient,
 .light-yellow-gradient,
-.green-gradient {
+.green-gradient,
+.dark-yellow-gradient {
   background-size: 200% 100%;
-  animation: gradient-animation-right 5s linear infinite;
+  animation: gradient-animation-right 10s linear infinite;
 }
 
 @keyframes gradient-animation-right {
@@ -569,4 +554,46 @@ textarea {
 .WeCheck-container {
   width: 100%;
   margin: auto;
+}
+
+#main-image,
+#main-image-frame,
+.upload-img-card {
+  height: 160.5px;
+  width: 214px;
+  border-radius: 4px !important;
+}
+
+.upload-text {
+  color: #9d9d9d;
+  font-size: 13.333px;
+  padding: 1rem;
+  /* margin-top: 0.75rem !important; */
+}
+
+.upload-container {
+  height: 198.5px !important;
+  width: 234px !important;
+}
+
+.upload-pictures {
+  background-image: url("../../../assets/images/add-svgrepo-com.svg") !important;
+}
+.checkbox {
+  height: 20px !important;
+  width: 20px !important;
+}
+.upload-pictures {
+  height: 36px !important;
+  width: 36px !important;
+}
+
+#pictures {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.upload-img-card {
+  margin: 0 auto 0.75rem auto !important;
+  background-color: #ffffff;
 }
