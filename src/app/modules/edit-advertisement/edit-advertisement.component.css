@@ -219,7 +219,8 @@ form,
 .erase-btn,
 .option,
 .erase-furnituredescription-btn,
-.erase-input-btn {
+.erase-input-btn,
+#main-image {
   cursor: pointer;
 }
 

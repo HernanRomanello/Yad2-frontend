@@ -632,24 +632,31 @@
         <div class="upload-container">
           <div class="card-header">תמונות ראשית</div>
 
-          <div id="main-image-frame" class="upload-img-card">
-            @if(advertisement.hasImage ){
+          <div
+            id="main-image-frame"
+            class="upload-img-card"
+            (mouseleave)="
+              hideImageOnHover(0, this.advertisement.pictures[0].url, true)
+            "
+          >
+            @if(this.imagesURLs[0] === '' ){
             <div>
               <input
                 #image
                 class="file-input upload-pictures"
                 type="file"
                 id="pictures"
-                (change)="onFileChange($event)"
+                (change)="changeImage($event, 0)"
               />
             </div>
-            <img id="main-image" class="add-images" [src]="this.mainImageURL" />
+            <!-- <img id="main-image" class="add-images" [src]="this.mainImageURL" /> -->
             <div class="upload-text">העלאת תמונות</div>
             } @else {
             <img
+              (mouseenter)="hideImageOnHover(0, '', false)"
               id="main-image"
               class="add-images"
-              [src]="this.advertisement.pictures[0].url"
+              [src]="this.imagesURLs[0]"
             />
 
             }

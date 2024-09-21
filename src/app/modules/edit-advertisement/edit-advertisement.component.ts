@@ -33,6 +33,7 @@ export class EditAdvertisementComponent
   asset_State = '';
   houseNumber: string = '';
   images: File[] = [];
+  imagesURLs: string[] = [];
   mainImageURL: string = '';
   numberValuesForForm: (string | number)[] = new Array(5);
   isHouseNumberEraseBtnHidden = true;
@@ -134,6 +135,10 @@ export class EditAdvertisementComponent
     });
   }
   ngAfterViewInit(): void {
+    for (let index = 0; index < this.advertisement.pictures.length; index++) {
+      this.imagesURLs.push(this.advertisement.pictures[index].url);
+    }
+
     this.initialFormatNumberInForm();
   }
 
@@ -164,6 +169,15 @@ export class EditAdvertisementComponent
     return URL.createObjectURL(file);
   }
 
+  changeImage(event: any, index: number) {
+    this.advertisement.pictures[index].url = this.onFileChange(event);
+    console.log(this.advertisement.pictures);
+  }
+
+  hideImageOnHover(index: number, imageURL: string, condition: boolean) {
+    this.imagesURLs[index] = imageURL;
+  }
+
   ngOnInit(): void {
     this.authService.IsalternativeHeaderISOpen.next(true);
     this.authService.ISEditAdvertisementISOpen.next(true);
@@ -182,7 +196,6 @@ export class EditAdvertisementComponent
           .subscribe((response) => {
             this.advertisement = response;
             this.asset_State = this.advertisement.assetState;
-            console.log(this.advertisement);
           });
       }
     });
