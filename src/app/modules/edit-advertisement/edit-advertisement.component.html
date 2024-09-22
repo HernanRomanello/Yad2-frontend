@@ -630,13 +630,37 @@
 
       <div class="">
         <div class="upload-container">
+          @if((!this.imagesURlWasDeleted[0]) ){
+          <div class="image-btns">
+            <div class="image-btn-circle">
+              <img
+                id="delete-image"
+                class="image-btn"
+                src="assets/images/recycle-bin-garbage.svg"
+                alt=""
+                (click)="deleteImage(0)"
+              />
+            </div>
+            <div class="image-btn-circle">
+              <img
+                class="image-btn"
+                src="assets/images/refresh-svgrepo-com.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          }
           <div class="card-header">תמונות ראשית</div>
 
           <div
             id="main-image-frame"
             class="upload-img-card"
             (mouseleave)="
-              hideImageOnHover(0, this.advertisement.pictures[0].url, true)
+              hideImageOnHover(
+                0,
+                this.advertisement.pictures[0].url,
+                this.imagesURlWasDeleted[0]
+              )
             "
           >
             @if(this.imagesURLs[0] === '' ){
@@ -653,7 +677,9 @@
             <div class="upload-text">העלאת תמונות</div>
             } @else {
             <img
-              (mouseenter)="hideImageOnHover(0, '', false)"
+              (mouseenter)="
+                hideImageOnHover(0, '', this.imagesURlWasDeleted[0])
+              "
               id="main-image"
               class="add-images"
               [src]="this.imagesURLs[0]"

@@ -34,6 +34,7 @@ export class EditAdvertisementComponent
   houseNumber: string = '';
   images: File[] = [];
   imagesURLs: string[] = [];
+  imagesURlWasDeleted: boolean[] = [];
   mainImageURL: string = '';
   numberValuesForForm: (string | number)[] = new Array(5);
   isHouseNumberEraseBtnHidden = true;
@@ -137,6 +138,7 @@ export class EditAdvertisementComponent
   ngAfterViewInit(): void {
     for (let index = 0; index < this.advertisement.pictures.length; index++) {
       this.imagesURLs.push(this.advertisement.pictures[index].url);
+      this.imagesURlWasDeleted.push(false);
     }
 
     this.initialFormatNumberInForm();
@@ -171,11 +173,18 @@ export class EditAdvertisementComponent
 
   changeImage(event: any, index: number) {
     this.advertisement.pictures[index].url = this.onFileChange(event);
+    this.imagesURlWasDeleted[index] = false;
     console.log(this.advertisement.pictures);
   }
 
-  hideImageOnHover(index: number, imageURL: string, condition: boolean) {
-    this.imagesURLs[index] = imageURL;
+  hideImageOnHover(
+    index: number,
+    imageURL: string,
+    imagesURlWasDeleted: boolean
+  ) {
+    if (imagesURlWasDeleted === false) {
+      this.imagesURLs[index] = imageURL;
+    }
   }
 
   ngOnInit(): void {
@@ -204,6 +213,11 @@ export class EditAdvertisementComponent
   }
 
   async handleSubmit() {}
+
+  deleteImage(index: number) {
+    this.imagesURlWasDeleted[index] = true;
+    this.imagesURLs[index] = '';
+  }
 
   selectPropertyFeatures(index: number) {
     const propertyFeature = this.propertyFeaturesChecked[index];

@@ -33,7 +33,9 @@ li {
 .text-length-box,
 .description-box,
 .upload-img-card,
-.option {
+.option,
+.image-btn-circle,
+.image-btns {
   display: flex;
 }
 
@@ -68,7 +70,9 @@ li {
 .loading-bar,
 .description-box,
 .upload-img-card,
-.option {
+.option,
+.image-btn-circle,
+.image-btns {
   align-items: center !important;
 }
 
@@ -206,10 +210,12 @@ form,
 
 .loading-bar,
 .option,
-.upload-img-card {
+.upload-img-card,
+.image-btn-circle {
   justify-content: center !important;
 }
-.description-box {
+.description-box,
+.image-btns {
   justify-content: space-between;
 }
 .description-box {
@@ -220,7 +226,8 @@ form,
 .option,
 .erase-furnituredescription-btn,
 .erase-input-btn,
-#main-image {
+#main-image,
+.image-btn {
   cursor: pointer;
 }
 
@@ -278,7 +285,8 @@ form,
 .checkbox,
 .loading-bar,
 .textarea,
-.input-container {
+.input-container,
+.upload-container {
   position: relative;
 }
 
@@ -402,7 +410,8 @@ textarea {
   z-index: 100;
 }
 .descriptionMessage,
-.fill-loading-bar {
+.fill-loading-bar,
+.image-btns {
   position: absolute;
 }
 
@@ -554,6 +563,8 @@ textarea {
 
 .WeCheck-container {
   width: 100%;
+}
+.WeCheck-container {
   margin: auto;
 }
 
@@ -561,15 +572,19 @@ textarea {
 #main-image-frame,
 .upload-img-card {
   height: 160.5px;
-  width: 214px;
   border-radius: 4px !important;
+}
+#main-image,
+#main-image-frame,
+.upload-img-card,
+.image-btns {
+  width: 214px;
 }
 
 .upload-text {
   color: #9d9d9d;
   font-size: 13.333px;
   padding: 1rem;
-  /* margin-top: 0.75rem !important; */
 }
 
 .upload-container {
@@ -580,7 +595,8 @@ textarea {
 .upload-pictures {
   background-image: url("../../../assets/images/add-svgrepo-com.svg") !important;
 }
-.checkbox {
+.checkbox,
+.image-btn {
   height: 20px !important;
   width: 20px !important;
 }
@@ -597,4 +613,24 @@ textarea {
 .upload-img-card {
   margin: 0 auto 0.75rem auto !important;
   background-color: #ffffff;
+}
+
+.image-btn-circle {
+  height: 27px;
+  width: 27px;
+}
+.image-btn-circle {
+  border-radius: 50%;
+}
+.image-btn-circle {
+  background-color: #eeeeee;
+}
+
+.image-btns {
+  padding: 0 0.5rem;
+  transform: translateX(-5%) translateY(120%);
+}
+
+#delete-image {
+  transform: scaleY(1.1);
 }
