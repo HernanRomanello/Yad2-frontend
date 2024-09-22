@@ -227,7 +227,8 @@ form,
 .erase-furnituredescription-btn,
 .erase-input-btn,
 #main-image,
-.image-btn {
+.image-btn,
+.upload-container {
   cursor: pointer;
 }
 

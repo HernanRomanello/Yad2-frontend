@@ -628,10 +628,42 @@
         <div class="WeCheck-ad"></div>
       </div>
 
-      <div class="">
+      <div
+        class="upload-container"
+        (mouseleave)="
+          hideImageOnHover(
+            0,
+            this.advertisement.pictures[0].url,
+            this.imagesURlWasDeleted[0]
+          )
+        "
+      >
+        @if((!this.imagesURlWasDeleted[0]) ){
         <div
-          class="upload-container"
-          (mouseleave)="
+          class="image-btns"
+          (mouseenter)="hideImageOnHover(0, '', this.imagesURlWasDeleted[0])"
+        >
+          <div class="image-btn-circle">
+            <img
+              id="delete-image"
+              class="image-btn"
+              src="assets/images/recycle-bin-garbage.svg"
+              alt=""
+              (click)="deleteImage(0)"
+            />
+          </div>
+          <div class="image-btn-circle">
+            <img
+              class="image-btn"
+              src="assets/images/refresh-svgrepo-com.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        }
+        <div
+          class="card-header"
+          (mouseenter)="
             hideImageOnHover(
               0,
               this.advertisement.pictures[0].url,
@@ -639,75 +671,40 @@
             )
           "
         >
-          @if((!this.imagesURlWasDeleted[0]) ){
-          <div
-            class="image-btns"
-            (mouseenter)="hideImageOnHover(0, '', this.imagesURlWasDeleted[0])"
-          >
-            <div class="image-btn-circle">
-              <img
-                id="delete-image"
-                class="image-btn"
-                src="assets/images/recycle-bin-garbage.svg"
-                alt=""
-                (click)="deleteImage(0)"
-              />
-            </div>
-            <div class="image-btn-circle">
-              <img
-                class="image-btn"
-                src="assets/images/refresh-svgrepo-com.svg"
-                alt=""
-              />
-            </div>
+          תמונות ראשית
+        </div>
+
+        <div id="main-image-frame" class="upload-img-card">
+          @if(this.imagesURLs[0] === '' ){
+          <div>
+            <input
+              #image
+              class="file-input upload-pictures"
+              type="file"
+              id="pictures"
+              (change)="changeImage($event, 0)"
+            />
           </div>
-          }
-          <div
-            class="card-header"
-            (mouseenter)="
+          <!-- <img id="main-image" class="add-images" [src]="this.mainImageURL" /> -->
+          <div class="upload-text">העלאת תמונות</div>
+          } @else {
+          <img
+            id="main-image"
+            class="add-images"
+            [src]="this.imagesURLs[0]"
+            (mouseleave)="
               hideImageOnHover(
                 0,
                 this.advertisement.pictures[0].url,
                 this.imagesURlWasDeleted[0]
               )
             "
-          >
-            תמונות ראשית
-          </div>
-
-          <div id="main-image-frame" class="upload-img-card">
-            @if(this.imagesURLs[0] === '' ){
-            <div>
-              <input
-                #image
-                class="file-input upload-pictures"
-                type="file"
-                id="pictures"
-                (change)="changeImage($event, 0)"
-              />
-            </div>
-            <!-- <img id="main-image" class="add-images" [src]="this.mainImageURL" /> -->
-            <div class="upload-text">העלאת תמונות</div>
-            } @else {
-            <img
-              id="main-image"
-              class="add-images"
-              [src]="this.imagesURLs[0]"
-              (mouseleave)="
-                hideImageOnHover(
-                  0,
-                  this.advertisement.pictures[0].url,
-                  this.imagesURlWasDeleted[0]
-                )
-              "
-              (mouseenter)="
-                hideImageOnHover(0, '', this.imagesURlWasDeleted[0])
-              "
-            />
-            }
-          </div>
+            (mouseenter)="hideImageOnHover(0, '', this.imagesURlWasDeleted[0])"
+          />
+          }
         </div>
-        <!-- <div class="upload-container">
+      </div>
+      <!-- <div class="upload-container">
           <div class="card-header">תמונות הנכס</div>
 
           <div class="upload-card">
@@ -737,7 +734,6 @@
             />
           </div>
         </div> -->
-      </div>
     </div>
   </form>
 </div>
