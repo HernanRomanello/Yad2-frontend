@@ -1,13 +1,13 @@
-button .action deleteImage {
+iframe #video {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 17px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: normal;
-	text-decoration: none solid rgb(54, 54, 54);
+	text-decoration: none solid rgb(51, 51, 51);
 	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,22 +17,22 @@ button .action deleteImage {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(232, 233, 232);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(51, 51, 51);
 
 	/* Box */
-	height: 27px;
-	width: 27px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
+	height: 192px;
+	width: 234px;
+	border: 0px none rgb(51, 51, 51);
+	border-top: 0px none rgb(51, 51, 51);
+	border-right: 0px none rgb(51, 51, 51);
+	border-bottom: 0px none rgb(51, 51, 51);
+	border-left: 0px none rgb(51, 51, 51);
 	margin: 0px;
-	padding: 0px 0px 6px 6px;
+	padding: 0px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
@@ -40,10 +40,10 @@ button .action deleteImage {
 
 	/* Positioning */
 	position: absolute;
-	top: 5px;
-	bottom: 122.5px;
-	right: 6px;
-	left: 175px;
+	top: 100px;
+	bottom: -92px;
+	right: 0px;
+	left: 0px;
 	float: none;
 	display: block;
 	clear: none;
@@ -62,12 +62,12 @@ button .action deleteImage {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
+	overflow: clip;
 	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
-	transform: none;
+	transform: matrix(1, 0, 0, 1, 0, -96);
 	transition: all;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
@@ -77,8 +77,8 @@ button .action deleteImage {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 100%;
-	border-top-right-radius: 100%;
-	border-bottom-left-radius: 100%;
-	border-bottom-right-radius: 100%;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }

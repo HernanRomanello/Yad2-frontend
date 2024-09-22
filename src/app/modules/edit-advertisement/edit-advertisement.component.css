@@ -35,7 +35,8 @@ li {
 .upload-img-card,
 .option,
 .image-btn-circle,
-.image-btns {
+.image-btns,
+.main-images-container {
   display: flex;
 }
 
@@ -80,7 +81,8 @@ li {
   margin: 22px 0 !important;
 }
 
-.edit-inputs {
+.edit-inputs,
+.main-images-container {
   gap: 1rem !important;
 }
 
@@ -635,3 +637,8 @@ textarea {
 #delete-image {
   transform: scaleY(1.1);
 }
+
+/* #video {
+  width: 100% !important;
+  height: 100% !important;
+} */
