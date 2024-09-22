@@ -640,7 +640,10 @@
           "
         >
           @if((!this.imagesURlWasDeleted[0]) ){
-          <div class="image-btns">
+          <div
+            class="image-btns"
+            (mouseenter)="hideImageOnHover(0, '', this.imagesURlWasDeleted[0])"
+          >
             <div class="image-btn-circle">
               <img
                 id="delete-image"
