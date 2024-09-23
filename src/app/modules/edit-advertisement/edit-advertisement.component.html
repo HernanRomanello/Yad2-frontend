@@ -666,6 +666,7 @@
           @if((!this.imagesURlWasDeleted[0]) ){
           <div
             class="image-btns"
+            (click)="openFileUploading('pictures')"
             (mouseenter)="hideImageOnHover(0, '', this.imagesURlWasDeleted[0])"
           >
             <div class="image-btn-circle">
@@ -699,7 +700,11 @@
             תמונות ראשית
           </div>
 
-          <div id="main-image-frame" class="upload-img-card">
+          <div
+            id="main-image-frame"
+            class="upload-img-card"
+            (click)="openFileUploading('pictures')"
+          >
             @if(this.imagesURLs[0] === '' ){
             <div class="camara-image-container">
               <div>
