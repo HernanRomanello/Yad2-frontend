@@ -36,7 +36,9 @@ li {
 .option,
 .image-btn-circle,
 .image-btns,
-.main-images-container {
+.main-images-container,
+.camara-image-container,
+.card-content {
   display: flex;
 }
 
@@ -55,7 +57,8 @@ li {
 .dropdown-select,
 .address-info-box,
 .text-length-box,
-.upload-img-card {
+.upload-img-card,
+.camara-image-container {
   flex-direction: column;
 }
 
@@ -73,7 +76,9 @@ li {
 .upload-img-card,
 .option,
 .image-btn-circle,
-.image-btns {
+.image-btns,
+.camara-image-container,
+.card-content {
   align-items: center !important;
 }
 
@@ -213,7 +218,9 @@ form,
 .loading-bar,
 .option,
 .upload-img-card,
-.image-btn-circle {
+.image-btn-circle,
+.camara-image-container,
+.card-content {
   justify-content: center !important;
 }
 .description-box,
@@ -230,7 +237,8 @@ form,
 .erase-input-btn,
 #main-image,
 .image-btn,
-.upload-container {
+.upload-container,
+.card-content {
   cursor: pointer;
 }
 
@@ -535,7 +543,8 @@ textarea {
   display: none !important;
 }
 
-.currency {
+.currency,
+.card-content {
   color: #999999;
 }
 
@@ -584,10 +593,10 @@ textarea {
   width: 214px;
 }
 
-.upload-text {
+.upload-box {
   color: #9d9d9d;
   font-size: 13.333px;
-  padding: 1rem;
+  transform: translateY(-45%);
 }
 
 .upload-container {
@@ -638,7 +647,20 @@ textarea {
   transform: scaleY(1.1);
 }
 
-/* #video {
-  width: 100% !important;
-  height: 100% !important;
-} */
+.card-content {
+  border: 2px dashed #999 !important;
+}
+.card-content,
+#video {
+  height: 192px !important;
+  width: 234px !important;
+}
+
+#video-pic {
+  height: 40px !important;
+  width: 60px !important;
+}
+
+.camara-image-container {
+  height: 50px !important;
+}

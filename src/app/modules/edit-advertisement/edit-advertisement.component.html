@@ -629,21 +629,29 @@
       </div>
       <div class="main-images-container">
         <div class="video-upload">
-          <div class="upload-card">
-            <div class="card-content">
-              <input
-                type="file"
-                id="video"
-                class="file-input"
-                formControlName="video"
-                accept="video/*"
-              />
+          <div class="card-content">
+            <div class="camara-image-container">
+              <div>
+                <img
+                  id="video-pic"
+                  src="assets/images/video-svgrepo-com.svg"
+                  alt=""
+                />
+              </div>
+              <div>העלאת סרטון</div>
             </div>
-            <video #videoPlayer controls *ngIf="false">
-              <source [src]="" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <input
+              type="file"
+              id="video"
+              class="file-input"
+              formControlName="video"
+              accept="video/*"
+            />
           </div>
+          <video #videoPlayer controls *ngIf="false">
+            <source [src]="" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div
           class="upload-container"
@@ -693,17 +701,19 @@
 
           <div id="main-image-frame" class="upload-img-card">
             @if(this.imagesURLs[0] === '' ){
-            <div>
-              <input
-                #image
-                class="file-input upload-pictures"
-                type="file"
-                id="pictures"
-                (change)="changeImage($event, 0)"
-              />
+            <div class="camara-image-container">
+              <div>
+                <input
+                  #image
+                  class="file-input upload-pictures"
+                  type="file"
+                  id="pictures"
+                  (change)="changeImage($event, 0)"
+                />
+              </div>
+              <div class="upload-box">העלאת תמונות</div>
             </div>
-            <!-- <img id="main-image" class="add-images" [src]="this.mainImageURL" /> -->
-            <div class="upload-text">העלאת תמונות</div>
+
             } @else {
             <img
               id="main-image"
