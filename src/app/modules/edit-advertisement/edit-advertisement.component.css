@@ -174,11 +174,6 @@ form,
   color: rgb(204, 204, 204, 0.75) !important;
 }
 
-.data,
-.fill-block {
-  border-radius: 4px;
-}
-
 .data {
   border: solid 1px #cccccc;
 }
@@ -252,7 +247,8 @@ form,
 #main-image,
 .image-btn,
 .upload-container,
-.card-content {
+.card-content,
+.ad-card-container {
   cursor: pointer;
 }
 
@@ -598,12 +594,6 @@ textarea {
 
 #main-image,
 #main-image-frame,
-.upload-img-card {
-  height: 160.5px;
-  border-radius: 4px !important;
-}
-#main-image,
-#main-image-frame,
 .upload-img-card,
 .image-btns {
   width: 214px;
@@ -697,4 +687,28 @@ textarea {
   height: 56.9531px;
   margin: 0px 0px 0px 40px;
   padding: 1rem 0px 0 0;
+}
+
+#card-image,
+.ad-card-container {
+  height: 166px !important;
+  width: 220px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#main-image,
+#main-image-frame,
+.upload-img-card {
+  height: 160.5px;
+}
+
+.data,
+.fill-block,
+#main-image,
+#main-image-frame,
+.upload-img-card,
+#card-image,
+.ad-card-container {
+  border-radius: 4px !important;
 }

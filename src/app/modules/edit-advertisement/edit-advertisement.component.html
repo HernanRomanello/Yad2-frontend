@@ -796,8 +796,8 @@
             ></div>
 
             <div
-              id="main-image-frame"
-              class="upload-img-card"
+              id=""
+              class="upload-img-card ad-card-container"
               (click)="openFileUploading('pictures')"
             >
               @if(this.imagesURLs[index + 1] === '' ){
@@ -816,8 +816,8 @@
 
               } @else {
               <img
-                id="main-image"
-                class="ad-images"
+                id="card-image"
+                class="ad-card"
                 [src]="this.imagesURLs[index + 1]"
                 (mouseleave)="
                   hideImageOnHover(
