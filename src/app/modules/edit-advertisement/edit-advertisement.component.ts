@@ -35,7 +35,6 @@ export class EditAdvertisementComponent
   images: File[] = [];
   imagesURLs: string[] = [];
   imagesURlWasDeleted: boolean[] = [];
-  mainImageURL: string = '';
   numberValuesForForm: (string | number)[] = new Array(5);
   isHouseNumberEraseBtnHidden = true;
   isTotalFloorsEraseBtnHidden = true;
@@ -165,23 +164,24 @@ export class EditAdvertisementComponent
   onFileChange(event: any, index: number): string {
     let file = event.target.files[0];
     this.images[index] = file;
-    console.log(console.log(this.images));
 
     if (this.images.length > 0) {
       this.advertisement.hasImage = true;
     } else {
       this.advertisement.hasImage = false;
     }
+    const fileURL = URL.createObjectURL(file);
 
-    this.mainImageURL = URL.createObjectURL(file);
+    // this.mainImageURL = URL.createObjectURL(file);
+    this.imagesURLs[index] = fileURL;
     console.log(this.images);
-    return URL.createObjectURL(file);
+    return fileURL;
   }
 
   changeImage(event: any, index: number) {
     this.advertisement.pictures[index].url = this.onFileChange(event, index);
+
     this.imagesURlWasDeleted[index] = false;
-    console.log(this.advertisement.pictures);
   }
 
   hideImageOnHover(

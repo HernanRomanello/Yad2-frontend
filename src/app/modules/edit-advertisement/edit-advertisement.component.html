@@ -821,7 +821,7 @@
                 [src]="this.imagesURLs[index + 1]"
                 (mouseleave)="
                   hideImageOnHover(
-                    0,
+                    index + 1,
                     this.advertisement.pictures[index + 1].url,
                     this.imagesURlWasDeleted[index + 1]
                   )
