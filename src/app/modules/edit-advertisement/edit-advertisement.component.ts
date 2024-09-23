@@ -138,7 +138,14 @@ export class EditAdvertisementComponent
   ngAfterViewInit(): void {
     for (let index = 0; index < this.advertisement.pictures.length; index++) {
       this.imagesURLs.push(this.advertisement.pictures[index].url);
+    }
+
+    for (let index = 0; index <= 9; index++) {
       this.imagesURlWasDeleted.push(false);
+      this.images.push(new File([''], ''));
+      if (this.imagesURLs.length <= index) {
+        this.imagesURLs.push('');
+      }
     }
 
     this.initialFormatNumberInForm();
@@ -155,12 +162,11 @@ export class EditAdvertisementComponent
     }
   }
 
-  onFileChange(event: any): string {
+  onFileChange(event: any, index: number): string {
     let file = event.target.files[0];
-    this.images.push(file);
+    this.images[index] = file;
     console.log(console.log(this.images));
 
-    // console.log(this.images);
     if (this.images.length > 0) {
       this.advertisement.hasImage = true;
     } else {
@@ -168,11 +174,12 @@ export class EditAdvertisementComponent
     }
 
     this.mainImageURL = URL.createObjectURL(file);
+    console.log(this.images);
     return URL.createObjectURL(file);
   }
 
   changeImage(event: any, index: number) {
-    this.advertisement.pictures[index].url = this.onFileChange(event);
+    this.advertisement.pictures[index].url = this.onFileChange(event, index);
     this.imagesURlWasDeleted[index] = false;
     console.log(this.advertisement.pictures);
   }
