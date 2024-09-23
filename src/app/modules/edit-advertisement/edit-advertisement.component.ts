@@ -235,6 +235,10 @@ export class EditAdvertisementComponent
     }
   }
 
+  openFileUploading(id: string) {
+    document.getElementById(id)?.click();
+  }
+
   formatNumbersInTheForm(id: string) {
     const AllNumbersInputsInForm = document.getElementById(id);
     const input = AllNumbersInputsInForm as HTMLInputElement;
