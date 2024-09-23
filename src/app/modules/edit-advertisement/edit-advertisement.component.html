@@ -742,6 +742,103 @@
       <div class="images-headline-wrapper">
         <div class="images-headline">תמונות שיופיעו בגוף המודעה</div>
       </div>
+      <div *ngFor="let i of [].constructor(9); let index = index">
+        <div
+          class="upload-container"
+          (mouseleave)="
+            hideImageOnHover(
+              index + 1,
+              this.advertisement.pictures[index + 1].url,
+              this.imagesURlWasDeleted[index + 1]
+            )
+          "
+        >
+          @if((!this.imagesURlWasDeleted[index + 1]) ){
+          <div
+            class="image-btns"
+            (click)="openFileUploading('pictures')"
+            (mouseenter)="
+              hideImageOnHover(
+                index + 1,
+                '',
+                this.imagesURlWasDeleted[index + 1]
+              )
+            "
+          >
+            <div class="image-btn-circle">
+              <img
+                id="delete-image"
+                class="image-btn"
+                src="assets/images/recycle-bin-garbage.svg"
+                alt=""
+                (click)="deleteImage(index + 1)"
+              />
+            </div>
+            <div class="image-btn-circle">
+              <img
+                class="image-btn"
+                src="assets/images/refresh-svgrepo-com.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          }
+          <div
+            class="card-header"
+            (mouseenter)="
+              hideImageOnHover(
+                index + 1,
+                this.advertisement.pictures[index + 1].url,
+                this.imagesURlWasDeleted[index + 1]
+              )
+            "
+          >
+            תמונות ראשית
+          </div>
+
+          <div
+            id="main-image-frame"
+            class="upload-img-card"
+            (click)="openFileUploading('pictures')"
+          >
+            @if(this.imagesURLs[index + 1] === '' ){
+            <div class="camara-image-container">
+              <div>
+                <input
+                  #image
+                  class="file-input upload-pictures"
+                  type="file"
+                  id="pictures"
+                  (change)="changeImage($event, index + 1)"
+                />
+              </div>
+              <div class="upload-box">העלאת תמונות</div>
+            </div>
+
+            } @else {
+            <img
+              id="main-image"
+              class="add-images"
+              [src]="this.imagesURLs[index + 1]"
+              (mouseleave)="
+                hideImageOnHover(
+                  0,
+                  this.advertisement.pictures[index + 1].url,
+                  this.imagesURlWasDeleted[index + 1]
+                )
+              "
+              (mouseenter)="
+                hideImageOnHover(
+                  index + 1,
+                  '',
+                  this.imagesURlWasDeleted[index + 1]
+                )
+              "
+            />
+            }
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </div>
