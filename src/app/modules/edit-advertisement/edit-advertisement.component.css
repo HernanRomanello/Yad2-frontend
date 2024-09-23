@@ -679,3 +679,14 @@ textarea {
 .camara-image-container {
   height: 50px !important;
 }
+
+.images-headline {
+  font-size: 22.4px !important;
+  margin: 13.44px 0px 8.96px !important;
+}
+
+.images-headline-wrapper {
+  height: 56.9531px;
+  margin: 0px 0px 0px 40px;
+  padding: 1rem 0px 0 0;
+}

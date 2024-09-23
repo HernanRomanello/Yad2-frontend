@@ -739,36 +739,9 @@
           </div>
         </div>
       </div>
-      <!-- <div class="upload-container">
-          <div class="card-header">תמונות הנכס</div>
-
-          <div class="upload-card">
-            <div class="card-content">
-              <input
-                class="file-input upload-pictures"
-                type="file"
-                id="pictures"
-                (change)="onFileChange($event)"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="upload-part add-images-box">
-          <div
-            *ngFor="let image of images; let i = index"
-            class="upload-container"
-          >
-            @if(i===0){
-            <div class="card-header">תמונה ראשית</div>
-            }
-            <img
-              class="add-images"
-              [src]="this.advertisementService.src(image)"
-              height="185"
-              width="250"
-            />
-          </div>
-        </div> -->
+      <div class="images-headline-wrapper">
+        <div class="images-headline">תמונות שיופיעו בגוף המודעה</div>
+      </div>
     </div>
   </form>
 </div>
