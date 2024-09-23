@@ -297,14 +297,16 @@ form,
 .loading-bar,
 .textarea,
 .input-container,
-.upload-container {
+.upload-container,
+.card-content {
   position: relative;
 }
 
 .erase-btn,
 .erase-furnituredescription-btn,
 .currency,
-.erase-input-btn {
+.erase-input-btn,
+.camara-image-container {
   position: absolute !important;
 }
 .erase-btn {
@@ -593,10 +595,16 @@ textarea {
   width: 214px;
 }
 
-.upload-box {
+.upload-box,
+.upload-video-box {
   color: #9d9d9d;
   font-size: 13.333px;
+}
+.upload-box {
   transform: translateY(-45%);
+}
+.upload-video-box {
+  transform: translateY(-80%);
 }
 
 .upload-container {
@@ -659,6 +667,7 @@ textarea {
 #video-pic {
   height: 40px !important;
   width: 60px !important;
+  transform: scaleY(0.85) scaleX(1.05);
 }
 
 .camara-image-container {
