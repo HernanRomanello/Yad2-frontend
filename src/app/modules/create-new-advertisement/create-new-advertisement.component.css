@@ -888,11 +888,11 @@ textarea::placeholder {
   border: none !important;
 }
 
-.add-images {
+.ad-images {
   border-radius: 10px !important;
 }
 
-.add-images-box {
+.ad-images-box {
   display: flex;
   justify-content: flex-start;
   align-items: center;
