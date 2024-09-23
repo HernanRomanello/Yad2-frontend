@@ -91,6 +91,12 @@ li {
   gap: 1rem !important;
 }
 
+.main-images-container {
+  height: 241px !important;
+  margin: 30px 0px 0px;
+  border-bottom: rgb(157, 157, 157) 1px solid;
+}
+
 .input-container {
   padding: 0 !important;
 }
@@ -672,7 +678,4 @@ textarea {
 
 .camara-image-container {
   height: 50px !important;
-}
-
-.upload-img-card {
 }
