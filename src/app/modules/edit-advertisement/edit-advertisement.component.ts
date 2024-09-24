@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
+import { ImageuploadService } from '../../services/imageupload.service';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -112,6 +113,7 @@ export class EditAdvertisementComponent
   route = inject(ActivatedRoute);
   advertisementService = inject(AdvertisementService);
   inputsStyleService = inject(InputsStyleService);
+  imageuploadService = inject(ImageuploadService);
 
   constructor(render: Renderer2) {
     document.body.addEventListener('click', (event) => {
@@ -147,6 +149,8 @@ export class EditAdvertisementComponent
       }
     }
 
+    console.log(this.advertisement.pictures);
+
     this.initialFormatNumberInForm();
   }
 
@@ -164,13 +168,15 @@ export class EditAdvertisementComponent
   onFileChange(event: any, index: number): string {
     let file = event.target.files[0];
     this.images[index] = file;
-
     if (this.images.length > 0) {
       this.advertisement.hasImage = true;
     } else {
       this.advertisement.hasImage = false;
     }
+
     const fileURL = URL.createObjectURL(file);
+    this.imageuploadService.uploadImage(file);
+    this.advertisement.pictures[index].url = fileURL;
 
     // this.mainImageURL = URL.createObjectURL(file);
     this.imagesURLs[index] = fileURL;

@@ -464,6 +464,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   onFileChange(event: any) {
+    if (this.images.length >= 10) {
+      return;
+    }
     let file = event.target.files[0];
     this.images.push(file);
     if (this.images.length > 0) {
