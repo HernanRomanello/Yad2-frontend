@@ -722,7 +722,7 @@
             } @else {
             <img
               id="main-image"
-              class="ad-images"
+              class=""
               [src]="this.imagesURLs[0]"
               (mouseleave)="
                 hideImageOnHover(
@@ -743,7 +743,10 @@
         <div class="images-headline">תמונות שיופיעו בגוף המודעה</div>
       </div>
       <div class="ad-images">
-        <div *ngFor="let i of [].constructor(9); let index = index">
+        <div
+          class="image-card"
+          *ngFor="let i of [].constructor(9); let index = index"
+        >
           <div
             class="image-card"
             (mouseleave)="
@@ -756,7 +759,7 @@
           >
             @if((!this.imagesURlWasDeleted[index + 1]) ){
             <div
-              class="image-btns"
+              class="image-btns image-card-container"
               (click)="openFileUploading('pictures')"
               (mouseenter)="
                 hideImageOnHover(

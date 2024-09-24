@@ -30,6 +30,13 @@ li {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
+.ad-images {
+  row-gap: 26px !important;
+}
+
+.ad-images {
+  width: 780px !important;
+}
 
 .data-input,
 .edit-inputs,
@@ -316,7 +323,8 @@ form,
 .erase-furnituredescription-btn,
 .currency,
 .erase-input-btn,
-.camara-image-container {
+.camara-image-container,
+.image-card-container {
   position: absolute !important;
 }
 .erase-btn {
@@ -706,4 +714,13 @@ textarea {
 #card-image,
 .ad-card-container {
   border-radius: 4px !important;
+}
+
+.image-card-container {
+  transform: translateY(15%) !important;
+  padding: 0 0.5rem 0 0 !important;
+}
+
+.image-card {
+  width: 220px !important;
 }
