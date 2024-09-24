@@ -53,7 +53,8 @@ li {
 .image-btns,
 .main-images-container,
 .camara-image-container,
-.card-content {
+.card-content,
+.contact-part {
   display: flex;
 }
 
@@ -73,7 +74,8 @@ li {
 .address-info-box,
 .text-length-box,
 .upload-img-card,
-.camara-image-container {
+.camara-image-container,
+.contact-part {
   flex-direction: column;
 }
 
@@ -97,12 +99,14 @@ li {
   align-items: center !important;
 }
 
-.edit-inputs {
+.edit-inputs,
+.contact-part {
   margin: 22px 0 !important;
 }
 
 .edit-inputs,
-.main-images-container {
+.main-images-container,
+.contact-part {
   gap: 1rem !important;
 }
 
@@ -399,6 +403,11 @@ textarea {
   width: 304px !important;
   background-color: transparent !important;
 }
+
+.contact-part {
+  margin: 1rem;
+}
+
 textarea:focus,
 textarea:hover,
 textarea {
