@@ -404,10 +404,6 @@ textarea {
   background-color: transparent !important;
 }
 
-.contact-part {
-  margin: 1rem;
-}
-
 textarea:focus,
 textarea:hover,
 textarea {
@@ -733,4 +729,9 @@ textarea {
 
 .image-card {
   width: 220px !important;
+}
+
+#contact-form {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
 }
