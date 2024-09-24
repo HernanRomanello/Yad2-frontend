@@ -490,10 +490,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   async uploadAllImages() {
     if (this.images.length === 0) return [];
+
     const tasks = this.images.map((image) => {
       if (this.images.length === 1) {
         this.mainImage = image;
       }
+
       return this.imageService.uploadImage(image);
     });
     return await Promise.all(tasks).then((urls) => {

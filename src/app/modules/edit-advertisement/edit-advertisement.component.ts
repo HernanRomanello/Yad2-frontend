@@ -165,27 +165,44 @@ export class EditAdvertisementComponent
     }
   }
 
-  onFileChange(event: any, index: number): string {
-    let file = event.target.files[0];
-    this.images[index] = file;
-    if (this.images.length > 0) {
-      this.advertisement.hasImage = true;
-    } else {
-      this.advertisement.hasImage = false;
+  onFileChange(event: any, index: number): string | null {
+    const file = event.target.files[0];
+
+    if (!file) {
+      return null;
     }
 
-    const fileURL = URL.createObjectURL(file);
-    this.imageuploadService.uploadImage(file);
-    this.advertisement.pictures[index].url = fileURL;
+    this.images[index] = file;
 
-    // this.mainImageURL = URL.createObjectURL(file);
+    this.advertisement.hasImage = this.images.length > 0;
+
+    const fileURL = URL.createObjectURL(file);
+
+    if (this.advertisement.pictures[index]) {
+      this.advertisement.pictures[index].url = fileURL;
+    } else {
+      this.advertisement.pictures[index] = {
+        id: this.advertisement.id,
+        advertisementId: this.advertisement.id,
+        url: fileURL,
+      };
+    }
+
+    if (this.imagesURLs[index]) {
+      URL.revokeObjectURL(this.imagesURLs[index]);
+    }
     this.imagesURLs[index] = fileURL;
+
     console.log(this.images);
     return fileURL;
   }
 
   changeImage(event: any, index: number) {
-    this.advertisement.pictures[index].url = this.onFileChange(event, index);
+    const newImageUrl = this.onFileChange(event, index);
+
+    if (newImageUrl) {
+      this.advertisement.pictures[index].url = newImageUrl;
+    }
 
     this.imagesURlWasDeleted[index] = false;
   }
