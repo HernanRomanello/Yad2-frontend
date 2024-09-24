@@ -266,7 +266,7 @@ export class EditAdvertisementComponent
   }
 
   openFileUploading(id: string) {
-    document.getElementById(id)?.click();
+    // document.getElementById(id)?.click();
   }
 
   formatNumbersInTheForm(id: string) {

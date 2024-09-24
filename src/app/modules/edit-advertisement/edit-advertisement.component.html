@@ -712,7 +712,7 @@
                   #image
                   class="file-input upload-pictures"
                   type="file"
-                  id="pictures"
+                  id="picture{{ 0 }}"
                   (change)="changeImage($event, 0)"
                 />
               </div>
@@ -807,7 +807,7 @@
                     #image
                     class="file-input upload-pictures"
                     type="file"
-                    id="pictures"
+                    id="pictures{{ index + 1 }}"
                     (change)="changeImage($event, index + 1)"
                   />
                 </div>
