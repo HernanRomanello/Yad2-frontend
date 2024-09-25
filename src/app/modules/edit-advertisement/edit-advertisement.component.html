@@ -945,18 +945,18 @@
             <label class="small-text" for="contactPhone"> טלפון* </label>
             <input class="input large left-Placeholder" id="contactPhone" />
           </div>
-          <div
-            class="remove-add-contact"
-            style="color: #ff7f30"
-            (click)="Definecontacts(1)"
-          >
-            <mat-icon>remove_circle_outline</mat-icon>
+          <div class="remove-add-contact" (click)="Definecontacts(1)">
+            <img
+              id="delete-image"
+              class="image-btn"
+              src="assets/images/recycle-bin-garbage.svg"
+              alt=""
+            />
 
-            הסר איש קשר נוסף
+            ביטול
           </div>
         </div>
         }
-        <!-- <div id="line-page6" class="line"></div> -->
       </div>
       <div class="input-container">
         <label class="small-text" for="number">דוא"ל</label>
@@ -967,17 +967,6 @@
           [value]="this.userEmailAddress"
           (input)="this.userEmailAddress = UserEmailAddress.value"
         />
-        @if(!this.iscontactNameEraseBtnHidden && contactName.value.length > 0){
-        <img
-          (click)="
-            clearInputValue('contactName'); houseCommitteePayment.value = ''
-          "
-          id="erase-contactName"
-          class="erase-input-btn"
-          src="assets/images/close-sm.svg"
-          alt=""
-        />
-        }
       </div>
     </div>
     <div class="left-div">
