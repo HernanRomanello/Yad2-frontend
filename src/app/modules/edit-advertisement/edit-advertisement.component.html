@@ -879,6 +879,28 @@
           </li>
         </ul>
       </div>
+      <div class="input-container">
+        <label class="small-text" for="number">שם איש קשר*</label>
+        <input
+          #contactName
+          class="data number-input"
+          id="contactName"
+          [value]="advertisement.contactName"
+          (input)="advertisement.contactName = contactName.value"
+        />
+        @if(!this.isHouseCommitteePaymentEraseBtnHidden &&
+        houseCommitteePayment.value.length > 0){
+        <img
+          (click)="
+            clearInputValue('houseCommitteePayment');
+            houseCommitteePayment.value = ''
+          "
+          class="erase-input-btn"
+          src="assets/images/close-sm.svg"
+          alt=""
+        />
+        }
+      </div>
     </div>
     <div class="left-div">
       <div><img src="assets/images/miniSpot.svg" alt="" /></div>
