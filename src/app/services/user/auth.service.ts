@@ -31,9 +31,9 @@ export class AuthService implements OnInit {
   IsUserAreaISOpen = new BehaviorSubject<boolean>(false);
   UserPageRender = new BehaviorSubject<string>('');
   userName = new BehaviorSubject<string>('');
-  firstLetterUserEmailAddress = new BehaviorSubject<string>('');
+  // firstLetterUserEmailAddress = new BehaviorSubject<string>('');
   userName1 = new ReplaySubject<string>(1);
-  firstLetterUserEmailAddress1 = new ReplaySubject<string>(1);
+  firstLetterUserEmailAddress = new ReplaySubject<string>(1);
 
   constructor(private router: Router, private httpClient: HttpClient) {
     afterNextRender(() => {
@@ -148,7 +148,7 @@ export class AuthService implements OnInit {
       return;
     }
     this.userName1.next(name.valueOf());
-    this.firstLetterUserEmailAddress1.next(email[0].valueOf().toUpperCase());
+    this.firstLetterUserEmailAddress.next(email[0].valueOf().toUpperCase());
   }
 
   GetUsersAdvertisements() {

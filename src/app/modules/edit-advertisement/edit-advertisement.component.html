@@ -958,6 +958,30 @@
         }
         <!-- <div id="line-page6" class="line"></div> -->
       </div>
+      <div class="input-container">
+        <label class="small-text" for="number">דוא"ל</label>
+        <input
+          #contactName
+          class="data number-input"
+          id="contactName"
+          [value]=""
+          (input)="
+            advertisement.contactName = contactName.value;
+            this.iscontactNameEraseBtnHidden = false
+          "
+        />
+        @if(!this.iscontactNameEraseBtnHidden && contactName.value.length > 0){
+        <img
+          (click)="
+            clearInputValue('contactName'); houseCommitteePayment.value = ''
+          "
+          id="erase-contactName"
+          class="erase-input-btn"
+          src="assets/images/close-sm.svg"
+          alt=""
+        />
+        }
+      </div>
     </div>
     <div class="left-div">
       <div><img src="assets/images/miniSpot.svg" alt="" /></div>
