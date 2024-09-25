@@ -59,7 +59,8 @@ li {
 .main-images-container,
 .camara-image-container,
 .card-content,
-.contact-part {
+.contact-part,
+.right-div {
   display: flex;
 }
 
@@ -79,7 +80,8 @@ li {
 .address-info-box,
 .text-length-box,
 .upload-img-card,
-.camara-image-container {
+.camara-image-container,
+.right-div {
   flex-direction: column;
 }
 
@@ -110,7 +112,8 @@ li {
 
 .edit-inputs,
 .main-images-container,
-.contact-part {
+.contact-part,
+.right-div {
   gap: 1rem !important;
 }
 

@@ -845,10 +845,42 @@
     </div>
   </form>
   <div id="contact-form" class="contact-part advertisement-selection">
-    <div class="left-div">
-      <div>סיום עריכה</div>
-    </div>
     <div class="right-div">
+      <div>סיום עריכה</div>
+      <div class="input-container">
+        <label class="small-text" for="number"> בעלות הנכס</label>
+        <button
+          id="assetOwner"
+          class="data large dropdown-btn"
+          type="button"
+          [ngStyle]="{
+            border: this.isassetOwnerDropdownHidden
+              ? 'solid 1px #cccccc '
+              : 'solid 2px #363636 '
+          }"
+          (click)="
+            this.openAndCloseDropdown(
+              'assetOwner',
+              this.isassetOwnerDropdownHidden
+            )
+          "
+        >
+          {{ this.asset_Owner }}
+
+          <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
+        </button>
+        <ul *ngIf="!this.isassetOwnerDropdownHidden" class="dropdown-select">
+          <li
+            class="dropdown-option"
+            *ngFor="let option of assetOwner"
+            (click)="selectOption(option, 'assetOwner')"
+          >
+            {{ option }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="left-div">
       <div><img src="assets/images/miniSpot.svg" alt="" /></div>
       <div><img src="assets/images/checkIcon.svg" alt="" /></div>
       <div><img src="assets/images/checkIcon.svg" alt="" /></div>

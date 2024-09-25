@@ -46,11 +46,13 @@ export class EditAdvertisementComponent
   isTotalSquareMetersEraseBtnHidden = true;
   isMunicipalityMonthlyPropertyTaxEraseBtnHidden = true;
   isHouseCommitteePaymentEraseBtnHidden = true;
+  isassetOwnerDropdownHidden = true;
   apostrophe = '"';
   calendarIsdisabled = false;
   @ViewChild('entryDate', { static: false })
   entryDate!: ElementRef<HTMLDivElement>;
-
+  assetOwner = ['בחר', 'בעל הנכס', 'שוכר נוכחי', 'אחר'];
+  asset_Owner = this.assetOwner[0];
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
     'cube-escape-svgrepo-com',
@@ -162,6 +164,8 @@ export class EditAdvertisementComponent
       this.isAssetAssetstateDropdownHidden = dropdownTypeWasClickedNewState;
     } else if (type === 'numberOfPayments') {
       this.isNumberOfPaymentsDropdownHidden = dropdownTypeWasClickedNewState;
+    } else if (type === 'assetOwner') {
+      this.isassetOwnerDropdownHidden = dropdownTypeWasClickedNewState;
     }
   }
 
@@ -509,12 +513,17 @@ export class EditAdvertisementComponent
     if (type === 'numberOfPayments') {
       this.advertisement.numberOfPayments = option;
     }
+
+    if (type === 'assetOwner') {
+      this.asset_Owner = option;
+    }
     this.closeAllDropdowns();
   }
 
   closeAllDropdowns() {
     this.isAssetAssetstateDropdownHidden = true;
     this.isNumberOfPaymentsDropdownHidden = true;
+    this.isassetOwnerDropdownHidden = true;
   }
 
   selectBtnOption(number: number, type: string, option: string) {
