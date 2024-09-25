@@ -323,7 +323,8 @@ form,
 }
 #contactName,
 #contactPhoneNumber,
-#contactPhoneNumberBox {
+#contactPhoneNumberBox,
+#secondContactName {
   width: 240px !important;
 }
 

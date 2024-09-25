@@ -943,20 +943,21 @@
           <div class="input-container">
             <label class="small-text" for="number">שם איש קשר*</label>
             <input
-              #contactName
+              #SecondContactName
               class="data number-input"
-              id="contactName"
-              [value]="advertisement.contactName"
+              id="secondContactName"
+              [value]="this.secondContactName"
               (input)="
-                advertisement.contactName = contactName.value;
-                this.iscontactNameEraseBtnHidden = false
+                this.secondContactName = SecondContactName.value;
+                this.isSecondcontactNameEraseBtnHidden = false
               "
             />
-            @if(!this.iscontactNameEraseBtnHidden && contactName.value.length >
-            0){
+            @if(!this.isSecondcontactNameEraseBtnHidden &&
+            SecondContactName.value.length > 0){
             <img
               (click)="
-                clearInputValue('contactName'); houseCommitteePayment.value = ''
+                clearInputValue('secondContactName');
+                houseCommitteePayment.value = ''
               "
               id="erase-contactName"
               class="erase-input-btn"

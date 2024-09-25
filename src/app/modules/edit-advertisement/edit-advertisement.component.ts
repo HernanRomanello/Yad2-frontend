@@ -47,6 +47,7 @@ export class EditAdvertisementComponent
   isMunicipalityMonthlyPropertyTaxEraseBtnHidden = true;
   isHouseCommitteePaymentEraseBtnHidden = true;
   iscontactNameEraseBtnHidden = false;
+  isSecondcontactNameEraseBtnHidden = true;
   isassetOwnerDropdownHidden = true;
   apostrophe = '"';
   calendarIsdisabled = false;
@@ -56,6 +57,8 @@ export class EditAdvertisementComponent
   assetOwner = ['בחר', 'בעל הנכס', 'שוכר נוכחי', 'אחר'];
   asset_Owner = this.assetOwner[0];
   userEmailAddress = '';
+  secondContactName = '';
+  secondContactPhone = '';
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
     'cube-escape-svgrepo-com',
@@ -519,6 +522,11 @@ export class EditAdvertisementComponent
         this.advertisement.contactName = '';
         this.iscontactNameEraseBtnHidden = true;
         this.activateFocusById('contactName');
+        break;
+      case 'secondContactName':
+        this.secondContactName = '';
+        this.isSecondcontactNameEraseBtnHidden = true;
+        this.activateFocusById('secondContactName');
         break;
     }
   }
