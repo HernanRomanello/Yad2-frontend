@@ -266,7 +266,8 @@ form,
 .image-btn,
 .upload-container,
 .card-content,
-.ad-card-container {
+.ad-card-container,
+.input-container button {
   cursor: pointer;
 }
 
@@ -302,7 +303,19 @@ form,
 
 .large-size {
   width: 176.766px !important;
+}
+
+#entryDate {
+  width: 209px !important;
+}
+
+.large-size,
+#entryDate,
+#contactName {
   height: 38px !important;
+}
+#contactName {
+  width: 240px !important;
 }
 
 .data::placeholder {
@@ -595,11 +608,6 @@ textarea {
   transform: translateX(-1900%) translateY(170%) scale(1.4);
 }
 
-#entryDate {
-  width: 209px !important;
-  height: 38px !important;
-}
-
 .WeCheck-ad {
   height: 193px !important;
   width: 793px !important;
@@ -746,4 +754,8 @@ textarea {
 .left-div,
 .right-div {
   padding: 22px !important;
+}
+
+#erase-contactName {
+  transform: translateX(-620%) translateY(150%);
 }
