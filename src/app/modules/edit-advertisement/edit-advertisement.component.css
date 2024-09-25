@@ -235,7 +235,8 @@ form,
 }
 
 .option:hover,
-.option {
+.option,
+.post-ad-btn {
   background-color: rgb(255, 255, 255);
 }
 
@@ -794,4 +795,15 @@ textarea {
 #contact-form {
   margin-top: 1rem !important;
   margin-bottom: 1.25rem !important;
+}
+
+.post-ad-btn {
+  border-radius: 17.5px;
+  font-weight: 500;
+  line-height: 32px;
+  color: rgb(255, 113, 0);
+  height: 35px;
+  width: 156px;
+  border: 1px solid rgb(255, 113, 0);
+  padding: 1px 6px;
 }
