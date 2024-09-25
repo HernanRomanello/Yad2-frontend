@@ -23,8 +23,13 @@ li {
   font-size: 16px !important;
 }
 
-.ad-images {
-  display: grid;
+.ad-images,
+#contact-form {
+  display: grid !important;
+}
+
+#contact-form {
+  grid-template-columns: 1fr 1fr !important;
 }
 .ad-images {
   grid-template-columns: repeat(3, 1fr);
@@ -74,8 +79,7 @@ li {
 .address-info-box,
 .text-length-box,
 .upload-img-card,
-.camara-image-container,
-.contact-part {
+.camara-image-container {
   flex-direction: column;
 }
 
@@ -734,4 +738,9 @@ textarea {
 #contact-form {
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
+}
+
+.left-div,
+.right-div {
+  padding: 22px !important;
 }
