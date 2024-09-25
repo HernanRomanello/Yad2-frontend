@@ -961,14 +961,11 @@
       <div class="input-container">
         <label class="small-text" for="number">דוא"ל</label>
         <input
-          #contactName
+          #UserEmailAddress
           class="data number-input"
           id="contactName"
-          [value]=""
-          (input)="
-            advertisement.contactName = contactName.value;
-            this.iscontactNameEraseBtnHidden = false
-          "
+          [value]="this.userEmailAddress"
+          (input)="this.userEmailAddress = UserEmailAddress.value"
         />
         @if(!this.iscontactNameEraseBtnHidden && contactName.value.length > 0){
         <img

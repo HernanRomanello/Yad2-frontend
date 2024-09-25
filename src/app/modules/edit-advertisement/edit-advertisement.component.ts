@@ -55,6 +55,7 @@ export class EditAdvertisementComponent
   entryDate!: ElementRef<HTMLDivElement>;
   assetOwner = ['בחר', 'בעל הנכס', 'שוכר נוכחי', 'אחר'];
   asset_Owner = this.assetOwner[0];
+  userEmailAddress = '';
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
     'cube-escape-svgrepo-com',
@@ -246,6 +247,11 @@ export class EditAdvertisementComponent
             this.advertisement = response;
             this.asset_State = this.advertisement.assetState;
           });
+      }
+    });
+    this.authService.user.subscribe((user) => {
+      if (user) {
+        this.userEmailAddress = user.email;
       }
     });
 

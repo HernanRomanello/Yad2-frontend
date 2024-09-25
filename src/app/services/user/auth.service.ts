@@ -30,9 +30,7 @@ export class AuthService implements OnInit {
   ISEditAdvertisementISOpen = new BehaviorSubject<boolean>(false);
   IsUserAreaISOpen = new BehaviorSubject<boolean>(false);
   UserPageRender = new BehaviorSubject<string>('');
-  userName = new BehaviorSubject<string>('');
-  // firstLetterUserEmailAddress = new BehaviorSubject<string>('');
-  userName1 = new ReplaySubject<string>(1);
+  userName = new ReplaySubject<string>(1);
   firstLetterUserEmailAddress = new ReplaySubject<string>(1);
 
   constructor(private router: Router, private httpClient: HttpClient) {
@@ -147,7 +145,7 @@ export class AuthService implements OnInit {
     if (!name || !email) {
       return;
     }
-    this.userName1.next(name.valueOf());
+    this.userName.next(name.valueOf());
     this.firstLetterUserEmailAddress.next(email[0].valueOf().toUpperCase());
   }
 
