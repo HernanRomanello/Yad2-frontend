@@ -742,11 +742,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   Definecontacts(numberOfContacts: number) {
-    if (numberOfContacts === 2) {
-      this.has2Contacts = true;
-    } else {
-      this.has2Contacts = false;
-    }
+    this.has2Contacts = numberOfContacts === 2 ? true : false;
   }
 
   submitPartOfTheForm(formPageNumber: number) {

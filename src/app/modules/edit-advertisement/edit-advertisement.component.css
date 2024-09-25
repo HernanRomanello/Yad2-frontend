@@ -19,7 +19,8 @@ li {
   width: 100%;
 }
 
-.loading-bar {
+.loading-bar,
+.contact-form-ad {
   font-size: 16px !important;
 }
 
@@ -60,7 +61,8 @@ li {
 .camara-image-container,
 .card-content,
 .contact-part,
-.right-div {
+.right-div,
+.title-part {
   display: flex;
 }
 
@@ -81,15 +83,13 @@ li {
 .text-length-box,
 .upload-img-card,
 .camara-image-container,
-.right-div {
+.right-div,
+.title-part {
   flex-direction: column;
 }
 
 .text-length-box {
   gap: 0.5rem;
-}
-.text-length-box {
-  padding: 0.5rem;
 }
 
 .data-input,
@@ -112,9 +112,13 @@ li {
 
 .edit-inputs,
 .main-images-container,
-.contact-part,
-.right-div {
+.contact-part {
   gap: 1rem !important;
+}
+
+.right-div,
+.title-part {
+  gap: 1.5rem !important;
 }
 
 .main-images-container {
@@ -136,10 +140,12 @@ li {
   height: 70px !important;
 }
 
-.title {
+.title,
+.contact-form-title {
   font-size: 24px !important;
 }
-.title {
+.title,
+.contact-form-title {
   font-weight: 300 !important;
 }
 .title {
@@ -212,10 +218,6 @@ form,
 .arrow-down {
   height: 14px;
   width: 14px;
-}
-
-#assetState {
-  padding: 0.5rem !important;
 }
 
 .selected,
@@ -314,17 +316,15 @@ form,
 #contactName {
   height: 38px !important;
 }
-#contactName {
+#contactName,
+#contactPhoneNumber,
+#contactPhoneNumberBox {
   width: 240px !important;
 }
 
 .data::placeholder {
   text-align: start !important;
   padding: 0 !important;
-}
-
-.data {
-  padding: 0.5rem;
 }
 
 .erase-btn,
@@ -751,11 +751,37 @@ textarea {
   margin-bottom: 1rem !important;
 }
 
-.left-div,
-.right-div {
+.left-div {
   padding: 22px !important;
+}
+
+.right-div {
+  padding: 40px !important;
+  margin: 0 !important;
 }
 
 #erase-contactName {
   transform: translateX(-620%) translateY(150%);
+}
+
+.plus-circle {
+  width: 25px;
+  height: 25px;
+}
+.plus-circle {
+  transform: scale(1.08);
+}
+
+#contactPhoneNumber,
+.data,
+#assetState,
+.text-length-box {
+  padding: 0.5rem !important;
+}
+
+#contactPhoneNumberBox {
+  border-bottom: 1px solid #cccccc;
+}
+#contactPhoneNumberBox {
+  padding-bottom: 2.25rem !important;
 }

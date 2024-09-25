@@ -846,7 +846,12 @@
   </form>
   <div id="contact-form" class="contact-part advertisement-selection">
     <div class="right-div">
-      <div>סיום עריכה</div>
+      <div class="title-part">
+        <div class="contact-form-title">סיום עריכה</div>
+        <div class="contact-form-ad">
+          רגע לפני שמפרסמים את המודעה, נרצה להכיר אותך
+        </div>
+      </div>
       <div class="input-container">
         <label class="small-text" for="number"> בעלות הנכס</label>
         <button
@@ -902,6 +907,56 @@
           alt=""
         />
         }
+      </div>
+      <div id="contactPhoneNumberBox" class="input-container">
+        <label class="small-text" for="number"> טלפון ראשי*</label>
+        <button
+          id="contactPhoneNumber"
+          class="data large dropdown-btn"
+          type="button"
+        >
+          {{ this.advertisement.contactPhone }}
+
+          <img
+            class="plus-circle"
+            src="assets/images/plus-circle-svgrepo-com.svg"
+            alt=""
+          />
+        </button>
+      </div>
+      <div class="input-container">
+        @if(!this.has2Contacts){
+        <div
+          class="remove-add-contact"
+          style="color: #ff7f30"
+          (click)="Definecontacts(2)"
+        >
+          <mat-icon>control_point</mat-icon>
+
+          <span>הוספת איש קשר נוסף</span>
+        </div>
+        } @if(this.has2Contacts){
+        <div>
+          <div class="input-container">
+            <label class="small-text" for="contactName"> השם שלך* </label>
+            <input class="input large left-Placeholder" id="contactName" />
+          </div>
+          <div class="input-container">
+            <label class="small-text" for="contactPhone"> טלפון* </label>
+            <input class="input large left-Placeholder" id="contactPhone" />
+          </div>
+          <div
+            class="remove-add-contact"
+            style="color: #ff7f30"
+            (click)="Definecontacts(1)"
+          >
+            <mat-icon>remove_circle_outline</mat-icon>
+
+            הסר איש קשר נוסף
+          </div>
+        </div>
+        }
+        <!-- <div id="line-page6" class="line"></div> -->
       </div>
     </div>
     <div class="left-div">

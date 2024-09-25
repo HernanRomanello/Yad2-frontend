@@ -50,6 +50,7 @@ export class EditAdvertisementComponent
   isassetOwnerDropdownHidden = true;
   apostrophe = '"';
   calendarIsdisabled = false;
+  has2Contacts = false;
   @ViewChild('entryDate', { static: false })
   entryDate!: ElementRef<HTMLDivElement>;
   assetOwner = ['בחר', 'בעל הנכס', 'שוכר נוכחי', 'אחר'];
@@ -200,6 +201,10 @@ export class EditAdvertisementComponent
 
     console.log(this.images);
     return fileURL;
+  }
+
+  Definecontacts(numberOfContacts: number) {
+    this.has2Contacts = numberOfContacts === 2 ? true : false;
   }
 
   changeImage(event: any, index: number) {
