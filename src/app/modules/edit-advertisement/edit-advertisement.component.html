@@ -901,7 +901,7 @@
           0){
           <img
             (click)="
-              clearInputValue('contactName'); houseCommitteePayment.value = ''
+              clearInputValue('contactName'); advertisement.contactName = ''
             "
             id="erase-contactName"
             class="erase-input-btn"
@@ -941,7 +941,7 @@
         } @if(this.has2Contacts){
         <div class="phone-Number-Box">
           <div class="input-container">
-            <label class="small-text" for="number">שם איש קשר*</label>
+            <label class="small-text" for="number"> איש קשר נוסף </label>
             <input
               #SecondContactName
               class="data number-input"
@@ -957,7 +957,7 @@
             <img
               (click)="
                 clearInputValue('secondContactName');
-                houseCommitteePayment.value = ''
+                this.secondContactName = ''
               "
               id="erase-contactName"
               class="erase-input-btn"
@@ -967,7 +967,7 @@
             }
           </div>
           <div id="SecondcontactPhoneNumberBox" class="input-container">
-            <label class="small-text" for="number"> טלפון ראשי*</label>
+            <label class="small-text" for="number"> טלפון נוסף</label>
             <button
               id="contactPhoneNumber"
               class="data large dropdown-btn"

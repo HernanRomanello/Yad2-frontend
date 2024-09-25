@@ -44,6 +44,10 @@ li {
   width: 780px !important;
 }
 
+#contact-form {
+  height: 782.594px !important;
+}
+
 .data-input,
 .edit-inputs,
 .dropdown-option,
@@ -752,11 +756,6 @@ textarea {
   width: 220px !important;
 }
 
-#contact-form {
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
-}
-
 .left-div {
   padding: 22px !important;
 }
@@ -790,4 +789,9 @@ textarea {
 }
 #contactPhoneNumberBox {
   padding-bottom: 2.25rem !important;
+}
+
+#contact-form {
+  margin-top: 1rem !important;
+  margin-bottom: 1.25rem !important;
 }
