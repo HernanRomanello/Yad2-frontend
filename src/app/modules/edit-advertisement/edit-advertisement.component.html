@@ -972,8 +972,16 @@
               id="contactPhoneNumber"
               class="data large dropdown-btn"
               type="button"
+              [ngStyle]="{
+                color:
+                  this.secondContactPhone === '' ? 'transparent' : '#0000000'
+              }"
             >
-              {{ this.advertisement.contactPhone }}
+              {{
+                this.secondContactPhone === ""
+                  ? "empty"
+                  : this.secondContactPhone
+              }}
 
               <img
                 class="plus-circle"
