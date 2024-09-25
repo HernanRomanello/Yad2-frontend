@@ -799,7 +799,7 @@ textarea {
 
 .post-ad-btn {
   border-radius: 17.5px;
-  font-weight: 500;
+  font-weight: 600 !important;
   line-height: 32px;
   color: rgb(255, 113, 0);
   height: 35px;
