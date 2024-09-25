@@ -886,7 +886,10 @@
           class="data number-input"
           id="contactName"
           [value]="advertisement.contactName"
-          (input)="advertisement.contactName = contactName.value"
+          (input)="
+            advertisement.contactName = contactName.value;
+            this.iscontactNameEraseBtnHidden = false
+          "
         />
         @if(!this.iscontactNameEraseBtnHidden && contactName.value.length > 0){
         <img

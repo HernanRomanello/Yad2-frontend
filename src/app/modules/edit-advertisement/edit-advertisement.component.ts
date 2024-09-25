@@ -507,6 +507,7 @@ export class EditAdvertisementComponent
       case 'contactName':
         this.advertisement.contactName = '';
         this.iscontactNameEraseBtnHidden = true;
+        this.activateFocusById('contactName');
         break;
     }
   }
