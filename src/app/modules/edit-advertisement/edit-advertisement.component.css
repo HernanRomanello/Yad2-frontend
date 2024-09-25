@@ -62,7 +62,8 @@ li {
 .card-content,
 .contact-part,
 .right-div,
-.title-part {
+.title-part,
+.phone-Number-Box {
   display: flex;
 }
 
@@ -84,7 +85,8 @@ li {
 .upload-img-card,
 .camara-image-container,
 .right-div,
-.title-part {
+.title-part,
+.phone-Number-Box {
   flex-direction: column;
 }
 
@@ -119,6 +121,9 @@ li {
 .right-div,
 .title-part {
   gap: 1.5rem !important;
+}
+.phone-Number-Box {
+  gap: 22px !important;
 }
 
 .main-images-container {

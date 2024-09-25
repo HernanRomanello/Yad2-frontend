@@ -884,45 +884,48 @@
           </li>
         </ul>
       </div>
-      <div class="input-container">
-        <label class="small-text" for="number">שם איש קשר*</label>
-        <input
-          #contactName
-          class="data number-input"
-          id="contactName"
-          [value]="advertisement.contactName"
-          (input)="
-            advertisement.contactName = contactName.value;
-            this.iscontactNameEraseBtnHidden = false
-          "
-        />
-        @if(!this.iscontactNameEraseBtnHidden && contactName.value.length > 0){
-        <img
-          (click)="
-            clearInputValue('contactName'); houseCommitteePayment.value = ''
-          "
-          id="erase-contactName"
-          class="erase-input-btn"
-          src="assets/images/close-sm.svg"
-          alt=""
-        />
-        }
-      </div>
-      <div id="contactPhoneNumberBox" class="input-container">
-        <label class="small-text" for="number"> טלפון ראשי*</label>
-        <button
-          id="contactPhoneNumber"
-          class="data large dropdown-btn"
-          type="button"
-        >
-          {{ this.advertisement.contactPhone }}
-
+      <div class="phone-Number-Box">
+        <div class="input-container">
+          <label class="small-text" for="number">שם איש קשר*</label>
+          <input
+            #contactName
+            class="data number-input"
+            id="contactName"
+            [value]="advertisement.contactName"
+            (input)="
+              advertisement.contactName = contactName.value;
+              this.iscontactNameEraseBtnHidden = false
+            "
+          />
+          @if(!this.iscontactNameEraseBtnHidden && contactName.value.length >
+          0){
           <img
-            class="plus-circle"
-            src="assets/images/plus-circle-svgrepo-com.svg"
+            (click)="
+              clearInputValue('contactName'); houseCommitteePayment.value = ''
+            "
+            id="erase-contactName"
+            class="erase-input-btn"
+            src="assets/images/close-sm.svg"
             alt=""
           />
-        </button>
+          }
+        </div>
+        <div id="contactPhoneNumberBox" class="input-container">
+          <label class="small-text" for="number"> טלפון ראשי*</label>
+          <button
+            id="contactPhoneNumber"
+            class="data large dropdown-btn"
+            type="button"
+          >
+            {{ this.advertisement.contactPhone }}
+
+            <img
+              class="plus-circle"
+              src="assets/images/plus-circle-svgrepo-com.svg"
+              alt=""
+            />
+          </button>
+        </div>
       </div>
       <div class="input-container">
         @if(!this.has2Contacts){
@@ -936,25 +939,58 @@
           <span>הוספת איש קשר נוסף</span>
         </div>
         } @if(this.has2Contacts){
-        <div>
+        <div class="phone-Number-Box">
           <div class="input-container">
-            <label class="small-text" for="contactName"> השם שלך* </label>
-            <input class="input large left-Placeholder" id="contactName" />
-          </div>
-          <div class="input-container">
-            <label class="small-text" for="contactPhone"> טלפון* </label>
-            <input class="input large left-Placeholder" id="contactPhone" />
-          </div>
-          <div class="remove-add-contact" (click)="Definecontacts(1)">
+            <label class="small-text" for="number">שם איש קשר*</label>
+            <input
+              #contactName
+              class="data number-input"
+              id="contactName"
+              [value]="advertisement.contactName"
+              (input)="
+                advertisement.contactName = contactName.value;
+                this.iscontactNameEraseBtnHidden = false
+              "
+            />
+            @if(!this.iscontactNameEraseBtnHidden && contactName.value.length >
+            0){
             <img
-              id="delete-image"
-              class="image-btn"
-              src="assets/images/recycle-bin-garbage.svg"
+              (click)="
+                clearInputValue('contactName'); houseCommitteePayment.value = ''
+              "
+              id="erase-contactName"
+              class="erase-input-btn"
+              src="assets/images/close-sm.svg"
               alt=""
             />
-
-            ביטול
+            }
           </div>
+          <div id="SecondcontactPhoneNumberBox" class="input-container">
+            <label class="small-text" for="number"> טלפון ראשי*</label>
+            <button
+              id="contactPhoneNumber"
+              class="data large dropdown-btn"
+              type="button"
+            >
+              {{ this.advertisement.contactPhone }}
+
+              <img
+                class="plus-circle"
+                src="assets/images/plus-circle-svgrepo-com.svg"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+        <div class="remove-add-contact" (click)="Definecontacts(1)">
+          <img
+            id="delete-image"
+            class="image-btn"
+            src="assets/images/recycle-bin-garbage.svg"
+            alt=""
+          />
+
+          ביטול
         </div>
         }
       </div>
