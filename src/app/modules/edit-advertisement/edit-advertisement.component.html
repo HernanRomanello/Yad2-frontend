@@ -888,12 +888,10 @@
           [value]="advertisement.contactName"
           (input)="advertisement.contactName = contactName.value"
         />
-        @if(!this.isHouseCommitteePaymentEraseBtnHidden &&
-        houseCommitteePayment.value.length > 0){
+        @if(!this.iscontactNameEraseBtnHidden && contactName.value.length > 0){
         <img
           (click)="
-            clearInputValue('houseCommitteePayment');
-            houseCommitteePayment.value = ''
+            clearInputValue('contactName'); houseCommitteePayment.value = ''
           "
           class="erase-input-btn"
           src="assets/images/close-sm.svg"

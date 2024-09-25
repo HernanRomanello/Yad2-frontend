@@ -46,6 +46,7 @@ export class EditAdvertisementComponent
   isTotalSquareMetersEraseBtnHidden = true;
   isMunicipalityMonthlyPropertyTaxEraseBtnHidden = true;
   isHouseCommitteePaymentEraseBtnHidden = true;
+  iscontactNameEraseBtnHidden = false;
   isassetOwnerDropdownHidden = true;
   apostrophe = '"';
   calendarIsdisabled = false;
@@ -502,6 +503,10 @@ export class EditAdvertisementComponent
         this.houseNumber = '';
         this.isHouseNumberEraseBtnHidden = true;
         this.activateFocusById('houseNumber');
+        break;
+      case 'contactName':
+        this.advertisement.contactName = '';
+        this.iscontactNameEraseBtnHidden = true;
         break;
     }
   }
