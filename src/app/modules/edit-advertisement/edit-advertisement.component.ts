@@ -340,13 +340,15 @@ export class EditAdvertisementComponent
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
 
+    // console.log(day.toString() + ' day');
+
     return `${year}-${month}-${day}`;
   }
 
   toDateString(date: string): string {
     const [year, month, day] = date.split('-').map(Number);
 
-    const newDate = new Date(year, month - 1, day);
+    const newDate = new Date(year, month - 1, +(day + 1));
 
     const formattedDateString =
       newDate.toISOString().split('T')[0] + 'T00:00:00.0';
@@ -407,6 +409,7 @@ export class EditAdvertisementComponent
 
   async handleSubmit() {
     try {
+      console.log(this.advertisement.entryDate);
       const form = this.advertisement;
       this.advertisementService.updateAdvertisement(
         this.advertisement,

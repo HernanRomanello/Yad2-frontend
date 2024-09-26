@@ -143,77 +143,19 @@ export class AdvertisementService {
       `${this.Url}api/Advertisement/GetAdvertisement/${id}`
     );
   }
+
+  convertDateToUnixTimestamp(dateString: string): number {
+    const date = new Date(dateString);
+
+    return date.getTime();
+  }
+
   updateAdvertisement(advertisement: AdvertisementsModel, id: number): void {
-    // Constructing the updated advertisement object from the passed parameter
-    // const updatedAd = {
-    //   city: advertisement.city,
-    //   tradeType: advertisement.tradeType,
-    //   street: advertisement.street,
-    //   number: advertisement.number,
-    //   floor: advertisement.floor,
-    //   totalFloors: advertisement.totalFloors,
-    //   onPillars: advertisement.onPillars,
-    //   neighborhood: advertisement.neighborhood,
-    //   area: advertisement.area,
-    //   assetType: advertisement.assetType,
-    //   assetState: advertisement.assetState,
-    //   airDirections: advertisement.airDirections,
-    //   view: advertisement.view,
-    //   rearProperty: advertisement.rearProperty,
-    //   rooms: advertisement.rooms,
-    //   showerRooms: advertisement.showerRooms,
-    //   privateParking: advertisement.privateParking,
-    //   hasPrivateParking: advertisement.hasPrivateParking,
-    //   hasBolcony: advertisement.hasBolcony,
-    //   hasImage: advertisement.hasImage,
-    //   hasPrice: advertisement.hasPrice,
-    //   moshavOrKibutz: advertisement.moshavOrKibutz,
-    //   pirceDiscount: advertisement.priceDiscount,
-    //   publisherIsMiddleMan: advertisement.publisherIsMiddleMan,
-    //   publisherIsContractor: advertisement.publisherIsContractor,
-    //   balconiesNumber: advertisement.balconiesNumber,
-    //   accessibleForDisabled: advertisement.accessibleForDisabled,
-    //   airConditioning: advertisement.airConditioning,
-    //   windowBars: advertisement.windowBars,
-    //   solarWaterHeater: advertisement.solarWaterHeater,
-    //   elevator: advertisement.elevator,
-    //   forRoommates: advertisement.forRoommates,
-    //   furnished: advertisement.furnished,
-    //   separateUnit: advertisement.separateUnit,
-    //   kosherKitchen: advertisement.kosherKitchen,
-    //   petsAllowed: advertisement.petsAllowed,
-    //   renovated: advertisement.renovated,
-    //   safeRoom: advertisement.safeRoom,
-    //   multiLockDoors: advertisement.multiLockDoors,
-    //   airConditioner: advertisement.airConditioner,
-    //   tornadoAirConditioner: advertisement.tornadoAirConditioner,
-    //   storageRoom: advertisement.storageRoom,
-    //   description: advertisement.description,
-    //   furnituredescription: advertisement.furnituredescription,
-    //   numberOfPayments: advertisement.numberOfPayments,
-    //   houseCommitteePayment: advertisement.houseCommitteePayment,
-    //   municipalityMonthlyPropertyTax:
-    //     advertisement.municipalityMonthlyPropertyTax,
-    //   builtSquareMeters: advertisement.builtSquareMeters,
-    //   gardenSquareMeters: advertisement.gardenSquareMeters,
-    //   totalSquareMeters: advertisement.totalSquareMeters,
-    //   price: advertisement.price,
-    //   minimumAmount: advertisement.minimumAmount,
-    //   pricePerMeter: advertisement.pricePerMeter,
-    //   entryDate: advertisement.entryDate,
-    //   immediate: advertisement.immediate,
-    //   flexible: advertisement.flexible,
-    //   longTerm: advertisement.longTerm,
-    //   pictures: [
-    //     'https://localhost:7211/uploads/1.jpeg',
-    //     'https://localhost:7211/uploads/11.jpeg',
-    //     'https://localhost:7211/uploads/12.jpeg',
-    //   ],
-    //   video: 'url_to_video',
-    //   contactName: advertisement.contactName,
-    //   contactPhone: advertisement.contactPhone,
-    //   standardizationAccepted: advertisement.standardizationAccepted,
-    // };
+    // Convert to a Date object
+    console.log(advertisement.entryDate);
+    const date = this.convertDateToUnixTimestamp(advertisement.entryDate);
+    console.log(date);
+
     const updatedAd = {
       city: advertisement.city,
       tradeType: advertisement.tradeType,
@@ -269,7 +211,7 @@ export class AdvertisementService {
       price: advertisement.price,
       minimumAmount: advertisement.minimumAmount,
       pricePerMeter: advertisement.pricePerMeter,
-      entryDate: 1656633600,
+      entryDate: date,
       immediate: advertisement.immediate,
       flexible: advertisement.flexible,
       longTerm: advertisement.longTerm,
