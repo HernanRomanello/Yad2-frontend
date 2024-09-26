@@ -115,6 +115,7 @@ export class EditAdvertisementComponent
     this.authService.IsalternativeHeaderISOpen.next(false);
     this.authService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
+    this.authService.user.unsubscribe();
   }
 
   authService = inject(AuthService);
@@ -261,8 +262,6 @@ export class EditAdvertisementComponent
     this.initialFormatNumberInForm();
   }
 
-  async handleSubmit() {}
-
   deleteImage(index: number) {
     this.imagesURlWasDeleted[index] = true;
     this.imagesURLs[index] = '';
@@ -404,6 +403,18 @@ export class EditAdvertisementComponent
 
   testIfIsValidNumber(value: string): boolean {
     return /^\d+$/.test(value);
+  }
+
+  async handleSubmit() {
+    try {
+      const form = this.advertisement;
+      this.advertisementService.updateAdvertisement(
+        this.advertisement,
+        this.advertisement.id
+      );
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   changeText(textLength: number): string {
