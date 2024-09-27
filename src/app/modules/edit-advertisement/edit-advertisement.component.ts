@@ -39,6 +39,7 @@ export class EditAdvertisementComponent
   imagesURlWasDeleted: boolean[] = [];
   numberValuesForForm: (string | number)[] = new Array(5);
   mainImage: File | undefined = undefined;
+  mainImageURL: string = '';
   Url = environment.URl;
   video: File | undefined = undefined;
   isHouseNumberEraseBtnHidden = true;
@@ -163,6 +164,7 @@ export class EditAdvertisementComponent
         this.imagesURLsForPosting.push('');
       }
     }
+    this.imagesURLsForPosting.push('');
 
     // console.log(this.advertisement.pictures);
 
@@ -182,7 +184,7 @@ export class EditAdvertisementComponent
     }
   }
 
-  onFileChange(event: any, index: number): string | null {
+  onFileChange(event: any, index: number, isMainImage: boolean): string | null {
     const file = event.target.files[0];
 
     if (!file) {
@@ -196,7 +198,6 @@ export class EditAdvertisementComponent
     const fileURL = URL.createObjectURL(file);
 
     if (this.advertisement.pictures[index]) {
-      // alert(file.name);
       this.advertisement.pictures[index].url = fileURL;
       this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
     } else {
@@ -211,10 +212,12 @@ export class EditAdvertisementComponent
       URL.revokeObjectURL(this.imagesURLs[index]);
     }
     this.imagesURLs[index] = fileURL;
-    this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
-    alert(this.imagesURLsForPosting[index]);
+    if (isMainImage) {
+      this.mainImageURL = this.Url + 'uploads/' + file.name;
+    } else {
+      this.imagesURLsForPosting[index + 1] = this.Url + 'uploads/' + file.name;
+    }
 
-    // console.log(this.images);
     return fileURL;
   }
 
@@ -223,7 +226,7 @@ export class EditAdvertisementComponent
   }
 
   changeImage(event: any, index: number) {
-    const newImageUrl = this.onFileChange(event, index);
+    const newImageUrl = this.onFileChange(event, index, index === 0);
 
     if (newImageUrl) {
       this.advertisement.pictures[index].url = newImageUrl;
@@ -437,16 +440,24 @@ export class EditAdvertisementComponent
 
   async handleSubmit() {
     try {
-      // console.log(this.advertisement.entryDate);
-      var form = this.advertisement;
       const uploadedImages = await this.uploadAllImages();
       console.log('before this.advertisement.pictures');
-      // console.log(this.images);
-      console.log(this.imagesURLs);
-      console.log(this.imagesURLsForPosting);
-      const ImagesURLsForPosting = this.imagesURLsForPosting.filter(
+      // console.log(this.imagesURLs);
+      // console.log(this.mainImageURL);
+      // this.imagesURLsForPosting[0] = this.mainImageURL;
+
+      var ImagesURLsForPosting = this.imagesURLsForPosting.filter(
         (url) => url !== ''
       );
+      ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
+      console.log(this.imagesURLsForPosting);
+
+      // ImagesURLsForPosting.forEach((url, index) => {
+      //   if (url === this.mainImageURL) {
+      //     //  this.advertisement.mainImage = url;
+      //     console.log('this.mainImageURL' + index + ' ' + url);
+      //   }
+      // });
 
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;
