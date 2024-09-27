@@ -7,7 +7,6 @@ import {
   OnInit,
   Renderer2,
   ViewChild,
-  viewChild,
 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
@@ -16,6 +15,7 @@ import { AdvertisementService } from '../../services/advertisement.service';
 import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { ImageuploadService } from '../../services/imageupload.service';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -35,8 +35,12 @@ export class EditAdvertisementComponent
   houseNumber: string = '';
   images: File[] = [];
   imagesURLs: string[] = [];
+  imagesURLsForPosting: string[] = [];
   imagesURlWasDeleted: boolean[] = [];
   numberValuesForForm: (string | number)[] = new Array(5);
+  mainImage: File | undefined = undefined;
+  Url = environment.URl;
+  video: File | undefined = undefined;
   isHouseNumberEraseBtnHidden = true;
   isTotalFloorsEraseBtnHidden = true;
   isBuiltSquareMetersEraseBtnHidden = true;
@@ -148,6 +152,7 @@ export class EditAdvertisementComponent
   ngAfterViewInit(): void {
     for (let index = 0; index < this.advertisement.pictures.length; index++) {
       this.imagesURLs.push(this.advertisement.pictures[index].url);
+      this.imagesURLsForPosting.push(this.advertisement.pictures[index].url);
     }
 
     for (let index = 0; index <= 9; index++) {
@@ -155,10 +160,11 @@ export class EditAdvertisementComponent
       this.images.push(new File([''], ''));
       if (this.imagesURLs.length <= index) {
         this.imagesURLs.push('');
+        this.imagesURLsForPosting.push('');
       }
     }
 
-    console.log(this.advertisement.pictures);
+    // console.log(this.advertisement.pictures);
 
     this.initialFormatNumberInForm();
   }
@@ -190,7 +196,9 @@ export class EditAdvertisementComponent
     const fileURL = URL.createObjectURL(file);
 
     if (this.advertisement.pictures[index]) {
+      // alert(file.name);
       this.advertisement.pictures[index].url = fileURL;
+      this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
     } else {
       this.advertisement.pictures[index] = {
         id: this.advertisement.id,
@@ -203,8 +211,10 @@ export class EditAdvertisementComponent
       URL.revokeObjectURL(this.imagesURLs[index]);
     }
     this.imagesURLs[index] = fileURL;
+    this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
+    alert(this.imagesURLsForPosting[index]);
 
-    console.log(this.images);
+    // console.log(this.images);
     return fileURL;
   }
 
@@ -243,7 +253,7 @@ export class EditAdvertisementComponent
           .GetAdvertisementById(+params['id'])
           .pipe(
             catchError((e) => {
-              console.log(e);
+              // console.log(e);
               return [];
             })
           )
@@ -340,8 +350,6 @@ export class EditAdvertisementComponent
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
 
-    // console.log(day.toString() + ' day');
-
     return `${year}-${month}-${day}`;
   }
 
@@ -354,6 +362,26 @@ export class EditAdvertisementComponent
       newDate.toISOString().split('T')[0] + 'T00:00:00.0';
 
     return formattedDateString;
+  }
+
+  async uploadAllImages() {
+    if (this.images.length === 0) return [];
+
+    const validImages = this.images.filter((image) => image.size > 0);
+
+    if (validImages.length === 0) return [];
+
+    const tasks = validImages.map((image) => {
+      if (validImages.length === 1) {
+        this.mainImage = image;
+      }
+
+      return this.imageuploadService.uploadImage(image);
+    });
+
+    return await Promise.all(tasks).then((urls) => {
+      return urls.map((u) => u.fileUrl);
+    });
   }
 
   removeCommasFromNumberAndParseInt(value: string): number {
@@ -409,14 +437,34 @@ export class EditAdvertisementComponent
 
   async handleSubmit() {
     try {
-      console.log(this.advertisement.entryDate);
-      const form = this.advertisement;
+      // console.log(this.advertisement.entryDate);
+      var form = this.advertisement;
+      const uploadedImages = await this.uploadAllImages();
+      console.log('before this.advertisement.pictures');
+      // console.log(this.images);
+      console.log(this.imagesURLs);
+      console.log(this.imagesURLsForPosting);
+      const ImagesURLsForPosting = this.imagesURLsForPosting.filter(
+        (url) => url !== ''
+      );
+
+      if (this.advertisement.pictures.length > 0) {
+        this.advertisement.hasImage = true;
+        this.advertisement.pictures = this.imagesURLs.map((url, index) => ({
+          id: this.advertisement.id,
+          advertisementId: this.advertisement.id,
+          url: url,
+        }));
+      } else {
+        this.advertisement.hasImage = false;
+      }
       this.advertisementService.updateAdvertisement(
         this.advertisement,
-        this.advertisement.id
+        this.advertisement.id,
+        ImagesURLsForPosting
       );
     } catch (e) {
-      console.log(e);
+      console.log('Error updating advertisement:', e);
     }
   }
 
@@ -559,6 +607,13 @@ export class EditAdvertisementComponent
     this.closeAllDropdowns();
   }
 
+  async uploadVideo() {
+    if (!this.video) return '';
+    return await this.imageuploadService
+      .uploadImage(this.video)
+      .then((u) => u.fileUrl);
+  }
+
   closeAllDropdowns() {
     this.isAssetAssetstateDropdownHidden = true;
     this.isNumberOfPaymentsDropdownHidden = true;
@@ -576,7 +631,7 @@ export class EditAdvertisementComponent
       this.advertisement.balconiesNumber = number;
     }
 
-    console.log(this.advertisement);
+    // console.log(this.advertisement);
   }
 
   optionClass(option: number, fiveOptions: boolean): string {

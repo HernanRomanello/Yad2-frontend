@@ -192,7 +192,6 @@ export class AuthService implements OnInit {
   postNewAdvertisement(NewAdvertisement: any) {
     const date = new Date(NewAdvertisement.entryDate);
     const milliseconds = date.getTime();
-    const minAmount = NewAdvertisement.tradeType === 'השכרה' ? 100 : 10000;
 
     const formData = {
       city: NewAdvertisement.city,

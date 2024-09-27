@@ -172,10 +172,10 @@ export class RealEstateResultsComponent implements OnInit {
           return parseInt(n);
         });
 
-        console.log(selectedPriceRange);
+        // console.log(selectedPriceRange);
         let ads = advertisements;
 
-        console.log(booleanFilters);
+        // console.log(booleanFilters);
         ads = ads.filter((ad) =>
           Object.keys(booleanFilters).every((key) => {
             if (booleanFilters[key]) {
@@ -189,7 +189,7 @@ export class RealEstateResultsComponent implements OnInit {
             ad.builtSquareMeters >= aptSizeMin &&
             ad.builtSquareMeters <= aptSizeMax
         );
-        console.log(floorsMin, floorsMax);
+        // console.log(floorsMin, floorsMax);
         ads = ads.filter(
           (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax
         );

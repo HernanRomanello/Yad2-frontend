@@ -74,7 +74,7 @@ export class RealEstatePriceSliderSelectComponent {
   emit(event: any) {
     if (!event.values) {
       //emitted from select..
-      console.log(event.target.value);
+      // console.log(event.target.value);
       return;
     }
     const [min, max] = event.values;

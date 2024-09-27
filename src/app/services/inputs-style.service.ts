@@ -35,26 +35,26 @@ export class InputsStyleService {
   changeColor(textLength: number, massage: string): string {
     if (textLength > 0 && textLength < 8) {
       massage = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
-      console.log('red', textLength);
+      // console.log('red', textLength);
 
       return 'red';
     } else if (textLength > 7 && textLength < 32) {
-      console.log('ff7100', textLength);
+      // console.log('ff7100', textLength);
 
       massage = 'יופי, המודעה הולכת לכיוון הנכון';
       return '#ff7100';
     } else if (textLength >= 32 && textLength < 104) {
-      console.log('fbaf02', textLength);
+      // console.log('fbaf02', textLength);
 
       massage = 'אוטוטו...';
       return '#fbaf02';
     } else if (textLength >= 104) {
-      console.log('43c671', textLength);
+      // console.log('43c671', textLength);
 
       massage = 'בול!';
       return '#43c671';
     } else {
-      console.log('363636', textLength);
+      // console.log('363636', textLength);
       massage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
       return '#363636';
     }

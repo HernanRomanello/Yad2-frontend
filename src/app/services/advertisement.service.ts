@@ -150,11 +150,12 @@ export class AdvertisementService {
     return date.getTime();
   }
 
-  updateAdvertisement(advertisement: AdvertisementsModel, id: number): void {
-    // Convert to a Date object
-    console.log(advertisement.entryDate);
+  updateAdvertisement(
+    advertisement: AdvertisementsModel,
+    id: number,
+    pictures: any
+  ): void {
     const date = this.convertDateToUnixTimestamp(advertisement.entryDate);
-    console.log(date);
 
     const updatedAd = {
       city: advertisement.city,
@@ -215,25 +216,23 @@ export class AdvertisementService {
       immediate: advertisement.immediate,
       flexible: advertisement.flexible,
       longTerm: advertisement.longTerm,
-      pictures: [
-        'https://localhost:7211/uploads/1.jpeg',
-        'https://localhost:7211/uploads/11.jpeg',
-        'https://localhost:7211/uploads/12.jpeg',
-      ],
+      // pictures: [
+      //   'https://localhost:7211/uploads/1.jpeg',
+      //   'https://localhost:7211/uploads/11.jpeg',
+      //   'https://localhost:7211/uploads/12.jpeg',
+      // ],
+      pictures: pictures,
       video: 'url_to_video',
       contactName: advertisement.contactName,
       contactPhone: advertisement.contactPhone,
       standardizationAccepted: advertisement.standardizationAccepted,
     };
 
-    console.log(updatedAd);
-
     this.httpClient
       .put(`${this.Url}api/Users/UpdateAdvertisement/${id}`, updatedAd)
       .subscribe(
         (data) => {
-          console.log('Advertisement updated successfully:', data);
-          // this.GetAdvertisements(); // Uncomment if needed to refresh advertisements
+          // console.log('Advertisement updated successfully:', data);
         },
         (error) => {
           console.error('Error updating advertisement:', error);

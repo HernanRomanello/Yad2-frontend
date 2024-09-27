@@ -519,6 +519,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       const uploadedImages = await this.uploadAllImages();
       const video = await this.uploadVideo();
       form.pictures = uploadedImages;
+      console.log(form.pictures);
       form.video = video;
 
       this.advertisementForm.get('pictures').setValue(this.imagesUrl);
