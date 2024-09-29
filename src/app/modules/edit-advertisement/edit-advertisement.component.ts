@@ -256,35 +256,29 @@ export class EditAdvertisementComponent
 
     this.cityListService.getCityList().subscribe(
       (data) => {
-        this.cityList = data; // Assuming `data` is an array of city objects
+        this.cityList = data;
 
-        // Create a Set to track unique city names
         const uniqueCityNames = new Set<string>();
         const uniqueCityList = this.cityList.filter(
           (element: { city_name_he: string }) => {
             if (!uniqueCityNames.has(element.city_name_he)) {
               uniqueCityNames.add(element.city_name_he);
-              return true; // Keep this element
+              return true;
             }
-            return false; // Skip this element
+            return false;
           }
         );
 
-        // Sort the unique city list alphabetically by city_name_he
         const sortedUniqueCityList = uniqueCityList.sort(
           (a: { city_name_he: string }, b: { city_name_he: string }) => {
-            const nameA = a.city_name_he.trim(); // Trim to remove extra spaces
+            const nameA = a.city_name_he.trim();
             const nameB = b.city_name_he.trim();
-            return nameA.localeCompare(nameB, 'he'); // Sort in Hebrew
+            return nameA.localeCompare(nameB, 'he');
           }
         );
 
-        // Now sortedUniqueCityList contains only unique cities, ordered alphabetically
-        console.log('Sorted unique city list:', sortedUniqueCityList);
-
-        // Print the unique city names
         sortedUniqueCityList.forEach((element: { city_name_he: string }) => {
-          console.log(element.city_name_he); // Print the city name in Hebrew
+          console.log(element.city_name_he);
         });
       },
       (error) => {

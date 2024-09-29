@@ -16,6 +16,7 @@ import { ModalStateService } from '../../services/modal-state.service';
 import { Router } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { InputsStyleService } from '../../services/inputs-style.service';
+import { CityListService } from '../../services/city-list.service';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -47,6 +48,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
   minPrice = 0;
   averagePrice = 0;
+  cityList: any;
   hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
   ClickBorderColors: string[] = ['#cccccc', '#cccccc', '#cccccc', '#cccccc'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
@@ -118,7 +120,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   constructor(
     private renderer: Renderer2,
     private zone: NgZone,
-    private modalstate: ModalStateService
+    private modalstate: ModalStateService,
+    private cityListService: CityListService
   ) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
@@ -275,6 +278,37 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       ],
       standardizationAccepted: [false],
     });
+
+    this.cityListService.getCityList().subscribe(
+      (data) => {
+        this.cityList = data;
+
+        const uniqueCityNames = new Set<string>();
+        const uniqueCityList = this.cityList.filter(
+          (element: { city_name_he: string }) => {
+            if (!uniqueCityNames.has(element.city_name_he)) {
+              uniqueCityNames.add(element.city_name_he);
+              return true;
+            }
+            return false;
+          }
+        );
+
+        const sortedUniqueCityList = uniqueCityList.sort(
+          (a: { city_name_he: string }, b: { city_name_he: string }) => {
+            const nameA = a.city_name_he.trim();
+            const nameB = b.city_name_he.trim();
+            return nameA.localeCompare(nameB, 'he');
+          }
+        );
+        sortedUniqueCityList.forEach((element: { city_name_he: string }) => {
+          console.log(element.city_name_he);
+        });
+      },
+      (error) => {
+        console.error('Error fetching city list', error);
+      }
+    );
   }
   openSuccessCreationModal() {
     const interval = setInterval(() => {
