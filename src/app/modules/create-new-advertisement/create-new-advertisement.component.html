@@ -245,13 +245,34 @@
       <div class="input-container">
         <label class="small-text" for="city">ישוב*</label>
         <input
-          class="input large"
+          class="input large city-Input"
           id="city"
+          #cityInput
           [value]="authService.user.getValue()?.city"
           formControlName="city"
           placeholder="  איפה נמצא הנכס?"
+          (focus)="this.isCityDropdownHidden = true"
         />
         <div id="city-error" class="error-text">שדה חובה</div>
+        <div class="select-option">
+          @if(this.isCityDropdownHidden){
+          <div
+            *ngFor="
+              let item of getFirst10CitiesContainingSubstring(
+                cityList,
+                cityInput.value,
+                'city_name_he'
+              );
+              let i = index
+            "
+          >
+            <div>
+              {{ item.city_name_he }}
+            </div>
+          </div>
+
+          }
+        </div>
       </div>
       <div class="input-container">
         <label class="small-text" for="street">רחוב*</label>

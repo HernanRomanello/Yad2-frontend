@@ -42,6 +42,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   formBuilder = inject(FormBuilder);
   isAssetTypeDropdownHidden = false;
   isNumberOfPaymentsTypeDropdownHidden = false;
+  isCityDropdownHidden = false;
   isAssetAssetstateDropdownHidden = false;
   isAssetAssetOwnerDropdownHidden = false;
   isRoomsDropdownHidden = false;
@@ -133,20 +134,31 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           return;
         }
 
+        if (clickedElement.classList.contains('city-Input')) {
+          this.isCityDropdownHidden = true;
+        } else {
+          this.isCityDropdownHidden = false;
+        }
+
         this.zone.run(() => {
-          this.isAssetTypeDropdownHidden = false;
-          this.isAssetAssetstateDropdownHidden = false;
-          this.isRoomsDropdownHidden = false;
-          this.isNumberOfPaymentsTypeDropdownHidden = false;
-          this.isAssetAssetOwnerDropdownHidden = false;
-          this.rotateArrowAssetState('assetState');
-          this.rotateArrowAssetType('assetType');
-          this.rotateArrowRooms('rooms');
-          this.rotateArrowNumberOfPayments('numberOfPayments');
-          this.rotateArrowAssetOwner('asset_owner');
+          this.resetAllDropdowns();
         });
       });
     });
+  }
+
+  resetAllDropdowns() {
+    this.isAssetTypeDropdownHidden = false;
+    this.isAssetAssetstateDropdownHidden = false;
+    this.isRoomsDropdownHidden = false;
+    this.isNumberOfPaymentsTypeDropdownHidden = false;
+    this.isAssetAssetOwnerDropdownHidden = false;
+    this.rotateArrowAssetState('assetState');
+    this.rotateArrowAssetType('assetType');
+    this.rotateArrowRooms('rooms');
+    this.rotateArrowNumberOfPayments('numberOfPayments');
+    this.rotateArrowAssetOwner('asset_owner');
+    // this.isCityDropdownHidden = false;
   }
 
   ngOnDestroy(): void {
@@ -333,7 +345,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     return cities.sort((a: City, b: City) => {
       const nameA = a.city_name_he.trim();
       const nameB = b.city_name_he.trim();
-      return nameB.localeCompare(nameA, 'he'); // Sort in Hebrew locale
+      return nameB.localeCompare(nameA, 'he');
     });
   }
 
