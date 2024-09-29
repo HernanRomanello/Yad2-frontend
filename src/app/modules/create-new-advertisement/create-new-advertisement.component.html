@@ -255,13 +255,14 @@
         />
         <div id="city-error" class="error-text">שדה חובה</div>
         <div class="select-option">
-          @if(this.isCityDropdownHidden){
+          @if(this.isCityDropdownHidden && cityInput.value.length > 0){
           <div
             *ngFor="
-              let item of getFirst10CitiesContainingSubstring(
+              let item of getFirstsCitiesContainingSubstring(
                 cityList,
                 cityInput.value,
-                'city_name_he'
+                'city_name_he',
+                10
               );
               let i = index
             "

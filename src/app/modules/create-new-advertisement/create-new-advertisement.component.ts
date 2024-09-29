@@ -301,10 +301,11 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
         console.log(
           'City list:',
-          this.getFirst10CitiesContainingSubstring(
+          this.getFirstsCitiesContainingSubstring(
             sortedUniqueCityList,
             'באר',
-            'city_name_he'
+            'city_name_he',
+            10
           )
         );
       },
@@ -325,10 +326,11 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     });
   }
 
-  getFirst10CitiesContainingSubstring(
+  getFirstsCitiesContainingSubstring(
     cities: City[],
     substring: string,
-    property: keyof City
+    property: keyof City,
+    resultsNumber: number
   ): City[] {
     return cities
       .filter((city) => {
@@ -338,7 +340,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           value.toLowerCase().includes(substring.toLowerCase())
         );
       })
-      .slice(0, 10);
+      .slice(0, resultsNumber);
   }
 
   sortCitiesByName(cities: City[]): City[] {
