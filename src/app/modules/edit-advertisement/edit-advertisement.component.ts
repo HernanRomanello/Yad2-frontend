@@ -16,6 +16,7 @@ import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { environment } from '../../../environments/environment.development';
+import { CityListService } from '../../services/city-list.service';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -64,6 +65,7 @@ export class EditAdvertisementComponent
   userEmailAddress = '';
   secondContactName = '';
   secondContactPhone = '';
+  cityList: any;
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
     'cube-escape-svgrepo-com',
@@ -129,7 +131,7 @@ export class EditAdvertisementComponent
   inputsStyleService = inject(InputsStyleService);
   imageuploadService = inject(ImageuploadService);
 
-  constructor(render: Renderer2) {
+  constructor(render: Renderer2, private cityListService: CityListService) {
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
       const clickOutsdieDropdown =
@@ -165,8 +167,6 @@ export class EditAdvertisementComponent
       }
     }
     this.imagesURLsForPosting.push('');
-
-    // console.log(this.advertisement.pictures);
 
     this.initialFormatNumberInForm();
   }
@@ -228,6 +228,10 @@ export class EditAdvertisementComponent
   changeImage(event: any, index: number) {
     const newImageUrl = this.onFileChange(event, index, index === 0);
 
+    this.cityList.forEach((element: { city_name_he: string }) => {
+      console.log(element.city_name_he);
+    });
+
     if (newImageUrl) {
       this.advertisement.pictures[index].url = newImageUrl;
     }
@@ -249,6 +253,44 @@ export class EditAdvertisementComponent
     this.authService.IsalternativeHeaderISOpen.next(true);
     this.authService.ISEditAdvertisementISOpen.next(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
+
+    this.cityListService.getCityList().subscribe(
+      (data) => {
+        this.cityList = data; // Assuming `data` is an array of city objects
+
+        // Create a Set to track unique city names
+        const uniqueCityNames = new Set<string>();
+        const uniqueCityList = this.cityList.filter(
+          (element: { city_name_he: string }) => {
+            if (!uniqueCityNames.has(element.city_name_he)) {
+              uniqueCityNames.add(element.city_name_he);
+              return true; // Keep this element
+            }
+            return false; // Skip this element
+          }
+        );
+
+        // Sort the unique city list alphabetically by city_name_he
+        const sortedUniqueCityList = uniqueCityList.sort(
+          (a: { city_name_he: string }, b: { city_name_he: string }) => {
+            const nameA = a.city_name_he.trim(); // Trim to remove extra spaces
+            const nameB = b.city_name_he.trim();
+            return nameA.localeCompare(nameB, 'he'); // Sort in Hebrew
+          }
+        );
+
+        // Now sortedUniqueCityList contains only unique cities, ordered alphabetically
+        console.log('Sorted unique city list:', sortedUniqueCityList);
+
+        // Print the unique city names
+        sortedUniqueCityList.forEach((element: { city_name_he: string }) => {
+          console.log(element.city_name_he); // Print the city name in Hebrew
+        });
+      },
+      (error) => {
+        console.error('Error fetching city list', error);
+      }
+    );
 
     this.route.params.subscribe((params) => {
       if (params['id']) {
@@ -440,24 +482,13 @@ export class EditAdvertisementComponent
 
   async handleSubmit() {
     try {
-      const uploadedImages = await this.uploadAllImages();
-      console.log('before this.advertisement.pictures');
-      // console.log(this.imagesURLs);
-      // console.log(this.mainImageURL);
-      // this.imagesURLsForPosting[0] = this.mainImageURL;
+      await this.uploadAllImages();
 
       var ImagesURLsForPosting = this.imagesURLsForPosting.filter(
         (url) => url !== ''
       );
       ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
       console.log(this.imagesURLsForPosting);
-
-      // ImagesURLsForPosting.forEach((url, index) => {
-      //   if (url === this.mainImageURL) {
-      //     //  this.advertisement.mainImage = url;
-      //     console.log('this.mainImageURL' + index + ' ' + url);
-      //   }
-      // });
 
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;
