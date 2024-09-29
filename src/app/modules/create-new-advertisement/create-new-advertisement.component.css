@@ -17,18 +17,7 @@
 }
 .dropdown-menu,
 .select-options,
-#city-option,
-.choice-note,
-.ad-images-box,
-.upload-card,
-textarea,
-.Feature,
-.option,
-.dropdown-item,
-.input,
-.return-btn,
-.continue-btn,
-.advertisement-selection {
+#city-option {
   background-color: rgb(255, 255, 255) !important;
 }
 
@@ -81,6 +70,7 @@ button {
   border: 1px solid rgb(204, 204, 204);
   font-weight: 400;
   border-radius: 10px;
+  background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
 }
@@ -108,6 +98,10 @@ button {
   display: flex;
   margin: auto;
   gap: 2rem;
+}
+
+.advertisement-selection {
+  background-color: rgb(255, 255, 255) !important;
 }
 
 .close-section,
@@ -206,9 +200,11 @@ form {
   font-weight: 600 !important;
   color: rgb(255, 113, 0, 0.8);
   border: 1px solid rgb(255, 113, 0);
+  background-color: rgb(255, 255, 255);
 }
 
 .return-btn {
+  background-color: rgb(255, 255, 255);
   background-repeat: repeat;
   border: 1px solid rgb(153, 153, 153, 0.5);
 }
@@ -238,6 +234,7 @@ form {
   font-size: 16px;
   line-height: 18.4px;
   font-weight: 400;
+  background-color: rgb(255, 255, 255) !important;
   color: rgb(54, 54, 54);
   height: 42px;
   border: 1px solid rgb(153, 153, 153, 0.7);
@@ -481,6 +478,7 @@ i.material-icons {
   font-size: 16px;
   font-weight: 400;
   line-height: 18.4px;
+  background-color: rgb(255, 255, 255);
   width: 250px;
   height: 42px;
   padding: 5px 12px;
@@ -507,6 +505,7 @@ i.material-icons {
 
 .option {
   line-height: 16.1px;
+  background-color: rgb(255, 255, 255);
   height: 42px;
   width: 67px;
   border: 1px solid #cccccc;
@@ -648,6 +647,7 @@ input[type="checkbox"]:checked::after {
 
 .Feature {
   line-height: 16.1px;
+  background-color: rgb(255, 255, 255);
   border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   height: 42px;
@@ -700,6 +700,7 @@ input[type="checkbox"]:checked::after {
 textarea {
   line-height: 18.4px;
   text-align: start;
+  background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   height: 157.906px;
   width: 398px;
@@ -842,6 +843,7 @@ textarea::placeholder {
   border-radius: 10px;
   width: 245.344px;
   height: 233px !important;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-header {
@@ -913,6 +915,7 @@ textarea::placeholder {
   direction: rtl;
   max-width: 900px !important;
   flex-wrap: wrap !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 
 mat-icon {
@@ -943,6 +946,7 @@ mat-icon {
 
 .choice-note {
   font-weight: 400;
+  background-color: rgb(255, 255, 255);
   height: 76px;
   width: 798px;
   border: 1px solid rgb(238, 238, 238);
