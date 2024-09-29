@@ -254,10 +254,10 @@
           (focus)="this.isCityDropdownHidden = true"
         />
         <div id="city-error" class="error-text">שדה חובה</div>
-        <ul class="select-options">
+        <div class="select-options">
           @if(this.isCityDropdownHidden && cityInput.value.length > 0){
-          <li
-            class="city-option"
+          <div
+            id="city-option"
             *ngFor="
               let item of getFirstsCitiesContainingSubstring(
                 cityList,
@@ -269,10 +269,10 @@
             "
           >
             {{ item.city_name_he }}
-          </li>
+          </div>
 
           }
-        </ul>
+        </div>
       </div>
       <div class="input-container">
         <label class="small-text" for="street">רחוב*</label>
