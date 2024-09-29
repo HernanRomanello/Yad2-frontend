@@ -285,13 +285,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
         const uniqueCityList = this.removeDuplicatesCities(this.cityList);
 
-        const sortedUniqueCityList = uniqueCityList.sort(
-          (a: { city_name_he: string }, b: { city_name_he: string }) => {
-            const nameA = a.city_name_he.trim();
-            const nameB = b.city_name_he.trim();
-            return nameA.localeCompare(nameB, 'he');
-          }
-        );
+        const sortedUniqueCityList = this.sortCitiesByName(uniqueCityList);
 
         console.log(
           'City list:',
