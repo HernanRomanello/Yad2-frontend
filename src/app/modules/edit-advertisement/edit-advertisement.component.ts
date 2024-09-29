@@ -16,7 +16,6 @@ import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { environment } from '../../../environments/environment.development';
-import { CityListService } from '../../services/city-list.service';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -131,7 +130,7 @@ export class EditAdvertisementComponent
   inputsStyleService = inject(InputsStyleService);
   imageuploadService = inject(ImageuploadService);
 
-  constructor(render: Renderer2, private cityListService: CityListService) {
+  constructor(render: Renderer2) {
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
       const clickOutsdieDropdown =
@@ -253,38 +252,6 @@ export class EditAdvertisementComponent
     this.authService.IsalternativeHeaderISOpen.next(true);
     this.authService.ISEditAdvertisementISOpen.next(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
-
-    this.cityListService.getCityList().subscribe(
-      (data) => {
-        this.cityList = data;
-
-        const uniqueCityNames = new Set<string>();
-        const uniqueCityList = this.cityList.filter(
-          (element: { city_name_he: string }) => {
-            if (!uniqueCityNames.has(element.city_name_he)) {
-              uniqueCityNames.add(element.city_name_he);
-              return true;
-            }
-            return false;
-          }
-        );
-
-        const sortedUniqueCityList = uniqueCityList.sort(
-          (a: { city_name_he: string }, b: { city_name_he: string }) => {
-            const nameA = a.city_name_he.trim();
-            const nameB = b.city_name_he.trim();
-            return nameA.localeCompare(nameB, 'he');
-          }
-        );
-
-        sortedUniqueCityList.forEach((element: { city_name_he: string }) => {
-          console.log(element.city_name_he);
-        });
-      },
-      (error) => {
-        console.error('Error fetching city list', error);
-      }
-    );
 
     this.route.params.subscribe((params) => {
       if (params['id']) {

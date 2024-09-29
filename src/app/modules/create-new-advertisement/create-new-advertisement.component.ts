@@ -16,7 +16,7 @@ import { ModalStateService } from '../../services/modal-state.service';
 import { Router } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { InputsStyleService } from '../../services/inputs-style.service';
-import { CityListService } from '../../services/city-list.service';
+import { City, CityListService } from '../../services/city-list.service';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -283,16 +283,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       (data) => {
         this.cityList = data;
 
-        const uniqueCityNames = new Set<string>();
-        const uniqueCityList = this.cityList.filter(
-          (element: { city_name_he: string }) => {
-            if (!uniqueCityNames.has(element.city_name_he)) {
-              uniqueCityNames.add(element.city_name_he);
-              return true;
-            }
-            return false;
-          }
-        );
+        const uniqueCityList = this.removeDuplicatesCities(this.cityList);
 
         const sortedUniqueCityList = uniqueCityList.sort(
           (a: { city_name_he: string }, b: { city_name_he: string }) => {
@@ -301,15 +292,57 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
             return nameA.localeCompare(nameB, 'he');
           }
         );
-        sortedUniqueCityList.forEach((element: { city_name_he: string }) => {
-          console.log(element.city_name_he);
-        });
+
+        console.log(
+          'City list:',
+          this.getFirst10CitiesContainingSubstring(
+            sortedUniqueCityList,
+            'באר',
+            'city_name_he'
+          )
+        );
       },
       (error) => {
         console.error('Error fetching city list', error);
       }
     );
   }
+
+  removeDuplicatesCities(cities: City[]): City[] {
+    const uniqueCityNames = new Set<string>();
+    return cities.filter((element: City) => {
+      if (!uniqueCityNames.has(element.city_name_he)) {
+        uniqueCityNames.add(element.city_name_he);
+        return true;
+      }
+      return false;
+    });
+  }
+
+  getFirst10CitiesContainingSubstring(
+    cities: City[],
+    substring: string,
+    property: keyof City
+  ): City[] {
+    return cities
+      .filter((city) => {
+        const value = city[property];
+        return (
+          typeof value === 'string' &&
+          value.toLowerCase().includes(substring.toLowerCase())
+        );
+      })
+      .slice(0, 10);
+  }
+
+  sortCitiesByName(cities: City[]): City[] {
+    return cities.sort((a: City, b: City) => {
+      const nameA = a.city_name_he.trim();
+      const nameB = b.city_name_he.trim();
+      return nameB.localeCompare(nameA, 'he'); // Sort in Hebrew locale
+    });
+  }
+
   openSuccessCreationModal() {
     const interval = setInterval(() => {
       clearInterval(interval);
