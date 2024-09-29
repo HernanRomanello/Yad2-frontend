@@ -17,12 +17,13 @@
 }
 .dropdown-menu,
 .select-options,
-#city-option {
+#city-option,
+.dropdown-item {
   background-color: rgb(255, 255, 255) !important;
 }
 
 #city-option {
-  width: 260px !important;
+  width: 270px !important;
 }
 
 .check-circle {
@@ -54,8 +55,13 @@
 .check-input input[type="checkbox"],
 input[type="checkbox"],
 .option,
-button {
+button,
+#city-option {
   cursor: pointer;
+}
+
+input[matAutocomplete] {
+  display: none;
 }
 
 .hide {
@@ -475,14 +481,20 @@ i.material-icons {
 }
 
 .dropdown-item {
-  font-size: 16px;
-  font-weight: 400;
   line-height: 18.4px;
-  background-color: rgb(255, 255, 255);
   width: 250px;
+}
+.dropdown-item,
+#city-option {
   height: 42px;
+}
+.dropdown-item,
+#city-option {
   padding: 5px 12px;
-  min-height: 42px;
+}
+.dropdown-item,
+#city-option {
+  font-weight: 400;
 }
 
 .asset {
@@ -773,10 +785,15 @@ textarea::placeholder {
   text-align: right;
   line-height: 18.4px;
   font-weight: 400;
-  font-size: 16px;
   height: 42px;
   width: 270px !important;
   padding: 0px 1px 0px 0px;
+}
+
+.dropdown-item,
+#city-option,
+.date-input {
+  font-size: 16px;
 }
 
 .date-input {
