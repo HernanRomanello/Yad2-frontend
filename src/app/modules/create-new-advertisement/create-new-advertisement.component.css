@@ -32,6 +32,16 @@
 .dropdown-menu li,
 .select-options li {
   padding: 8px 12px;
+}
+.dropdown-menu li,
+.select-options
+  li
+  .svg-iconת.post-btnת.remove-add-contactת.file-inputת.Featureת.checkbox-input
+  input[type="checkbox"],
+.check-input input[type="checkbox"],
+input[type="checkbox"],
+.option,
+button {
   cursor: pointer;
 }
 
@@ -50,7 +60,6 @@
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  cursor: pointer;
 }
 
 .type-pic {
@@ -350,10 +359,6 @@ form {
   color: #cccccc;
 }
 
-button {
-  cursor: pointer;
-}
-
 .nano-text {
   font-size: 11px;
   line-height: 13px;
@@ -495,7 +500,6 @@ i.material-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 
 .option:hover,
@@ -566,7 +570,6 @@ input[type="checkbox"] {
   border: 1px solid lightgray;
   border-radius: 2px;
   position: relative;
-  cursor: pointer;
 }
 
 .checkbox {
@@ -638,7 +641,6 @@ input[type="checkbox"]:checked::after {
   width: 189px;
   padding: 12px 12px;
   vertical-align: middle !important;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -866,7 +868,6 @@ textarea::placeholder {
   z-index: 100;
   color: transparent;
   opacity: 1;
-  cursor: pointer;
   display: block;
   margin: 20% auto;
 }
@@ -913,7 +914,6 @@ mat-icon {
 }
 
 .remove-add-contact {
-  cursor: pointer;
   display: flex;
   text-align: right;
   direction: rtl;
@@ -1021,7 +1021,6 @@ mat-icon {
   line-height: 20.7px;
   height: 48px;
   padding: 24px 0px 24px 0px;
-  cursor: pointer;
   border-radius: 30px;
   width: 155.266px;
   display: flex;
@@ -1065,7 +1064,6 @@ mat-icon {
 .svg-icon {
   width: 24px;
   height: 24px;
-  cursor: pointer;
 }
 
 .border-invalid {
