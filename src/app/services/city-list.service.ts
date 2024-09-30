@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CityListService {
-  private fileUrl = 'assets/json/cityLists.txt'; // Path to your file
+  private fileUrl = 'assets/json/cityLists.txt';
 
   constructor(private http: HttpClient) {}
 

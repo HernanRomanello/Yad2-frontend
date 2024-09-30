@@ -165,6 +165,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.authService.IsalternativeHeaderISOpen.next(false);
     this.authService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
+    this.cityListService.getCityList().subscribe().unsubscribe();
   }
 
   assetTypes = [
@@ -294,25 +295,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.cityListService.getCityList().subscribe(
       (data) => {
         this.cityList = data;
-
-        const uniqueCityList = this.removeDuplicatesCities(this.cityList);
-
-        const sortedUniqueCityList = this.sortCitiesByName(uniqueCityList);
-
-        console.log(
-          'City list:',
-          this.getFirstsCitiesContainingSubstring(
-            sortedUniqueCityList,
-            'באר',
-            'city_name_he',
-            10
-          )
-        );
       },
       (error) => {
         console.error('Error fetching city list', error);
       }
     );
+    this.cityList = this.cityListService.getCityList();
   }
 
   removeDuplicatesCities(cities: City[]): City[] {
