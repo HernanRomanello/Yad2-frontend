@@ -16,7 +16,11 @@ import { ModalStateService } from '../../services/modal-state.service';
 import { Router } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { InputsStyleService } from '../../services/inputs-style.service';
-import { City, CityListService } from '../../services/city-list.service';
+import {
+  City,
+  CityListService,
+  Street,
+} from '../../services/city-list.service';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -43,6 +47,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   isAssetTypeDropdownHidden = false;
   isNumberOfPaymentsTypeDropdownHidden = false;
   isCityDropdownHidden = false;
+  isStreetDropdownHidden = false;
   isAssetAssetstateDropdownHidden = false;
   isAssetAssetOwnerDropdownHidden = false;
   isRoomsDropdownHidden = false;
@@ -119,6 +124,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     '12.5',
   ];
 
+  areas: any[] = [];
+  errorMessage: string | null = null;
+
   constructor(
     private renderer: Renderer2,
     private zone: NgZone,
@@ -159,7 +167,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.rotateArrowRooms('rooms');
     this.rotateArrowNumberOfPayments('numberOfPayments');
     this.rotateArrowAssetOwner('asset_owner');
-    // this.isCityDropdownHidden = false;
   }
 
   ngOnDestroy(): void {
@@ -305,15 +312,26 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.cityListService.getStreetList().subscribe(
       (data) => {
         this.cityData = data;
-        // console.log(this.cityData);
-        console.log(
-          this.cityListService.getStreetListByCity('אבו גוש', this.cityData)
-        );
       },
       (error) => {
         console.error('Error fetching street list', error);
       }
     );
+
+    const cityNameHe = 'תל אביב'; // City name in Hebrew
+    const resourceId = 'YOUR_RESOURCE_ID'; // Replace with your resource ID
+
+    this.cityListService.getAreaByCityName(cityNameHe, resourceId).subscribe({
+      next: (data) => {
+        if (data && data.result && data.result.records) {
+          this.areas = data.result.records; // Store the areas
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching area data:', err);
+        this.errorMessage = 'Error fetching data. Please try again later.';
+      },
+    });
   }
 
   removeDuplicatesCities(cities: City[]): City[] {
@@ -325,6 +343,24 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       }
       return false;
     });
+  }
+
+  getStreetSuggestions(
+    city: string,
+    substring: string,
+    streets: Street[],
+    resultsNumber: number
+  ): Street[] {
+    return this.cityListService
+      .getStreetListByCity(city, streets)
+      .filter((street) => {
+        const value = street.Street_Name;
+        return (
+          typeof value === 'string' &&
+          value.toLowerCase().includes(substring.toLowerCase())
+        );
+      })
+      .slice(0, resultsNumber);
   }
 
   getFirstsCitiesContainingSubstring(

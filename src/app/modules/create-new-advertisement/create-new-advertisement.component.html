@@ -281,12 +281,35 @@
         <input
           class="input large"
           id="street"
+          #streetInput
           [value]="authService.user.getValue()?.street"
           formControlName="street"
           placeholder="  הכנס שם הרחוב"
           autocomplete="off"
+          (focus)="this.isStreetDropdownHidden = true"
         />
         <div id="street-error" class="error-text">שדה חובה</div>
+        <div class="select-options">
+          @if(this.isStreetDropdownHidden && streetInput.value.length > 1){
+          <div
+            id="city-option"
+            *ngFor="
+              let item of getStreetSuggestions(
+                cityInput.value,
+                streetInput.value,
+                this.cityData,
+                4
+              );
+              let i = index
+            "
+            (click)="advertisementForm.get('street').setValue(item.Street_Name)"
+          >
+            {{ item.Street_Name }}
+          </div>
+
+          }
+        </div>
+
         <div class="nano-text">
           לא ניתן יהיה לעדכן את שם הרחוב לאחר פרסום המודעה
         </div>

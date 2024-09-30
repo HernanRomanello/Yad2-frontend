@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 
@@ -10,11 +10,19 @@ export class CityListService {
   private fileUrl = 'assets/json/cityLists.txt';
   private fileUrlgovAPIUrl = 'assets/json/StreetLists.txt';
   govAPIUrl = environment.dataGovApiUrl;
+  // private apiUrl = 'https://data.gov.il/api/3/action/datastore_search';
 
   constructor(private http: HttpClient) {}
 
   getCityList(): Observable<any> {
     return this.http.get<City[]>(this.fileUrl, { responseType: 'json' });
+  }
+
+  getAreaByCityName(cityNameHe: string, resourceId: string): Observable<any> {
+    const filters = JSON.stringify({ city_name_he: cityNameHe });
+    const url = `${this.govAPIUrl}?resource_id=${resourceId}&filters=${filters}`;
+
+    return this.http.get<any>(url);
   }
 
   getStreetList(): Observable<any> {
@@ -25,19 +33,6 @@ export class CityListService {
 
   getStreetListByCity(city: string, streetList: Street[]): Street[] {
     return streetList.filter((s) => s.City_Name === city);
-  }
-
-  getCityDataFromAPI(): Observable<any> {
-    const resourceId = 'your_resource_id_here'; // Replace with actual resource_id
-    const query = 'אבו גוש'; // Hebrew for "Abu Ghosh"
-
-    // Set query parameters for the API call
-    const params = new HttpParams()
-      .set('resource_id', resourceId)
-      .set('q', query);
-
-    // Make the HTTP GET request
-    return this.http.get<any>(this.govAPIUrl, { params });
   }
 }
 export interface City {
