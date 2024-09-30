@@ -346,7 +346,14 @@ input::placeholder {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: not-allowed;
+  background-color: rgb(248, 248, 248) !important;
+}
+
+.not-allowed,
+.average-price {
+  cursor: not-allowed !important;
+}
+.not-allowed {
   background-color: rgb(248, 248, 248) !important;
 }
 
@@ -454,10 +461,6 @@ input::placeholder {
 input[type="checkbox"] {
   width: 16px;
   height: 16px;
-}
-
-.not-allowed {
-  cursor: not-allowed !important;
 }
 
 .center input::placeholder {
