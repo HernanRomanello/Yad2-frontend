@@ -86,13 +86,6 @@ input[matAutocomplete] {
   height: 100px;
 }
 
-.btn-text1 {
-  line-height: 18.4px;
-  font-weight: 600;
-  font-size: 16px;
-  opacity: 0.65 !important;
-}
-
 .btn-text2 {
   line-height: 16.1px;
   font-weight: 400;
@@ -243,10 +236,53 @@ form {
   background-color: rgb(255, 255, 255) !important;
   color: rgb(54, 54, 54);
   height: 42px;
-  border: 1px solid rgb(153, 153, 153, 0.7);
   border-radius: 4px;
   direction: rtl;
   padding-right: 20px !important;
+}
+
+.btn-text1 {
+  line-height: 18.4px;
+  font-weight: 600;
+  opacity: 0.65 !important;
+}
+
+.date-input {
+  text-align: right;
+  line-height: 18.4px;
+  font-weight: 400;
+  height: 42px;
+  width: 270px;
+  padding: 10px;
+  border: 1px solid rgb(153, 153, 153, 0.5);
+  border-radius: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.dropdown-item,
+#city-option,
+.date-input,
+.input,
+.btn-text1,
+.date-input,
+.dropdown-btn,
+input::placeholder {
+  font-size: 16px;
+}
+
+.dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+input::placeholder {
+  color: rgb(136, 136, 136, 0.7);
+  padding: 0.5rem;
 }
 
 .input::placeholder {
@@ -266,6 +302,11 @@ form {
 .input:focus {
   border: 1px solid rgb(54, 54, 54) !important;
   outline: none !important;
+}
+
+.not-allowed:focus,
+.input {
+  border: 1px solid rgb(153, 153, 153, 0.7) !important;
 }
 
 .large {
@@ -415,12 +456,6 @@ input[type="checkbox"] {
   height: 16px;
 }
 
-input::placeholder {
-  color: rgb(136, 136, 136, 0.7);
-  padding: 0.5rem;
-  font-size: 16px;
-}
-
 .not-allowed {
   cursor: not-allowed !important;
 }
@@ -459,15 +494,6 @@ input::placeholder {
   justify-content: space-between;
   align-items: center;
   padding: 1px 2px;
-}
-.dropdown-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  font-size: 16px;
 }
 
 #section-title-container3 {
@@ -789,26 +815,6 @@ textarea::placeholder {
   height: 42px;
   width: 270px !important;
   padding: 0px 1px 0px 0px;
-}
-
-.dropdown-item,
-#city-option,
-.date-input {
-  font-size: 16px;
-}
-
-.date-input {
-  text-align: right;
-  line-height: 18.4px;
-  font-weight: 400;
-  font-size: 16px;
-  height: 42px;
-  width: 270px;
-  padding: 10px;
-  border: 1px solid rgb(153, 153, 153, 0.5);
-  border-radius: 4px;
-  -webkit-appearance: none;
-  appearance: none;
 }
 
 .date-input:hover {
