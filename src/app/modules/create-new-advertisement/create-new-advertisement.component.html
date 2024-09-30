@@ -252,6 +252,7 @@
           formControlName="city"
           placeholder="  איפה נמצא הנכס?"
           (focus)="this.isCityDropdownHidden = true"
+          autocomplete="off"
         />
         <div id="city-error" class="error-text">שדה חובה</div>
         <div class="select-options">
@@ -282,6 +283,7 @@
           [value]="authService.user.getValue()?.street"
           formControlName="street"
           placeholder="  הכנס שם הרחוב"
+          autocomplete="off"
         />
         <div id="street-error" class="error-text">שדה חובה</div>
         <div class="nano-text">
@@ -299,6 +301,7 @@
             [value]="authService.user.getValue()?.houseNumber"
             formControlName="number"
             placeholder="  מספר בית"
+            autocomplete="off"
           />
         </div>
         <div class="input-container">
