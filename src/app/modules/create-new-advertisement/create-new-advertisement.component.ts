@@ -50,6 +50,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   minPrice = 0;
   averagePrice = 0;
   cityList: any;
+  cityData: any;
   hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
   ClickBorderColors: string[] = ['#cccccc', '#cccccc', '#cccccc', '#cccccc'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
@@ -300,7 +301,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         console.error('Error fetching city list', error);
       }
     );
-    this.cityList = this.cityListService.getCityList();
+
+    this.cityListService.getStreetList().subscribe(
+      (data) => {
+        this.cityData = data;
+        // console.log(this.cityData);
+        console.log(
+          this.cityListService.getStreetListByCity('אבו גוש', this.cityData)
+        );
+      },
+      (error) => {
+        console.error('Error fetching street list', error);
+      }
+    );
   }
 
   removeDuplicatesCities(cities: City[]): City[] {
