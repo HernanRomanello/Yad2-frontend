@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -9,20 +8,11 @@ import { environment } from '../../environments/environment.development';
 export class CityListService {
   private fileUrl = 'assets/json/cityLists.txt';
   private fileUrlgovAPIUrl = 'assets/json/StreetLists.txt';
-  govAPIUrl = environment.dataGovApiUrl;
-  // private apiUrl = 'https://data.gov.il/api/3/action/datastore_search';
 
   constructor(private http: HttpClient) {}
 
   getCityList(): Observable<any> {
     return this.http.get<City[]>(this.fileUrl, { responseType: 'json' });
-  }
-
-  getAreaByCityName(cityNameHe: string, resourceId: string): Observable<any> {
-    const filters = JSON.stringify({ city_name_he: cityNameHe });
-    const url = `${this.govAPIUrl}?resource_id=${resourceId}&filters=${filters}`;
-
-    return this.http.get<any>(url);
   }
 
   getStreetList(): Observable<any> {

@@ -251,7 +251,12 @@
           [value]="authService.user.getValue()?.city"
           formControlName="city"
           placeholder="  איפה נמצא הנכס?"
-          (focus)="this.isCityDropdownHidden = true"
+          (focus)="
+            this.isCityDropdownHidden = true;
+            advertisementForm.get('city').setValue(cityInput.value)
+          "
+          (keydown)="this.eraseInputValue('city', $event)"
+          (keyup)="this.checkIfValidCity(cityInput.value, 'city', $event)"
           autocomplete="off"
         />
         <div id="city-error" class="error-text">שדה חובה</div>
@@ -259,6 +264,7 @@
           @if(this.isCityDropdownHidden && cityInput.value.length > 0){
           <div
             id="city-option"
+            #cityOption
             *ngFor="
               let item of getFirstsCitiesContainingSubstring(
                 cityList,

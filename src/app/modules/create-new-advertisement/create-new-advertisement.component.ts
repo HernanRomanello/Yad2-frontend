@@ -8,7 +8,13 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../../services/user/auth.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { afterNextRender } from '@angular/core';
@@ -60,6 +66,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   ClickBorderColors: string[] = ['#cccccc', '#cccccc', '#cccccc', '#cccccc'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
   chosenTradeType: string = '';
+  isFormHasvalidStreetAddress: boolean = false;
+  isFormHasvalidCityAddress: boolean = false;
   isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
   isFormPagesAreCompleted: boolean[] = [
     false,
@@ -179,6 +187,37 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.authService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
     this.cityListService.getCityList().subscribe().unsubscribe();
+    this.cityListService.getStreetList().subscribe().unsubscribe();
+  }
+
+  checkIfValidCity(city: string, id: string, event: any): void {
+    const CityName = city;
+    if (this.isFormHasvalidCityAddress === true) {
+      // alert(event.key);
+    }
+    const validCity = this.cityList.find(
+      (city: City) => city.city_name_he === CityName
+    );
+    // alert(event.key);
+    // alert('ValidCity' + validCity.city_name_he);
+    if (validCity) {
+      this.isFormHasvalidCityAddress = true;
+      // alert('true');
+    } else {
+      this.isFormHasvalidCityAddress = false;
+    }
+  }
+
+  eraseInputValue(id: string, event: any): void {
+    if (this.isFormHasvalidCityAddress === true) {
+      if (event.key === 'Backspace') {
+        const input = document.getElementById(id) as HTMLInputElement;
+        if (input) {
+          input.value = '';
+          this.isFormHasvalidCityAddress = false;
+        }
+      }
+    }
   }
 
   assetTypes = [
@@ -212,11 +251,14 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.authService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('create-new-advertisement');
     this.advertisementForm = this.formBuilder.group({
-      city: [this.authService.user.getValue()?.city || '', Validators.required],
+      city: [
+        this.authService.user.getValue()?.city || '',
+        [Validators.required, this.isValidCityName.bind(this)],
+      ],
       tradeType: ['', Validators.required],
       street: [
         this.authService.user.getValue()?.street || '',
-        Validators.required,
+        [Validators.required, this.isValidStreetName.bind(this)],
       ],
       number: [
         this.authService.user.getValue()?.houseNumber || '',
@@ -322,32 +364,34 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         console.error('Error fetching street list', error);
       }
     );
-
-    const cityNameHe = 'תל אביב'; // City name in Hebrew
-    const resourceId = 'YOUR_RESOURCE_ID'; // Replace with your resource ID
-
-    this.cityListService.getAreaByCityName(cityNameHe, resourceId).subscribe({
-      next: (data) => {
-        if (data && data.result && data.result.records) {
-          this.areas = data.result.records; // Store the areas
-        }
-      },
-      error: (err) => {
-        console.error('Error fetching area data:', err);
-        this.errorMessage = 'Error fetching data. Please try again later.';
-      },
-    });
   }
 
-  removeDuplicatesCities(cities: City[]): City[] {
-    const uniqueCityNames = new Set<string>();
-    return cities.filter((element: City) => {
-      if (!uniqueCityNames.has(element.city_name_he)) {
-        uniqueCityNames.add(element.city_name_he);
-        return true;
-      }
-      return false;
-    });
+  isValidStreetName(control: AbstractControl): ValidationErrors | null {
+    const StreetName = control.value;
+    const ValidStreetName: boolean = true;
+    // const validStreet = this.cityData.find(
+    //   (street: Street) => this.cityData.streetName == StreetName
+    // );
+    // console.log(validStreet.streetName);
+
+    return ValidStreetName === true ? null : { invalidStreetName: true };
+  }
+  isValidCityName(): ValidationErrors | null {
+    // Find the city by its Hebrew name
+
+    // If validCity is found and has a valid name length, it's a valid city
+    // if (true) {
+    //   return null;
+    // }
+    // if (validCity && validCity.city_name_he.length > 1) {
+    //   return null;
+    // }
+    // const ValidStreetName: boolean = true;
+    // If not found or invalid length, return an error
+    // return { invalidCityName: true };
+    const validCity = this.isFormHasvalidCityAddress;
+    console.log(this.isFormHasvalidCityAddress);
+    return validCity === true ? null : { invalidCityName: null };
   }
 
   getStreetSuggestions(
@@ -383,14 +427,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         );
       })
       .slice(0, resultsNumber);
-  }
-
-  sortCitiesByName(cities: City[]): City[] {
-    return cities.sort((a: City, b: City) => {
-      const nameA = a.city_name_he.trim();
-      const nameB = b.city_name_he.trim();
-      return nameB.localeCompare(nameA, 'he');
-    });
   }
 
   openSuccessCreationModal() {
@@ -629,14 +665,22 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   async handleSubmit() {
     this.defineAssetState();
+    const cityControl = this.advertisementForm.get('city');
+    if (cityControl) {
+      cityControl.setErrors({ invalid: true }); // Mark the control as invalid without specifying the validator name
+      cityControl.markAsTouched(); // Optionally mark the control as touched to trigger error display
+    }
     const form = this.advertisementForm.value;
+    const city1 = 'גבעתיים';
+
+    // alert('ValidCity' + validCity.city_name_he);
 
     try {
       form.assetState = this.asset_State;
       const uploadedImages = await this.uploadAllImages();
       const video = await this.uploadVideo();
       form.pictures = uploadedImages;
-      console.log(form.pictures);
+      // console.log(form.pictures);
       form.video = video;
 
       this.advertisementForm.get('pictures').setValue(this.imagesUrl);
@@ -652,7 +696,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
       if (this.advertisementForm.valid) {
       } else {
-        this.checkFormValidation();
+        // this.checkFormValidation();
       }
     } catch (error) {
       console.error('Failed to submit advertisement', error);
@@ -959,7 +1003,10 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       const element = document.getElementById(field);
       const elementErrorText = document.getElementById(`${field}-error`);
 
-      if (!fieldControl.valid) {
+      if (
+        !fieldControl.valid ||
+        (field === 'city' && !this.isFormHasvalidCityAddress)
+      ) {
         if (element && elementErrorText) {
           element.classList.add('border-invalid');
           elementErrorText.classList.add('display-block');
