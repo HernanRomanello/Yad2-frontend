@@ -983,23 +983,69 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       const element = document.getElementById(field);
       const elementErrorText = document.getElementById(`${field}-error`);
 
-      if (
-        !fieldControl.valid ||
-        (field === 'city' && !this.isFormHasvalidCityAddress) ||
-        (field === 'street' && !this.isFormHasvalidStreetAddress)
-      ) {
-        if (element && elementErrorText) {
-          element.classList.add('border-invalid');
-          elementErrorText.classList.add('display-block');
-        }
-
-        validForm = false;
+      // (field === 'city' && !this.isFormHasvalidCityAddress) ||
+      // (field === 'street' && !this.isFormHasvalidStreetAddress)
+      if (!(field === 'city' || field === 'street')) {
+        validForm = this.markErrorIfInvalidInput(
+          fieldControl,
+          element,
+          elementErrorText,
+          validForm
+        );
       } else {
-        if (element && elementErrorText) {
-          element.classList.remove('border-invalid');
-          elementErrorText.classList.remove('display-block');
+        if (
+          (this.isFormHasvalidCityAddress === true && field === 'city') ||
+          this.isFormHasvalidStreetAddress === true
+        ) {
+          this.removeRedBorder(element, elementErrorText);
+          if (this.isFormHasvalidCityAddress === false && field === 'city') {
+            validForm = this.markRedBorder(
+              element,
+              elementErrorText,
+              validForm
+            );
+          }
+        } else {
+          validForm = this.markRedBorder(element, elementErrorText, validForm);
         }
       }
+    }
+    return validForm;
+  }
+
+  private markErrorIfInvalidInput(
+    fieldControl: any,
+    element: HTMLElement | null,
+    elementErrorText: HTMLElement | null,
+    validForm: boolean
+  ) {
+    if (!fieldControl.valid) {
+      validForm = this.markRedBorder(element, elementErrorText, validForm);
+    } else {
+      this.removeRedBorder(element, elementErrorText);
+    }
+    return validForm;
+  }
+
+  private removeRedBorder(
+    element: HTMLElement | null,
+    elementErrorText: HTMLElement | null
+  ) {
+    if (element && elementErrorText) {
+      element.classList.remove('border-invalid');
+      elementErrorText.classList.remove('display-block');
+    }
+  }
+
+  private markRedBorder(
+    element: HTMLElement | null,
+    elementErrorText: HTMLElement | null,
+    validForm: boolean
+  ) {
+    if (element && elementErrorText) {
+      element.classList.add('border-invalid');
+      elementErrorText.classList.add('display-block');
+      validForm = false;
     }
     return validForm;
   }
