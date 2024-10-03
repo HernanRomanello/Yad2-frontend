@@ -370,7 +370,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
   isValidCityName(): ValidationErrors | null {
     const validCity = this.isFormHasvalidCityAddress;
-    console.log(this.isFormHasvalidCityAddress);
+    console.log(this.isFormHasvalidCityAddress + 'city');
     return validCity === true ? null : { invalidCityName: null };
   }
 

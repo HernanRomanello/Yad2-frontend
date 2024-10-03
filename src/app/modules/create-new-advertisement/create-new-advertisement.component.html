@@ -276,7 +276,8 @@
             "
             (click)="
               advertisementForm.get('city').setValue(item.city_name_he);
-              this.checkIfValidCity(item.city_name_he.valueOf())
+              this.checkIfValidCity(item.city_name_he);
+              advertisementForm.get('city').setValue(item.city_name_he)
             "
           >
             {{ item.city_name_he }}
