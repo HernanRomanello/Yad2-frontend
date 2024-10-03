@@ -190,20 +190,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.cityListService.getStreetList().subscribe().unsubscribe();
   }
 
-  checkIfValidCity(city: string): void {
-    const CityName = city;
-    if (this.isFormHasvalidCityAddress === true) {
-    }
-    const validCity = this.cityList.find(
-      (city: City) => city.city_name_he === CityName
-    );
-    if (validCity) {
-      this.isFormHasvalidCityAddress = true;
-    } else {
-      this.isFormHasvalidCityAddress = false;
-    }
-  }
-
   eraseInputValue(id: string, event: any): void {
     if (this.isFormHasvalidCityAddress === true) {
       if (event.key === 'Backspace') {
@@ -361,6 +347,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       }
     );
   }
+  checkIfValidCity(city: string): void {
+    const CityName = city;
+    if (this.isFormHasvalidCityAddress === true) {
+    }
+    const validCity = this.cityList.find(
+      (city: City) => city.city_name_he === CityName
+    );
+
+    this.isFormHasvalidCityAddress = validCity ? true : false;
+  }
 
   isValidStreetName(control: AbstractControl): ValidationErrors | null {
     const StreetName = control.value;
@@ -373,18 +369,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     return ValidStreetName === true ? null : { invalidStreetName: true };
   }
   isValidCityName(): ValidationErrors | null {
-    // Find the city by its Hebrew name
-
-    // If validCity is found and has a valid name length, it's a valid city
-    // if (true) {
-    //   return null;
-    // }
-    // if (validCity && validCity.city_name_he.length > 1) {
-    //   return null;
-    // }
-    // const ValidStreetName: boolean = true;
-    // If not found or invalid length, return an error
-    // return { invalidCityName: true };
     const validCity = this.isFormHasvalidCityAddress;
     console.log(this.isFormHasvalidCityAddress);
     return validCity === true ? null : { invalidCityName: null };
@@ -663,20 +647,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.defineAssetState();
     const cityControl = this.advertisementForm.get('city');
     if (cityControl) {
-      cityControl.setErrors({ invalid: true }); // Mark the control as invalid without specifying the validator name
-      cityControl.markAsTouched(); // Optionally mark the control as touched to trigger error display
+      cityControl.setErrors({ invalid: true });
+      cityControl.markAsTouched();
     }
     const form = this.advertisementForm.value;
-    const city1 = 'גבעתיים';
-
-    // alert('ValidCity' + validCity.city_name_he);
 
     try {
       form.assetState = this.asset_State;
       const uploadedImages = await this.uploadAllImages();
       const video = await this.uploadVideo();
       form.pictures = uploadedImages;
-      // console.log(form.pictures);
       form.video = video;
 
       this.advertisementForm.get('pictures').setValue(this.imagesUrl);
@@ -690,10 +670,10 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
       this.authService.postNewAdvertisement(form);
 
-      if (this.advertisementForm.valid) {
-      } else {
-        // this.checkFormValidation();
-      }
+      // if (this.advertisementForm.valid) {
+      // } else {
+      //   this.checkFormValidation();
+      // }
     } catch (error) {
       console.error('Failed to submit advertisement', error);
     }
