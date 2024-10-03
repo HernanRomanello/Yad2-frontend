@@ -255,7 +255,9 @@
             this.isCityDropdownHidden = true;
             advertisementForm.get('city').setValue(cityInput.value)
           "
-          (keydown)="this.eraseInputValue('city', $event)"
+          (keydown)="
+            this.eraseInputValue('city', $event, this.isFormHasvalidCityAddress)
+          "
           (keyup)="this.checkIfValidCity(cityInput.value)"
           autocomplete="off"
         />
@@ -296,13 +298,21 @@
           formControlName="street"
           placeholder="  הכנס שם הרחוב"
           autocomplete="off"
+          (keyup)="this.checkIfValidStreet(streetInput.value)"
+          (keydown)="
+            this.eraseInputValue(
+              'street',
+              $event,
+              this.isFormHasvalidStreetAddress
+            )
+          "
           (focus)="this.isStreetDropdownHidden = true"
         />
         <div id="street-error" class="error-text">שדה חובה</div>
         <div class="select-options">
           @if(this.isStreetDropdownHidden && streetInput.value.length > 1){
           <div
-            id="city-option"
+            id="street-option"
             *ngFor="
               let item of getStreetSuggestions(
                 cityInput.value,
@@ -312,7 +322,11 @@
               );
               let i = index
             "
-            (click)="advertisementForm.get('street').setValue(item.Street_Name)"
+            (click)="
+              advertisementForm.get('street').setValue(item.Street_Name);
+              this.checkIfValidStreet(item.Street_Name);
+              advertisementForm.get('street').setValue(item.Street_Name)
+            "
           >
             {{ item.Street_Name }}
           </div>

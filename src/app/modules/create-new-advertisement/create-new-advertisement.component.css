@@ -12,17 +12,20 @@
 
 .dropdown-menu,
 .select-options,
-#city-option {
+#city-option,
+#street-option {
   z-index: 100 !important;
 }
 .dropdown-menu,
 .select-options,
 #city-option,
-.dropdown-item {
+.dropdown-item,
+#street-option {
   background-color: rgb(255, 255, 255) !important;
 }
 
-#city-option {
+#city-option,
+#street-option {
   width: 270px !important;
 }
 
@@ -56,7 +59,8 @@
 input[type="checkbox"],
 .option,
 button,
-#city-option {
+#city-optionm,
+#street-option {
   cursor: pointer;
 }
 
@@ -267,7 +271,8 @@ form {
 .btn-text1,
 .date-input,
 .dropdown-btn,
-input::placeholder {
+input::placeholder,
+#street-option {
   font-size: 16px;
 }
 
@@ -514,15 +519,18 @@ i.material-icons {
   width: 250px;
 }
 .dropdown-item,
-#city-option {
+#city-option,
+#street-option {
   height: 42px;
 }
 .dropdown-item,
-#city-option {
+#city-option,
+#street-option {
   padding: 5px 12px;
 }
 .dropdown-item,
-#city-option {
+#city-option,
+#street-option {
   font-weight: 400;
 }
 

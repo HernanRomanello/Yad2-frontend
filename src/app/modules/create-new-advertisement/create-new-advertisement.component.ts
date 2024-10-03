@@ -190,8 +190,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.cityListService.getStreetList().subscribe().unsubscribe();
   }
 
-  eraseInputValue(id: string, event: any): void {
-    if (this.isFormHasvalidCityAddress === true) {
+  eraseInputValue(id: string, event: any, inputValid: boolean): void {
+    if (inputValid === true) {
       if (event.key === 'Backspace') {
         const input = document.getElementById(id) as HTMLInputElement;
         if (input) {
@@ -349,28 +349,32 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
   checkIfValidCity(city: string): void {
     const CityName = city;
-    if (this.isFormHasvalidCityAddress === true) {
-    }
+
     const validCity = this.cityList.find(
       (city: City) => city.city_name_he === CityName
     );
 
     this.isFormHasvalidCityAddress = validCity ? true : false;
   }
+  checkIfValidStreet(Street: string): void {
+    const streetName = Street;
 
-  isValidStreetName(control: AbstractControl): ValidationErrors | null {
-    const StreetName = control.value;
-    const ValidStreetName: boolean = true;
-    // const validStreet = this.cityData.find(
-    //   (street: Street) => this.cityData.streetName == StreetName
-    // );
-    // console.log(validStreet.streetName);
+    const validstreet = this.cityData.find(
+      (street: Street) =>
+        street.Street_Name === streetName &&
+        street.City_Name === this.advertisementForm.get('city').value
+    );
+
+    this.isFormHasvalidStreetAddress = validstreet ? true : false;
+  }
+
+  isValidStreetName(): ValidationErrors | null {
+    const ValidStreetName = this.isFormHasvalidStreetAddress;
 
     return ValidStreetName === true ? null : { invalidStreetName: true };
   }
   isValidCityName(): ValidationErrors | null {
     const validCity = this.isFormHasvalidCityAddress;
-    console.log(this.isFormHasvalidCityAddress + 'city');
     return validCity === true ? null : { invalidCityName: null };
   }
 
@@ -981,7 +985,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
       if (
         !fieldControl.valid ||
-        (field === 'city' && !this.isFormHasvalidCityAddress)
+        (field === 'city' && !this.isFormHasvalidCityAddress) ||
+        (field === 'street' && !this.isFormHasvalidStreetAddress)
       ) {
         if (element && elementErrorText) {
           element.classList.add('border-invalid');
