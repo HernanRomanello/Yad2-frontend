@@ -256,7 +256,7 @@
             advertisementForm.get('city').setValue(cityInput.value)
           "
           (keydown)="this.eraseInputValue('city', $event)"
-          (keyup)="this.checkIfValidCity(cityInput.value, 'city', $event)"
+          (keyup)="this.checkIfValidCity(cityInput.value)"
           autocomplete="off"
         />
         <div id="city-error" class="error-text">שדה חובה</div>
@@ -274,7 +274,10 @@
               );
               let i = index
             "
-            (click)="advertisementForm.get('city').setValue(item.city_name_he)"
+            (click)="
+              advertisementForm.get('city').setValue(item.city_name_he);
+              this.checkIfValidCity(item.city_name_he.valueOf())
+            "
           >
             {{ item.city_name_he }}
           </div>

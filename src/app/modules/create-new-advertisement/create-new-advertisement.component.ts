@@ -190,19 +190,15 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.cityListService.getStreetList().subscribe().unsubscribe();
   }
 
-  checkIfValidCity(city: string, id: string, event: any): void {
+  checkIfValidCity(city: string): void {
     const CityName = city;
     if (this.isFormHasvalidCityAddress === true) {
-      // alert(event.key);
     }
     const validCity = this.cityList.find(
       (city: City) => city.city_name_he === CityName
     );
-    // alert(event.key);
-    // alert('ValidCity' + validCity.city_name_he);
     if (validCity) {
       this.isFormHasvalidCityAddress = true;
-      // alert('true');
     } else {
       this.isFormHasvalidCityAddress = false;
     }
