@@ -1,4 +1,4 @@
-a .sort-item_sortItem__K3SvK {
+input #downshift-70-input .autocomplete-box_visible__79csw {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -7,36 +7,36 @@ a .sort-item_sortItem__K3SvK {
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: 18.4px;
-	text-decoration: none solid rgb(54, 54, 54);
+	text-decoration: none solid rgb(0, 0, 0);
 	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: nowrap;
+	white-space: normal;
 	word-spacing: 0px;
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(0, 0, 0);
 
 	/* Box */
-	height: 42.3906px;
-	width: 192.094px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
+	height: 18.3906px;
+	width: 254px;
+	border: 0px none rgb(0, 0, 0);
+	border-top: 0px none rgb(0, 0, 0);
+	border-right: 0px none rgb(0, 0, 0);
+	border-bottom: 0px none rgb(0, 0, 0);
+	border-left: 0px none rgb(0, 0, 0);
 	margin: 0px;
-	padding: 12px 12px 12px 60px;
+	padding: 0px;
 	max-height: none;
-	min-height: 0px;
+	min-height: auto;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
 	position: static;
@@ -51,7 +51,7 @@ a .sort-item_sortItem__K3SvK {
 
 	/* List */
 	list-style-image: none;
-	list-style-type: none;
+	list-style-type: disc;
 	list-style-position: outside;
 
 	/* Table */
@@ -62,8 +62,8 @@ a .sort-item_sortItem__K3SvK {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
-	cursor: pointer;
+	overflow: clip;
+	cursor: text;
 	visibility: visible;
 
 	/* Effects */
