@@ -983,8 +983,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       const element = document.getElementById(field);
       const elementErrorText = document.getElementById(`${field}-error`);
 
-      // (field === 'city' && !this.isFormHasvalidCityAddress) ||
-      // (field === 'street' && !this.isFormHasvalidStreetAddress)
       if (!(field === 'city' || field === 'street')) {
         validForm = this.markErrorIfInvalidInput(
           fieldControl,

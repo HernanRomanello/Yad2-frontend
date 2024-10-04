@@ -324,6 +324,7 @@
             "
             (click)="
               advertisementForm.get('street').setValue(item.Street_Name);
+              advertisementForm.get('neighborhood').setValue(item.Street_Name);
               this.checkIfValidStreet(item.Street_Name);
               advertisementForm.get('street').setValue(item.Street_Name)
             "
@@ -391,16 +392,19 @@
         <label class="small-text light-grey-text" for="neighborhood"
           >שכונה</label
         >
-        <!-- <input
-          class="input large not-allowed"
-          id="neighborhood"
-          formControlName="neighborhood"
-        /> -->
+
         <button
           class="input large not-allowed"
           id="neighborhood"
           formControlName="neighborhood"
-        ></button>
+        >
+          @if( advertisementForm.get("neighborhood").value.length>1 &&
+          advertisementForm.get("city").value.length>1 &&
+          advertisementForm.get("number").value>0){
+
+          {{ advertisementForm.get("street").value }}
+          }
+        </button>
         <div class="nano-gray-text">
           המידע הזה מגיע מגוף ממשלתי ולא ניתן לשינוי
         </div>
