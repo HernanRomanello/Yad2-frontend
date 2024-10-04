@@ -85,14 +85,18 @@ export class RealEstateSearchComponent {
           }
         }
 
+        const roomArrow = document.getElementById('propertyRoomArrow');
         if (
           clickedElement.classList.contains('search-button') &&
           clickedElement.id === 'propertyRoomButton'
         ) {
+        } else {
+          this.rotateRoomsBtnArrow(roomArrow);
         }
 
-        const roomArrow = document.getElementById('propertyRoomArrow');
-        this.rotateRoomsBtnArrow(roomArrow);
+        if (clickedElement.id === 'propertyRoomButton') {
+          this.rotateRoomsBtnArrow(roomArrow);
+        }
 
         if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
           return;
