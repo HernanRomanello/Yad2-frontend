@@ -242,7 +242,7 @@ form {
   height: 42px;
   border-radius: 4px;
   direction: rtl;
-  padding-right: 20px !important;
+  padding-right: 1rem !important;
 }
 
 .btn-text1 {
