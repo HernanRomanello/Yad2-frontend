@@ -13,7 +13,7 @@ span {
   width: 100%;
   padding: 18px 0;
   border-bottom: 1px solid #dcdcdc;
-  gap: 1rem;
+  gap: 17px;
 }
 
 .input-search {
@@ -141,7 +141,6 @@ i {
   align-items: center;
   font-size: 16px;
   padding: 18px 0 18px 0;
-  background-color: #d86000;
   height: 42px;
   width: 108px;
   min-height: 36px;
@@ -150,6 +149,11 @@ i {
   border: transparent;
   font-weight: 500;
   cursor: pointer;
+  background-color: #ff7100;
+}
+
+.search-button-orange:hover {
+  background-color: #d86000;
 }
 
 .title {
@@ -256,7 +260,7 @@ i {
 }
 
 .space {
-  width: 4px;
+  width: 2px;
 }
 
 .bell-img {
