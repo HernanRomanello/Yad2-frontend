@@ -1,13 +1,10 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
-  Output,
   ViewChild,
   afterNextRender,
   inject,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { SearchService } from '../../../services/search.service';
 import { formatPrice } from '../../../utilities';
 @Component({
@@ -42,16 +39,61 @@ export class RealEstateSearchComponent {
   @ViewChild('tradeTypeMenu', { static: false })
   tradeTypeMenu!: ElementRef;
 
+  // roomFilterWasClicked: boolean = false;
+
+  roomsFilterIsOpen: boolean = false;
+  // roomsFilterArevisble: boolean = false;
+
   onCloseAdditionalFiltersMenu(event: any) {
     this.additionalFiltersMenu.nativeElement
       .querySelector('.menu')
       .classList.add('hidden');
   }
 
-  constructor(private router: Router) {
+  constructor() {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
         const clickedElement = event.target as HTMLElement;
+        if (this.roomsFilterIsOpen === true) {
+          if (
+            !clickedElement.classList.contains('rooms-select') &&
+            !clickedElement.classList.contains('room-btn') &&
+            !clickedElement.classList.contains('search-button')
+          ) {
+            alert('close');
+            const roomsAmountContainer =
+              document.getElementById('propertyRoomButton');
+            // roomsAmountContainer?.click();
+
+            roomsAmountContainer?.click();
+            if (roomsAmountContainer) {
+              // roomsAmountContainer.classList.add('hidden');
+              const roomArrow = document.getElementById('propertyRoomArrow');
+              // this.rotateRoomsBtnArrow(roomArrow);
+
+              // alert(this.roomsFilterIsOpen);
+
+              // this.roomsFilterArevisble = false;
+              // this.roomsFilterIsOpen = false;
+              // this.roomsFilterArevisble = false;
+              if (roomArrow && this.roomsFilterIsOpen) {
+                // roomArrow.style.transform = 'rotate(0deg)';
+                // roomArrow.style.transform = 'scale(3)';
+                // alert('close');
+              }
+            }
+          }
+        }
+
+        if (
+          clickedElement.classList.contains('search-button') &&
+          clickedElement.id === 'propertyRoomButton'
+        ) {
+        }
+
+        const roomArrow = document.getElementById('propertyRoomArrow');
+        this.rotateRoomsBtnArrow(roomArrow);
+
         if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
           return;
         } else if (this.priceSlider.nativeElement.contains(clickedElement)) {
@@ -60,6 +102,7 @@ export class RealEstateSearchComponent {
 
           return;
         }
+
         const isSliderHidden = this.priceSlider.nativeElement
           .querySelector('.menu')
           .classList.contains('hidden');
@@ -130,6 +173,8 @@ export class RealEstateSearchComponent {
         this.toggleMenuDropdown(this.roomsAmountMenu);
         this.rotateAllArrows('propertyRoomArrow');
         this.hideAllMenus('propertyRoomMenu');
+        // const roomArrow = document.getElementById('propertyRoomArrow');
+        // this.rotateRoomsBtnArrow(roomArrow);
         break;
       case 'additionalFiltersMenu':
         this.toggleMenuDropdown(this.additionalFiltersMenu);
@@ -141,6 +186,22 @@ export class RealEstateSearchComponent {
         break;
     }
   }
+
+  private rotateRoomsBtnArrow(roomArrow: HTMLElement | null) {
+    if (roomArrow && this.roomsFilterIsOpen) {
+      roomArrow.style.transform = 'rotate(180deg)';
+    } else if (roomArrow && !this.roomsFilterIsOpen) {
+      roomArrow.style.transform = 'rotate(0deg)';
+    }
+  }
+
+  // clickOnRoomFilter() {
+  //   this.roomFilterWasClicked = true;
+  //   const roomArrow = document.getElementById('propertyRoomArrow');
+  //   if (roomArrow && this.roomFilterWasClicked) {
+  //     this.roomsFilterIsOpen = true;
+  //   }
+  // }
 
   toggleMenuDropdown(tradeTypeMenu: any): void {
     const menu = tradeTypeMenu.nativeElement.querySelector('.menu');

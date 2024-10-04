@@ -67,7 +67,11 @@
 
       <div class="menu-container" #roomsAmountMenu>
         <button
-          (click)="toggleMenu('roomsAmountMenu')"
+          id="propertyRoomButton"
+          (click)="
+            toggleMenu('roomsAmountMenu');
+            this.roomsFilterIsOpen = !this.roomsFilterIsOpen
+          "
           class="search-button"
           type="button"
         >
@@ -79,6 +83,7 @@
         </button>
         <div id="propertyRoomMenu" class="menu hidden">
           <app-real-estate-rooms-amount
+            id="roomsAmountFilter"
             (propertyRoomSelected)="onRoomsAmountSelected($event)"
           ></app-real-estate-rooms-amount>
         </div>
