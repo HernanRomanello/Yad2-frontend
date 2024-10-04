@@ -248,7 +248,6 @@
           class="input large city-Input"
           id="city"
           #cityInput
-          [value]="authService.user.getValue()?.city"
           formControlName="city"
           placeholder="  איפה נמצא הנכס?"
           (focus)="
@@ -294,7 +293,6 @@
           class="input large street-Input"
           id="street"
           #streetInput
-          [value]="authService.user.getValue()?.street"
           formControlName="street"
           placeholder="  הכנס שם הרחוב"
           autocomplete="off"
@@ -347,7 +345,6 @@
           <input
             class="input medium center"
             id="number"
-            [value]="authService.user.getValue()?.houseNumber"
             formControlName="number"
             placeholder="  מספר בית"
             autocomplete="off"
@@ -411,16 +408,19 @@
       </div>
       <div class="input-container">
         <label class="small-text light-grey-text" for="area">אזור</label>
-        <!-- <input
-          class="input large not-allowed"
-          id="area"
-          formControlName="area"
-        /> -->
+
         <button
           class="input large not-allowed"
           id="area"
           formControlName="area"
-        ></button>
+        >
+          @if( advertisementForm.get("neighborhood").value.length>1 &&
+          advertisementForm.get("city").value.length>1 &&
+          advertisementForm.get("number").value>0){
+
+          {{ advertisementForm.get("city").value }}
+          }
+        </button>
         <div class="nano-gray-text">
           המידע הזה מגיע מגוף ממשלתי ולא ניתן לשינוי
         </div>
