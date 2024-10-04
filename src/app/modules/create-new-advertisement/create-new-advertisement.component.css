@@ -252,7 +252,6 @@ form {
 }
 
 .date-input {
-  text-align: right;
   line-height: 18.4px;
   font-weight: 400;
   height: 42px;
@@ -769,7 +768,6 @@ textarea::placeholder {
   color: rgb(0, 0, 0, 0.3);
   font-size: 18px;
   font-weight: 400;
-  text-align: right;
   font-family: "rubik" sans-serif;
   letter-spacing: -0.8px;
   line-height: 1.1;
@@ -820,7 +818,6 @@ textarea::placeholder {
 }
 
 .date-input {
-  text-align: right;
   line-height: 18.4px;
   font-weight: 400;
   height: 42px;
@@ -963,10 +960,18 @@ mat-icon {
 
 .remove-add-contact {
   display: flex;
-  text-align: right;
   direction: rtl;
   margin-top: 1rem;
   margin-bottom: 1rem !important;
+}
+#area,
+#neighborhood,
+.right-text,
+.date-input,
+textarea::placeholder,
+.date-input,
+.remove-add-contact {
+  text-align: right !important;
 }
 
 #line-page6 {
@@ -1003,10 +1008,6 @@ mat-icon {
 .weCheck-img {
   width: 100% !important;
   transform: translateX(2px) !important;
-}
-
-.right-text {
-  text-align: right !important;
 }
 
 .align-right {
