@@ -10,7 +10,7 @@ button {
   background-color: #ffffff;
   height: 81.3px;
   width: 100%;
-  padding: 18px;
+  padding: 18px 0;
   border-bottom: 1px solid #dcdcdc;
   gap: 1rem;
 }
@@ -39,10 +39,11 @@ button {
 }
 
 .input-box {
-  width: 313px;
   height: 44.4px;
   border-left: 1px solid #dcdcdc;
-  padding: 16px 0 16px 0;
+  padding: 0 0.5rem 0 1rem;
+}
+.input-box {
   display: flex;
   justify-content: center;
   align-items: center;
