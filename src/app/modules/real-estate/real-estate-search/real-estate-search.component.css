@@ -1,6 +1,7 @@
 div,
 input,
-button {
+button,
+span {
   font-family: Rubik !important;
 }
 
@@ -41,7 +42,7 @@ button {
 .input-box {
   height: 44.4px;
   border-left: 1px solid #dcdcdc;
-  padding: 0 0.5rem 0 1rem;
+  padding: 0 0.5rem 0;
 }
 .input-box {
   display: flex;
@@ -96,27 +97,27 @@ button {
   text-align: left;
 }
 
-.price-btn .flex-center {
+.price-btn .flex-center,
+.search-button {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .search-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   line-height: 16px;
   background-color: #ffffff !important;
   text-align: center;
   height: 42px;
   width: fit-content;
-  padding: 12px;
+  padding: 13px;
   border-radius: 32px;
-  cursor: pointer;
   border: 1px solid #cccccc;
   font-size: 16px;
 }
 
+.search-button {
+  cursor: pointer;
+}
 img {
   margin: 5px;
 }
