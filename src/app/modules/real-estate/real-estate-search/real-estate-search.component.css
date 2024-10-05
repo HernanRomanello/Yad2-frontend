@@ -208,13 +208,17 @@ i {
   margin-top: 2.2rem;
 }
 
+.location-arrow-img {
+  width: 24px;
+  height: 24px;
+}
+
 .project-container {
   font-size: 16px;
   font-weight: 500;
   line-height: 27.6px;
   text-decoration: none solid rgb(54, 54, 54);
   text-align: end;
-  display: flex;
   justify-content: space-between;
   height: 84px;
   width: 742px;
@@ -223,11 +227,20 @@ i {
   margin-left: auto;
 }
 
+#locationSuggestion,
+.project-container,
 .project-div {
   display: flex;
+}
+
+#locationSuggestion,
+.project-div {
+  align-items: center;
+}
+
+.project-div {
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   padding: 1rem;
 }
 
