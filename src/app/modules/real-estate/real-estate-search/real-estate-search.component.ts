@@ -39,6 +39,9 @@ export class RealEstateSearchComponent {
   @ViewChild('tradeTypeMenu', { static: false })
   tradeTypeMenu!: ElementRef;
   roomsFilterIsOpen: boolean = false;
+  searchSuggestionsIsOpen: boolean = false;
+
+  suggestions: string[] = ['חדר רחצה', 'מרפסת', 'ממ"ד', 'מחסן', 'מעלית '];
 
   onCloseAdditionalFiltersMenu(event: any) {
     this.additionalFiltersMenu.nativeElement
@@ -159,22 +162,6 @@ export class RealEstateSearchComponent {
     }
   }
 
-  private rotateRoomsBtnArrow(roomArrow: HTMLElement | null) {
-    if (roomArrow && this.roomsFilterIsOpen) {
-      roomArrow.style.transform = 'rotate(180deg)';
-    } else if (roomArrow && !this.roomsFilterIsOpen) {
-      roomArrow.style.transform = 'rotate(0deg)';
-    }
-  }
-
-  // clickOnRoomFilter() {
-  //   this.roomFilterWasClicked = true;
-  //   const roomArrow = document.getElementById('propertyRoomArrow');
-  //   if (roomArrow && this.roomFilterWasClicked) {
-  //     this.roomsFilterIsOpen = true;
-  //   }
-  // }
-
   toggleMenuDropdown(tradeTypeMenu: any): void {
     const menu = tradeTypeMenu.nativeElement.querySelector('.menu');
     if (menu) {
@@ -202,9 +189,7 @@ export class RealEstateSearchComponent {
 
     menus.forEach((menu) => {
       if (!menu.classList.contains('hidden') && menu.id !== id) {
-        console.log(menu.id);
         if (menu.id !== 'additionalFiltersMenu') {
-          // this.roomsFilterIsOpen = false;
           menu.classList.add('hidden');
         }
       }

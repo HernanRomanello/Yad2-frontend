@@ -7,8 +7,33 @@
           name="searchQuery"
           placeholder="איזור, עיר שכונה או רחוב"
           class="input-search"
+          #searchInputLocation
           autocomplete="off"
+          (input)="
+            this.searchSuggestionsIsOpen = searchInputLocation.value.length > 0
+          "
         />
+        @if(searchSuggestionsIsOpen){
+        <div class="search-suggestions">
+          <!-- Static suggestion, always present -->
+          <div
+            id="locationSuggestion"
+            class="search-suggestion"
+            [ngStyle]="{ height: '54px', color: '#ff7100' }"
+          >
+            קרוב אליי
+          </div>
+
+          <!-- Dynamic suggestions from array -->
+          <div
+            *ngFor="let suggestion of suggestions"
+            class="search-suggestion"
+            [ngStyle]="{ height: '54px' }"
+          >
+            {{ suggestion }}
+          </div>
+        </div>
+        }
       </div>
 
       <div class="menu-container" #tradeTypeMenu>

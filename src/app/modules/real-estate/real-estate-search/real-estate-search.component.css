@@ -5,17 +5,6 @@ span {
   font-family: Rubik !important;
 }
 
-.Search-bar {
-  display: flex;
-  direction: rtl;
-  background-color: #ffffff;
-  height: 81.3px;
-  width: 100%;
-  padding: 18px 0;
-  border-bottom: 1px solid #dcdcdc;
-  gap: 17px;
-}
-
 .input-search {
   width: 280px;
   height: 44.4px;
@@ -58,10 +47,69 @@ span {
   z-index: 10000;
 }
 
+.dropdown-menu button:hover {
+  background-color: #f1f1f1;
+}
+
+.hidden {
+  display: none;
+}
+.menu-container {
+  display: inline-block;
+  background-color: white;
+  z-index: 20;
+}
+.menu-container,
+.input-box {
+  position: relative;
+}
+.menu {
+  right: -2rem;
+}
+.menu,
+.search-suggestions {
+  position: absolute;
+}
+
+.search-suggestion {
+  padding: 20px 20px 10px;
+}
+.search-suggestion {
+  height: 54px;
+  font-size: 16px;
+}
+.search-suggestions,
+.search-suggestion {
+  width: 320px;
+}
+.search-suggestions {
+  height: fit-content !important;
+}
+
+#locationSuggestion {
+  font-weight: 600;
+}
+.search-suggestions {
+  top: 54px;
+  right: 8px;
+  z-index: 100;
+}
+.search-suggestions {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.search-suggestions {
+  border-radius: 12px;
+}
+
+.search-suggestions,
+.Search-bar,
+.type-btn {
+  background-color: #ffffff;
+}
+
 .type-btn {
   font-weight: 400;
   line-height: 18.4px;
-  background-color: #ffffff;
   color: rgb(54, 54, 54);
   height: 44px;
   width: 154px;
@@ -71,23 +119,17 @@ span {
   text-align: start !important;
   cursor: pointer;
 }
-.dropdown-menu button:hover {
-  background-color: #f1f1f1;
+
+.Search-bar {
+  display: flex;
+  direction: rtl;
+  height: 81.3px;
+  width: 100%;
+  padding: 18px 0;
+  border-bottom: 1px solid #dcdcdc;
+  gap: 17px;
 }
 
-.hidden {
-  display: none;
-}
-.menu-container {
-  position: relative;
-  display: inline-block;
-  background-color: white;
-  z-index: 20;
-}
-.menu {
-  position: absolute;
-  right: -2rem;
-}
 .dropdown-menu button {
   display: block;
   width: 100%;
