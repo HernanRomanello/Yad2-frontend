@@ -40,8 +40,22 @@ export class RealEstateSearchComponent {
   tradeTypeMenu!: ElementRef;
   roomsFilterIsOpen: boolean = false;
   searchSuggestionsIsOpen: boolean = false;
+  historyLocationSearchIsOpen: boolean = true;
 
-  suggestions: string[] = ['חדר רחצה', 'מרפסת', 'ממ"ד', 'מחסן', 'מעלית '];
+  historyLocationSearchSuggestions: string[] = [
+    'חדר רחצה',
+    'מרפסת',
+    'ממ"ד',
+    'מחסן',
+    'מעלית ',
+  ];
+
+  displayHistory(condition: boolean) {
+    const historyLocationSearch = document.getElementById('searchQuery');
+    if (condition) {
+      historyLocationSearch?.focus();
+    }
+  }
 
   onCloseAdditionalFiltersMenu(event: any) {
     this.additionalFiltersMenu.nativeElement

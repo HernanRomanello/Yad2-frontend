@@ -5,6 +5,7 @@
         <input
           type="text"
           name="searchQuery"
+          id="searchQuery"
           placeholder="איזור, עיר שכונה או רחוב"
           class="input-search"
           #searchInputLocation
@@ -12,9 +13,13 @@
           (focus)="this.searchSuggestionsIsOpen = true"
           (blur)="this.searchSuggestionsIsOpen = false"
           (input)="
-            this.searchSuggestionsIsOpen = searchInputLocation.value.length > 0
+            this.searchSuggestionsIsOpen = searchInputLocation.value.length > 0;
+            this.historyLocationSearchIsOpen =
+              searchInputLocation.value === '' ? true : false;
+            this.displayHistory(searchInputLocation.value === '')
           "
         />
+        {{ searchInputLocation.value === "" }}
         @if(searchSuggestionsIsOpen){
         <div class="search-suggestions">
           <!-- Static suggestion, always present -->
@@ -32,13 +37,15 @@
           </div>
 
           <!-- Dynamic suggestions from array -->
+          @if(this.historyLocationSearchIsOpen){
           <div
-            *ngFor="let suggestion of suggestions"
+            *ngFor="let suggestion of historyLocationSearchSuggestions"
             class="search-suggestion"
             [ngStyle]="{ height: '54px' }"
           >
             {{ suggestion }}
           </div>
+          }
         </div>
         }
       </div>
