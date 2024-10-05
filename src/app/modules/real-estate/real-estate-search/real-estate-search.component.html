@@ -9,6 +9,8 @@
           class="input-search"
           #searchInputLocation
           autocomplete="off"
+          (focus)="this.searchSuggestionsIsOpen = true"
+          (blur)="this.searchSuggestionsIsOpen = false"
           (input)="
             this.searchSuggestionsIsOpen = searchInputLocation.value.length > 0
           "
@@ -21,6 +23,11 @@
             class="search-suggestion"
             [ngStyle]="{ height: '54px', color: '#ff7100' }"
           >
+            <img
+              class="bell-img"
+              src="assets/images/location-arrow.svg"
+              alt=""
+            />
             קרוב אליי
           </div>
 
