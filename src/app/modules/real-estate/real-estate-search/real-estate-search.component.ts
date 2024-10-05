@@ -98,7 +98,11 @@ export class RealEstateSearchComponent {
           !clickedElement.classList.contains('rooms-select') &&
           !clickedElement.classList.contains('room-btn')
         ) {
+          const roomsAmountContainer =
+            document.getElementById('propertyRoomButton');
+          roomsAmountContainer?.click();
           this.hideAllMenus('');
+          // this.roomsFilterIsOpen = false;
         }
 
         if (clickedElement.id !== 'propertyRoomButton') {
@@ -173,11 +177,13 @@ export class RealEstateSearchComponent {
         this.toggleMenuDropdown(this.priceSlider);
         this.rotateAllArrows('PriceRangeArrow');
         this.hideAllMenus('PriceRangeMenu');
+        this.roomsFilterIsOpen = false;
         break;
       case 'propertyTypeMenu':
         this.toggleMenuDropdown(this.propertyTypeMenu);
         this.rotateAllArrows('propertyTypeArrow');
         this.hideAllMenus('propertyTypeMenu');
+        this.roomsFilterIsOpen = false;
 
         break;
       case 'roomsAmountMenu':
@@ -186,12 +192,16 @@ export class RealEstateSearchComponent {
         this.hideAllMenus('propertyRoomMenu');
         break;
       case 'additionalFiltersMenu':
+        this.hideAllMenus('additionalFiltersArrow');
         this.toggleMenuDropdown(this.additionalFiltersMenu);
+        this.roomsFilterIsOpen = false;
+
         break;
       case 'tradeTypeMenu':
         this.toggleMenuDropdown(this.tradeTypeMenu);
         this.rotateAllArrows('tradeTypeArrow');
         this.hideAllMenus('tradeTypeMenu');
+        this.roomsFilterIsOpen = false;
         break;
     }
   }
@@ -240,10 +250,10 @@ export class RealEstateSearchComponent {
     menus.forEach((menu) => {
       if (!menu.classList.contains('hidden') && menu.id !== id) {
         console.log(menu.id);
-        if (menu.id !== 'propertyRoomMenu') {
-          this.roomsFilterIsOpen = false;
+        if (menu.id !== 'additionalFiltersMenu') {
+          // this.roomsFilterIsOpen = false;
+          menu.classList.add('hidden');
         }
-        menu.classList.add('hidden');
       }
     });
   }
