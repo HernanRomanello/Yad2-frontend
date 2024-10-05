@@ -54,48 +54,55 @@ export class RealEstateSearchComponent {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
         const clickedElement = event.target as HTMLElement;
-        if (this.roomsFilterIsOpen === true) {
-          if (
-            !clickedElement.classList.contains('rooms-select') &&
-            !clickedElement.classList.contains('room-btn') &&
-            !clickedElement.classList.contains('search-button')
-          ) {
-            alert('close');
-            const roomsAmountContainer =
-              document.getElementById('propertyRoomButton');
-            // roomsAmountContainer?.click();
+        // if (this.roomsFilterIsOpen === true) {
+        //   if (
+        //     !clickedElement.classList.contains('rooms-select') &&
+        //     !clickedElement.classList.contains('room-btn') &&
+        //     !clickedElement.classList.contains('search-button')
+        //   ) {
+        //     alert('close');
+        //     const roomsAmountContainer =
+        //       document.getElementById('propertyRoomButton');
+        //     // roomsAmountContainer?.click();
 
-            roomsAmountContainer?.click();
-            if (roomsAmountContainer) {
-              // roomsAmountContainer.classList.add('hidden');
-              const roomArrow = document.getElementById('propertyRoomArrow');
-              // this.rotateRoomsBtnArrow(roomArrow);
+        //     roomsAmountContainer?.click();
+        //     if (roomsAmountContainer) {
+        //       // roomsAmountContainer.classList.add('hidden');
+        //       const roomArrow = document.getElementById('propertyRoomArrow');
+        //       // this.rotateRoomsBtnArrow(roomArrow);
 
-              // alert(this.roomsFilterIsOpen);
+        //       // alert(this.roomsFilterIsOpen);
 
-              // this.roomsFilterArevisble = false;
-              // this.roomsFilterIsOpen = false;
-              // this.roomsFilterArevisble = false;
-              if (roomArrow && this.roomsFilterIsOpen) {
-                // roomArrow.style.transform = 'rotate(0deg)';
-                // roomArrow.style.transform = 'scale(3)';
-                // alert('close');
-              }
-            }
-          }
-        }
+        //       // this.roomsFilterArevisble = false;
+        //       // this.roomsFilterIsOpen = false;
+        //       // this.roomsFilterArevisble = false;
+        //       if (roomArrow && this.roomsFilterIsOpen) {
+        //         // roomArrow.style.transform = 'rotate(0deg)';
+        //         // roomArrow.style.transform = 'scale(3)';
+        //         // alert('close');
+        //       }
+        //     }
+        //   }
+        // }
 
-        const roomArrow = document.getElementById('propertyRoomArrow');
+        // const roomArrow = document.getElementById('propertyRoomArrow');
+        // if (
+        //   clickedElement.classList.contains('search-button') &&
+        //   clickedElement.id === 'propertyRoomButton'
+        // ) {
+        // } else {
+        //   this.rotateRoomsBtnArrow(roomArrow);
+        // }
         if (
-          clickedElement.classList.contains('search-button') &&
-          clickedElement.id === 'propertyRoomButton'
+          !clickedElement.classList.contains('search-button') &&
+          !clickedElement.classList.contains('rooms-select') &&
+          !clickedElement.classList.contains('room-btn')
         ) {
-        } else {
-          this.rotateRoomsBtnArrow(roomArrow);
+          this.hideAllMenus('');
         }
 
-        if (clickedElement.id === 'propertyRoomButton') {
-          this.rotateRoomsBtnArrow(roomArrow);
+        if (clickedElement.id !== 'propertyRoomButton') {
+          // this.roomsFilterIsOpen = true;
         }
 
         if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
@@ -177,8 +184,6 @@ export class RealEstateSearchComponent {
         this.toggleMenuDropdown(this.roomsAmountMenu);
         this.rotateAllArrows('propertyRoomArrow');
         this.hideAllMenus('propertyRoomMenu');
-        // const roomArrow = document.getElementById('propertyRoomArrow');
-        // this.rotateRoomsBtnArrow(roomArrow);
         break;
       case 'additionalFiltersMenu':
         this.toggleMenuDropdown(this.additionalFiltersMenu);
@@ -231,8 +236,13 @@ export class RealEstateSearchComponent {
 
   hideAllMenus(id: string) {
     const menus = document.querySelectorAll('.menu');
+
     menus.forEach((menu) => {
       if (!menu.classList.contains('hidden') && menu.id !== id) {
+        console.log(menu.id);
+        if (menu.id !== 'propertyRoomMenu') {
+          this.roomsFilterIsOpen = false;
+        }
         menu.classList.add('hidden');
       }
     });

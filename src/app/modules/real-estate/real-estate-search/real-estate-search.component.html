@@ -77,7 +77,12 @@
         >
           חדרים
 
-          <i id="propertyRoomArrow" class="material-icons"
+          <i
+            id="propertyRoomArrow"
+            class="material-icons"
+            [ngStyle]="{
+              transform: roomsFilterIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+            }"
             >keyboard_arrow_down</i
           >
         </button>
