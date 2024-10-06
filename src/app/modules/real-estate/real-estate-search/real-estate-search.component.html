@@ -45,7 +45,17 @@
               let index = index
             "
             class="search-suggestion"
-            [ngStyle]="{ height: '48px' }"
+            [ngStyle]="{
+              height: '48px',
+              'border-bottom-left-radius':
+                this.historyLocationSearchSuggestions.length == index + 1
+                  ? '12px'
+                  : '0px',
+              'border-bottom-right-radius':
+                this.historyLocationSearchSuggestions.length == index + 1
+                  ? '12px'
+                  : '0px'
+            }"
             (mouseenter)="this.lastHoverSearchHistory = index"
             [ngClass]="
               this.lastHoverSearchHistory === index
