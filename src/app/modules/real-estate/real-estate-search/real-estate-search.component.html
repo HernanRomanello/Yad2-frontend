@@ -37,12 +37,28 @@
 
           <!-- Dynamic suggestions from array -->
           @if(this.historyLocationSearchIsOpen){
+          <div class="title-locationSuggestion">חיפושים אחרונים</div>
+
           <div
-            *ngFor="let suggestion of historyLocationSearchSuggestions"
+            *ngFor="
+              let suggestion of historyLocationSearchSuggestions;
+              let index = index
+            "
             class="search-suggestion"
-            [ngStyle]="{ height: '54px' }"
+            [ngStyle]="{ height: '48px' }"
+            (mouseenter)="this.lastHoverSearchHistory = index"
+            [ngClass]="
+              this.lastHoverSearchHistory === index
+                ? 'gray-color search-suggestion'
+                : 'search-suggestion'
+            "
           >
-            {{ suggestion }}
+            <img
+              class="history-img"
+              src="assets/images/history-svgrepo-com.svg"
+              alt=""
+            />
+            <span> {{ suggestion }}</span>
           </div>
           }
         </div>

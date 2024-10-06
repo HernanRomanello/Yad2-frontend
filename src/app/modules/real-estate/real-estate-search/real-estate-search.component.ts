@@ -41,14 +41,9 @@ export class RealEstateSearchComponent {
   roomsFilterIsOpen: boolean = false;
   searchSuggestionsIsOpen: boolean = false;
   historyLocationSearchIsOpen: boolean = true;
+  lastHoverSearchHistory = -1;
 
-  historyLocationSearchSuggestions: string[] = [
-    'חדר רחצה',
-    'מרפסת',
-    'ממ"ד',
-    'מחסן',
-    'מעלית ',
-  ];
+  historyLocationSearchSuggestions: string[] = ['חיפה ', 'באר שבע', 'רמלה'];
 
   displayHistory(condition: boolean) {
     const historyLocationSearch = document.getElementById('searchQuery');
