@@ -38,14 +38,6 @@ span {
   justify-content: center;
 }
 
-#locationSuggestion,
-.project-div,
-.search-suggestion,
-.adds,
-.input-box {
-  align-items: center;
-}
-
 .dropdown-menu {
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.09);
   border-radius: 12px !important;
@@ -84,6 +76,12 @@ span {
 
 .search-suggestion {
   padding: 20px 16px !important;
+  /* display: none !important; */
+}
+
+.title-locationSuggestions {
+  padding: 0 20px !important;
+  /* display: none !important; */
 }
 
 .suggestion-location {
@@ -159,9 +157,9 @@ span {
 .price-btn .flex-center,
 .search-button {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
+
 .search-button {
   line-height: 16px;
   background-color: #ffffff !important;
@@ -184,12 +182,6 @@ i {
   margin-right: 4px;
 }
 
-.search-suggestion,
-.search-button,
-i {
-  font-size: 16px;
-}
-
 .arrow-up {
   transform: rotate(180deg);
 }
@@ -198,8 +190,6 @@ i {
   display: inline-flex;
   line-height: 24px;
   justify-content: center;
-  align-items: center;
-  font-size: 16px;
   padding: 18px 0 18px 0;
   height: 42px;
   width: 108px;
@@ -209,6 +199,18 @@ i {
   border: transparent;
   font-weight: 500;
   background-color: #ff7100;
+}
+
+#locationSuggestion,
+.project-div,
+.search-suggestion,
+.adds,
+.input-box,
+.title-locationSuggestions,
+.price-btn .flex-center,
+.search-button,
+.search-button-orange {
+  align-items: center;
 }
 
 .search-button-orange:hover {
@@ -239,7 +241,6 @@ i {
 }
 
 .project-container {
-  font-size: 16px;
   font-weight: 500;
   line-height: 27.6px;
   text-decoration: none solid rgb(54, 54, 54);
@@ -255,7 +256,8 @@ i {
 #locationSuggestion,
 .project-container,
 .project-div,
-.search-suggestion {
+.search-suggestion,
+.title-locationSuggestions {
   display: flex;
 }
 
@@ -351,17 +353,28 @@ i {
   padding: 10px 20px;
 }
 
-#locationSuggestion,
-.title-locationSuggestion {
-  font-weight: 600;
+.title-locationSuggestions {
+  background-color: #eeeeee;
 }
 
 .search-suggestions,
 .search-suggestion,
-.title-locationSuggestion {
+.title-locationSuggestion,
+.title-locationSuggestions {
   width: 320px;
 }
 
+#locationSuggestion,
+.title-locationSuggestion,
 .title-locationSuggestions {
-  background-color: #eeeeee;
+  font-weight: 600;
+}
+
+.search-suggestion,
+.search-button,
+i,
+.search-button-orange,
+.project-container,
+.title-locationSuggestions {
+  font-size: 16px;
 }
