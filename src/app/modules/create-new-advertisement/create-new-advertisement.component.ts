@@ -233,15 +233,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.authService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('create-new-advertisement');
     this.advertisementForm = this.formBuilder.group({
-      city: [
-        this.authService.user.getValue()?.city || '',
-        [Validators.required, this.isValidCityName.bind(this)],
-      ],
+      city: ['', [Validators.required, this.isValidCityName.bind(this)]],
       tradeType: ['', Validators.required],
-      street: [
-        this.authService.user.getValue()?.street || '',
-        [Validators.required, this.isValidStreetName.bind(this)],
-      ],
+      street: [, [Validators.required, this.isValidStreetName.bind(this)]],
       number: [
         this.authService.user.getValue()?.houseNumber || '',
         Validators.required,
@@ -757,7 +751,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           this.dropdownIconAsset_type.nativeElement,
           'rotate-icon'
         );
-      } else if ('assetState') {
+      } else {
         this.renderer.removeClass(
           this.dropdownIconAsset_type.nativeElement,
           'rotate-icon'
