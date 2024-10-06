@@ -46,21 +46,7 @@ export class RealEstateSearchComponent {
   historyLocationSearchSuggestions: string[] = ['חיפה ', 'באר שבע', 'רמלה'];
 
   displayHistory(countCharacters: number) {
-    this.historyLocationSearchIsOpen = true;
-    // alert(countCharacters);
-    if (countCharacters === 0) {
-      this.historyLocationSearchIsOpen = true;
-    } else {
-      this.historyLocationSearchIsOpen = false;
-    }
-
-    // if (contentInput.length === 0) {
-    //   this.historyLocationSearchIsOpen = true;
-    // }
-
-    // if (condition) {
-    //   historyLocationSearch?.focus();
-    // }
+    this.historyLocationSearchIsOpen = countCharacters === 0 ? true : false;
   }
 
   onCloseAdditionalFiltersMenu(event: any) {
