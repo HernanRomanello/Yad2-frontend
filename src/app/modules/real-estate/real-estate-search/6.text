@@ -1,10 +1,10 @@
-span .search-history-list_title__0RAHh {
+span .group-list_groupTitle__XSk5p {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 500;
+	font-weight: 600;
 	letter-spacing: normal;
 	line-height: 18.4px;
 	text-decoration: none solid rgb(54, 54, 54);
@@ -17,14 +17,14 @@ span .search-history-list_title__0RAHh {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(238, 238, 238);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 38.3906px;
+	height: 34.3906px;
 	width: 320px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
@@ -32,7 +32,7 @@ span .search-history-list_title__0RAHh {
 	border-bottom: 0px none rgb(54, 54, 54);
 	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 10px 20px;
+	padding: 8px 20px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
@@ -45,7 +45,7 @@ span .search-history-list_title__0RAHh {
 	right: auto;
 	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
