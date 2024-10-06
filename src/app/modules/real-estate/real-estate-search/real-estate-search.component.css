@@ -83,7 +83,11 @@ span {
 }
 
 .search-suggestion {
-  padding: 20px 12px !important;
+  padding: 20px 16px !important;
+}
+
+.suggestion-location {
+  padding: 0 4px;
 }
 
 .search-suggestions {
