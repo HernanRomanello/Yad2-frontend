@@ -45,12 +45,22 @@ export class RealEstateSearchComponent {
 
   historyLocationSearchSuggestions: string[] = ['חיפה ', 'באר שבע', 'רמלה'];
 
-  displayHistory(condition: boolean) {
-    const historyLocationSearch = document.getElementById('searchQuery');
-    this.searchSuggestionsIsOpen = condition;
-    if (condition) {
-      historyLocationSearch?.focus();
+  displayHistory(countCharacters: number) {
+    this.historyLocationSearchIsOpen = true;
+    // alert(countCharacters);
+    if (countCharacters === 0) {
+      this.historyLocationSearchIsOpen = true;
+    } else {
+      this.historyLocationSearchIsOpen = false;
     }
+
+    // if (contentInput.length === 0) {
+    //   this.historyLocationSearchIsOpen = true;
+    // }
+
+    // if (condition) {
+    //   historyLocationSearch?.focus();
+    // }
   }
 
   onCloseAdditionalFiltersMenu(event: any) {

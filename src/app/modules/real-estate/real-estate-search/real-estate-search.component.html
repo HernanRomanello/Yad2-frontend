@@ -10,16 +10,20 @@
           class="input-search"
           #searchInputLocation
           autocomplete="off"
-          (focus)="this.searchSuggestionsIsOpen = true"
+          (focus)="
+            this.searchSuggestionsIsOpen =
+              searchInputLocation.value.length === 0 ? true : false;
+            this.searchSuggestionsIsOpen = true
+          "
           (blur)="this.searchSuggestionsIsOpen = false"
           (input)="
-            this.searchSuggestionsIsOpen = searchInputLocation.value.length > 0;
             this.historyLocationSearchIsOpen =
-              searchInputLocation.value === '' ? true : false;
-            this.displayHistory(searchInputLocation.value === '')
+              searchInputLocation.value.length > 0 ? false : true;
+            searchInputLocation.focus()
           "
+          (keydown)="this.displayHistory(searchInputLocation.value.length)"
         />
-        @if(searchSuggestionsIsOpen){
+        @if(this.searchSuggestionsIsOpen ){
         <div class="search-suggestions">
           <!-- Static suggestion, always present -->
           <div
