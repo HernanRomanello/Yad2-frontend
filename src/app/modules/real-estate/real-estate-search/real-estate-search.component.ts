@@ -52,6 +52,7 @@ export class RealEstateSearchComponent {
 
   displayHistory(condition: boolean) {
     const historyLocationSearch = document.getElementById('searchQuery');
+    this.searchSuggestionsIsOpen = condition;
     if (condition) {
       historyLocationSearch?.focus();
     }
