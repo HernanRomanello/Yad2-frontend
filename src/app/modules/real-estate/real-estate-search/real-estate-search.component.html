@@ -90,7 +90,21 @@
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
           </div>
-          } } }
+          @if( searchInputLocation.value.length > 1){
+          <div
+            id="street-option"
+            *ngFor="
+              let item of this.getStreetSuggestions(
+                searchInputLocation.value
+              ).slice(0, 4);
+              let i = index
+            "
+          >
+            {{ item.Street_Name }}
+            {{ item.City_Name }}
+          </div>
+
+          } } } }
         </div>
         }
       </div>

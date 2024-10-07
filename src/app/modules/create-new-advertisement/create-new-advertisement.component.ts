@@ -185,8 +185,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.authService.IsalternativeHeaderISOpen.next(false);
     this.authService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
-    this.cityListService.getCityList().subscribe().unsubscribe();
-    this.cityListService.getStreetList().subscribe().unsubscribe();
+    if (this.cityList) {
+      this.cityList.unsubscribe();
+    }
+    if (this.cityData) {
+      this.cityData.unsubscribe();
+    }
   }
 
   eraseInputValue(id: string, event: any, inputValid: boolean): void {
@@ -369,41 +373,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   isValidCityName(): ValidationErrors | null {
     const validCity = this.isFormHasvalidCityAddress;
     return validCity === true ? null : { invalidCityName: null };
-  }
-
-  getStreetSuggestions(
-    city: string,
-    substring: string,
-    streets: Street[],
-    resultsNumber: number
-  ): Street[] {
-    return this.cityListService
-      .getStreetListByCity(city, streets)
-      .filter((street) => {
-        const value = street.Street_Name;
-        return (
-          typeof value === 'string' &&
-          value.toLowerCase().includes(substring.toLowerCase())
-        );
-      })
-      .slice(0, resultsNumber);
-  }
-
-  getFirstsCitiesContainingSubstring(
-    cities: City[],
-    substring: string,
-    property: keyof City,
-    resultsNumber: number
-  ): City[] {
-    return cities
-      .filter((city) => {
-        const value = city[property];
-        return (
-          typeof value === 'string' &&
-          value.toLowerCase().includes(substring.toLowerCase())
-        );
-      })
-      .slice(0, resultsNumber);
   }
 
   openSuccessCreationModal() {

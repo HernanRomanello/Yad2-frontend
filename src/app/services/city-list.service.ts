@@ -41,6 +41,23 @@ export class CityListService {
       })
       .slice(0, resultsNumber);
   }
+
+  getStreetSuggestions(
+    city: string,
+    substring: string,
+    streets: Street[],
+    resultsNumber: number
+  ): Street[] {
+    return this.getStreetListByCity(city, streets)
+      .filter((street) => {
+        const value = street.Street_Name;
+        return (
+          typeof value === 'string' &&
+          value.toLowerCase().includes(substring.toLowerCase())
+        );
+      })
+      .slice(0, resultsNumber);
+  }
 }
 export interface City {
   PIBA_bureau_code: number;

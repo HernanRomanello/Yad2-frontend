@@ -312,7 +312,7 @@
           <div
             id="street-option"
             *ngFor="
-              let item of getStreetSuggestions(
+              let item of this.cityListService.getStreetSuggestions(
                 cityInput.value,
                 streetInput.value,
                 this.cityData,
