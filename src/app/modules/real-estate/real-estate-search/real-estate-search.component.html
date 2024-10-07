@@ -93,15 +93,18 @@
           @if( searchInputLocation.value.length > 1){
           <div
             id="street-option"
+            class="title-locationSuggestions"
             *ngFor="
               let item of this.getStreetSuggestions(
                 searchInputLocation.value
-              ).slice(0, 4);
+              ).slice(0, 3);
               let i = index
             "
+            style="height: 42.3906px"
           >
-            {{ item.Street_Name }}
-            {{ item.City_Name }}
+            <span> {{ item.Street_Name }}</span>
+            <span class="comma"> ,</span><br />
+            <span>{{ item.City_Name }}</span>
           </div>
 
           } } } }

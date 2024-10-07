@@ -172,24 +172,6 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     });
   }
 
-  // getStreetSuggestions(
-  //   city: string,
-  //   substring: string,
-  //   streets: Street[],
-  //   resultsNumber: number
-  // ): Street[] {
-  //   return this.cityListService
-  //     .getStreetListByCity(city, streets)
-  //     .filter((street) => {
-  //       const value = street.Street_Name;
-  //       return (
-  //         typeof value === 'string' &&
-  //         value.toLowerCase().includes(substring.toLowerCase())
-  //       );
-  //     })
-  //     .slice(0, resultsNumber);
-  // }
-
   toggleMenu(
     type:
       | 'priceSlider'
