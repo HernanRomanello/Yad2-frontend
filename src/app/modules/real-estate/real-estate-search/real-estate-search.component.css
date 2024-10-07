@@ -384,7 +384,8 @@ i,
   font-size: 16px;
 }
 
-.comma {
+.comma,
+.word-space {
   margin-left: 0.25rem;
 }
 

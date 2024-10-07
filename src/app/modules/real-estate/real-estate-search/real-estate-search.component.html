@@ -85,7 +85,7 @@
             *ngFor="
               let item of this.getStreetSuggestions(
                 searchInputLocation.value
-              ).slice(0, 3);
+              ).slice(0, 4);
               let i = index
             "
             style="height: 42.3906px"
@@ -129,28 +129,53 @@
                 this.cityList,
                 searchInputLocation.value,
                 'city_name_he',
-                4
+                1
               )
             "
             style="height: 42.3906px"
           >
-            <span>אזור</span>
-            <span>{{ item.city_name_he }}</span>
+            <span class="word-space">אזור</span>
+            <span class="word-space">{{ item.city_name_he }}</span>
             <span>והסביבה</span>
           </div>
 
-          } } @if(true){
+          } } @if( searchInputLocation.value.length > 1 && (9 -
+          this.cityListService.getFirstsCitiesContainingSubstring(
+          this.cityList, searchInputLocation.value, 'city_name_he', 1 ).length -
+          this.cityListService.getFirstsCitiesContainingSubstring(
+          this.cityList, searchInputLocation.value, 'city_name_he', 4 ).length -
+          this.getStreetSuggestions(searchInputLocation.value).slice(0,
+          4).length) > 0 ){
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
           </div>
-          @if( searchInputLocation.value.length > 1){
+          @if( searchInputLocation.value.length > 1 ){
           <div
             id="street-option"
             class="title-locationSuggestions option"
             *ngFor="
               let item of this.getStreetSuggestions(
                 searchInputLocation.value
-              ).slice(0, 3);
+              ).slice(
+                0,
+                9 -
+                  this.cityListService.getFirstsCitiesContainingSubstring(
+                    this.cityList,
+                    searchInputLocation.value,
+                    'city_name_he',
+                    1
+                  ).length -
+                  this.cityListService.getFirstsCitiesContainingSubstring(
+                    this.cityList,
+                    searchInputLocation.value,
+                    'city_name_he',
+                    4
+                  ).length -
+                  this.getStreetSuggestions(searchInputLocation.value).slice(
+                    0,
+                    4
+                  ).length
+              );
               let i = index
             "
             style="height: 42.3906px"
