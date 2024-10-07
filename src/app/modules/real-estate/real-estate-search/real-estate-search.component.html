@@ -181,8 +181,13 @@
                     0,
                     4
                   ).length
-              );
-              let i = index
+              )
+            "
+            (click)="
+              this.selectedStreetAndCitySearchTexts = {
+                city: item.City_Name,
+                street: item.Street_Name
+              }
             "
             style="height: 42.3906px"
           >

@@ -27,6 +27,10 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   selectedOption: string | null = null;
   advertisementTypebuttonText: string = 'מכירה';
   title = 'נדל"ן למכירה';
+  selectedStreetAndCitySearchTexts: { city: string; street: string } = {
+    city: '',
+    street: '',
+  };
 
   @ViewChild('propertyTypeMenu', { static: false })
   propertyTypeMenu!: ElementRef;

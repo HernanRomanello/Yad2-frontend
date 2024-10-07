@@ -70,6 +70,14 @@ export class SearchService {
     'מכירה' as 'מכירה' | 'השכרה'
   );
 
+  selectedFreecityText: BehaviorSubject<string> = new BehaviorSubject<string>(
+    ''
+  );
+
+  selectedCityText: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+  selectedStreetText: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
   selectedRoomsAmount: BehaviorSubject<string[]> = new BehaviorSubject<
     string[]
   >([]);
@@ -87,5 +95,13 @@ export class SearchService {
 
   emitSelectedRoomsAmount(roomsAmount: string[]) {
     this.selectedRoomsAmount.next(roomsAmount);
+  }
+
+  SelectedFreecityText(freeText: string) {
+    this.selectedFreecityText.next(freeText);
+  }
+
+  selectedStreetFunc(street: string) {
+    this.selectedCityText.next(street);
   }
 }
