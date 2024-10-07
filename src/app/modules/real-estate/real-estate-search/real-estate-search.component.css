@@ -46,7 +46,11 @@ span {
 }
 .dropdown-menu,
 #locationSuggestion:hover,
-.gray-color {
+.gray-color,
+#street-option:hover,
+#neighborhood-option:hover,
+#city-option:hover,
+#area-option:hover {
   background-color: #f8f8f8 !important;
 }
 
@@ -131,7 +135,8 @@ span {
 #locationSuggestion,
 .search-suggestion,
 .search-button-orange,
-.type-btn {
+.type-btn,
+.option {
   cursor: pointer;
 }
 
@@ -377,4 +382,16 @@ i,
 .project-container,
 .title-locationSuggestions {
   font-size: 16px;
+}
+
+.comma {
+  margin-left: 0.25rem;
+}
+
+#street-option,
+#area-option,
+#city-option,
+#neighborhood-option {
+  font-weight: 300 !important;
+  background-color: #ffffff !important;
 }
