@@ -267,7 +267,7 @@
             id="city-option"
             #cityOption
             *ngFor="
-              let item of getFirstsCitiesContainingSubstring(
+              let item of this.cityListService.getFirstsCitiesContainingSubstring(
                 cityList,
                 cityInput.value,
                 'city_name_he',

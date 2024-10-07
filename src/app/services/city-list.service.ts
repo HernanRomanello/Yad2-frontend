@@ -24,6 +24,23 @@ export class CityListService {
   getStreetListByCity(city: string, streetList: Street[]): Street[] {
     return streetList.filter((s) => s.City_Name === city);
   }
+
+  getFirstsCitiesContainingSubstring(
+    cities: City[],
+    substring: string,
+    property: keyof City,
+    resultsNumber: number
+  ): City[] {
+    return cities
+      .filter((city) => {
+        const value = city[property];
+        return (
+          typeof value === 'string' &&
+          value.toLowerCase().includes(substring.toLowerCase())
+        );
+      })
+      .slice(0, resultsNumber);
+  }
 }
 export interface City {
   PIBA_bureau_code: number;

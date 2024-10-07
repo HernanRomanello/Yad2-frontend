@@ -9,7 +9,6 @@ import {
   inject,
 } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormGroup,
   ValidationErrors,
@@ -90,6 +89,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   router = inject(Router);
   advertisementService = inject(AdvertisementService);
   inputsStyleService = inject(InputsStyleService);
+  cityListService = inject(CityListService);
 
   @ViewChild('dropdownIconAsset_State', { static: false })
   dropdownIconAsset_State!: ElementRef;
@@ -138,8 +138,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   constructor(
     private renderer: Renderer2,
     private zone: NgZone,
-    private modalstate: ModalStateService,
-    private cityListService: CityListService
+    private modalstate: ModalStateService
   ) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {

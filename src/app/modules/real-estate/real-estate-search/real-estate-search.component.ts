@@ -1,18 +1,25 @@
 import {
   Component,
   ElementRef,
+  OnDestroy,
+  OnInit,
   ViewChild,
   afterNextRender,
   inject,
 } from '@angular/core';
 import { SearchService } from '../../../services/search.service';
 import { formatPrice } from '../../../utilities';
+import {
+  City,
+  CityListService,
+  Street,
+} from '../../../services/city-list.service';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
   styleUrl: './real-estate-search.component.css',
 })
-export class RealEstateSearchComponent {
+export class RealEstateSearchComponent implements OnInit, OnDestroy {
   searchService = inject(SearchService);
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
@@ -54,6 +61,11 @@ export class RealEstateSearchComponent {
       .querySelector('.menu')
       .classList.add('hidden');
   }
+
+  cityList: City[] = [];
+  streetList: Street[] = [];
+
+  cityListService = inject(CityListService);
 
   constructor() {
     afterNextRender(() => {
@@ -124,6 +136,48 @@ export class RealEstateSearchComponent {
         }
       });
     });
+  }
+  private cityListSubscription: any;
+  private streetListSubscription: any;
+
+  ngOnDestroy(): void {
+    if (this.cityListSubscription) {
+      this.cityListSubscription.unsubscribe();
+    }
+    if (this.streetListSubscription) {
+      this.streetListSubscription.unsubscribe();
+    }
+  }
+  ngOnInit(): void {
+    this.cityListSubscription = this.cityListService
+      .getCityList()
+      .subscribe((data) => {
+        this.cityList = data;
+      });
+
+    this.streetListSubscription = this.cityListService
+      .getStreetList()
+      .subscribe((data) => {
+        this.streetList = data;
+      });
+  }
+
+  getStreetSuggestions(
+    city: string,
+    substring: string,
+    streets: Street[],
+    resultsNumber: number
+  ): Street[] {
+    return this.cityListService
+      .getStreetListByCity(city, streets)
+      .filter((street) => {
+        const value = street.Street_Name;
+        return (
+          typeof value === 'string' &&
+          value.toLowerCase().includes(substring.toLowerCase())
+        );
+      })
+      .slice(0, resultsNumber);
   }
 
   toggleMenu(
