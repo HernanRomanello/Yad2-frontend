@@ -30,6 +30,9 @@ export class SearchService {
     aptSizeRange: [0, 500],
   };
 
+  apartmentsSortedByCityOrStreet: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
+
   getFilters() {
     return this.propertyFilters;
   }
@@ -93,11 +96,17 @@ export class SearchService {
     this.selectedRoomsAmount.next(roomsAmount);
   }
 
-  SelectedFreecityText(freeText: string) {
+  emitSelectedFreecityText(freeText: string) {
     this.selectedCityText.next(freeText);
+    if (freeText !== '') {
+      this.apartmentsSortedByCityOrStreet.next(true);
+    }
   }
 
-  selectedStreetFunc(street: string) {
+  emitSelectedStreetFunc(street: string) {
     this.selectedStreetText.next(street);
+    if (street !== '') {
+      this.apartmentsSortedByCityOrStreet.next(true);
+    }
   }
 }

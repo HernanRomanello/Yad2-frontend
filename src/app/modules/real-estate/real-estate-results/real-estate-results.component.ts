@@ -96,7 +96,6 @@ export class RealEstateResultsComponent implements OnInit {
 
         break;
       case 'תאריך':
-        // this.$sortedApartments = this.$apartments as any;
         this.$apartments
           .pipe(
             map((apartments) => {

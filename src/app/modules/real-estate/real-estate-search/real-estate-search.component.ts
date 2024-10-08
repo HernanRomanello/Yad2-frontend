@@ -21,6 +21,11 @@ import {
 })
 export class RealEstateSearchComponent implements OnInit, OnDestroy {
   searchService = inject(SearchService);
+  cityList: City[] = [];
+  streetList: Street[] = [];
+
+  cityListService = inject(CityListService);
+
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
   selectedRoomsAmount: string[] = [];
@@ -65,11 +70,6 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
       .querySelector('.menu')
       .classList.add('hidden');
   }
-
-  cityList: City[] = [];
-  streetList: Street[] = [];
-
-  cityListService = inject(CityListService);
 
   constructor() {
     afterNextRender(() => {
@@ -274,13 +274,11 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   }
 
   onSearch() {
-    // alert(this.selectedStreetAndCitySearchTexts.city.valueOf());
-    // alert(this.selectedStreetAndCitySearchTexts.street.valueOf());
     // if (this.selectedStreetAndCitySearchTexts.street !== '') {
-    this.searchService.SelectedFreecityText(
+    this.searchService.emitSelectedFreecityText(
       this.selectedStreetAndCitySearchTexts.city.valueOf()
     );
-    this.searchService.selectedStreetFunc(
+    this.searchService.emitSelectedStreetFunc(
       this.selectedStreetAndCitySearchTexts.street.valueOf()
     );
     // }
@@ -311,9 +309,9 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     return this.selectedPriceRange[0] !== -1;
   }
 
-  isPropertyTypeSelected(propertyType: string): boolean {
-    return this.searchService.selectedPropertyTypes.value.includes(
-      propertyType
-    );
-  }
+  // isPropertyTypeSelected(propertyType: string): boolean {
+  //   return this.searchService.selectedPropertyTypes.value.includes(
+  //     propertyType
+  //   );
+  // }
 }
