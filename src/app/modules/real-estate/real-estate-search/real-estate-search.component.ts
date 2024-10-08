@@ -308,10 +308,4 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   isPriceRangeSelected() {
     return this.selectedPriceRange[0] !== -1;
   }
-
-  // isPropertyTypeSelected(propertyType: string): boolean {
-  //   return this.searchService.selectedPropertyTypes.value.includes(
-  //     propertyType
-  //   );
-  // }
 }
