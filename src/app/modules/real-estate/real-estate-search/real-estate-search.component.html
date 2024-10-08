@@ -15,7 +15,7 @@
               searchInputLocation.value.length === 0 ? true : false;
             this.searchSuggestionsIsOpen = true
           "
-          (blur)="this.searchSuggestionsIsOpen = false"
+          (blur)="this.hideSearchMenu()"
           (input)="
             this.historyLocationSearchIsOpen =
               searchInputLocation.value.length > 0 ? false : true;
@@ -155,6 +155,7 @@
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
           </div>
+
           @if( searchInputLocation.value.length > 1 ){
           <div
             id="street-option"
@@ -183,12 +184,7 @@
                   ).length
               )
             "
-            (click)="
-              this.selectedStreetAndCitySearchTexts = {
-                city: item.City_Name,
-                street: item.Street_Name
-              }
-            "
+            (click)="this.setSearchValues(item.City_Name, item.Street_Name)"
             style="height: 42.3906px"
           >
             <span> {{ item.Street_Name }}</span>

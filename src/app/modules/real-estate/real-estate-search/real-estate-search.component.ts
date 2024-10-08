@@ -262,7 +262,29 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     this.searchService.emitSelectedTradeType(option);
   }
 
+  hideSearchMenu() {
+    setTimeout(() => {
+      this.searchSuggestionsIsOpen = false;
+    }, 100);
+  }
+
+  setSearchValues(city: string, street: string) {
+    this.selectedStreetAndCitySearchTexts.city = city;
+    this.selectedStreetAndCitySearchTexts.street = street;
+  }
+
   onSearch() {
+    // alert(this.selectedStreetAndCitySearchTexts.city.valueOf());
+    // alert(this.selectedStreetAndCitySearchTexts.street.valueOf());
+    // if (this.selectedStreetAndCitySearchTexts.street !== '') {
+    this.searchService.SelectedFreecityText(
+      this.selectedStreetAndCitySearchTexts.city.valueOf()
+    );
+    this.searchService.selectedStreetFunc(
+      this.selectedStreetAndCitySearchTexts.street.valueOf()
+    );
+    // }
+
     const roomsAmountContainer =
       this.roomsAmountMenu.nativeElement.querySelector('.menu');
     if (roomsAmountContainer) {

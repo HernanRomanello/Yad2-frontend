@@ -70,10 +70,6 @@ export class SearchService {
     'מכירה' as 'מכירה' | 'השכרה'
   );
 
-  selectedFreecityText: BehaviorSubject<string> = new BehaviorSubject<string>(
-    ''
-  );
-
   selectedCityText: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   selectedStreetText: BehaviorSubject<string> = new BehaviorSubject<string>('');
@@ -98,10 +94,10 @@ export class SearchService {
   }
 
   SelectedFreecityText(freeText: string) {
-    this.selectedFreecityText.next(freeText);
+    this.selectedCityText.next(freeText);
   }
 
   selectedStreetFunc(street: string) {
-    this.selectedCityText.next(street);
+    this.selectedStreetText.next(street);
   }
 }

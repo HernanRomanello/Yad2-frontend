@@ -5,7 +5,6 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { dir } from 'node:console';
 
 const buttonCss = {
   cursor: 'pointer',

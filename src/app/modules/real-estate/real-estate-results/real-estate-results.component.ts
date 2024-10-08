@@ -5,7 +5,6 @@ import {
   OnInit,
   Renderer2,
   ViewChild,
-  viewChild,
 } from '@angular/core';
 import { AdvertisementService } from '../../../services/advertisement.service';
 import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel';
@@ -16,10 +15,7 @@ import { FilterValue } from '../../../shared/models/Filters';
 @Component({
   selector: 'app-real-estate-results',
   templateUrl: './real-estate-results.component.html',
-  styleUrls: [
-    './real-estate-results.component.css',
-    // '../../user-area/user-advertisement/user-advertisement.component.css',
-  ],
+  styleUrls: ['./real-estate-results.component.css'],
 })
 export class RealEstateResultsComponent implements OnInit {
   advertisementService = inject(AdvertisementService);
@@ -44,7 +40,6 @@ export class RealEstateResultsComponent implements OnInit {
   hoverIndex: number = -1;
 
   constructor(private render: Renderer2) {
-    // this.$sortedApartments = this.$apartments as any;
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
 
