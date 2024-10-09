@@ -260,6 +260,10 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     // }
   }
 
+  calculateArrayLength(array: any[]): number {
+    return array.length - 1;
+  }
+
   applyFilter(option: 'מכירה' | 'השכרה') {
     this.selectedOption = option;
     this.advertisementTypebuttonText = option;

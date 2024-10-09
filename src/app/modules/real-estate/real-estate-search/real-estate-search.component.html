@@ -200,9 +200,60 @@
                     0,
                     4
                   ).length
-              )
+              );
+              let index = index
             "
-            style="height: 42.3906px"
+            [ngStyle]="{
+              height: '42.3906px',
+              'border-bottom-left-radius':
+                this.calculateArrayLength(
+                  this.getStreetSuggestions(searchInputLocation.value).slice(
+                    0,
+                    9 -
+                      this.cityListService.getFirstsCitiesContainingSubstring(
+                        this.cityList,
+                        searchInputLocation.value,
+                        'city_name_he',
+                        1
+                      ).length -
+                      this.cityListService.getFirstsCitiesContainingSubstring(
+                        this.cityList,
+                        searchInputLocation.value,
+                        'city_name_he',
+                        4
+                      ).length -
+                      this.getStreetSuggestions(
+                        searchInputLocation.value
+                      ).slice(0, 4).length
+                  )
+                ) === index
+                  ? '12px'
+                  : '0px',
+              'border-bottom-right-radius':
+                this.calculateArrayLength(
+                  this.getStreetSuggestions(searchInputLocation.value).slice(
+                    0,
+                    9 -
+                      this.cityListService.getFirstsCitiesContainingSubstring(
+                        this.cityList,
+                        searchInputLocation.value,
+                        'city_name_he',
+                        1
+                      ).length -
+                      this.cityListService.getFirstsCitiesContainingSubstring(
+                        this.cityList,
+                        searchInputLocation.value,
+                        'city_name_he',
+                        4
+                      ).length -
+                      this.getStreetSuggestions(
+                        searchInputLocation.value
+                      ).slice(0, 4).length
+                  )
+                ) === index
+                  ? '12px'
+                  : '0px'
+            }"
           >
             <span> {{ item.Street_Name }}</span>
             <span class="comma"> ,</span><br />
