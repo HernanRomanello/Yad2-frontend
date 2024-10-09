@@ -67,6 +67,10 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     this.historyLocationSearchIsOpen = countCharacters === 0 ? true : false;
   }
 
+  // emitSearchQuery(SearchQuery : string , input :string){ {
+  //   alert('search he');
+  // }
+
   onCloseAdditionalFiltersMenu(event: any) {
     this.additionalFiltersMenu.nativeElement
       .querySelector('.menu')
