@@ -87,6 +87,9 @@
           </div>
           @if( searchInputLocation.value.length > 1){
           <div
+            (click)="
+              this.searchInput = item.Street_Name + ', ' + item.City_Name
+            "
             id="neighborhood-option"
             class="title-locationSuggestions option"
             *ngFor="
@@ -110,6 +113,7 @@
           <div
             id="city-option"
             class="title-locationSuggestions option"
+            (click)="this.searchInput = item.city_name_he"
             *ngFor="
               let item of this.cityListService.getFirstsCitiesContainingSubstring(
                 this.cityList,
@@ -131,6 +135,10 @@
           <div
             id="area-option"
             class="title-locationSuggestions option"
+            (click)="
+              this.searchInput =
+                ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה '
+            "
             *ngFor="
               let item of this.cityListService.getFirstsCitiesContainingSubstring(
                 this.cityList,

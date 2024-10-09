@@ -380,7 +380,8 @@ i {
 i,
 .search-button-orange,
 .project-container,
-.title-locationSuggestions {
+.title-locationSuggestions,
+#searchQuery {
   font-size: 16px;
 }
 
