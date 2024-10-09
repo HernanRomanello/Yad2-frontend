@@ -11,11 +11,7 @@
           #searchInputLocation
           autocomplete="off"
           [value]="this.searchInput"
-          (focus)="
-            this.searchSuggestionsIsOpen =
-              searchInputLocation.value.length === 0 ? true : false;
-            this.searchSuggestionsIsOpen = true
-          "
+          (focus)="this.searchSuggestionsIsOpen = true"
           (blur)="this.hideSearchMenu()"
           (input)="
             this.historyLocationSearchIsOpen =
@@ -27,7 +23,6 @@
         />
         @if(this.searchSuggestionsIsOpen ){
         <div class="search-suggestions">
-          <!-- Static suggestion, always present -->
           <div
             id="locationSuggestion"
             class="search-suggestion"
@@ -41,7 +36,6 @@
             <span> קרוב אליי </span>
           </div>
 
-          <!-- Dynamic suggestions from array -->
           @if(this.historyLocationSearchIsOpen){
           <div class="title-locationSuggestion">חיפושים אחרונים</div>
 
@@ -82,7 +76,8 @@
           this.cityListService.getFirstsCitiesContainingSubstring(
           this.cityList, searchInputLocation.value, 'city_name_he', 4 ).length +
           this.getStreetSuggestions(searchInputLocation.value).slice(0,
-          4).length) > 0 ) { @if(true){
+          4).length) > 0 ) {
+
           <div style="height: 34.9px" class="title-locationSuggestions">
             שכונה
           </div>
@@ -106,7 +101,7 @@
             <span>{{ item.City_Name }}</span>
           </div>
 
-          } } @if(this.cityListService.getFirstsCitiesContainingSubstring(
+          } @if(this.cityListService.getFirstsCitiesContainingSubstring(
           this.cityList, searchInputLocation.value, 'city_name_he', 4 ).length >
           0){
           <div style="height: 34.9px" class="title-locationSuggestions">
@@ -184,22 +179,28 @@
               ).slice(
                 0,
                 9 -
-                  this.cityListService.getFirstsCitiesContainingSubstring(
-                    this.cityList,
-                    searchInputLocation.value,
-                    'city_name_he',
-                    1
-                  ).length -
-                  this.cityListService.getFirstsCitiesContainingSubstring(
-                    this.cityList,
-                    searchInputLocation.value,
-                    'city_name_he',
-                    4
-                  ).length -
-                  this.getStreetSuggestions(searchInputLocation.value).slice(
-                    0,
-                    4
-                  ).length
+                  this.calculateArrayLength(
+                    this.cityListService.getFirstsCitiesContainingSubstring(
+                      this.cityList,
+                      searchInputLocation.value,
+                      'city_name_he',
+                      1
+                    )
+                  ) -
+                  this.calculateArrayLength(
+                    this.cityListService.getFirstsCitiesContainingSubstring(
+                      this.cityList,
+                      searchInputLocation.value,
+                      'city_name_he',
+                      4
+                    )
+                  ) -
+                  this.calculateArrayLength(
+                    this.getStreetSuggestions(searchInputLocation.value).slice(
+                      0,
+                      4
+                    )
+                  )
               );
               let index = index
             "
