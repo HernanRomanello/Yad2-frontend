@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   OnDestroy,
@@ -14,16 +15,18 @@ import {
   CityListService,
   Street,
 } from '../../../services/city-list.service';
+import { debounceTime, fromEvent, map } from 'rxjs';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
   styleUrl: './real-estate-search.component.css',
 })
-export class RealEstateSearchComponent implements OnInit, OnDestroy {
+export class RealEstateSearchComponent
+  implements OnInit, OnDestroy, AfterViewInit
+{
   searchService = inject(SearchService);
   cityList: City[] = [];
   streetList: Street[] = [];
-
   cityListService = inject(CityListService);
 
   selectedPropertyTypes: string[] = [];
@@ -38,6 +41,8 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     city: '',
     street: '',
   };
+  @ViewChild('searchInputLocation', { static: false })
+  searchInputLocation!: ElementRef;
 
   @ViewChild('propertyTypeMenu', { static: false })
   propertyTypeMenu!: ElementRef;
@@ -142,6 +147,17 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
         }
       });
     });
+  }
+  
+  ngAfterViewInit() {
+    // fromEvent(this.searchInputLocation.nativeElement, 'input')
+    //   .pipe(
+    //     debounceTime(300),
+    //     map((event: any) => event.target.value)
+      )
+      .subscribe((searchQuery) => {
+        this.emitSearchQuery(this.searchInput, searchQuery);
+      });
   }
   private cityListSubscription: any;
   private streetListSubscription: any;
