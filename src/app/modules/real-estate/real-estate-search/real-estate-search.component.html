@@ -20,7 +20,8 @@
           (input)="
             this.historyLocationSearchIsOpen =
               searchInputLocation.value.length > 0 ? false : true;
-            searchInputLocation.focus()
+            searchInputLocation.focus();
+            this.emitSearchQuery(this.searchInput, searchInputLocation.value)
           "
           (keydown)="this.displayHistory(searchInputLocation.value.length)"
         />
@@ -105,11 +106,13 @@
             <span>{{ item.City_Name }}</span>
           </div>
 
-          } } @if(true){
+          } } @if(this.cityListService.getFirstsCitiesContainingSubstring(
+          this.cityList, searchInputLocation.value, 'city_name_he', 4 ).length >
+          0){
           <div style="height: 34.9px" class="title-locationSuggestions">
             עיר
           </div>
-          @if( searchInputLocation.value.length > 1){
+          } @if( searchInputLocation.value.length > 1){
           <div
             id="city-option"
             class="title-locationSuggestions option"
@@ -204,7 +207,7 @@
             <span>{{ item.City_Name }}</span>
           </div>
 
-          } } } }
+          } } }
         </div>
         }
       </div>
