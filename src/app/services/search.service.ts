@@ -30,7 +30,7 @@ export class SearchService {
     aptSizeRange: [0, 500],
   };
 
-  apartmentsSortedByCityOrStreet: BehaviorSubject<boolean> =
+  apartmentsSortedByStreet: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 
   getFilters() {
@@ -99,14 +99,21 @@ export class SearchService {
   emitSelectedFreecityText(freeText: string) {
     this.selectedCityText.next(freeText);
     if (freeText !== '') {
-      this.apartmentsSortedByCityOrStreet.next(true);
+      this.apartmentsSortedByStreet.next(true);
     }
   }
 
   emitSelectedStreetFunc(street: string) {
+    // alert('street' + this.selectedStreetText.value);
+    // alert('street' +  street);
+    const streetHasVlue = street !== '';
+
+    // this.apartmentsSortedByStreet.next(streetHasVlue);
+
     this.selectedStreetText.next(street);
-    if (street !== '') {
-      this.apartmentsSortedByCityOrStreet.next(true);
+
+    if (streetHasVlue) {
+      alert('street test11');
     }
   }
 }

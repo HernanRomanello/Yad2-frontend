@@ -32,6 +32,8 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   selectedOption: string | null = null;
   advertisementTypebuttonText: string = 'מכירה';
   title = 'נדל"ן למכירה';
+  searchInput: string = '';
+
   selectedStreetAndCitySearchTexts: { city: string; street: string } = {
     city: '',
     street: '',
@@ -269,6 +271,8 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   }
 
   setSearchValues(city: string, street: string) {
+    alert('city' + city + 'street' + street);
+    alert('fefrre');
     this.selectedStreetAndCitySearchTexts.city = city;
     this.selectedStreetAndCitySearchTexts.street = street;
   }

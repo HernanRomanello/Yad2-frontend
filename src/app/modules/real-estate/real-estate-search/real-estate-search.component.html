@@ -10,6 +10,7 @@
           class="input-search"
           #searchInputLocation
           autocomplete="off"
+          [value]="this.searchInput"
           (focus)="
             this.searchSuggestionsIsOpen =
               searchInputLocation.value.length === 0 ? true : false;
@@ -158,6 +159,10 @@
 
           @if( searchInputLocation.value.length > 1 ){
           <div
+            (click)="
+              this.setSearchValues(item.City_Name, item.Street_Name);
+              this.searchInput = item.Street_Name + ', ' + item.City_Name
+            "
             id="street-option"
             class="title-locationSuggestions option"
             *ngFor="
@@ -184,7 +189,6 @@
                   ).length
               )
             "
-            (click)="this.setSearchValues(item.City_Name, item.Street_Name)"
             style="height: 42.3906px"
           >
             <span> {{ item.Street_Name }}</span>
