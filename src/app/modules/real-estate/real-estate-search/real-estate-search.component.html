@@ -48,11 +48,13 @@
             [ngStyle]="{
               height: '48px',
               'border-bottom-left-radius':
-                this.historyLocationSearchSuggestions.length == index + 1
+                calculateArrayLength(this.historyLocationSearchSuggestions) ==
+                index + 1
                   ? '12px'
                   : '0px',
               'border-bottom-right-radius':
-                this.historyLocationSearchSuggestions.length == index + 1
+                calculateArrayLength(this.historyLocationSearchSuggestions) ==
+                index + 1
                   ? '12px'
                   : '0px'
             }"
@@ -70,7 +72,7 @@
             />
             <span class="suggestion-location"> {{ suggestion }}</span>
           </div>
-          } @else if( searchInputLocation.value.length > 1 && (
+          } @else if( (searchInputLocation.value.length) > 1 && (
           this.cityListService.getFirstsCitiesContainingSubstring(
           this.cityList, searchInputLocation.value, 'city_name_he', 1 ).length +
           this.cityListService.getFirstsCitiesContainingSubstring(
@@ -227,7 +229,8 @@
                         searchInputLocation.value
                       ).slice(0, 4).length
                   )
-                ) === index
+                ) ===
+                index + 1
                   ? '12px'
                   : '0px',
               'border-bottom-right-radius':
@@ -235,23 +238,30 @@
                   this.getStreetSuggestions(searchInputLocation.value).slice(
                     0,
                     9 -
-                      this.cityListService.getFirstsCitiesContainingSubstring(
-                        this.cityList,
-                        searchInputLocation.value,
-                        'city_name_he',
-                        1
-                      ).length -
-                      this.cityListService.getFirstsCitiesContainingSubstring(
-                        this.cityList,
-                        searchInputLocation.value,
-                        'city_name_he',
-                        4
-                      ).length -
-                      this.getStreetSuggestions(
-                        searchInputLocation.value
-                      ).slice(0, 4).length
+                      this.calculateArrayLength(
+                        this.cityListService.getFirstsCitiesContainingSubstring(
+                          this.cityList,
+                          searchInputLocation.value,
+                          'city_name_he',
+                          1
+                        )
+                      ) -
+                      this.calculateArrayLength(
+                        this.cityListService.getFirstsCitiesContainingSubstring(
+                          this.cityList,
+                          searchInputLocation.value,
+                          'city_name_he',
+                          4
+                        )
+                      ) -
+                      this.calculateArrayLength(
+                        this.getStreetSuggestions(
+                          searchInputLocation.value
+                        ).slice(0, 4)
+                      )
                   )
-                ) === index
+                ) ===
+                index + 1
                   ? '12px'
                   : '0px'
             }"
