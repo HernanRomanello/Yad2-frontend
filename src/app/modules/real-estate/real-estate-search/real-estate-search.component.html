@@ -130,11 +130,13 @@
             <span>{{ item.city_name_he }}</span>
           </div>
 
-          } @if(true){
+          } @if(this.cityListService.getFirstsCitiesContainingSubstring(
+          this.cityList, searchInputLocation.value, 'city_name_he', 1 ).length >
+          0){
           <div style="height: 34.9px" class="title-locationSuggestions">
             אזור
           </div>
-          @if( searchInputLocation.value.length > 1){
+          } @if( searchInputLocation.value.length > 1){
           <div
             id="area-option"
             class="title-locationSuggestions option"
@@ -157,7 +159,7 @@
             <span>והסביבה</span>
           </div>
 
-          } } @if( searchInputLocation.value.length > 1 && (9 -
+          } @if( searchInputLocation.value.length > 1 && (9 -
           this.cityListService.getFirstsCitiesContainingSubstring(
           this.cityList, searchInputLocation.value, 'city_name_he', 1 ).length -
           this.cityListService.getFirstsCitiesContainingSubstring(
