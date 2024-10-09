@@ -19,7 +19,6 @@
             searchInputLocation.focus();
             this.emitSearchQuery(this.searchInput, searchInputLocation.value)
           "
-          (keydown)="this.displayHistory(searchInputLocation.value.length)"
         />
         @if(this.searchSuggestionsIsOpen ){
         <div class="search-suggestions">

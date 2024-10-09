@@ -148,15 +148,17 @@ export class RealEstateSearchComponent
       });
     });
   }
-  
+
   ngAfterViewInit() {
-    // fromEvent(this.searchInputLocation.nativeElement, 'input')
-    //   .pipe(
-    //     debounceTime(300),
-    //     map((event: any) => event.target.value)
+    fromEvent(this.searchInputLocation.nativeElement, 'input')
+      .pipe(
+        debounceTime(300),
+        map((event: any) => event.target.value)
       )
       .subscribe((searchQuery) => {
-        this.emitSearchQuery(this.searchInput, searchQuery);
+        // this.emitSearchQuery(this.searchInput, searchQuery);
+        this.displayHistory(searchQuery.value.length);
+        alert('searchQuery' + searchQuery);
       });
   }
   private cityListSubscription: any;
