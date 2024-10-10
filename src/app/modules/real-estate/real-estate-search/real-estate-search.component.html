@@ -70,18 +70,11 @@
             />
             <span class="suggestion-location"> {{ suggestion }}</span>
           </div>
-          } @else if( (searchInputLocation.value.length) > 1 && (
-          this.cityListService.getFirstsCitiesContainingSubstring(
-          this.cityList, searchInputLocation.value, 'city_name_he', 1 ).length +
-          this.cityListService.getFirstsCitiesContainingSubstring(
-          this.cityList, searchInputLocation.value, 'city_name_he', 4 ).length +
-          this.getStreetSuggestions(searchInputLocation.value).slice(0,
-          4).length) > 0 ) {
-
+          } @else if( (searchInputLocation.value.length) > 1 ) {
+          @if(this.neighborhoodSuggestion.length > 0){
           <div style="height: 34.9px" class="title-locationSuggestions">
             שכונה
           </div>
-          @if(this.neighborhoodSuggestion.length > 0){
           <div
             (click)="
               this.searchInput = item.Street_Name + ', ' + item.City_Name
@@ -100,7 +93,7 @@
           <div style="height: 34.9px" class="title-locationSuggestions">
             עיר
           </div>
-          } @if( searchInputLocation.value.length > 1){
+
           <div
             id="city-option"
             class="title-locationSuggestions option"
@@ -130,18 +123,11 @@
             <span class="word-space">{{ item.city_name_he }}</span>
             <span>והסביבה</span>
           </div>
-          } @if( searchInputLocation.value.length > 1 && (9 -
-          this.cityListService.getFirstsCitiesContainingSubstring(
-          this.cityList, searchInputLocation.value, 'city_name_he', 1 ).length -
-          this.cityListService.getFirstsCitiesContainingSubstring(
-          this.cityList, searchInputLocation.value, 'city_name_he', 4 ).length -
-          this.getStreetSuggestions(searchInputLocation.value).slice(0,
-          4).length) > 0 ){
+          } @if( this.streetSuggestion.length > 0 ){
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
           </div>
 
-          @if( searchInputLocation.value.length > 1 ){
           <div
             (click)="
               this.setSearchValues(item.City_Name, item.Street_Name);
@@ -153,59 +139,21 @@
             [ngStyle]="{
               height: '42.3906px',
               'border-bottom-left-radius':
-                this.calculateArrayLength(
-                  this.getStreetSuggestions(searchInputLocation.value).slice(
-                    0,
-                    9 -
-                      this.cityListService.getFirstsCitiesContainingSubstring(
-                        this.cityList,
-                        searchInputLocation.value,
-                        'city_name_he',
-                        1
-                      ).length -
-                      this.cityListService.getFirstsCitiesContainingSubstring(
-                        this.cityList,
-                        searchInputLocation.value,
-                        'city_name_he',
-                        4
-                      ).length -
-                      this.getStreetSuggestions(
-                        searchInputLocation.value
-                      ).slice(0, 4).length
-                  )
-                ) ===
-                index + 1
+                8 ===
+                index +
+                  this.citySuggestion.length +
+                  this.neighborhoodSuggestion.length +
+                  this.areaSuggestion.length +
+                  1
                   ? '12px'
                   : '0px',
               'border-bottom-right-radius':
-                this.calculateArrayLength(
-                  this.getStreetSuggestions(searchInputLocation.value).slice(
-                    0,
-                    9 -
-                      this.calculateArrayLength(
-                        this.cityListService.getFirstsCitiesContainingSubstring(
-                          this.cityList,
-                          searchInputLocation.value,
-                          'city_name_he',
-                          1
-                        )
-                      ) -
-                      this.calculateArrayLength(
-                        this.cityListService.getFirstsCitiesContainingSubstring(
-                          this.cityList,
-                          searchInputLocation.value,
-                          'city_name_he',
-                          4
-                        )
-                      ) -
-                      this.calculateArrayLength(
-                        this.getStreetSuggestions(
-                          searchInputLocation.value
-                        ).slice(0, 4)
-                      )
-                  )
-                ) ===
-                index + 1
+                8 ===
+                index +
+                  this.citySuggestion.length +
+                  this.neighborhoodSuggestion.length +
+                  this.areaSuggestion.length +
+                  1
                   ? '12px'
                   : '0px'
             }"
@@ -214,8 +162,7 @@
             <span class="comma"> ,</span><br />
             <span>{{ item.City_Name }}</span>
           </div>
-
-          } } }
+          } }
         </div>
         }
       </div>

@@ -169,7 +169,7 @@ export class RealEstateSearchComponent
         if (searchQuery.length > 1) {
           this.neighborhoodSuggestion = this.getStreetSuggestions(
             searchQuery
-          ).slice(0, 4);
+          ).slice(0, 5);
           const neighborhoodSuggestionLength =
             this.neighborhoodSuggestion.length;
           this.citySuggestion =
