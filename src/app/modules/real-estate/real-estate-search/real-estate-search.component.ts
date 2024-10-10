@@ -195,7 +195,7 @@ export class RealEstateSearchComponent
             0,
             9 -
               this.calculateArrayLength(this.neighborhoodSuggestion) -
-              this.calculateArrayLength(this.areaSuggestion) -
+              this.calculateArrayLength(this.citySuggestion) -
               this.calculateArrayLength(this.areaSuggestion)
           );
         }
