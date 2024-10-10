@@ -31,7 +31,7 @@ export class RealEstateSearchComponent
   neighborhoodSuggestion: Street[] = [];
   areaSuggestion: City[] = [];
   citySuggestion: City[] = [];
-  streetSuggestion: City[] = [];
+  streetSuggestion: Street[] = [];
 
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
@@ -165,6 +165,36 @@ export class RealEstateSearchComponent
           searchQuery.length > 0 ? false : true;
         if (this.historyLocationSearchIsOpen) {
           return;
+        }
+        if (searchQuery.length > 1) {
+          this.neighborhoodSuggestion = this.getStreetSuggestions(
+            searchQuery
+          ).slice(0, 4);
+          const neighborhoodSuggestionLength =
+            this.neighborhoodSuggestion.length;
+          this.citySuggestion =
+            this.cityListService.getFirstsCitiesContainingSubstring(
+              this.cityList,
+              searchQuery,
+              'city_name_he',
+              4
+            );
+          const citySuggestionLength = this.citySuggestion.length;
+          if (neighborhoodSuggestionLength + citySuggestionLength > 8) {
+            this.areaSuggestion = [];
+            this.streetSuggestion = [];
+            return;
+          }
+          this.areaSuggestion = this.citySuggestion.slice(0, 1);
+          if (neighborhoodSuggestionLength + citySuggestionLength >= 8) {
+            this.streetSuggestion = [];
+            return;
+          }
+
+          this.streetSuggestion = this.neighborhoodSuggestion.slice(
+            0,
+            8 - neighborhoodSuggestionLength - citySuggestionLength
+          );
         }
 
         //

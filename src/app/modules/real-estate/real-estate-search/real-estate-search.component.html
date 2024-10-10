@@ -81,19 +81,14 @@
           <div style="height: 34.9px" class="title-locationSuggestions">
             שכונה
           </div>
-          @if( searchInputLocation.value.length > 1){
+          @if(this.neighborhoodSuggestion.length > 0){
           <div
             (click)="
               this.searchInput = item.Street_Name + ', ' + item.City_Name
             "
             id="neighborhood-option"
             class="title-locationSuggestions option"
-            *ngFor="
-              let item of this.getStreetSuggestions(
-                searchInputLocation.value
-              ).slice(0, 4);
-              let i = index
-            "
+            *ngFor="let item of this.neighborhoodSuggestion; let i = index"
             style="height: 42.3906px"
           >
             <span> {{ item.Street_Name }}</span>
@@ -101,9 +96,7 @@
             <span>{{ item.City_Name }}</span>
           </div>
 
-          } @if(this.cityListService.getFirstsCitiesContainingSubstring(
-          this.cityList, searchInputLocation.value, 'city_name_he', 4 ).length >
-          0){
+          } @if( this.citySuggestion.length > 0){
           <div style="height: 34.9px" class="title-locationSuggestions">
             עיר
           </div>
@@ -112,26 +105,17 @@
             id="city-option"
             class="title-locationSuggestions option"
             (click)="this.searchInput = item.city_name_he"
-            *ngFor="
-              let item of this.cityListService.getFirstsCitiesContainingSubstring(
-                this.cityList,
-                searchInputLocation.value,
-                'city_name_he',
-                4
-              )
-            "
+            *ngFor="let item of this.citySuggestion"
             style="height: 42.3906px"
           >
             <span>{{ item.city_name_he }}</span>
           </div>
 
-          } @if(this.cityListService.getFirstsCitiesContainingSubstring(
-          this.cityList, searchInputLocation.value, 'city_name_he', 1 ).length >
-          0){
+          } @if( this.areaSuggestion.length > 0 ){
           <div style="height: 34.9px" class="title-locationSuggestions">
             אזור
           </div>
-          } @if( searchInputLocation.value.length > 1){
+
           <div
             id="area-option"
             class="title-locationSuggestions option"
@@ -139,21 +123,13 @@
               this.searchInput =
                 ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה '
             "
-            *ngFor="
-              let item of this.cityListService.getFirstsCitiesContainingSubstring(
-                this.cityList,
-                searchInputLocation.value,
-                'city_name_he',
-                1
-              )
-            "
+            *ngFor="let item of this.areaSuggestion"
             style="height: 42.3906px"
           >
             <span class="word-space">אזור</span>
             <span class="word-space">{{ item.city_name_he }}</span>
             <span>והסביבה</span>
           </div>
-
           } @if( searchInputLocation.value.length > 1 && (9 -
           this.cityListService.getFirstsCitiesContainingSubstring(
           this.cityList, searchInputLocation.value, 'city_name_he', 1 ).length -
@@ -173,37 +149,7 @@
             "
             id="street-option"
             class="title-locationSuggestions option"
-            *ngFor="
-              let item of this.getStreetSuggestions(
-                searchInputLocation.value
-              ).slice(
-                0,
-                9 -
-                  this.calculateArrayLength(
-                    this.cityListService.getFirstsCitiesContainingSubstring(
-                      this.cityList,
-                      searchInputLocation.value,
-                      'city_name_he',
-                      1
-                    )
-                  ) -
-                  this.calculateArrayLength(
-                    this.cityListService.getFirstsCitiesContainingSubstring(
-                      this.cityList,
-                      searchInputLocation.value,
-                      'city_name_he',
-                      4
-                    )
-                  ) -
-                  this.calculateArrayLength(
-                    this.getStreetSuggestions(searchInputLocation.value).slice(
-                      0,
-                      4
-                    )
-                  )
-              );
-              let index = index
-            "
+            *ngFor="let item of this.streetSuggestion; let index = index"
             [ngStyle]="{
               height: '42.3906px',
               'border-bottom-left-radius':
