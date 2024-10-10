@@ -12,7 +12,6 @@
           autocomplete="off"
           [value]="this.searchInput"
           (focus)="this.searchSuggestionsIsOpen = true"
-          (blur)="this.hideSearchMenu()"
           (input)="
             this.displayHistory(searchInputLocation.value.length);
             searchInputLocation.focus();
@@ -31,7 +30,7 @@
               src="assets/images/location-arrow.svg"
               alt=""
             />
-            <span> קרוב אליי </span>
+            <span class="valid"> קרוב אליי </span>
           </div>
 
           @if(this.historyLocationSearchIsOpen){
@@ -64,14 +63,14 @@
             "
           >
             <img
-              class="history-img"
+              class="history-img valid"
               src="assets/images/history-svgrepo-com.svg"
               alt=""
             />
-            <span class="suggestion-location"> {{ suggestion }}</span>
+            <span class="suggestion-location valid"> {{ suggestion }}</span>
           </div>
           } @else if( (searchInputLocation.value.length) > 1 ) {
-          @if(this.neighborhoodSuggestion.length > 0){
+          @if(this.neighborhoodSuggestion.length > 0 ){
           <div style="height: 34.9px" class="title-locationSuggestions">
             שכונה
           </div>
@@ -84,9 +83,9 @@
             *ngFor="let item of this.neighborhoodSuggestion; let i = index"
             style="height: 42.3906px"
           >
-            <span> {{ item.Street_Name }}</span>
-            <span class="comma"> ,</span><br />
-            <span>{{ item.City_Name }}</span>
+            <span class="valid"> {{ item.Street_Name }}</span>
+            <span class="comma valid"> ,</span><br />
+            <span class="valid">{{ item.City_Name }}</span>
           </div>
 
           } @if( this.citySuggestion.length > 0){
@@ -101,7 +100,7 @@
             *ngFor="let item of this.citySuggestion"
             style="height: 42.3906px"
           >
-            <span>{{ item.city_name_he }}</span>
+            <span class="valid">{{ item.city_name_he }}</span>
           </div>
 
           } @if( this.areaSuggestion.length > 0 ){
@@ -119,9 +118,9 @@
             *ngFor="let item of this.areaSuggestion"
             style="height: 42.3906px"
           >
-            <span class="word-space">אזור</span>
-            <span class="word-space">{{ item.city_name_he }}</span>
-            <span>והסביבה</span>
+            <span class="word-space valid">אזור</span>
+            <span class="word-space valid">{{ item.city_name_he }}</span>
+            <span class="valid">והסביבה</span>
           </div>
           } @if( this.streetSuggestion.length > 0 ){
           <div style="height: 34.9px" class="title-locationSuggestions">
@@ -130,6 +129,7 @@
 
           <div
             (click)="
+              this.hasSelectedStreet = true;
               this.setSearchValues(item.City_Name, item.Street_Name);
               this.searchInput = item.Street_Name + ', ' + item.City_Name
             "
@@ -156,11 +156,17 @@
                   : '0px'
             }"
           >
-            <span> {{ item.Street_Name }}</span>
-            <span class="comma"> ,</span><br />
-            <span>{{ item.City_Name }}</span>
+            <span class="valid"> {{ item.Street_Name }}</span>
+            <span class="comma valid"> ,</span><br />
+            <span class="valid">{{ item.City_Name }}</span>
           </div>
-          } }
+          } } @if(true){
+
+          <div class="filters-btns">
+            <div class="reset-btn">איפוס</div>
+            <div class="select-btn">אישור</div>
+          </div>
+          }
         </div>
         }
       </div>

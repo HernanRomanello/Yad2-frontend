@@ -40,11 +40,15 @@ export class RealEstateSearchComponent
   advertisementTypebuttonText: string = 'מכירה';
   title = 'נדל"ן למכירה';
   searchInput: string = '';
+  hasSelectedCities: boolean = false;
+  hasSelectedStreet: boolean = false;
 
   selectedStreetAndCitySearchTexts: { city: string; street: string } = {
     city: '',
     street: '',
   };
+
+  selectedCities: string[] = [];
   @ViewChild('searchInputLocation', { static: false })
   searchInputLocation!: ElementRef;
 
@@ -160,7 +164,6 @@ export class RealEstateSearchComponent
         map((event: any) => event.target.value)
       )
       .subscribe((searchQuery) => {
-        // this.emitSearchQuery(this.searchInput, searchQuery);
         this.historyLocationSearchIsOpen =
           searchQuery.length > 0 ? false : true;
         if (this.historyLocationSearchIsOpen) {
@@ -205,11 +208,24 @@ export class RealEstateSearchComponent
               this.calculateArrayLength(this.areaSuggestion)
           );
         }
-
-        //
-        // alert('searchQuery' + searchQuery);
-        // alert(event?.target);
       });
+    document.body.addEventListener('click', (event) => {
+      const clickedElement = event.target as HTMLElement;
+      if (
+        clickedElement.id !== 'propertyRoomButton' &&
+        clickedElement.id !== 'searchQuery'
+      ) {
+        if (
+          !clickedElement.classList.contains('search-suggestion') &&
+          !clickedElement.classList.contains('title-locationSuggestions') &&
+          !clickedElement.classList.contains('comma') &&
+          !clickedElement.classList.contains('valid') &&
+          !clickedElement.classList.contains('title-locationSuggestion')
+        ) {
+          this.searchSuggestionsIsOpen = false;
+        }
+      }
+    });
   }
   private cityListSubscription: any;
   private streetListSubscription: any;
@@ -347,15 +363,23 @@ export class RealEstateSearchComponent
 
   hideSearchMenu() {
     setTimeout(() => {
-      this.searchSuggestionsIsOpen = false;
+      if (
+        this.hasSelectedStreet === false &&
+        this.hasSelectedCities === false
+      ) {
+        this.searchSuggestionsIsOpen = false;
+      }
     }, 100);
   }
 
   setSearchValues(city: string, street: string) {
-    alert('city' + city + 'street' + street);
-    alert('fefrre');
+    alert('City: ' + city + ' | Street: ' + street);
+
     this.selectedStreetAndCitySearchTexts.city = city;
     this.selectedStreetAndCitySearchTexts.street = street;
+    // setTimeout(() => {
+    //   this.searchInputLocation.nativeElement.focus();
+    // }, 150);
   }
 
   onSearch() {

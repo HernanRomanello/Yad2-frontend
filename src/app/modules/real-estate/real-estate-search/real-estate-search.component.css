@@ -21,7 +21,9 @@ span {
 }
 
 .input-search::placeholder,
-.type-btn {
+.type-btn,
+.select-btn,
+.reset-btn {
   font-size: 16px !important;
 }
 .input-search::placeholder {
@@ -194,7 +196,6 @@ i {
 .search-button-orange {
   display: inline-flex;
   line-height: 24px;
-  justify-content: center;
   padding: 18px 0 18px 0;
   height: 42px;
   width: 108px;
@@ -206,6 +207,10 @@ i {
   background-color: #ff7100;
 }
 
+.search-button-orange {
+  justify-content: center;
+}
+
 #locationSuggestion,
 .project-div,
 .search-suggestion,
@@ -214,7 +219,8 @@ i {
 .title-locationSuggestions,
 .price-btn .flex-center,
 .search-button,
-.search-button-orange {
+.search-button-orange,
+.filters-btns {
   align-items: center;
 }
 
@@ -225,11 +231,15 @@ i {
 .title {
   font-size: 24px;
   line-height: 27.6px;
-  font-weight: bold;
   text-align: end;
   width: 98.5vw;
   padding: 0.25rem;
   margin-top: 2.2rem;
+}
+
+.select-btn,
+.title {
+  font-weight: bold;
 }
 
 .location-arrow-img,
@@ -250,7 +260,6 @@ i {
   line-height: 27.6px;
   text-decoration: none solid rgb(54, 54, 54);
   text-align: end;
-  justify-content: space-between;
   height: 84px;
   width: 742px;
   align-items: end;
@@ -258,11 +267,17 @@ i {
   margin-left: auto;
 }
 
+.project-container,
+.filters-btns {
+  justify-content: space-between;
+}
+
 #locationSuggestion,
 .project-container,
 .project-div,
 .search-suggestion,
-.title-locationSuggestions {
+.title-locationSuggestions,
+.filters-btns {
   display: flex;
 }
 
@@ -396,4 +411,27 @@ i,
 #neighborhood-option {
   font-weight: 300 !important;
   background-color: #ffffff !important;
+}
+
+.select-btn:hover {
+  color: #d86000;
+}
+.select-btn {
+  color: #ff7e17;
+}
+.reset-btn {
+  color: #999999;
+}
+
+.reset-btn,
+.select-btn {
+  padding: 4px 8px;
+  margin: 4px 10px;
+}
+
+.filters-btns {
+  height: 47px;
+}
+.filters-btns {
+  border-top: solid 1px #eeeeee;
 }
