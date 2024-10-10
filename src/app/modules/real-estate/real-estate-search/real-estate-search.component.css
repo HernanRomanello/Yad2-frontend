@@ -138,7 +138,9 @@ span {
 .search-suggestion,
 .search-button-orange,
 .type-btn,
-.option {
+.option,
+.reset-btn,
+.select-btn {
   cursor: pointer;
 }
 
@@ -183,10 +185,14 @@ img {
 }
 
 i {
-  color: #363636;
   height: 16px;
   width: 16px;
   margin-right: 4px;
+}
+
+.reset-btn:hover,
+i {
+  color: #363636;
 }
 
 .arrow-up {

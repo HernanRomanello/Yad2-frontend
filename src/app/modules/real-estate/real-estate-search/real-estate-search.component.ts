@@ -15,7 +15,7 @@ import {
   CityListService,
   Street,
 } from '../../../services/city-list.service';
-import { debounceTime, fromEvent, map } from 'rxjs';
+import { debounceTime, fromEvent, map, Subscription } from 'rxjs';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
@@ -32,6 +32,7 @@ export class RealEstateSearchComponent
   areaSuggestion: City[] = [];
   citySuggestion: City[] = [];
   streetSuggestion: Street[] = [];
+  searchInputSubscription!: Subscription;
 
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
@@ -158,7 +159,10 @@ export class RealEstateSearchComponent
   }
 
   ngAfterViewInit() {
-    fromEvent(this.searchInputLocation.nativeElement, 'input')
+    this.searchInputSubscription = fromEvent(
+      this.searchInputLocation.nativeElement,
+      'input'
+    )
       .pipe(
         debounceTime(300),
         map((event: any) => event.target.value)
@@ -236,6 +240,10 @@ export class RealEstateSearchComponent
     }
     if (this.streetListSubscription) {
       this.streetListSubscription.unsubscribe();
+    }
+
+    if (this.searchInputSubscription) {
+      this.searchInputSubscription.unsubscribe;
     }
   }
   ngOnInit(): void {
