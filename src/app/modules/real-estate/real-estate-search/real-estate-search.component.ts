@@ -193,7 +193,10 @@ export class RealEstateSearchComponent
 
           this.streetSuggestion = this.neighborhoodSuggestion.slice(
             0,
-            8 - neighborhoodSuggestionLength - citySuggestionLength
+            9 -
+              this.calculateArrayLength(this.neighborhoodSuggestion) -
+              this.calculateArrayLength(this.areaSuggestion) -
+              this.calculateArrayLength(this.areaSuggestion)
           );
         }
 
@@ -320,6 +323,9 @@ export class RealEstateSearchComponent
   }
 
   calculateArrayLength(array: any[]): number {
+    if (!(array.length > 0)) {
+      return 0;
+    }
     return array.length;
   }
 

@@ -141,19 +141,17 @@
               'border-bottom-left-radius':
                 8 ===
                 index +
-                  this.citySuggestion.length +
-                  this.neighborhoodSuggestion.length +
-                  this.areaSuggestion.length +
-                  1
+                  this.calculateArrayLength(this.citySuggestion) +
+                  this.calculateArrayLength(this.neighborhoodSuggestion) +
+                  this.calculateArrayLength(this.areaSuggestion)
                   ? '12px'
                   : '0px',
               'border-bottom-right-radius':
                 8 ===
                 index +
-                  this.citySuggestion.length +
-                  this.neighborhoodSuggestion.length +
-                  this.areaSuggestion.length +
-                  1
+                  this.calculateArrayLength(this.citySuggestion) +
+                  this.calculateArrayLength(this.neighborhoodSuggestion) +
+                  this.calculateArrayLength(this.areaSuggestion)
                   ? '12px'
                   : '0px'
             }"
