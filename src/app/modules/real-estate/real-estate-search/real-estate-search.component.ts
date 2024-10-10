@@ -170,8 +170,7 @@ export class RealEstateSearchComponent
           this.neighborhoodSuggestion = this.getStreetSuggestions(
             searchQuery
           ).slice(0, 5);
-          const neighborhoodSuggestionLength =
-            this.neighborhoodSuggestion.length;
+
           this.citySuggestion =
             this.cityListService.getFirstsCitiesContainingSubstring(
               this.cityList,
@@ -179,14 +178,21 @@ export class RealEstateSearchComponent
               'city_name_he',
               4
             );
-          const citySuggestionLength = this.citySuggestion.length;
-          if (neighborhoodSuggestionLength + citySuggestionLength > 8) {
+          if (
+            this.calculateArrayLength(this.neighborhoodSuggestion) +
+              this.calculateArrayLength(this.citySuggestion) >
+            8
+          ) {
             this.areaSuggestion = [];
             this.streetSuggestion = [];
             return;
           }
           this.areaSuggestion = this.citySuggestion.slice(0, 1);
-          if (neighborhoodSuggestionLength + citySuggestionLength >= 8) {
+          if (
+            this.calculateArrayLength(this.neighborhoodSuggestion) +
+              this.calculateArrayLength(this.citySuggestion) >=
+            8
+          ) {
             this.streetSuggestion = [];
             return;
           }
