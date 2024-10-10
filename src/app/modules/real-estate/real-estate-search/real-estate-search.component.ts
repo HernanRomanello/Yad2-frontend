@@ -252,6 +252,16 @@ export class RealEstateSearchComponent
       });
   }
 
+  resetSearchInput() {
+    this.searchInput = '';
+    this.searchSuggestionsIsOpen = false;
+    this.hasSelectedCities = false;
+    this.hasSelectedStreet = false;
+    this.selectedCities = [];
+    this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
+    this.historyLocationSearchIsOpen = true;
+  }
+
   getStreetSuggestions(substring: string): Street[] {
     return this.streetList.filter((street) => {
       const value = street.Street_Name;
