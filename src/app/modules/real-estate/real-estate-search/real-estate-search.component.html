@@ -14,8 +14,7 @@
           (focus)="this.searchSuggestionsIsOpen = true"
           (blur)="this.hideSearchMenu()"
           (input)="
-            this.historyLocationSearchIsOpen =
-              searchInputLocation.value.length > 0 ? false : true;
+            this.displayHistory(searchInputLocation.value.length);
             searchInputLocation.focus();
             this.emitSearchQuery(this.searchInput, searchInputLocation.value)
           "

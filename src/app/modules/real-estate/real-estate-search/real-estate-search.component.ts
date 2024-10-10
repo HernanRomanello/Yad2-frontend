@@ -28,6 +28,10 @@ export class RealEstateSearchComponent
   cityList: City[] = [];
   streetList: Street[] = [];
   cityListService = inject(CityListService);
+  neighborhoodSuggestion: Street[] = [];
+  areaSuggestion: City[] = [];
+  citySuggestion: City[] = [];
+  streetSuggestion: City[] = [];
 
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
@@ -157,8 +161,15 @@ export class RealEstateSearchComponent
       )
       .subscribe((searchQuery) => {
         // this.emitSearchQuery(this.searchInput, searchQuery);
-        this.displayHistory(searchQuery.value.length);
-        alert('searchQuery' + searchQuery);
+        this.historyLocationSearchIsOpen =
+          searchQuery.length > 0 ? false : true;
+        if (this.historyLocationSearchIsOpen) {
+          return;
+        }
+
+        //
+        // alert('searchQuery' + searchQuery);
+        // alert(event?.target);
       });
   }
   private cityListSubscription: any;
