@@ -356,9 +356,11 @@ export class RealEstateSearchComponent
     });
   }
 
-  emitSearchQuery(SearchQuery: string, input: string) {
-    // if (SearchQuery === input) {
-    //   console.log('search he');
+  emitSearchQuery(hasSlectedStreet: boolean, hasSlectedCities: boolean) {
+    // if (hasSlectedCities) {
+    //   this.selectedStreetAndCitySearchTexts.city.subscribe((city) => {
+    //     this.searchService.emitSelectedFreecityText(city);
+    //   });
     // }
   }
 
@@ -391,10 +393,11 @@ export class RealEstateSearchComponent
   }
 
   setSearchValues(city: string, street: string) {
-    alert('City: ' + city + ' | Street: ' + street);
-
-    this.selectedStreetAndCitySearchTexts.city = city;
-    this.selectedStreetAndCitySearchTexts.street = street;
+    // alert('City: ' + city + ' | Street: ' + street);
+    if (this.hasSelectedStreet) {
+      this.selectedStreetAndCitySearchTexts.city = city;
+      this.selectedStreetAndCitySearchTexts.street = street;
+    }
     // setTimeout(() => {
     //   this.searchInputLocation.nativeElement.focus();
     // }, 150);

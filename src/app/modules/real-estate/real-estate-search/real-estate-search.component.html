@@ -14,8 +14,7 @@
           (focus)="this.searchSuggestionsIsOpen = true"
           (input)="
             this.displayHistory(searchInputLocation.value.length);
-            searchInputLocation.focus();
-            this.emitSearchQuery(this.searchInput, searchInputLocation.value)
+            searchInputLocation.focus()
           "
         />
         @if(this.searchSuggestionsIsOpen ){
@@ -170,10 +169,41 @@
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
           </div>
+          <div id="selected-street" class="title-locationSuggestions option">
+            <span class="valid">
+              {{ this.selectedStreetAndCitySearchTexts.street }}</span
+            >
+            <span class="comma valid"> ,</span><br />
+            <span class="valid">{{
+              this.selectedStreetAndCitySearchTexts.city
+            }}</span>
+          </div>
+          <div id="selected-street" class="title-locationSuggestions option">
+            <span style="font-weight: 300; padding-left: 0.25rem"
+              >יציאה לרחוב</span
+            >
+            <span class="valid">
+              {{ this.selectedStreetAndCitySearchTexts.street }}</span
+            >
+            <span class="comma valid"> ,</span><br />
+            <span class="valid">{{
+              this.selectedStreetAndCitySearchTexts.city
+            }}</span>
+          </div>
           }
           <div class="filters-btns">
             <div (click)="resetSearchInput()" class="reset-btn">איפוס</div>
-            <div class="select-btn">אישור</div>
+            <div
+              (click)="
+                this.emitSearchQuery(
+                  this.hasSelectedStreet,
+                  this.hasSelectedCities
+                )
+              "
+              class="select-btn"
+            >
+              אישור
+            </div>
           </div>
           }
         </div>

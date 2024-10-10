@@ -52,7 +52,8 @@ span {
 #street-option:hover,
 #neighborhood-option:hover,
 #city-option:hover,
-#area-option:hover {
+#area-option:hover,
+#selected-street:hover {
   background-color: #f8f8f8 !important;
 }
 
@@ -244,7 +245,8 @@ i {
 }
 
 .select-btn,
-.title {
+.title,
+#selected-street {
   font-weight: bold;
 }
 
@@ -414,9 +416,19 @@ i,
 #street-option,
 #area-option,
 #city-option,
+#neighborhood-option,
+#selected-street {
+  background-color: #ffffff !important;
+}
+#street-option,
+#area-option,
+#city-option,
 #neighborhood-option {
   font-weight: 300 !important;
-  background-color: #ffffff !important;
+}
+
+#selected-street {
+  height: 42.358px !important;
 }
 
 .select-btn:hover {
