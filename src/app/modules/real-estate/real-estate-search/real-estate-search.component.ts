@@ -171,11 +171,14 @@ export class RealEstateSearchComponent
         this.historyLocationSearchIsOpen =
           searchQuery.length > 0 ? false : true;
         if (this.historyLocationSearchIsOpen) {
+          this.searchInput = '';
           return;
         }
         if (searchQuery.length > 1) {
           if (this.hasSelectedStreet) {
             this.resetSearchInputLocation();
+            return;
+            // this.resetSearchInput();
           }
           this.neighborhoodSuggestion = this.getStreetSuggestions(
             searchQuery
