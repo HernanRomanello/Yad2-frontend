@@ -162,7 +162,11 @@ export class RealEstateSearchComponent
 
   addLocationToSearchQuery(city: string, neighborhood: string) {
     const location = { city, neighborhood };
-    if (this.cityNeighborhoodList.length >= 5) {
+    const hasThisLocation = this.cityNeighborhoodList.some((loc) => {
+      return loc.city === city && loc.neighborhood === neighborhood;
+    });
+
+    if (this.cityNeighborhoodList.length >= 5 || hasThisLocation) {
       return;
     }
     this.cityNeighborhoodList.push(location);
