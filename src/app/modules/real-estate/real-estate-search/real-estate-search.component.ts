@@ -43,6 +43,7 @@ export class RealEstateSearchComponent
   searchInput: string = '';
   hasSelectedCities: boolean = false;
   hasSelectedStreet: boolean = false;
+  hasSelectedneighborhood: boolean = false;
 
   selectedStreetAndCitySearchTexts: { city: string; street: string } = {
     city: '',
@@ -162,6 +163,7 @@ export class RealEstateSearchComponent
 
   addLocationToSearchQuery(city: string, neighborhood: string) {
     const location = { city, neighborhood };
+    this.hasSelectedneighborhood = true;
     const hasThisLocation = this.cityNeighborhoodList.some((loc) => {
       return loc.city === city && loc.neighborhood === neighborhood;
     });

@@ -1,13 +1,13 @@
-span .group-list_groupTitle__XSk5p {
+span .selected-tags-list_title__w6MBt {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 600;
+	font-weight: 500;
 	letter-spacing: normal;
-	line-height: 18.4px;
-	text-decoration: none solid rgb(54, 54, 54);
+	line-height: 16.1px;
+	text-decoration: none solid rgb(130, 130, 130);
 	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,22 +17,22 @@ span .group-list_groupTitle__XSk5p {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(238, 238, 238);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(130, 130, 130);
 
 	/* Box */
-	height: 34.3906px;
-	width: 320px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
+	height: auto;
+	width: auto;
+	border: 0px none rgb(130, 130, 130);
+	border-top: 0px none rgb(130, 130, 130);
+	border-right: 0px none rgb(130, 130, 130);
+	border-bottom: 0px none rgb(130, 130, 130);
+	border-left: 0px none rgb(130, 130, 130);
 	margin: 0px;
-	padding: 8px 20px;
+	padding: 0px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
@@ -45,7 +45,7 @@ span .group-list_groupTitle__XSk5p {
 	right: auto;
 	left: auto;
 	float: none;
-	display: flex;
+	display: inline;
 	clear: none;
 	z-index: auto;
 
@@ -69,7 +69,7 @@ span .group-list_groupTitle__XSk5p {
 	/* Effects */
 	transform: none;
 	transition: all;
-	outline: rgb(255, 0, 0) dashed 1px;
+	outline: rgb(255, 0, 0) dashed 0.909091px;
 	outline-offset: 0px;
 	box-sizing: border-box;
 	resize: none;

@@ -246,8 +246,15 @@ i {
 
 .select-btn,
 .title,
-#selected-street {
+#selected-street,
+.instruction-title {
   font-weight: bold;
+}
+
+.instruction-title {
+  line-height: 16.1px !important;
+  margin: 1rem;
+  color: rgb(130, 130, 130);
 }
 
 .location-arrow-img,

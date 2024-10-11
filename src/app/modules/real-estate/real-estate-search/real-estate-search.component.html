@@ -19,7 +19,8 @@
         />
         @if(this.searchSuggestionsIsOpen ){
         <div class="search-suggestions">
-          @if( !this.hasSelectedStreet && !this.hasSelectedCities){
+          @if( !this.hasSelectedStreet && !this.hasSelectedCities &&
+          !this.hasSelectedneighborhood){
           <div
             id="locationSuggestion"
             class="search-suggestion"
@@ -33,7 +34,8 @@
             <span class="valid"> קרוב אליי </span>
           </div>
           } @if(this.historyLocationSearchIsOpen && !this.hasSelectedStreet &&
-          !this.hasSelectedCities){
+          !this.hasSelectedCities && !this.hasSelectedneighborhood &&
+          !this.hasSelectedneighborhood){
           <div class="title-locationSuggestion">חיפושים אחרונים</div>
 
           <div
@@ -70,8 +72,9 @@
             <span class="suggestion-location valid"> {{ suggestion }}</span>
           </div>
           } @else if( (searchInputLocation.value.length) > 1 &&
-          !this.hasSelectedStreet && !this.hasSelectedCities){
-          @if(this.neighborhoodSuggestion.length > 0 ){
+          !this.hasSelectedStreet && !this.hasSelectedCities &&
+          !this.hasSelectedneighborhood){ @if(this.neighborhoodSuggestion.length
+          > 0 ){
           <div style="height: 34.9px" class="title-locationSuggestions">
             שכונה
           </div>
@@ -91,7 +94,7 @@
           </div>
 
           } @if( this.citySuggestion.length > 0 && !this.hasSelectedStreet &&
-          !this.hasSelectedCities){
+          !this.hasSelectedCities && !this.hasSelectedneighborhood){
           <div style="height: 34.9px" class="title-locationSuggestions">
             עיר
           </div>
@@ -126,7 +129,7 @@
             <span class="valid">והסביבה</span>
           </div>
           } @if( this.streetSuggestion.length > 0 && !this.hasSelectedStreet &&
-          !this.hasSelectedCities){
+          !this.hasSelectedCities && !this.hasSelectedneighborhood){
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
           </div>
@@ -164,8 +167,8 @@
             <span class="comma valid"> ,</span><br />
             <span class="valid">{{ item.City_Name }}</span>
           </div>
-          } } @if(this.hasSelectedStreet || this.hasSelectedCities){
-          @if(this.hasSelectedStreet){
+          } } @if(this.hasSelectedStreet || this.hasSelectedCities ||
+          this.hasSelectedneighborhood){ @if(this.hasSelectedStreet){
 
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
@@ -184,6 +187,16 @@
             }}</span>
           </div>
 
+          }@else if(this.hasSelectedneighborhood){
+          <div class="instruction-title">ניתן לבחור עד 5 מיקומים</div>
+          <div>
+            @for (location of this.cityNeighborhoodList; track $index) {
+
+            <span>{{ location.neighborhood }}</span>
+            <span style="padding-left: 0.25rem">,</span>
+            <span>{{ location.city }}</span>
+            }
+          </div>
           }
           <div class="filters-btns">
             <div
