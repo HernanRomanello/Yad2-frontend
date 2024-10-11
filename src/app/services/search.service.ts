@@ -77,6 +77,9 @@ export class SearchService {
 
   selectedStreetText: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
+  locationSubject: BehaviorSubject<{ city: string; neighborhood: string }[]> =
+    new BehaviorSubject<{ city: string; neighborhood: string }[]>([]);
+
   selectedRoomsAmount: BehaviorSubject<string[]> = new BehaviorSubject<
     string[]
   >([]);
@@ -100,21 +103,18 @@ export class SearchService {
     this.selectedCityText.next(freeText);
     if (freeText !== '') {
       this.apartmentsSortedByStreet.next(true);
-      alert(this.selectedCityText.value);
+    } else {
+      this.apartmentsSortedByStreet.next(false);
     }
   }
 
   emitSelectedStreetFunc(street: string) {
-    // alert('street' + this.selectedStreetText.value);
-    // alert('street' +  street);
-    const streetHasVlue = street !== '';
-
-    // this.apartmentsSortedByStreet.next(streetHasVlue);
-
     this.selectedStreetText.next(street);
+  }
 
-    if (streetHasVlue) {
-      alert(this.selectedStreetText.value);
-    }
+  emitLocation(location: { city: string; neighborhood: string }[]) {
+    this.locationSubject.next(location);
+
+    console.log('location', location);
   }
 }

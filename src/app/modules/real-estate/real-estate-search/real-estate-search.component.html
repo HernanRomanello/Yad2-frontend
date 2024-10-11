@@ -77,7 +77,8 @@
           </div>
           <div
             (click)="
-              this.searchInput = item.Street_Name + ', ' + item.City_Name
+              this.searchInput = item.Street_Name + ', ' + item.City_Name;
+              this.addLocationToSearchQuery(item.Street_Name, item.City_Name)
             "
             id="neighborhood-option"
             class="title-locationSuggestions option"

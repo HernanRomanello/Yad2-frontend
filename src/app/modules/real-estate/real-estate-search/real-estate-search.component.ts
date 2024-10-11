@@ -49,6 +49,8 @@ export class RealEstateSearchComponent
     street: '',
   };
 
+  cityNeighborhoodList: Array<{ city: string; neighborhood: string }> = [];
+
   selectedCities: string[] = [];
   @ViewChild('searchInputLocation', { static: false })
   searchInputLocation!: ElementRef;
@@ -156,6 +158,15 @@ export class RealEstateSearchComponent
         }
       });
     });
+  }
+
+  addLocationToSearchQuery(city: string, neighborhood: string) {
+    const location = { city, neighborhood };
+    if (this.cityNeighborhoodList.length >= 5) {
+      return;
+    }
+    this.cityNeighborhoodList.push(location);
+    this.searchService.emitLocation(this.cityNeighborhoodList);
   }
 
   ngAfterViewInit() {
@@ -266,7 +277,6 @@ export class RealEstateSearchComponent
   }
 
   resetSearchInput() {
-    // this.searchInput = '';
     this.searchSuggestionsIsOpen = false;
     this.hasSelectedCities = false;
     this.hasSelectedStreet = false;
@@ -370,14 +380,6 @@ export class RealEstateSearchComponent
         }
       }
     });
-  }
-
-  emitSearchQuery(hasSlectedStreet: boolean, hasSlectedCities: boolean) {
-    // if (hasSlectedCities) {
-    //   this.selectedStreetAndCitySearchTexts.city.subscribe((city) => {
-    //     this.searchService.emitSelectedFreecityText(city);
-    //   });
-    // }
   }
 
   calculateArrayLength(array: any[]): number {
