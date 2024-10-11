@@ -2,6 +2,36 @@
   <form (submit)="onSearch()">
     <div class="Search-bar">
       <div class="input-box">
+        @if(this.hasSelectedneighborhood || this.hasSelectedCities) {
+        <div
+          type="text"
+          name="searchQuery"
+          id="searchQuery"
+          placeholder="איזור, עיר שכונה או רחוב"
+          class="input-search"
+          #searchInputLocation
+          autocomplete="off"
+          [ngStyle]="{
+            border:
+              this.hasSelectedCities ||
+              this.hasSelectedStreet ||
+              this.hasSelectedneighborhood
+                ? '1px solid #828282'
+                : '1px solid #cccccc'
+          }"
+          (focus)="this.searchSuggestionsIsOpen = true"
+          (input)="searchInputLocation.focus()"
+        >
+          @for (location of cityNeighborhoodList; track $index) {
+
+          <span>{{ location.neighborhood }}</span>
+          <span style="padding-left: 0.25rem">,</span>
+          <span>{{ location.city }}</span>
+          }
+        </div>
+
+        } @else {
+
         <input
           type="text"
           name="searchQuery"
@@ -227,7 +257,7 @@
           </div>
           }
         </div>
-        }
+        } }
       </div>
 
       <div class="menu-container" #tradeTypeMenu>
