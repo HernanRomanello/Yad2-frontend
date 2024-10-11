@@ -261,7 +261,7 @@ export class RealEstateSearchComponent
   }
 
   resetSearchInput() {
-    this.searchInput = '';
+    // this.searchInput = '';
     this.searchSuggestionsIsOpen = false;
     this.hasSelectedCities = false;
     this.hasSelectedStreet = false;
@@ -393,14 +393,10 @@ export class RealEstateSearchComponent
   }
 
   setSearchValues(city: string, street: string) {
-    // alert('City: ' + city + ' | Street: ' + street);
     if (this.hasSelectedStreet) {
       this.selectedStreetAndCitySearchTexts.city = city;
       this.selectedStreetAndCitySearchTexts.street = street;
     }
-    // setTimeout(() => {
-    //   this.searchInputLocation.nativeElement.focus();
-    // }, 150);
   }
 
   emitQuerySearch(SearchByCities: boolean, SearchByStreet: boolean) {
@@ -420,15 +416,6 @@ export class RealEstateSearchComponent
   }
 
   onSearch() {
-    // if (this.selectedStreetAndCitySearchTexts.street !== '') {
-    this.searchService.emitSelectedFreecityText(
-      this.selectedStreetAndCitySearchTexts.city.valueOf()
-    );
-    this.searchService.emitSelectedStreetFunc(
-      this.selectedStreetAndCitySearchTexts.street.valueOf()
-    );
-    // }
-
     const roomsAmountContainer =
       this.roomsAmountMenu.nativeElement.querySelector('.menu');
     if (roomsAmountContainer) {

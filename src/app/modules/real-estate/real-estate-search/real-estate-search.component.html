@@ -192,7 +192,12 @@
           </div>
           }
           <div class="filters-btns">
-            <div (click)="resetSearchInput()" class="reset-btn">איפוס</div>
+            <div
+              (click)="resetSearchInput(); this.searchInput = ''"
+              class="reset-btn"
+            >
+              איפוס
+            </div>
             <div
               (click)="
                 this.emitQuerySearch(
