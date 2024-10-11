@@ -195,9 +195,9 @@
             <div (click)="resetSearchInput()" class="reset-btn">איפוס</div>
             <div
               (click)="
-                this.emitSearchQuery(
-                  this.hasSelectedStreet,
-                  this.hasSelectedCities
+                this.emitQuerySearch(
+                  this.hasSelectedCities,
+                  this.hasSelectedStreet
                 )
               "
               class="select-btn"

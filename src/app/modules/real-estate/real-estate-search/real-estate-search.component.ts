@@ -403,6 +403,22 @@ export class RealEstateSearchComponent
     // }, 150);
   }
 
+  emitQuerySearch(SearchByCities: boolean, SearchByStreet: boolean) {
+    if (SearchByCities) {
+      this.searchService.emitSelectedFreecityText(
+        this.selectedStreetAndCitySearchTexts.city.valueOf()
+      );
+    }
+    if (SearchByStreet) {
+      this.searchService.emitSelectedStreetFunc(
+        this.selectedStreetAndCitySearchTexts.street.valueOf()
+      );
+      this.searchService.emitSelectedFreecityText(
+        this.selectedStreetAndCitySearchTexts.city.valueOf()
+      );
+    }
+  }
+
   onSearch() {
     // if (this.selectedStreetAndCitySearchTexts.street !== '') {
     this.searchService.emitSelectedFreecityText(

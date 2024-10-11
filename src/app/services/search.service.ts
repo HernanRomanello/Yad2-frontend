@@ -100,6 +100,7 @@ export class SearchService {
     this.selectedCityText.next(freeText);
     if (freeText !== '') {
       this.apartmentsSortedByStreet.next(true);
+      alert(this.selectedCityText.value);
     }
   }
 
@@ -113,7 +114,7 @@ export class SearchService {
     this.selectedStreetText.next(street);
 
     if (streetHasVlue) {
-      alert('street test11');
+      alert(this.selectedStreetText.value);
     }
   }
 }
