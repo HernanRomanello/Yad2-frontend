@@ -6,9 +6,8 @@
         <div
           type="text"
           name="searchQuery"
-          id="searchQuery"
           placeholder="איזור, עיר שכונה או רחוב"
-          class="input-search"
+          class="input-search fit-hieght"
           #searchInputLocation
           autocomplete="off"
           [ngStyle]="{
@@ -22,12 +21,26 @@
           (focus)="this.searchSuggestionsIsOpen = true"
           (input)="searchInputLocation.focus()"
         >
-          @for (location of cityNeighborhoodList; track $index) {
+          <!-- @for (location of cityNeighborhoodList; track $index) { -->
 
-          <span>{{ location.neighborhood }}</span>
+          <span style="font-size: 16px">{{
+            cityNeighborhoodList[0].neighborhood
+          }}</span>
           <span style="padding-left: 0.25rem">,</span>
-          <span>{{ location.city }}</span>
-          }
+          <span style="font-size: 16px">{{
+            cityNeighborhoodList[0].city
+          }}</span>
+          <span style="font-size: 16px; padding-right: 0.25rem"
+            >(+{{ this.cityNeighborhoodList.length - 1 }})</span
+          >
+
+          <!-- } -->
+          <input
+            class="sub-search"
+            type="text"
+            name="searchQuery"
+            placeholder="הוספת מיקום"
+          />
         </div>
 
         } @else {

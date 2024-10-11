@@ -23,10 +23,12 @@ span {
 .input-search::placeholder,
 .type-btn,
 .select-btn,
-.reset-btn {
+.reset-btn,
+.sub-search {
   font-size: 16px !important;
 }
-.input-search::placeholder {
+.input-search::placeholder,
+.sub-search::placeholder {
   color: rgb(153, 153, 153, 0.8) !important;
 }
 
@@ -209,9 +211,13 @@ i {
   min-height: 36px;
   border-radius: 30px;
   color: #ffffff;
-  border: transparent;
   font-weight: 500;
   background-color: #ff7100;
+}
+
+.sub-search,
+.search-button-orange {
+  border: transparent;
 }
 
 .search-button-orange {
@@ -459,4 +465,9 @@ i,
 }
 .filters-btns {
   border-top: solid 1px #eeeeee;
+}
+
+.fit-hieght {
+  height: unset !important;
+  height: fit-content !important;
 }
