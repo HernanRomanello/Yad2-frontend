@@ -209,8 +209,18 @@ export class RealEstateResultsComponent implements OnInit {
         ) {
           // alert('city and street');
           ads = ads.filter(
-            (ad) => ad.city === this.searchService.selectedCityText.value
+            (ad) =>
+              ad.city === this.searchService.selectedCityText.value &&
+              ad.street === this.searchService.selectedStreetText.value
           );
+          ads.forEach((ad) => {
+            console.log(ad.street + '  street');
+            console.log(ad.city + '  city');
+          });
+
+          // ads = ads.filter(
+          //   (ad) => ad.street === this.searchService.selectedStreetText.value
+          // );
         } else {
         }
 
