@@ -268,6 +268,8 @@ export class RealEstateSearchComponent
     this.selectedCities = [];
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
     this.historyLocationSearchIsOpen = true;
+    this.searchService.emitSelectedFreecityText('');
+    this.searchService.emitSelectedStreetFunc('');
   }
 
   getStreetSuggestions(substring: string): Street[] {
