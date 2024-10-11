@@ -202,31 +202,12 @@ export class RealEstateResultsComponent implements OnInit {
         }
 
         ads = ads.filter((ad) => ad.tradeType === selectedTradeType);
-        // if(this.)
-        if (
-          this.searchService.selectedCityText.value !== ''
-          // this.searchService.selectedStreetText.value !== ''
-        ) {
-          // alert('city and street');
+        if (this.searchService.selectedCityText.value !== '') {
           ads = ads.filter(
             (ad) =>
               ad.city === this.searchService.selectedCityText.value &&
               ad.street === this.searchService.selectedStreetText.value
           );
-          ads.forEach((ad) => {
-            console.log(ad.street + '  street');
-            console.log(ad.city + '  city');
-          });
-
-          // ads = ads.filter(
-          //   (ad) => ad.street === this.searchService.selectedStreetText.value
-          // );
-        } else {
-        }
-
-        if (this.searchService.selectedStreetText.value !== '') {
-          // alert('street test');
-          // alert(this.searchService.selectedCityText.value + '  city');
         }
 
         this.apartmentsAmount = ads.length;
