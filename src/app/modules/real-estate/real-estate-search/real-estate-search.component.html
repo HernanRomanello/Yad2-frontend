@@ -10,6 +10,14 @@
           class="input-search"
           #searchInputLocation
           autocomplete="off"
+          [ngStyle]="{
+            border:
+              this.hasSelectedCities ||
+              this.hasSelectedStreet ||
+              this.hasSelectedneighborhood
+                ? '1px solid #828282'
+                : '1px solid #cccccc'
+          }"
           [value]="this.searchInput"
           (focus)="this.searchSuggestionsIsOpen = true"
           (input)="
