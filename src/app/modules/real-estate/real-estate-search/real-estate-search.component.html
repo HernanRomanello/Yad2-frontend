@@ -169,7 +169,11 @@
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
           </div>
-          <div id="selected-street" class="title-locationSuggestions option">
+          <div
+            id="selected-street"
+            class="title-locationSuggestions option"
+            (click)="resetSearchInput()"
+          >
             <span class="valid">
               {{ this.selectedStreetAndCitySearchTexts.street }}</span
             >
@@ -178,7 +182,7 @@
               this.selectedStreetAndCitySearchTexts.city
             }}</span>
           </div>
-          <div id="selected-street" class="title-locationSuggestions option">
+          <!-- <div id="selected-street" class="title-locationSuggestions option">
             <span style="font-weight: 300; padding-left: 0.25rem"
               >יציאה לרחוב</span
             >
@@ -189,7 +193,7 @@
             <span class="valid">{{
               this.selectedStreetAndCitySearchTexts.city
             }}</span>
-          </div>
+          </div> -->
           }
           <div class="filters-btns">
             <div

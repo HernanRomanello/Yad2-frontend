@@ -174,6 +174,9 @@ export class RealEstateSearchComponent
           return;
         }
         if (searchQuery.length > 1) {
+          if (this.hasSelectedStreet) {
+            this.resetSearchInputLocation();
+          }
           this.neighborhoodSuggestion = this.getStreetSuggestions(
             searchQuery
           ).slice(0, 5);
@@ -268,6 +271,15 @@ export class RealEstateSearchComponent
     this.selectedCities = [];
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
     this.historyLocationSearchIsOpen = true;
+    this.searchService.emitSelectedFreecityText('');
+    this.searchService.emitSelectedStreetFunc('');
+  }
+
+  resetSearchInputLocation() {
+    this.hasSelectedStreet = false;
+    this.hasSelectedCities = false;
+    this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
+    this.selectedCities = [];
     this.searchService.emitSelectedFreecityText('');
     this.searchService.emitSelectedStreetFunc('');
   }
