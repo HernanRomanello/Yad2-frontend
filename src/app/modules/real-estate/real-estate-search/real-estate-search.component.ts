@@ -178,7 +178,6 @@ export class RealEstateSearchComponent
           if (this.hasSelectedStreet) {
             this.resetSearchInputLocation();
             return;
-            // this.resetSearchInput();
           }
           this.neighborhoodSuggestion = this.getStreetSuggestions(
             searchQuery
@@ -433,6 +432,7 @@ export class RealEstateSearchComponent
   }
 
   onSearch() {
+    this.searchSuggestionsIsOpen = false;
     const roomsAmountContainer =
       this.roomsAmountMenu.nativeElement.querySelector('.menu');
     if (roomsAmountContainer) {
