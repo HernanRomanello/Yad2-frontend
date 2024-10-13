@@ -16,8 +16,19 @@ span {
   border: 1px solid #cccccc;
 }
 .input-search,
-.input-search:focus {
+.input-search:focus,
+.sub-search,
+.sub-search:focus {
   outline: none !important;
+}
+
+#subSearchQuery {
+  transform: translateY(16px);
+}
+
+.sub-search,
+.sub-search:focus {
+  border: transparent;
 }
 
 .input-search::placeholder,
@@ -216,7 +227,8 @@ i {
 }
 
 .sub-search,
-.search-button-orange {
+.search-button-orange,
+.sub-search:focus {
   border: transparent;
 }
 
@@ -298,8 +310,18 @@ i {
 .project-div,
 .search-suggestion,
 .title-locationSuggestions,
-.filters-btns {
+.filters-btns,
+#subSearchQuery,
+#subSearchQueryBox {
   display: flex;
+}
+
+#subSearchQuery,
+#subSearchQueryBox {
+  flex-direction: column;
+}
+#subSearchQuery {
+  gap: 0.5rem;
 }
 
 .project-div {
@@ -470,4 +492,13 @@ i,
 .fit-hieght {
   height: unset !important;
   height: fit-content !important;
+}
+
+.box-cover {
+  width: 100%;
+  height: 40px !important ;
+  background-color: #ffffff !important;
+  z-index: 90000000 !important;
+  position: absolute;
+  transform: translateY(1px) !important;
 }

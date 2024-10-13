@@ -1,10 +1,12 @@
 <div class="search-container">
   <form (submit)="onSearch()">
     <div class="Search-bar">
-      <div class="input-box">
+      <div id="subSearchQueryBox" class="input-box">
         @if(this.hasSelectedneighborhood || this.hasSelectedCities) {
+
         <div
           type="text"
+          id="subSearchQuery"
           name="searchQuery"
           placeholder="איזור, עיר שכונה או רחוב"
           class="input-search fit-hieght"
@@ -21,27 +23,29 @@
           (focus)="this.searchSuggestionsIsOpen = true"
           (input)="searchInputLocation.focus()"
         >
-          <!-- @for (location of cityNeighborhoodList; track $index) { -->
+          <div class="box-wrapper">
+            <div style="padding-right: 0.25rem">
+              <span>{{ cityNeighborhoodList[0].neighborhood }}</span>
+              <span style="padding-left: 0.25rem">,</span>
+              <span style="font-size: 16px">{{
+                cityNeighborhoodList[0].city
+              }}</span>
+              @if (this.cityNeighborhoodList.length >1 ) {
+              <span style="font-size: 16px; padding-right: 0.25rem"
+                >(+{{ this.cityNeighborhoodList.length - 1 }})</span
+              >
 
-          <span style="font-size: 16px">{{
-            cityNeighborhoodList[0].neighborhood
-          }}</span>
-          <span style="padding-left: 0.25rem">,</span>
-          <span style="font-size: 16px">{{
-            cityNeighborhoodList[0].city
-          }}</span>
-          @if (this.cityNeighborhoodList.length >1 ) {
-          <span style="font-size: 16px; padding-right: 0.25rem"
-            >(+{{ this.cityNeighborhoodList.length - 1 }})</span
-          >
-          }
-          <!-- } -->
-          <input
-            class="sub-search"
-            type="text"
-            name="searchQuery"
-            placeholder="הוספת מיקום"
-          />
+              }
+            </div>
+
+            <input
+              autocomplete="off"
+              class="sub-search"
+              type="text"
+              name="searchQuery"
+              placeholder="הוספת מיקום"
+            />
+          </div>
         </div>
 
         } @else {
@@ -385,6 +389,7 @@
     </div>
   </form>
 </div>
+
 <h1 class="title">{{ title }}</h1>
 
 <div class="project-container">
