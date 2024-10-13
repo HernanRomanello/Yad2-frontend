@@ -244,7 +244,7 @@
 
           } @if(this.hasSelectedneighborhood || this.hasSelectedCities){
           <div class="instruction-title">ניתן לבחור עד 5 מיקומים</div>
-          <div>
+          <div style="margin-right: 1.5rem">
             @for (location of this.cityNeighborhoodList; track $index) {
 
             <span>{{ location.neighborhood }}</span>
