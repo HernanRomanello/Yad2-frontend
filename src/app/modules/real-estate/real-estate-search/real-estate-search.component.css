@@ -493,12 +493,3 @@ i,
   height: unset !important;
   height: fit-content !important;
 }
-
-.box-cover {
-  width: 100%;
-  height: 40px !important ;
-  background-color: #ffffff !important;
-  z-index: 90000000 !important;
-  position: absolute;
-  transform: translateY(1px) !important;
-}
