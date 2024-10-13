@@ -164,12 +164,10 @@ export class RealEstateSearchComponent
   addLocationToSearchQuery(city: string, neighborhood: string) {
     if (neighborhood != null) {
       this.hasSelectedneighborhood = true;
-      alert('neighborhood is null');
       // this.searchSuggestionsIsOpen = false;
       // alert(this.searchSuggestionsIsOpen);
       // alert(this.hasSelectedneighborhood);
       // this.hasSelectedStreet = false;
-      alert(this.hasSelectedStreet);
     }
     const location = { city, neighborhood };
     this.hasSelectedneighborhood = true;

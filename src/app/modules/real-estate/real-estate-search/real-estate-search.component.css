@@ -493,3 +493,12 @@ i,
   height: unset !important;
   height: fit-content !important;
 }
+
+.location-list {
+  font-weight: 400;
+  background-color: rgb(238, 238, 238);
+  padding: 4px 8px 4px 4px;
+  max-width: 130px;
+  width: fit-content;
+  border-radius: 30px;
+}
