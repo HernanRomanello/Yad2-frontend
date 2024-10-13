@@ -48,8 +48,7 @@
           </div>
         </div>
 
-        } @else {
-
+        } @else{
         <input
           type="text"
           name="searchQuery"
@@ -73,7 +72,8 @@
             searchInputLocation.focus()
           "
         />
-        @if(this.searchSuggestionsIsOpen ){
+
+        } @if(this.searchSuggestionsIsOpen ){
         <div class="search-suggestions">
           @if( !this.hasSelectedStreet && !this.hasSelectedCities &&
           !this.hasSelectedneighborhood){
@@ -127,8 +127,7 @@
             />
             <span class="suggestion-location valid"> {{ suggestion }}</span>
           </div>
-          } @else if( (searchInputLocation.value.length) > 1 &&
-          !this.hasSelectedStreet && !this.hasSelectedCities &&
+          } @else if( !this.hasSelectedStreet && !this.hasSelectedCities &&
           !this.hasSelectedneighborhood){ @if(this.neighborhoodSuggestion.length
           > 0 ){
           <div style="height: 34.9px" class="title-locationSuggestions">
@@ -276,7 +275,7 @@
           </div>
           }
         </div>
-        } }
+        }
       </div>
 
       <div class="menu-container" #tradeTypeMenu>
