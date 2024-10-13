@@ -30,10 +30,11 @@
           <span style="font-size: 16px">{{
             cityNeighborhoodList[0].city
           }}</span>
+          @if (this.cityNeighborhoodList.length >1 ) {
           <span style="font-size: 16px; padding-right: 0.25rem"
             >(+{{ this.cityNeighborhoodList.length - 1 }})</span
           >
-
+          }
           <!-- } -->
           <input
             class="sub-search"
