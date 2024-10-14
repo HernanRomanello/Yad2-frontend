@@ -2,7 +2,7 @@
   <form (submit)="onSearch()">
     <div class="Search-bar">
       <div id="subSearchQueryBox" class="input-box">
-        @if(this.hasSelectedneighborhood || this.hasSelectedCities) {
+        @if(this.hasSelectedLocation ) {
 
         <div
           type="text"
@@ -14,30 +14,29 @@
           autocomplete="off"
           [ngStyle]="{
             border:
-              this.hasSelectedCities ||
-              this.hasSelectedStreet ||
-              this.hasSelectedneighborhood
+              this.hasSelectedStreet || this.hasSelectedLocation
                 ? '1px solid #828282'
-                : '1px solid #cccccc'
+                : '1px solid #cccccc',
+            transform: this.searchSuggestionsIsOpen
+              ? 'translateY(16px)'
+              : 'translateY(0%)'
           }"
           (focus)="this.searchSuggestionsIsOpen = true"
           (input)="searchInputLocation.focus()"
         >
           <div class="box-wrapper">
             <div style="padding-right: 0.25rem">
-              <span>{{ cityNeighborhoodList[0].neighborhood }}</span>
+              <span>{{ locationList[0].neighborhood }}</span>
               <span style="padding-left: 0.25rem">,</span>
-              <span style="font-size: 16px">{{
-                cityNeighborhoodList[0].city
-              }}</span>
-              @if (this.cityNeighborhoodList.length >1 ) {
+              <span style="font-size: 16px">{{ locationList[0].city }}</span>
+              @if (this.locationList.length >1 ) {
               <span style="font-size: 16px; padding-right: 0.25rem"
-                >(+{{ this.cityNeighborhoodList.length - 1 }})</span
+                >(+{{ this.locationList.length - 1 }})</span
               >
 
               }
             </div>
-
+            @if(this.searchSuggestionsIsOpen){
             <input
               autocomplete="off"
               class="sub-search"
@@ -45,6 +44,7 @@
               name="searchQuery"
               placeholder="הוספת מיקום"
             />
+            }
           </div>
         </div>
 
@@ -59,9 +59,7 @@
           autocomplete="off"
           [ngStyle]="{
             border:
-              this.hasSelectedCities ||
-              this.hasSelectedStreet ||
-              this.hasSelectedneighborhood
+              this.hasSelectedStreet || this.hasSelectedLocation
                 ? '1px solid #828282'
                 : '1px solid #cccccc'
           }"
@@ -75,8 +73,7 @@
 
         } @if(this.searchSuggestionsIsOpen ){
         <div class="search-suggestions">
-          @if( !this.hasSelectedStreet && !this.hasSelectedCities &&
-          !this.hasSelectedneighborhood){
+          @if( !this.hasSelectedStreet && !this.hasSelectedLocation){
           <div
             id="locationSuggestion"
             class="search-suggestion"
@@ -90,8 +87,7 @@
             <span class="valid"> קרוב אליי </span>
           </div>
           } @if(this.historyLocationSearchIsOpen && !this.hasSelectedStreet &&
-          !this.hasSelectedCities && !this.hasSelectedneighborhood &&
-          !this.hasSelectedneighborhood){
+          !this.hasSelectedLocation && !this.hasSelectedLocation){
           <div class="title-locationSuggestion">חיפושים אחרונים</div>
 
           <div
@@ -127,9 +123,8 @@
             />
             <span class="suggestion-location valid"> {{ suggestion }}</span>
           </div>
-          } @else if( !this.hasSelectedStreet && !this.hasSelectedCities &&
-          !this.hasSelectedneighborhood){ @if(this.neighborhoodSuggestion.length
-          > 0 ){
+          } @else if( !this.hasSelectedStreet && !this.hasSelectedLocation){
+          @if(this.neighborhoodSuggestion.length > 0 ){
           <div style="height: 34.9px" class="title-locationSuggestions">
             שכונה
           </div>
@@ -149,7 +144,7 @@
           </div>
 
           } @if( this.citySuggestion.length > 0 && !this.hasSelectedStreet &&
-          !this.hasSelectedCities && !this.hasSelectedneighborhood){
+          !this.hasSelectedLocation){
           <div style="height: 34.9px" class="title-locationSuggestions">
             עיר
           </div>
@@ -184,7 +179,7 @@
             <span class="valid">והסביבה</span>
           </div>
           } @if( this.streetSuggestion.length > 0 && !this.hasSelectedStreet &&
-          !this.hasSelectedCities && !this.hasSelectedneighborhood){
+          !this.hasSelectedLocation){
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
           </div>
@@ -222,8 +217,8 @@
             <span class="comma valid"> ,</span><br />
             <span class="valid">{{ item.City_Name }}</span>
           </div>
-          } } @if(this.hasSelectedStreet || this.hasSelectedCities ||
-          this.hasSelectedneighborhood) { @if(this.hasSelectedStreet ){
+          } } @if(this.hasSelectedStreet || this.hasSelectedLocation) {
+          @if(this.hasSelectedStreet ){
 
           <div style="height: 34.9px" class="title-locationSuggestions">
             רחוב
@@ -242,10 +237,10 @@
             </span>
           </div>
 
-          } @if(this.hasSelectedneighborhood || this.hasSelectedCities){
+          } @if(this.hasSelectedLocation ){
           <div class="instruction-title">ניתן לבחור עד 5 מיקומים</div>
           <div class="location-list" style="margin-right: 1.5rem">
-            @for (location of this.cityNeighborhoodList; track $index) {
+            @for (location of this.locationList; track $index) {
 
             <span>{{ location.neighborhood }}</span>
             <span style="padding-left: 0.25rem">,</span>
@@ -264,7 +259,7 @@
             <div
               (click)="
                 this.emitQuerySearch(
-                  this.hasSelectedCities,
+                  this.hasSelectedLocation,
                   this.hasSelectedStreet
                 )
               "

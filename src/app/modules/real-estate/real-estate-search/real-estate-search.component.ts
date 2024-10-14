@@ -41,16 +41,15 @@ export class RealEstateSearchComponent
   advertisementTypebuttonText: string = 'מכירה';
   title = 'נדל"ן למכירה';
   searchInput: string = '';
-  hasSelectedCities: boolean = false;
   hasSelectedStreet: boolean = false;
-  hasSelectedneighborhood: boolean = false;
+  hasSelectedLocation: boolean = false;
 
   selectedStreetAndCitySearchTexts: { city: string; street: string } = {
     city: '',
     street: '',
   };
 
-  cityNeighborhoodList: Array<{ city: string; neighborhood: string }> = [];
+  locationList: Array<{ city: string; neighborhood: string }> = [];
 
   selectedCities: string[] = [];
   @ViewChild('searchInputLocation', { static: false })
@@ -163,23 +162,19 @@ export class RealEstateSearchComponent
 
   addLocationToSearchQuery(city: string, neighborhood: string) {
     if (neighborhood != null) {
-      this.hasSelectedneighborhood = true;
-      // this.searchSuggestionsIsOpen = false;
-      // alert(this.searchSuggestionsIsOpen);
-      // alert(this.hasSelectedneighborhood);
-      // this.hasSelectedStreet = false;
+      this.hasSelectedLocation = true;
     }
     const location = { city, neighborhood };
-    this.hasSelectedneighborhood = true;
-    const hasThisLocation = this.cityNeighborhoodList.some((loc) => {
+    this.hasSelectedLocation = true;
+    const hasThisLocation = this.locationList.some((loc) => {
       return loc.city === city && loc.neighborhood === neighborhood;
     });
 
-    if (this.cityNeighborhoodList.length >= 5 || hasThisLocation) {
+    if (this.locationList.length >= 5 || hasThisLocation) {
       return;
     }
-    this.cityNeighborhoodList.push(location);
-    this.searchService.emitLocation(this.cityNeighborhoodList);
+    this.locationList.push(location);
+    this.searchService.emitLocation(this.locationList);
   }
 
   ngAfterViewInit() {
@@ -291,7 +286,6 @@ export class RealEstateSearchComponent
 
   resetSearchInput() {
     this.searchSuggestionsIsOpen = false;
-    this.hasSelectedCities = false;
     this.hasSelectedStreet = false;
     this.selectedCities = [];
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
@@ -302,7 +296,6 @@ export class RealEstateSearchComponent
 
   resetSearchInputLocation() {
     this.hasSelectedStreet = false;
-    this.hasSelectedCities = false;
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
     this.selectedCities = [];
     this.searchService.emitSelectedFreecityText('');
@@ -416,7 +409,7 @@ export class RealEstateSearchComponent
     setTimeout(() => {
       if (
         this.hasSelectedStreet === false &&
-        this.hasSelectedCities === false
+        this.hasSelectedLocation === false
       ) {
         this.searchSuggestionsIsOpen = false;
       }
@@ -432,9 +425,9 @@ export class RealEstateSearchComponent
 
   emitQuerySearch(SearchByCities: boolean, SearchByStreet: boolean) {
     if (SearchByCities) {
-      this.searchService.emitSelectedFreecityText(
-        this.selectedStreetAndCitySearchTexts.city.valueOf()
-      );
+      // this.searchService.emitSelectedFreecityText(
+      //   this.selectedStreetAndCitySearchTexts.city.valueOf()
+      // );
     }
     if (SearchByStreet) {
       this.searchService.emitSelectedStreetFunc(

@@ -16,10 +16,6 @@ span {
   outline: none !important;
 }
 
-#subSearchQuery {
-  transform: translateY(16px);
-}
-
 .sub-search,
 .sub-search:focus {
   border: transparent;
