@@ -33,6 +33,7 @@ export class RealEstateSearchComponent
   citySuggestion: City[] = [];
   streetSuggestion: Street[] = [];
   searchInputSubscription!: Subscription;
+  subSearchInput = '';
 
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
@@ -228,6 +229,8 @@ export class RealEstateSearchComponent
     }
     this.locationList.push(location);
     this.searchService.emitLocation(this.locationList);
+
+    this.subSearchInput = '';
   }
 
   ngAfterViewInit() {

@@ -41,6 +41,7 @@
               type="text"
               name="searchQuery"
               placeholder="הוספת מיקום"
+              [value]="this.subSearchInput"
               (input)="
                 showSuggestionBox(subSearchInputLocation.value);
                 this.hasSelectedLocation = false
