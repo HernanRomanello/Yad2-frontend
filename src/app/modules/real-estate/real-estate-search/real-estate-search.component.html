@@ -2,7 +2,7 @@
   <form (submit)="onSearch()">
     <div class="Search-bar">
       <div id="subSearchQueryBox" class="input-box">
-        @if(this.hasSelectedLocation ) {
+        @if(this.locationList.length > 0) {
 
         <div
           type="text"
@@ -10,7 +10,6 @@
           name="searchQuery"
           placeholder="איזור, עיר שכונה או רחוב"
           class="input-search fit-hieght"
-          #searchInputLocation
           autocomplete="off"
           [ngStyle]="{
             border:
@@ -21,8 +20,6 @@
               ? 'translateY(16px)'
               : 'translateY(0%)'
           }"
-          (focus)="this.searchSuggestionsIsOpen = true"
-          (input)="searchInputLocation.focus()"
         >
           <div class="box-wrapper">
             <div style="padding-right: 0.25rem">
@@ -38,11 +35,16 @@
             </div>
             @if(this.searchSuggestionsIsOpen){
             <input
+              #subSearchInputLocation
               autocomplete="off"
               class="sub-search"
               type="text"
               name="searchQuery"
               placeholder="הוספת מיקום"
+              (input)="
+                showSuggestionBox(subSearchInputLocation.value);
+                this.hasSelectedLocation = false
+              "
             />
             }
           </div>
@@ -86,6 +88,7 @@
             />
             <span class="valid"> קרוב אליי </span>
           </div>
+
           } @if(this.historyLocationSearchIsOpen && !this.hasSelectedStreet &&
           !this.hasSelectedLocation && !this.hasSelectedLocation){
           <div class="title-locationSuggestion">חיפושים אחרונים</div>
