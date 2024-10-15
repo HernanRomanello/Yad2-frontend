@@ -16,6 +16,7 @@ import {
   Street,
 } from '../../../services/city-list.service';
 import { debounceTime, fromEvent, map, Subscription } from 'rxjs';
+import { text } from 'stream/consumers';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
@@ -442,6 +443,17 @@ export class RealEstateSearchComponent
       this.selectedStreetAndCitySearchTexts.city = city;
       this.selectedStreetAndCitySearchTexts.street = street;
     }
+  }
+  reduceTextLength(text: string, length: number) {
+    const Text = this.addSpaceAfterComma(text);
+    if (Text.length > length) {
+      return text.slice(0, length) + '...';
+    }
+    return Text;
+  }
+
+  addSpaceAfterComma(text: string) {
+    return text.replace(/,/g, ', ');
   }
 
   emitQuerySearch(searchByLocation: boolean, SearchByStreet: boolean) {

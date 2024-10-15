@@ -262,17 +262,25 @@
 
           } @if(this.hasSelectedLocation ){
           <div class="instruction-title">ניתן לבחור עד 5 מיקומים</div>
-          <div class="location-list" style="margin-right: 1.5rem">
+          <div class="locations">
             @for (location of this.locationList; track $index) {
+            <div class="location-list">
+              <!-- <span>{{ location.neighborhood }}</span>
+              <span style="padding-left: 0.25rem">,</span>
+              <span>{{ location.city }}</span> -->
+              <span>{{
+                this.reduceTextLength(
+                  location.neighborhood + "," + location.city,
+                  14
+                )
+              }}</span>
 
-            <span>{{ location.neighborhood }}</span>
-            <span style="padding-left: 0.25rem">,</span>
-            <span>{{ location.city }}</span>
-            <img
-              class="remove-btn"
-              src="assets/images/close-svgrepo-com.svg"
-              alt=""
-            />
+              <img
+                class="remove-btn"
+                src="assets/images/close-svgrepo-com.svg"
+                alt=""
+              />
+            </div>
             }
           </div>
           }

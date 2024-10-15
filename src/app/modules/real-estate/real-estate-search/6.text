@@ -1,14 +1,14 @@
-span .selected-tags-list_item__DkjTu {
+div .location-list {
 	/* Font & Text */
-	font-family: Rubik, sans-serif;
+	font-family: Rubik;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
-	letter-spacing: normal;
-	line-height: 16.1px;
+	letter-spacing: 0.25px;
+	line-height: 20px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: right;
+	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -24,19 +24,19 @@ span .selected-tags-list_item__DkjTu {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 24.0938px;
-	width: 95.1875px;
+	height: 24px;
+	width: 91.75px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
 	border-bottom: 0px none rgb(54, 54, 54);
 	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 4px 8px 4px 4px;
+	padding: 0px;
 	max-height: none;
-	min-height: 0px;
-	max-width: 130px;
-	min-width: 0px;
+	min-height: auto;
+	max-width: none;
+	min-width: auto;
 
 	/* Positioning */
 	position: static;
@@ -51,7 +51,7 @@ span .selected-tags-list_item__DkjTu {
 
 	/* List */
 	list-style-image: none;
-	list-style-type: none;
+	list-style-type: disc;
 	list-style-position: outside;
 
 	/* Table */
