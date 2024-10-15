@@ -444,12 +444,17 @@ export class RealEstateSearchComponent
     }
   }
 
-  emitQuerySearch(SearchByCities: boolean, SearchByStreet: boolean) {
-    if (SearchByCities) {
+  emitQuerySearch(searchByLocation: boolean, SearchByStreet: boolean) {
+    if (searchByLocation) {
       // this.searchService.emitSelectedFreecityText(
       //   this.selectedStreetAndCitySearchTexts.city.valueOf()
       // );
+      // alert('search by location');
     }
+
+    setTimeout(() => {
+      this.searchSuggestionsIsOpen = false;
+    }, 60);
     if (SearchByStreet) {
       this.searchService.emitSelectedStreetFunc(
         this.selectedStreetAndCitySearchTexts.street.valueOf()
