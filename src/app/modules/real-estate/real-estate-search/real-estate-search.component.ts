@@ -96,7 +96,6 @@ export class RealEstateSearchComponent
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
         const clickedElement = event.target as HTMLElement;
-
         if (
           !clickedElement.classList.contains('search-button') &&
           !clickedElement.classList.contains('rooms-select') &&
@@ -319,6 +318,12 @@ export class RealEstateSearchComponent
     this.selectedCities = [];
     this.searchService.emitSelectedFreecityText('');
     this.searchService.emitSelectedStreetFunc('');
+  }
+
+  openSeveralSearches() {
+    setTimeout(() => {
+      this.searchSuggestionsIsOpen = true;
+    }, 50);
   }
 
   getStreetSuggestions(substring: string): Street[] {

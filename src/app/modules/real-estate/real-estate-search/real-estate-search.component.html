@@ -1,7 +1,11 @@
 <div class="search-container">
   <form (submit)="onSearch()">
     <div class="Search-bar">
-      <div id="subSearchQueryBox" class="input-box">
+      <div
+        id="subSearchQueryBox"
+        class="input-box invalid"
+        (click)="openSeveralSearches()"
+      >
         @if(this.locationList.length > 0) {
 
         <div
