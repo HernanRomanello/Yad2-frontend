@@ -79,7 +79,15 @@
         />
 
         } @if(this.searchSuggestionsIsOpen ){
-        <div class="search-suggestions">
+        <div
+          class="search-suggestions"
+          [ngStyle]="{
+            transform:
+              this.locationList.length > 0
+                ? 'translateY(9px)'
+                : 'translateY(0%)'
+          }"
+        >
           @if( !this.hasSelectedStreet && !this.hasSelectedLocation){
           <div
             id="locationSuggestion"
