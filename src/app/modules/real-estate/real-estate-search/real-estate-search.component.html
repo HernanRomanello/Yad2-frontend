@@ -21,12 +21,19 @@
                 ? '1px solid #828282'
                 : '1px solid #cccccc',
             transform: this.searchSuggestionsIsOpen
-              ? 'translateY(16px)'
+              ? 'translateY(16px) scaleY(1.05)'
               : 'translateY(0%)'
           }"
         >
           <div class="box-wrapper">
-            <div style="padding-right: 0.25rem">
+            <div
+              style="padding-right: 0.25rem"
+              [ngStyle]="{
+                transform: this.searchSuggestionsIsOpen
+                  ? 'translateY(-4px)'
+                  : 'translateY(0)'
+              }"
+            >
               <span>{{ locationList[0].neighborhood }}</span>
               <span style="padding-left: 0.25rem">,</span>
               <span style="font-size: 16px">{{ locationList[0].city }}</span>
