@@ -33,7 +33,6 @@ export class RealEstateSearchComponent
   citySuggestion: City[] = [];
   streetSuggestion: Street[] = [];
   searchInputSubscription!: Subscription;
-  subSearchInput = '';
 
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
@@ -222,7 +221,6 @@ export class RealEstateSearchComponent
     const hasThisLocation = this.locationList.some((loc) => {
       return loc.city === city && loc.neighborhood === neighborhood;
     });
-    this.subSearchInput = '';
 
     if (this.locationList.length >= 5 || hasThisLocation) {
       return;
@@ -266,7 +264,6 @@ export class RealEstateSearchComponent
           !clickedElement.classList.contains('sub-search')
         ) {
           this.searchSuggestionsIsOpen = false;
-          this.subSearchInput = '';
         }
       }
     });
@@ -305,7 +302,6 @@ export class RealEstateSearchComponent
     this.hasSelectedStreet = false;
     this.selectedCities = [];
     this.locationList = [];
-    this.subSearchInput = '';
     this.hasSelectedLocation = false;
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
     this.historyLocationSearchIsOpen = true;
