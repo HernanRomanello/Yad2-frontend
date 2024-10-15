@@ -222,14 +222,13 @@ export class RealEstateSearchComponent
     const hasThisLocation = this.locationList.some((loc) => {
       return loc.city === city && loc.neighborhood === neighborhood;
     });
+    this.subSearchInput = '';
 
     if (this.locationList.length >= 5 || hasThisLocation) {
       return;
     }
     this.locationList.push(location);
     this.searchService.emitLocation(this.locationList);
-
-    this.subSearchInput = '';
   }
 
   ngAfterViewInit() {
