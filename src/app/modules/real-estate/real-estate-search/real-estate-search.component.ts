@@ -252,49 +252,6 @@ export class RealEstateSearchComponent
         if (searchQuery.length > 1) {
           this.showSuggestionBox(searchQuery);
         }
-        // if (searchQuery.length > 1) {
-        //   if (this.hasSelectedStreet) {
-        //     this.resetSearchInputLocation();
-        //     return;
-        //   }
-        //   this.neighborhoodSuggestion = this.getStreetSuggestions(
-        //     searchQuery
-        //   ).slice(0, 5);
-
-        //   this.citySuggestion =
-        //     this.cityListService.getFirstsCitiesContainingSubstring(
-        //       this.cityList,
-        //       searchQuery,
-        //       'city_name_he',
-        //       4
-        //     );
-        //   if (
-        //     this.calculateArrayLength(this.neighborhoodSuggestion) +
-        //       this.calculateArrayLength(this.citySuggestion) >
-        //     8
-        //   ) {
-        //     this.areaSuggestion = [];
-        //     this.streetSuggestion = [];
-        //     return;
-        //   }
-        //   this.areaSuggestion = this.citySuggestion.slice(0, 1);
-        //   if (
-        //     this.calculateArrayLength(this.neighborhoodSuggestion) +
-        //       this.calculateArrayLength(this.citySuggestion) >=
-        //     8
-        //   ) {
-        //     this.streetSuggestion = [];
-        //     return;
-        //   }
-
-        //   this.streetSuggestion = this.neighborhoodSuggestion.slice(
-        //     0,
-        //     9 -
-        //       this.calculateArrayLength(this.neighborhoodSuggestion) -
-        //       this.calculateArrayLength(this.citySuggestion) -
-        //       this.calculateArrayLength(this.areaSuggestion)
-        //   );
-        // }
       });
     document.body.addEventListener('click', (event) => {
       const clickedElement = event.target as HTMLElement;
@@ -348,6 +305,8 @@ export class RealEstateSearchComponent
     this.searchSuggestionsIsOpen = false;
     this.hasSelectedStreet = false;
     this.selectedCities = [];
+    this.locationList = [];
+    this.hasSelectedLocation = false;
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
     this.historyLocationSearchIsOpen = true;
     this.searchService.emitSelectedFreecityText('');
