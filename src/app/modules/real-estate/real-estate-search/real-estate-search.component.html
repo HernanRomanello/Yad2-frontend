@@ -175,7 +175,10 @@
           <div
             id="city-option"
             class="title-locationSuggestions option"
-            (click)="this.searchInput = item.city_name_he"
+            (click)="
+              this.searchInput = item.city_name_he;
+              this.addLocationToSearchQuery('', item.city_name_he)
+            "
             *ngFor="let item of this.citySuggestion"
             style="height: 42.3906px"
           >
@@ -192,7 +195,11 @@
             class="title-locationSuggestions option"
             (click)="
               this.searchInput =
+                ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה ';
+              this.addLocationToSearchQuery(
+                '',
                 ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה '
+              )
             "
             *ngFor="let item of this.areaSuggestion"
             style="height: 42.3906px"

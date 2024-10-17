@@ -453,6 +453,11 @@ export class RealEstateSearchComponent
   }
 
   addSpaceAfterComma(text: string) {
+    const commaIndex = text.indexOf(',');
+    if (commaIndex === text.length - 1) {
+      return text.replace(/,/g, '');
+    }
+
     return text.replace(/,/g, ', ');
   }
 
@@ -464,6 +469,7 @@ export class RealEstateSearchComponent
     if (this.locationList.length === 0) {
       this.resetSearchInput();
       this.resetSearchInputLocation();
+      this.searchInput = '';
     }
   }
 
