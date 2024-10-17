@@ -273,6 +273,9 @@
               }}</span>
 
               <img
+                (click)="
+                  removeSelectedLocation(location.city, location.neighborhood)
+                "
                 class="remove-btn"
                 src="assets/images/close-svgrepo-com.svg"
                 alt=""

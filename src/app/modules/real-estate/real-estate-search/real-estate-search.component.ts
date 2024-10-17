@@ -456,6 +456,17 @@ export class RealEstateSearchComponent
     return text.replace(/,/g, ', ');
   }
 
+  removeSelectedLocation(city: string, neighborhood: string) {
+    this.locationList = this.locationList.filter((loc) => {
+      return loc.city !== city && loc.neighborhood !== neighborhood;
+    });
+    this.searchService.emitLocation(this.locationList);
+    if (this.locationList.length === 0) {
+      this.resetSearchInput();
+      this.resetSearchInputLocation();
+    }
+  }
+
   emitQuerySearch(searchByLocation: boolean, SearchByStreet: boolean) {
     if (searchByLocation) {
       // this.searchService.emitSelectedFreecityText(
