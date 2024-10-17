@@ -16,7 +16,6 @@ import {
   Street,
 } from '../../../services/city-list.service';
 import { debounceTime, fromEvent, map, Subscription } from 'rxjs';
-import { text } from 'stream/consumers';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
@@ -496,6 +495,8 @@ export class RealEstateSearchComponent
 
   onSearch() {
     this.searchSuggestionsIsOpen = false;
+
+    this.emitQuerySearch(this.hasSelectedLocation, this.hasSelectedStreet);
     const roomsAmountContainer =
       this.roomsAmountMenu.nativeElement.querySelector('.menu');
     if (roomsAmountContainer) {

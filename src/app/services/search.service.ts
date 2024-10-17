@@ -115,6 +115,6 @@ export class SearchService {
   emitLocation(location: { city: string; neighborhood: string }[]) {
     this.locationSubject.next(location);
 
-    console.log('location', location);
+    console.log('location test', location);
   }
 }
