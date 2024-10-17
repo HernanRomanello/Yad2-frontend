@@ -226,7 +226,6 @@ export class RealEstateSearchComponent
       return;
     }
     this.locationList.push(location);
-    this.searchService.emitLocation(this.locationList);
   }
 
   ngAfterViewInit() {
@@ -464,7 +463,6 @@ export class RealEstateSearchComponent
     this.locationList = this.locationList.filter((loc) => {
       return loc.city !== city && loc.neighborhood !== neighborhood;
     });
-    this.searchService.emitLocation(this.locationList);
     if (this.locationList.length === 0) {
       this.resetSearchInput();
       this.resetSearchInputLocation();
@@ -473,11 +471,10 @@ export class RealEstateSearchComponent
   }
 
   emitQuerySearch(searchByLocation: boolean, SearchByStreet: boolean) {
-    if (searchByLocation) {
-      // this.searchService.emitSelectedFreecityText(
-      //   this.selectedStreetAndCitySearchTexts.city.valueOf()
-      // );
-      // alert('search by location');
+    if (searchByLocation && !SearchByStreet) {
+      this.searchService.emitLocation(this.locationList);
+    } else if (!searchByLocation) {
+      this.searchService.emitLocation([]);
     }
 
     setTimeout(() => {

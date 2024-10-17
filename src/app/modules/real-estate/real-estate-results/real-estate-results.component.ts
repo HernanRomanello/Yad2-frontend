@@ -9,7 +9,7 @@ import {
 import { AdvertisementService } from '../../../services/advertisement.service';
 import { AdvertisementsModel } from '../../../shared/models/AdvertisementsModel';
 import { AuthService } from '../../../services/user/auth.service';
-import { BehaviorSubject, combineLatest, map } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, of } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
 import { FilterValue } from '../../../shared/models/Filters';
 @Component({
@@ -208,6 +208,42 @@ export class RealEstateResultsComponent implements OnInit {
               ad.city === this.searchService.selectedCityText.value &&
               ad.street === this.searchService.selectedStreetText.value
           );
+        } else if (this.searchService.locationSubject.value.length > 0) {
+          // Convert ads array into an observable and handle the observable result
+          console.log('hernan');
+          of(ads)
+            .pipe(
+              map((adList) => {
+                return adList.reduce((acc, ad) => {
+                  this.searchService.locationSubject.value.forEach((loc) => {
+                    // Check if only the city matches and no specific neighborhood is provided
+
+                    if (ad.city === loc.city && loc.neighborhood === '') {
+                      acc.push(ad);
+                    }
+
+                    // Check if only the neighborhood matches and no specific city is provided
+                    else if (
+                      ad.neighborhood === loc.neighborhood &&
+                      loc.city === ''
+                    ) {
+                      acc.push(ad);
+                    }
+                    // Check if both city and neighborhood match
+                    else if (
+                      ad.city === loc.city &&
+                      ad.neighborhood === loc.neighborhood
+                    ) {
+                      acc.push(ad);
+                    }
+                  });
+                  return acc;
+                }, [] as any[]); // Initialize accumulator with empty array
+              })
+            )
+            .subscribe((filteredAds) => {
+              ads = filteredAds; // Assign the filtered ads to the ads array
+            });
         }
 
         this.apartmentsAmount = ads.length;

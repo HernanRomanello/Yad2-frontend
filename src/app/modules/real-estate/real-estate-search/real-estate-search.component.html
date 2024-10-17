@@ -157,7 +157,7 @@
           <div
             (click)="
               this.searchInput = item.Street_Name + ', ' + item.City_Name;
-              this.addLocationToSearchQuery(item.Street_Name, item.City_Name)
+              this.addLocationToSearchQuery(item.City_Name, item.Street_Name)
             "
             id="neighborhood-option"
             class="title-locationSuggestions option"
@@ -180,7 +180,7 @@
             class="title-locationSuggestions option"
             (click)="
               this.searchInput = item.city_name_he;
-              this.addLocationToSearchQuery('', item.city_name_he)
+              this.addLocationToSearchQuery(item.city_name_he, '')
             "
             *ngFor="let item of this.citySuggestion"
             style="height: 42.3906px"
@@ -200,8 +200,8 @@
               this.searchInput =
                 ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה ';
               this.addLocationToSearchQuery(
-                '',
-                ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה '
+                ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה ',
+                ''
               )
             "
             *ngFor="let item of this.areaSuggestion"
@@ -303,12 +303,7 @@
               איפוס
             </div>
             <div
-              (click)="
-                this.emitQuerySearch(
-                  this.hasSelectedLocation,
-                  this.hasSelectedStreet
-                )
-              "
+              (click)="this.emitQuerySearch(false, this.hasSelectedStreet)"
               class="select-btn"
             >
               אישור
