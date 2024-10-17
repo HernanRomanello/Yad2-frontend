@@ -199,10 +199,7 @@
             (click)="
               this.searchInput =
                 ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה ';
-              this.addLocationToSearchQuery(
-                ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה ',
-                ''
-              )
+              this.addLocationToSearchQuery(item.city_name_he, '')
             "
             *ngFor="let item of this.areaSuggestion"
             style="height: 42.3906px"
