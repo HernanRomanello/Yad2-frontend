@@ -452,7 +452,7 @@ export class RealEstateSearchComponent
 
   addSpaceAfterComma(text: string) {
     const commaIndex = text.indexOf(',');
-    if (commaIndex === text.length - 1) {
+    if (commaIndex === text.length - 1 || commaIndex === 0) {
       return text.replace(/,/g, '');
     }
 

@@ -209,28 +209,19 @@ export class RealEstateResultsComponent implements OnInit {
               ad.street === this.searchService.selectedStreetText.value
           );
         } else if (this.searchService.locationSubject.value.length > 0) {
-          // Convert ads array into an observable and handle the observable result
-          console.log('hernan');
           of(ads)
             .pipe(
               map((adList) => {
                 return adList.reduce((acc, ad) => {
                   this.searchService.locationSubject.value.forEach((loc) => {
-                    // Check if only the city matches and no specific neighborhood is provided
-
                     if (ad.city === loc.city && loc.neighborhood === '') {
                       acc.push(ad);
-                    }
-
-                    // Check if only the neighborhood matches and no specific city is provided
-                    else if (
+                    } else if (
                       ad.neighborhood === loc.neighborhood &&
                       loc.city === ''
                     ) {
                       acc.push(ad);
-                    }
-                    // Check if both city and neighborhood match
-                    else if (
+                    } else if (
                       ad.city === loc.city &&
                       ad.neighborhood === loc.neighborhood
                     ) {
@@ -238,11 +229,11 @@ export class RealEstateResultsComponent implements OnInit {
                     }
                   });
                   return acc;
-                }, [] as any[]); // Initialize accumulator with empty array
+                }, [] as any[]);
               })
             )
             .subscribe((filteredAds) => {
-              ads = filteredAds; // Assign the filtered ads to the ads array
+              ads = filteredAds;
             });
         }
 
