@@ -144,7 +144,8 @@ span {
 .type-btn,
 .option,
 .reset-btn,
-.select-btn {
+.select-btn,
+.remove-btn {
   cursor: pointer;
 }
 
