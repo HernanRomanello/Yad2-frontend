@@ -239,31 +239,6 @@ export class RealEstateSearchComponent
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit');
-    // this.searchInputSubscription = fromEvent(
-    //   this.searchInputLocation.nativeElement,
-    //   'input'
-    // )
-    //   .pipe(
-    //     debounceTime(50),
-    //     map((event: any) => event.target.value)
-    //   )
-    //   .subscribe((searchQuery) => {
-    //     console.log(searchQuery);
-    //     this.historyLocationSearchIsOpen =
-    //       searchQuery.length > 0 ? false : true;
-    //     if (this.historyLocationSearchIsOpen) {
-    //       this.searchInput = '';
-    //       searchQuery = '';
-    //       return;
-    //     }
-    //     if (searchQuery.length > 1) {
-    //       this.showSuggestionBox(searchQuery);
-    //     } else {
-    //       searchQuery = '';
-    //       return;
-    //     }
-    //   });
     document.body.addEventListener('click', (event) => {
       const clickedElement = event.target as HTMLElement;
       if (
