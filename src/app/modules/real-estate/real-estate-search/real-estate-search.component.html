@@ -6,7 +6,7 @@
         class="input-box invalid"
         (click)="openSeveralSearches()"
       >
-        @if(this.locationList.length > 0) {
+        @if(this.locationList.length > 0 && !this.hasSelectedStreet) {
 
         <div
           type="text"
