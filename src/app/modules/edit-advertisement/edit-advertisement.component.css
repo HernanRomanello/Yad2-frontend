@@ -45,7 +45,7 @@ li {
 }
 
 #contact-form {
-  height: 782.594px !important;
+  height: 617.594px !important;
 }
 
 .data-input,
@@ -794,7 +794,7 @@ textarea {
 
 #contact-form {
   margin-top: 1rem !important;
-  margin-bottom: 1.25rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .post-ad-btn {
@@ -806,4 +806,13 @@ textarea {
   width: 156px;
   border: 1px solid rgb(255, 113, 0);
   padding: 1px 6px;
+}
+
+.note {
+  background-color: rgb(255, 250, 245);
+  height: 136px;
+  width: 366px;
+  border: 1px solid rgb(255, 113, 0);
+  padding: 10px 15px 10px 19px;
+  border-radius: 4px;
 }
