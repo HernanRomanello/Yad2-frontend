@@ -50,7 +50,7 @@ li {
 }
 
 #contact-form {
-  height: 617.594px !important;
+  min-height: 617.594px !important;
 }
 
 .data-input,
