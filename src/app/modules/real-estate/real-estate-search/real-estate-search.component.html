@@ -100,7 +100,10 @@
           (focus)="this.searchSuggestionsIsOpen = true"
           (input)="
             this.displayHistory(searchInputLocation.value.length);
-            searchInputLocation.focus()
+            searchInputLocation.focus();
+            searchInputLocation.value.length > 1
+              ? this.showSuggestionBox(searchInputLocation.value)
+              : ''
           "
         />
 
