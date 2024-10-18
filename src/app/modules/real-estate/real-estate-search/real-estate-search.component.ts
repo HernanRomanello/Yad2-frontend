@@ -33,6 +33,7 @@ export class RealEstateSearchComponent
   citySuggestion: City[] = [];
   streetSuggestion: Street[] = [];
   searchInputSubscription!: Subscription;
+  firstLocationIsArea: boolean = false;
 
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
@@ -212,7 +213,11 @@ export class RealEstateSearchComponent
     }
   }
 
-  addLocationToSearchQuery(city: string, neighborhood: string) {
+  addLocationToSearchQuery(
+    city: string,
+    neighborhood: string,
+    areaLocation: boolean
+  ) {
     if (neighborhood != null) {
       this.hasSelectedLocation = true;
     }
@@ -225,7 +230,12 @@ export class RealEstateSearchComponent
     if (this.locationList.length >= 5 || hasThisLocation) {
       return;
     }
+
     this.locationList.push(location);
+
+    if (this.locationList.length == 1 && areaLocation) {
+      this.firstLocationIsArea = true;
+    }
   }
 
   ngAfterViewInit() {
@@ -301,6 +311,7 @@ export class RealEstateSearchComponent
     this.hasSelectedStreet = false;
     this.selectedCities = [];
     this.locationList = [];
+    this.firstLocationIsArea = false;
     this.hasSelectedLocation = false;
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
     this.historyLocationSearchIsOpen = true;

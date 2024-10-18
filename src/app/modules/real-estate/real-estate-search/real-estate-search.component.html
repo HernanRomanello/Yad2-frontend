@@ -34,13 +34,25 @@
                   : 'translateY(0)'
               }"
             >
+              @if(!this.firstLocationIsArea){
               <span>{{
                 this.addSpaceAfterComma(
                   locationList[0].neighborhood + "," + locationList[0].city
                 )
               }}</span>
-
-              @if (this.locationList.length >1 ) {
+              } @else {
+              <span>{{
+                this.addSpaceAfterComma(
+                  locationList[0].neighborhood +
+                    "," +
+                    "אזור" +
+                    " " +
+                    locationList[0].city +
+                    " " +
+                    "והסביבה"
+                )
+              }}</span>
+              } @if (this.locationList.length >1 ) {
               <span style="font-size: 16px; padding-right: 0.25rem"
                 >(+{{ this.locationList.length - 1 }})</span
               >
@@ -157,7 +169,11 @@
           <div
             (click)="
               this.searchInput = item.Street_Name + ', ' + item.City_Name;
-              this.addLocationToSearchQuery(item.City_Name, item.Street_Name)
+              this.addLocationToSearchQuery(
+                item.City_Name,
+                item.Street_Name,
+                false
+              )
             "
             id="neighborhood-option"
             class="title-locationSuggestions option"
@@ -180,7 +196,7 @@
             class="title-locationSuggestions option"
             (click)="
               this.searchInput = item.city_name_he;
-              this.addLocationToSearchQuery(item.city_name_he, '')
+              this.addLocationToSearchQuery(item.city_name_he, '', false)
             "
             *ngFor="let item of this.citySuggestion"
             style="height: 42.3906px"
@@ -196,11 +212,7 @@
           <div
             id="area-option"
             class="title-locationSuggestions option"
-            (click)="
-              this.searchInput =
-                ' אזור' + ' ' + item.city_name_he + ' ' + 'והסביבה ';
-              this.addLocationToSearchQuery(item.city_name_he, '')
-            "
+            (click)="this.addLocationToSearchQuery(item.city_name_he, '', true)"
             *ngFor="let item of this.areaSuggestion"
             style="height: 42.3906px"
           >
