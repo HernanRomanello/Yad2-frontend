@@ -110,7 +110,8 @@
                 : 'translateY(0%)'
           }"
         >
-          @if( !this.hasSelectedStreet && !this.hasSelectedLocation){
+          @if( !this.hasSelectedStreet && !this.hasSelectedLocation &&
+          !(this.locationList.length > 0)){
           <div
             id="locationSuggestion"
             class="search-suggestion"

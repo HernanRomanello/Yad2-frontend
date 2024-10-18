@@ -244,7 +244,7 @@ export class RealEstateSearchComponent
       'input'
     )
       .pipe(
-        debounceTime(300),
+        debounceTime(50),
         map((event: any) => event.target.value)
       )
       .subscribe((searchQuery) => {
