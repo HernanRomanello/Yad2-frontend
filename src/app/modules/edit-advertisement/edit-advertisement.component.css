@@ -75,7 +75,8 @@ li {
 .phone-Number-Box,
 .miniSpot-img,
 .flex,
-.note-text {
+.note-text,
+.left-div {
   display: flex;
 }
 
@@ -103,7 +104,8 @@ li {
 .right-div,
 .title-part,
 .phone-Number-Box,
-.note-text {
+.note-text,
+.left-div {
   flex-direction: column;
 }
 
@@ -282,9 +284,19 @@ form,
   justify-content: center !important;
 }
 .description-box,
-.image-btns {
+.image-btns,
+.left-div {
   justify-content: space-between;
 }
+
+.left-div,
+.right-div {
+  height: 100%;
+}
+.left-div {
+  align-items: flex-end;
+}
+
 .description-box {
   padding-left: 0.25rem;
 }
@@ -777,7 +789,7 @@ textarea {
 }
 
 .left-div {
-  padding: 22px !important;
+  padding: 30px 30px 78px !important;
 }
 
 .right-div {
@@ -824,6 +836,7 @@ textarea {
   height: 35px;
   width: 156px;
   padding: 1px 6px;
+  margin: 1.5rem;
 }
 
 .note-text-title {
