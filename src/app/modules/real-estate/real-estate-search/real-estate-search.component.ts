@@ -239,6 +239,7 @@ export class RealEstateSearchComponent
   }
 
   ngAfterViewInit() {
+    console.log('ngAfterViewInit');
     this.searchInputSubscription = fromEvent(
       this.searchInputLocation.nativeElement,
       'input'
