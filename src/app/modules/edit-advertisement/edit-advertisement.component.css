@@ -789,7 +789,7 @@ textarea {
 }
 
 .left-div {
-  padding: 30px 30px 78px !important;
+  padding: 30px 30px 48px !important;
 }
 
 .right-div {
@@ -878,4 +878,13 @@ textarea {
 .remove-add-contact {
   padding: 0 !important;
   margin: 0 !important;
+}
+
+#user-email {
+  transform: translateY(-1.5rem) !important;
+}
+
+#contact-email {
+  width: 235px !important;
+  height: 36px !important;
 }

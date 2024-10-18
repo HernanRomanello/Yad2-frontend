@@ -847,7 +847,7 @@
   <div id="contact-form" class="contact-part advertisement-selection">
     <div
       class="right-div"
-      [ngStyle]="{ height: this.has2Contacts ? '792.59px' : '617.594px' }"
+      [ngStyle]="{ height: this.has2Contacts ? '860px' : '692px' }"
     >
       <div class="title-part">
         <div class="contact-form-title">סיום עריכה</div>
@@ -1006,12 +1006,12 @@
         </div>
         }
       </div>
-      <div class="input-container">
+      <div id="user-email" class="input-container">
         <label class="small-text" for="number">דוא"ל</label>
         <input
           #UserEmailAddress
           class="data number-input"
-          id="contactName"
+          id="contact-email"
           [value]="this.userEmailAddress"
           (input)="this.userEmailAddress = UserEmailAddress.value"
         />
