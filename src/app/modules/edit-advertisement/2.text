@@ -1,4 +1,4 @@
-div .info-wrapper {
+section .strong-edit-ad-bar {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -17,25 +17,25 @@ div .info-wrapper {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 250, 245);
+	background-color: rgb(54, 56, 65);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(51, 51, 51);
 
 	/* Box */
-	height: 136px;
-	width: 366px;
-	border: 1px solid rgb(255, 113, 0);
-	border-top: 1px solid rgb(255, 113, 0);
-	border-right: 1px solid rgb(255, 113, 0);
-	border-bottom: 1px solid rgb(255, 113, 0);
-	border-left: 1px solid rgb(255, 113, 0);
-	margin: 0px;
-	padding: 10px 15px 10px 19px;
+	height: 241px;
+	width: 880px;
+	border: 0px none rgb(51, 51, 51);
+	border-top: 0px none rgb(51, 51, 51);
+	border-right: 0px none rgb(51, 51, 51);
+	border-bottom: 0px none rgb(51, 51, 51);
+	border-left: 0px none rgb(51, 51, 51);
+	margin: 20px 0px 60px;
+	padding: 0px;
 	max-height: none;
 	min-height: 0px;
-	max-width: none;
+	max-width: 880px;
 	min-width: 0px;
 
 	/* Positioning */
@@ -45,7 +45,7 @@ div .info-wrapper {
 	right: auto;
 	left: auto;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
 	z-index: auto;
 
@@ -71,14 +71,14 @@ div .info-wrapper {
 	transition: all;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
-	box-sizing: border-box;
+	box-sizing: content-box;
 	resize: none;
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 }

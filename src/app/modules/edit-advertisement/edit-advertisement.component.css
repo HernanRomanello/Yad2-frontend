@@ -896,3 +896,17 @@ textarea {
   margin-top: 18px !important;
   margin-bottom: 18px !important;
 }
+
+.ad-score {
+  background-color: rgb(54, 56, 65);
+  color: rgb(51, 51, 51);
+  margin: 20px auto 0;
+  height: 241px;
+  width: 880px;
+  max-width: 880px;
+  border-radius: 8px;
+}
+
+.end-space {
+  height: 60px;
+}
