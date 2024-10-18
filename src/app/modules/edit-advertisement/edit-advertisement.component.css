@@ -793,7 +793,7 @@ textarea {
 }
 
 .right-div {
-  padding: 40px !important;
+  padding: 2rem 2.75rem 0 0 !important;
   margin: 0 !important;
 }
 
@@ -873,4 +873,9 @@ textarea {
   width: 11.3438px;
   height: 8.09375px;
   transform: translateY(7px);
+}
+
+.remove-add-contact {
+  padding: 0 !important;
+  margin: 0 !important;
 }

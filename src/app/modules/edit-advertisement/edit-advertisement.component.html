@@ -845,10 +845,13 @@
     </div>
   </form>
   <div id="contact-form" class="contact-part advertisement-selection">
-    <div class="right-div">
+    <div
+      class="right-div"
+      [ngStyle]="{ height: this.has2Contacts ? '792.59px' : '617.594px' }"
+    >
       <div class="title-part">
         <div class="contact-form-title">סיום עריכה</div>
-        <div class="contact-form-ad">
+        <div style="font-weight: 300" class="contact-form-ad">
           רגע לפני שמפרסמים את המודעה, נרצה להכיר אותך
         </div>
       </div>
