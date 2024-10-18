@@ -149,6 +149,9 @@ li {
 .phone-Number-Box {
   gap: 22px !important;
 }
+.phone-Number-Box {
+  margin-top: 1rem !important;
+}
 
 .main-images-container {
   height: 241px !important;
