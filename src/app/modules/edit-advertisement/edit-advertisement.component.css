@@ -25,8 +25,13 @@ li {
 }
 
 .ad-images,
-#contact-form {
+#contact-form,
+.note {
   display: grid !important;
+}
+
+.note {
+  grid-template-columns: 1fr 4fr;
 }
 
 #contact-form {
@@ -67,7 +72,8 @@ li {
 .contact-part,
 .right-div,
 .title-part,
-.phone-Number-Box {
+.phone-Number-Box,
+.miniSpot-img {
   display: flex;
 }
 
@@ -107,7 +113,8 @@ li {
 .image-btn-circle,
 .image-btns,
 .camara-image-container,
-.card-content {
+.card-content,
+.miniSpot-img {
   align-items: center !important;
 }
 
@@ -259,7 +266,8 @@ form,
 .upload-img-card,
 .image-btn-circle,
 .camara-image-container,
-.card-content {
+.card-content,
+.miniSpot-img {
   justify-content: center !important;
 }
 .description-box,
@@ -804,7 +812,6 @@ textarea {
   color: rgb(255, 113, 0);
   height: 35px;
   width: 156px;
-  border: 1px solid rgb(255, 113, 0);
   padding: 1px 6px;
 }
 
@@ -812,7 +819,11 @@ textarea {
   background-color: rgb(255, 250, 245);
   height: 136px;
   width: 366px;
-  border: 1px solid rgb(255, 113, 0);
   padding: 10px 15px 10px 19px;
   border-radius: 4px;
+}
+
+.note,
+.post-ad-btn {
+  border: 1px solid rgb(255, 113, 0);
 }
