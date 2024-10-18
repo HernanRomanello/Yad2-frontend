@@ -248,14 +248,19 @@ export class RealEstateSearchComponent
         map((event: any) => event.target.value)
       )
       .subscribe((searchQuery) => {
+        console.log(searchQuery);
         this.historyLocationSearchIsOpen =
           searchQuery.length > 0 ? false : true;
         if (this.historyLocationSearchIsOpen) {
           this.searchInput = '';
+          searchQuery = '';
           return;
         }
         if (searchQuery.length > 1) {
           this.showSuggestionBox(searchQuery);
+        } else {
+          searchQuery = '';
+          return;
         }
       });
     document.body.addEventListener('click', (event) => {

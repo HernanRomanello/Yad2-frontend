@@ -68,8 +68,12 @@
               name="searchQuery"
               placeholder="הוספת מיקום"
               (input)="
-                showSuggestionBox(subSearchInputLocation.value);
-                this.hasSelectedLocation = false
+                subSearchInputLocation.value.length > 1
+                  ? this.showSuggestionBox(subSearchInputLocation.value)
+                  : '';
+                subSearchInputLocation.value.length > 1
+                  ? (this.hasSelectedLocation = false)
+                  : (this.hasSelectedLocation = true)
               "
               (blur)="subSearchInputLocation.value = ''"
             />
@@ -110,7 +114,30 @@
                 : 'translateY(0%)'
           }"
         >
-          @if( !this.hasSelectedStreet && !this.hasSelectedLocation &&
+          @if(this.locationList.length > 0 ){
+          <div class="instruction-title">ניתן לבחור עד 5 מיקומים</div>
+          <div class="locations">
+            @for (location of this.locationList; track $index) {
+            <div class="location-list">
+              <span>{{
+                this.reduceTextLength(
+                  location.neighborhood + "," + location.city,
+                  14
+                )
+              }}</span>
+
+              <img
+                (click)="
+                  removeSelectedLocation(location.city, location.neighborhood)
+                "
+                class="remove-btn"
+                src="assets/images/close-svgrepo-com.svg"
+                alt=""
+              />
+            </div>
+            }
+          </div>
+          } @if( !this.hasSelectedStreet && !this.hasSelectedLocation &&
           !(this.locationList.length > 0)){
           <div
             id="locationSuggestion"
@@ -280,29 +307,6 @@
             </span>
           </div>
 
-          } @if(this.hasSelectedLocation ){
-          <div class="instruction-title">ניתן לבחור עד 5 מיקומים</div>
-          <div class="locations">
-            @for (location of this.locationList; track $index) {
-            <div class="location-list">
-              <span>{{
-                this.reduceTextLength(
-                  location.neighborhood + "," + location.city,
-                  14
-                )
-              }}</span>
-
-              <img
-                (click)="
-                  removeSelectedLocation(location.city, location.neighborhood)
-                "
-                class="remove-btn"
-                src="assets/images/close-svgrepo-com.svg"
-                alt=""
-              />
-            </div>
-            }
-          </div>
           }
 
           <div class="filters-btns">
