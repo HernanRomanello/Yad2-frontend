@@ -7,6 +7,7 @@ import {
   OnInit,
   Renderer2,
   ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
@@ -24,6 +25,7 @@ import { environment } from '../../../environments/environment.development';
     './edit-advertisement.component.css',
     '../create-new-advertisement/create-new-advertisement.component.css',
   ],
+  encapsulation: ViewEncapsulation.None,
 })
 export class EditAdvertisementComponent
   implements OnInit, OnDestroy, AfterViewInit

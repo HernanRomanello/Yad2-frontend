@@ -379,24 +379,23 @@
 </header>
 } @if((this.authSerrvice.ISEditAdvertisementISOpen | async)) {
 <div class="edit-ad-header">
+  <div class="flex-center2 post-ad-box">
+    <div class="logo-img" routerLink="/">
+      <img src="assets/images/logo-default.svg" alt="logo" />
+    </div>
+    <div class="post-ad">פרסום מודעה חדשה</div>
+  </div>
   <div class="right-side2 flex-center2">
-    <div class="contact">צור קשר</div>
     <div class="user-name">
-      <span> {{ this.userName }} {{ this.userLastName }} </span>
-
       <span>
         <img
           id="orange-user"
           src="assets/images/orange-user.svg"
           alt="orange-user"
       /></span>
+      <span> {{ this.userName }} {{ this.userLastName }} </span>
     </div>
-  </div>
-  <div class="flex-center2 post-ad-box">
-    <div class="post-ad">פרסום מודעה חדשה</div>
-    <div class="logo-img" routerLink="/">
-      <img src="assets/images/logo-default.svg" alt="logo" />
-    </div>
+    <div class="contact">צור קשר</div>
   </div>
 </div>
 
