@@ -78,7 +78,8 @@ li {
 .note-text,
 .left-div,
 .score-container,
-.score-content {
+.score-content,
+.double-input-box {
   display: flex;
 }
 
@@ -108,8 +109,13 @@ li {
 .phone-Number-Box,
 .note-text,
 .left-div,
-.score-container {
+.score-container,
+.double-input-box {
   flex-direction: column;
+}
+
+.double-input-box {
+  gap: 2rem !important;
 }
 
 .score-container {
@@ -995,4 +1001,8 @@ textarea {
 
 .space-block-3 {
   height: 14px !important;
+}
+
+.double-input-box {
+  padding-top: 1rem !important;
 }
