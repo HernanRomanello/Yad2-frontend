@@ -986,3 +986,13 @@ textarea {
 .space-block-2 {
   height: 2px !important;
 }
+
+#first-checkbox-input,
+#second-checkbox-input,
+#third-checkbox-input {
+  border: 2px solid rgba(0, 0, 0, 0.54) !important;
+}
+
+.space-block-3 {
+  height: 14px !important;
+}
