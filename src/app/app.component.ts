@@ -1,4 +1,10 @@
-import { Component, inject, OnInit, Renderer2 } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+  Renderer2,
+  ViewEncapsulation,
+} from '@angular/core';
 import { AuthService } from './services/user/auth.service';
 import { ModalStateService } from './services/modal-state.service';
 
@@ -6,6 +12,7 @@ import { ModalStateService } from './services/modal-state.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
