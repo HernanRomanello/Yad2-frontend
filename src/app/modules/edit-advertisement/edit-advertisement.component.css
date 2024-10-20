@@ -661,9 +661,6 @@ textarea {
 .WeCheck-container {
   width: 100%;
 }
-.WeCheck-container {
-  margin: auto;
-}
 
 #main-image,
 #main-image-frame,
@@ -909,4 +906,18 @@ textarea {
 
 .end-space {
   height: 60px;
+}
+
+.tropy-img {
+  height: 90.3438px;
+  width: 91.1875px;
+}
+
+.score-contaner {
+  width: 760px;
+}
+
+.WeCheck-container,
+.score-contaner {
+  margin: auto;
 }

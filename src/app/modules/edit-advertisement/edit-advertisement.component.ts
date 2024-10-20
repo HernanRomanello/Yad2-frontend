@@ -135,12 +135,10 @@ export class EditAdvertisementComponent
       const target = event.target as HTMLElement;
       const clickOutsdieDropdown =
         !target.classList.contains('dropdown-btn') ||
-        target.classList.contains(
-          'input-container' ||
-            'advertisement' ||
-            'space-block' ||
-            'edit-container'
-        );
+        target.classList.contains('input-container') ||
+        target.classList.contains('advertisement') ||
+        target.classList.contains('space-block') ||
+        target.classList.contains('edit-container');
 
       if (clickOutsdieDropdown === true) {
         this.closeAllDropdowns();
