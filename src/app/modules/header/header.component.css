@@ -353,7 +353,7 @@ img,
 }
 
 .right-side2 {
-  gap: 1rem;
+  gap: 1.5rem;
   margin-right: 2.5rem !important;
 }
 
@@ -443,4 +443,8 @@ button,
 
 #orange-user {
   transform: translateY(2px);
+}
+
+#user-name {
+  font-size: 16px !important;
 }
