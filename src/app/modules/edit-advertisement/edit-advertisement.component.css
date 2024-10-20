@@ -173,6 +173,9 @@ li {
 #edit-advertisement {
   padding: 30px 40px !important;
 }
+#edit-advertisement {
+  border-radius: 6px !important;
+}
 
 .space-block {
   color: transparent !important;
