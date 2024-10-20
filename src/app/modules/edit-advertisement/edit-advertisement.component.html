@@ -204,6 +204,34 @@
       </div>
 
       <div class="input-container">
+        <label class="small-text light-grey-text" for="street">שכונה* </label>
+        <div
+          id="neighborhood"
+          class="data-input fill-block large light-grey-text"
+        >
+          {{ advertisement.neighborhood }}
+        </div>
+        <div class="address-info-box address-info">
+          המידע הזה מגיע מגוף ממשלתי ולא ניתן לשינוי
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="small-text light-grey-text" for="street">
+          אזור
+          <span>{{ advertisement.tradeType }}</span>
+        </label>
+        <div
+          id="neighborhood"
+          class="data-input fill-block large light-grey-text"
+        >
+          אזור {{ advertisement.area }}
+        </div>
+        <div class="address-info-box address-info">
+          המידע הזה מגיע מגוף ממשלתי ולא ניתן לשינוי
+        </div>
+      </div>
+
+      <div class="input-container">
         <label class="small-text light-grey-text" for="number"
           >מספר חדרים*
         </label>
