@@ -917,7 +917,7 @@ textarea {
   margin: auto;
 }
 .score-container {
-  padding-top: 2.75rem;
+  padding-top: 3rem;
 }
 .score-container,
 .upload-img-card {
@@ -937,8 +937,9 @@ textarea {
   font-size: 24px !important;
 }
 #score-text {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
+
 .score-content div {
   font-weight: 500 !important;
 }
@@ -951,24 +952,20 @@ textarea {
   line-height: 20px;
 }
 
-/* For WebKit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 9px; /* Adjust the width of the scrollbar */
-  height: 7px; /* Adjust the height for horizontal scrollbar */
+  width: 9px;
+  height: 7px;
 }
 
-/* Scrollbar track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Optional: change the background color */
+  background: #f1f1f1;
 }
 
-/* Scrollbar handle */
 ::-webkit-scrollbar-thumb {
-  background: #a9a9a9; /* Optional: change the scrollbar handle color */
+  background: #a9a9a9;
   border: solid 1px rgb(85, 85, 85, 0.7);
 }
 
-/* Scrollbar handle hover effect */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
