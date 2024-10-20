@@ -1005,4 +1005,10 @@ textarea {
 
 .double-input-box {
   padding-top: 1rem !important;
+  /* background-color: #fbaf00 !important; */
+}
+
+#second-checkbox-input-div {
+  transform: translateY(-12px) !important;
+  /* padding-bottom: 10px !important; */
 }
