@@ -100,17 +100,19 @@
             {{ view }}
           </div>
         </div>
+        <label id="first-checkbox" class="checkbox-input">
+          <input
+            class="checkbox"
+            type="checkbox"
+            #frontProperty
+            [checked]="this.advertisement.rearProperty.valueOf()"
+            (input)="this.advertisement.rearProperty = frontProperty.checked"
+          />
+          נכס עורפי
+        </label>
       </div>
-      <label class="checkbox-input">
-        <input
-          class="checkbox"
-          type="checkbox"
-          #frontProperty
-          [checked]="this.advertisement.rearProperty.valueOf()"
-          (input)="this.advertisement.rearProperty = frontProperty.checked"
-        />
-        נכס עורפי
-      </label>
+
+      <div class="space-block-2"></div>
 
       <div class="input-container">
         <label class="small-text light-grey-text" for="city">ישוב* </label>

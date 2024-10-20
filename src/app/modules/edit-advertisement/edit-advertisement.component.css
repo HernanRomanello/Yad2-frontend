@@ -978,3 +978,11 @@ textarea {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+#first-checkbox {
+  padding-top: 2px;
+}
+
+.space-block-2 {
+  height: 2px !important;
+}
