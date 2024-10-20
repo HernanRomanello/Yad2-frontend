@@ -76,7 +76,9 @@ li {
 .miniSpot-img,
 .flex,
 .note-text,
-.left-div {
+.left-div,
+.score-container,
+.score-content {
   display: flex;
 }
 
@@ -105,8 +107,13 @@ li {
 .title-part,
 .phone-Number-Box,
 .note-text,
-.left-div {
+.left-div,
+.score-container {
   flex-direction: column;
+}
+
+.score-container {
+  gap: 24px;
 }
 
 .note-text {
@@ -172,10 +179,6 @@ li {
   height: 70px !important;
 }
 
-.title,
-.contact-form-title {
-  font-size: 24px !important;
-}
 .title,
 .contact-form-title {
   font-weight: 300 !important;
@@ -288,7 +291,8 @@ form,
 }
 .description-box,
 .image-btns,
-.left-div {
+.left-div,
+.score-content {
   justify-content: space-between;
 }
 
@@ -699,11 +703,6 @@ textarea {
   width: 36px !important;
 }
 
-.upload-img-card {
-  margin: 0 auto 0.75rem auto !important;
-  background-color: #ffffff;
-}
-
 .image-btn-circle {
   height: 27px;
   width: 27px;
@@ -839,10 +838,6 @@ textarea {
   margin: 1.5rem;
 }
 
-.note-text-title {
-  font-weight: 600 !important;
-}
-
 .note {
   background-color: rgb(255, 250, 245);
   height: 136px;
@@ -913,11 +908,45 @@ textarea {
   width: 91.1875px;
 }
 
-.score-contaner {
+.score-container {
   width: 760px;
 }
 
 .WeCheck-container,
-.score-contaner {
+.score-container {
   margin: auto;
+}
+.score-container {
+  padding-top: 2.75rem;
+}
+.score-container,
+.upload-img-card {
+  color: #ffffff;
+}
+.score-container div {
+  font-size: 18px !important;
+}
+
+.upload-img-card {
+  margin: 0 auto 0.75rem auto !important;
+}
+
+.title,
+.contact-form-title,
+#score-text {
+  font-size: 24px !important;
+}
+#score-text {
+  font-weight: 600 !important;
+}
+.score-content div {
+  font-weight: 500 !important;
+}
+
+.note-text-title {
+  font-weight: 600 !important;
+}
+
+#score-text {
+  line-height: 20px;
 }
