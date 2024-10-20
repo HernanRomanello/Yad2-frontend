@@ -448,3 +448,14 @@ button,
 #user-name {
   font-size: 16px !important;
 }
+
+#post-ad-title {
+  margin-right: 9px;
+  display: flex;
+  gap: 0.75rem;
+}
+
+#logo-pic {
+  width: 70px;
+  height: 35px;
+}
