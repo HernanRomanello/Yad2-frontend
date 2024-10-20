@@ -140,13 +140,19 @@ li {
 
 .edit-inputs,
 .contact-part {
-  margin: 22px 0 !important;
+  margin: 19px 0 !important;
 }
 
-.edit-inputs,
 .main-images-container,
 .contact-part {
   gap: 1rem !important;
+}
+
+.edit-inputs {
+  gap: 1.5rem;
+}
+.edit-inputs {
+  transform: translateX(4px);
 }
 
 .right-div,
