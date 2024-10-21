@@ -83,6 +83,12 @@ li {
   display: flex;
 }
 
+.property-Features,
+.checkbox {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .flex {
   gap: 2px;
 }
@@ -332,18 +338,13 @@ form,
 .upload-container,
 .card-content,
 .ad-card-container,
-.input-container button {
+.input-container button,
+.Feature {
   cursor: pointer;
 }
 
 .selected:hover {
   background-color: rgb(204, 204, 204) !important;
-}
-
-.checkbox {
-  border-radius: 2px !important;
-  padding: 0 !important;
-  margin: 0 !important;
 }
 
 .checkbox:checked::after {
@@ -427,7 +428,7 @@ form,
 }
 
 .sub-title- {
-  font-weight: 550 !important;
+  font-weight: 500 !important;
 }
 .sub-title- {
   font-size: 16.8px !important;
@@ -1020,4 +1021,8 @@ textarea {
 .small-option:hover {
   border: transparent !important;
   outline: 1px solid #acacac !important;
+}
+
+.checkbox {
+  border-radius: 2px !important;
 }
