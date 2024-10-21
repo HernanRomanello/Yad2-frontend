@@ -311,7 +311,15 @@
           <label class="small-text" for=""> פרוט הריהוט: (עד 200 תוים) </label>
           <div class="description-title description-box">
             <div class="loading-bar">
-              <span class="descriptionMessage">
+              <span
+                class="descriptionMessage"
+                [ngStyle]="{
+                  'justify-content':
+                    advertisement.furnituredescription.length > 1
+                      ? 'flex-end'
+                      : 'center'
+                }"
+              >
                 {{ this.changeText(advertisement.furnituredescription.length) }}
               </span>
             </div>
@@ -362,7 +370,13 @@
           <label class="small-text" for=""> פרוט הנכס </label>
           <div class="description-title description-box">
             <div class="loading-bar">
-              <span class="descriptionMessage">
+              <span
+                class="descriptionMessage"
+                [ngStyle]="{
+                  'justify-content':
+                    advertisement.description.length > 1 ? 'flex-end' : 'center'
+                }"
+              >
                 {{ this.changeText(advertisement.description.length) }}
               </span>
             </div>
