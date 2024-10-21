@@ -39,6 +39,7 @@ export class EditAdvertisementComponent
   imagesURLs: string[] = [];
   imagesURLsForPosting: string[] = [];
   imagesURlWasDeleted: boolean[] = [];
+  ImagesThatCanEdit: boolean[] = [];
   numberValuesForForm: (string | number)[] = new Array(5);
   mainImage: File | undefined = undefined;
   mainImageURL: string = '';
@@ -155,6 +156,7 @@ export class EditAdvertisementComponent
     for (let index = 0; index < this.advertisement.pictures.length; index++) {
       this.imagesURLs.push(this.advertisement.pictures[index].url);
       this.imagesURLsForPosting.push(this.advertisement.pictures[index].url);
+      this.ImagesThatCanEdit.push(true);
     }
 
     for (let index = 0; index <= 9; index++) {
@@ -164,7 +166,12 @@ export class EditAdvertisementComponent
         this.imagesURLs.push('');
         this.imagesURLsForPosting.push('');
       }
+      if (this.ImagesThatCanEdit.length <= index) {
+        this.ImagesThatCanEdit.push(false);
+      }
     }
+
+    console.log(this.ImagesThatCanEdit);
     this.imagesURLsForPosting.push('');
 
     this.initialFormatNumberInForm();

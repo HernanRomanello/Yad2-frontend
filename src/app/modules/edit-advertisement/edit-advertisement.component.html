@@ -813,7 +813,8 @@
               )
             "
           >
-            @if((!this.imagesURlWasDeleted[index + 1]) ){
+            @if((!this.imagesURlWasDeleted[index + 1]) &&
+            this.ImagesThatCanEdit[index +1] ){
             <div
               class="image-btns image-card-container"
               (click)="openFileUploading('pictures')"

@@ -510,6 +510,9 @@ textarea {
 .fill-info {
   font-size: 12px !important;
 }
+.fill-info {
+  word-spacing: -0.1rem !important;
+}
 
 .loading-bar {
   width: 290.672px;
