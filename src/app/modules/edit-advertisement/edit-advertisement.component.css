@@ -87,16 +87,6 @@ li {
   display: flex;
 }
 
-.descriptionMessage {
-  /* text-align: end !important; */
-  /* color: #0078d7 !important; */
-  /* justify-content: flex-end !important; */
-  /* justify-content: center !important; */
-  /* background-color: red !important; */
-  width: 100% !important;
-  padding: 0 1rem !important;
-}
-
 .property-Features,
 .checkbox {
   margin: 0 !important;
@@ -603,6 +593,8 @@ textarea {
 .dark-yellow-gradient {
   background-size: 200% 100%;
   animation: gradient-animation-right 10s linear infinite;
+  border: transparent !important;
+  outline: none !important;
 }
 
 @keyframes gradient-animation-right {
@@ -697,8 +689,13 @@ textarea {
   width: 793px !important;
 }
 
-.WeCheck-container {
+.WeCheck-container,
+.descriptionMessage {
   width: 100%;
+}
+
+.descriptionMessage {
+  padding: 0 1rem !important;
 }
 
 #main-image,
