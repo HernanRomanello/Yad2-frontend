@@ -394,42 +394,34 @@ export class EditAdvertisementComponent
     return parseFloat(value.replace(/,/g, ''));
   }
   changeColor(textLength: number): string {
-    let message = 'ממליצים לך בחום להוסיף תיאור';
     let className = 'fill-loading-bar';
 
     switch (true) {
       case textLength <= 1:
-        message = 'ממליצים לך בחום להוסיף תיאור';
         className = 'fill-loading-bar';
         break;
 
       case textLength > 0 && textLength <= 30:
-        message = 'מרגיש לנו שהטקסט שכתבת קצר מידי';
         className = 'red-gradient fill-loading-bar';
         break;
 
       case textLength > 30 && textLength <= 60:
-        message = 'יופי, המודעה הולכת לכיוון הנכון';
         className = 'dark-yellow-gradient fill-loading-bar';
         break;
 
       case textLength > 60 && textLength <= 100:
-        message = 'עוד ממש קצת וזה שם';
         className = 'yellow-gradient fill-loading-bar';
         break;
 
       case textLength >= 100 && textLength <= 130:
-        message = 'אוטוטו...';
         className = 'light-yellow-gradient fill-loading-bar';
         break;
 
       case textLength >= 130:
-        message = 'בול!';
         className = 'green-gradient fill-loading-bar';
         break;
 
       default:
-        message = 'ממליצים לך בחום להוסיף תיאור';
         className = 'fill-loading-bar';
         break;
     }
@@ -511,8 +503,8 @@ export class EditAdvertisementComponent
     if (textLength >= 160) {
       return '100%';
     }
-    var width = textLength * 1.8125;
-    // var width = textLength * 2.8125;
+    // var width = textLength * 1.8125;
+    var width = textLength * 1.9125;
     return width + 'px';
   }
   changeHieght(textLength: number): string {
