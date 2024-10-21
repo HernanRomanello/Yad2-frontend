@@ -22,7 +22,8 @@ li {
 .loading-bar,
 .contact-form-ad,
 #furnituredescription,
-#assetDescription {
+#assetDescription,
+.descriptionMessage {
   font-size: 16px !important;
 }
 

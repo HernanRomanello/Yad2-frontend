@@ -512,6 +512,7 @@ export class EditAdvertisementComponent
       return '100%';
     }
     var width = textLength * 1.8125;
+    // var width = textLength * 2.8125;
     return width + 'px';
   }
   changeHieght(textLength: number): string {
