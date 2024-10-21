@@ -1,8 +1,10 @@
 import {
+  AfterContentChecked,
   AfterViewInit,
   Component,
   ElementRef,
   inject,
+  OnChanges,
   OnDestroy,
   OnInit,
   Renderer2,
@@ -28,7 +30,7 @@ import { environment } from '../../../environments/environment.development';
   encapsulation: ViewEncapsulation.None,
 })
 export class EditAdvertisementComponent
-  implements OnInit, OnDestroy, AfterViewInit
+  implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked
 {
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
@@ -125,6 +127,16 @@ export class EditAdvertisementComponent
     this.authService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
     this.authService.user.unsubscribe();
+  }
+
+  ngAfterContentChecked(): void {
+    this.imagesURLs.forEach((url, index) => {
+      if (url !== '' && this.imagesURlWasDeleted[index] === false) {
+        this.ImagesThatCanEdit[index] = true;
+      } else {
+        this.ImagesThatCanEdit[index] = false;
+      }
+    });
   }
 
   authService = inject(AuthService);
