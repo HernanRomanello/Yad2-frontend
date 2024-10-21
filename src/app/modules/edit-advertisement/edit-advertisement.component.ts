@@ -484,7 +484,7 @@ export class EditAdvertisementComponent
         break;
 
       case textLength >= 100 && textLength <= 130:
-        message = 'אוטוטו...';
+        message = 'אוטוטו';
         break;
 
       case textLength >= 130:
