@@ -131,10 +131,8 @@ export class EditAdvertisementComponent
 
   ngAfterContentChecked(): void {
     this.imagesURLs.forEach((url, index) => {
-      if (url !== '' && this.imagesURlWasDeleted[index] === false) {
+      if (url !== '') {
         this.ImagesThatCanEdit[index] = true;
-      } else {
-        this.ImagesThatCanEdit[index] = false;
       }
     });
   }
