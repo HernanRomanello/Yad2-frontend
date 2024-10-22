@@ -216,6 +216,8 @@ export class EditAdvertisementComponent
     if (this.advertisement.pictures[index]) {
       this.advertisement.pictures[index].url = fileURL;
       this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
+      this.ImagesThatCanEdit[index] = true;
+      this.imagesURlWasDeleted[index] = false;
     } else {
       this.advertisement.pictures[index] = {
         id: this.advertisement.id,
