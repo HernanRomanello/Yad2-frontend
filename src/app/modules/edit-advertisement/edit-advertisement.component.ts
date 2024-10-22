@@ -164,12 +164,18 @@ export class EditAdvertisementComponent
         typeof value !== 'boolean' &&
         value !== ''
       ) {
-        // This handles both booleans (true/false) and non-empty values
-        adRank += 1;
+        if (typeof value === 'number' && !(value > 0)) {
+          adRank += -1.8;
+        }
+        adRank += 1.5;
       }
     });
-    // console.log('Ad Rank:', adRank);
-    console.log(this.advertisement);
+    this.imagesURLs.forEach((url) => {
+      if (url !== '') {
+        adRank += 9;
+      }
+    });
+    adRank = parseFloat(adRank.toFixed(0));
   }
 
   constructor(render: Renderer2) {
