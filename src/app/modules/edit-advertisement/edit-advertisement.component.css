@@ -588,6 +588,15 @@ textarea {
     #5fcf85 20px
   );
 }
+.ad-score-yellow-gradient {
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffab00,
+    #ffab00 10px,
+    #ffab00 10px,
+    #ffab00 20px
+  );
+}
 
 .red-gradient,
 .yellow-gradient,
