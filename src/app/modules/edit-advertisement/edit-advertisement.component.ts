@@ -69,6 +69,7 @@ export class EditAdvertisementComponent
   userEmailAddress = '';
   secondContactName = '';
   secondContactPhone = '';
+  addScore: number = 0;
   cityList: any;
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
@@ -121,6 +122,12 @@ export class EditAdvertisementComponent
     { key: 'tornadoAirConditioner', checked: false }, // מזגן טורנדו
   ];
 
+  authService = inject(AuthService);
+  route = inject(ActivatedRoute);
+  advertisementService = inject(AdvertisementService);
+  inputsStyleService = inject(InputsStyleService);
+  imageuploadService = inject(ImageuploadService);
+
   ngOnDestroy(): void {
     this.authService.ISEditAdvertisementISOpen.next(false);
     this.authService.IsalternativeHeaderISOpen.next(false);
@@ -135,13 +142,35 @@ export class EditAdvertisementComponent
         this.ImagesThatCanEdit[index] = true;
       }
     });
+    this.calculateAdRank();
+    console.log(this.isNaN('8.55555') + 'test3');
   }
 
-  authService = inject(AuthService);
-  route = inject(ActivatedRoute);
-  advertisementService = inject(AdvertisementService);
-  inputsStyleService = inject(InputsStyleService);
-  imageuploadService = inject(ImageuploadService);
+  isNaN(value: string): boolean {
+    return isNaN(parseInt(value));
+  }
+
+  calculateAdRank(): void {
+    let adRank = 0;
+    (
+      Object.keys(this.advertisement) as Array<keyof AdvertisementsModel>
+    ).forEach((key) => {
+      const value = this.advertisement[key];
+
+      // Check if the value is not null, undefined, or an empty string
+      if (
+        value !== null &&
+        value !== undefined &&
+        typeof value !== 'boolean' &&
+        value !== ''
+      ) {
+        // This handles both booleans (true/false) and non-empty values
+        adRank += 1;
+      }
+    });
+    // console.log('Ad Rank:', adRank);
+    console.log(this.advertisement);
+  }
 
   constructor(render: Renderer2) {
     document.body.addEventListener('click', (event) => {

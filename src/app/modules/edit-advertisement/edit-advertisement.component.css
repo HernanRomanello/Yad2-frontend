@@ -527,6 +527,11 @@ textarea {
   margin: 0px 0px 0px 6px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px 0px inset,
     rgb(255, 255, 255) 0px -1px 1px 0px, rgb(255, 255, 255) 0px 1px 0px 0px;
+}
+
+#score-bar,
+.loading-bar,
+.fill-loading-bar {
   border-radius: 15px;
 }
 
@@ -539,6 +544,7 @@ textarea {
 }
 .descriptionMessage,
 .fill-loading-bar,
+#score-bar,
 .image-btns {
   position: absolute;
 }
@@ -595,6 +601,24 @@ textarea {
     #ffab00 10px,
     #ffab00 10px,
     #ffab00 20px
+  );
+}
+.ad-score-pink-gradient {
+  background: repeating-linear-gradient(
+    -45deg,
+    #ef7287,
+    #ef7287 10px,
+    #ec5972 10px,
+    #ec5972 20px
+  );
+}
+.ad-score-green-gradient {
+  background: repeating-linear-gradient(
+    -45deg,
+    #43caaf,
+    #43caaf 10px,
+    #22c1a1 10px,
+    #22c1a1 20px
   );
 }
 
@@ -952,12 +976,16 @@ textarea {
   width: 91.1875px;
 }
 
-.score-container {
-  width: 760px;
+.score-container,
+#score-bar-container,
+#score-bar {
+  width: 760px !important;
 }
 
 .WeCheck-container,
-.score-container {
+.score-container,
+#score-bar-container,
+#score-bar {
   margin: auto;
 }
 .score-container {
@@ -1049,4 +1077,18 @@ textarea {
 
 .checkbox {
   border-radius: 2px !important;
+}
+
+#score-bar {
+  background-color: rgb(84, 86, 93);
+}
+
+#score-bar-container {
+  width: 700px !important;
+  border-color: #22c1a1 !important;
+}
+
+#score-bar,
+#score-bar-fill {
+  height: 10px !important;
 }

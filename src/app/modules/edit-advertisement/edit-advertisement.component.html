@@ -600,6 +600,9 @@
             advertisement.price = removeCommasFromNumberAndParseInt(
               price.value
             );
+            advertisement.price = this.isNaN(advertisement.price.toString())
+              ? 0
+              : advertisement.price;
             this.isPriceEraseBtnHidden = false
           "
           placeholder="{{
@@ -1133,7 +1136,17 @@
           <img class="tropy-img" src="assets/images/tropy.svg" alt="" />
         </div>
       </div>
-      <div></div>
+    </div>
+    <div id="score-bar-container" class="description-title description-box">
+      <div id="score-bar" class=""></div>
+      <div
+        id="score-bar-fill"
+        [ngClass]="changeColor(advertisement.description.length || 0)"
+        [ngStyle]="{
+          width: changeWidth(advertisement.description.length || 0),
+        
+        }"
+      ></div>
     </div>
   </div>
 
