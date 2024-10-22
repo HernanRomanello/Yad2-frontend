@@ -1143,13 +1143,12 @@
       </div>
     </div>
     <div id="score-bar-container" class="description-title description-box">
-      <div id="score-bar" class=""></div>
+      <div #scoreBar id="score-bar" class=""></div>
       <div
         id="score-bar-fill"
-        [ngClass]="changeColor(advertisement.description.length || 0)"
+        class="ad-score-pink-gradient"
         [ngStyle]="{
-          width: changeWidth(advertisement.description.length || 0),
-        
+          width: (this.scoreBarwidthInPixels * this.addScore) / 100 + 'px'
         }"
       ></div>
     </div>

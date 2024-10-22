@@ -8,6 +8,7 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
+  viewChild,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -64,6 +65,8 @@ export class EditAdvertisementComponent
   has2Contacts = false;
   @ViewChild('entryDate', { static: false })
   entryDate!: ElementRef<HTMLDivElement>;
+  @ViewChild('scoreBar', { static: false })
+  scoreBar!: ElementRef<HTMLDivElement>;
   assetOwner = ['בחר', 'בעל הנכס', 'שוכר נוכחי', 'אחר'];
   asset_Owner = this.assetOwner[0];
   userEmailAddress = '';
@@ -71,6 +74,7 @@ export class EditAdvertisementComponent
   secondContactPhone = '';
   addScore: number = 0;
   cityList: any;
+  scoreBarwidthInPixels: number = 0;
   propertyFeaturesImages: string[] = [
     'cold-svgrepo-com',
     'cube-escape-svgrepo-com',
@@ -157,7 +161,6 @@ export class EditAdvertisementComponent
     ).forEach((key) => {
       const value = this.advertisement[key];
 
-      // Check if the value is not null, undefined, or an empty string
       if (
         value !== null &&
         value !== undefined &&
@@ -176,6 +179,12 @@ export class EditAdvertisementComponent
       }
     });
     adRank = parseFloat(adRank.toFixed(0));
+    if (adRank > 100) {
+      adRank = 100;
+    }
+    this.addScore = adRank;
+
+    // console.log('this.scoreBar.nativeElement.offsetWidth');
   }
 
   constructor(render: Renderer2) {
@@ -198,6 +207,8 @@ export class EditAdvertisementComponent
     });
   }
   ngAfterViewInit(): void {
+    this.scoreBarwidthInPixels = this.scoreBar.nativeElement.offsetWidth;
+
     for (let index = 0; index < this.advertisement.pictures.length; index++) {
       this.imagesURLs.push(this.advertisement.pictures[index].url);
       this.imagesURLsForPosting.push(this.advertisement.pictures[index].url);
@@ -216,7 +227,6 @@ export class EditAdvertisementComponent
       }
     }
 
-    console.log(this.ImagesThatCanEdit);
     this.imagesURLsForPosting.push('');
 
     this.initialFormatNumberInForm();

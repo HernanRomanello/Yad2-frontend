@@ -531,7 +531,8 @@ textarea {
 
 #score-bar,
 .loading-bar,
-.fill-loading-bar {
+.fill-loading-bar,
+#score-bar-fill {
   border-radius: 15px;
 }
 
@@ -545,7 +546,8 @@ textarea {
 .descriptionMessage,
 .fill-loading-bar,
 #score-bar,
-.image-btns {
+.image-btns,
+#score-bar-fill {
   position: absolute;
 }
 
@@ -626,7 +628,10 @@ textarea {
 .yellow-gradient,
 .light-yellow-gradient,
 .green-gradient,
-.dark-yellow-gradient {
+.dark-yellow-gradient,
+.ad-score-green-gradient,
+.ad-score-pink-gradient,
+.ad-score-yellow-gradient {
   background-size: 200% 100%;
   animation: gradient-animation-right 10s linear infinite;
   border: transparent !important;
