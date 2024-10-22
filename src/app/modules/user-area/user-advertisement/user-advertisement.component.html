@@ -145,7 +145,11 @@
               </div>
             </div>
             <div
-              routerLink="/edit-advertisement/{{ advertisement.id }}"
+              (click)="
+                this.navigationService.navigateInNewWindow(
+                  '/edit-advertisement/' + advertisement.id
+                )
+              "
               class="icon-circle-container"
             >
               <div class="icon-div">

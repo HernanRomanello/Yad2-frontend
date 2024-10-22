@@ -537,6 +537,11 @@
             advertisement.builtSquareMeters = removeCommasFromNumberAndParseInt(
               builtSquareMeters.value
             );
+            advertisement.builtSquareMeters = this.isNaN(
+              advertisement.builtSquareMeters.toString()
+            )
+              ? 0
+              : advertisement.builtSquareMeters;
             this.isBuiltSquareMetersEraseBtnHidden = false
           "
         />
