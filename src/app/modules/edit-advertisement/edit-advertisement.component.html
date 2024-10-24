@@ -1141,16 +1141,16 @@
           <img class="tropy-img" src="assets/images/tropy.svg" alt="" />
         </div>
       </div>
-    </div>
-    <div id="score-bar-container" class="description-title description-box">
-      <div #scoreBar id="score-bar" class=""></div>
-      <div
-        id="score-bar-fill"
-        class="ad-score-pink-gradient"
-        [ngStyle]="{
-          width: (this.scoreBarwidthInPixels * this.addScore) / 100 + 'px'
-        }"
-      ></div>
+      <div id="score-bar-container" class="description-title description-box">
+        <div #scoreBar id="score-bar" class=""></div>
+        <div
+          id="score-bar-fill"
+          [ngClass]="this.defineScoreBArColor()"
+          [ngStyle]="{
+            width: (this.scoreBarwidthInPixels * this.addScore) / 100 + 'px'
+          }"
+        ></div>
+      </div>
     </div>
   </div>
 

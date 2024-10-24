@@ -493,6 +493,27 @@ export class EditAdvertisementComponent
     return className;
   }
 
+  defineScoreBArColor(): string {
+    let className = 'ad-score-pink-gradient';
+
+    switch (true) {
+      case this.addScore <= 50:
+      default:
+        className = 'ad-score-pink-gradient';
+        break;
+
+      case this.addScore > 50 && this.addScore <= 75:
+        className = 'ad-score-yellow-gradient';
+        break;
+
+      case this.addScore > 75:
+        className = 'ad-score-green-gradient';
+        break;
+    }
+
+    return className;
+  }
+
   testIfIsValidNumber(value: string): boolean {
     return /^\d+$/.test(value);
   }

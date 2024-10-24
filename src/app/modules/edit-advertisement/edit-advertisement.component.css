@@ -412,14 +412,6 @@ form,
   position: relative;
 }
 
-.erase-btn,
-.erase-furnituredescription-btn,
-.currency,
-.erase-input-btn,
-.camara-image-container,
-.image-card-container {
-  position: absolute !important;
-}
 .erase-btn {
   transform: translateX(-430%) translateY(150%);
 }
@@ -547,7 +539,13 @@ textarea {
 .fill-loading-bar,
 #score-bar,
 .image-btns,
-#score-bar-fill {
+#score-bar-fill,
+.erase-btn,
+.erase-furnituredescription-btn,
+.currency,
+.erase-input-btn,
+.camara-image-container,
+.image-card-container {
   position: absolute;
 }
 
@@ -636,6 +634,12 @@ textarea {
   animation: gradient-animation-right 10s linear infinite;
   border: transparent !important;
   outline: none !important;
+}
+
+.ad-score-green-gradient,
+.ad-score-pink-gradient,
+.ad-score-yellow-gradient {
+  animation: gradient-animation-right 20s linear infinite;
 }
 
 @keyframes gradient-animation-right {
@@ -990,7 +994,8 @@ textarea {
 .WeCheck-container,
 .score-container,
 #score-bar-container,
-#score-bar {
+#score-bar,
+#score-bar-fill {
   margin: auto;
 }
 .score-container {
@@ -1096,4 +1101,8 @@ textarea {
 #score-bar,
 #score-bar-fill {
   height: 10px !important;
+}
+
+#score-bar-container {
+  transform: translateX(4%);
 }
