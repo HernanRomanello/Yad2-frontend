@@ -523,11 +523,11 @@ export class EditAdvertisementComponent
       return validURLs.length;
     };
 
-    if (Images() === 0) {
+    if (Images() < 3) {
       return 'טיפ שלנו - שווה לך להוסיף עוד תמונה.';
     }
 
-    return '';
+    return 'עכשיו הסיכויים שלך למכור את המוצר, גבוהים מאוד.';
   }
 
   testIfIsValidNumber(value: string): boolean {
