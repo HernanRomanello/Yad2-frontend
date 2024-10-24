@@ -985,6 +985,10 @@ textarea {
   width: 91.1875px;
 }
 
+.tropy-img {
+  transform: translateY(-0.5rem);
+}
+
 .score-container,
 #score-bar-container,
 #score-bar {
@@ -1018,11 +1022,8 @@ textarea {
 #score-text {
   font-size: 24px !important;
 }
-#score-text {
-  font-weight: 500 !important;
-}
-
-.score-content div {
+#score-text,
+.ad-reward {
   font-weight: 500 !important;
 }
 

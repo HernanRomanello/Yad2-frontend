@@ -1133,11 +1133,11 @@
       <div id="score-text" class="bold-font">עד כמה המודעה שלי אטרקטיבית?</div>
       <div class="score-content">
         <div style="display: flex; flex-direction: column; gap: 10px">
-          @if(this.addScore > 70){
-          <div>קיבלת כתר!</div>
+          @if(this.addScore > 75){
+          <div class="ad-reward">קיבלת כתר!</div>
 
           } @else {
-          <div>
+          <div class="ad-reward">
             {{ this.addScore < 50 ? "קיבלת מדליית השתתפות" : "קיבלת גביע" }}
           </div>
           }
@@ -1149,13 +1149,12 @@
             }}
           </div>
 
-          <!-- <div>טיפ שלנו - שווה לך להכניס מחיר.</div> -->
           <div [innerHTML]="this.createSuggestionToImproveAd()"></div>
         </div>
-        @if(this.addScore > 50 && this.addScore < 70){
+        @if(this.addScore > 50 && this.addScore <= 75){
 
         <img class="tropy-img" src="assets/images/tropy.svg" alt="" />
-        } @if(this.addScore > 70){
+        } @if(this.addScore > 75){
 
         <img class="tropy-img" src="assets/images/crown.svg" alt="" />
         } @if(this.addScore < 50){
