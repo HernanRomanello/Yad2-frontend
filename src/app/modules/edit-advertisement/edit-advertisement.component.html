@@ -1137,9 +1137,16 @@
           <div>המודעה שלך מספיק אטרקטיבית!</div>
           <div>טיפ שלנו - שווה לך להכניס מחיר.</div>
         </div>
-        <div>
-          <img class="tropy-img" src="assets/images/tropy.svg" alt="" />
-        </div>
+        @if(this.addScore > 50 && this.addScore < 70){
+
+        <img class="tropy-img" src="assets/images/tropy.svg" alt="" />
+        } @if(this.addScore > 70){
+
+        <img class="tropy-img" src="assets/images/crown.svg" alt="" />
+        } @if(this.addScore < 50){
+
+        <img class="tropy-img" src="assets/images/medal.svg" alt="" />
+        }
       </div>
       <div id="score-bar-container" class="description-title description-box">
         <div #scoreBar id="score-bar" class=""></div>
