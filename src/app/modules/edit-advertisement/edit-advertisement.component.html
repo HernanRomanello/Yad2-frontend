@@ -1149,16 +1149,8 @@
             }}
           </div>
 
-          <div>טיפ שלנו - שווה לך להכניס מחיר.</div>
-          @if(false){
-          <div>קיבלת מדליית השתתפות</div>
-          <div>סיכוי לא רע שידלגו על המודעה שלך.</div>
-          <div>טיפ שלנו - שווה לך להכניס מחיר.</div>
-          } @if(false){
-          <div>קיבלת כתר!</div>
-          <div>בול! המודעה שלך מספיק אטרקטיבית!</div>
-          <div>טיפ שלנו - שווה לך להכניס מחיר.</div>
-          }
+          <!-- <div>טיפ שלנו - שווה לך להכניס מחיר.</div> -->
+          <div [innerHTML]="this.createSuggestionToImproveAd()"></div>
         </div>
         @if(this.addScore > 50 && this.addScore < 70){
 

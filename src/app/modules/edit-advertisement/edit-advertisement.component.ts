@@ -514,6 +514,14 @@ export class EditAdvertisementComponent
     return className;
   }
 
+  createSuggestionToImproveAd(): string {
+    if (!(this.advertisement.price > 0)) {
+      return 'טיפ שלנו - שווה לך להכניס מחיר.';
+    }
+
+    return '';
+  }
+
   testIfIsValidNumber(value: string): boolean {
     return /^\d+$/.test(value);
   }
