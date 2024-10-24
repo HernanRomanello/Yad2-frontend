@@ -518,6 +518,14 @@ export class EditAdvertisementComponent
     if (!(this.advertisement.price > 0)) {
       return 'טיפ שלנו - שווה לך להכניס מחיר.';
     }
+    const Images = (): number => {
+      const validURLs = this.imagesURLs?.filter((url) => url !== '') || [];
+      return validURLs.length;
+    };
+
+    if (Images() === 0) {
+      return 'טיפ שלנו - שווה לך להוסיף עוד תמונה.';
+    }
 
     return '';
   }
