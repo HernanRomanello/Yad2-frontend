@@ -1133,9 +1133,32 @@
       <div id="score-text" class="bold-font">עד כמה המודעה שלי אטרקטיבית?</div>
       <div class="score-content">
         <div style="display: flex; flex-direction: column; gap: 10px">
-          <div>קיבלת גביע</div>
-          <div>המודעה שלך מספיק אטרקטיבית!</div>
+          @if(this.addScore > 70){
+          <div>קיבלת כתר!</div>
+
+          } @else {
+          <div>
+            {{ this.addScore < 50 ? "קיבלת מדליית השתתפות" : "קיבלת גביע" }}
+          </div>
+          }
+          <div>
+            {{
+              this.addScore < 50
+                ? "סיכוי לא רע שידלגו על המודעה שלך."
+                : "בול! המודעה שלך מספיק אטרקטיבית!"
+            }}
+          </div>
+
           <div>טיפ שלנו - שווה לך להכניס מחיר.</div>
+          @if(false){
+          <div>קיבלת מדליית השתתפות</div>
+          <div>סיכוי לא רע שידלגו על המודעה שלך.</div>
+          <div>טיפ שלנו - שווה לך להכניס מחיר.</div>
+          } @if(false){
+          <div>קיבלת כתר!</div>
+          <div>בול! המודעה שלך מספיק אטרקטיבית!</div>
+          <div>טיפ שלנו - שווה לך להכניס מחיר.</div>
+          }
         </div>
         @if(this.addScore > 50 && this.addScore < 70){
 
