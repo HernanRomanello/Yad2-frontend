@@ -869,7 +869,7 @@ textarea {
 }
 
 .right-div {
-  padding: 2rem 2.75rem 0 0 !important;
+  padding: 2.5rem 2.75rem 0 0 !important;
   margin: 0 !important;
 }
 
@@ -1005,6 +1005,10 @@ textarea {
 .score-container {
   padding-top: 3.125rem;
 }
+
+.score-container div {
+  word-spacing: 0 !important;
+}
 .score-container,
 .upload-img-card {
   color: #ffffff;
@@ -1021,6 +1025,10 @@ textarea {
 .contact-form-title,
 #score-text {
   font-size: 24px !important;
+}
+
+.contact-form-title {
+  padding: 0 6px;
 }
 #score-text,
 .ad-reward {
