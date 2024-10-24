@@ -1115,3 +1115,13 @@ textarea {
 #score-bar-container {
   transform: translateX(4%);
 }
+
+.contact-form-ad,
+.note div,
+.note span {
+  letter-spacing: 0 !important;
+}
+
+.note span {
+  max-width: 269px !important;
+}
