@@ -536,6 +536,12 @@ export class EditAdvertisementComponent
       );
       ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
 
+      this.imagesURlWasDeleted.forEach((isDeleted, index) => {
+        if (isDeleted) {
+          ImagesURLsForPosting.splice(index, 1);
+        }
+      });
+
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;
         this.advertisement.pictures = this.imagesURLs.map((url, index) => ({
