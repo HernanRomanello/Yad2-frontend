@@ -544,7 +544,7 @@ export class EditAdvertisementComponent
 
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;
-        this.advertisement.pictures = this.imagesURLs.map((url, index) => ({
+        this.advertisement.pictures = this.imagesURLs.map((url) => ({
           id: this.advertisement.id,
           advertisementId: this.advertisement.id,
           url: url,
