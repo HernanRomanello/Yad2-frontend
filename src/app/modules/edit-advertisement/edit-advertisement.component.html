@@ -1141,7 +1141,7 @@
             {{ this.addScore < 50 ? "קיבלת מדליית השתתפות" : "קיבלת גביע" }}
           </div>
           }
-          <div>
+          <div class="ad-tip">
             {{
               this.addScore < 50
                 ? "סיכוי לא רע שידלגו על המודעה שלך."
@@ -1149,7 +1149,10 @@
             }}
           </div>
 
-          <div [innerHTML]="this.createSuggestionToImproveAd()"></div>
+          <div
+            class="ad-tip"
+            [innerHTML]="this.createSuggestionToImproveAd()"
+          ></div>
         </div>
         @if(this.addScore > 50 && this.addScore <= 75){
 

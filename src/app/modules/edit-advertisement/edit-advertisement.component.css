@@ -502,7 +502,8 @@ textarea {
 .fill-info {
   font-size: 12px !important;
 }
-.fill-info {
+.fill-info,
+.ad-tip {
   word-spacing: -0.1rem !important;
 }
 
@@ -1118,7 +1119,10 @@ textarea {
 
 .contact-form-ad,
 .note div,
-.note span {
+.note span,
+.ad-reward,
+.score-text,
+.ad-tip {
   letter-spacing: 0 !important;
 }
 
