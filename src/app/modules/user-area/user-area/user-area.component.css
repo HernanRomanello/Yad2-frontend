@@ -63,6 +63,7 @@
 
 .user-content {
   height: calc(100vh - 59px);
+  width: calc(100vw - 234px);
   overflow-y: auto;
 }
 
@@ -162,7 +163,6 @@
 
 .user-accessibility-btns-container {
   flex: 1;
-  /* background-color: #ff7100 !important; */
 }
 
 .user-accessibility-btns button {
