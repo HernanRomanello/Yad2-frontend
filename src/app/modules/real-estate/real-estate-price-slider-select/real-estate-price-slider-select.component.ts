@@ -73,15 +73,12 @@ export class RealEstatePriceSliderSelectComponent {
 
   emit(event: any) {
     if (!event.values) {
-      //emitted from select..
-      // console.log(event.target.value);
       return;
     }
     const [min, max] = event.values;
     this.selectedStartIndex = min;
     this.selectedEndIndex = max;
     this.selectedPriceRange.emit([this.values[min], this.values[max]]);
-    //  this.selectedPriceRange.emit(this.rangeValuesBuy);
   }
   manualSelectMinPrice(event: Event) {
     const value = (event.target as HTMLInputElement).value;

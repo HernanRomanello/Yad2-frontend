@@ -21,13 +21,12 @@ export class AdvertisementComponent {
         this.AdvertisementsService.GetAdvertisementById(+params['id'])
           .pipe(
             catchError((e) => {
-              // console.log(e);
+              console.log(e);
               return [];
             })
           )
           .subscribe((response) => {
             this.advertisement = response;
-            // console.log(this.advertisement);
             const date = new Date(this.advertisement.entryDate);
             const day = date.getDate().toString().padStart(2, '0');
             const month = (date.getMonth() + 1).toString().padStart(2, '0');

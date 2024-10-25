@@ -147,7 +147,6 @@ export class EditAdvertisementComponent
       }
     });
     this.calculateAdRank();
-    console.log(this.isNaN('8.55555') + 'test3');
   }
 
   isNaN(value: string): boolean {
@@ -183,8 +182,6 @@ export class EditAdvertisementComponent
       adRank = 100;
     }
     this.addScore = adRank;
-
-    // console.log('this.scoreBar.nativeElement.offsetWidth');
   }
 
   constructor(render: Renderer2) {
@@ -291,10 +288,6 @@ export class EditAdvertisementComponent
   changeImage(event: any, index: number) {
     const newImageUrl = this.onFileChange(event, index, index === 0);
 
-    this.cityList.forEach((element: { city_name_he: string }) => {
-      console.log(element.city_name_he);
-    });
-
     if (newImageUrl) {
       this.advertisement.pictures[index].url = newImageUrl;
     }
@@ -323,7 +316,7 @@ export class EditAdvertisementComponent
           .GetAdvertisementById(+params['id'])
           .pipe(
             catchError((e) => {
-              // console.log(e);
+              console.log(e);
               return [];
             })
           )
@@ -542,7 +535,6 @@ export class EditAdvertisementComponent
         (url) => url !== ''
       );
       ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
-      console.log(this.imagesURLsForPosting);
 
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;
@@ -727,8 +719,6 @@ export class EditAdvertisementComponent
     } else if (type === 'balconiesNumber') {
       this.advertisement.balconiesNumber = number;
     }
-
-    // console.log(this.advertisement);
   }
 
   optionClass(option: number, fiveOptions: boolean): string {

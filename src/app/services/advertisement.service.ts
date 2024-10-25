@@ -216,11 +216,7 @@ export class AdvertisementService {
       immediate: advertisement.immediate,
       flexible: advertisement.flexible,
       longTerm: advertisement.longTerm,
-      // pictures: [
-      //   'https://localhost:7211/uploads/1.jpeg',
-      //   'https://localhost:7211/uploads/11.jpeg',
-      //   'https://localhost:7211/uploads/12.jpeg',
-      // ],
+
       pictures: pictures,
       video: 'url_to_video',
       contactName: advertisement.contactName,
@@ -231,9 +227,7 @@ export class AdvertisementService {
     this.httpClient
       .put(`${this.Url}api/Users/UpdateAdvertisement/${id}`, updatedAd)
       .subscribe(
-        (data) => {
-          // console.log('Advertisement updated successfully:', data);
-        },
+        (data) => {},
         (error) => {
           console.error('Error updating advertisement:', error);
         }
