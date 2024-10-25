@@ -2,6 +2,32 @@
   direction: rtl;
 }
 
+div,
+button {
+  display: flex;
+}
+
+.user-form {
+  display: grid;
+}
+.user-form {
+  grid-template-columns: 1fr 3fr;
+}
+
+.purple-circle,
+.circle {
+  align-items: center;
+  justify-content: center;
+}
+
+.left-side {
+  justify-content: center;
+}
+
+.edit-details-container {
+  flex-direction: column;
+}
+
 .edit-details {
   width: 100%;
   height: 100%;
@@ -19,8 +45,17 @@
   margin: 2.25rem 5.5rem 2rem 0;
 }
 
-.user-form {
+.user-form,
+.circle {
   background-color: #ffffff;
+}
+
+.circle {
+  position: absolute;
+}
+
+.purple-circle {
+  position: relative;
 }
 
 .user-form {
@@ -45,4 +80,53 @@
 
 .space-block {
   height: 165px;
+}
+
+input {
+  font-size: 16px !important ;
+}
+
+.purple-circle,
+.circle {
+  border-radius: 50%;
+}
+.purple-circle {
+  line-height: 21px;
+
+  background-color: rgb(255, 255, 255);
+
+  height: 118px;
+  width: 118px;
+  border: 2px solid rgb(139, 66, 208);
+}
+
+.circle {
+  height: 48px;
+  width: 48px;
+}
+
+.purple-circle div {
+  color: rgb(139, 66, 208);
+}
+.purple-circle div {
+  font-weight: 500;
+}
+.purple-circle div {
+  font-size: 28px;
+}
+
+.circle img {
+  height: 26px;
+  width: 26px;
+}
+
+.circle {
+  transform: translateX(100%) translateY(50%);
+}
+
+.circle {
+  cursor: pointer;
+}
+.circle {
+  border: 1px solid rgb(238, 238, 238);
 }
