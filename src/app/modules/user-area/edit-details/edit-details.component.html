@@ -41,6 +41,18 @@
             <input [value]="this.$user.value?.email" type="text" />
           </div>
         </div>
+        <div id="birthday-input" class="input-box">
+          <label for="birthday">תאריך לידה</label>
+          <input
+            id="birthday"
+            class="date-input"
+            type="date"
+            placeholder="dd/mm/yyyy"
+            [value]="
+              this.formatDateString(this.$user.value?.birthDate?.toString())
+            "
+          />
+        </div>
       </form>
     </div>
   </div>
