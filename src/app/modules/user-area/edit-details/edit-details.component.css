@@ -162,3 +162,6 @@ input {
 .input-box input:focus {
   outline: none;
 }
+.input-box input {
+  padding: 0 1.5rem;
+}
