@@ -168,4 +168,6 @@ input {
 
 .inputs {
   column-gap: 3rem;
+  row-gap: 1.5rem;
+  flex-wrap: wrap;
 }

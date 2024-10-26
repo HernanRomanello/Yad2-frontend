@@ -11,6 +11,8 @@ import { LastSearchesComponent } from './last-searches/last-searches.component';
 import { TipsInformationComponent } from './tips-information/tips-information.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PhoneNumberFormatPipe } from '../../pipes/phone-number-format.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FavoriteAdvertisementsComponent,
     LastSearchesComponent,
     TipsInformationComponent,
+    PhoneNumberFormatPipe,
   ],
   imports: [
     CommonModule,
     UserAreaRoutingModule,
     MatIconModule,
     FontAwesomeModule,
+    FormsModule,
   ],
 })
 export class UserAreaModule {}

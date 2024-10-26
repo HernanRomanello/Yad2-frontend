@@ -23,6 +23,23 @@
             <label for=""> שם משפחה*</label>
             <input [value]="this.$user.value?.lastName" type="text" />
           </div>
+          <div class="input-box">
+            <label for="">טלפון נייד*</label>
+            <input
+              #phoneNumberInput
+              style="direction: ltr"
+              maxlength="11"
+              type="text"
+              [(ngModel)]="phoneNumber"
+              [value]="phoneNumber | phoneNumberFormat"
+              (input)="phoneNumber = phoneNumberInput.value"
+            />
+          </div>
+
+          <div class="input-box">
+            <label for=""> מייל*</label>
+            <input [value]="this.$user.value?.email" type="text" />
+          </div>
         </div>
       </form>
     </div>
