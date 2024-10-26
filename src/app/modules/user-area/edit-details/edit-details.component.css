@@ -3,7 +3,8 @@
 }
 
 div,
-button {
+button,
+form {
   display: flex;
 }
 
@@ -24,8 +25,15 @@ button {
   justify-content: center;
 }
 
-.edit-details-container {
+.edit-details-container,
+.right-side,
+.input-box {
   flex-direction: column;
+}
+
+label,
+.purple-circle div {
+  font-weight: 500;
 }
 
 .edit-details {
@@ -108,9 +116,7 @@ input {
 .purple-circle div {
   color: rgb(139, 66, 208);
 }
-.purple-circle div {
-  font-weight: 500;
-}
+
 .purple-circle div {
   font-size: 28px;
 }
@@ -132,4 +138,27 @@ input {
 }
 .circle {
   border: 1px solid rgb(238, 238, 238);
+}
+
+.input-box input {
+  line-height: 24px;
+  height: 44px;
+  width: 283px;
+  padding: 8px 12px;
+  border: solid 1px #cccccc;
+  border-radius: 4px;
+}
+
+.right-side,
+.input-box {
+  gap: 0.25rem;
+}
+
+.input-box input:hover,
+.input-box input:focus {
+  border: 1px solid rgb(54, 54, 54);
+}
+.input-box input:hover,
+.input-box input:focus {
+  outline: none;
 }

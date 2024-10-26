@@ -10,9 +10,17 @@
           </div>
         </div>
       </div>
-      <div class="right-side">
-        <div style="font-size: 18px; font-weight: 500">פרטים אישיים</div>
-      </div>
+      <form class="right-side">
+        <div style="font-size: 18px; font-weight: 500; padding: 0.2rem 0">
+          פרטים אישיים
+        </div>
+        <div>
+          <div class="input-box">
+            <label for="">שם פרטי*</label>
+            <input [value]="this.$user.value?.name" type="text" />
+          </div>
+        </div>
+      </form>
     </div>
   </div>
   <div class="space-block"></div>
