@@ -14,10 +14,14 @@
         <div style="font-size: 18px; font-weight: 500; padding: 0.2rem 0">
           פרטים אישיים
         </div>
-        <div>
+        <div class="inputs">
           <div class="input-box">
             <label for="">שם פרטי*</label>
             <input [value]="this.$user.value?.name" type="text" />
+          </div>
+          <div class="input-box">
+            <label for=""> שם משפחה*</label>
+            <input [value]="this.$user.value?.lastName" type="text" />
           </div>
         </div>
       </form>

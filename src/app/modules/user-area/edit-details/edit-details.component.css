@@ -165,3 +165,7 @@ input {
 .input-box input {
   padding: 0 1.5rem;
 }
+
+.inputs {
+  column-gap: 3rem;
+}
