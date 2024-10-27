@@ -57,4 +57,11 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
 
     return phoneNumber;
   }
+
+  updateUserDetails(): void {
+    if (!this.$user) {
+      return;
+    }
+    this.userService.updateUserDetails(this.$user);
+  }
 }

@@ -277,4 +277,12 @@ export class AuthService implements OnInit {
         this.getUserFavoriteAdvertisements();
       });
   }
+
+  async updateUserDetails(user: UserModel) {
+    this.httpClient
+      .put(`${this.Url}api/Users/user/update`, user)
+      .subscribe(() => {
+        this.GetUserDatails();
+      });
+  }
 }
