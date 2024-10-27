@@ -9,7 +9,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
   styleUrls: ['./edit-details.component.css'],
 })
 export class EditDetailsComponent implements OnInit, OnDestroy {
-  $user = new BehaviorSubject<UserModel | null>(null);
+  $user = {};
   phoneNumber: string = '';
   formattedBirthDate: string = '';
   private userSubscription: Subscription | undefined;
@@ -20,9 +20,8 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     this.userSubscription = (
       this.userService.user as BehaviorSubject<UserModel | null>
     ).subscribe((user) => {
-      this.$user.next(user);
+      this.$user = user || {};
       this.phoneNumber = user?.phoneNumber || '';
-      console.log('User:', this.formattedBirthDate);
     });
   }
 
