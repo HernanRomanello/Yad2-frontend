@@ -12,7 +12,7 @@ import { TipsInformationComponent } from './tips-information/tips-information.co
 import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PhoneNumberFormatPipe } from '../../pipes/phone-number-format.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class UserAreaModule {}

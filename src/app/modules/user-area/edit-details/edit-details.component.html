@@ -10,7 +10,11 @@
           </div>
         </div>
       </div>
-      <form class="right-side">
+      <form
+        [formGroup]="$updatedUser"
+        (ngSubmit)="updateUserDetails()"
+        class="right-side"
+      >
         <div style="font-size: 18px; font-weight: 500; padding: 0.2rem 0">
           פרטים אישיים
         </div>
@@ -74,7 +78,12 @@
           <div class="address-inputs">
             <div class="input-box">
               <label for="">ישוב / עיר*</label>
-              <input [value]="this.$user?.city" type="text" />
+              <input
+                #cityInput
+                formControlName="city"
+                (input)="$user ? ($user.city = cityInput.value) : null"
+                type="text"
+              />
             </div>
             <div class="house-number">
               <div class="input-box">
@@ -94,9 +103,7 @@
         </div>
         <div class="btn-container">
           <button class="cancel-btn">ביטול</button>
-          <button (click)="this.updateUserDetails()" class="save-btn">
-            שמירה
-          </button>
+          <button type="submit" class="save-btn">שמירה</button>
         </div>
       </form>
     </div>

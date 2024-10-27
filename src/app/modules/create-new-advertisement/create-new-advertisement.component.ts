@@ -459,16 +459,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
-  checkFormValidation() {
-    for (const controlName in this.advertisementForm.controls) {
-      if (this.advertisementForm.controls.hasOwnProperty(controlName)) {
-        const control = this.advertisementForm.get(controlName);
-        if (control && !control.valid) {
-          console.error(`${controlName} is invalid`, control.errors);
-        }
-      }
-    }
-  }
+  // checkFormValidation() {
+  //   for (const controlName in this.advertisementForm.controls) {
+  //     if (this.advertisementForm.controls.hasOwnProperty(controlName)) {
+  //       const control = this.advertisementForm.get(controlName);
+  //       if (control && !control.valid) {
+  //         console.error(`${controlName} is invalid`, control.errors);
+  //       }
+  //     }
+  //   }
+  // }
 
   selectAirDirections(direction: number) {
     this.advertisementForm.get('airDirections').setValue(direction);

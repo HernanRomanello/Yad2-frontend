@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-details',
@@ -10,11 +11,16 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 })
 export class EditDetailsComponent implements OnInit, OnDestroy {
   $user: UserModel | null = null;
+  $updatedUser: FormGroup | any;
+
   phoneNumber: string = '';
   formattedBirthDate: string = '';
   private userSubscription: Subscription | undefined;
 
-  constructor(private userService: AuthService) {}
+  constructor(
+    private userService: AuthService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.userSubscription = (
@@ -22,6 +28,16 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     ).subscribe((user) => {
       this.$user = user;
       this.phoneNumber = user?.phoneNumber || '';
+    });
+
+    this.$updatedUser = this.formBuilder.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      birthDate: ['', [Validators.required]],
+      city: [this.$user?.city, [Validators.required]],
+      street: ['', [Validators.required]],
+      houseNumber: ['', [Validators.required]],
     });
   }
 
@@ -62,6 +78,21 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     if (!this.$user) {
       return;
     }
-    this.userService.updateUserDetails(this.$user);
+    console.log(this.$user);
+    if (this.$updatedUser.invalid) {
+      alert('Please fill all the required fields');
+
+      // Loop through each control in the form to find specific errors
+      Object.keys(this.$updatedUser.controls).forEach((field) => {
+        const control = this.$updatedUser.get(field);
+
+        if (control && control.errors) {
+          console.log(`Error in field: ${field}`, control.errors);
+        }
+      });
+    } else {
+      console.log('User updated');
+    }
+    // this.userService.updateUserDetails(this.$user);
   }
 }
