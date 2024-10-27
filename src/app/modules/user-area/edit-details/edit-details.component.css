@@ -16,7 +16,8 @@ form {
 }
 
 .purple-circle,
-.circle {
+.circle,
+button {
   align-items: center;
   justify-content: center;
 }
@@ -39,7 +40,9 @@ form {
 }
 
 label,
-.purple-circle div {
+.purple-circle div,
+.label-address,
+button {
   font-weight: 500;
 }
 
@@ -61,12 +64,21 @@ label,
 }
 
 .user-form,
-.circle {
+.circle,
+.cancel-btn {
   background-color: #ffffff;
 }
 
 .circle {
   position: absolute;
+}
+
+.btn-container {
+  justify-content: end;
+}
+.btn-container {
+  /* margin-top: 5rem; */
+  margin-left: 10rem;
 }
 
 .purple-circle {
@@ -120,6 +132,15 @@ input {
   width: 48px;
 }
 
+.label-address,
+button {
+  font-size: 18px;
+}
+
+button {
+  border: none;
+}
+
 .purple-circle div {
   color: rgb(139, 66, 208);
 }
@@ -140,16 +161,12 @@ input {
   transform: translateX(95%) translateY(70%) rotate(-0deg);
 }
 
-.circle {
+.circle,
+button {
   cursor: pointer;
 }
 .circle {
   border: 1px solid rgb(238, 238, 238);
-}
-
-.right-side,
-.input-box {
-  gap: 0.25rem;
 }
 
 .input-box input:hover,
@@ -182,7 +199,7 @@ input {
 
   padding: 0px 10px;
   border-radius: 6px;
-  margin: 1.25rem 0 0 0;
+  margin: 1.25rem 0 3.5rem;
 }
 .input-box input,
 .birthday-card {
@@ -214,4 +231,29 @@ input {
 
 .house-number {
   gap: 1rem;
+}
+
+.right-side,
+.input-box,
+.address-label {
+  gap: 0.25rem;
+}
+
+.address-part {
+  gap: 1.25rem;
+}
+
+.save-btn {
+  line-height: 27px;
+  text-align: center;
+  background-color: rgb(255, 113, 0);
+
+  color: rgb(255, 255, 255);
+  height: 48px;
+  width: 185px;
+  border-radius: 30px;
+}
+
+.save-btn:hover {
+  background-color: rgb(216, 96, 0);
 }
