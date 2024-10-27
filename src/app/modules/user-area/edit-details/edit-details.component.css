@@ -20,6 +20,10 @@ form {
   align-items: center;
   justify-content: center;
 }
+.birthday-card {
+  align-items: center;
+  justify-content: space-between;
+}
 
 .left-side {
   justify-content: center;
@@ -27,7 +31,8 @@ form {
 
 .edit-details-container,
 .right-side,
-.input-box {
+.input-box,
+.birthday-card div {
   flex-direction: column;
 }
 
@@ -140,15 +145,6 @@ input {
   border: 1px solid rgb(238, 238, 238);
 }
 
-.input-box input {
-  line-height: 24px;
-  height: 44px;
-  width: 283px;
-  padding: 8px 12px;
-  border: solid 1px #cccccc;
-  border-radius: 4px;
-}
-
 .right-side,
 .input-box {
   gap: 0.25rem;
@@ -174,4 +170,26 @@ input {
 
 #birthday-input {
   margin-top: 24px;
+}
+
+.birthday-card {
+  font-weight: 400;
+  background-color: rgb(248, 240, 255);
+  color: rgb(139, 66, 208);
+  height: 40px;
+
+  padding: 0px 10px;
+  border-radius: 6px;
+}
+.input-box input,
+.birthday-card {
+  width: 283px;
+}
+
+.input-box input {
+  line-height: 24px;
+  height: 44px;
+  padding: 8px 12px;
+  border: solid 1px #cccccc;
+  border-radius: 4px;
 }

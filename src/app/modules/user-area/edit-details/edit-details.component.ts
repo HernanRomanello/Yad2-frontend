@@ -17,7 +17,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   constructor(private userService: AuthService) {}
 
   ngOnInit() {
-    // Subscribe to the user BehaviorSubject to get updates
     this.userSubscription = (
       this.userService.user as BehaviorSubject<UserModel | null>
     ).subscribe((user) => {
