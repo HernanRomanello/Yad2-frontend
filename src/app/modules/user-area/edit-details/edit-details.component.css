@@ -32,7 +32,9 @@ form {
 .edit-details-container,
 .right-side,
 .input-box,
-.birthday-card div {
+.birthday-card div,
+.address-part,
+.address-label {
   flex-direction: column;
 }
 
@@ -197,4 +199,19 @@ input {
 
 .birthday-card img {
   margin: 1rem 0;
+}
+
+.md {
+  width: 200px !important;
+}
+.sm {
+  width: 70px !important;
+}
+
+.address-inputs {
+  gap: 3rem;
+}
+
+.house-number {
+  gap: 1rem;
 }

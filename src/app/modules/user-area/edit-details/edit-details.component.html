@@ -62,6 +62,36 @@
             alt=""
           />
         </div>
+
+        <div class="address-part">
+          <div class="address-label">
+            <div>כתובת</div>
+            <div>
+              כדאי למלא את הכתובת, כדי שנוכל לחבר אותה אוטומטית בפעם הבאה
+              שתפרסמו מודעה
+            </div>
+          </div>
+          <div class="address-inputs">
+            <div class="input-box">
+              <label for="">ישוב / עיר*</label>
+              <input [value]="this.$user?.city" type="text" />
+            </div>
+            <div class="house-number">
+              <div class="input-box">
+                <label for="">רחוב*</label>
+                <input class="md" [value]="this.$user?.street" type="text" />
+              </div>
+              <div class="input-box">
+                <label for="">מספר בית*</label>
+                <input
+                  class="sm"
+                  [value]="this.$user?.houseNumber"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
