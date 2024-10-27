@@ -180,6 +180,7 @@ input {
 
   padding: 0px 10px;
   border-radius: 6px;
+  margin: 1.25rem 0 0 0;
 }
 .input-box input,
 .birthday-card {
@@ -192,4 +193,8 @@ input {
   padding: 8px 12px;
   border: solid 1px #cccccc;
   border-radius: 4px;
+}
+
+.birthday-card img {
+  margin: 1rem 0;
 }
