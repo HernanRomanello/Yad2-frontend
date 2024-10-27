@@ -31,13 +31,16 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     });
 
     this.$updatedUser = this.formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      birthDate: ['', [Validators.required]],
+      firstName: [this.$user?.name, [Validators.required]],
+      lastName: [this.$user?.lastName, [Validators.required]],
+      phoneNumber: [
+        this.$user?.phoneNumber,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      birthDate: [this.$user?.birthDate, [Validators.required]],
       city: [this.$user?.city, [Validators.required]],
-      street: ['', [Validators.required]],
-      houseNumber: ['', [Validators.required]],
+      street: [this.$user?.street, [Validators.required]],
+      houseNumber: [this.$user?.houseNumber, [Validators.required]],
     });
   }
 

@@ -93,9 +93,14 @@
               <div class="input-box">
                 <label for="">מספר בית*</label>
                 <input
+                  formControlName="houseNumber"
+                  #houseNumberInput
                   class="sm"
                   [value]="this.$user?.houseNumber"
                   type="text"
+                  (input)="
+                    $user ? ($user.houseNumber = +houseNumberInput.value) : null
+                  "
                 />
               </div>
             </div>
