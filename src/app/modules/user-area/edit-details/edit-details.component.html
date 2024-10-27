@@ -17,11 +17,11 @@
         <div class="inputs">
           <div class="input-box">
             <label for="">שם פרטי*</label>
-            <input [value]="this.$user.value?.name" type="text" />
+            <input [value]="this.$user?.name" type="text" />
           </div>
           <div class="input-box">
             <label for=""> שם משפחה*</label>
-            <input [value]="this.$user.value?.lastName" type="text" />
+            <input [value]="this.$user?.lastName" type="text" />
           </div>
           <div class="input-box">
             <label for="">טלפון נייד*</label>
@@ -38,7 +38,7 @@
 
           <div class="input-box">
             <label for=""> מייל*</label>
-            <input [value]="this.$user.value?.email" type="text" />
+            <input [value]="this.$user?.email" type="text" />
           </div>
         </div>
         <div id="birthday-input" class="input-box">
@@ -48,9 +48,7 @@
             class="date-input"
             type="date"
             placeholder="dd/mm/yyyy"
-            [value]="
-              this.formatDateString(this.$user.value?.birthDate?.toString())
-            "
+            [value]="this.formatDateString(this.$user?.birthDate?.toString())"
           />
         </div>
         <div class="birthday-card">
