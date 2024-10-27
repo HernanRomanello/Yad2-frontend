@@ -258,3 +258,7 @@ button {
 .save-btn:hover {
   background-color: rgb(216, 96, 0);
 }
+
+.btn-container {
+  gap: 5rem;
+}
