@@ -163,7 +163,8 @@ button {
 }
 
 .circle,
-button {
+button,
+.success-modal img {
   cursor: pointer;
 }
 .circle {
