@@ -121,9 +121,21 @@
                   class="md"
                   [value]="this.$user?.street"
                   (input)="$user ? ($user.street = streetInput.value) : null"
+                  [ngStyle]="{
+                    borderColor: $updatedUser.get('street')?.invalid
+                      ? '#ff2a2b'
+                      : '#cccccc'
+                  }"
                   type="text"
                 />
+                <div
+                  *ngIf="$updatedUser.get('street')?.invalid"
+                  class="error-message"
+                >
+                  רחוב הוא שדה חובה
+                </div>
               </div>
+
               <div class="input-box">
                 <label for="">מספר בית*</label>
                 <input
@@ -135,7 +147,20 @@
                   (input)="
                     $user ? ($user.houseNumber = +houseNumberInput.value) : null
                   "
+                  [ngStyle]="{
+                    borderColor: $updatedUser.get('houseNumber')?.invalid
+                      ? '#ff2a2b'
+                      : '#cccccc'
+                  }"
+                  type="text"
                 />
+                <div
+                  style="width: 70px; flex-wrap: wrap"
+                  *ngIf="$updatedUser.get('houseNumber')?.invalid"
+                  class="error-message"
+                >
+                  מספר בית הוא שדה חובה
+                </div>
               </div>
             </div>
           </div>

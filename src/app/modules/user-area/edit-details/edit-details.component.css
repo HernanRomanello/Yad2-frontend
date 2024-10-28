@@ -172,7 +172,7 @@ button {
 
 .input-box input:hover,
 .input-box input:focus {
-  border: 1px solid rgb(54, 54, 54);
+  border: 1px solid rgb(54, 54, 54) !important;
 }
 .input-box input:hover,
 .input-box input:focus {
@@ -261,4 +261,10 @@ button {
 
 .btn-container {
   gap: 5rem;
+}
+
+.error-message {
+  color: #ff2a2b;
+  /* text-align: end; */
+  /* padding-top: 5px; */
 }
