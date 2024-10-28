@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './edit-details.component.html',
   styleUrls: ['./edit-details.component.css'],
 })
-export class EditDetailsComponent implements OnInit, OnDestroy {
+export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   $user: UserModel | null = null;
   $updatedUser: FormGroup | any;
 
@@ -22,23 +22,28 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder
   ) {}
 
+  ngAfterViewInit(): void {}
+
+  handleLoad = (): void => {
+    alert('Hello from the other side (Component Loaded)');
+  };
+
   ngOnInit() {
     this.userSubscription = (
       this.userService.user as BehaviorSubject<UserModel | null>
     ).subscribe((user) => {
       this.$user = user;
       this.phoneNumber = user?.phoneNumber || '';
-    });
-
-    this.$updatedUser = this.formBuilder.group({
-      name: [this.$user?.name, [Validators.required]],
-      lastName: [this.$user?.lastName, [Validators.required]],
-      phoneNumber: [this.$user?.phoneNumber, [Validators.required]],
-      email: [this.$user?.email, [Validators.required, Validators.email]],
-      birthDate: [this.$user?.birthDate],
-      city: [this.$user?.city, [Validators.required]],
-      street: [this.$user?.street, [Validators.required]],
-      houseNumber: [this.$user?.houseNumber, [Validators.required]],
+      this.$updatedUser = this.formBuilder.group({
+        name: [this.$user?.name, [Validators.required]],
+        lastName: [this.$user?.lastName, [Validators.required]],
+        phoneNumber: [this.$user?.phoneNumber, [Validators.required]],
+        email: [this.$user?.email, [Validators.required, Validators.email]],
+        birthDate: [this.$user?.birthDate],
+        city: [this.$user?.city, [Validators.required]],
+        street: [this.$user?.street, [Validators.required]],
+        houseNumber: [this.$user?.houseNumber, [Validators.required]],
+      });
     });
   }
 
