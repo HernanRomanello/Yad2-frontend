@@ -1,4 +1,11 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -15,6 +22,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   phoneNumber: string = '';
   formattedBirthDate: string = '';
+  @ViewChild('phoneNumberInput', { static: false }) phoneNumberInput:
+    | ElementRef
+    | undefined;
   private userSubscription: Subscription | undefined;
 
   constructor(
@@ -33,11 +43,12 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
       this.userService.user as BehaviorSubject<UserModel | null>
     ).subscribe((user) => {
       this.$user = user;
-      this.phoneNumber = user?.phoneNumber || '';
+      this.phoneNumber =
+        user?.phoneNumber?.slice(0, 3) + '-' + user?.phoneNumber?.slice(3, 10);
       this.$updatedUser = this.formBuilder.group({
         name: [this.$user?.name, [Validators.required]],
         lastName: [this.$user?.lastName, [Validators.required]],
-        phoneNumber: [this.$user?.phoneNumber, [Validators.required]],
+        phoneNumber: [this.$user?.phoneNumber || '', [Validators.required]],
         email: [this.$user?.email, [Validators.required, Validators.email]],
         birthDate: [this.$user?.birthDate],
         city: [this.$user?.city, [Validators.required]],
@@ -84,8 +95,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
     if (!this.$user) {
       return;
     }
-    // alert(this.$user.birthDate);
-    // this.$user.birthDate = '01/01/1900';
 
     console.log(this.$user);
     if (this.$updatedUser.invalid) {
@@ -99,8 +108,10 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       });
     } else {
-      console.log('User updated');
-      this.userService.updateUserDetails(this.$user);
+      if (this.$user.phoneNumber) {
+        this.$user.phoneNumber = this.$user.phoneNumber.replace('-', '');
+        this.userService.updateUserDetails(this.$user);
+      }
     }
   }
 }
