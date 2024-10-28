@@ -35,7 +35,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       lastName: [this.$user?.lastName, [Validators.required]],
       phoneNumber: [this.$user?.phoneNumber, [Validators.required]],
       email: [this.$user?.email, [Validators.required, Validators.email]],
-      birthDate: [this.$user?.birthDate, [Validators.required]],
+      birthDate: [this.$user?.birthDate],
       city: [this.$user?.city, [Validators.required]],
       street: [this.$user?.street, [Validators.required]],
       houseNumber: [this.$user?.houseNumber, [Validators.required]],
@@ -79,6 +79,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     if (!this.$user) {
       return;
     }
+    // alert(this.$user.birthDate);
+    // this.$user.birthDate = '01/01/1900';
+
     console.log(this.$user);
     if (this.$updatedUser.invalid) {
       alert('Please fill all the required fields');

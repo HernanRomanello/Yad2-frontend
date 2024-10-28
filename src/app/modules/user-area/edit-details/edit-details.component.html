@@ -159,7 +159,19 @@
                 [value]="this.$user?.city"
                 (input)="$user ? ($user.city = cityInput.value) : null"
                 type="text"
+                [ngStyle]="{
+                  borderColor: $updatedUser.get('city')?.invalid
+                    ? '#ff2a2b'
+                    : '#cccccc'
+                }"
+                type="text"
               />
+              <div
+                *ngIf="$updatedUser.get('city')?.invalid"
+                class="error-message"
+              >
+                ישוב/עיר הוא שדה חובה
+              </div>
             </div>
             <div class="house-number">
               <div class="input-box">
