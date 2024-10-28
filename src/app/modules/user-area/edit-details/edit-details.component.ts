@@ -136,12 +136,11 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
 
         setTimeout(() => {
           this.modalState = 'out';
-          // this.successMessageVisible = false;
         }, 12000);
 
         setTimeout(() => {
           this.successMessageVisible = false;
-        }, 14000);
+        }, 13900);
       }
     }
   }
