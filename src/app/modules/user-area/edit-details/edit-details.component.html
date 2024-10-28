@@ -27,7 +27,19 @@
               [value]="this.$user?.name"
               (input)="$user ? ($user.name = nameInput.value) : null"
               type="text"
+              [ngStyle]="{
+                borderColor: $updatedUser.get('name')?.invalid
+                  ? '#ff2a2b'
+                  : '#cccccc'
+              }"
+              type="text"
             />
+            <div
+              *ngIf="$updatedUser.get('name')?.invalid"
+              class="error-message"
+            >
+              שם פרטי הוא שדה חובה
+            </div>
           </div>
           <div class="input-box">
             <label for="lastName"> שם משפחה*</label>
@@ -39,7 +51,19 @@
                 $user ? ($user.lastName = lastNameInput.value.toString()) : null
               "
               type="text"
+              [ngStyle]="{
+                borderColor: $updatedUser.get('lastName')?.invalid
+                  ? '#ff2a2b'
+                  : '#cccccc'
+              }"
+              type="text"
             />
+            <div
+              *ngIf="$updatedUser.get('lastName')?.invalid"
+              class="error-message"
+            >
+              שם משפחה הוא שדה חובה
+            </div>
           </div>
           <div class="input-box">
             <label for="phoneNumber">טלפון נייד*</label>
@@ -55,7 +79,19 @@
                 phoneNumber = phoneNumberInput.value;
                 $user ? ($user.phoneNumber = phoneNumberInput.value) : null
               "
+              [ngStyle]="{
+                borderColor: $updatedUser.get('phoneNumber')?.invalid
+                  ? '#ff2a2b'
+                  : '#cccccc'
+              }"
+              type="text"
             />
+            <div
+              *ngIf="$updatedUser.get('phoneNumber')?.invalid"
+              class="error-message"
+            >
+              אנא הכנס מספר טלפון נייד תקין
+            </div>
           </div>
 
           <div class="input-box">
@@ -66,7 +102,20 @@
               [value]="this.$user?.email"
               (input)="$user ? ($user.email = emailInput.value) : null"
               type="text"
+              [ngStyle]="{
+                borderColor: $updatedUser.get('email')?.invalid
+                  ? '#ff2a2b'
+                  : '#cccccc'
+              }"
+              type="text"
             />
+            <div
+              *ngIf="$updatedUser.get('email')?.invalid"
+              class="error-message"
+            >
+              @if($updatedUser.get('email')?.value === ''){ כתובת מייל הוא שדה
+              חובה} @else{אנא הכנס כתובת מייל תקינה }
+            </div>
           </div>
         </div>
         <div id="birthday-input" class="input-box">
