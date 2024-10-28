@@ -10,15 +10,37 @@ import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  state,
+  trigger,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-edit-details',
   templateUrl: './edit-details.component.html',
   styleUrls: ['./edit-details.component.css'],
+  animations: [
+    trigger('modalEnterExit', [
+      state('in', style({ transform: 'translateX(0)' })), // No translation when in
+      state('out', style({ transform: 'translateX(100%)' })), // Move out to the right
+      transition('void => in', [
+        style({ transform: 'translateX(-100%)' }), // Start from the left
+        animate('2000ms ease-in'), // Animate in
+      ]),
+      transition('in => out', [
+        animate('2000ms linear', style({ transform: 'translateX(-100%)' })), // Animate out to the right
+      ]),
+    ]),
+  ],
 })
 export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   $user: UserModel | null = null;
   $updatedUser: FormGroup | any;
+  successMessageVisible: boolean = false;
+  modalState: 'in' | 'out' = 'out';
 
   phoneNumber: string = '';
   formattedBirthDate: string = '';
@@ -98,8 +120,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
 
     console.log(this.$user);
     if (this.$updatedUser.invalid) {
-      alert('Please fill all the required fields');
-
       Object.keys(this.$updatedUser.controls).forEach((field) => {
         const control = this.$updatedUser.get(field);
 
@@ -111,6 +131,17 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
       if (this.$user.phoneNumber) {
         this.$user.phoneNumber = this.$user.phoneNumber.replace('-', '');
         this.userService.updateUserDetails(this.$user);
+        this.successMessageVisible = true;
+        this.modalState = 'in';
+
+        setTimeout(() => {
+          this.modalState = 'out';
+          // this.successMessageVisible = false;
+        }, 12000);
+
+        setTimeout(() => {
+          this.successMessageVisible = false;
+        }, 14000);
       }
     }
   }

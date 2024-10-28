@@ -226,6 +226,13 @@
             </div>
           </div>
         </div>
+        <div
+          class="success-modal"
+          *ngIf="successMessageVisible"
+          [@modalEnterExit]="modalState"
+        >
+          הפרופיל עודכן בהצלחה
+        </div>
         <div class="btn-container">
           <button class="cancel-btn">ביטול</button>
           <button type="submit" class="save-btn">שמירה</button>
