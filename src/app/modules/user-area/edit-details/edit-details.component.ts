@@ -92,7 +92,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       });
     } else {
       console.log('User updated');
+      this.userService.updateUserDetails(this.$user);
     }
-    // this.userService.updateUserDetails(this.$user);
   }
 }

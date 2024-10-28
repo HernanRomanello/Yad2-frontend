@@ -117,10 +117,10 @@
                 <label for="">רחוב*</label>
                 <input
                   formControlName="street"
-                  #lastNameInput
+                  #streetInput
                   class="md"
                   [value]="this.$user?.street"
-                  (input)="$user ? ($user.street = lastNameInput.value) : null"
+                  (input)="$user ? ($user.street = streetInput.value) : null"
                   type="text"
                 />
               </div>
