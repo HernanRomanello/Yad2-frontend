@@ -20,39 +20,65 @@
         </div>
         <div class="inputs">
           <div class="input-box">
-            <label for="">שם פרטי*</label>
-            <input [value]="this.$user?.name" type="text" />
+            <label for="name">שם פרטי*</label>
+            <input
+              formControlName="name"
+              #nameInput
+              [value]="this.$user?.name"
+              (input)="$user ? ($user.name = nameInput.value) : null"
+              type="text"
+            />
           </div>
           <div class="input-box">
-            <label for=""> שם משפחה*</label>
-            <input [value]="this.$user?.lastName" type="text" />
+            <label for="lastName"> שם משפחה*</label>
+            <input
+              formControlName="lastName"
+              #lastNameInput
+              [value]="this.$user?.lastName"
+              (input)="
+                $user ? ($user.lastName = lastNameInput.value.toString()) : null
+              "
+              type="text"
+            />
           </div>
           <div class="input-box">
-            <label for="">טלפון נייד*</label>
+            <label for="phoneNumber">טלפון נייד*</label>
             <input
               #phoneNumberInput
+              formControlName="phoneNumber"
               style="direction: ltr"
               maxlength="11"
               type="text"
               [(ngModel)]="phoneNumber"
               [value]="phoneNumber | phoneNumberFormat"
-              (input)="phoneNumber = phoneNumberInput.value"
+              (input)="
+                phoneNumber = phoneNumberInput.value;
+                $user ? ($user.phoneNumber = phoneNumberInput.value) : null
+              "
             />
           </div>
 
           <div class="input-box">
             <label for=""> מייל*</label>
-            <input [value]="this.$user?.email" type="text" />
+            <input
+              #emailInput
+              formControlName="email"
+              [value]="this.$user?.email"
+              (input)="$user ? ($user.email = emailInput.value) : null"
+              type="text"
+            />
           </div>
         </div>
         <div id="birthday-input" class="input-box">
           <label for="birthday">תאריך לידה</label>
           <input
+            #birthdayInput
             id="birthday"
             class="date-input"
             type="date"
             placeholder="dd/mm/yyyy"
             [value]="this.formatDateString(this.$user?.birthDate?.toString())"
+            (input)="$user ? ($user.birthDate = birthdayInput.value) : null"
           />
         </div>
         <div class="birthday-card">
@@ -81,6 +107,7 @@
               <input
                 #cityInput
                 formControlName="city"
+                [value]="this.$user?.city"
                 (input)="$user ? ($user.city = cityInput.value) : null"
                 type="text"
               />
@@ -88,7 +115,14 @@
             <div class="house-number">
               <div class="input-box">
                 <label for="">רחוב*</label>
-                <input class="md" [value]="this.$user?.street" type="text" />
+                <input
+                  formControlName="street"
+                  #lastNameInput
+                  class="md"
+                  [value]="this.$user?.street"
+                  (input)="$user ? ($user.street = lastNameInput.value) : null"
+                  type="text"
+                />
               </div>
               <div class="input-box">
                 <label for="">מספר בית*</label>

@@ -31,12 +31,10 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     });
 
     this.$updatedUser = this.formBuilder.group({
-      firstName: [this.$user?.name, [Validators.required]],
+      name: [this.$user?.name, [Validators.required]],
       lastName: [this.$user?.lastName, [Validators.required]],
-      phoneNumber: [
-        this.$user?.phoneNumber,
-        [Validators.required, Validators.pattern('^[0-9]*$')],
-      ],
+      phoneNumber: [this.$user?.phoneNumber, [Validators.required]],
+      email: [this.$user?.email, [Validators.required, Validators.email]],
       birthDate: [this.$user?.birthDate, [Validators.required]],
       city: [this.$user?.city, [Validators.required]],
       street: [this.$user?.street, [Validators.required]],
@@ -85,7 +83,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     if (this.$updatedUser.invalid) {
       alert('Please fill all the required fields');
 
-      // Loop through each control in the form to find specific errors
       Object.keys(this.$updatedUser.controls).forEach((field) => {
         const control = this.$updatedUser.get(field);
 
