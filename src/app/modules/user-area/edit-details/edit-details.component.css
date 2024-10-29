@@ -294,3 +294,8 @@ button,
   width: 25px;
   height: 25px;
 }
+
+#street {
+  /* cursor: not-allowed !important; */
+  /* pointer-events: none; */
+}
