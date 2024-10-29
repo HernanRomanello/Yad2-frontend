@@ -237,11 +237,17 @@
             src="assets/images/close-sm-svgrepo-com-white.svg"
             alt=""
           />
-          <div class="success-loader"></div>
+          <div #successLoader class="success-loader"></div>
         </div>
         <div class="btn-container">
           <button class="cancel-btn">ביטול</button>
-          <button type="submit" class="save-btn">שמירה</button>
+          <button
+            (click)="unloadSuccessLoader()"
+            type="submit"
+            class="save-btn"
+          >
+            שמירה
+          </button>
         </div>
       </form>
     </div>

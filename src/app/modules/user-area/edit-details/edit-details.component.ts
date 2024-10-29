@@ -5,6 +5,7 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef,
+  viewChild,
 } from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
@@ -41,12 +42,13 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   $updatedUser: FormGroup | any;
   successMessageVisible: boolean = false;
   modalState: 'in' | 'out' = 'out';
+  @ViewChild('successLoader', { static: false }) successLoader:
+    | ElementRef
+    | undefined;
 
   phoneNumber: string = '';
   formattedBirthDate: string = '';
-  @ViewChild('phoneNumberInput', { static: false }) phoneNumberInput:
-    | ElementRef
-    | undefined;
+
   private userSubscription: Subscription | undefined;
 
   constructor(
@@ -59,6 +61,20 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   handleLoad = (): void => {
     alert('Hello from the other side (Component Loaded)');
   };
+
+  unloadSuccessLoader(): void {
+    let width = 100;
+    const interval = setInterval(() => {
+      if (width > 0) {
+        width--;
+        if (this.successLoader) {
+          this.successLoader.nativeElement.style.width = width + '%';
+        }
+      } else {
+        clearInterval(interval);
+      }
+    }, 120);
+  }
 
   ngOnInit() {
     this.userSubscription = (
