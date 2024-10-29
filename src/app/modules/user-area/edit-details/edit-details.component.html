@@ -157,6 +157,7 @@
                 #cityInput
                 formControlName="city"
                 [value]="this.$user?.city"
+                placeholder="הזינו טקסט"
                 (input)="$user ? ($user.city = cityInput.value) : null"
                 type="text"
                 [ngStyle]="{
@@ -179,6 +180,7 @@
                 <input
                   formControlName="street"
                   #streetInput
+                  placeholder="הזינו טקסט"
                   class="md"
                   [value]="this.$user?.street"
                   (input)="$user ? ($user.street = streetInput.value) : null"
@@ -202,16 +204,23 @@
                 <input
                   formControlName="houseNumber"
                   #houseNumberInput
+                  placeholder="הזינו טקסט"
                   class="sm"
                   [value]="this.$user?.houseNumber"
                   type="text"
                   (input)="
-                    $user ? ($user.houseNumber = +houseNumberInput.value) : null
+                    $user
+                      ? ($user.houseNumber = +houseNumberInput.value)
+                      : null;
+                    houseNumberInput.value =
+                      +houseNumberInput.value > 0 ? houseNumberInput.value : ''
                   "
                   [ngStyle]="{
                     borderColor: $updatedUser.get('houseNumber')?.invalid
                       ? '#ff2a2b'
-                      : '#cccccc'
+                      : '#cccccc',
+                    backgroundColor:
+                      +houseNumberInput.value > 0 ? '#FFFFFF' : '#F8F8F8'
                   }"
                   type="text"
                 />
