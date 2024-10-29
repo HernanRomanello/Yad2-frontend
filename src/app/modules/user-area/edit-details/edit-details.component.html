@@ -187,7 +187,9 @@
                   [ngStyle]="{
                     borderColor: $updatedUser.get('street')?.invalid
                       ? '#ff2a2b'
-                      : '#cccccc'
+                      : '#cccccc',
+                    backgroundColor:
+                      streetInput.value.length > 0 ? '#FFFFFF' : '#F8F8F8'
                   }"
                   type="text"
                 />
