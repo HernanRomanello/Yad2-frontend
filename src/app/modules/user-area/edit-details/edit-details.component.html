@@ -161,7 +161,9 @@
                 (input)="
                   $user ? ($user.city = cityInput.value) : null;
                   streetInput.value =
-                    cityInput.value.length > 0 ? streetInput.value : ''
+                    cityInput.value.length > 0 ? streetInput.value : '';
+                  houseNumberInput.value =
+                    cityInput.value.length > 0 ? houseNumberInput.value : ''
                 "
                 type="text"
                 [ngStyle]="{
@@ -216,6 +218,7 @@
                   placeholder="הזינו טקסט"
                   class="sm"
                   [value]="this.$user?.houseNumber"
+                  [readonly]="!(streetInput.value.length > 0)"
                   type="text"
                   (input)="
                     $user
@@ -229,7 +232,9 @@
                       ? '#ff2a2b'
                       : '#cccccc',
                     backgroundColor:
-                      +houseNumberInput.value > 0 ? '#FFFFFF' : '#F8F8F8'
+                      +houseNumberInput.value > 0 ? '#FFFFFF' : '#F8F8F8',
+                    cursor:
+                      streetInput.value.length > 0 ? 'auto' : 'not-allowed'
                   }"
                   type="text"
                 />
