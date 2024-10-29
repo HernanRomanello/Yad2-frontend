@@ -46,6 +46,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   $updatedUser: FormGroup | any;
   successMessageVisible: boolean = false;
   modalState: 'in' | 'out' = 'out';
+  isCityDropdownHidden = false;
   @ViewChild('successLoader', { static: false }) successLoader:
     | ElementRef
     | undefined;

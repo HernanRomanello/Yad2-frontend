@@ -35,8 +35,7 @@ button {
 .right-side,
 .input-box,
 .birthday-card div,
-.address-part,
-.address-label {
+.address-part {
   flex-direction: column;
 }
 
@@ -65,12 +64,10 @@ button {
 
 .user-form,
 .circle,
-.cancel-btn {
+.cancel-btn,
+#city-option,
+.success-loader {
   background-color: #ffffff;
-}
-
-.circle {
-  position: absolute;
 }
 
 .btn-container {
@@ -164,7 +161,8 @@ button {
 
 .circle,
 button,
-.success-modal img {
+.success-modal img,
+#city-option {
   cursor: pointer;
 }
 .circle {
@@ -230,6 +228,9 @@ button,
 .address-inputs {
   gap: 3rem;
 }
+.address-inputs {
+  position: relative;
+}
 
 .house-number {
   gap: 1rem;
@@ -268,8 +269,45 @@ button,
   color: #ff2a2b;
 }
 
+.success-modal img {
+  width: 25px;
+  height: 25px;
+}
+
+#city-option {
+  line-height: 21px;
+
+  height: 42px !important;
+  width: 100% !important;
+}
+
+#city-option {
+  align-items: center;
+}
+#city-option {
+  padding: 5px 12px;
+}
+
+.select-options {
+  background-color: rgb(255, 255, 255);
+  max-height: 214px;
+  overflow-y: auto !important;
+  height: fit-content !important;
+  width: 283px;
+  margin: 8px 0px 0px;
+  padding: 2px 0px;
+  top: 68px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 12px 0px;
+  border-radius: 4px;
+}
+
+.success-loader {
+  height: 2px;
+  width: 100%;
+  transform: translateY(18px) translateX(17px);
+}
+
 .success-modal {
-  position: absolute;
   left: 24px;
   bottom: 50px;
   background-color: #363636;
@@ -282,15 +320,9 @@ button,
   font-size: 16px;
 }
 
-.success-loader {
-  height: 2px;
-  width: 100%;
-  background-color: #ffffff;
+.circle,
+.success-modal,
+.success-loader,
+.select-options {
   position: absolute;
-  transform: translateY(18px) translateX(17px);
-}
-
-.success-modal img {
-  width: 25px;
-  height: 25px;
 }

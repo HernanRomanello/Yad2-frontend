@@ -166,6 +166,7 @@
                     cityInput.value.length > 0 ? houseNumberInput.value : '';
                   this.serchCity(cityInput.value)
                 "
+                (focus)="this.isCityDropdownHidden = true"
                 type="text"
                 [ngStyle]="{
                   borderColor: $updatedUser.get('city')?.invalid
@@ -180,6 +181,18 @@
               >
                 ישוב/עיר הוא שדה חובה
               </div>
+              <span class="select-options">
+                @if(this.isCityDropdownHidden && cityInput.value.length > 0){
+                <div
+                  id="city-option"
+                  #cityOption
+                  *ngFor="let item of this.$cityOptions"
+                >
+                  {{ item.city_name_he }}
+                </div>
+
+                }
+              </span>
             </div>
             <div class="house-number">
               <div class="input-box">
