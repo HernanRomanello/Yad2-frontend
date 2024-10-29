@@ -36,7 +36,8 @@ export class CityListService {
         const value = city[property];
         return (
           typeof value === 'string' &&
-          value.toLowerCase().includes(substring.toLowerCase())
+          value.toLowerCase().includes(substring.toLowerCase()) &&
+          value.startsWith(substring)
         );
       })
       .slice(0, resultsNumber);

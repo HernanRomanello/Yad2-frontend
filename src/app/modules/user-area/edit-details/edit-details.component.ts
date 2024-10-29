@@ -5,7 +5,6 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef,
-  viewChild,
 } from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
@@ -18,6 +17,11 @@ import {
   transition,
   animate,
 } from '@angular/animations';
+import {
+  CityListService,
+  City,
+  Street,
+} from '../../../services/city-list.service';
 
 @Component({
   selector: 'app-edit-details',
@@ -50,10 +54,13 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   formattedBirthDate: string = '';
 
   private userSubscription: Subscription | undefined;
+  $cities: City[] = [];
+  $cityOptions: City[] = [];
 
   constructor(
     private userService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private cityListService: CityListService
   ) {}
 
   ngAfterViewInit(): void {}
@@ -94,6 +101,19 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
         houseNumber: [this.$user?.houseNumber, [Validators.required]],
       });
     });
+    this.cityListService.getCityList().subscribe((cities) => {
+      this.$cities = cities;
+    });
+  }
+
+  serchCity(searchQuery: string) {
+    this.$cityOptions = this.cityListService.getFirstsCitiesContainingSubstring(
+      this.$cities,
+      searchQuery,
+      'city_name_he',
+      10
+    );
+    console.log(this.$cityOptions);
   }
 
   formatDateString(dateString: string | undefined): string {

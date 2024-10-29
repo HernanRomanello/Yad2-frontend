@@ -163,7 +163,8 @@
                   streetInput.value =
                     cityInput.value.length > 0 ? streetInput.value : '';
                   houseNumberInput.value =
-                    cityInput.value.length > 0 ? houseNumberInput.value : ''
+                    cityInput.value.length > 0 ? houseNumberInput.value : '';
+                  this.serchCity(cityInput.value)
                 "
                 type="text"
                 [ngStyle]="{
