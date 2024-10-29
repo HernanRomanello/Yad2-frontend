@@ -209,9 +209,13 @@
                   autocomplete="off"
                   placeholder="הזינו טקסט"
                   [readonly]="!(cityInput.value.length > 0)"
+                  (focus)="this.isStreetDropdownHidden = true"
                   class="md"
                   [value]="this.$user?.street"
-                  (input)="$user ? ($user.street = streetInput.value) : null"
+                  (input)="
+                    $user ? ($user.street = streetInput.value) : null;
+                    this.serchStreet('גבעתיים', streetInput.value)
+                  "
                   [ngStyle]="{
                     borderColor: $updatedUser.get('street')?.invalid
                       ? '#ff2a2b'
@@ -228,6 +232,22 @@
                 >
                   רחוב הוא שדה חובה
                 </div>
+                @if(this.isStreetDropdownHidden && streetInput.value.length >
+                0){
+                <span class="select-options">
+                  <div
+                    id="street-option"
+                    #streetOption
+                    (click)="
+                      this.isStreetDropdownHidden = false;
+                      streetInput.value = item.Street_Name
+                    "
+                    *ngFor="let item of this.$streetsOptions"
+                  >
+                    {{ item.Street_Name }}
+                  </div>
+                </span>
+                }
               </div>
 
               <div class="input-box">

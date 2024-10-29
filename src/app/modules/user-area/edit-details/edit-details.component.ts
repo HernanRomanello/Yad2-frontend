@@ -2,7 +2,6 @@ import {
   Component,
   OnInit,
   OnDestroy,
-  AfterViewInit,
   ViewChild,
   ElementRef,
 } from '@angular/core';
@@ -41,12 +40,13 @@ import {
     ]),
   ],
 })
-export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
+export class EditDetailsComponent implements OnInit, OnDestroy {
   $user: UserModel | null = null;
   $updatedUser: FormGroup | any;
   successMessageVisible: boolean = false;
   modalState: 'in' | 'out' = 'out';
   isCityDropdownHidden = false;
+  isStreetDropdownHidden = false;
   @ViewChild('successLoader', { static: false }) successLoader:
     | ElementRef
     | undefined;
@@ -57,6 +57,8 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
   private userSubscription: Subscription | undefined;
   $cities: City[] = [];
   $cityOptions: City[] = [];
+  $streets: Street[] = [];
+  $streetsOptions: Street[] = [];
 
   constructor(
     private userService: AuthService,
@@ -70,8 +72,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     });
   }
-
-  ngAfterViewInit(): void {}
 
   handleLoad = (): void => {
     alert('Hello from the other side (Component Loaded)');
@@ -112,6 +112,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
     this.cityListService.getCityList().subscribe((cities) => {
       this.$cities = cities;
     });
+    this.cityListService.getStreetList().subscribe((streets) => {
+      this.$streets = streets;
+    });
   }
 
   serchCity(searchQuery: string) {
@@ -122,6 +125,15 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
       10
     );
     console.log(this.$cityOptions);
+  }
+
+  serchStreet(city: string, searchQuery: string) {
+    this.$streetsOptions = this.cityListService.getStreetSuggestions(
+      city,
+      searchQuery,
+      this.$streets,
+      10
+    );
   }
 
   formatDateString(dateString: string | undefined): string {
