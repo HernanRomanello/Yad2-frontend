@@ -62,7 +62,14 @@ export class EditDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
     private userService: AuthService,
     private formBuilder: FormBuilder,
     private cityListService: CityListService
-  ) {}
+  ) {
+    document.body.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (target.id !== 'CityInput') {
+        this.isCityDropdownHidden = false;
+      }
+    });
+  }
 
   ngAfterViewInit(): void {}
 

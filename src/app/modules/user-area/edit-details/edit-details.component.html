@@ -155,9 +155,11 @@
               <label for="">ישוב / עיר*</label>
               <input
                 #cityInput
+                id="CityInput"
                 formControlName="city"
                 [value]="this.$user?.city"
                 placeholder="הזינו טקסט"
+                autocomplete="off"
                 (input)="
                   $user ? ($user.city = cityInput.value) : null;
                   streetInput.value =
@@ -181,18 +183,21 @@
               >
                 ישוב/עיר הוא שדה חובה
               </div>
+              @if(this.isCityDropdownHidden && cityInput.value.length > 0){
               <span class="select-options">
-                @if(this.isCityDropdownHidden && cityInput.value.length > 0){
                 <div
                   id="city-option"
                   #cityOption
+                  (click)="
+                    this.isCityDropdownHidden = false;
+                    cityInput.value = item.city_name_he
+                  "
                   *ngFor="let item of this.$cityOptions"
                 >
                   {{ item.city_name_he }}
                 </div>
-
-                }
               </span>
+              }
             </div>
             <div class="house-number">
               <div class="input-box">
@@ -201,6 +206,7 @@
                   id="street"
                   formControlName="street"
                   #streetInput
+                  autocomplete="off"
                   placeholder="הזינו טקסט"
                   [readonly]="!(cityInput.value.length > 0)"
                   class="md"
