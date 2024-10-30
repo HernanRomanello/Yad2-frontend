@@ -60,6 +60,7 @@ export class CityListService {
       .slice(0, resultsNumber);
   }
 }
+
 export interface City {
   PIBA_bureau_code: number;
   PIBA_bureau_name: string;

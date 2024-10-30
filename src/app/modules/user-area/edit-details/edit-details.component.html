@@ -209,7 +209,7 @@
                   #streetInput
                   autocomplete="off"
                   placeholder="הזינו טקסט"
-                  [readonly]="!(cityInput.value.length > 0)"
+                  [readonly]="!this.checkIfValidCity(cityInput.value)"
                   (focus)="this.isStreetDropdownHidden = true"
                   class="md"
                   [value]="this.$user?.street"
@@ -221,9 +221,12 @@
                     borderColor: $updatedUser.get('street')?.invalid
                       ? '#ff2a2b'
                       : '#cccccc',
-                    backgroundColor:
-                      streetInput.value.length > 0 ? '#FFFFFF' : '#F8F8F8',
-                    cursor: cityInput.value.length > 0 ? 'auto' : 'not-allowed'
+                    backgroundColor: this.checkIfValidCity(cityInput.value)
+                      ? '#FFFFFF'
+                      : '#F8F8F8',
+                    cursor: this.checkIfValidCity(cityInput.value)
+                      ? 'auto'
+                      : 'not-allowed'
                   }"
                   type="text"
                 />
@@ -241,7 +244,8 @@
                     #streetOption
                     (click)="
                       this.isStreetDropdownHidden = false;
-                      streetInput.value = item.Street_Name
+                      streetInput.value = item.Street_Name;
+                      this.chosenStreet = item.Street_Name
                     "
                     *ngFor="let item of this.$streetsOptions"
                   >
@@ -259,7 +263,7 @@
                   placeholder="הזינו טקסט"
                   class="sm"
                   [value]="this.$user?.houseNumber"
-                  [readonly]="!(streetInput.value.length > 0)"
+                  [readonly]="!this.checkIfValidStreet(streetInput.value)"
                   type="text"
                   (input)="
                     $user
@@ -272,10 +276,12 @@
                     borderColor: $updatedUser.get('houseNumber')?.invalid
                       ? '#ff2a2b'
                       : '#cccccc',
-                    backgroundColor:
-                      +houseNumberInput.value > 0 ? '#FFFFFF' : '#F8F8F8',
-                    cursor:
-                      streetInput.value.length > 0 ? 'auto' : 'not-allowed'
+                    backgroundColor: this.checkIfValidStreet(streetInput.value)
+                      ? '#FFFFFF'
+                      : '#F8F8F8',
+                    cursor: this.checkIfValidStreet(streetInput.value)
+                      ? 'auto'
+                      : 'not-allowed'
                   }"
                   type="text"
                 />

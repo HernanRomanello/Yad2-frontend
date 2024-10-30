@@ -60,6 +60,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   $streets: Street[] = [];
   $streetsOptions: Street[] = [];
   chosenCity: string = '';
+  chosenStreet: string = '';
 
   constructor(
     private userService: AuthService,
@@ -113,6 +114,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
         houseNumber: [this.$user?.houseNumber, [Validators.required]],
       });
       this.chosenCity = this.$user?.city || '';
+      this.chosenStreet = this.$user?.street || '';
     });
     this.cityListService.getCityList().subscribe((cities) => {
       this.$cities = cities;
@@ -142,6 +144,31 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       4
     );
     console.log(this.$streetsOptions);
+  }
+
+  checkIfValidCity(city: string): boolean {
+    const CityName = city;
+
+    const validCity = this.$cities.find(
+      (city: City) => city.city_name_he === CityName
+    );
+
+    console.log(validCity);
+    console.log(validCity ? true : false);
+
+    return validCity ? true : false;
+  }
+
+  checkIfValidStreet(Street: string): boolean {
+    const streetName = Street;
+
+    const validstreet = this.$streets.find(
+      (street: Street) =>
+        street.Street_Name === streetName &&
+        street.City_Name === this.chosenCity
+    );
+
+    return validstreet ? true : false;
   }
 
   formatDateString(dateString: string | undefined): string {
