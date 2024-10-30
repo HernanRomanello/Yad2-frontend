@@ -332,8 +332,7 @@ button,
   position: absolute;
 }
 
-#street-option {
+#street-option-dropdown {
   width: 200px !important;
   overflow-x: hidden !important;
-  /* overflow-y: hidden !important; */
 }
