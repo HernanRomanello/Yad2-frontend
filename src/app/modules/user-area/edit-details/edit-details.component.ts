@@ -70,6 +70,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       if (target.id !== 'CityInput') {
         this.isCityDropdownHidden = false;
       }
+      if (target.id !== 'street') {
+        this.isStreetDropdownHidden = false;
+      }
     });
   }
 
@@ -114,6 +117,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     });
     this.cityListService.getStreetList().subscribe((streets) => {
       this.$streets = streets;
+      if (this.$streets.length > 0) {
+        console.log(this.$streets.filter((s) => s.City_Name === 'גבעתיים'));
+      }
     });
   }
 
@@ -124,16 +130,19 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       'city_name_he',
       10
     );
-    console.log(this.$cityOptions);
   }
 
   serchStreet(city: string, searchQuery: string) {
+    const streetsOptions = this.$streets.filter(
+      (s) => s.City_Name === 'גבעתיים'
+    );
     this.$streetsOptions = this.cityListService.getStreetSuggestions(
       city,
       searchQuery,
-      this.$streets,
-      10
+      streetsOptions,
+      4
     );
+    console.log(this.$streetsOptions);
   }
 
   formatDateString(dateString: string | undefined): string {
@@ -174,13 +183,12 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    console.log(this.$user);
     if (this.$updatedUser.invalid) {
       Object.keys(this.$updatedUser.controls).forEach((field) => {
         const control = this.$updatedUser.get(field);
 
         if (control && control.errors) {
-          console.log(`Error in field: ${field}`, control.errors);
+          // console.log(`Error in field: ${field}`, control.errors);
         }
       });
     } else {

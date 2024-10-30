@@ -66,7 +66,8 @@ button {
 .circle,
 .cancel-btn,
 #city-option,
-.success-loader {
+.success-loader,
+#street-option {
   background-color: #ffffff;
 }
 
@@ -162,7 +163,8 @@ button {
 .circle,
 button,
 .success-modal img,
-#city-option {
+#city-option,
+#street-option {
   cursor: pointer;
 }
 .circle {
@@ -274,17 +276,20 @@ button,
   height: 25px;
 }
 
-#city-option {
+#city-option,
+#street-option {
   line-height: 21px;
 
   height: 42px !important;
   width: 100% !important;
 }
 
-#city-option {
+#city-option,
+#street-option {
   align-items: center;
 }
-#city-option {
+#city-option,
+#street-option {
   padding: 5px 12px;
 }
 
@@ -325,4 +330,10 @@ button,
 .success-loader,
 .select-options {
   position: absolute;
+}
+
+#street-option {
+  width: 200px !important;
+  overflow-x: hidden !important;
+  /* overflow-y: hidden !important; */
 }
