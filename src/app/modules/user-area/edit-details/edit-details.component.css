@@ -71,6 +71,11 @@ button {
   background-color: #ffffff;
 }
 
+#street-option:hover,
+#city-option:hover {
+  background-color: #f8f8f8;
+}
+
 .btn-container {
   justify-content: end;
 }
