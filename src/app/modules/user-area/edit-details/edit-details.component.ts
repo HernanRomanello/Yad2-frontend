@@ -215,10 +215,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (this.$updatedUser.controls.houseNumber.getValue() === 0) {
-      alert('Please enter a house number');
+    if (!this.checkIfValidStreet(this.chosenStreet)) {
+      this.$updatedUser.controls.houseNumber.setValue('');
     }
-
     // this.$updatedUser.controls.houseNumber.setValue('');
 
     if (this.$updatedUser.invalid) {
