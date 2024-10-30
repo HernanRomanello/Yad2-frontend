@@ -8,7 +8,12 @@ import {
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  PatternValidator,
+  Validators,
+} from '@angular/forms';
 import {
   state,
   trigger,
@@ -61,6 +66,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   $streetsOptions: Street[] = [];
   chosenCity: string = '';
   chosenStreet: string = '';
+  chosenHouseNumber: number = 0;
 
   constructor(
     private userService: AuthService,
@@ -77,10 +83,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       }
     });
   }
-
-  handleLoad = (): void => {
-    alert('Hello from the other side (Component Loaded)');
-  };
 
   unloadSuccessLoader(): void {
     let width = 100;
@@ -111,10 +113,14 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
         birthDate: [this.$user?.birthDate],
         city: [this.$user?.city, [Validators.required]],
         street: [this.$user?.street, [Validators.required]],
-        houseNumber: [this.$user?.houseNumber, [Validators.required]],
+        houseNumber: [
+          this.chosenHouseNumber,
+          [Validators.required, Validators.pattern(/^\d+$/)],
+        ],
       });
       this.chosenCity = this.$user?.city || '';
       this.chosenStreet = this.$user?.street || '';
+      this.chosenHouseNumber = this.$user?.houseNumber || 0;
     });
     this.cityListService.getCityList().subscribe((cities) => {
       this.$cities = cities;
@@ -218,7 +224,10 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
         }
       });
     } else {
-      if (this.$user.phoneNumber) {
+      const validAddress =
+        this.checkIfValidCity(this.chosenCity) &&
+        this.checkIfValidStreet(this.chosenStreet);
+      if (this.$user.phoneNumber && validAddress) {
         this.$user.phoneNumber = this.$user.phoneNumber.replace('-', '');
         this.userService.updateUserDetails(this.$user);
         this.successMessageVisible = true;

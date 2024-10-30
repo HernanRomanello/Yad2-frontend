@@ -164,6 +164,10 @@
                   $user ? ($user.city = cityInput.value) : null;
                   streetInput.value =
                     cityInput.value.length > 0 ? streetInput.value : '';
+                  this.chosenCity =
+                    cityInput.value.length > 0 ? this.chosenCity : '';
+                  this.chosenStreet =
+                    cityInput.value.length > 0 ? streetInput.value : '';
                   houseNumberInput.value =
                     cityInput.value.length > 0 ? houseNumberInput.value : '';
                   this.serchCity(cityInput.value)
@@ -215,7 +219,16 @@
                   [value]="this.$user?.street"
                   (input)="
                     $user ? ($user.street = streetInput.value) : null;
-                    this.serchStreet(streetInput.value)
+                    this.serchStreet(streetInput.value);
+                    houseNumberInput.value =
+                      streetInput.value.length > 0
+                        ? houseNumberInput.value
+                        : '';
+                    this.chosenHouseNumber = !this.checkIfValidStreet(
+                      streetInput.value
+                    )
+                      ? this.chosenHouseNumber
+                      : 0
                   "
                   [ngStyle]="{
                     borderColor: $updatedUser.get('street')?.invalid
@@ -262,7 +275,11 @@
                   #houseNumberInput
                   placeholder="הזינו טקסט"
                   class="sm"
-                  [value]="this.$user?.houseNumber"
+                  [value]="
+                    this.checkIfValidStreet(streetInput.value)
+                      ? this.$user?.houseNumber
+                      : ''
+                  "
                   [readonly]="!this.checkIfValidStreet(streetInput.value)"
                   type="text"
                   (input)="
