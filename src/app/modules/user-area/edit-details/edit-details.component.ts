@@ -59,6 +59,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   $cityOptions: City[] = [];
   $streets: Street[] = [];
   $streetsOptions: Street[] = [];
+  chosenCity: string = '';
 
   constructor(
     private userService: AuthService,
@@ -111,15 +112,13 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
         street: [this.$user?.street, [Validators.required]],
         houseNumber: [this.$user?.houseNumber, [Validators.required]],
       });
+      this.chosenCity = this.$user?.city || '';
     });
     this.cityListService.getCityList().subscribe((cities) => {
       this.$cities = cities;
     });
     this.cityListService.getStreetList().subscribe((streets) => {
       this.$streets = streets;
-      if (this.$streets.length > 0) {
-        console.log(this.$streets.filter((s) => s.City_Name === 'גבעתיים'));
-      }
     });
   }
 
@@ -132,12 +131,12 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     );
   }
 
-  serchStreet(city: string, searchQuery: string) {
+  serchStreet(searchQuery: string) {
     const streetsOptions = this.$streets.filter(
-      (s) => s.City_Name === 'גבעתיים'
+      (s) => s.City_Name.toLowerCase() === this.chosenCity.toLowerCase()
     );
     this.$streetsOptions = this.cityListService.getStreetSuggestions(
-      city,
+      this.chosenCity,
       searchQuery,
       streetsOptions,
       4

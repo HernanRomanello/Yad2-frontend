@@ -190,7 +190,8 @@
                   #cityOption
                   (click)="
                     this.isCityDropdownHidden = false;
-                    cityInput.value = item.city_name_he
+                    cityInput.value = item.city_name_he;
+                    this.chosenCity = item.city_name_he
                   "
                   *ngFor="let item of this.$cityOptions"
                 >
@@ -214,7 +215,7 @@
                   [value]="this.$user?.street"
                   (input)="
                     $user ? ($user.street = streetInput.value) : null;
-                    this.serchStreet('גבעתיים', streetInput.value)
+                    this.serchStreet(streetInput.value)
                   "
                   [ngStyle]="{
                     borderColor: $updatedUser.get('street')?.invalid
