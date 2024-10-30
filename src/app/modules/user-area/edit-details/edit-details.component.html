@@ -153,6 +153,7 @@
           <div class="address-inputs">
             <div class="input-box">
               <label for="">ישוב / עיר*</label>
+
               <input
                 #cityInput
                 id="CityInput"
@@ -170,7 +171,8 @@
                     cityInput.value.length > 0 ? streetInput.value : '';
                   houseNumberInput.value =
                     cityInput.value.length > 0 ? houseNumberInput.value : '';
-                  this.serchCity(cityInput.value)
+                  this.serchCity(cityInput.value);
+                  this.resetUserAddress(cityInput.value, streetInput.value)
                 "
                 (focus)="this.isCityDropdownHidden = true"
                 type="text"
@@ -181,6 +183,7 @@
                 }"
                 type="text"
               />
+
               <div
                 *ngIf="$updatedUser.get('city')?.invalid"
                 class="error-message"
@@ -207,6 +210,7 @@
             <div class="house-number">
               <div class="input-box">
                 <label for="">רחוב*</label>
+
                 <input
                   id="street"
                   formControlName="street"
@@ -243,6 +247,7 @@
                   }"
                   type="text"
                 />
+
                 <div
                   *ngIf="$updatedUser.get('street')?.invalid"
                   class="error-message"

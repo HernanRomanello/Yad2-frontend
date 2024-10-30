@@ -149,7 +149,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       streetsOptions,
       4
     );
-    console.log(this.$streetsOptions);
   }
 
   checkIfValidCity(city: string): boolean {
@@ -158,9 +157,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     const validCity = this.$cities.find(
       (city: City) => city.city_name_he === CityName
     );
-
-    console.log(validCity);
-    console.log(validCity ? true : false);
 
     return validCity ? true : false;
   }
@@ -210,10 +206,20 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     return phoneNumber;
   }
 
+  resetUserAddress(validCity: string, validStreet: string): void {
+    // this.$updatedUser.controls.street.setValue('');
+  }
+
   updateUserDetails(): void {
     if (!this.$user) {
       return;
     }
+
+    if (this.$updatedUser.controls.houseNumber.getValue() === 0) {
+      alert('Please enter a house number');
+    }
+
+    // this.$updatedUser.controls.houseNumber.setValue('');
 
     if (this.$updatedUser.invalid) {
       Object.keys(this.$updatedUser.controls).forEach((field) => {
