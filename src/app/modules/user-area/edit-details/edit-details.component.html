@@ -166,7 +166,10 @@
                   this.chosenCity = cityInput.value
                 "
                 (keyup)="
-                  this.resetUserAddress(this.checkIfValidCity(chosenCity))
+                  this.resetUserAddress(
+                    this.checkIfValidCity(chosenCity),
+                    this.checkIfValidStreet(chosenStreet)
+                  )
                 "
                 (focus)="this.isCityDropdownHidden = true"
                 type="text"
@@ -219,6 +222,12 @@
                   (input)="
                     this.serchStreet(streetInput.value);
                     this.chosenStreet = streetInput.value
+                  "
+                  (keyup)="
+                    this.resetUserAddress(
+                      this.checkIfValidCity(chosenCity),
+                      this.checkIfValidStreet(chosenStreet)
+                    )
                   "
                   type="text"
                 />

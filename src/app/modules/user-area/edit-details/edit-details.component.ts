@@ -207,7 +207,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     return phoneNumber;
   }
 
-  resetUserAddress(validCity: boolean): void {
+  resetUserAddress(validCity: boolean, validStreet: boolean): void {
     if (!validCity && !this.cityWasEdited) {
       this.$updatedUser.controls.street.setValue('');
       this.$updatedUser.controls.houseNumber.setValue('');
@@ -217,6 +217,12 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       this.chosenHouseNumber = '';
       this.$updatedUser.controls.city.setValue('');
       this.cityWasEdited = true;
+      return;
+    }
+
+    if (!validStreet) {
+      this.$updatedUser.controls.houseNumber.setValue('');
+      this.chosenHouseNumber = '';
     }
   }
   checkIfAddressIsValid(): boolean {
@@ -234,17 +240,8 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     this.$user.city = this.chosenCity;
     this.$user.street = this.chosenStreet;
     this.$user.houseNumber = +this.chosenHouseNumber;
-    // this.$updatedUser.controls.houseNumber.setValue('');
 
-    if (this.$updatedUser.invalid) {
-      Object.keys(this.$updatedUser.controls).forEach((field) => {
-        const control = this.$updatedUser.get(field);
-
-        if (control && control.errors) {
-          // console.log(`Error in field: ${field}`, control.errors);
-        }
-      });
-    } else {
+    if (this.$updatedUser.valid) {
       const validAddress =
         this.checkIfValidCity(this.chosenCity) &&
         this.checkIfValidStreet(this.chosenStreet);
