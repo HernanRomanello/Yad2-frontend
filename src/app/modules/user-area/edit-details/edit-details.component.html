@@ -192,7 +192,8 @@
                   (click)="
                     this.isCityDropdownHidden = false;
                     cityInput.value = item.city_name_he;
-                    this.chosenCity = item.city_name_he
+                    this.chosenCity = item.city_name_he;
+                    this.cityWasEdited = false
                   "
                   *ngFor="let item of this.$cityOptions"
                 >
