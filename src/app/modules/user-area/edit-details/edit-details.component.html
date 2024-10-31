@@ -158,21 +158,15 @@
                 #cityInput
                 id="CityInput"
                 formControlName="city"
-                [value]="this.$user?.city"
+                [ngModel]="chosenCity"
                 placeholder="הזינו טקסט"
                 autocomplete="off"
                 (input)="
-                  $user ? ($user.city = cityInput.value) : null;
-                  streetInput.value =
-                    cityInput.value.length > 0 ? streetInput.value : '';
-                  this.chosenCity =
-                    cityInput.value.length > 0 ? this.chosenCity : '';
-                  this.chosenStreet =
-                    cityInput.value.length > 0 ? streetInput.value : '';
-                  houseNumberInput.value =
-                    cityInput.value.length > 0 ? houseNumberInput.value : '';
                   this.serchCity(cityInput.value);
-                  this.resetUserAddress(cityInput.value, streetInput.value)
+                  this.chosenCity = cityInput.value
+                "
+                (keyup)="
+                  this.resetUserAddress(this.checkIfValidCity(chosenCity))
                 "
                 (focus)="this.isCityDropdownHidden = true"
                 type="text"
@@ -210,58 +204,36 @@
             <div class="house-number">
               <div class="input-box">
                 <label for="">רחוב*</label>
-
+                @if(this.checkIfValidCity(chosenCity)){
                 <input
                   id="street"
                   formControlName="street"
                   #streetInput
                   autocomplete="off"
                   placeholder="הזינו טקסט"
-                  [readonly]="!this.checkIfValidCity(cityInput.value)"
+                  [ngModel]="chosenStreet"
                   (focus)="this.isStreetDropdownHidden = true"
                   class="md"
                   [value]="this.$user?.street"
                   (input)="
-                    $user ? ($user.street = streetInput.value) : null;
                     this.serchStreet(streetInput.value);
-                    houseNumberInput.value =
-                      streetInput.value.length > 0
-                        ? houseNumberInput.value
-                        : '';
-                    this.chosenHouseNumber = !this.checkIfValidStreet(
-                      streetInput.value
-                    )
-                      ? this.chosenHouseNumber
-                      : 0
+                    this.chosenStreet = streetInput.value
                   "
-                  [ngStyle]="{
-                    borderColor: $updatedUser.get('street')?.invalid
-                      ? '#ff2a2b'
-                      : '#cccccc',
-                    backgroundColor: this.checkIfValidCity(cityInput.value)
-                      ? '#FFFFFF'
-                      : '#F8F8F8',
-                    cursor: this.checkIfValidCity(cityInput.value)
-                      ? 'auto'
-                      : 'not-allowed'
-                  }"
                   type="text"
                 />
-                <div
-                  *ngIf="$updatedUser.get('street')?.invalid"
-                  class="error-message"
-                >
+                <div *ngIf="this.InvalidStreet" class="error-message">
                   רחוב הוא שדה חובה
                 </div>
-                @if(this.isStreetDropdownHidden && streetInput.value.length >
-                0){
+                } @else {
+                <div class="md invalid-input">הזינו טקסט</div>
+                } @if(this.isStreetDropdownHidden && chosenStreet.length > 0){
                 <span id="street-option-dropdown" class="select-options">
                   <div
                     id="street-option"
                     #streetOption
                     (click)="
                       this.isStreetDropdownHidden = false;
-                      streetInput.value = item.Street_Name;
+                      this.chosenStreet = item.Street_Name;
                       this.chosenStreet = item.Street_Name
                     "
                     *ngFor="let item of this.$streetsOptions"
@@ -274,45 +246,34 @@
 
               <div class="input-box">
                 <label for="">מספר בית*</label>
+                @if(this.checkIfValidStreet(chosenStreet)){
+
                 <input
                   formControlName="houseNumber"
                   #houseNumberInput
                   placeholder="הזינו טקסט"
                   class="sm"
-                  [value]="
-                    this.checkIfValidStreet(streetInput.value)
-                      ? this.$user?.houseNumber
-                      : ''
-                  "
-                  [readonly]="!this.checkIfValidStreet(streetInput.value)"
+                  [ngModel]="chosenHouseNumber"
                   type="text"
                   (input)="
-                    $user
-                      ? ($user.houseNumber = +houseNumberInput.value)
-                      : null;
-                    houseNumberInput.value =
-                      +houseNumberInput.value > 0 ? houseNumberInput.value : ''
+                    this.InvalidHouseNumber =
+                      +houseNumberInput.value > 0 ? false : true
                   "
                   [ngStyle]="{
-                    borderColor: $updatedUser.get('houseNumber')?.invalid
-                      ? '#ff2a2b'
-                      : '#cccccc',
-                    backgroundColor: this.checkIfValidStreet(streetInput.value)
-                      ? '#FFFFFF'
-                      : '#F8F8F8',
-                    cursor: this.checkIfValidStreet(streetInput.value)
-                      ? 'auto'
-                      : 'not-allowed'
+                    borderColor: this.InvalidHouseNumber ? '#ff2a2b' : '#cccccc'
                   }"
                   type="text"
                 />
                 <div
                   style="width: 70px; flex-wrap: wrap"
-                  *ngIf="$updatedUser.get('houseNumber')?.invalid"
+                  *ngIf="InvalidHouseNumber"
                   class="error-message"
                 >
                   מספר בית הוא שדה חובה
                 </div>
+                } @else{
+                <div class="sm invalid-input">הזינ</div>
+                }
               </div>
             </div>
           </div>

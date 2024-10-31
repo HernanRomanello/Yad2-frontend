@@ -8,12 +8,7 @@ import {
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import {
-  FormBuilder,
-  FormGroup,
-  PatternValidator,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   state,
   trigger,
@@ -66,7 +61,12 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   $streetsOptions: Street[] = [];
   chosenCity: string = '';
   chosenStreet: string = '';
-  chosenHouseNumber: number = 0;
+  chosenHouseNumber: string = '';
+  InvalidCity: boolean = false;
+  InvalidStreet: boolean = false;
+  InvalidHouseNumber: boolean = false;
+  validCityCharcters: number = 0;
+  cityWasEdited: boolean = false;
 
   constructor(
     private userService: AuthService,
@@ -120,7 +120,8 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       });
       this.chosenCity = this.$user?.city || '';
       this.chosenStreet = this.$user?.street || '';
-      this.chosenHouseNumber = this.$user?.houseNumber || 0;
+      this.chosenHouseNumber = this.$user?.houseNumber.toString() || '';
+      this.validCityCharcters = this.$user?.city?.length || 0;
     });
     this.cityListService.getCityList().subscribe((cities) => {
       this.$cities = cities;
@@ -206,10 +207,18 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     return phoneNumber;
   }
 
-  resetUserAddress(validCity: string, validStreet: string): void {
-    // this.$updatedUser.controls.street.setValue('');
-  }
+  resetUserAddress(validCity: boolean): void {
+    if (!validCity && !this.cityWasEdited) {
+      this.$updatedUser.controls.street.setValue('');
+      this.$updatedUser.controls.houseNumber.setValue('');
 
+      this.chosenStreet = '';
+      this.chosenCity = '';
+      this.chosenHouseNumber = '';
+      this.$updatedUser.controls.city.setValue('');
+      this.cityWasEdited = true;
+    }
+  }
   updateUserDetails(): void {
     if (!this.$user) {
       return;

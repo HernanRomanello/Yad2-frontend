@@ -1,4 +1,28 @@
-div .autocomplete-grid_content__lj_JZ autocomplete_roundedDropdown__D5zlV {
+  [ngStyle]="{
+                    borderColor: $updatedUser.get('houseNumber')?.invalid
+                      ? '#ff2a2b'
+                      : '#cccccc',
+                    backgroundColor: this.checkIfValidStreet(streetInput.value)
+                      ? '#FFFFFF'
+                      : '#F8F8F8',
+                    cursor: this.checkIfValidStreet(streetInput.value)
+                      ? 'auto'
+                      : 'not-allowed'
+                  }"
+
+				    [ngStyle]="{
+                    borderColor: $updatedUser.get('street')?.invalid
+                      ? '#ff2a2b'
+                      : '#cccccc',
+                    backgroundColor: this.checkIfValidCity(cityInput.value)
+                      ? '#FFFFFF'
+                      : '#F8F8F8',
+                    cursor: this.checkIfValidCity(cityInput.value)
+                      ? 'auto'
+                      : 'not-allowed'
+                  }"
+
+				  div .text-field_box__OSyqV text-field_disabled__IgMEV text-field_default-size-small__jUD6R extended-text-fields_inputWithIcon__GsvXa {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -7,7 +31,7 @@ div .autocomplete-grid_content__lj_JZ autocomplete_roundedDropdown__D5zlV {
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: 21px;
-	text-decoration: none solid rgb(54, 54, 54);
+	text-decoration: none solid rgb(178, 178, 178);
 	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,37 +41,37 @@ div .autocomplete-grid_content__lj_JZ autocomplete_roundedDropdown__D5zlV {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(248, 248, 248);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(178, 178, 178);
 
 	/* Box */
-	height: 214px;
-	width: 283px;
-	border: 0px solid rgb(229, 231, 235);
-	border-top: 0px solid rgb(229, 231, 235);
-	border-right: 0px solid rgb(229, 231, 235);
-	border-bottom: 0px solid rgb(229, 231, 235);
-	border-left: 0px solid rgb(229, 231, 235);
-	margin: 8px 0px 0px;
-	padding: 2px 0px;
+	height: 44px;
+	width: 200px;
+	border: 1px solid rgb(178, 178, 178);
+	border-top: 1px solid rgb(178, 178, 178);
+	border-right: 1px solid rgb(178, 178, 178);
+	border-bottom: 1px solid rgb(178, 178, 178);
+	border-left: 1px solid rgb(178, 178, 178);
+	margin: 0px;
+	padding: 0px 11px;
 	max-height: none;
-	min-height: 0px;
+	min-height: auto;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
-	position: absolute;
-	top: 68px;
-	bottom: -222px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
-	z-index: 50;
+	z-index: auto;
 
 	/* List */
 	list-style-image: none;
@@ -62,13 +86,13 @@ div .autocomplete-grid_content__lj_JZ autocomplete_roundedDropdown__D5zlV {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: hidden auto;
-	cursor: auto;
+	overflow: hidden;
+	cursor: not-allowed;
 	visibility: visible;
 
 	/* Effects */
 	transform: none;
-	transition: all;
+	transition: border-color 0.2s;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
 	box-sizing: border-box;
@@ -76,7 +100,7 @@ div .autocomplete-grid_content__lj_JZ autocomplete_roundedDropdown__D5zlV {
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 12px 0px;
+	box-shadow: none;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 	border-bottom-left-radius: 4px;
