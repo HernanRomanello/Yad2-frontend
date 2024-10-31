@@ -219,14 +219,21 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       this.cityWasEdited = true;
     }
   }
+  checkIfAddressIsValid(): boolean {
+    return (
+      this.checkIfValidCity(this.chosenCity) &&
+      this.checkIfValidStreet(this.chosenStreet) &&
+      +this.chosenHouseNumber > 0
+    );
+  }
   updateUserDetails(): void {
-    if (!this.$user) {
+    if (!this.$user || !this.checkIfAddressIsValid()) {
       return;
     }
 
-    if (!this.checkIfValidStreet(this.chosenStreet)) {
-      this.$updatedUser.controls.houseNumber.setValue('');
-    }
+    this.$user.city = this.chosenCity;
+    this.$user.street = this.chosenStreet;
+    this.$user.houseNumber = +this.chosenHouseNumber;
     // this.$updatedUser.controls.houseNumber.setValue('');
 
     if (this.$updatedUser.invalid) {

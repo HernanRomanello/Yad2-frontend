@@ -171,7 +171,7 @@
                 (focus)="this.isCityDropdownHidden = true"
                 type="text"
                 [ngStyle]="{
-                  borderColor: $updatedUser.get('city')?.invalid
+                  borderColor: !this.checkIfValidCity(chosenCity)
                     ? '#ff2a2b'
                     : '#cccccc'
                 }"
@@ -179,7 +179,7 @@
               />
 
               <div
-                *ngIf="$updatedUser.get('city')?.invalid"
+                *ngIf="!this.checkIfValidCity(chosenCity)"
                 class="error-message"
               >
                 ישוב/עיר הוא שדה חובה
@@ -258,7 +258,8 @@
                   type="text"
                   (input)="
                     this.InvalidHouseNumber =
-                      +houseNumberInput.value > 0 ? false : true
+                      +houseNumberInput.value > 0 ? false : true;
+                    this.chosenHouseNumber = houseNumberInput.value
                   "
                   [ngStyle]="{
                     borderColor: this.InvalidHouseNumber ? '#ff2a2b' : '#cccccc'
