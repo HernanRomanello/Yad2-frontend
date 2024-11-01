@@ -1,7 +1,14 @@
+@if(this.isModalVisible){
+
 <div class="overlay">
   <div class="upload-image-modal">
     <div class="select-new-image">
-      <img id="exit-btn" src="assets/images/close--svgrepo-com.svg" alt="" />
+      <img
+        (click)="this.isModalVisible = false"
+        id="exit-btn"
+        src="assets/images/close--svgrepo-com.svg"
+        alt=""
+      />
       <div class="select-new-image-body">
         <div style="font-size: 24px; font-weight: 500; text-align: right">
           בחירת תמונה חדשה
@@ -13,10 +20,17 @@
           </div>
         </div>
         <div class="btns">
-          <button>עדכון</button>
+          <button
+            class="update-btn"
+            style="background-color: #eeeeee; color: #cccccc; font-weight: 500"
+            disabled="true"
+          >
+            עדכון
+          </button>
           <button class="cancel-btn">ביטול</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+}

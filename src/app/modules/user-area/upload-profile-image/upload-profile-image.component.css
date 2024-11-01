@@ -12,6 +12,10 @@
   border-radius: 10px;
 }
 
+div {
+  word-spacing: -0.1em;
+}
+
 .cancel-btn,
 .upload-image-modal {
   background-color: rgb(255, 255, 255) !important;
@@ -37,6 +41,10 @@
   justify-content: center;
 }
 
+.upload-image div {
+  gap: 0.5rem;
+}
+
 .btns {
   display: flex;
   justify-content: space-between;
@@ -56,7 +64,7 @@
 
 button {
   line-height: 21px;
-
+  font-size: 14px !important;
   height: 42px;
   width: 182px;
   border: none;
