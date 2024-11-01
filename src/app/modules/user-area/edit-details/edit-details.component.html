@@ -33,7 +33,7 @@
         </div>
         @if(this.isProfileImageModal){
         <app-upload-profile-image
-          (modalVisibilityChange)="this.isProfileImageModal = false"
+          (modalVisibilityChange)="this.isProfileImageModal = $event"
           style="direction: ltr"
         ></app-upload-profile-image>
         }

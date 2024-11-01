@@ -85,7 +85,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       }
       if (target.id !== 'edit-image' && target.id !== 'edit-img') {
         this.isProfileImageDropdownHidden = false;
-        // this.isProfileImageModal = false;
       }
     });
   }

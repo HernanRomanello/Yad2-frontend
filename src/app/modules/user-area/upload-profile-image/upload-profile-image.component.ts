@@ -12,14 +12,17 @@ export class UploadProfileImageComponent {
     this.modalVisibilityChange.emit(false);
   }
 
-  clickInsideModal(event: Event) {
-    event.stopPropagation();
-  }
   constructor() {
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
-      if (target.id !== 'exit-btn') {
-        alert('You clicked outside the modal');
+      if (target && target.id !== 'edit-img') {
+        const backgroundColor = window.getComputedStyle(target).backgroundColor;
+        if (
+          backgroundColor !== 'rgba(0, 0, 0, 0)' &&
+          backgroundColor !== 'rgb(255, 255, 255)'
+        ) {
+          this.closeModal();
+        }
       }
     });
   }

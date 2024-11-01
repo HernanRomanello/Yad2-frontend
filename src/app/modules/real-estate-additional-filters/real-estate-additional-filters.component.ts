@@ -121,7 +121,6 @@ export class RealEstateAdditionalFiltersComponent {
   }
 
   applyFilters() {
-    // alert('Filters applied');
     let filters = {
       ...this.filters,
       aptSizeRange: this.aptSizeRange,
