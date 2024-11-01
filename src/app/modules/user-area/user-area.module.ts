@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PhoneNumberFormatPipe } from '../../pipes/phone-number-format.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UploadProfileImageComponent } from './upload-profile-image/upload-profile-image.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LastSearchesComponent,
     TipsInformationComponent,
     PhoneNumberFormatPipe,
+    UploadProfileImageComponent,
   ],
   imports: [
     CommonModule,
