@@ -48,6 +48,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   isCityDropdownHidden = false;
   isStreetDropdownHidden = false;
   isProfileImageDropdownHidden = false;
+  isProfileImageModal = false;
   @ViewChild('successLoader', { static: false }) successLoader:
     | ElementRef
     | undefined;
@@ -82,10 +83,15 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       if (target.id !== 'street') {
         this.isStreetDropdownHidden = false;
       }
-      if (target.id !== 'edit-image') {
+      if (target.id !== 'edit-image' && target.id !== 'edit-img') {
         this.isProfileImageDropdownHidden = false;
+        // this.isProfileImageModal = false;
       }
     });
+  }
+
+  toogleImageModal(event: any) {
+    this.isProfileImageModal = event;
   }
 
   unloadSuccessLoader(): void {

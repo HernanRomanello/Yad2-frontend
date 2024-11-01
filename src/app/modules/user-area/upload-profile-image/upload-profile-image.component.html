@@ -1,10 +1,8 @@
-@if(this.isModalVisible){
-
 <div class="overlay">
   <div class="upload-image-modal">
     <div class="select-new-image">
       <img
-        (click)="this.isModalVisible = false"
+        (click)="this.closeModal()"
         id="exit-btn"
         src="assets/images/close--svgrepo-com.svg"
         alt=""
@@ -33,4 +31,3 @@
     </div>
   </div>
 </div>
-}

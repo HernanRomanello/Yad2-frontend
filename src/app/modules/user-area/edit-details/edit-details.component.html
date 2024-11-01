@@ -19,14 +19,21 @@
             />
           </div>
           @if(this.isProfileImageDropdownHidden){
-          <div class="upload-profile-image">
-            <div class="upload-profile-image-text">בחירת תמונה חדשה</div>
+          <div id="btns" class="upload-profile-image">
+            <div
+              id="edit-img"
+              (click)="this.isProfileImageModal = true"
+              class="upload-profile-image-text"
+            >
+              בחירת תמונה חדשה
+            </div>
             <div class="upload-profile-image-text">מחיקת תמונה</div>
           </div>
           }
         </div>
-        @if(false){
+        @if(this.isProfileImageModal){
         <app-upload-profile-image
+          (modalVisibilityChange)="this.isProfileImageModal = false"
           style="direction: ltr"
         ></app-upload-profile-image>
         }
