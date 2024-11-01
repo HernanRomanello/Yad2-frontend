@@ -1,28 +1,4 @@
-  [ngStyle]="{
-                    borderColor: $updatedUser.get('houseNumber')?.invalid
-                      ? '#ff2a2b'
-                      : '#cccccc',
-                    backgroundColor: this.checkIfValidStreet(streetInput.value)
-                      ? '#FFFFFF'
-                      : '#F8F8F8',
-                    cursor: this.checkIfValidStreet(streetInput.value)
-                      ? 'auto'
-                      : 'not-allowed'
-                  }"
-
-				    [ngStyle]="{
-                    borderColor: $updatedUser.get('street')?.invalid
-                      ? '#ff2a2b'
-                      : '#cccccc',
-                    backgroundColor: this.checkIfValidCity(cityInput.value)
-                      ? '#FFFFFF'
-                      : '#F8F8F8',
-                    cursor: this.checkIfValidCity(cityInput.value)
-                      ? 'auto'
-                      : 'not-allowed'
-                  }"
-
-				  div .text-field_box__OSyqV text-field_disabled__IgMEV text-field_default-size-small__jUD6R extended-text-fields_inputWithIcon__GsvXa {
+li {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -31,8 +7,8 @@
 	font-weight: 400;
 	letter-spacing: normal;
 	line-height: 21px;
-	text-decoration: none solid rgb(178, 178, 178);
-	text-align: start;
+	text-decoration: none solid rgb(54, 54, 54);
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -41,26 +17,26 @@
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(248, 248, 248);
+	background-color: rgb(249, 249, 249);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(178, 178, 178);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 44px;
-	width: 200px;
-	border: 1px solid rgb(178, 178, 178);
-	border-top: 1px solid rgb(178, 178, 178);
-	border-right: 1px solid rgb(178, 178, 178);
-	border-bottom: 1px solid rgb(178, 178, 178);
-	border-left: 1px solid rgb(178, 178, 178);
+	height: 31px;
+	width: 148px;
+	border: 0px solid rgb(229, 231, 235);
+	border-top: 0px solid rgb(229, 231, 235);
+	border-right: 0px solid rgb(229, 231, 235);
+	border-bottom: 0px solid rgb(229, 231, 235);
+	border-left: 0px solid rgb(229, 231, 235);
 	margin: 0px;
-	padding: 0px 11px;
+	padding: 5px 15px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -69,13 +45,13 @@
 	right: auto;
 	left: auto;
 	float: none;
-	display: flex;
+	display: list-item;
 	clear: none;
 	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: disc;
+	list-style-type: none;
 	list-style-position: outside;
 
 	/* Table */
@@ -86,13 +62,13 @@
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: hidden;
-	cursor: not-allowed;
+	overflow: visible;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
 	transform: none;
-	transition: border-color 0.2s;
+	transition: all;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
 	box-sizing: border-box;
@@ -101,8 +77,8 @@
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }

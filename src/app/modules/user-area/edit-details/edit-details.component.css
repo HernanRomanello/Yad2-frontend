@@ -2,6 +2,10 @@
   direction: rtl;
 }
 
+div {
+  word-spacing: -0.12em !important;
+}
+
 div,
 button,
 form {
@@ -35,7 +39,9 @@ button {
 .right-side,
 .input-box,
 .birthday-card div,
-.address-part {
+.address-part,
+.address-label,
+.upload-profile-image {
   flex-direction: column;
 }
 
@@ -67,7 +73,9 @@ button {
 .cancel-btn,
 #city-option,
 .success-loader,
-#street-option {
+#street-option,
+.upload-profile-image-text,
+.upload-profile-image {
   background-color: #ffffff;
 }
 
@@ -169,7 +177,8 @@ button {
 button,
 .success-modal img,
 #city-option,
-#street-option {
+#street-option,
+.upload-profile-image-text {
   cursor: pointer;
 }
 .circle {
@@ -325,8 +334,16 @@ button,
 .circle,
 .success-modal,
 .success-loader,
-.select-options {
+.select-options,
+.upload-profile-image {
   position: absolute;
+}
+
+.upload-profile-image-text {
+  color: #363636 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  width: 100px !important;
 }
 
 #street-option-dropdown {
@@ -348,4 +365,29 @@ button,
   padding: 0.5rem 1.5rem;
   border: solid 1px #cccccc;
   border-radius: 4px;
+}
+
+.upload-profile-image-text:hover {
+  background-color: rgb(249, 249, 249);
+}
+.upload-profile-image-text {
+  height: 31px;
+  width: 100%;
+}
+
+.upload-profile-image {
+  height: fit-content !important;
+  padding: 0.5rem 0;
+}
+.upload-profile-image {
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.125) 0px 3px 8px;
+}
+
+.upload-profile-image {
+  transform: translateY(132%) translateX(15%);
+}
+.upload-profile-image-text {
+  width: 148px !important;
+  padding: 5px 15px;
 }

@@ -5,10 +5,31 @@
       <div class="left-side">
         <div class="upload-user-img purple-circle">
           <div class="user-name">שם</div>
-          <div class="circle">
-            <img src="assets/images/edit-svgrepo-com.svg" alt="" />
+          <div
+            (click)="
+              this.isProfileImageDropdownHidden =
+                !this.isProfileImageDropdownHidden
+            "
+            class="circle"
+          >
+            <img
+              id="edit-image"
+              src="assets/images/edit-svgrepo-com.svg"
+              alt=""
+            />
           </div>
+          @if(this.isProfileImageDropdownHidden){
+          <div class="upload-profile-image">
+            <div class="upload-profile-image-text">בחירת תמונה חדשה</div>
+            <div class="upload-profile-image-text">מחיקת תמונה</div>
+          </div>
+          }
         </div>
+        @if(false){
+        <app-upload-profile-image
+          style="direction: ltr"
+        ></app-upload-profile-image>
+        }
       </div>
       <form
         [formGroup]="$updatedUser"
