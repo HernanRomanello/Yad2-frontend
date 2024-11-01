@@ -1,6 +1,4 @@
 .upload-image-modal {
-  background-color: rgb(255, 255, 255);
-
   height: 460px;
   width: 480px;
   margin: 139.5px 480px;
@@ -12,6 +10,11 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 
   border-radius: 10px;
+}
+
+.cancel-btn,
+.upload-image-modal {
+  background-color: rgb(255, 255, 255) !important;
 }
 
 .overlay {
@@ -27,14 +30,28 @@
 
 .overlay,
 .upload-image,
-.upload-image div {
+.upload-image div,
+.select-new-image-body {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.upload-image div {
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-image div,
+.select-new-image-body {
   flex-direction: column;
+}
+.select-new-image-body {
+  gap: 2.5rem;
+}
+
+.select-new-image-body {
+  transform: translateY(-4px);
 }
 
 button {
@@ -58,8 +75,8 @@ button {
   width: 456px;
 }
 
-.select-new-image div {
-  width: 100%;
+.select-new-image-body div {
+  width: 386px;
 }
 
 .upload-image {
@@ -69,4 +86,16 @@ button {
   width: 386px !important;
   border: 2px dashed rgb(204, 204, 204);
   border-radius: 10px;
+}
+
+.cancel-btn {
+  border: solid 1px #cccccc;
+}
+.cancel-btn:hover {
+  border: solid 1px #999999;
+}
+
+button,
+#exit-btn {
+  cursor: pointer;
 }
