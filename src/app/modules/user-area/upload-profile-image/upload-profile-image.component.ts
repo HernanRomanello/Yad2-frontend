@@ -26,4 +26,11 @@ export class UploadProfileImageComponent {
       }
     });
   }
+
+  uploadProfileImage() {
+    const imageInput = document.getElementById('file') as HTMLInputElement;
+    if (imageInput) {
+      imageInput.click();
+    }
+  }
 }

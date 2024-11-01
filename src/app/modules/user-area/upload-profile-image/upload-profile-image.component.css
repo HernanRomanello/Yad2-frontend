@@ -107,3 +107,7 @@ button,
 #exit-btn {
   cursor: pointer;
 }
+
+#file {
+  transform: translateX(-200px);
+}
