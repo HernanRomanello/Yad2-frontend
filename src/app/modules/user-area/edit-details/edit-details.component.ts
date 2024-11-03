@@ -21,6 +21,8 @@ import {
   City,
   Street,
 } from '../../../services/city-list.service';
+import { ImageuploadService } from '../../../services/imageupload.service';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-edit-details',
@@ -46,6 +48,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   successMessageVisible: boolean = false;
   modalState: 'in' | 'out' = 'out';
   isCityDropdownHidden = false;
+
   isStreetDropdownHidden = false;
   isProfileImageDropdownHidden = false;
   isProfileImageModal = false;
@@ -69,13 +72,14 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   InvalidHouseNumber: boolean = false;
   validCityCharcters: number = 0;
   cityWasEdited: boolean = false;
-  profileImageURL: string = 'https://localhost:7211/uploads/12.jpeg';
+  profileImageURL: string = '';
   profileImage: File | null = null;
 
   constructor(
     private userService: AuthService,
     private formBuilder: FormBuilder,
-    private cityListService: CityListService
+    private cityListService: CityListService,
+    private imageuploadService: ImageuploadService
   ) {
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
@@ -116,6 +120,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       this.$user = user;
       this.phoneNumber =
         user?.phoneNumber?.slice(0, 3) + '-' + user?.phoneNumber?.slice(3, 10);
+      this.profileImageURL = user?.picture || '';
+      console.log(this.profileImageURL);
+
       this.$updatedUser = this.formBuilder.group({
         name: [this.$user?.name, [Validators.required]],
         lastName: [this.$user?.lastName, [Validators.required]],
@@ -143,14 +150,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   }
 
   uploadProfileImage(file: any) {
-    // console.log(file);
-    // console.log(this.profileImageURL);
-    alert('uploadProfileImage');
     if (file) {
       this.profileImage = file;
       this.profileImageURL = URL.createObjectURL(file);
-      console.log(file);
-      console.log(this.profileImageURL);
     }
   }
 
@@ -274,23 +276,35 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     this.$user.houseNumber = +this.chosenHouseNumber;
 
     if (this.$updatedUser.valid) {
-      const validAddress =
-        this.checkIfValidCity(this.chosenCity) &&
-        this.checkIfValidStreet(this.chosenStreet);
-      if (this.$user.phoneNumber && validAddress) {
-        this.$user.phoneNumber = this.$user.phoneNumber.replace('-', '');
-        this.userService.updateUserDetails(this.$user);
-        this.successMessageVisible = true;
-        this.modalState = 'in';
+      // console.log(this.profileImage?.size);
 
-        setTimeout(() => {
-          this.modalState = 'out';
-        }, 12000);
-
-        setTimeout(() => {
-          this.successMessageVisible = false;
-        }, 13900);
+      if (this.profileImage) {
+        // this.
+        this.imageuploadService.uploadImage(this.profileImage);
+        this.$user.picture =
+          environment.URl + 'uploads/' + this.profileImage.name;
+        alert(this.$user.picture);
+        // alert(this.$user.picture);
       }
+
+      // this.userService.updateProfileImage(this.profileImage
+    }
+    const validAddress =
+      this.checkIfValidCity(this.chosenCity) &&
+      this.checkIfValidStreet(this.chosenStreet);
+    if (this.$user.phoneNumber && validAddress) {
+      this.$user.phoneNumber = this.$user.phoneNumber.replace('-', '');
+      this.userService.updateUserDetails(this.$user);
+      this.successMessageVisible = true;
+      this.modalState = 'in';
+
+      setTimeout(() => {
+        this.modalState = 'out';
+      }, 12000);
+
+      setTimeout(() => {
+        this.successMessageVisible = false;
+      }, 13900);
     }
   }
 }

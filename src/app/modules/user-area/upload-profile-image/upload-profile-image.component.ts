@@ -42,7 +42,6 @@ export class UploadProfileImageComponent {
 
     console.log(image);
     if (image) {
-      alert('Image uploaded');
       const imageURL = URL.createObjectURL(image);
       this.imageChange.emit(image);
       this.imageUrl.emit(imageURL);
