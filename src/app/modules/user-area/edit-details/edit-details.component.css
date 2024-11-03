@@ -391,3 +391,7 @@ button,
   width: 148px !important;
   padding: 5px 15px;
 }
+
+#profile-img {
+  object-fit: cover !important;
+}

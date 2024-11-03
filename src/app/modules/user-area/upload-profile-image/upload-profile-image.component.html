@@ -15,7 +15,7 @@
           <div>
             <img
               id="image-input"
-              (click)="uploadProfileImage()"
+              (click)="openImageUpload()"
               src="assets/images/media_uploads.svg"
               alt=""
             />
@@ -38,4 +38,10 @@
   </div>
 </div>
 
-<input placeholder="" id="file" *ngIf="true" type="file" />
+<input
+  #imsge
+  (change)="uploadProfileImage($event)"
+  placeholder=""
+  id="file"
+  type="file"
+/>

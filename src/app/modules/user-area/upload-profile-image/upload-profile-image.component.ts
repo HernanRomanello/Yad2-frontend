@@ -7,6 +7,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class UploadProfileImageComponent {
   @Output() modalVisibilityChange = new EventEmitter<boolean>();
+  @Output() imageChange = new EventEmitter<File>();
+  @Output() imageUrl = new EventEmitter<string>();
 
   closeModal() {
     this.modalVisibilityChange.emit(false);
@@ -27,10 +29,23 @@ export class UploadProfileImageComponent {
     });
   }
 
-  uploadProfileImage() {
+  openImageUpload() {
     const imageInput = document.getElementById('file') as HTMLInputElement;
     if (imageInput) {
       imageInput.click();
+    }
+  }
+
+  uploadProfileImage(file: Event) {
+    const target = file.target as HTMLInputElement;
+    const image = target.files ? target.files[0] : null;
+
+    console.log(image);
+    if (image) {
+      alert('Image uploaded');
+      const imageURL = URL.createObjectURL(image);
+      this.imageChange.emit(image);
+      this.imageUrl.emit(imageURL);
     }
   }
 }

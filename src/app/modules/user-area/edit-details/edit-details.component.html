@@ -4,7 +4,17 @@
     <div class="user-form">
       <div class="left-side">
         <div class="upload-user-img purple-circle">
+          @if(false){
+
           <div class="user-name">שם</div>
+          } @else {
+          <img
+            id="profile-img"
+            class="upload-user-img purple-circle"
+            [src]="this.profileImageURL"
+            alt=""
+          />
+          }
           <div
             (click)="
               this.isProfileImageDropdownHidden =
@@ -34,6 +44,8 @@
         @if(this.isProfileImageModal){
         <app-upload-profile-image
           (modalVisibilityChange)="this.isProfileImageModal = $event"
+          (imageChange)="this.uploadProfileImage($event)"
+          (imageUrl)="this.profileImageURL = $event"
           style="direction: ltr"
         ></app-upload-profile-image>
         }

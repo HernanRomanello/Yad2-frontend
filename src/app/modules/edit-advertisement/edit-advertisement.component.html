@@ -693,7 +693,7 @@
       </div>
       <div class="main-images-container">
         <div class="video-upload">
-          <div class="card-content" (click)="openFileUploading('video')">
+          <div class="card-content">
             <div class="camara-image-container">
               <div>
                 <img
@@ -730,7 +730,6 @@
           @if((!this.imagesURlWasDeleted[0]) ){
           <div
             class="image-btns"
-            (click)="openFileUploading('pictures')"
             (mouseenter)="hideImageOnHover(0, '', this.imagesURlWasDeleted[0])"
           >
             <div class="image-btn-circle">
@@ -764,11 +763,7 @@
             תמונות ראשית
           </div>
 
-          <div
-            id="main-image-frame"
-            class="upload-img-card"
-            (click)="openFileUploading('pictures')"
-          >
+          <div id="main-image-frame" class="upload-img-card">
             @if(this.imagesURLs[0] === '' ){
             <div class="camara-image-container">
               <div>
@@ -825,7 +820,6 @@
             this.ImagesThatCanEdit[index +1] ){
             <div
               class="image-btns image-card-container"
-              (click)="openFileUploading('pictures')"
               (mouseenter)="
                 hideImageOnHover(
                   index + 1,
@@ -863,11 +857,7 @@
               "
             ></div>
 
-            <div
-              id=""
-              class="upload-img-card ad-card-container dashed-frame"
-              (click)="openFileUploading('pictures')"
-            >
+            <div id="" class="upload-img-card ad-card-container dashed-frame">
               @if(this.imagesURLs[index + 1] === '' ){
               <div class="camara-image-container">
                 <div>

@@ -69,6 +69,8 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   InvalidHouseNumber: boolean = false;
   validCityCharcters: number = 0;
   cityWasEdited: boolean = false;
+  profileImageURL: string = 'https://localhost:7211/uploads/12.jpeg';
+  profileImage: File | null = null;
 
   constructor(
     private userService: AuthService,
@@ -138,6 +140,27 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     this.cityListService.getStreetList().subscribe((streets) => {
       this.$streets = streets;
     });
+  }
+
+  uploadProfileImage(file: any) {
+    // console.log(file);
+    // console.log(this.profileImageURL);
+    alert('uploadProfileImage');
+    if (file) {
+      this.profileImage = file;
+      this.profileImageURL = URL.createObjectURL(file);
+      console.log(file);
+      console.log(this.profileImageURL);
+    }
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.file;
+    if (file) {
+      this.profileImage = file;
+    }
+
+    this.profileImageURL = URL.createObjectURL(file);
   }
 
   serchCity(searchQuery: string) {
