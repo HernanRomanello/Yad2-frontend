@@ -275,20 +275,12 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     this.$user.street = this.chosenStreet;
     this.$user.houseNumber = +this.chosenHouseNumber;
 
-    if (this.$updatedUser.valid) {
-      // console.log(this.profileImage?.size);
-
-      if (this.profileImage) {
-        // this.
-        this.imageuploadService.uploadImage(this.profileImage);
-        this.$user.picture =
-          environment.URl + 'uploads/' + this.profileImage.name;
-        alert(this.$user.picture);
-        // alert(this.$user.picture);
-      }
-
-      // this.userService.updateProfileImage(this.profileImage
+    if (this.profileImage && this.profileImage) {
+      this.imageuploadService.uploadImage(this.profileImage);
+      this.$user.picture =
+        environment.URl + 'uploads/' + this.profileImage.name;
     }
+
     const validAddress =
       this.checkIfValidCity(this.chosenCity) &&
       this.checkIfValidStreet(this.chosenStreet);
