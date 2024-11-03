@@ -21,7 +21,8 @@ form {
 
 .purple-circle,
 .circle,
-button {
+button,
+.circle-img {
   align-items: center;
   justify-content: center;
 }
@@ -92,7 +93,9 @@ button {
   margin-left: 10.25rem;
 }
 
-.purple-circle {
+.purple-circle,
+.circle-img,
+.upload-user-img {
   position: relative;
 }
 
@@ -126,7 +129,8 @@ input {
 }
 
 .purple-circle,
-.circle {
+.circle,
+.circle-img {
   border-radius: 50%;
 }
 .purple-circle {
@@ -134,9 +138,13 @@ input {
 
   background-color: rgb(255, 255, 255);
 
+  border: 2px solid rgb(139, 66, 208);
+}
+
+.circle-img,
+.purple-circle {
   height: 118px;
   width: 118px;
-  border: 2px solid rgb(139, 66, 208);
 }
 
 .circle {
@@ -335,7 +343,8 @@ button,
 .success-modal,
 .success-loader,
 .select-options,
-.upload-profile-image {
+.upload-profile-image,
+.circle-img {
   position: absolute;
 }
 
@@ -394,4 +403,9 @@ button,
 
 #profile-img {
   object-fit: cover !important;
+  border: transparent !important;
+}
+
+#edit-image-exist {
+  padding: 0.15rem;
 }

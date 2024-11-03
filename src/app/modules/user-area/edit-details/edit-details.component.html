@@ -3,18 +3,25 @@
     <div class="title">עדכון פרטים</div>
     <div class="user-form">
       <div class="left-side">
-        <div class="upload-user-img purple-circle">
-          @if(false){
-
-          <div class="user-name">שם</div>
-          } @else {
-          <img
-            id="profile-img"
-            class="upload-user-img purple-circle"
-            [src]="this.profileImageURL"
-            alt=""
-          />
-          }
+        @if(true){
+        <div
+          [ngClass]="
+            profileImageURL === ''
+              ? 'upload-user-img purple-circle'
+              : 'upload-user-img'
+          "
+        >
+          <div *ngIf="profileImageURL === ''" class="user-name">שם</div>
+          <div class="user-name">
+            @if(profileImageURL === ''){ שם } @else {
+            <img
+              id="profile-img"
+              class="circle-img"
+              [src]="this.profileImageURL"
+              alt=""
+            />
+            }
+          </div>
           <div
             (click)="
               this.isProfileImageDropdownHidden =
@@ -24,7 +31,11 @@
           >
             <img
               id="edit-image"
-              src="assets/images/edit-svgrepo-com.svg"
+              [src]="
+                profileImageURL === ''
+                  ? 'assets/images/edit-svgrepo-com.svg'
+                  : 'assets/images/edit-1-svgrepo-com.svg'
+              "
               alt=""
             />
           </div>
@@ -41,7 +52,14 @@
           </div>
           }
         </div>
-        @if(this.isProfileImageModal){
+        } @else {
+        <!-- <img
+          id="profile-img"
+          class="upload-user-img circle-img"
+          [src]="this.profileImageURL"
+          alt=""
+        /> -->
+        } @if(this.isProfileImageModal){
         <app-upload-profile-image
           (modalVisibilityChange)="this.isProfileImageModal = $event"
           (imageChange)="this.uploadProfileImage($event)"
