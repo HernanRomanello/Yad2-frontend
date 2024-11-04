@@ -5,12 +5,16 @@
       <div class="left-side">
         <div
           [ngClass]="
-            profileImageURL === ''
+            profileImageURL !== ''
               ? 'upload-user-img purple-circle'
               : 'upload-user-img circle-img'
           "
+          (click)="
+            this.isProfileImageDropdownHidden =
+              !this.isProfileImageDropdownHidden
+          "
         >
-          @if(profileImageURL === ''){
+          @if(profileImageURL !== ''){
           <div class="user-name">שם</div>
           } @else {
           <img
@@ -24,6 +28,25 @@
           <div class="circle">
             <img src="assets/images/edit-1-svgrepo-com.svg" alt="" />
           </div>
+          @if(true){
+          <div id="btns" class="upload-profile-image">
+            <div
+              id="edit-img"
+              (click)="this.isProfileImageModal = true"
+              class="upload-profile-image-text"
+            >
+              בחירת תמונה חדשה
+            </div>
+            <div class="upload-profile-image-text">מחיקת תמונה</div>
+          </div>
+          } @if(this.isProfileImageModal){
+          <app-upload-profile-image
+            (modalVisibilityChange)="this.isProfileImageModal = $event"
+            (imageChange)="this.uploadProfileImage($event)"
+            (imageUrl)="this.profileImageURL = $event"
+            style="direction: ltr"
+          ></app-upload-profile-image>
+          }
         </div>
       </div>
       <form
