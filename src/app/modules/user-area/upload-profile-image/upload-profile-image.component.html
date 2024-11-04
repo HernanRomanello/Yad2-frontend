@@ -38,7 +38,25 @@
     </div>
   </div>
   } @else {
-  <div class="delete-image-modal"></div>
+  <div class="delete-image-modal">
+    <img
+      (click)="this.closeModal()"
+      id="exit-btn"
+      src="assets/images/close--svgrepo-com.svg"
+      alt=""
+    />
+    <div style="direction: rtl" class="delete-image-body">
+      <div class="delete-image-content">
+        <div style="font-size: 20px; font-weight: 500">מחיקת תמונה</div>
+        <div>בטוחים שאתם רוצים למחוק את התמונה?</div>
+      </div>
+      <div>
+        <button>ביטול</button>
+        <button>מחיקה</button>
+      </div>
+    </div>
+  </div>
+
   }
 </div>
 
