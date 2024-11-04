@@ -36,7 +36,9 @@
           <div id="btns" class="upload-profile-image">
             <div
               id="edit-img"
-              (click)="this.isProfileImageModal = true"
+              (click)="
+                this.isProfileImageModal = true; this.deleteImageOption = false
+              "
               class="upload-profile-image-text"
             >
               בחירת תמונה חדשה
