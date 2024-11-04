@@ -89,7 +89,11 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       if (target.id !== 'street') {
         this.isStreetDropdownHidden = false;
       }
-      if (target.id !== 'edit-image' && target.id !== 'edit-img') {
+      if (
+        target.id !== 'edit-image' &&
+        target.id !== 'edit-img' &&
+        target.id !== 'pencil-image'
+      ) {
         this.isProfileImageDropdownHidden = false;
       }
     });

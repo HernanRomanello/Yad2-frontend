@@ -25,10 +25,14 @@
           />
 
           }
-          <div class="circle">
-            <img src="assets/images/edit-1-svgrepo-com.svg" alt="" />
+          <div id="edit-image" class="circle">
+            <img
+              id="pencil-image"
+              src="assets/images/edit-1-svgrepo-com.svg"
+              alt=""
+            />
           </div>
-          @if(true){
+          @if(this.isProfileImageDropdownHidden){
           <div id="btns" class="upload-profile-image">
             <div
               id="edit-img"
