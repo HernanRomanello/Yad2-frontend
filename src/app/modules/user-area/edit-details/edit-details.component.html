@@ -33,7 +33,7 @@
             />
           </div>
           @if(this.isProfileImageDropdownHidden){
-          <div id="btns" class="upload-profile-image">
+          <div id="btns" class="upload-profile-image two-option-potion">
             <div
               id="edit-img"
               (click)="
@@ -43,6 +43,7 @@
             >
               בחירת תמונה חדשה
             </div>
+            @if(this.profileImageURL !== ''){
             <div
               id="delete-img"
               (click)="
@@ -52,6 +53,7 @@
             >
               מחיקת תמונה
             </div>
+            }
           </div>
           } @if(this.isProfileImageModal){
           <app-upload-profile-image
