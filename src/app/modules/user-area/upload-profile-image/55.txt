@@ -1,4 +1,4 @@
-div .select-new-image_dragImageContainer__06D5u {
+div .ReactModal__Content ReactModal__Content--after-open modal_window__nHI6b modal_frame__2Mi9p delete-image_modalContainer__hemaE {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -17,37 +17,37 @@ div .select-new-image_dragImageContainer__06D5u {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 228px;
-	width: 386px;
-	border: 2px dashed rgb(204, 204, 204);
-	border-top: 2px dashed rgb(204, 204, 204);
-	border-right: 2px dashed rgb(204, 204, 204);
-	border-bottom: 2px dashed rgb(204, 204, 204);
-	border-left: 2px dashed rgb(204, 204, 204);
+	height: 229px;
+	width: 459px;
+	border: 0px solid rgb(229, 231, 235);
+	border-top: 0px solid rgb(229, 231, 235);
+	border-right: 0px solid rgb(229, 231, 235);
+	border-bottom: 0px solid rgb(229, 231, 235);
+	border-left: 0px solid rgb(229, 231, 235);
 	margin: 0px;
-	padding: 0px;
+	padding: 12px;
 	max-height: none;
 	min-height: auto;
 	max-width: none;
 	min-width: auto;
 
 	/* Positioning */
-	position: static;
-	top: auto;
-	bottom: auto;
-	right: auto;
-	left: auto;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
-	z-index: auto;
+	z-index: 150;
 
 	/* List */
 	list-style-image: none;
@@ -62,8 +62,8 @@ div .select-new-image_dragImageContainer__06D5u {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
-	cursor: default;
+	overflow: hidden auto;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -76,7 +76,7 @@ div .select-new-image_dragImageContainer__06D5u {
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: none;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px;
