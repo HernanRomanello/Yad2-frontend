@@ -383,9 +383,6 @@ button,
 }
 
 .upload-profile-image {
-  padding-top: 2rem;
-}
-.upload-profile-image {
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -402,7 +399,7 @@ button,
   transform: translateY(182%) translateX(15%);
 }
 .two-option-potion {
-  transform: translateY(127%) translateX(19%);
+  transform: translateY(125%) translateX(19%);
 }
 .upload-profile-image-text {
   width: 148px !important;
@@ -416,4 +413,9 @@ button,
 
 #edit-image-exist {
   padding: 0.15rem;
+}
+
+#delete-img,
+#edit-img {
+  transform: translateY(-1px) !important;
 }
