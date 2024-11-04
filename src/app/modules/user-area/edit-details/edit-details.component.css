@@ -173,9 +173,6 @@ button {
   height: 26px;
   width: 26px;
 }
-.circle img {
-  transform: scale(1.4);
-}
 
 .circle {
   transform: translateX(95%) translateY(70%) rotate(-0deg);

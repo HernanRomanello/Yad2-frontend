@@ -3,70 +3,28 @@
     <div class="title">עדכון פרטים</div>
     <div class="user-form">
       <div class="left-side">
-        @if(true){
         <div
           [ngClass]="
             profileImageURL === ''
               ? 'upload-user-img purple-circle'
-              : 'upload-user-img'
+              : 'upload-user-img circle-img'
           "
         >
-          <div *ngIf="profileImageURL === ''" class="user-name">שם</div>
-          <div class="user-name">
-            @if(profileImageURL === ''){ שם } @else {
-            <img
-              id="profile-img"
-              class="circle-img"
-              [src]="this.profileImageURL"
-              alt=""
-            />
-            }
-          </div>
-          <div
-            (click)="
-              this.isProfileImageDropdownHidden =
-                !this.isProfileImageDropdownHidden
-            "
-            class="circle"
-          >
-            <img
-              id="edit-image"
-              [src]="
-                profileImageURL === ''
-                  ? 'assets/images/edit-svgrepo-com.svg'
-                  : 'assets/images/edit-1-svgrepo-com.svg'
-              "
-              alt=""
-            />
-          </div>
-          @if(this.isProfileImageDropdownHidden){
-          <div id="btns" class="upload-profile-image">
-            <div
-              id="edit-img"
-              (click)="this.isProfileImageModal = true"
-              class="upload-profile-image-text"
-            >
-              בחירת תמונה חדשה
-            </div>
-            <div class="upload-profile-image-text">מחיקת תמונה</div>
-          </div>
+          @if(profileImageURL === ''){
+          <div class="user-name">שם</div>
+          } @else {
+          <img
+            id="profile-img"
+            class="upload-user-img circle-img"
+            [src]="this.profileImageURL"
+            alt=""
+          />
+
           }
+          <div class="circle">
+            <img src="assets/images/edit-1-svgrepo-com.svg" alt="" />
+          </div>
         </div>
-        } @else {
-        <!-- <img
-          id="profile-img"
-          class="upload-user-img circle-img"
-          [src]="this.profileImageURL"
-          alt=""
-        /> -->
-        } @if(this.isProfileImageModal){
-        <app-upload-profile-image
-          (modalVisibilityChange)="this.isProfileImageModal = $event"
-          (imageChange)="this.uploadProfileImage($event)"
-          (imageUrl)="this.profileImageURL = $event"
-          style="direction: ltr"
-        ></app-upload-profile-image>
-        }
       </div>
       <form
         [formGroup]="$updatedUser"
