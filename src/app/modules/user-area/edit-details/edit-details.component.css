@@ -340,8 +340,7 @@ button,
 .success-modal,
 .success-loader,
 .select-options,
-.upload-profile-image,
-.circle-img {
+.upload-profile-image {
   position: absolute;
 }
 
