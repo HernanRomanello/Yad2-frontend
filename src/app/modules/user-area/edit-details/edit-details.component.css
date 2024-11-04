@@ -340,7 +340,9 @@ button,
 .success-modal,
 .success-loader,
 .select-options,
-.upload-profile-image {
+.upload-profile-image,
+.user-name,
+#profile-img {
   position: absolute;
 }
 

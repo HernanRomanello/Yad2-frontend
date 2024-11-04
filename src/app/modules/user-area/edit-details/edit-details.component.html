@@ -5,7 +5,7 @@
       <div class="left-side">
         <div
           [ngClass]="
-            profileImageURL !== ''
+            profileImageURL === ''
               ? 'upload-user-img purple-circle'
               : 'upload-user-img circle-img'
           "
@@ -14,7 +14,7 @@
               !this.isProfileImageDropdownHidden
           "
         >
-          @if(profileImageURL !== ''){
+          @if(profileImageURL === ''){
           <div class="user-name">שם</div>
           } @else {
           <img
