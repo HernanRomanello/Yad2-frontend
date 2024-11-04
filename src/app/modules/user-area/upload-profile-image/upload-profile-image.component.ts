@@ -1,18 +1,21 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-upload-profile-image',
   templateUrl: './upload-profile-image.component.html',
   styleUrl: './upload-profile-image.component.css',
 })
-export class UploadProfileImageComponent {
+export class UploadProfileImageComponent implements OnInit {
   @Output() modalVisibilityChange = new EventEmitter<boolean>();
   @Output() imageChange = new EventEmitter<File>();
   @Output() imageUrl = new EventEmitter<string>();
+  @Input() DeleteImageModal: boolean = false;
 
   closeModal() {
     this.modalVisibilityChange.emit(false);
   }
+
+  ngOnInit() {}
 
   constructor() {
     document.body.addEventListener('click', (event) => {
@@ -21,7 +24,8 @@ export class UploadProfileImageComponent {
         const backgroundColor = window.getComputedStyle(target).backgroundColor;
         if (
           backgroundColor !== 'rgba(0, 0, 0, 0)' &&
-          backgroundColor !== 'rgb(255, 255, 255)'
+          backgroundColor !== 'rgb(255, 255, 255)' &&
+          target.id !== 'delete-img'
         ) {
           this.closeModal();
         }

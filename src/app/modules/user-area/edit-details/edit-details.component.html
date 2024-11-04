@@ -41,10 +41,19 @@
             >
               בחירת תמונה חדשה
             </div>
-            <div class="upload-profile-image-text">מחיקת תמונה</div>
+            <div
+              id="delete-img"
+              (click)="
+                this.isProfileImageModal = true; this.deleteImageOption = true
+              "
+              class="upload-profile-image-text"
+            >
+              מחיקת תמונה
+            </div>
           </div>
           } @if(this.isProfileImageModal){
           <app-upload-profile-image
+            [DeleteImageModal]="deleteImageOption"
             (modalVisibilityChange)="this.isProfileImageModal = $event"
             (imageChange)="this.uploadProfileImage($event)"
             (imageUrl)="this.profileImageURL = $event"

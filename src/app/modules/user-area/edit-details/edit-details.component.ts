@@ -4,6 +4,7 @@ import {
   OnDestroy,
   ViewChild,
   ElementRef,
+  Input,
 } from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
@@ -43,6 +44,7 @@ import { environment } from '../../../../environments/environment.development';
   ],
 })
 export class EditDetailsComponent implements OnInit, OnDestroy {
+  deleteImageOption: boolean = false;
   $user: UserModel | null = null;
   $updatedUser: FormGroup | any;
   successMessageVisible: boolean = false;
@@ -92,7 +94,8 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       if (
         target.id !== 'edit-image' &&
         target.id !== 'edit-img' &&
-        target.id !== 'pencil-image'
+        target.id !== 'pencil-image' &&
+        target.id !== 'delete-img'
       ) {
         this.isProfileImageDropdownHidden = false;
       }
@@ -125,7 +128,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       this.phoneNumber =
         user?.phoneNumber?.slice(0, 3) + '-' + user?.phoneNumber?.slice(3, 10);
       this.profileImageURL = user?.picture || '';
-      console.log(this.profileImageURL);
 
       this.$updatedUser = this.formBuilder.group({
         name: [this.$user?.name, [Validators.required]],
@@ -279,11 +281,15 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     this.$user.street = this.chosenStreet;
     this.$user.houseNumber = +this.chosenHouseNumber;
 
-    if (this.profileImage && this.profileImage) {
+    if (this.profileImage && this.profileImage && this.profileImageURL !== '') {
       this.imageuploadService.uploadImage(this.profileImage);
       this.$user.picture =
         environment.URl + 'uploads/' + this.profileImage.name;
+    } else {
+      this.$user.picture = '';
     }
+
+    console.log(this.$user);
 
     const validAddress =
       this.checkIfValidCity(this.chosenCity) &&
