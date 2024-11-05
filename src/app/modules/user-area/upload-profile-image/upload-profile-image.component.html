@@ -53,8 +53,13 @@
         <div style="font-size: 16px">בטוחים שאתם רוצים למחוק את התמונה?</div>
       </div>
       <div class="delete-btns">
-        <button class="cancel-btn">ביטול</button>
-        <button class="delete-btn">מחיקה</button>
+        <button class="cancel-btn" (click)="this.closeModal()">ביטול</button>
+        <button
+          class="delete-btn"
+          (click)="this.deleteProfileImage(); this.closeModal()"
+        >
+          מחיקה
+        </button>
       </div>
     </div>
   </div>

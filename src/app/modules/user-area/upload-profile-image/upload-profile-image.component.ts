@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class UploadProfileImageComponent implements OnInit {
   @Output() modalVisibilityChange = new EventEmitter<boolean>();
-  @Output() imageChange = new EventEmitter<File>();
+  @Output() imageChange = new EventEmitter<File | null>();
   @Output() imageUrl = new EventEmitter<string>();
   @Input() DeleteImageModal: boolean = false;
 
@@ -31,6 +31,11 @@ export class UploadProfileImageComponent implements OnInit {
         }
       }
     });
+  }
+
+  deleteProfileImage() {
+    this.imageChange.emit(null);
+    this.imageUrl.emit('');
   }
 
   openImageUpload() {
