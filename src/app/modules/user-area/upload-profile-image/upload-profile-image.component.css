@@ -16,8 +16,13 @@ div {
   word-spacing: -0.1em;
 }
 
-.delete-image-content {
+.delete-image-content,
+.delete-btns {
   display: flex;
+}
+
+.delete-btns {
+  gap: 2rem;
 }
 
 .cancel-btn,
@@ -48,8 +53,16 @@ div {
 .delete-image-body {
   align-items: center;
 }
-.delete-image-body div {
-  padding-right: 40px;
+.delete-image-content {
+  padding-right: 26px;
+}
+
+.delete-image-content {
+  transform: translateY(10px);
+}
+.delete-btns {
+  padding-right: 20px;
+  margin-top: 3.25rem;
 }
 
 .upload-image div {
@@ -68,7 +81,7 @@ div {
   flex-direction: column;
 }
 .delete-image-content {
-  gap: 1.75rem !important;
+  gap: 1.5rem !important;
 }
 .select-new-image-body {
   gap: 2.5rem;
@@ -133,11 +146,9 @@ button,
   height: 229px;
   width: 459px;
   padding: 12px;
-
   z-index: 150;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   border-radius: 10px;
-  transform: translateX(-8px);
 }
 
 .delete-btn {
