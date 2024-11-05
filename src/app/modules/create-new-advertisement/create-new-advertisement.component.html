@@ -14,7 +14,8 @@
         (click)="
           setAdvertisementType('עסקים למכירה');
           submitPartOfTheForm(0);
-          isActive('עסקים למכירה')
+          isActive('עסקים למכירה');
+          tets()
         "
         (mouseover)="onMouseOver('עסקים למכירה')"
         (mouseout)="onMouseOver('')"
@@ -268,7 +269,7 @@
             #cityOption
             *ngFor="
               let item of this.cityListService.getFirstsCitiesContainingSubstring(
-                cityList,
+                $cities,
                 cityInput.value,
                 'city_name_he',
                 10
@@ -315,7 +316,7 @@
               let item of this.cityListService.getStreetSuggestions(
                 cityInput.value,
                 streetInput.value,
-                this.cityData,
+                this.$streets,
                 4
               );
               let i = index
@@ -343,6 +344,7 @@
         <div class="input-container">
           <label class="small-text" for="number">מס׳ בית*</label>
           <input
+            autocomplete="off"
             class="input medium center"
             id="number"
             formControlName="number"
@@ -350,15 +352,12 @@
             autocomplete="off"
           />
         </div>
-        <div class="input-container">
-          <!-- <label class="small-text" for="number">מספר דירה</label>
-          <input class="input medium center" placeholder="  מספר דירה" /> -->
-        </div>
       </div>
       <div class="floor-description">
         <div class="input-container">
           <label class="small-text" for="floor">קומה*</label>
           <input
+            autocomplete="off"
             #floorInput
             class="input medium center-placeholder"
             id="floor"
@@ -371,6 +370,7 @@
         <div class="input-container">
           <label class="small-text" for="totalFloors">סה״כ קומות בבניין*</label>
           <input
+            autocomplete="off"
             #totalFloorInput
             class="input medium center-placeholder"
             id="totalFloors"
@@ -864,6 +864,7 @@
       <div class="input-container">
         <label class="small-text" for="houseCommitteePayment">ועד בית</label>
         <input
+          autocomplete="off"
           class="input large"
           id="houseCommitteePayment"
           formControlName="houseCommitteePayment"
@@ -876,6 +877,7 @@
           ארנונה לחודשים</label
         >
         <input
+          autocomplete="off"
           class="input large"
           id="houseCommitteePayment"
           formControlName="municipalityMonthlyPropertyTax"
@@ -888,6 +890,7 @@
       <div class="input-container">
         <label class="small-text" for="builtSquareMeters"> מ״ר בנוי</label>
         <input
+          autocomplete="off"
           class="input large left-Placeholder"
           id="builtSquareMeters"
           formControlName="builtSquareMeters"
@@ -897,6 +900,7 @@
       <div class="input-container">
         <label class="small-text" for="gardenSquareMeters"> מ״ר גינה </label>
         <input
+          autocomplete="off"
           class="input large left-Placeholder"
           id="gardenSquareMeters"
           formControlName="gardenSquareMeters"
@@ -908,6 +912,7 @@
           גודל במ״ר סך הכל*
         </label>
         <input
+          autocomplete="off"
           id="totalSquareMeters"
           class="input large left-Placeholder"
           formControlName="totalSquareMeters"
@@ -919,6 +924,7 @@
         <label class="small-text" for="price">מחיר</label>
         <div class="price-input" style="position: relative">
           <input
+            autocomplete="off"
             class="input large left-Placeholder price-input-text"
             id="price"
             formControlName="price"
@@ -944,6 +950,7 @@
       <div class="date-container">
         <div class="">
           <input
+            autocomplete="off"
             id="entryDate"
             class="date-input"
             formControlName="entryDate"
@@ -1347,11 +1354,7 @@
             />
 
             <div class="post-btn-box">
-              <button
-                type="submit"
-                (submit)="openSuccessCreationModal()"
-                class="return-btn post-btn"
-              >
+              <button type="submit" class="return-btn post-btn">
                 בחירה במסלול
               </button>
             </div>
@@ -1366,11 +1369,7 @@
             />
           </div>
           <div class="post-btn-box">
-            <button
-              type="submit"
-              (click)="openSuccessCreationModal()"
-              class="post-btn green-btn"
-            >
+            <button type="submit" class="post-btn green-btn">
               המסלול המומלץ
             </button>
           </div>
@@ -1384,11 +1383,7 @@
             />
 
             <div class="post-btn-box">
-              <button
-                type="submit"
-                (click)="openSuccessCreationModal()"
-                class="return-btn post-btn"
-              >
+              <button type="submit" class="return-btn post-btn">
                 בחירה במסלול
               </button>
             </div>

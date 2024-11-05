@@ -63,8 +63,8 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
 
   private userSubscription: Subscription | undefined;
   $cities: City[] = [];
-  $cityOptions: City[] = [];
   $streets: Street[] = [];
+  $cityOptions: City[] = [];
   $streetsOptions: Street[] = [];
   chosenCity: string = '';
   chosenStreet: string = '';

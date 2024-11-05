@@ -1,11 +1,12 @@
 import { Injectable, OnInit, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { BehaviorSubject, ReplaySubject, filter } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, filter, map } from 'rxjs';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root',
@@ -261,11 +262,22 @@ export class AuthService implements OnInit {
     };
 
     this.httpClient
-      .post(`${this.Url}api/Users/CreateAdvertisement`, formData)
+      .post<HttpResponse<any>>(
+        `${this.Url}api/Users/CreateAdvertisement`,
+        formData,
+        { observe: 'response' }
+      )
+      .pipe(
+        map((response) => {
+          if (response.status === 200 || response.status === 204) {
+            this.router.navigate(['/confirmation-modal']);
+          }
+        })
+      )
       .subscribe((data) => {
         this.UserAdvertisements.next([
           ...this.UserAdvertisements.value,
-          data as AdvertisementsModel,
+          data as any,
         ]);
       });
   }

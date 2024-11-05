@@ -34,6 +34,8 @@ import {
 })
 export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   advertisementForm!: FormGroup | any;
+  $cities: City[] = [];
+  $streets: Street[] = [];
   asset_type: string | undefined = undefined;
   asset_State: string | undefined = undefined;
   asset_Rooms: string | undefined = undefined;
@@ -59,8 +61,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
   minPrice = 0;
   averagePrice = 0;
-  cityList: any;
-  cityData: any;
+  // cityList: any;
+  // cityData: any;
   hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
   ClickBorderColors: string[] = ['#cccccc', '#cccccc', '#cccccc', '#cccccc'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
@@ -185,12 +187,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.authService.IsalternativeHeaderISOpen.next(false);
     this.authService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
-    if (this.cityList) {
-      this.cityList.unsubscribe();
-    }
-    if (this.cityData) {
-      this.cityData.unsubscribe();
-    }
+    // if (this.$cities) {
+    //   this.$cities.unsubscribe();
+    // }
+    // if (this.$streets) {
+    //   this.$streets.unsubscribe();
+    // }
   }
 
   eraseInputValue(id: string, event: any, inputValid: boolean): void {
@@ -326,28 +328,51 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       standardizationAccepted: [false],
     });
 
-    this.cityListService.getCityList().subscribe(
-      (data) => {
-        this.cityList = data;
-      },
-      (error) => {
-        console.error('Error fetching city list', error);
-      }
-    );
+    // this.cityListService.getCityList().subscribe(
+    //   (data) => {
+    //     this.cityList = data;
+    //   },
+    //   (error) => {
+    //     console.error('Error fetching city list', error);
+    //   }
+    // );
 
-    this.cityListService.getStreetList().subscribe(
-      (data) => {
-        this.cityData = data;
-      },
-      (error) => {
-        console.error('Error fetching street list', error);
-      }
-    );
+    // this.cityListService.getStreetList().subscribe(
+    //   (data) => {
+    //     this.cityData = data;
+    //   },
+    //   (error) => {
+    //     console.error('Error fetching street list', error);
+    //   }
+    // );
+    this.cityListService.getCityList().subscribe((cities) => {
+      this.$cities = cities;
+    });
+    this.cityListService.getStreetList().subscribe((streets) => {
+      this.$streets = streets;
+    });
   }
+
+  tets() {
+    alert('test'); // This should show before navigating
+    this.router
+      .navigate(['/'])
+      .then((success) => {
+        if (success) {
+          console.log('Navigation successful!');
+        } else {
+          console.error('Navigation failed.');
+        }
+      })
+      .catch((err) => {
+        console.error('Navigation error:', err);
+      });
+  }
+
   checkIfValidCity(city: string): void {
     const CityName = city;
 
-    const validCity = this.cityList.find(
+    const validCity = this.$cities.find(
       (city: City) => city.city_name_he === CityName
     );
 
@@ -356,7 +381,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   checkIfValidStreet(Street: string): void {
     const streetName = Street;
 
-    const validstreet = this.cityData.find(
+    const validstreet = this.$streets.find(
       (street: Street) =>
         street.Street_Name === streetName &&
         street.City_Name === this.advertisementForm.get('city').value
@@ -373,13 +398,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   isValidCityName(): ValidationErrors | null {
     const validCity = this.isFormHasvalidCityAddress;
     return validCity === true ? null : { invalidCityName: null };
-  }
-
-  openSuccessCreationModal() {
-    const interval = setInterval(() => {
-      clearInterval(interval);
-      this.router.navigate(['/confirmation-modal']);
-    }, 15000);
   }
 
   changeColor(textLength: number): string {
@@ -635,11 +653,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       }
 
       this.authService.postNewAdvertisement(form);
-
-      // if (this.advertisementForm.valid) {
-      // } else {
-      //   this.checkFormValidation();
-      // }
     } catch (error) {
       console.error('Failed to submit advertisement', error);
     }
