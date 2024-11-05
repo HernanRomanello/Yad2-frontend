@@ -139,3 +139,23 @@ button,
   border-radius: 10px;
   transform: translateX(-8px);
 }
+
+.delete-btn {
+  background-color: #ff7100;
+}
+.delete-btn {
+  color: #ffffff;
+}
+.delete-btn {
+  font-weight: 500;
+}
+.delete-btn:hover {
+  background-color: #d86000;
+}
+
+.cancel-btn {
+  background-color: #cccccc;
+}
+.cancel-btn:hover {
+  border: solid 1px #999999;
+}
