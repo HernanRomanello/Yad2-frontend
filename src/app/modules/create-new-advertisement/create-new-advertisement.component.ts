@@ -187,12 +187,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.authService.IsalternativeHeaderISOpen.next(false);
     this.authService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
-    // if (this.$cities) {
-    //   this.$cities.unsubscribe();
-    // }
-    // if (this.$streets) {
-    //   this.$streets.unsubscribe();
-    // }
   }
 
   eraseInputValue(id: string, event: any, inputValid: boolean): void {
@@ -328,45 +322,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       standardizationAccepted: [false],
     });
 
-    // this.cityListService.getCityList().subscribe(
-    //   (data) => {
-    //     this.cityList = data;
-    //   },
-    //   (error) => {
-    //     console.error('Error fetching city list', error);
-    //   }
-    // );
-
-    // this.cityListService.getStreetList().subscribe(
-    //   (data) => {
-    //     this.cityData = data;
-    //   },
-    //   (error) => {
-    //     console.error('Error fetching street list', error);
-    //   }
-    // );
     this.cityListService.getCityList().subscribe((cities) => {
       this.$cities = cities;
     });
     this.cityListService.getStreetList().subscribe((streets) => {
       this.$streets = streets;
     });
-  }
-
-  tets() {
-    alert('test'); // This should show before navigating
-    this.router
-      .navigate(['/'])
-      .then((success) => {
-        if (success) {
-          console.log('Navigation successful!');
-        } else {
-          console.error('Navigation failed.');
-        }
-      })
-      .catch((err) => {
-        console.error('Navigation error:', err);
-      });
   }
 
   checkIfValidCity(city: string): void {
