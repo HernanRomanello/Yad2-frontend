@@ -170,3 +170,15 @@ button,
 .cancel-btn:hover {
   border: solid 1px #999999;
 }
+
+.profile-image-frame {
+  height: 228px;
+  width: 386px;
+}
+
+.profile-image-frame img {
+  height: 100%;
+  /* width: 251px; */
+  margin: auto;
+  object-fit: contain;
+}

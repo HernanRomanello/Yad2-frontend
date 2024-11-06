@@ -162,15 +162,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     }
   }
 
-  onFileChange(event: any) {
-    const file = event.target.file;
-    if (file) {
-      this.profileImage = file;
-    }
-
-    this.profileImageURL = URL.createObjectURL(file);
-  }
-
   serchCity(searchQuery: string) {
     this.$cityOptions = this.cityListService.getFirstsCitiesContainingSubstring(
       this.$cities,
@@ -288,8 +279,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     } else {
       this.$user.picture = '';
     }
-
-    console.log(this.$user);
 
     const validAddress =
       this.checkIfValidCity(this.chosenCity) &&
