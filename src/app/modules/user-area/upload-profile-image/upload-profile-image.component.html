@@ -40,6 +40,7 @@
           <button
             class="update-btn"
             [ngClass]="this.hasuploadedImage ? 'active-btn' : 'inactive-btn'"
+            (click)="this.saveProfileImage(this.imageFile); this.closeModal()"
           >
             עדכון
           </button>
