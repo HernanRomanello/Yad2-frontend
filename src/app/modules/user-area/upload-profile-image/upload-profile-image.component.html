@@ -39,8 +39,7 @@
         <div class="btns">
           <button
             class="update-btn"
-            style="background-color: #eeeeee; color: #cccccc; font-weight: 500"
-            disabled="true"
+            [ngClass]="this.hasuploadedImage ? 'active-btn' : 'inactive-btn'"
           >
             עדכון
           </button>

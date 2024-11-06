@@ -157,7 +157,9 @@ button,
 .delete-btn {
   color: #ffffff;
 }
-.delete-btn {
+.delete-btn,
+.active-btn,
+.inactive-btn {
   font-weight: 500;
 }
 .delete-btn:hover {
@@ -179,7 +181,19 @@ button,
 
 .profile-image-frame img {
   height: 100%;
-  /* width: 251px; */
   margin: auto;
   object-fit: contain;
+}
+
+.inactive-btn {
+  background-color: #eeeeee;
+  color: #cccccc;
+  cursor: not-allowed !important;
+}
+.active-btn:hover {
+  background-color: #d86000;
+}
+.active-btn {
+  background-color: #ff7100;
+  color: #ffffff;
 }
