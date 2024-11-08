@@ -83,11 +83,16 @@
       (mouseover)="openMenu('menu_FavoriteAds')"
       (mouseleave)="closeMenu('menu_FavoriteAds')"
     >
-      <button class="light favorite-btn">
+      <button
+        class="light favorite-btn"
+        [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
+      >
         <div class="favorite-text-btn">מודעות שאהבתי</div>
 
         <div class="favorites-counter">
+          @if(this.countFavoriteAds > 0) {
           <div class="favorite-counter">{{ this.countFavoriteAds }}</div>
+          }
           <i class="material-icons">favorite_border</i>
         </div>
       </button>
