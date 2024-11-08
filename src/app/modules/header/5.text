@@ -1,14 +1,14 @@
-a .all-favorites-link-row_link__GRdtV {
+a .favorites-drop-item_link__vLwOr {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 500;
+	font-weight: 400;
 	letter-spacing: normal;
 	line-height: 16.1px;
-	text-decoration: none solid rgb(255, 255, 255);
-	text-align: center;
+	text-decoration: none solid rgb(54, 54, 54);
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,26 +17,26 @@ a .all-favorites-link-row_link__GRdtV {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 113, 0);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(255, 255, 255);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 38.0938px;
-	width: 165px;
-	border: 1px solid rgb(255, 113, 0);
-	border-top: 1px solid rgb(255, 113, 0);
-	border-right: 1px solid rgb(255, 113, 0);
-	border-bottom: 1px solid rgb(255, 113, 0);
-	border-left: 1px solid rgb(255, 113, 0);
-	margin: 10px 147.5px;
-	padding: 10px 15px;
+	height: 86px;
+	width: 460px;
+	border: 0px none rgb(54, 54, 54);
+	border-top: 0px none rgb(54, 54, 54);
+	border-right: 0px none rgb(54, 54, 54);
+	border-bottom: 0px none rgb(54, 54, 54);
+	border-left: 0px none rgb(54, 54, 54);
+	margin: 0px;
+	padding: 10px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: 165px;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -45,7 +45,7 @@ a .all-favorites-link-row_link__GRdtV {
 	right: auto;
 	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
@@ -77,8 +77,8 @@ a .all-favorites-link-row_link__GRdtV {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }

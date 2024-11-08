@@ -63,10 +63,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isUserAreaDropdownVisible = isUserAreaDropdownOpen;
   }
 
-  test() {
-    this.HasFavoriteAdsDropdownVisible = true;
-  }
-
   ngOnDestroy(): void {
     this.authSerrvice.isUserLogin.unsubscribe();
     this.authSerrvice.user.unsubscribe();
