@@ -101,6 +101,8 @@
             <div
               class="favorite-ad"
               *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
+              (click)="this.HasFavoriteAdsDropdownVisible = false"
+              routerLink="/advertisement/{{ favorite.id }}"
             >
               <div class="favorite-ad-text">
                 <div class="favorite-ad-price">
