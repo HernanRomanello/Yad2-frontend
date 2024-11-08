@@ -99,18 +99,21 @@
               *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
             >
               <div class="favorite-ad-text">
-                <div class="favorite-ad-price">{{ favorite.price }}</div>
+                <div class="favorite-ad-price">
+                  <span class="currency">₪</span
+                  ><span>{{ favorite.price | number }}</span>
+                </div>
               </div>
               <div>
                 <div class="favorite-ad-text">
                   <div class="favorite-address">
                     <div>
-                      <div>{{ favorite.number }}</div>
-                      <div>{{ favorite.street }}</div>
+                      <span>{{ favorite.number + " " + favorite.street }}</span>
                     </div>
                     <div>
-                      <div>{{ favorite.assetType }}</div>
-                      <div>{{ favorite.city }}</div>
+                      <span style="font-size: 14px">{{
+                        favorite.assetType + ", " + favorite.city
+                      }}</span>
                     </div>
                   </div>
                 </div>
@@ -123,6 +126,9 @@
                   />
                 </div>
               </div>
+            </div>
+            <div class="favorite-link-btn">
+              <button class="favorite-link">לכל המודעות שסימנתי</button>
             </div>
           </div>
           } }

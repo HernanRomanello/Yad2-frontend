@@ -127,9 +127,40 @@ button {
   display: flex !important;
   justify-content: space-between !important;
   width: 100%;
+  border-bottom: 1px solid rgb(238, 238, 238);
 }
+
 .favorite-ad-img {
   padding: 10px;
+}
+.favorite-ad-price {
+  padding: 20px;
+}
+.favorite-ad-price .currency {
+  margin-right: 4px;
+  transform: scaleY(1.05);
+}
+
+.favorite-link-btn {
+  height: 58.0938px;
+}
+
+.favorite-link {
+  font-weight: 500;
+  font-size: 14px !important;
+
+  background-color: #fffffe;
+  color: rgb(255, 113, 0);
+  height: 38.0938px;
+  width: 165px;
+  border: 1px solid rgb(255, 113, 0);
+  padding: 10px 15px;
+  margin: 10px 147.5px;
+}
+.favorite-link:hover {
+  background-color: rgb(255, 113, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 2px;
 }
 
 .house-pic {
