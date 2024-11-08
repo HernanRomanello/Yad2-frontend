@@ -10,7 +10,6 @@ import { AuthService } from '../../services/user/auth.service';
 import { UserModel } from '../../shared/models/UserModel';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
-import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -45,6 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   alternativeHeader!: ElementRef;
   favoriteAds: any = [];
   countFavoriteAds = 0;
+  HasFavoriteAdsDropdownVisible = false;
   menus: MenuTriggers = {
     menu_User: false,
     menu_PostAd: false,

@@ -86,13 +86,17 @@
       <button
         class="light favorite-btn"
         [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
+        (mouseover)="this.HasFavoriteAdsDropdownVisible = true"
+        (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
       >
         <div class="favorite-text-btn">מודעות שאהבתי</div>
 
         <div class="favorites-counter">
           @if(this.countFavoriteAds > 0) {
-          <div class="favorite-counter">{{ this.countFavoriteAds }}</div>
-          @if(true){
+          <div class="favorite-counter">
+            {{ this.countFavoriteAds }}
+          </div>
+          @if(HasFavoriteAdsDropdownVisible){
           <div class="favorite-ads-dropdown">
             <div
               class="favorite-ad"
