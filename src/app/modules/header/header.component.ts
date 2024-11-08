@@ -2,7 +2,6 @@ import {
   Component,
   ElementRef,
   inject,
-  Inject,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -11,6 +10,7 @@ import { AuthService } from '../../services/user/auth.service';
 import { UserModel } from '../../shared/models/UserModel';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
+import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -39,11 +39,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   _LogoPic = 'assets/images/logo-default.svg';
   authSerrvice = inject(AuthService);
   modalStateSerrvice = inject(ModalStateService);
-  router = Inject;
   isUserConnected: boolean = false;
   firstLetterUserEmailAddress = '';
   @ViewChild('alternativeHeader', { static: false })
   alternativeHeader!: ElementRef;
+  favoriteAds: any = [];
+  countFavoriteAds = 0;
   menus: MenuTriggers = {
     menu_User: false,
     menu_PostAd: false,
@@ -65,8 +66,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.authSerrvice.isUserLogin.unsubscribe();
     this.authSerrvice.user.unsubscribe();
+    this.authSerrvice.UserFavoriteAdvertisements.unsubscribe();
   }
   ngOnInit(): void {
+    this.authSerrvice.UserFavoriteAdvertisements.subscribe((ads) => {
+      this.favoriteAds = ads;
+      this.countFavoriteAds = ads.length;
+    });
+    this.countFavoriteAds = this.favoriteAds.length;
     this.authSerrvice.isUserLogin.subscribe(
       (status) => (this.isUserConnected = status)
     );
