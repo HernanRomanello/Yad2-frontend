@@ -72,6 +72,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authSerrvice.UserFavoriteAdvertisements.subscribe((ads) => {
       this.favoriteAds = ads;
       this.countFavoriteAds = ads.length;
+      console.log(this.favoriteAds);
     });
     this.countFavoriteAds = this.favoriteAds.length;
     this.authSerrvice.isUserLogin.subscribe(

@@ -92,7 +92,40 @@
         <div class="favorites-counter">
           @if(this.countFavoriteAds > 0) {
           <div class="favorite-counter">{{ this.countFavoriteAds }}</div>
-          }
+          @if(true){
+          <div class="favorite-ads-dropdown">
+            <div
+              class="favorite-ad"
+              *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
+            >
+              <div class="favorite-ad-text">
+                <div class="favorite-ad-price">{{ favorite.price }}</div>
+              </div>
+              <div>
+                <div class="favorite-ad-text">
+                  <div class="favorite-address">
+                    <div>
+                      <div>{{ favorite.number }}</div>
+                      <div>{{ favorite.street }}</div>
+                    </div>
+                    <div>
+                      <div>{{ favorite.assetType }}</div>
+                      <div>{{ favorite.city }}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="favorite-ad-img">
+                  <img
+                    class="house-pic"
+                    src="assets/images/feed_re_placeholder_small.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          } }
           <i class="material-icons">favorite_border</i>
         </div>
       </button>

@@ -1,14 +1,14 @@
-span .badge_badge__aMcTk badge_numeric__4o_I8 badge_orange__i6_gy badge_small__6_Jq2 favorites-drop-button_count__e8ufA {
+div .menu {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 10px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
-	letter-spacing: normal;
-	line-height: 10px;
-	text-decoration: none solid rgb(255, 255, 255);
-	text-align: center;
+	letter-spacing: 0.25px;
+	line-height: 20px;
+	text-decoration: none solid rgb(54, 54, 54);
+	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,37 +17,37 @@ span .badge_badge__aMcTk badge_numeric__4o_I8 badge_orange__i6_gy badge_small__6
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 113, 0);
+	background-color: rgb(248, 248, 248);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(255, 255, 255);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 14px;
-	width: 14px;
-	border: 0px none rgb(255, 255, 255);
-	border-top: 0px none rgb(255, 255, 255);
-	border-right: 0px none rgb(255, 255, 255);
-	border-bottom: 0px none rgb(255, 255, 255);
-	border-left: 0px none rgb(255, 255, 255);
+	height: 255px;
+	width: 297.688px;
+	border: 0px none rgb(54, 54, 54);
+	border-top: 0px none rgb(54, 54, 54);
+	border-right: 0px none rgb(54, 54, 54);
+	border-bottom: 0px none rgb(54, 54, 54);
+	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 2px 4px;
+	padding: 0px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
-	min-width: 14px;
+	min-width: max-content;
 
 	/* Positioning */
 	position: absolute;
-	top: 0px;
-	bottom: 10px;
-	right: -3px;
-	left: 13px;
+	top: 63px;
+	bottom: -255px;
+	right: -16px;
+	left: -214.156px;
 	float: none;
-	display: block;
+	display: grid;
 	clear: none;
-	z-index: auto;
+	z-index: 40;
 
 	/* List */
 	list-style-image: none;
@@ -62,12 +62,12 @@ span .badge_badge__aMcTk badge_numeric__4o_I8 badge_orange__i6_gy badge_small__6
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
+	overflow: auto;
 	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
-	transform: none;
+	transform: matrix(1, 0, 0, 1, 0, 10);
 	transition: all;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
@@ -76,9 +76,9 @@ span .badge_badge__aMcTk badge_numeric__4o_I8 badge_orange__i6_gy badge_small__6
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: none;
-	border-top-left-radius: 17px;
-	border-top-right-radius: 17px;
-	border-bottom-left-radius: 17px;
-	border-bottom-right-radius: 17px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px 0px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
 }

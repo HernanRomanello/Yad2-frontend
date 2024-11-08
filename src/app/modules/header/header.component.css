@@ -102,8 +102,45 @@ button {
 }
 
 .favorite-counter,
-.menu {
+.menu,
+.favorite-ads-dropdown {
   position: absolute;
+}
+
+.favorite-ads-dropdown,
+.favorite-address {
+  display: flex;
+  flex-direction: column;
+}
+
+.favorite-address {
+  align-items: end !important;
+}
+
+.favorite-ads-dropdown {
+  background-color: #ffffff;
+  width: 460px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px 0px;
+}
+
+.favorite-ad {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100%;
+}
+.favorite-ad-img {
+  padding: 10px;
+}
+
+.house-pic {
+  height: 66px;
+  width: 110px;
+}
+
+.favorite-ads-dropdown {
+  top: 44px;
+  transform: translateX(-51px);
+  z-index: 200;
 }
 
 .menu {
@@ -170,10 +207,6 @@ button {
   align-items: center;
 }
 
-.favorite-btn {
-  /* gap: 0.25rem; */
-}
-
 .light div i {
   color: #363636;
   transform: translateY(2px);
@@ -220,7 +253,8 @@ button,
 .user-area2,
 .gray-btn2,
 img,
-.menu2 {
+.menu2,
+.favorite-ad {
   cursor: pointer;
 }
 
