@@ -82,16 +82,16 @@
       class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_FavoriteAds')"
       (mouseleave)="closeMenu('menu_FavoriteAds')"
+      (mouseover)="this.HasFavoriteAdsDropdownVisible = true"
+      (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
     >
       <button
         class="light favorite-btn"
         [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
-        (mouseover)="this.HasFavoriteAdsDropdownVisible = true"
-        (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
       >
         <div class="favorite-text-btn">מודעות שאהבתי</div>
 
-        <div class="favorites-counter">
+        <div class="favorites-counter" (mouseenter)="test()">
           @if(this.countFavoriteAds > 0) {
           <div class="favorite-counter">
             {{ this.countFavoriteAds }}
