@@ -55,7 +55,8 @@ button {
 .user-name,
 .logo-img,
 .favorite-symbol,
-.Post-Btn-Favorite {
+.Post-Btn-Favorite,
+.favorite-ad-content {
   display: flex;
 }
 
@@ -66,7 +67,8 @@ button {
 .round-gray,
 .user-name,
 .logo-img,
-.favorite-symbol {
+.favorite-symbol,
+.Post-Btn-Favorite {
   align-items: center;
   justify-content: center;
 }
