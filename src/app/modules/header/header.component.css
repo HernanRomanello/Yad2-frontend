@@ -40,11 +40,11 @@
 
 button {
   background-color: transparent;
+  border: none;
   align-items: center;
 }
 
-.none-border,
-button {
+.none-border {
   border: none !important;
 }
 
