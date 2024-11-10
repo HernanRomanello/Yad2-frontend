@@ -89,7 +89,13 @@
         class="light favorite-btn"
         [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
       >
-        <div class="favorite-text-btn">מודעות שאהבתי</div>
+        <div
+          (click)="this.HasFavoriteAdsDropdownVisible = false"
+          routerLink="/favorites"
+          class="favorite-text-btn"
+        >
+          מודעות שאהבתי
+        </div>
 
         <div class="favorites-counter">
           @if(this.countFavoriteAds > 0) {
