@@ -81,10 +81,13 @@
 
     <div
       class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_FavoriteAds')"
-      (mouseleave)="closeMenu('menu_FavoriteAds')"
-      (mouseover)="this.HasFavoriteAdsDropdownVisible = true"
-      (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
+      (mouseover)="
+        openMenu('menu_FavoriteAds'); this.HasFavoriteAdsDropdownVisible = true
+      "
+      (mouseleave)="
+        closeMenu('menu_FavoriteAds');
+        this.HasFavoriteAdsDropdownVisible = false
+      "
     >
       <button
         class="light favorite-btn"

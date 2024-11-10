@@ -278,7 +278,8 @@ button {
 .user-area-btn:hover,
 .right-side div:hover,
 .btn:hover,
-.menu-bar2:hover {
+.menu-bar2:hover,
+.user-name-btn:hover {
   background-color: #f8f8f8 !important;
 }
 
