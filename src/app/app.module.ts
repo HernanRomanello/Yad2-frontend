@@ -36,6 +36,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as moment from 'moment';
 import 'moment/locale/he';
+import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.component';
 
 moment.locale('he');
 
@@ -51,6 +52,7 @@ moment.locale('he');
     InteractiveModalComponent,
     PostAdConfirmationModalComponent,
     EditAdvertisementComponent,
+    FavoriteAdsComponent,
   ],
   imports: [
     BrowserModule,

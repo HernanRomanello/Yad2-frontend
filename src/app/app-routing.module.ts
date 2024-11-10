@@ -7,6 +7,7 @@ import { AdvertisementComponent } from './modules/advertisement/advertisement.co
 import { CreateNewAdvertisementComponent } from './modules/create-new-advertisement/create-new-advertisement.component';
 import { PostAdConfirmationModalComponent } from './modules/post-ad-confirmation-modal/post-ad-confirmation-modal.component';
 import { EditAdvertisementComponent } from './modules/edit-advertisement/edit-advertisement.component';
+import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,12 @@ const routes: Routes = [
     path: 'register',
     component: RegistrationFormComponent,
     title: 'Registration',
+  },
+  {
+    path: 'favorites',
+    title: 'Favorite Ads',
+    component: FavoriteAdsComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'advertisement/:id',
