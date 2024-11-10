@@ -176,73 +176,87 @@
           alt="Post-Btn"
         />
       </button>
-      <div class="round none-border font16">
-        {{ this.userName.slice(0, 2) }}
-      </div>
-      <div
-        class="favorites-counter"
-        (mouseenter)="this.HasFavoriteAdsDropdownVisible = true"
-        (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
-      >
-        @if(this.countFavoriteAds > 0) {
-        <div class="favorite-counter">
-          {{ this.countFavoriteAds }}
+      <div class="user-favorite-btn">
+        <div class="round none-border font16">
+          {{ this.userName.slice(0, 2) }}
         </div>
-        @if(HasFavoriteAdsDropdownVisible){
-        <div class="favorite-ads-dropdown">
-          <div
-            class="favorite-ad"
-            *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
-            routerLink="/advertisement/{{ favorite.id }}"
-          >
-            <div class="favorite-ad-text">
-              <div class="favorite-ad-price">
-                <span class="currency">₪</span
-                ><span>{{ favorite.price | number }}</span>
-              </div>
-            </div>
-            <div class="favorite-ad-content">
+      </div>
+      <div class="user-favorite-btn">
+        <div
+          class="favorites-counter"
+          (mouseenter)="this.HasFavoriteAdsDropdownVisible = true"
+          (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
+        >
+          @if(this.countFavoriteAds > 0) {
+          <div class="favorite-counter">
+            {{ this.countFavoriteAds }}
+          </div>
+          @if(HasFavoriteAdsDropdownVisible){
+          <div class="favorite-ads-dropdown">
+            <div
+              class="favorite-ad"
+              *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
+              routerLink="/advertisement/{{ favorite.id }}"
+            >
               <div class="favorite-ad-text">
-                <div class="favorite-address">
-                  <div>
-                    <span>{{ favorite.number + " " + favorite.street }}</span>
-                  </div>
-                  <div>
-                    <span style="font-size: 14px">{{
-                      favorite.assetType + ", " + favorite.city
-                    }}</span>
-                  </div>
+                <div class="favorite-ad-price">
+                  <span class="currency">₪</span
+                  ><span>{{ favorite.price | number }}</span>
                 </div>
               </div>
+              <div class="favorite-ad-content">
+                <div class="favorite-ad-text">
+                  <div class="favorite-address">
+                    <div>
+                      <span>{{ favorite.number + " " + favorite.street }}</span>
+                    </div>
+                    <div>
+                      <span style="font-size: 14px">{{
+                        favorite.assetType + ", " + favorite.city
+                      }}</span>
+                    </div>
+                  </div>
+                </div>
 
-              <div class="favorite-ad-img">
-                <img
-                  class="house-pic"
-                  src="assets/images/feed_re_placeholder_small.png"
-                  alt=""
-                />
-                <div class="favorite-symbol">
+                <div class="favorite-ad-img">
                   <img
                     class="house-pic"
-                    src="assets/images/heart-svgrepo-com-orange.svg"
+                    src="assets/images/feed_re_placeholder_small.png"
                     alt=""
                   />
+                  <div class="favorite-symbol">
+                    <img
+                      class="house-pic"
+                      src="assets/images/heart-svgrepo-com-orange.svg"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="favorite-link-btn">
+              <button
+                (click)="this.HasFavoriteAdsDropdownVisible = false"
+                routerLink="/favorites"
+                class="favorite-link"
+              >
+                לכל המודעות שסימנתי
+              </button>
+            </div>
           </div>
-          <div class="favorite-link-btn">
-            <button
-              (click)="this.HasFavoriteAdsDropdownVisible = false"
-              routerLink="/favorites"
-              class="favorite-link"
-            >
-              לכל המודעות שסימנתי
-            </button>
+          } }
+          <div>
+            <i class="material-icons">favorite_border</i>
           </div>
         </div>
-        } }
-        <i class="material-icons">favorite_border</i>
+      </div>
+      <div>
+        <img
+          id="bell-icon"
+          class="svg-icon2"
+          src="assets/images/bell-music-svgrepo-com.svg"
+          alt="bell-music-svgrepo-com"
+        />
       </div>
     </div>
     }

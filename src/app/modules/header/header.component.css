@@ -279,8 +279,15 @@ button {
 .right-side div:hover,
 .btn:hover,
 .menu-bar2:hover,
-.user-name-btn:hover {
+.user-name-btn:hover,
+.user-favorite-btn:hover {
   background-color: #f8f8f8 !important;
+}
+
+.user-favorite-btn {
+}
+#bell-icon {
+  transform: scale(1.2) rotate(25deg);
 }
 
 .btn {
@@ -309,7 +316,9 @@ button,
 .gray-btn2,
 img,
 .menu2,
-.favorite-ad {
+.favorite-ad,
+.round,
+.user-favorite-btn {
   cursor: pointer;
 }
 
