@@ -141,7 +141,13 @@
               </div>
             </div>
             <div class="favorite-link-btn">
-              <button class="favorite-link">לכל המודעות שסימנתי</button>
+              <button
+                (click)="this.HasFavoriteAdsDropdownVisible = false"
+                routerLink="/favorites"
+                class="favorite-link"
+              >
+                לכל המודעות שסימנתי
+              </button>
             </div>
           </div>
           } }
