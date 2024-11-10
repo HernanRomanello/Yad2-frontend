@@ -4,8 +4,14 @@
   display: flex;
   border-bottom: 1px solid lightgray;
   align-items: center;
-  background-color: #ffffff;
   height: 64px !important;
+}
+
+.favorite-symbol,
+.header,
+.left-side,
+.right-side {
+  background-color: #ffffff;
 }
 
 .header {
@@ -43,14 +49,16 @@ button {
 .round,
 .round-gray,
 .user-name,
-.logo-img {
+.logo-img,
+.favorite-symbol {
   display: flex;
 }
 
 .round,
 .round-gray,
 .user-name,
-.logo-img {
+.logo-img,
+.favorite-symbol {
   align-items: center;
   justify-content: center;
 }
@@ -82,7 +90,8 @@ button {
   -webkit-text-stroke: 1px black;
 }
 .menu-container,
-.favorites-counter {
+.favorites-counter,
+.favorite-ad-img {
   position: relative;
 }
 .favorite-counter {
@@ -103,7 +112,8 @@ button {
 
 .favorite-counter,
 .menu,
-.favorite-ads-dropdown {
+.favorite-ads-dropdown,
+.favorite-symbol {
   position: absolute;
 }
 
@@ -359,6 +369,19 @@ img,
   z-index: 110;
 }
 
+.favorite-symbol {
+  border-radius: 50%;
+}
+.favorite-symbol {
+  height: 30px;
+  width: 30px;
+}
+
+.favorite-symbol img {
+  height: 26px;
+  width: 26px;
+}
+
 .header2 {
   line-height: 16.1px;
   background-color: rgb(255, 255, 255);
@@ -552,4 +575,10 @@ button,
 #logo-pic {
   width: 70px;
   height: 35px;
+}
+
+.favorite-symbol {
+  top: 0;
+  right: 0;
+  transform: translateX(-12px) translateY(12px);
 }
