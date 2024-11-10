@@ -1,8 +1,9 @@
-@if ((this.authSerrvice.IsMainHeaderISOpen | async)) {
-@if(!(this.authSerrvice.IsalternativeHeaderISOpen | async)) {
+@if ((this.authService.IsMainHeaderISOpen | async)) {
+@if(!(this.authService.IsalternativeHeaderISOpen | async)) {
 
 <header class="header">
   <div class="left-side">
+    @if(!(this.authService.IsFavoritesAdvertisementIsOpen | async)) {
     <div class="Post-Btn">
       <button class="light" routerLink="create-advertisement">
         פרסום הודעה
@@ -63,7 +64,7 @@
         </button>
         @if (this.isUserConnected) {
         <button
-          (click)="this.authSerrvice.logout()"
+          (click)="this.authService.logout()"
           class="user-area-btn border-top"
         >
           <div>התנתקות</div>
@@ -162,6 +163,21 @@
       </button>
       <div class="menu" *ngIf="menus['menu_FavoriteAds']"></div>
     </div>
+    } @else {
+    <div class="Post-Btn-Favorite">
+      <button class="green" routerLink="create-advertisement">
+        פרסום מודעה חדשה
+        <img
+          class="svg-icon2"
+          src="assets/images/plus-svgrepo-com.svg"
+          alt="Post-Btn"
+        />
+      </button>
+      <div class="round none-border font16">
+        {{ this.userName.slice(0, 2) }}
+      </div>
+    </div>
+    }
   </div>
   <div class="right-side">
     <div
@@ -331,14 +347,14 @@
     </button>
   </div>
 </header>
-} } @if((this.authSerrvice.IsalternativeHeaderISOpen | async)) {
-@if(!(this.authSerrvice.ISEditAdvertisementISOpen | async)) {
+} } @if((this.authService.IsalternativeHeaderISOpen | async)) {
+@if(!(this.authService.ISEditAdvertisementISOpen | async)) {
 <div class="orange-line"></div>
 <header>
   <div [ngClass]="setHeaderHeight()">
     <div class="left-side2 flex-center2">
       <div class="gray-btns-container2">
-        @if(!(this.authSerrvice.IsUserAreaISOpen | async)){
+        @if(!(this.authService.IsUserAreaISOpen | async)){
         <button
           class="gray-btn2 close-btn-container flex-center2"
           (click)="
@@ -368,7 +384,7 @@
       >
         <div>
           <div routerLink="/profile" class="flex-center2">
-            @if(!(this.authSerrvice.IsUserAreaISOpen | async)) {
+            @if(!(this.authService.IsUserAreaISOpen | async)) {
             <div class="user-name2 flex-center2">
               {{ this.userName }}
             </div>
@@ -387,7 +403,7 @@
             class="menu2"
             *ngIf="
               this.isUserAreaDropdownVisible &&
-              !(this.authSerrvice.IsUserAreaISOpen | async)
+              !(this.authService.IsUserAreaISOpen | async)
             "
             (mouseover)="isUserAreaDropdownOpen(true)"
             (mouseleave)="isUserAreaDropdownOpen(false)"
@@ -417,7 +433,7 @@
               />
             </div>
             <div class="menu-bar2 border-top2">
-              <div (click)="authSerrvice.logout()">התנתקות</div>
+              <div (click)="authService.logout()">התנתקות</div>
 
               <div>
                 <img
@@ -433,11 +449,11 @@
     </div>
 
     <div class="right-side2 flex-center2">
-      @if (this.authSerrvice.UserPageRender.value ==='create-new-advertisement')
+      @if (this.authService.UserPageRender.value ==='create-new-advertisement')
       {
 
       <div>פרסום מודעה חדשה</div>
-      } @if (this.authSerrvice.UserPageRender.value ==='user-area') {
+      } @if (this.authService.UserPageRender.value ==='user-area') {
 
       <div class="user-area-text2 flex-center2">איזור אישי</div>
       }
@@ -447,7 +463,7 @@
     </div>
   </div>
 </header>
-} @if((this.authSerrvice.ISEditAdvertisementISOpen | async)) {
+} @if((this.authService.ISEditAdvertisementISOpen | async)) {
 <div class="edit-ad-header">
   <div id="post-ad-title" class="flex-center2 post-ad-box">
     <div class="logo-img" routerLink="/">

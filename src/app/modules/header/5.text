@@ -1,38 +1,38 @@
-a .favorites-drop-item_link__vLwOr {
+a .link {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
+	font-weight: 500;
 	letter-spacing: normal;
-	line-height: 16.1px;
-	text-decoration: none solid rgb(54, 54, 54);
+	line-height: 41px;
+	text-decoration: none solid rgb(255, 255, 255);
 	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: normal;
+	white-space: nowrap;
 	word-spacing: 0px;
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(14, 156, 100);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(255, 255, 255);
 
 	/* Box */
-	height: 86px;
-	width: 460px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
-	margin: 0px;
-	padding: 10px;
+	height: 40px;
+	width: 193px;
+	border: 0px none rgb(255, 255, 255);
+	border-top: 0px none rgb(255, 255, 255);
+	border-right: 0px none rgb(255, 255, 255);
+	border-bottom: 0px none rgb(255, 255, 255);
+	border-left: 0px none rgb(255, 255, 255);
+	margin: 12px 15px 12px 0px;
+	padding: 0px 14px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
@@ -45,7 +45,7 @@ a .favorites-drop-item_link__vLwOr {
 	right: auto;
 	left: auto;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
 	z-index: auto;
 
@@ -77,8 +77,8 @@ a .favorites-drop-item_link__vLwOr {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 }

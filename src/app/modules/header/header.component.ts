@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   modalContent!: ModalContent;
   isUserAreaDropdownVisible = false;
   _LogoPic = 'assets/images/logo-default.svg';
-  authSerrvice = inject(AuthService);
+  authService = inject(AuthService);
   modalStateSerrvice = inject(ModalStateService);
   isUserConnected: boolean = false;
   firstLetterUserEmailAddress = '';
@@ -64,21 +64,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.authSerrvice.isUserLogin.unsubscribe();
-    this.authSerrvice.user.unsubscribe();
-    this.authSerrvice.UserFavoriteAdvertisements.unsubscribe();
+    this.authService.isUserLogin.unsubscribe();
+    this.authService.user.unsubscribe();
+    this.authService.UserFavoriteAdvertisements.unsubscribe();
   }
   ngOnInit(): void {
-    this.authSerrvice.UserFavoriteAdvertisements.subscribe((ads) => {
+    this.authService.UserFavoriteAdvertisements.subscribe((ads) => {
       this.favoriteAds = ads;
       this.countFavoriteAds = ads.length;
       console.log(this.favoriteAds);
     });
     this.countFavoriteAds = this.favoriteAds.length;
-    this.authSerrvice.isUserLogin.subscribe(
+    this.authService.isUserLogin.subscribe(
       (status) => (this.isUserConnected = status)
     );
-    this.authSerrvice.user.subscribe((user: UserModel | null | undefined) => {
+    this.authService.user.subscribe((user: UserModel | null | undefined) => {
       this.userName = user?.name || '';
       this.userLastName = user?.lastName || '';
       this.firstLetterUserEmailAddress = user?.email[0].toUpperCase() || '';
@@ -86,7 +86,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   setHeaderHeight(): string {
-    if (this.authSerrvice.IsUserAreaISOpen.getValue() === true) {
+    if (this.authService.IsUserAreaISOpen.getValue() === true) {
       return 'header2 increase-height';
     } else {
       return 'header2';
@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getCircleClass(): string {
-    this.authSerrvice.isUserLogin.subscribe(
+    this.authService.isUserLogin.subscribe(
       (status) => (this.isUserConnected = status)
     );
     return this.isUserConnected ? 'round' : 'round-gray';

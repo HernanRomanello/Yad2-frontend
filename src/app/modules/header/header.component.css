@@ -40,8 +40,12 @@
 
 button {
   background-color: transparent;
-  border: none;
   align-items: center;
+}
+
+.none-border,
+button {
+  border: none !important;
 }
 
 .edit-ad-header,
@@ -50,10 +54,14 @@ button {
 .round-gray,
 .user-name,
 .logo-img,
-.favorite-symbol {
+.favorite-symbol,
+.Post-Btn-Favorite {
   display: flex;
 }
 
+.Post-Btn-Favorite {
+  gap: 2rem;
+}
 .round,
 .round-gray,
 .user-name,
@@ -156,7 +164,6 @@ button {
 }
 
 .favorite-link {
-  font-weight: 500;
   font-size: 14px !important;
 
   background-color: #fffffe;
@@ -382,6 +389,26 @@ img,
   width: 26px;
 }
 
+.green {
+  background-color: #0fca80;
+  color: #ffffff;
+  line-height: 41px;
+  height: 40px;
+  width: 193px;
+  margin: 12px 15px 12px 0px;
+  padding: 0px 14px;
+  border-radius: 20px;
+}
+.favorite-link,
+.green {
+  font-weight: 500;
+}
+
+.green img {
+  height: 12px;
+  width: 12px;
+}
+
 .header2 {
   line-height: 16.1px;
   background-color: rgb(255, 255, 255);
@@ -550,7 +577,8 @@ img,
 
 .user-name,
 button,
-.contact {
+.contact,
+.font16 {
   font-size: 16px !important;
 }
 
