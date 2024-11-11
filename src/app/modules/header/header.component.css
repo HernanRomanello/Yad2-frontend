@@ -31,7 +31,8 @@
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
 }
 
-.none-border {
+.none-border,
+#user-area-btn-dropdown button {
   border: none !important;
 }
 
@@ -273,6 +274,11 @@ button {
 .favorite-btn {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+#user-area-btn-dropdown button img {
+  display: flex;
   align-items: center;
 }
 
@@ -671,7 +677,7 @@ button,
 #heart-icon-link img {
   height: 23px;
   width: 23px;
-  transform: translateY(4px);
+  transform: translateY(4px) scale(0.95);
 }
 
 #counter {
@@ -679,4 +685,27 @@ button,
   width: 12.625px;
   font-size: 11px !important;
   line-height: 13px;
+  transform: translateX(2px);
+}
+
+#user-area-btn-dropdown button {
+  height: 45px;
+  width: 168px;
+  padding: 0 15px !important;
+  font-size: 14px !important;
+}
+
+#user-area-btn-dropdown button img {
+  height: 15px;
+  width: 15px;
+  margin: 6px 0 0;
+}
+
+#user-area-btn-dropdown button mat-icon {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#user-area-btn-dropdown {
+  transform: translateX(15px) translateY(1px);
 }

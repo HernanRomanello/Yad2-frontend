@@ -64,7 +64,6 @@
           <div>חיפושים אחרונים</div>
           <mat-icon>history</mat-icon>
         </button>
-        @if (this.isUserConnected) { }
         <button class="user-area-btn">
           <div>התראות</div>
 
@@ -191,6 +190,35 @@
       <div class="user-favorite-btn" style="height: 64px; width: 71px">
         <div class="round none-border font16">
           {{ this.userName.slice(0, 2) }}
+        </div>
+        <div id="user-area-btn-dropdown" class="menu-user-area-btn">
+          <button class="user-area-btn" routerLink="/profile">
+            <div>אזור אישי</div>
+
+            <img
+              class="svg-icon user-img"
+              src="assets/images/user-svgrepo-com.svg"
+              alt="logo"
+            />
+          </button>
+
+          <button class="user-area-btn">
+            <div>חיפושים אחרונים</div>
+            <mat-icon>history</mat-icon>
+          </button>
+
+          <button
+            (click)="this.authService.logout()"
+            class="user-area-btn border-top"
+          >
+            <div>התנתקות</div>
+
+            <img
+              class="svg-icon"
+              src="assets/images/door-svgrepo-com.svg"
+              alt="logo"
+            />
+          </button>
         </div>
       </div>
       <div
