@@ -673,3 +673,10 @@ button,
   width: 23px;
   transform: translateY(4px);
 }
+
+#counter {
+  height: 13px;
+  width: 12.625px;
+  font-size: 11px !important;
+  line-height: 13px;
+}
