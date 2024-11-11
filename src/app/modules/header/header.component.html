@@ -209,7 +209,10 @@
           <div id="dropdown-favorite-ads" class="favorite-ads-dropdown">
             <div
               class="favorite-ad"
-              *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
+              *ngFor="
+                let favorite of this.favoriteAds.slice(0, 3);
+                let i = index
+              "
               routerLink="/advertisement/{{ favorite.id }}"
               (click)="this.HasFavoriteAdsDropdownVisible = false"
             >
@@ -237,6 +240,7 @@
                   <img
                     class="house-pic"
                     src="assets/images/feed_re_placeholder_small.png"
+                    [src]="favorite.pictures[0].url"
                     alt=""
                   />
                   <div class="favorite-symbol">
