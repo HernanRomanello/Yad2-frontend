@@ -194,7 +194,7 @@
             {{ this.countFavoriteAds }}
           </div>
           @if(HasFavoriteAdsDropdownVisible){
-          <div class="favorite-ads-dropdown">
+          <div id="dropdown-favorite-ads" class="favorite-ads-dropdown">
             <div
               class="favorite-ad"
               *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
