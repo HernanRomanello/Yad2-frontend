@@ -188,7 +188,7 @@
           alt="Post-Btn"
         />
       </button>
-      <div class="user-favorite-btn">
+      <div class="user-favorite-btn" style="height: 64px; width: 71px">
         <div class="round none-border font16">
           {{ this.userName.slice(0, 2) }}
         </div>
@@ -238,6 +238,7 @@
 
                 <div class="favorite-ad-img">
                   <img
+                    id="ad-image"
                     class="house-pic"
                     src="assets/images/feed_re_placeholder_small.png"
                     [src]="favorite.pictures[0].url"

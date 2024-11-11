@@ -295,8 +295,6 @@ button {
   background-color: #f8f8f8 !important;
 }
 
-.user-favorite-btn {
-}
 #bell-icon {
   transform: scale(1.2) rotate(25deg);
 }
@@ -480,7 +478,8 @@ img,
 }
 
 .flex-center2,
-#heart-btn {
+#heart-btn,
+.user-favorite-btn {
   display: flex;
   justify-content: center;
   align-items: center;
