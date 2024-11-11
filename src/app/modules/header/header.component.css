@@ -642,3 +642,13 @@ button,
 #dropdown-favorite-ads {
   transform: translateX(-258px);
 }
+
+#heart-icon {
+  height: 25px;
+  width: 25px;
+}
+#heart-icon img {
+  height: 22px;
+  width: 16px;
+  transform: scaleY(1.1);
+}
