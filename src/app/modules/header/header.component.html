@@ -181,12 +181,14 @@
           {{ this.userName.slice(0, 2) }}
         </div>
       </div>
-      <div class="user-favorite-btn">
-        <div
-          class="favorites-counter"
-          (mouseenter)="this.HasFavoriteAdsDropdownVisible = true"
-          (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
-        >
+      <div
+        id="heart-btn"
+        style="width: 51px; height: 64px"
+        class="user-favorite-btn"
+        (mouseenter)="this.HasFavoriteAdsDropdownVisible = true"
+        (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
+      >
+        <div class="favorites-counter">
           @if(this.countFavoriteAds > 0) {
           <div class="favorite-counter">
             {{ this.countFavoriteAds }}
@@ -197,6 +199,7 @@
               class="favorite-ad"
               *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
               routerLink="/advertisement/{{ favorite.id }}"
+              (click)="this.HasFavoriteAdsDropdownVisible = false"
             >
               <div class="favorite-ad-text">
                 <div class="favorite-ad-price">

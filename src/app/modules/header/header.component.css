@@ -468,7 +468,8 @@ img,
   color: #ff7100;
 }
 
-.flex-center2 {
+.flex-center2,
+#heart-btn {
   display: flex;
   justify-content: center;
   align-items: center;
