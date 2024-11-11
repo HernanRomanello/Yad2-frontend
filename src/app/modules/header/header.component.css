@@ -411,6 +411,10 @@ img,
   padding: 0px 14px;
   border-radius: 20px;
 }
+
+.green:hover {
+  background-color: #0e9c64;
+}
 .favorite-link,
 .green {
   font-weight: 500;
