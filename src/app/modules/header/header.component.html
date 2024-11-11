@@ -1,8 +1,20 @@
 @if ((this.authService.IsMainHeaderISOpen | async)) {
 @if(!(this.authService.IsalternativeHeaderISOpen | async)) {
 
-<header class="header">
-  <div class="left-side">
+<header
+  [ngClass]="
+    (this.authService.IsFavoritesAdvertisementIsOpen | async)
+      ? 'header shadow none-border'
+      : 'header'
+  "
+>
+  <div
+    [ngClass]="
+      (this.authService.IsFavoritesAdvertisementIsOpen | async)
+        ? 'header none-border'
+        : 'header'
+    "
+  >
     @if(!(this.authService.IsFavoritesAdvertisementIsOpen | async)) {
     <div class="Post-Btn">
       <button class="light" routerLink="create-advertisement">
@@ -264,7 +276,13 @@
     </div>
     }
   </div>
-  <div class="right-side">
+  <div
+    [ngClass]="
+      (this.authService.IsFavoritesAdvertisementIsOpen | async)
+        ? 'header none-border'
+        : 'header'
+    "
+  >
     <div
       class="menu-container menu-button-trigger-area btn"
       (mouseover)="openMenu('menu_Yad2Magazine')"
