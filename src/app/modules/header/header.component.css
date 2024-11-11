@@ -667,3 +667,9 @@ button,
 .green {
   padding-left: 1.3rem;
 }
+
+#heart-icon-link img {
+  height: 23px;
+  width: 23px;
+  transform: translateY(4px);
+}
