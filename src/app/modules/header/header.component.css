@@ -13,6 +13,10 @@
   border-bottom: 1px solid lightgray;
 }
 
+.green {
+  gap: 0.5rem;
+}
+
 .favorite-symbol,
 .header,
 .left-side,
@@ -652,4 +656,14 @@ button,
   height: 22px;
   width: 16px;
   transform: scaleY(1.1);
+}
+
+#plus-icon {
+  height: 10px;
+  width: 9px;
+  transform: translateY(1px);
+}
+
+.green {
+  padding-left: 1.3rem;
 }
