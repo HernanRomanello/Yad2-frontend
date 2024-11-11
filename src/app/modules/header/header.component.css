@@ -71,7 +71,9 @@ button {
 .favorite-symbol,
 .Post-Btn-Favorite,
 .favorite-ad-content,
-.favorite-ad-text {
+.favorite-ad-text,
+#user-area-btn-dropdown button,
+#user-area-btn-dropdown button mat-icon {
   display: flex;
 }
 
@@ -698,7 +700,7 @@ button,
 #user-area-btn-dropdown button img {
   height: 15px;
   width: 15px;
-  margin: 6px 0 0;
+  margin: 6px 0px 6px 6px;
 }
 
 #user-area-btn-dropdown button mat-icon {
@@ -708,4 +710,11 @@ button,
 
 #user-area-btn-dropdown {
   transform: translateX(15px) translateY(1px);
+}
+#user-area-btn-dropdown button .user-img {
+}
+
+#user-area-btn-dropdown button,
+#user-area-btn-dropdown button mat-icon {
+  gap: 0.5rem;
 }
