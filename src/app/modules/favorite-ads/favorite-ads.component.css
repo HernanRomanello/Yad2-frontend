@@ -5,6 +5,8 @@ body header {
   direction: rtl;
   font-size: 14px;
   word-spacing: 0 !important;
+  letter-spacing: -0.1px !important;
+
   cursor: default;
 }
 
@@ -24,8 +26,6 @@ body header {
 header {
   height: 70px;
   margin-top: 10px !important;
-  word-spacing: 0 !important;
-  letter-spacing: -0.2px !important;
 }
 
 button,
@@ -38,8 +38,16 @@ button,
   font-size: 18px !important;
 }
 
+.sub-title {
+  padding: 44px 8px;
+}
+
 .column {
   flex-direction: column;
+}
+
+.sub-title-right {
+  gap: 1rem;
 }
 
 .print:hover {
