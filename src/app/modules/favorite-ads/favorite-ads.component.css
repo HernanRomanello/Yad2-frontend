@@ -77,8 +77,8 @@ button,
 }
 
 .accessibility-btn {
-  padding: 0.125rem 0.75rem !important;
-  margin: 6px 4px !important;
+  margin: 5px 0 !important;
+  transform: translateX(-6px);
 }
 
 .accessibility-btn span {
