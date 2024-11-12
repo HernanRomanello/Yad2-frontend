@@ -1,0 +1,28 @@
+body,
+body div,
+body header {
+  width: 695px;
+  margin: auto;
+  direction: rtl;
+  font-size: 14px;
+}
+
+header {
+  height: 70px;
+  margin-top: 10px !important;
+  word-spacing: 0 !important;
+  letter-spacing: -0.2px !important;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accessibility-btn {
+  align-items: flex-end;
+}
+
+.font24 {
+  font-size: 24px !important;
+}
