@@ -1,11 +1,20 @@
 body,
-body div,
+/* body div, */
 body header {
   width: 695px;
   margin: auto;
   direction: rtl;
   font-size: 14px;
   word-spacing: 0 !important;
+}
+
+.page {
+  height: 100vh;
+  width: 100vw;
+}
+
+.page {
+  background-color: #f9f9f9;
 }
 
 header {
@@ -21,8 +30,7 @@ button,
   display: flex;
 }
 
-.font18,
-.print {
+.font18 {
   font-size: 18px !important;
 }
 
@@ -30,12 +38,24 @@ button,
   flex-direction: column;
 }
 
-.print {
-  height: 22px;
-  width: 94.4688px;
-}
 .print:hover {
   background-color: rgba(0, 0, 0, 0);
+}
+.print {
+  background-color: #ffffff !important;
+}
+.print {
+  height: 32px;
+  width: 145px;
+  border: 1px solid rgb(204, 204, 204);
+  margin: 0px 5px;
+  padding: 1px 10px;
+  border-radius: 2px;
+}
+
+.print img {
+  height: 20px;
+  width: 20px;
 }
 
 .accessibility-btn img {
@@ -71,9 +91,6 @@ button,
   justify-content: flex-end !important;
 }
 
-.sub-title div {
-  width: 100%;
-}
 .accessibility-btn span,
 .font500 {
   font-weight: 500;
