@@ -99,6 +99,15 @@ button,
   cursor: pointer;
 }
 
+.orange-font {
+  color: #ff7100;
+}
+
+#share-icon {
+  width: 16px;
+  height: 16px;
+}
+
 .print {
   gap: 0.25rem;
 }
