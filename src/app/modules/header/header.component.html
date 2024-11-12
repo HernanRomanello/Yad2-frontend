@@ -187,11 +187,20 @@
           alt="Post-Btn"
         />
       </button>
-      <div class="user-favorite-btn" style="height: 64px; width: 71px">
+      <div
+        class="user-favorite-btn"
+        style="height: 64px; width: 71px"
+        (mouseover)="openMenu('menu_User')"
+        (mouseleave)="closeMenu('menu_User')"
+      >
         <div class="round none-border font16">
           {{ this.userName.slice(0, 2) }}
         </div>
-        <div id="user-area-btn-dropdown" class="menu-user-area-btn">
+        <div
+          id="user-area-btn-dropdown"
+          class="menu-user-area-btn"
+          *ngIf="menus['menu_User']"
+        >
           <button class="user-area-btn" routerLink="/profile">
             <div>אזור אישי</div>
 
@@ -204,7 +213,6 @@
 
           <button id="last-searched-btn" class="user-area-btn">
             <div>חיפושים אחרונים</div>
-            <!-- <mat-icon id="last-searched-icon">history</mat-icon> -->
             <img
               id="last-searched-icon"
               class="svg-icon"
