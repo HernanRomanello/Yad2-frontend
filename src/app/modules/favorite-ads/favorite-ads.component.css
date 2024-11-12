@@ -66,8 +66,8 @@ button,
 }
 
 .print img {
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
 }
 
 .accessibility-btn img {
@@ -97,6 +97,10 @@ button,
 .print,
 .share {
   cursor: pointer;
+}
+
+.print {
+  gap: 0.25rem;
 }
 
 .share {
