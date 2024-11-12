@@ -1,13 +1,13 @@
-button .print_button {
+button .share_button {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
+	font-weight: 500;
 	letter-spacing: normal;
 	line-height: 17px;
-	text-decoration: none solid rgb(54, 54, 54);
+	text-decoration: none solid rgb(255, 113, 0);
 	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,26 +17,26 @@ button .print_button {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(219, 219, 219);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(255, 113, 0);
 
 	/* Box */
-	height: 32px;
-	width: 145px;
-	border: 1px solid rgb(204, 204, 204);
-	border-top: 1px solid rgb(204, 204, 204);
-	border-right: 1px solid rgb(204, 204, 204);
-	border-bottom: 1px solid rgb(204, 204, 204);
-	border-left: 1px solid rgb(204, 204, 204);
-	margin: 0px 5px;
-	padding: 1px 10px;
+	height: 27.0028px;
+	width: 82.5284px;
+	border: 0px none rgb(255, 113, 0);
+	border-top: 0px none rgb(255, 113, 0);
+	border-right: 0px none rgb(255, 113, 0);
+	border-bottom: 0px none rgb(255, 113, 0);
+	border-left: 0px none rgb(255, 113, 0);
+	margin: 0px;
+	padding: 5px 15px;
 	max-height: none;
 	min-height: 0px;
-	max-width: 157px;
-	min-width: 145px;
+	max-width: none;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -69,14 +69,14 @@ button .print_button {
 	/* Effects */
 	transform: none;
 	transition: all;
-	outline: rgb(255, 0, 0) dashed 1px;
+	outline: rgb(255, 0, 0) dashed 0.909091px;
 	outline-offset: 0px;
 	box-sizing: border-box;
 	resize: none;
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: none;
+	box-shadow: rgba(44, 44, 44, 0.12) 0px 1px 4px 0px;
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 	border-bottom-left-radius: 2px;

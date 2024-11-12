@@ -53,8 +53,16 @@ button,
 .print:hover {
   background-color: rgba(0, 0, 0, 0);
 }
-.print {
+.print,
+.share {
   background-color: #ffffff !important;
+}
+.share {
+  height: 27.0028px;
+  width: 82.5284px;
+  box-shadow: rgba(44, 44, 44, 0.12) 0px 1px 4px 0px;
+
+  border-radius: 2px;
 }
 .print {
   height: 32px;
@@ -108,6 +116,10 @@ button,
   height: 16px;
 }
 
+.font16 {
+  font-size: 16px !important;
+}
+
 .print {
   gap: 0.25rem;
 }
@@ -138,8 +150,15 @@ button,
 
 button,
 .flex-center {
-  align-items: center;
-  justify-content: center;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.share {
+  transform: translateX(-16px);
+}
+
+.share {
+  gap: 3px;
 }
 
 .flex-space-between {
