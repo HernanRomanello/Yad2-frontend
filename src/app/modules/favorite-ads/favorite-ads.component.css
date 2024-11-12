@@ -5,6 +5,7 @@ body header {
   margin: auto;
   direction: rtl;
   font-size: 14px;
+  word-spacing: 0 !important;
 }
 
 header {
@@ -20,20 +21,58 @@ button,
   display: flex;
 }
 
+.font18,
+.print {
+  font-size: 18px !important;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.print {
+  height: 22px;
+  width: 94.4688px;
+}
+.print:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .accessibility-btn img {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
+  transform: translateX(3px) translateY(1px);
 }
 
 .accessibility-btn {
   gap: 0.5rem !important;
 }
+
+.accessibility-btn span {
+  transform: translateX(3px) translateY(-1px);
+}
+
 .accessibility-btn {
   padding: 0.125rem 0.75rem !important;
+  margin: 6px 4px !important;
 }
 
 .accessibility-btn span {
   height: 100%;
+}
+
+button,
+.print,
+.share {
+  cursor: pointer;
+}
+
+.share {
+  justify-content: flex-end !important;
+}
+
+.sub-title div {
+  width: 100%;
 }
 .accessibility-btn span,
 .font500 {
