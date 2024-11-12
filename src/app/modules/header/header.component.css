@@ -158,6 +158,13 @@ button {
 .favorite-ads-dropdown {
   background-color: #ffffff;
   width: 460px;
+}
+
+#user-area-btn-dropdown {
+  width: fit-content;
+}
+#user-area-btn-dropdown,
+.favorite-ads-dropdown {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px 0px;
 }
 
@@ -700,6 +707,8 @@ button,
 #user-area-btn-dropdown button img {
   height: 15px;
   width: 15px;
+}
+#user-area-btn-dropdown button img {
   margin: 6px 0px 6px 6px;
 }
 
@@ -711,10 +720,21 @@ button,
 #user-area-btn-dropdown {
   transform: translateX(15px) translateY(1px);
 }
-#user-area-btn-dropdown button .user-img {
-}
 
 #user-area-btn-dropdown button,
 #user-area-btn-dropdown button mat-icon {
   gap: 0.5rem;
+}
+
+#last-searched-icon {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+#last-searched-btn img {
+  transform: translateX(2px) !important;
+}
+
+#last-searched-btn div {
+  transform: translateX(6px) !important;
 }
