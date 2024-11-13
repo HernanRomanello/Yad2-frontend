@@ -33,11 +33,20 @@
       @for (ad of this.authService.UserFavoriteAdvertisements |async; track
       $index) {
 
-      <div class="favorites-ad flex column">
+      <div
+        (mouseenter)="zoomInImage($event, $index)"
+        (mouseleave)="zoomOutImage($event, $index)"
+        class="favorites-ad flex column"
+      >
         <div class="flex-center">
           <div class="ad-part1 flex">
-            <div>
-              <img id="ad-image" [src]="ad.pictures[0].url" alt="" />
+            <div class="ad-image-container">
+              <img
+                ngClass="ad-image"
+                id="ad-image{{ $index }}"
+                [src]="ad.pictures[0].url"
+                alt=""
+              />
             </div>
             <div class="justify-content-center column">
               <div class="flex font16">

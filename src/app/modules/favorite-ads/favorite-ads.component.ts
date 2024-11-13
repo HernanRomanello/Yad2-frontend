@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AuthService } from '../../services/user/auth.service';
   styleUrl: './favorite-ads.component.css',
 })
 export class FavoriteAdsComponent implements OnInit, OnDestroy {
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private renderer: Renderer2) {}
 
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);
@@ -15,5 +15,20 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.authService.isFavoritesAdIsOpen(false);
+  }
+
+  zoomInImage(event: any, index: number) {
+    let divTarget = document.getElementById('ad-image' + index.toString());
+
+    if (event.type === 'mouseenter' && divTarget) {
+      this.renderer.addClass(divTarget, 'zoom');
+    }
+  }
+  zoomOutImage(event: any, index: number) {
+    let divTarget = document.getElementById('ad-image' + index.toString());
+
+    if (event.type === 'mouseleave' && divTarget) {
+      this.renderer.removeClass(divTarget, 'zoom');
+    }
   }
 }

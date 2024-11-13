@@ -22,10 +22,22 @@ body header {
   width: 100vw !important;
 }
 
-#ad-image {
+.ad-image {
   height: 66px;
   width: 110px;
   border-radius: 3px;
+  object-fit: cover;
+  transition: 0.1s linear;
+}
+
+.ad-image:hover,
+.zoom {
+  transform: scale(1.01);
+}
+
+.ad-image-container {
+  overflow: hidden !important;
+  border-radius: 3px !important;
 }
 
 .favorites-ads {
@@ -66,9 +78,13 @@ button,
   height: 86px;
   width: 346px;
   padding: 10px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
   gap: 1.5rem;
 }
+.ad-part1,
+.ad-part2 {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .ad-part2,
 .ad-part3 {
   height: 85px;
@@ -105,7 +121,10 @@ button,
   background-color: rgba(0, 0, 0, 0);
 }
 .print,
-.share {
+.share,
+.ad-part1,
+.ad-part2,
+.ad-part3 {
   background-color: #ffffff !important;
 }
 .share {
