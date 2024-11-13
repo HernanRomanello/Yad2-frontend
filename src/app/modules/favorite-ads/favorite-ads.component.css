@@ -11,8 +11,12 @@ body header {
 }
 
 .page {
-  height: 100vh !important;
   width: 100vw !important;
+}
+
+#ad-image {
+  height: 66px;
+  width: 110px;
 }
 
 .page {

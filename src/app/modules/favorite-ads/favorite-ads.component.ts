@@ -7,7 +7,7 @@ import { AuthService } from '../../services/user/auth.service';
   styleUrl: './favorite-ads.component.css',
 })
 export class FavoriteAdsComponent implements OnInit, OnDestroy {
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);
