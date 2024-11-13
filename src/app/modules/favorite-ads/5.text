@@ -1,4 +1,4 @@
-div .right_col {
+div .feed_item-v4 lightbox desktop {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -12,7 +12,7 @@ div .right_col {
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: nowrap;
+	white-space: normal;
 	word-spacing: 0px;
 
 	/* Color & Background */
@@ -24,30 +24,30 @@ div .right_col {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 86px;
-	width: 346px;
-	border: ;
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
+	height: 87px;
+	width: 695px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	border-left: 1px solid rgba(0, 0, 0, 0.1);
 	margin: 0px;
 	padding: 0px;
-	max-height: none;
-	min-height: auto;
-	max-width: 358px;
-	min-width: auto;
+	max-height: 87px;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
 
 	/* Positioning */
-	position: static;
-	top: auto;
-	bottom: auto;
-	right: auto;
-	left: auto;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
 	float: none;
-	display: table;
+	display: block;
 	clear: none;
-	z-index: auto;
+	z-index: 0;
 
 	/* List */
 	list-style-image: none;
@@ -62,13 +62,13 @@ div .right_col {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: hidden;
+	overflow: visible;
 	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
 	transform: none;
-	transition: all;
+	transition: max-height 0.3s;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
 	box-sizing: border-box;
@@ -77,8 +77,8 @@ div .right_col {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 0px;
+	border-top-left-radius: 2px;
 	border-top-right-radius: 0px;
-	border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 0px;
 }
