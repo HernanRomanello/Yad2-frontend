@@ -30,6 +30,10 @@ body header {
   transition: 0.1s linear;
 }
 
+.favorites-ad:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 16px;
+}
+
 .ad-image:hover,
 .zoom {
   transform: scale(1.01);
