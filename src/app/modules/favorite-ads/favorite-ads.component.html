@@ -33,9 +33,9 @@
       @for (ad of this.authService.UserFavoriteAdvertisements |async; track
       $index) {
 
-      <div class="favorites-ad">
-        <div>
-          <div>
+      <div class="favorites-ad flex column">
+        <div class="flex-center">
+          <div class="ad-part1 align-items-center">
             <div>
               <img id="ad-image" [src]="ad.pictures[0].url" alt="" />
             </div>
@@ -45,43 +45,48 @@
               <div>{{ ad.number }}</div>
             </div>
           </div>
-          <div>
+
+          <div class="ad-part2 align-items-center">
             <div>
               <span>
                 {{ ad.rooms }}
               </span>
               <span>חדרים</span>
             </div>
-          </div>
-          <div>
+            <div class="">
+              <div>
+                <span>
+                  <div class=""></div>
+                  {{ ad.floor }}
+                </span>
+                <span>קומה</span>
+              </div>
+            </div>
             <div>
-              <span>
-                {{ ad.floor }}
-              </span>
-              <span>קומה</span>
+              <div>
+                <span>
+                  {{ ad.totalSquareMeters }}
+                </span>
+                <span>מ"ר</span>
+              </div>
             </div>
           </div>
-          <div>
+
+          <div class="ad-part3 flex-center">
             <div>
-              <span>
-                {{ ad.totalSquareMeters }}
-              </span>
-              <span>מ"ר</span>
+              <div>
+                {{ ad.price }}
+              </div>
+              <div>
+                <span></span>
+                <span>פתיחה בטאב חדש</span>
+              </div>
+              <div>עודכן היום</div>
             </div>
-          </div>
-          <div>
-            <div>
-              {{ ad.price }}
-            </div>
-            <div>
-              <span></span>
-              <span>פתיחה בטאב חדש</span>
-            </div>
-            <div>עודכן היום</div>
           </div>
         </div>
-        <div>הוספת הערה</div>
       </div>
+      <div>הוספת הערה</div>
       }
     </div>
   </body>

@@ -10,6 +10,14 @@ body header {
   cursor: default;
 }
 
+.align-items-center {
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
 .page {
   width: 100vw !important;
 }
@@ -17,6 +25,15 @@ body header {
 #ad-image {
   height: 66px;
   width: 110px;
+}
+
+.favorites-ad {
+  text-align: right;
+
+  height: 87px;
+  width: 695px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px 0 0 2px;
 }
 
 .page {
@@ -34,8 +51,31 @@ header {
 
 button,
 .flex,
-.flex-center {
+.flex-center,
+.align-items-center,
+.justify-content-center {
   display: flex;
+}
+
+.ad-part1 {
+  height: 86px;
+  width: 346px;
+  background-color: red !important;
+}
+.ad-part2,
+.ad-part3 {
+  height: 85px;
+}
+.ad-part2 {
+  width: 185px;
+}
+
+.ad-part3 {
+  width: 162px;
+}
+
+.justify-content-center {
+  justify-content: center;
 }
 
 .font18 {
