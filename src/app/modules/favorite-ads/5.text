@@ -1,4 +1,4 @@
-div .left_col with_new_tab {
+div .right_col {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -8,11 +8,11 @@ div .left_col with_new_tab {
 	letter-spacing: normal;
 	line-height: 16px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: left;
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: normal;
+	white-space: nowrap;
 	word-spacing: 0px;
 
 	/* Color & Background */
@@ -24,28 +24,28 @@ div .left_col with_new_tab {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 85px;
-	width: 162px;
-	border: 0px none rgb(54, 54, 54);
+	height: 86px;
+	width: 346px;
+	border: ;
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
 	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
+	border-left: 1px solid rgba(0, 0, 0, 0.1);
 	margin: 0px;
-	padding: 5px;
+	padding: 0px;
 	max-height: none;
 	min-height: auto;
-	max-width: calc(100% - 531px);
+	max-width: 358px;
 	min-width: auto;
 
 	/* Positioning */
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
-	float: left;
-	display: flex;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
+	float: none;
+	display: table;
 	clear: none;
 	z-index: auto;
 
@@ -62,7 +62,7 @@ div .left_col with_new_tab {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
+	overflow: hidden;
 	cursor: pointer;
 	visibility: visible;
 

@@ -27,6 +27,10 @@ body header {
   width: 110px;
 }
 
+.favorites-ads {
+  padding-right: 6px !important;
+}
+
 .favorites-ad {
   text-align: right;
 
@@ -60,7 +64,9 @@ button,
 .ad-part1 {
   height: 86px;
   width: 346px;
-  background-color: red !important;
+  padding: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 1.5rem;
 }
 .ad-part2,
 .ad-part3 {

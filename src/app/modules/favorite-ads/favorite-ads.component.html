@@ -35,14 +35,19 @@
 
       <div class="favorites-ad flex column">
         <div class="flex-center">
-          <div class="ad-part1 align-items-center">
+          <div class="ad-part1 flex">
             <div>
               <img id="ad-image" [src]="ad.pictures[0].url" alt="" />
             </div>
-            <div>
-              <div>{{ ad.city }}</div>
-              <div>{{ ad.street }}</div>
-              <div>{{ ad.number }}</div>
+            <div class="justify-content-center column">
+              <div class="flex">
+                <div>{{ ad.street }}</div>
+                <div>{{ ad.number }}</div>
+              </div>
+              <div class="flex">
+                <div>{{ ad.assetType }}</div>
+                <div>{{ ad.city }}</div>
+              </div>
             </div>
           </div>
 
