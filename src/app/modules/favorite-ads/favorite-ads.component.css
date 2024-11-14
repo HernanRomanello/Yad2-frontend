@@ -101,6 +101,15 @@ button,
   font-size: 18px !important;
 }
 
+.box {
+  gap: 1px;
+  transform: translateY(-1px);
+}
+
+.increace-number {
+  font-size: 17px !important;
+}
+
 .ad-part3 {
   width: 162px;
 }

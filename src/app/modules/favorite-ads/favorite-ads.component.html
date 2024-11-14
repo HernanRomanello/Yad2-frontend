@@ -50,7 +50,14 @@
             </div>
             <div class="justify-content-center column">
               <div class="flex font16">
-                <div>{{ ad.street + " " + ad.number }}</div>
+                <div>
+                  <span>
+                    {{ ad.street + " " }}
+                  </span>
+                  <span class="increace-number">
+                    {{ ad.number }}
+                  </span>
+                </div>
               </div>
               <div class="flex ad-sub-details">
                 <div>{{ ad.assetType + ", " + ad.city }}</div>
@@ -59,20 +66,20 @@
           </div>
 
           <div class="ad-part2 flex-center">
-            <div class="flex-center column">
-              <span class="font16">
+            <div class="flex-center column box">
+              <span class="font16 number">
                 {{ ad.rooms }}
               </span>
               <span class="decrease-opacity">חדרים</span>
             </div>
-            <div class="flex-center column">
-              <span class="font16">
+            <div class="flex-center column box">
+              <span class="font16 number">
                 {{ ad.floor }}
               </span>
               <span class="decrease-opacity">קומה</span>
             </div>
-            <div class="flex-center column">
-              <span class="font16">
+            <div class="flex-center column box">
+              <span class="font16 number">
                 {{ ad.totalSquareMeters }}
               </span>
               <span class="decrease-opacity">מ"ר</span>
