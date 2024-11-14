@@ -1,4 +1,4 @@
-div .feed_item-v4 lightbox desktop {
+div .textarea_wrapper y2-textarea-container {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -24,17 +24,17 @@ div .feed_item-v4 lightbox desktop {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 87px;
-	width: 695px;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	border-right: 1px solid rgba(0, 0, 0, 0.1);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	border-left: 1px solid rgba(0, 0, 0, 0.1);
+	height: 84px;
+	width: 693px;
+	border: 0px none rgb(54, 54, 54);
+	border-top: 0px none rgb(54, 54, 54);
+	border-right: 0px none rgb(54, 54, 54);
+	border-bottom: 0px none rgb(54, 54, 54);
+	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 0px;
-	max-height: 87px;
-	min-height: 0px;
+	padding: 10px 15px 0px;
+	max-height: none;
+	min-height: 48px;
 	max-width: none;
 	min-width: 0px;
 
@@ -45,9 +45,9 @@ div .feed_item-v4 lightbox desktop {
 	right: 0px;
 	left: 0px;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
-	z-index: 0;
+	z-index: auto;
 
 	/* List */
 	list-style-image: none;
@@ -68,7 +68,7 @@ div .feed_item-v4 lightbox desktop {
 
 	/* Effects */
 	transform: none;
-	transition: max-height 0.3s;
+	transition: all;
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
 	box-sizing: border-box;
@@ -77,8 +77,8 @@ div .feed_item-v4 lightbox desktop {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 0px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }

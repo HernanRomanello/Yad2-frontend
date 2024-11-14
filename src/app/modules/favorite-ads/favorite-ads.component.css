@@ -282,3 +282,18 @@ button,
 .decrease-opacity {
   opacity: 0.7;
 }
+
+.write-note {
+  height: 40px;
+  width: 695px;
+  padding: 10px 15px 0px;
+
+  border-radius: 3px;
+}
+
+.write-note {
+  border: 1px solid #cccccc;
+}
+.write-note {
+  background-color: #fffaea;
+}
