@@ -15,212 +15,66 @@
         : 'header'
     "
   >
-    @if(!(this.authService.IsFavoritesAdvertisementIsOpen | async)) {
-    <div class="Post-Btn">
-      <button class="light" routerLink="create-advertisement">
-        פרסום הודעה
-        <i class="material-icons">add</i>
-      </button>
-    </div>
-
-    <div
-      class="menu-container menu-button-trigger-area"
-      (mouseover)="openMenu('menu_User')"
-      (mouseleave)="closeMenu('menu_User')"
-    >
-      <div class="user-name-btn" style="display: flex">
-        <button class="user-name">
-          @if (this.isUserConnected) {
-
-          <span style="color: #363636"> {{ this.userName }}</span>
-          }@else { <span routerLink="login">התחברות</span> }
+    <div class="left-side">
+      @if(!(this.authService.IsFavoritesAdvertisementIsOpen | async)) {
+      <div class="Post-Btn">
+        <button class="light" routerLink="create-advertisement">
+          פרסום הודעה
+          <i class="material-icons">add</i>
         </button>
-        <div [ngClass]="getCircleClass()">
-          @if (this.isUserConnected) {
-          {{ this.userName.slice(0, 2) }}
-          }@else {
-          <img
-            class="svg-icon user-img"
-            src="assets/images/user.svg"
-            alt="logo"
-          />
-          }
-        </div>
       </div>
-      <div class="menu-user-area-btn" *ngIf="menus['menu_User']">
-        @if (this.isUserConnected) {
-        <button class="user-area-btn" routerLink="/profile">
-          <div>אזור אישי</div>
 
-          <img
-            class="svg-icon user-img"
-            src="assets/images/user.svg"
-            alt="logo"
-          />
-        </button>
-        }
-
-        <button class="user-area-btn">
-          <div>חיפושים אחרונים</div>
-          <mat-icon>history</mat-icon>
-        </button>
-        <button class="user-area-btn">
-          <div>התראות</div>
-
-          <img
-            class="svg-icon bell-img"
-            src="assets/images/bell1.svg"
-            alt="logo"
-          />
-        </button>
-        @if (this.isUserConnected) {
-        <button
-          (click)="this.authService.logout()"
-          class="user-area-btn border-top"
-        >
-          <div>התנתקות</div>
-
-          <img
-            class="svg-icon"
-            src="assets/images/door-svgrepo-com.svg"
-            alt="logo"
-          />
-        </button>
-        }
-      </div>
-    </div>
-
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="
-        openMenu('menu_FavoriteAds'); this.HasFavoriteAdsDropdownVisible = true
-      "
-      (mouseleave)="
-        closeMenu('menu_FavoriteAds');
-        this.HasFavoriteAdsDropdownVisible = false
-      "
-    >
-      <button
-        class="light favorite-btn"
-        [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
-      >
-        <div
-          (click)="this.HasFavoriteAdsDropdownVisible = false"
-          routerLink="/favorites"
-          class="favorite-text-btn"
-        >
-          מודעות שאהבתי
-        </div>
-
-        <div class="favorites-counter">
-          @if(this.countFavoriteAds > 0) {
-          <div class="favorite-counter">
-            {{ this.countFavoriteAds }}
-          </div>
-          @if(HasFavoriteAdsDropdownVisible){
-          <div class="favorite-ads-dropdown">
-            <div
-              class="favorite-ad"
-              *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
-              (click)="this.HasFavoriteAdsDropdownVisible = false"
-              routerLink="/advertisement/{{ favorite.id }}"
-            >
-              <div class="favorite-ad-text">
-                <div class="favorite-ad-price">
-                  <span class="currency">₪</span
-                  ><span>{{ favorite.price | number }}</span>
-                </div>
-              </div>
-              <div>
-                <div class="favorite-ad-text">
-                  <div class="favorite-address">
-                    <div>
-                      <span>{{ favorite.number + " " + favorite.street }}</span>
-                    </div>
-                    <div>
-                      <span style="font-size: 14px">{{
-                        favorite.assetType + ", " + favorite.city
-                      }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="favorite-ad-img">
-                  <img
-                    class="house-pic"
-                    src="assets/images/feed_re_placeholder_small.png"
-                    alt=""
-                  />
-                  <div class="favorite-symbol">
-                    <img
-                      class="house-pic"
-                      src="assets/images/heart-svgrepo-com-orange.svg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="favorite-link-btn">
-              <button
-                (click)="this.HasFavoriteAdsDropdownVisible = false"
-                routerLink="/favorites"
-                class="favorite-link"
-              >
-                לכל המודעות שסימנתי
-              </button>
-            </div>
-          </div>
-          } }
-          <i class="material-icons">favorite_border</i>
-        </div>
-      </button>
-      <div class="menu" *ngIf="menus['menu_FavoriteAds']"></div>
-    </div>
-    } @else {
-    <div class="Post-Btn-Favorite">
-      <button class="green flex-center" routerLink="create-advertisement">
-        <span> פרסום מודעה חדשה </span>
-        <img
-          id="plus-icon"
-          src="assets/images/plus-svgrepo-com.svg"
-          alt="Post-Btn"
-        />
-      </button>
       <div
-        class="user-favorite-btn"
-        style="height: 64px; width: 71px"
+        class="menu-container menu-button-trigger-area"
         (mouseover)="openMenu('menu_User')"
         (mouseleave)="closeMenu('menu_User')"
       >
-        <div class="round none-border font16">
-          {{ this.userName.slice(0, 2) }}
+        <div class="user-name-btn" style="display: flex">
+          <button class="user-name">
+            @if (this.isUserConnected) {
+
+            <span style="color: #363636"> {{ this.userName }}</span>
+            }@else { <span routerLink="login">התחברות</span> }
+          </button>
+          <div [ngClass]="getCircleClass()">
+            @if (this.isUserConnected) {
+            {{ this.userName.slice(0, 2) }}
+            }@else {
+            <img
+              class="svg-icon user-img"
+              src="assets/images/user.svg"
+              alt="logo"
+            />
+            }
+          </div>
         </div>
-        <div
-          id="user-area-btn-dropdown"
-          class="menu-user-area-btn"
-          *ngIf="menus['menu_User']"
-        >
+        <div class="menu-user-area-btn" *ngIf="menus['menu_User']">
+          @if (this.isUserConnected) {
           <button class="user-area-btn" routerLink="/profile">
             <div>אזור אישי</div>
 
             <img
               class="svg-icon user-img"
-              src="assets/images/user-svgrepo-com (2).svg"
+              src="assets/images/user.svg"
               alt="logo"
             />
           </button>
+          }
 
-          <button id="last-searched-btn" class="user-area-btn">
+          <button class="user-area-btn">
             <div>חיפושים אחרונים</div>
+            <mat-icon>history</mat-icon>
+          </button>
+          <button class="user-area-btn">
+            <div>התראות</div>
+
             <img
-              id="last-searched-icon"
-              class="svg-icon"
-              src="assets/images/history-svgrepo-com (1).svg"
-              alt="history"
+              class="svg-icon bell-img"
+              src="assets/images/bell1.svg"
+              alt="logo"
             />
           </button>
-
+          @if (this.isUserConnected) {
           <button
             (click)="this.authService.logout()"
             class="user-area-btn border-top"
@@ -233,95 +87,251 @@
               alt="logo"
             />
           </button>
+          }
         </div>
       </div>
+
       <div
-        id="heart-btn"
-        style="width: 51px; height: 64px"
-        class="user-favorite-btn"
-        (mouseenter)="this.HasFavoriteAdsDropdownVisible = true"
-        (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="
+          openMenu('menu_FavoriteAds');
+          this.HasFavoriteAdsDropdownVisible = true
+        "
+        (mouseleave)="
+          closeMenu('menu_FavoriteAds');
+          this.HasFavoriteAdsDropdownVisible = false
+        "
       >
-        <div class="favorites-counter">
-          @if(this.countFavoriteAds > 0) {
-          <div id="counter" class="favorite-counter flex-center">
-            {{ this.countFavoriteAds }}
+        <button
+          class="light favorite-btn"
+          [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
+        >
+          <div
+            (click)="this.HasFavoriteAdsDropdownVisible = false"
+            routerLink="/favorites"
+            class="favorite-text-btn"
+          >
+            מודעות שאהבתי
           </div>
-          @if(HasFavoriteAdsDropdownVisible){
-          <div id="dropdown-favorite-ads" class="favorite-ads-dropdown">
-            <div
-              class="favorite-ad"
-              *ngFor="
-                let favorite of this.favoriteAds.slice(0, 3);
-                let i = index
-              "
-              routerLink="/advertisement/{{ favorite.id }}"
-              (click)="this.HasFavoriteAdsDropdownVisible = false"
-            >
-              <div class="favorite-ad-text">
-                <div class="favorite-ad-price">
-                  <span class="currency">₪</span
-                  ><span>{{ favorite.price | number }}</span>
-                </div>
-              </div>
-              <div class="favorite-ad-content">
+
+          <div class="favorites-counter">
+            @if(this.countFavoriteAds > 0) {
+            <div class="favorite-counter">
+              {{ this.countFavoriteAds }}
+            </div>
+            @if(HasFavoriteAdsDropdownVisible){
+            <div class="favorite-ads-dropdown">
+              <div
+                class="favorite-ad"
+                *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
+                (click)="this.HasFavoriteAdsDropdownVisible = false"
+                routerLink="/advertisement/{{ favorite.id }}"
+              >
                 <div class="favorite-ad-text">
-                  <div class="favorite-address">
-                    <div>
-                      <span>{{ favorite.number + " " + favorite.street }}</span>
-                    </div>
-                    <div>
-                      <span style="font-size: 14px">{{
-                        favorite.assetType + ", " + favorite.city
-                      }}</span>
-                    </div>
+                  <div class="favorite-ad-price">
+                    <span class="currency">₪</span
+                    ><span>{{ favorite.price | number }}</span>
                   </div>
                 </div>
+                <div>
+                  <div class="favorite-ad-text">
+                    <div class="favorite-address">
+                      <div>
+                        <span>{{
+                          favorite.number + " " + favorite.street
+                        }}</span>
+                      </div>
+                      <div>
+                        <span style="font-size: 14px">{{
+                          favorite.assetType + ", " + favorite.city
+                        }}</span>
+                      </div>
+                    </div>
+                  </div>
 
-                <div class="favorite-ad-img">
-                  <img
-                    id="ad-image"
-                    class="house-pic"
-                    src="assets/images/feed_re_placeholder_small.png"
-                    [src]="favorite.pictures[0].url"
-                    alt=""
-                  />
-                  <div id="heart-icon" class="favorite-symbol">
+                  <div class="favorite-ad-img">
                     <img
                       class="house-pic"
-                      src="assets/images/heart-svgrepo-com-orange2.svg"
+                      src="assets/images/feed_re_placeholder_small.png"
                       alt=""
                     />
+                    <div class="favorite-symbol">
+                      <img
+                        class="house-pic"
+                        src="assets/images/heart-svgrepo-com-orange.svg"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="favorite-link-btn">
+                <button
+                  (click)="this.HasFavoriteAdsDropdownVisible = false"
+                  routerLink="/favorites"
+                  class="favorite-link"
+                >
+                  לכל המודעות שסימנתי
+                </button>
+              </div>
             </div>
-            <div class="favorite-link-btn">
-              <button
-                (click)="this.HasFavoriteAdsDropdownVisible = false"
-                routerLink="/favorites"
-                class="favorite-link"
-              >
-                לכל המודעות שסימנתי
-              </button>
-            </div>
+            } }
+            <i class="material-icons">favorite_border</i>
           </div>
-          } }
-          <div id="heart-icon-link">
-            <img src="assets/images/heart-alt-svgrepo-com.svg" alt="" />
+        </button>
+      </div>
+
+      } @else {
+      <div class="Post-Btn-Favorite">
+        <button class="green flex-center" routerLink="create-advertisement">
+          <span> פרסום מודעה חדשה </span>
+          <img
+            id="plus-icon"
+            src="assets/images/plus-svgrepo-com.svg"
+            alt="Post-Btn"
+          />
+        </button>
+        <div
+          class="user-favorite-btn"
+          style="height: 64px; width: 71px"
+          (mouseover)="openMenu('menu_User')"
+          (mouseleave)="closeMenu('menu_User')"
+        >
+          <div class="round none-border font16">
+            {{ this.userName.slice(0, 2) }}
+          </div>
+          <div
+            id="user-area-btn-dropdown"
+            class="menu-user-area-btn"
+            *ngIf="menus['menu_User']"
+          >
+            <button class="user-area-btn" routerLink="/profile">
+              <div>אזור אישי</div>
+
+              <img
+                class="svg-icon user-img"
+                src="assets/images/user-svgrepo-com (2).svg"
+                alt="logo"
+              />
+            </button>
+
+            <button id="last-searched-btn" class="user-area-btn">
+              <div>חיפושים אחרונים</div>
+              <img
+                id="last-searched-icon"
+                class="svg-icon"
+                src="assets/images/history-svgrepo-com (1).svg"
+                alt="history"
+              />
+            </button>
+
+            <button
+              (click)="this.authService.logout()"
+              class="user-area-btn border-top"
+            >
+              <div>התנתקות</div>
+
+              <img
+                class="svg-icon"
+                src="assets/images/door-svgrepo-com.svg"
+                alt="logo"
+              />
+            </button>
           </div>
         </div>
+        <div
+          id="heart-btn"
+          style="width: 51px; height: 64px"
+          class="user-favorite-btn"
+          (mouseenter)="this.HasFavoriteAdsDropdownVisible = true"
+          (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
+        >
+          <div class="favorites-counter">
+            @if(this.countFavoriteAds > 0) {
+            <div id="counter" class="favorite-counter flex-center">
+              {{ this.countFavoriteAds }}
+            </div>
+            @if(HasFavoriteAdsDropdownVisible){
+            <div id="dropdown-favorite-ads" class="favorite-ads-dropdown">
+              <div
+                class="favorite-ad"
+                *ngFor="
+                  let favorite of this.favoriteAds.slice(0, 3);
+                  let i = index
+                "
+                routerLink="/advertisement/{{ favorite.id }}"
+                (click)="this.HasFavoriteAdsDropdownVisible = false"
+              >
+                <div class="favorite-ad-text">
+                  <div class="favorite-ad-price">
+                    <span class="currency">₪</span
+                    ><span>{{ favorite.price | number }}</span>
+                  </div>
+                </div>
+                <div class="favorite-ad-content">
+                  <div class="favorite-ad-text">
+                    <div class="favorite-address">
+                      <div>
+                        <span>{{
+                          favorite.number + " " + favorite.street
+                        }}</span>
+                      </div>
+                      <div>
+                        <span style="font-size: 14px">{{
+                          favorite.assetType + ", " + favorite.city
+                        }}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="favorite-ad-img">
+                    <img
+                      id="ad-image"
+                      class="house-pic"
+                      src="assets/images/feed_re_placeholder_small.png"
+                      [src]="favorite.pictures[0].url"
+                      alt=""
+                    />
+                    <div id="heart-icon" class="favorite-symbol">
+                      <img
+                        class="house-pic"
+                        src="assets/images/heart-svgrepo-com-orange2.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="favorite-link-btn">
+                <button
+                  (click)="this.HasFavoriteAdsDropdownVisible = false"
+                  routerLink="/favorites"
+                  class="favorite-link"
+                >
+                  לכל המודעות שסימנתי
+                </button>
+              </div>
+            </div>
+            } }
+            <div id="heart-icon-link">
+              <img src="assets/images/heart-alt-svgrepo-com.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-center bell-container"
+          style="height: 63px; width: 52px"
+        >
+          <img
+            id="bell-icon"
+            class="svg-icon2"
+            src="assets/images/bell-music-svgrepo-com.svg"
+            alt="bell-music-svgrepo-com"
+          />
+        </div>
       </div>
-      <div class="flex-center bell-container" style="height: 63px; width: 52px">
-        <img
-          id="bell-icon"
-          class="svg-icon2"
-          src="assets/images/bell-music-svgrepo-com.svg"
-          alt="bell-music-svgrepo-com"
-        />
-      </div>
+      }
     </div>
-    }
   </div>
   <div
     [ngClass]="

@@ -54,7 +54,9 @@ body header {
 }
 
 .page {
-  background-color: #f9f9f9 !important;
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px !important;
+  /* box-shadow: rgba(0, 0, 0, 0.08) 0px -4px 12px 0px !important; */
 }
 
 .favorite-title {
@@ -265,6 +267,8 @@ button,
 .favorites-ad {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 12px 12px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 0.5px;
+
+  /* box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px !important; */
 }
 
 .ad-part2 div span {

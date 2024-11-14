@@ -7,9 +7,12 @@
   height: 64px !important;
 }
 
-.header,
-.left-side,
-.right-side {
+.header {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
+  /* background-color: #ffffff !important; */
+}
+
+.header {
   border-bottom: 1px solid lightgray;
 }
 
@@ -24,9 +27,10 @@
   background-color: #ffffff;
 }
 
-.header {
-  justify-content: space-between;
+.empty-space {
+  width: 120px;
 }
+
 .shadow {
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
 }
@@ -36,17 +40,8 @@
   border: none !important;
 }
 
-.right-side {
-  margin-right: 0 !important;
-}
-
 .right-side .light {
   padding: 4.75px !important;
-}
-
-.left-side {
-  width: 30vw !important;
-  margin-left: 20px !important;
 }
 
 .logo-btn {
@@ -193,7 +188,7 @@ button {
 .favorite-link {
   font-size: 14px !important;
 
-  background-color: #fffffe;
+  background-color: #ffffff;
   color: rgb(255, 113, 0);
   height: 38.0938px;
   width: 165px;
@@ -379,6 +374,13 @@ img,
   height: 24px;
   margin-left: 0.5rem;
   font-size: 24px;
+}
+.left-side {
+  /* background-color: aqua !important; */
+}
+
+.header {
+  /* background-color: white !important; */
 }
 
 .menu-user-area-btn button div {
@@ -737,4 +739,24 @@ button,
 
 #last-searched-btn div {
   transform: translateX(6px) !important;
+}
+
+.header {
+  /* background-color: red !important; */
+
+  display: flex;
+  background-color: #ffffff;
+}
+
+.header {
+  /* justify-content: space-between; */
+  width: 100vw !important;
+}
+.header div {
+  /* flex: 0 1 auto; Prevents divs from growing to fill available space */
+  /* max-width: max-content; Allows divs to expand only to fit their content */
+  white-space: nowrap;
+  /* overflow: hidden;  */
+  /* text-overflow: ellipsis;  */
+  /* justify-content: space-between; */
 }
