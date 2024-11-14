@@ -58,36 +58,31 @@
             </div>
           </div>
 
-          <div class="ad-part2 align-items-center">
-            <div>
-              <span>
+          <div class="ad-part2 flex-center">
+            <div class="flex-center column">
+              <span class="font16">
                 {{ ad.rooms }}
               </span>
-              <span>חדרים</span>
+              <span class="decrease-opacity">חדרים</span>
             </div>
-            <div class="">
-              <div>
-                <span>
-                  <div class=""></div>
-                  {{ ad.floor }}
-                </span>
-                <span>קומה</span>
-              </div>
+            <div class="flex-center column">
+              <span class="font16">
+                {{ ad.floor }}
+              </span>
+              <span class="decrease-opacity">קומה</span>
             </div>
-            <div>
-              <div>
-                <span>
-                  {{ ad.totalSquareMeters }}
-                </span>
-                <span>מ"ר</span>
-              </div>
+            <div class="flex-center column">
+              <span class="font16">
+                {{ ad.totalSquareMeters }}
+              </span>
+              <span class="decrease-opacity">מ"ר</span>
             </div>
           </div>
 
           <div class="ad-part3 flex-center">
             <div>
               <div>
-                {{ ad.price }}
+                {{ ad.price | currency : "ILS" }}
               </div>
               <div>
                 <span></span>
