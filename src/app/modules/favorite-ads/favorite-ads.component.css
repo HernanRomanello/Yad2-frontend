@@ -176,8 +176,7 @@ button,
 }
 
 .accessibility-btn {
-  margin: 5px 0 !important;
-  transform: translateX(-6px);
+  margin: 5px 3px !important;
 }
 
 .accessibility-btn span {
@@ -240,9 +239,6 @@ button,
 .flex-center {
   align-items: center !important;
   justify-content: center !important;
-}
-.share {
-  transform: translateX(-16px);
 }
 
 .share {
