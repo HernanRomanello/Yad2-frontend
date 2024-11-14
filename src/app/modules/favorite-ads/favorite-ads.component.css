@@ -18,10 +18,6 @@ body header {
   flex-direction: column;
 }
 
-.page {
-  width: 100vw !important;
-}
-
 .ad-image {
   height: 66px;
   width: 110px;
@@ -45,7 +41,7 @@ body header {
 }
 
 .favorites-ads {
-  padding-right: 9px !important;
+  /* padding-right: 9px !important; */
 }
 
 .favorites-ad {
@@ -62,7 +58,7 @@ body header {
 }
 
 .favorite-title {
-  padding: 1.5rem 0.5rem;
+  padding: 1.5rem 0rem;
 }
 
 header {
@@ -123,7 +119,7 @@ button,
 }
 
 .sub-title {
-  padding: 44px 8px;
+  padding: 44px 0px;
 }
 
 .column {
@@ -296,4 +292,8 @@ button,
 }
 .write-note {
   background-color: #fffaea;
+}
+
+.write-note {
+  margin: 0.25rem 0 1.5rem 0 !important;
 }
