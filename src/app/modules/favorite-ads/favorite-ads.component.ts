@@ -22,14 +22,23 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
       'ad-date-update' + index.toString()
     );
 
+    let divTarget2 = document.getElementById(
+      'new-window-content' + index.toString()
+    );
+
     if (event.type === 'mouseenter' && divTarget) {
-      divTarget.innerHTML = 'לחצו לפרטים';
+      divTarget.innerHTML = '';
+      setTimeout(() => {
+        divTarget.innerHTML = 'לחצו לפרטים';
+      }, 100);
       this.renderer.removeClass(divTarget, 'decrease-opacity');
       this.renderer.addClass(divTarget, 'orange-font');
       this.renderer.addClass(divTarget, 'font500');
+      this.renderer.addClass(divTarget2, 'black-color');
     } else if (event.type === 'mouseleave' && divTarget) {
       this.renderer.removeClass(divTarget, 'orange-font');
       this.renderer.removeClass(divTarget, 'font500');
+      this.renderer.removeClass(divTarget2, 'black-color');
 
       divTarget.innerHTML = 'עודכן היום';
     }

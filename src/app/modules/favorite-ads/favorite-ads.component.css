@@ -70,6 +70,11 @@ body header {
   white-space: nowrap;
   gap: 6px;
   transform: translateY(-22px) translateX(100px);
+  color: transparent;
+}
+
+.black-color {
+  color: #363636 !important;
 }
 
 .darker-icon {
