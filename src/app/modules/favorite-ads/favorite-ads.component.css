@@ -110,6 +110,17 @@ button,
   display: flex;
 }
 
+#plus-icon {
+  width: 18px;
+  height: 17px;
+}
+
+.write-note .flex-center {
+  transform: translateY(-3px);
+  gap: 0.25rem;
+  padding: 0 1px;
+}
+
 .ad-part1 {
   height: 85px;
   width: 346px;
@@ -226,8 +237,7 @@ button,
 button,
 .print,
 .share,
-.favorites-ad,
-.write-note {
+.favorites-ad {
   cursor: pointer;
 }
 .share {
@@ -335,6 +345,7 @@ button,
   height: 40px;
   width: 695px;
   padding: 10px 15px 0px;
+  cursor: text;
 
   border-radius: 3px;
 }
