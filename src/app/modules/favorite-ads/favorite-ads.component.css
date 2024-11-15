@@ -69,21 +69,22 @@ body header {
 
   z-index: 1000;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  transform: translateX(-1px);
 }
 
 .sqaure {
   background-color: #ffffff;
   top: 20px;
+  width: 30px;
   left: 0;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateX(-1px);
 }
 
 .sqaure2 {
   left: 20px;
   top: 0;
-  width: 26px;
-  transform: rotate(45deg) translateX(-4px) translateY(40px);
+  width: 34px;
+  transform: rotate(45deg) translateX(0px) translateY(40px) rotate(-10deg);
   border-right: 1px solid transparent !important;
   background-color: #f9f9f9 !important;
 }
