@@ -44,6 +44,23 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     }
   }
 
+  increaseOpacity(event: any, index: number) {
+    let divTarget1 = document.getElementById(
+      'new-window-icon' + index.toString()
+    );
+    let divTarget2 = document.getElementById(
+      'new-window-content' + index.toString()
+    );
+
+    if (event.type === 'mouseenter' && divTarget2) {
+      this.renderer.addClass(divTarget2, 'increase-opacity');
+      this.renderer.addClass(divTarget1, 'darker-icon');
+    } else if (event.type === 'mouseleave' && divTarget2) {
+      this.renderer.removeClass(divTarget2, 'increase-opacity');
+      this.renderer.removeClass(divTarget1, 'darker-icon');
+    }
+  }
+
   zoomInImage(event: any, index: number) {
     let divTarget = document.getElementById('ad-image' + index.toString());
 

@@ -77,6 +77,11 @@ body header {
   color: #363636 !important;
 }
 
+.increase-opacity {
+  opacity: 1 !important;
+  color: #363636 !important;
+}
+
 .darker-icon {
   filter: brightness(0) saturate(200%);
 }

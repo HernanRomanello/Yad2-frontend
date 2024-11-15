@@ -94,13 +94,15 @@
             <div>
               <div class="new-window-container flex-center">
                 <span
+                  (mouseenter)="increaseOpacity($event, $index)"
+                  (mouseleave)="increaseOpacity($event, $index)"
                   id="new-window-content{{ $index }}"
                   class="font13 decrease-opacity"
                   >פתיחה בטאב חדש</span
                 >
 
                 <img
-                  id="new-window"
+                  id="new-window-icon{{ $index }}"
                   class="new-window-icon"
                   src="assets/images/new-window-svgrepo-com.svg"
                   alt="new-window"
