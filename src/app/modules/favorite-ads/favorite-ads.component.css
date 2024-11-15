@@ -135,6 +135,10 @@ button,
 .print:hover {
   background-color: rgba(0, 0, 0, 0);
 }
+
+.print {
+  transform: translateY(1px) translateX(3px);
+}
 .print,
 .share,
 .ad-part1,
@@ -190,6 +194,9 @@ button,
 .share,
 .favorites-ad {
   cursor: pointer;
+}
+.share {
+  transform: translateY(1px);
 }
 
 .orange-font {
