@@ -117,7 +117,7 @@ button,
 
 .write-note .flex-center {
   transform: translateY(-3px);
-  gap: 0.25rem;
+  gap: 9px;
   padding: 0 1px;
 }
 
@@ -319,19 +319,6 @@ button,
 .favorites-ad {
   margin-bottom: 6px;
 }
-
-.favorites-ad {
-  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 12px 12px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 0.5px; */
-}
-/* .favorites-ad:hover {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 12px 12px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 2px;
-} */
-
-/* .favorites-ad:hover {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 16px;
-} */
 
 .ad-part2 div span {
   line-height: 16px !important;
