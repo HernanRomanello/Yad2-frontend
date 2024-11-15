@@ -61,9 +61,22 @@ body header {
   position: relative;
 }
 
+.new-window-container,
 .sqaure,
 .sqaure2 {
   position: absolute;
+}
+.new-window-container {
+  white-space: nowrap;
+  gap: 6px;
+  transform: translateY(-22px) translateX(100px);
+}
+
+.darker-icon {
+  filter: brightness(0) saturate(200%);
+}
+.sqaure,
+.sqaure2 {
   width: 20px;
   height: 20px;
 
@@ -280,6 +293,11 @@ button,
 
 .share {
   justify-content: flex-end !important;
+}
+
+.new-window-icon {
+  width: 10px;
+  height: 10px;
 }
 
 .accessibility-btn span,
