@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-favorite-ads',
@@ -7,7 +8,11 @@ import { AuthService } from '../../services/user/auth.service';
   styleUrl: './favorite-ads.component.css',
 })
 export class FavoriteAdsComponent implements OnInit, OnDestroy {
-  constructor(public authService: AuthService, private renderer: Renderer2) {}
+  constructor(
+    public authService: AuthService,
+    private renderer: Renderer2,
+    public navigationService: NavigationService
+  ) {}
 
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);

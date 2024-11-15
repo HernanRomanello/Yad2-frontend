@@ -41,6 +41,9 @@
           zoomOutImage($event, $index); displayAdOptions($event, $index)
         "
         class="favorites-ad flex column"
+        (click)="
+          navigationService.navigateInNewWindow('/advertisement/{{ ad.id }}')
+        "
       >
         <div class="flex-center">
           <div class="ad-part1 flex">
