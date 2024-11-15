@@ -188,7 +188,8 @@ button,
 button,
 .print,
 .share,
-.favorites-ad {
+.favorites-ad,
+.write-note {
   cursor: pointer;
 }
 .share {
@@ -265,6 +266,10 @@ button,
 
 .favorites-ads {
   transform: translateY(-18px) !important;
+}
+
+.favorites-ad {
+  margin-bottom: 6px;
 }
 
 .favorites-ad {
