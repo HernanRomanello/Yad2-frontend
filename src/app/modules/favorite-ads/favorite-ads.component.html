@@ -86,17 +86,12 @@
             </div>
           </div>
 
-          <div class="ad-part3 flex-center">
+          <div class="ad-part3 flex-end column">
             <div>
-              <div>
-                <span></span>
-                <span>פתיחה בטאב חדש</span>
-              </div>
-              <div>
-                {{ ad.price | currency : "ILS" }}
-              </div>
-              <div>עודכן היום</div>
+              <span></span>
             </div>
+            <div class="font16">{{ ad.price | number : "1.0-0" }} ₪</div>
+            <div class="font13 decrease-opacity">עודכן היום</div>
           </div>
         </div>
       </div>

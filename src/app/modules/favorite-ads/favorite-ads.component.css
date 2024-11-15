@@ -89,6 +89,10 @@ body header {
   background-color: #f9f9f9 !important;
 }
 
+.font13 {
+  font-size: 13px !important;
+}
+
 .page {
   background-color: #f9f9f9;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px !important;
@@ -107,10 +111,18 @@ button,
 .flex,
 .flex-center,
 .align-items-center,
-.justify-content-center {
+.justify-content-center,
+.flex-end {
   display: flex;
 }
 
+.flex-end {
+  align-items: end !important;
+}
+
+.ad-part3 {
+  padding: 1.75rem 1.25rem !important;
+}
 #plus-icon {
   width: 18px;
   height: 17px;
