@@ -10,6 +10,10 @@ body header {
   cursor: default;
 }
 
+.font14 {
+  font-size: 14px !important;
+}
+
 .align-items-center {
   align-items: center;
 }
@@ -45,14 +49,77 @@ body header {
 
   height: 87px;
   width: 695px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px 0 0 2px;
 }
 
+.write-note,
+.favorites-ad {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.write-note,
+.triangle1,
+.triangle2 {
+  position: relative;
+}
+
+.folding {
+  position: absolute;
+  background-color: transparent !important;
+  height: 10px;
+  width: 10px;
+  bottom: 0;
+  left: 0;
+}
+
+.triangle1 {
+  border-left: 20px solid red !important;
+
+  transform: rotate(180deg) translateX(-10px) translateY(10px);
+}
+.triangle2 {
+  border-left: 20px solid #f9f9f9;
+  transform: translateX(10px) translateY(-30px);
+}
+
+.sqaure,
+.sqaure2 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  top: 20px;
+  left: 0;
+  z-index: 1000;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateX(-1px);
+}
+
+.sqaure2 {
+  left: 20px;
+  top: 0;
+  width: 26px;
+  height: 20px;
+  transform: rotate(45deg) translateX(-4px) translateY(40px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid transparent !important;
+  background-color: #f9f9f9 !important;
+}
+
+.triangle2,
+.triangle1 {
+  border-top: 20px solid transparent;
+
+  width: 100%;
+  height: 100%;
+  border-bottom: 0 solid transparent;
+  border-right: 0 solid transparent;
+  z-index: 2000;
+}
 .page {
   background-color: #f9f9f9;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px !important;
-  /* box-shadow: rgba(0, 0, 0, 0.08) 0px -4px 12px 0px !important; */
 }
 
 .favorite-title {
@@ -301,9 +368,6 @@ button,
   border-radius: 3px;
 }
 
-.write-note {
-  border: 1px solid #cccccc;
-}
 .write-note {
   background-color: #fffaea;
 }
