@@ -34,8 +34,12 @@
       $index) {
 
       <div
-        (mouseenter)="zoomInImage($event, $index)"
-        (mouseleave)="zoomOutImage($event, $index)"
+        (mouseenter)="
+          zoomInImage($event, $index); displayAdOptions($event, $index)
+        "
+        (mouseleave)="
+          zoomOutImage($event, $index); displayAdOptions($event, $index)
+        "
         class="favorites-ad flex column"
       >
         <div class="flex-center">
@@ -91,7 +95,12 @@
               <span></span>
             </div>
             <div class="font16">{{ ad.price | number : "1.0-0" }} ₪</div>
-            <div class="font13 decrease-opacity">עודכן היום</div>
+            <div
+              id="ad-date-update{{ $index }}"
+              class="font13 decrease-opacity"
+            >
+              עודכן היום
+            </div>
           </div>
         </div>
       </div>
