@@ -85,6 +85,10 @@ body header {
 .darker-icon {
   filter: brightness(0) saturate(200%);
 }
+
+.favorites-ad:hover {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 6px -2px;
+}
 .sqaure,
 .sqaure2 {
   width: 20px;
@@ -214,7 +218,12 @@ button,
 }
 
 .print:hover {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #dbdbdb !important;
+  /* background-color: rgba(0, 0, 0, 0) !important; */
+}
+
+.print {
+  transition: all 0.1s ease-in-out;
 }
 
 .print {
