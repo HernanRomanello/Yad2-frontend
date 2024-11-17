@@ -169,20 +169,22 @@
             #note
             placeholder="כתיבת הערה..."
           ></textarea>
-          <div class="note-area-btns">
-            <button
-              class="border-none cancel-btn"
-              (click)="openOrCloseAdNote($index, false)"
-            >
-              ביטול
-            </button>
-            <button
-              class="font13 save-btn"
-              (click)="openOrCloseAdNote($index, false)"
-            >
-              שמירה
-            </button>
+          <div class="note-area-btns flex-space-between">
             <div>{{ note.value.length }}/200</div>
+            <div class="flex-center">
+              <button
+                class="border-none cancel-btn"
+                (click)="openOrCloseAdNote($index, false)"
+              >
+                ביטול
+              </button>
+              <button
+                class="font13 save-btn"
+                (click)="openOrCloseAdNote($index, false)"
+              >
+                שמירה
+              </button>
+            </div>
           </div>
         </div>
       </div>
