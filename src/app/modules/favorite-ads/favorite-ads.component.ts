@@ -20,6 +20,20 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 
+  openOrCloseAdNote(index: number, isOpen: boolean): void {
+    let noteAreaButton = document.getElementById('ad-note' + index.toString());
+    let noteArea = document.getElementById('ad-note-open' + index.toString());
+    if (noteAreaButton && noteArea) {
+      if (isOpen) {
+        this.renderer.addClass(noteAreaButton, 'hide');
+        this.renderer.removeClass(noteArea, 'hide');
+      } else {
+        this.renderer.removeClass(noteAreaButton, 'hide');
+        this.renderer.addClass(noteArea, 'hide');
+      }
+    }
+  }
+
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);
   }

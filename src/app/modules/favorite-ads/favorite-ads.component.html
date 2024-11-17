@@ -132,6 +132,7 @@
       <div
         id="ad-note{{ $index }}"
         class="write-note font16 align-items-center"
+        (click)="openOrCloseAdNote($index, true)"
       >
         <div class="flex-center">
           <img
@@ -144,7 +145,16 @@
         <div class="sqaure"></div>
         <div class="sqaure2"></div>
       </div>
-      <div id="ad-note-open{{ $index }}" class="ad-comment-open hide"></div>
+      <div id="ad-note-open{{ $index }}" class="ad-comment-open hide">
+        <div class="note-btns">
+          <button class="font14" (click)="openOrCloseAdNote($index, false)">
+            ביטול
+          </button>
+          <button class="font14" (click)="openOrCloseAdNote($index, false)">
+            שמירה
+          </button>
+        </div>
+      </div>
       }
     </div>
   </body>
