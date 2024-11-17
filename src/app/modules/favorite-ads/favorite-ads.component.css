@@ -202,6 +202,13 @@ button,
   display: flex;
 }
 
+.text-options {
+  height: 50px;
+  width: 683px;
+  margin: 5px;
+  padding: 6px;
+}
+
 .flex-end {
   align-items: end !important;
 }
