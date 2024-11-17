@@ -14,6 +14,11 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     public navigationService: NavigationService
   ) {}
 
+  openInNewWindow(adId: string): void {
+    const url = `/advertisement/${adId}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);
   }
