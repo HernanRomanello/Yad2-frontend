@@ -88,6 +88,23 @@ body header {
   background-color: rgb(53, 120, 229);
 }
 
+.hide {
+  display: none !important;
+}
+
+.ad-comment-open {
+  background-color: rgb(255, 255, 255);
+  color: rgb(54, 54, 54);
+
+  height: 196px;
+  width: 695px;
+  border: 1px solid rgb(230, 230, 230);
+
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 0px 2px 0px;
+
+  border-radius: 2px;
+}
+
 .pop-up button {
   font-size: 13.3333px;
   height: 23px;

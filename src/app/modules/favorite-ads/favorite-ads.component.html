@@ -26,11 +26,14 @@
           alt="share"
         />
         <span class="orange-font font500"> שיתוף </span>
+        @if(!this.hasPopupOpen){
         <div class="pop-up">
           <div>הידעת?</div>
           <div>מהיום תוכל לשתף את המודעות שאהבת</div>
-          <button class="">מעולה,תודה</button>
+
+          <button (click)="this.hasPopupOpen = false">מעולה,תודה</button>
         </div>
+        }
       </div>
     </div>
 
@@ -125,7 +128,11 @@
           </div>
         </div>
       </div>
-      <div class="write-note font16 align-items-center">
+
+      <div
+        id="ad-note{{ $index }}"
+        class="write-note font16 align-items-center"
+      >
         <div class="flex-center">
           <img
             id="plus-icon"
@@ -137,6 +144,7 @@
         <div class="sqaure"></div>
         <div class="sqaure2"></div>
       </div>
+      <div id="ad-note-open{{ $index }}" class="ad-comment-open hide"></div>
       }
     </div>
   </body>

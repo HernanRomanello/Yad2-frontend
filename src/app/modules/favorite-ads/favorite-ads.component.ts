@@ -8,6 +8,7 @@ import { NavigationService } from '../../services/navigation.service';
   styleUrl: './favorite-ads.component.css',
 })
 export class FavoriteAdsComponent implements OnInit, OnDestroy {
+  hasPopupOpen: boolean = true;
   constructor(
     public authService: AuthService,
     private renderer: Renderer2,
