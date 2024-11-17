@@ -92,17 +92,14 @@ body header {
   display: none !important;
 }
 
-.ad-comment-open {
-  background-color: rgb(255, 255, 255);
-  color: rgb(54, 54, 54);
+.text-options div {
+  background-color: rgb(238, 238, 238);
 
-  height: 196px;
-  width: 695px;
-  border: 1px solid rgb(230, 230, 230);
+  height: 25px;
 
-  box-shadow: rgba(0, 0, 0, 0.14) 0px 0px 2px 0px;
-
-  border-radius: 2px;
+  margin: 0px 3px;
+  padding: 5px 20px;
+  border-radius: 25px;
 }
 
 .pop-up button {
@@ -200,7 +197,8 @@ button,
 .flex-center,
 .align-items-center,
 .justify-content-center,
-.flex-end {
+.flex-end,
+.text-options div {
   display: flex;
 }
 
@@ -389,9 +387,45 @@ button,
 }
 
 button,
-.flex-center {
+.flex-center,
+.text-options div {
   align-items: center !important;
   justify-content: center !important;
+}
+
+textarea {
+  resize: none;
+
+  height: 74px;
+  width: 663px;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 7px;
+
+  text-shadow: rgba(0, 0, 0, 0.87) 0px 0px 0px;
+  outline: none;
+
+  border-radius: 4px;
+}
+
+textarea::placeholder {
+  opacity: 0.3;
+}
+
+textarea,
+.ad-comment-open {
+  background-color: rgb(255, 255, 255);
+}
+
+.ad-comment-open {
+  color: rgb(54, 54, 54);
+
+  height: 196px;
+  width: 695px;
+  border: 1px solid rgb(230, 230, 230);
+
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 0px 2px 0px;
+
+  border-radius: 2px;
 }
 
 .share {

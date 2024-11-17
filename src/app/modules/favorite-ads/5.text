@@ -1,18 +1,18 @@
-div .comment is-comment-open {
+textarea .y2-textarea text_area add_comment {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 16px;
+	line-height: 17px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: right;
+	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
-	white-space: normal;
+	white-space: pre-wrap;
 	word-spacing: 0px;
 
 	/* Color & Background */
@@ -24,26 +24,26 @@ div .comment is-comment-open {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 196px;
-	width: 695px;
-	border: 1px solid rgb(230, 230, 230);
-	border-top: 1px solid rgb(230, 230, 230);
-	border-right: 1px solid rgb(230, 230, 230);
-	border-bottom: 1px solid rgb(230, 230, 230);
-	border-left: 1px solid rgb(230, 230, 230);
+	height: 74px;
+	width: 663px;
+	border: 1px solid rgb(204, 204, 204);
+	border-top: 1px solid rgb(204, 204, 204);
+	border-right: 1px solid rgb(204, 204, 204);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	border-left: 1px solid rgb(204, 204, 204);
 	margin: 0px;
-	padding: 0px;
-	max-height: none;
-	min-height: 0px;
+	padding: 7px;
+	max-height: 95px;
+	min-height: 34px;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
 	display: block;
 	clear: none;
@@ -62,23 +62,23 @@ div .comment is-comment-open {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
-	cursor: pointer;
+	overflow: hidden auto;
+	cursor: text;
 	visibility: visible;
 
 	/* Effects */
 	transform: none;
-	transition: all;
+	transition: font-size 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 	outline: rgb(255, 0, 0) dashed 1px;
 	outline-offset: 0px;
 	box-sizing: border-box;
 	resize: none;
-	text-shadow: none;
+	text-shadow: rgba(0, 0, 0, 0.87) 0px 0px 0px;
 	text-overflow: clip;
-	word-wrap: normal;
-	box-shadow: rgba(0, 0, 0, 0.14) 0px 0px 2px 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
+	word-wrap: break-word;
+	box-shadow: none;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }
