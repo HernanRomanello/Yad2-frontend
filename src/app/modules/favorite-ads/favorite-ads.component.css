@@ -103,7 +103,6 @@ body header {
 }
 
 .pop-up button {
-  font-size: 13.3333px;
   height: 23px;
   width: 78.1719px;
   border: 1px solid rgb(255, 255, 255);
@@ -114,8 +113,28 @@ body header {
   margin-right: auto;
 }
 
+.font13,
+.pop-up button,
 .accessibility-btn {
-  font-size: 13.3333px;
+  font-size: 13.3333px !important;
+}
+
+.border-none {
+  border: none !important;
+}
+
+.save-btn {
+  font-weight: 500;
+  color: rgb(255, 113, 0);
+
+  height: 31px;
+  width: 90px;
+  border: 1px solid rgb(255, 113, 0);
+
+  border-radius: 25px;
+}
+
+.accessibility-btn {
   text-align: center;
   background-color: #002f75;
   height: 35px;
@@ -298,8 +317,19 @@ button,
 .share,
 .ad-part1,
 .ad-part2,
-.ad-part3 {
+.ad-part3,
+.save-btn,
+.cancel-btn {
   background-color: #ffffff !important;
+}
+
+.cancel-btn {
+  color: rgb(204, 204, 204);
+
+  height: 17px;
+  width: 40.4219px;
+  margin: 0px 5px;
+  padding: 0px 5px;
 }
 .share {
   height: 27.0028px;

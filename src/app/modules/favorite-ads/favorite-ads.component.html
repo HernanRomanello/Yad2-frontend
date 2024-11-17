@@ -170,10 +170,16 @@
             placeholder="כתיבת הערה..."
           ></textarea>
           <div class="note-area-btns">
-            <button class="font14" (click)="openOrCloseAdNote($index, false)">
+            <button
+              class="border-none cancel-btn"
+              (click)="openOrCloseAdNote($index, false)"
+            >
               ביטול
             </button>
-            <button class="font14" (click)="openOrCloseAdNote($index, false)">
+            <button
+              class="font13 save-btn"
+              (click)="openOrCloseAdNote($index, false)"
+            >
               שמירה
             </button>
             <div>{{ note.value.length }}/200</div>
