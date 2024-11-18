@@ -81,9 +81,14 @@ body header {
   transform: translateY(-2px);
 }
 .pop-up > :not(first-child) {
+  word-spacing: 0.15px !important;
   transform: translateY(-5px);
 }
+.pop-up div {
+  word-spacing: 0.15px !important;
+}
 .pop-up button {
+  word-spacing: 0.15px;
   transform: translateY(-6px);
 }
 
