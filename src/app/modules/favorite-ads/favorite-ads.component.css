@@ -487,10 +487,16 @@ textarea {
   margin-bottom: 12px;
 }
 
-textarea::placeholder {
+textarea::placeholder,
+.note-length {
   color: #363636;
   opacity: 0.3;
   font-size: 14px;
+}
+
+.note-length {
+  line-height: 20px;
+  transform: scale(1.07);
 }
 
 textarea {

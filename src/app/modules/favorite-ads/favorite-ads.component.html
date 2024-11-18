@@ -174,7 +174,9 @@
             placeholder="כתיבת הערה..."
           ></textarea>
           <div class="note-area-btns flex-space-between">
-            <div>{{ note.value.length }}/200</div>
+            <div class="flex-center note-length">
+              {{ note.value.length }}/200
+            </div>
             <div class="flex-center">
               <button
                 class="border-none cancel-btn"
