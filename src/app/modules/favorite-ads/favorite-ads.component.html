@@ -190,7 +190,10 @@
               </button>
               <button
                 class="font13 save-btn"
-                (click)="openOrCloseAdNote($index, false)"
+                (click)="
+                  openOrCloseAdNote($index, false);
+                  updateNoteAd(ad.id, note.value)
+                "
               >
                 שמירה
               </button>

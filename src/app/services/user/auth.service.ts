@@ -109,8 +109,9 @@ export class AuthService implements OnInit {
   }
 
   postAdNoteToUser(advertisementId: number, note: string) {
+    const newNote = { adID: advertisementId, note: note };
     this.httpClient
-      .post(`${this.Url}api/Users/user/addNote/${advertisementId}`, { note })
+      .post(`${this.Url}api/Users/user/addNote/${advertisementId}`, newNote)
       .subscribe(() => {
         this.getUserFavoriteAdvertisements();
       });
