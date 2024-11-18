@@ -1,12 +1,12 @@
 import { Injectable, OnInit, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { BehaviorSubject, ReplaySubject, filter, map } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, filter, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
-import { response } from 'express';
+import { UserNoteModel } from '../../shared/models/UserNoteModel';
 
 @Injectable({
   providedIn: 'root',
@@ -34,6 +34,7 @@ export class AuthService implements OnInit {
   UserPageRender = new BehaviorSubject<string>('');
   userName = new ReplaySubject<string>(1);
   firstLetterUserEmailAddress = new ReplaySubject<string>(1);
+  userNotes = new BehaviorSubject<UserNoteModel[]>([]);
 
   constructor(private router: Router, private httpClient: HttpClient) {
     afterNextRender(() => {
@@ -105,6 +106,24 @@ export class AuthService implements OnInit {
     if (isOpen) {
       this.IsUserAreaISOpen.next(false);
     }
+  }
+
+  postAdNoteToUser(advertisementId: number, note: string) {
+    this.httpClient
+      .post(`${this.Url}api/Users/user/addNote/${advertisementId}`, { note })
+      .subscribe(() => {
+        this.getUserFavoriteAdvertisements();
+      });
+  }
+
+  getUserNotes() {
+    this.httpClient
+      .get<UserNoteModel[]>(`${this.Url}api/Users/user/GetNotes`)
+      .subscribe((response) => {
+        if (response) {
+          this.userNotes.next(response);
+        }
+      });
   }
 
   IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {

@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { NavigationService } from '../../services/navigation.service';
+import { UserNoteModel } from '../../shared/models/UserNoteModel';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-favorite-ads',
@@ -9,6 +11,8 @@ import { NavigationService } from '../../services/navigation.service';
 })
 export class FavoriteAdsComponent implements OnInit, OnDestroy {
   hasPopupOpen: boolean = true;
+  userNotes: UserNoteModel[] | null = null;
+
   constructor(
     public authService: AuthService,
     private renderer: Renderer2,
@@ -56,8 +60,16 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     }
   }
 
+  retrieveNoteAd(adID: number): string {
+    return this.userNotes?.find((note) => note.adID === adID)?.note || '';
+  }
+
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);
+    this.authService.getUserNotes();
+    this.authService.userNotes.subscribe((notes) => {
+      this.userNotes = notes;
+    });
   }
 
   ngOnDestroy() {

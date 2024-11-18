@@ -172,6 +172,7 @@
             id="ad-note-area-text{{ $index }}"
             #note
             placeholder="כתיבת הערה..."
+            [value]="retrieveNoteAd(ad.id)"
           ></textarea>
           <div class="note-area-btns flex-space-between">
             <div class="flex-center note-length">
