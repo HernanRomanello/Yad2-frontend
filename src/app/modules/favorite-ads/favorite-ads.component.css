@@ -85,7 +85,16 @@ body header {
 }
 .pop-up button {
   transform: translateY(-6px);
+}
+
+.pop-up button,
+.new-window-container {
   white-space: nowrap;
+}
+.new-window-container {
+  gap: 6px;
+  transform: translateY(-22px) translateX(100px);
+  color: transparent;
 }
 
 .sm-triangle {
@@ -160,13 +169,6 @@ body header {
   width: 100px;
   margin: 0px 0px 0px 3px;
   border-radius: 3px;
-}
-
-.new-window-container {
-  white-space: nowrap;
-  gap: 6px;
-  transform: translateY(-22px) translateX(100px);
-  color: transparent;
 }
 
 .black-color {
