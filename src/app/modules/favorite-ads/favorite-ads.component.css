@@ -501,6 +501,9 @@ textarea::placeholder,
 
 textarea {
   transform: translateY(2px);
+  font-size: 14px;
+  color: #363636;
+  line-height: 17px;
 }
 
 textarea,
