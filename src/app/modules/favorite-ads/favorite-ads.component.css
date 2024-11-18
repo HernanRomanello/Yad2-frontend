@@ -76,6 +76,8 @@ body header {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px;
 
   border-radius: 6px;
+  transform: translateX(-395px) translateY(-8px);
+  z-index: 2000 !important;
 }
 
 .pop-up,

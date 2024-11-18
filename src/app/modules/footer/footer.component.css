@@ -42,7 +42,6 @@
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
   gap: 1rem !important;
   justify-content: space-between !important;
-  /* transform: translateX(-50px); */
   margin-bottom: 3rem;
   width: 100%;
 }
@@ -120,17 +119,12 @@
 .version {
   color: #ffffff !important;
   line-height: 16.1px !important;
-  /* margin: 1rem 0 !important; */
 }
 
 .align-start {
   text-align: start !important;
   width: fit-content;
   margin-right: 60px;
-}
-
-div {
-  /* border: solid 1px red !important; */
 }
 
 .align-text-end li {

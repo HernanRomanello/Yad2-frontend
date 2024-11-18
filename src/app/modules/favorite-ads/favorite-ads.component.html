@@ -26,19 +26,18 @@
           alt="share"
         />
         <span class="orange-font font500"> שיתוף </span>
-        @if(!this.hasPopupOpen){
-        <div class="pop-up">
-          <div>הידעת?</div>
-          <div>מהיום תוכל לשתף את המודעות שאהבת</div>
-
-          <button (click)="this.hasPopupOpen = false">מעולה,תודה</button>
-        </div>
-        }
       </div>
     </div>
 
     <div class="favorites-ads">
-      @for (ad of this.authService.UserFavoriteAdvertisements |async; track
+      @if(this.hasPopupOpen){
+      <div class="pop-up">
+        <div>הידעת?</div>
+        <div>מהיום תוכל לשתף את המודעות שאהבת</div>
+
+        <button (click)="this.hasPopupOpen = false">מעולה,תודה</button>
+      </div>
+      } @for (ad of this.authService.UserFavoriteAdvertisements |async; track
       $index) {
 
       <div
