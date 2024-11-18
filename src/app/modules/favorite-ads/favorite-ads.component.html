@@ -34,7 +34,10 @@
       @if(this.hasPopupOpen){
 
       <div class="pop-up">
-        <div>הידעת?</div>
+        <div class="align-items-center">
+          <span> הידעת </span>
+          <span style="font-size: 15px; transform: translateY(-1px)">?</span>
+        </div>
         <div>מהיום תוכל לשתף את המודעות שאהבת</div>
 
         <button (click)="this.hasPopupOpen = false">מעולה, תודה</button>
