@@ -85,6 +85,7 @@ body header {
 }
 .pop-up button {
   transform: translateY(-6px);
+  white-space: nowrap;
 }
 
 .sm-triangle {
