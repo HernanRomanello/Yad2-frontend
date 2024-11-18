@@ -67,7 +67,8 @@ button {
 .favorite-ad-content,
 .favorite-ad-text,
 #user-area-btn-dropdown button,
-#user-area-btn-dropdown button mat-icon {
+#user-area-btn-dropdown button mat-icon,
+#heart-icon {
   display: flex;
 }
 
@@ -80,7 +81,8 @@ button {
 .logo-img,
 .favorite-symbol,
 .Post-Btn-Favorite,
-.favorite-ad-text {
+.favorite-ad-text,
+#heart-icon {
   align-items: center;
   justify-content: center;
 }
@@ -667,6 +669,10 @@ button,
   transform: scaleY(1.1);
 }
 
+#heart-icon {
+  transform: translateY(15px) translateX(-15px);
+}
+
 #plus-icon {
   height: 10px;
   width: 9px;
@@ -681,6 +687,10 @@ button,
   height: 23px;
   width: 23px;
   transform: translateY(4px) scale(0.95);
+}
+
+#heart-icon img {
+  transform: translateX(-1px) translateY(1px) scale(1.05) !important;
 }
 
 #counter {
