@@ -738,7 +738,7 @@ button,
 }
 
 .header {
-  width: 100vw !important;
+  width: 100%;
 }
 .header div {
   white-space: nowrap;
