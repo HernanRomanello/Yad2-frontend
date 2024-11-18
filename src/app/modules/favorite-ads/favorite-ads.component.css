@@ -40,10 +40,6 @@ body header {
   border-radius: 3px !important;
 }
 
-.favorites-ads {
-  /* padding-right: 9px !important; */
-}
-
 .favorites-ad {
   text-align: right;
 
@@ -65,7 +61,8 @@ body header {
 .new-window-container,
 .sqaure,
 .sqaure2,
-.pop-up {
+.pop-up,
+.sm-triangle {
   position: absolute;
 }
 
@@ -78,6 +75,25 @@ body header {
   border-radius: 6px;
   transform: translateX(-395px) translateY(-8px);
   z-index: 2000 !important;
+}
+
+.pop-up div:first-child {
+  transform: translateY(-2px);
+}
+.pop-up > :not(first-child) {
+  transform: translateY(-5px);
+}
+.pop-up button {
+  transform: translateY(-6px);
+}
+
+.sm-triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(53, 120, 229);
+  transform: translateY(-14px) translateX(-672px);
 }
 
 .pop-up,
