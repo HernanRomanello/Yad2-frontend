@@ -407,7 +407,8 @@ button,
 button,
 .print,
 .share,
-.favorites-ad {
+.favorites-ad,
+.ad-comment-open {
   cursor: pointer;
 }
 .share {
