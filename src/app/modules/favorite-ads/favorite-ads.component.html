@@ -180,7 +180,10 @@
             <div class="flex-center">
               <button
                 class="border-none cancel-btn"
-                (click)="openOrCloseAdNote($index, false)"
+                (click)="
+                  openOrCloseAdNote($index, false);
+                  this.clearTextFromNoteAd($index)
+                "
               >
                 ביטול
               </button>

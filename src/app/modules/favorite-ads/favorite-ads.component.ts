@@ -47,6 +47,15 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     }
   }
 
+  clearTextFromNoteAd(index: number): void {
+    const noteArea = document.getElementById(
+      `ad-note-area-text${index}`
+    ) as HTMLTextAreaElement;
+    if (noteArea) {
+      noteArea.value = '';
+    }
+  }
+
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);
   }
