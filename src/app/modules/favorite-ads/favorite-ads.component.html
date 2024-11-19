@@ -189,8 +189,7 @@
             placeholder="כתיבת הערה..."
             [value]="retrieveNoteAd(ad.id)"
             maxlength="200"
-            (mouseover)="note.value = note.value"
-            (keydown)="note.value = note.value"
+            (keyup)="note.value = note.value"
           ></textarea>
           <div class="note-area-btns flex-space-between">
             <div class="flex-center note-length">

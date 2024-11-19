@@ -105,6 +105,10 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     }
   }
 
+  countLetters() {
+    alert('countLetters');
+  }
+
   ngOnDestroy() {
     this.authService.isFavoritesAdIsOpen(false);
     this.authService.userNotes.unsubscribe();
