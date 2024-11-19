@@ -51,12 +51,14 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     }
   }
 
-  clearTextFromNoteAd(index: number): void {
-    const noteArea = document.getElementById(
-      `ad-note-area-text${index}`
-    ) as HTMLTextAreaElement;
-    if (noteArea) {
-      noteArea.value = '';
+  clearTextFromNoteAd(index: number, adId: number): void {
+    if (this.retrieveNoteAd(adId) === '') {
+      const noteArea = document.getElementById(
+        `ad-note-area-text${index}`
+      ) as HTMLTextAreaElement;
+      if (noteArea) {
+        noteArea.value = '';
+      }
     }
   }
 
