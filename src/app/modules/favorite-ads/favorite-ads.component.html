@@ -155,8 +155,15 @@
 
           <span class="font14"> הוספת הערה </span>
           }@else {
-          <span class="font14">
-            {{ formatNoteAd(retrieveNoteAd(ad.id)) }}
+          <span class="font14 align-items-center comment">
+            <img
+              id="edit-pencil-icon"
+              src="assets/images/edit-pen-.svg"
+              alt="edit"
+            />
+            <span>
+              {{ formatNoteAd(retrieveNoteAd(ad.id)) }}
+            </span>
           </span>
 
           }
@@ -183,6 +190,7 @@
               להתקשר מאוחר יותר
             </div>
           </div>
+
           <textarea
             id="ad-note-area-text{{ $index }}"
             #note
@@ -190,7 +198,8 @@
             [value]="retrieveNoteAd(ad.id)"
             maxlength="200"
             (keyup)="note.value = note.value"
-          ></textarea>
+          >
+          </textarea>
           <div class="note-area-btns flex-space-between">
             <div class="flex-center note-length">
               {{ note.value.length }}/200

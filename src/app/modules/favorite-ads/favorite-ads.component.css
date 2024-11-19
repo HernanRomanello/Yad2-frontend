@@ -568,6 +568,20 @@ textarea,
   border-radius: 3px;
 }
 
+#edit-pencil-icon {
+  width: 16px;
+  height: 16px;
+  transform: rotate(-15deg);
+}
+
+.comment {
+  gap: 0.75rem;
+  transform: translateX(3px) translateY(-2px) scale(0.95);
+}
+
+.comment span {
+  transform: scale(1.04);
+}
 .write-note {
   background-color: #fffaea;
 }
