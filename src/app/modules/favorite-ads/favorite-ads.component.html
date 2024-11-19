@@ -146,12 +146,18 @@
         (click)="openOrCloseAdNote($index, true)"
       >
         <div class="flex-center">
+          @if(this.retrieveNoteAd(ad.id) === ""){
           <img
             id="plus-icon"
             src="assets/images/plus-svgrepo-com-.svg"
             alt="plus"
           />
+
           <span class="font14"> הוספת הערה </span>
+          }@else {
+          <span class="font14"> {{ this.retrieveNoteAd(ad.id) }} </span>
+
+          }
         </div>
         <div class="sqaure"></div>
         <div class="sqaure2"></div>
