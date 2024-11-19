@@ -189,7 +189,8 @@
             placeholder="כתיבת הערה..."
             [value]="retrieveNoteAd(ad.id)"
             maxlength="200"
-            (input)="note.value = note.value"
+            (mouseover)="note.value = note.value"
+            (keydown)="note.value = note.value"
           ></textarea>
           <div class="note-area-btns flex-space-between">
             <div class="flex-center note-length">
@@ -209,7 +210,8 @@
                 class="font13 save-btn"
                 (click)="
                   openOrCloseAdNote($index, false);
-                  updateNoteAd(ad.id, note.value)
+                  updateNoteAd(ad.id, note.value);
+                  updateUserNote(ad.id, note.value)
                 "
               >
                 שמירה

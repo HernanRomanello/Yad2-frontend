@@ -96,6 +96,15 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     });
   }
 
+  updateUserNote(adID: number, newNote: string): void {
+    const userNote = this.userNotes?.find((note) => note.adID === adID);
+    if (userNote) {
+      userNote.note = newNote;
+    } else {
+      console.warn(`No note found for adID: ${adID}`);
+    }
+  }
+
   ngOnDestroy() {
     this.authService.isFavoritesAdIsOpen(false);
     this.authService.userNotes.unsubscribe();
