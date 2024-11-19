@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { NavigationService } from '../../services/navigation.service';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
-import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-favorite-ads',
@@ -67,12 +66,16 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   }
 
   updateNoteAd(adID: number, note: string): void {
+    this.authService.getUserNotes();
     this.authService.postAdNoteToUser(adID, note);
+    this.authService.getUserNotes();
   }
 
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);
+
     this.authService.getUserNotes();
+
     this.authService.userNotes.subscribe((notes) => {
       this.userNotes = notes;
     });
@@ -80,6 +83,7 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.authService.isFavoritesAdIsOpen(false);
+    this.authService.userNotes.unsubscribe();
   }
 
   displayAdOptions(event: any, index: number) {
