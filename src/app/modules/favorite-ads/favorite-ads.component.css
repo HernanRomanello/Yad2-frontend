@@ -58,7 +58,8 @@ body header {
 }
 
 .write-note,
-.orange {
+.orange,
+.ad-image-container {
   position: relative;
 }
 
@@ -66,7 +67,8 @@ body header {
 .sqaure,
 .sqaure2,
 .pop-up,
-.sm-triangle {
+.sm-triangle,
+.favorite-symbol {
   position: absolute;
 }
 
@@ -205,15 +207,6 @@ body header {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.sqaure {
-  background-color: #ffffff;
-  top: 20px;
-  width: 30px;
-  left: 0;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  transform: translateX(-1px);
-}
-
 .sqaure2 {
   left: 20px;
   top: 0;
@@ -349,8 +342,18 @@ button,
 .ad-part2,
 .ad-part3,
 .save-btn,
-.cancel-btn {
+.cancel-btn,
+.favorite-symbol,
+.sqaure {
   background-color: #ffffff !important;
+}
+
+.sqaure {
+  top: 20px;
+  width: 30px;
+  left: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateX(-1px);
 }
 
 .cancel-btn {
@@ -571,4 +574,41 @@ textarea,
 
 .write-note {
   margin: 0.25rem 0 1.5rem 0 !important;
+}
+
+#heart-icon img {
+  transform: translateX(-1px) translateY(1px) scale(1.05) !important;
+}
+
+#heart-icon {
+  height: 25px;
+  width: 25px;
+}
+#heart-icon img {
+  height: 22px;
+  width: 16px;
+  transform: scaleY(1.1);
+}
+
+#heart-icon {
+  transform: translateY(15px) translateX(-15px);
+}
+
+.favorite-symbol {
+  top: 0;
+  right: 0;
+  transform: translateX(-12px) translateY(12px);
+}
+.favorite-symbol img {
+  height: 26px;
+  width: 26px;
+}
+
+.favorite-symbol {
+  height: 30px;
+  width: 30px;
+}
+
+.favorite-symbol {
+  border-radius: 50%;
 }
