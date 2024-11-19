@@ -52,18 +52,67 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     }
   }
 
-  formatNoteAd(note: string): string {
-    let editedNote = note.replace(/\s+/g, ' ').trim();
+  // formatNoteAd(note: string): string {
+  //   let editedNote = note.replace(/\s+/g, ' ').trim();
 
-    if (editedNote.length === 99) {
-      return (editedNote = editedNote.slice(0, 99));
-    }
-    if (editedNote.length > 99) {
-      return (editedNote = editedNote.slice(0, 98) + '...');
-    }
+  //   if (editedNote.length === 99) {
+  //     return (editedNote = editedNote.slice(0, 99));
+  //   }
+  //   if (editedNote.length > 99) {
+  //     return (editedNote = editedNote.slice(0, 98) + '...');
+  //   }
 
-    return editedNote;
+  //   return editedNote;
+  // }
+
+  formatNoteAd(note: string, maxWidth: number, text: any): string {
+    // let text = '';
+    // console.log('span.offsetWidth:', span.offsetWidth.valueOf());
+    console.log('textWidth                  :', text.offsetWidth + note);
+
+    return text + '...';
   }
+
+  // formatNoteAd(note: string, maxWidth: number): string {
+  //   // Create a temporary span element for measuring text width
+  //   const span = document.createElement('span');
+
+  //   // Set the font to match your application's font style
+  //   span.style.font = '16px Rubik, sans-serif'; // Adjust the font size and family as per your UI
+
+  //   // Add a space before the text
+  //   span.textContent = ' ' + note; // Add leading space
+
+  //   // Append span to the body (it won't be visible)
+  //   document.body.appendChild(span);
+
+  //   // Measure the width of the text inside the span
+  //   const textWidth = span.offsetWidth;
+  //   console.log('Text width with space:', textWidth);
+
+  //   // Remove the span from the DOM after measuring the width
+  //   document.body.removeChild(span);
+
+  //   // Check if the text fits within the maxWidth
+  //   if (textWidth <= maxWidth) {
+  //     return ' ' + note; // Return the note with leading space if no trimming is needed
+  //   }
+
+  //   // Dynamically trim the text until it fits within the maxWidth
+  //   let editedNote = ' ' + note;
+  //   while (true) {
+  //     // Append ellipsis and measure width
+  //     const widthWithEllipsis = (editedNote + '...').length;
+  //     span.textContent = editedNote + '...';
+  //     if (span.offsetWidth <= maxWidth) {
+  //       break;
+  //     }
+  //     editedNote = editedNote.slice(0, -1); // Trim one character
+  //   }
+
+  //   // Return the trimmed text with ellipsis
+  //   return editedNote + '...';
+  // }
 
   clearTextFromNoteAd(index: number, adId: number): void {
     if (this.retrieveNoteAd(adId) === '') {

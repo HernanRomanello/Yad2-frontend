@@ -161,8 +161,8 @@
               src="assets/images/edit-pen-.svg"
               alt="edit"
             />
-            <span>
-              {{ formatNoteAd(retrieveNoteAd(ad.id)) }}
+            <span #text>
+              {{ formatNoteAd(retrieveNoteAd(ad.id), 400, text) }}
             </span>
           </span>
 
