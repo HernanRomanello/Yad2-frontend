@@ -155,7 +155,9 @@
 
           <span class="font14"> הוספת הערה </span>
           }@else {
-          <span class="font14"> {{ this.retrieveNoteAd(ad.id) }} </span>
+          <span class="font14">
+            {{ formatNoteAd(retrieveNoteAd(ad.id)) }}
+          </span>
 
           }
         </div>
@@ -186,6 +188,7 @@
             #note
             placeholder="כתיבת הערה..."
             [value]="retrieveNoteAd(ad.id)"
+            maxlength="200"
           ></textarea>
           <div class="note-area-btns flex-space-between">
             <div class="flex-center note-length">

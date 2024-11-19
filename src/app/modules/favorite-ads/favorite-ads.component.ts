@@ -44,10 +44,25 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
 
     if (noteArea) {
       const existingText = noteArea.value || '';
-      noteArea.value = existingText + (existingText ? ' ' : '') + text;
+      if (existingText.length + text.length <= 200) {
+        noteArea.value = existingText + (existingText ? ' ' : '') + text;
+      }
     } else {
       console.warn(`Textarea with id "ad-note-area-text${index}" not found.`);
     }
+  }
+
+  formatNoteAd(note: string): string {
+    let editedNote = note.replace(/\s+/g, ' ').trim();
+
+    if (editedNote.length === 99) {
+      return (editedNote = editedNote.slice(0, 99));
+    }
+    if (editedNote.length > 99) {
+      return (editedNote = editedNote.slice(0, 98) + '...');
+    }
+
+    return editedNote;
   }
 
   clearTextFromNoteAd(index: number, adId: number): void {
