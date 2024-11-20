@@ -103,7 +103,17 @@
       </div>
       <div>שימוש בכל התכנים המופיעים בלוח יד2</div>
     </div>
-    <div class="line">.</div>
+    <!-- <div class="line">.</div> -->
+    <div
+      [ngStyle]="{
+        height:
+          (authService.IsFavoritesAdvertisementIsOpen | async) ? '2px' : '1px',
+      
+      }"
+      class="line"
+    >
+      .
+    </div>
 
     <ul class="footer-links">
       <li><a href="#">תקנון</a></li>
@@ -114,7 +124,10 @@
       <li><a href="#">קריירה ביד2</a></li>
       <li><a href="#"> פרויקטי נדלניישן </a></li>
     </ul>
-
+    @if(!(authService.IsFavoritesAdvertisementIsOpen |async)){
     <p class="version">גרסה:prod</p>
+    }@else {
+    <p class="version font16">גירסה: pro</p>
+    }
   </div>
 </footer>

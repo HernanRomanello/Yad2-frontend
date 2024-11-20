@@ -66,10 +66,9 @@
 
 .line {
   color: transparent !important;
-  background-color: #5a5a5a !important;
+  background-color: #606060 !important;
 
   margin: 1rem;
-  height: 1px;
   width: 420px;
   z-index: 10000;
 }
@@ -152,4 +151,8 @@
 
 .circle {
   cursor: pointer;
+}
+
+.font16 {
+  font-size: 16px !important;
 }
