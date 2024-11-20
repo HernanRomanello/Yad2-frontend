@@ -166,7 +166,10 @@
               class="text-content"
               #note
               [ngStyle]="{
-                transform: note.offsetWidth > 600 ? ' translateX(0px)' : ''
+                transform:
+                  note.offsetWidth > 600
+                    ? ' translateX(0px)'
+                    : 'translateX(0px)'
               }"
             >
               {{ retrieveNoteAd(ad.id) }}
