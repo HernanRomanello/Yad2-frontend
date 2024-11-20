@@ -1,15 +1,8 @@
 <div class="advertisement-page">
   <div class="pics-container">
+    @if(advertisement.pictures[0].url.length>0){
+
     <div class="pics">
-      <!-- <div
-        class="small-pic pic1"
-        [style.background-image]="'url(' + advertisement.pictures[1].url + ')'"
-      ></div>
-      <div
-        class="small-pic pic2"
-        [style.background-image]="'url(' + advertisement.pictures[2].url + ')'"
-      ></div>
-    </div> -->
       <img
         *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
         [src]="advertisement.pictures[1].url"
@@ -23,27 +16,21 @@
         alt="Advertisement Image"
       />
     </div>
-    <!-- <div
-      class="main-pic"
-      [style.background-image]="'url(' + advertisement.pictures[0].url + ')'"
-    ></div> -->
+
     <img
       *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
       [src]="advertisement.pictures[0].url"
       class="main-pic"
       alt="Advertisement Image"
     />
-
-    <!-- <div>
-      <img
-        class="main-pic"
-        routerLink="/advertisement/{{ advertisement.id }}"
-        *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-        [src]="advertisement.pictures[0].url"
-        class="card-img"
-        alt="Advertisement Image"
-      />
-    </div> -->
+    } @else{
+    <img
+      id="ad-image"
+      class="house-pic"
+      src="assets/images/image_placeholder_.svg"
+      alt="Advertisement Image"
+    />
+    }
   </div>
 
   <div class="contact-card">
