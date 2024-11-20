@@ -161,11 +161,17 @@
               src="assets/images/edit-pen-.svg"
               alt="edit"
             />
-            <span #text>
-              {{ formatNoteAd(retrieveNoteAd(ad.id), 400, text) }}
+
+            <span
+              class="text-content"
+              #note
+              [ngStyle]="{
+                transform: note.offsetWidth > 600 ? ' translateX(0px)' : ''
+              }"
+            >
+              {{ retrieveNoteAd(ad.id) }}
             </span>
           </span>
-
           }
         </div>
         <div class="sqaure"></div>

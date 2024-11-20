@@ -65,12 +65,34 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   //   return editedNote;
   // }
 
-  formatNoteAd(note: string, maxWidth: number, text: any): string {
+  formatNotewidth(text: any, Note: string): boolean {
     // let text = '';
-    // console.log('span.offsetWidth:', span.offsetWidth.valueOf());
-    console.log('textWidth                  :', text.offsetWidth + note);
+    // console.log('textWidth                  :', text.offsetWidth + note);
 
-    return text + '...';
+    // while (text.offsetWidth > maxWidth) {
+    //   return (note = note.slice(0, -1));
+    console.log(
+      'textWidth                  :',
+      text.offsetWidth + text.innerHTML
+    );
+    // }
+    let note = text.innerHTML;
+    text.forEach((element: any) => {
+      console.log('element:', element);
+      console.log('element:', element.offsetWidth);
+    });
+
+    if (note.offsetWidth < 400) {
+      return true;
+    }
+    return text.offsetWidth < 400;
+  }
+
+  formatNoteAd(note: string, maxWidth: number, text: any): string {
+    // Create a temporary span element for measuring text width
+    let newText = '';
+    // while (true) {}
+    return ' ';
   }
 
   // formatNoteAd(note: string, maxWidth: number): string {
