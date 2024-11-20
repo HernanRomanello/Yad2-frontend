@@ -1,5 +1,6 @@
 <footer>
   <div class="footer-content">
+    @if(!(authService.IsFavoritesAdvertisementIsOpen |async)){
     <div class="app-explanation">
       <p>
         מחפשים דירות להשכרה? בלוח נכסים להשכרה של יד2 תמצאו בקלות ובמהירות. מאגר
@@ -18,7 +19,7 @@
         כדי לצפות במודעה ובפרטי ההתקשרות עם בעלי הדירה.
       </p>
     </div>
-
+    }
     <div class="categories">
       <div>
         <li class="category-title">נדל"ן</li>
