@@ -285,6 +285,8 @@
                   </div>
 
                   <div class="favorite-ad-img">
+                    @if(favorite.pictures[0].url.length>0){
+
                     <img
                       id="ad-image"
                       class="house-pic"
@@ -292,6 +294,14 @@
                       [src]="favorite.pictures[0].url"
                       alt=""
                     />
+                    }@else {
+                    <img
+                      id="ad-image"
+                      class="house-pic"
+                      src="assets/images/feed_re_placeholder_small (1).png"
+                      alt=""
+                    />
+                    }
                     <div id="heart-icon" class="favorite-symbol">
                       <img
                         class="house-pic"
