@@ -58,12 +58,21 @@
         <div class="flex-center">
           <div class="ad-part1 flex">
             <div class="ad-image-container">
+              @if(ad.pictures[0].url.length > 0){
               <img
                 ngClass="ad-image"
                 id="ad-image{{ $index }}"
                 [src]="ad.pictures[0].url"
                 alt=""
               />
+              }@else {
+              <img
+                ngClass="ad-image"
+                id="ad-image{{ $index }}"
+                src="assets/images/feed_re_placeholder_small (1).png"
+                alt=""
+              />
+              }
               <div id="heart-icon" class="favorite-symbol flex-center">
                 <img
                   class="house-pic"
