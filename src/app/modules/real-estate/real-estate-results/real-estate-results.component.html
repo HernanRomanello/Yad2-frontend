@@ -148,6 +148,7 @@
         </div>
       </div>
       <div class="image">
+        @if(advertisement.pictures[0].url.length > 0){
         <img
           routerLink="/advertisement/{{ advertisement.id }}"
           *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
@@ -155,6 +156,15 @@
           class="card-img"
           alt="Advertisement Image"
         />
+        }@else{
+        <img
+          id="empty-ad-image"
+          routerLink="/advertisement/{{ advertisement.id }}"
+          src="assets/images/image_placeholder.svg"
+          class="card-img"
+          alt="Advertisement Image"
+        />
+        }
       </div>
     </div>
   </div>
