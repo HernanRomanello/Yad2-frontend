@@ -107,6 +107,10 @@
   width: 35px;
   height: 35px;
   background-color: #000000 !important;
+}
+
+.flex-center,
+.circle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,4 +139,14 @@
 
 .align-text-center li {
   margin-right: 1.5rem;
+}
+
+.font18 {
+  font-size: 18px !important;
+}
+
+.categories-favorite-page {
+  margin-top: 80px;
+  margin-bottom: 1.5rem;
+  gap: 3rem;
 }
