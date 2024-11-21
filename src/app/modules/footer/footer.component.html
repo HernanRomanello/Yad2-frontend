@@ -138,12 +138,19 @@
       .
     </div>
 
-    <ul class="footer-links">
+    <ul
+      [ngClass]="
+        (authService.IsFavoritesAdvertisementIsOpen | async)
+          ? 'footer-links-favorite-page'
+          : 'footer-links'
+      "
+    >
       <li><a href="#">תקנון</a></li>
       <li><a href="#">הצהרת נגישות</a></li>
       <li><a href="#">מדיניות פרטיות</a></li>
       <li><a href="#">מפת האתר</a></li>
       <li><a href="#">צור קשר</a></li>
+      <li><a href="#"> ביטול עסקה</a></li>
       <li><a href="#">קריירה ביד2</a></li>
       <li><a href="#"> פרויקטי נדלניישן </a></li>
     </ul>
