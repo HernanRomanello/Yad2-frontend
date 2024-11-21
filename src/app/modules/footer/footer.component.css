@@ -152,7 +152,8 @@
 }
 
 .circle,
-.categories-favorite-page li {
+.categories-favorite-page li,
+.margin-top {
   cursor: pointer;
 }
 
@@ -228,13 +229,13 @@
   transform: translateY(-4px) !important;
 }
 
-.margin-top {
-  transform: translateY(0px) !important;
+.margin-top:hover {
+  text-decoration-line: underline !important;
 }
 
 .logos-favorite-page,
 .categories-favorite-page {
-  transform: translateY(-8px) !important;
+  transform: translateY(-6px) !important;
 }
 
 .footer-links-favorite-page {
