@@ -39,6 +39,10 @@
   font-size: 12px;
   max-width: 813px;
 }
+
+.footer-note {
+  max-width: 580px;
+}
 .categories {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
