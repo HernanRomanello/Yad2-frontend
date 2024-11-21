@@ -2,7 +2,8 @@
   <div
     [ngStyle]="{
       'max-height':
-        (authService.IsFavoritesAdvertisementIsOpen | async) ? '327px' : ''
+        (authService.IsFavoritesAdvertisementIsOpen | async) ? '327px' : '',
+     
     }"
     class="footer-content"
   >
@@ -133,7 +134,11 @@
           (authService.IsFavoritesAdvertisementIsOpen | async) ? '2px' : '1px',
       
       }"
-      class="line"
+      [ngClass]="
+        (authService.IsFavoritesAdvertisementIsOpen | async)
+          ? 'line-favorite-page'
+          : 'line'
+      "
     >
       .
     </div>
@@ -157,7 +162,7 @@
     @if(!(authService.IsFavoritesAdvertisementIsOpen |async)){
     <p class="version">גרסה:prod</p>
     }@else {
-    <p class="version font16">גירסה: pro</p>
+    <p class="version font16 margin-top">גירסה: pro</p>
     }
   </div>
 </footer>

@@ -14,10 +14,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* width: 950px; */
   width: 67.8571vw;
   margin: auto;
-  padding-bottom: 1rem;
 }
 
 .app-explanation {
@@ -32,7 +30,7 @@
   margin: 0 !important;
   padding: 0 !important;
   color: rgb(153, 153, 153) !important;
-  line-height: 16.1px !important;
+  line-height: 16.1px;
 }
 
 .AllRightAreSave {
@@ -42,13 +40,18 @@
 
 .footer-note {
   max-width: 580px;
-  max-height: 28px;
+  /* max-height: 28px; */
   padding: 0 1rem;
   word-spacing: 0px;
+  letter-spacing: 0px !important;
 }
 .footer-note,
 .line-height14 {
-  line-height: 12px !important;
+  line-height: 14px !important;
+}
+
+.AllRightAreSave .line-height14 {
+  margin-top: 2rem !important;
 }
 .categories {
   display: grid;
@@ -68,7 +71,7 @@
 .category-title {
   font-size: 17px !important;
   font-weight: 500 !important;
-  margin-bottom: 0.5rem !important;
+  /* margin-bottom: 0.5rem !important; */
   color: #ffffff !important;
 }
 
@@ -76,15 +79,6 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-}
-
-.line {
-  color: transparent !important;
-  background-color: #606060 !important;
-
-  margin: 1rem;
-  width: 420px;
-  z-index: 10000;
 }
 
 .logos img,
@@ -104,7 +98,7 @@
 }
 .logos-favorite-page {
   gap: 12px;
-  margin-bottom: 1rem;
+  margin: 29px 0;
 }
 
 .circle {
@@ -151,8 +145,8 @@
 }
 
 .categories-favorite-page {
-  margin-top: 98px !important;
-  margin-bottom: 1.5rem !important;
+  margin-top: 80px !important;
+  /* margin-bottom: 1.5rem !important; */
   gap: 3rem;
   margin: auto;
 }
@@ -175,6 +169,13 @@
   display: flex;
   direction: rtl;
   justify-content: space-between;
+  transform: translateX(14px);
+}
+
+.footer-links {
+  gap: 2rem;
+}
+.footer-links-favorite-page {
   gap: 2rem;
 }
 
@@ -187,8 +188,55 @@
 }
 .footer-links-favorite-page a {
   color: #ffffff !important;
+  padding: 0 3px;
+  white-space: nowrap;
 }
 
 .footer-links-favorite-page {
   font-size: 16px !important;
+  margin: 0 !important;
+}
+
+.margin0 {
+  margin: 0 !important;
+}
+
+.line,
+.line-favorite-page {
+  color: transparent !important;
+  background-color: #606060 !important;
+
+  width: 420px;
+  z-index: 10000;
+}
+
+.line {
+  margin: 1rem;
+}
+
+.line-favorite-page {
+  margin: 1.25rem;
+}
+
+.margin-top {
+  margin-top: 1rem !important;
+}
+
+.line-favorite-page,
+.line-favorite-page,
+.line-height14 {
+  transform: translateY(-4px) !important;
+}
+
+.margin-top {
+  transform: translateY(0px) !important;
+}
+
+.logos-favorite-page,
+.categories-favorite-page {
+  transform: translateY(-8px) !important;
+}
+
+.footer-links-favorite-page {
+  transform: translateY(-2px) translateX(16px);
 }
