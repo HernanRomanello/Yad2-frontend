@@ -1,5 +1,11 @@
 <footer>
-  <div class="footer-content">
+  <div
+    [ngStyle]="{
+      'max-height':
+        (authService.IsFavoritesAdvertisementIsOpen | async) ? '327px' : ''
+    }"
+    class="footer-content"
+  >
     @if(!(authService.IsFavoritesAdvertisementIsOpen |async)){
     <div class="app-explanation">
       <p>
@@ -84,7 +90,13 @@
     </div>
 
     }
-    <div class="logos">
+    <div
+      [ngClass]="
+        (authService.IsFavoritesAdvertisementIsOpen | async)
+          ? 'logos-favorite-page'
+          : 'logos'
+      "
+    >
       <div class="circle"><img src="assets/images/apple.svg" alt="" /></div>
       <div class="circle">
         <img class="google-img" src="assets/images/google-play.svg" alt="" />
@@ -106,7 +118,7 @@
     </footer>
     }@else {
 
-    <footer class="AllRightAreSave">
+    <footer class="AllRightAreSave line-height14">
       <div class="footer-note">
         כל הזכויות שמורות לחברת קורל תל מפעילות לוח יד2 - לוח מודעות: דרושים IL,
         דירות להשכרה, בתים למכירה, בתים להשכרה, העברת בתים, הובלות אין לעשות
