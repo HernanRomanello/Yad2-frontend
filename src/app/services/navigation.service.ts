@@ -15,13 +15,17 @@ export class NavigationService {
   IsMainHeaderISOpen = signal<boolean>(true);
   IsMainFooterISOpen = signal<boolean>(true);
   IsalternativeHeaderISOpen = signal<boolean>(false);
-  ISEditAdvertisementISOpen = signal<boolean>(false);
+  IsEditAdvertisementISOpen = signal<boolean>(false);
   IsFavoritesAdvertisementIsOpen = signal<boolean>(false);
   IsUserAreaISOpen = signal<boolean>(false);
 
   IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
     this.IsMainHeaderISOpen = signal(IsHeaderhide);
     this.IsMainFooterISOpen = signal(IsFooterhide);
+  }
+
+  isEditAdvertisementISOpen(IsOpen: boolean) {
+    this.IsEditAdvertisementISOpen = signal(IsOpen);
   }
 
   isalternativeHeaderISOpen(IsOpen: boolean) {

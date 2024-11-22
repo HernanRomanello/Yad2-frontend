@@ -518,7 +518,7 @@
   </div>
 </header>
 } } @if((this.navigationService.IsalternativeHeaderISOpen())) {
-@if(!(this.authService.ISEditAdvertisementISOpen | async)) {
+@if(!(this.navigationService.IsEditAdvertisementISOpen())) {
 <div class="orange-line"></div>
 <header>
   <div [ngClass]="setHeaderHeight()">
@@ -633,7 +633,7 @@
     </div>
   </div>
 </header>
-} @if((this.authService.ISEditAdvertisementISOpen | async)) {
+} @if(navigationService.IsEditAdvertisementISOpen()) {
 <div class="edit-ad-header">
   <div id="post-ad-title" class="flex-center2 post-ad-box">
     <div class="logo-img" routerLink="/">

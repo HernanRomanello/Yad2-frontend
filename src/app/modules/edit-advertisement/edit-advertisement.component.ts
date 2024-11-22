@@ -136,6 +136,7 @@ export class EditAdvertisementComponent
 
   ngOnDestroy(): void {
     this.authService.ISEditAdvertisementISOpen.next(false);
+    this.navigationService.isEditAdvertisementISOpen(false);
     this.authService.IsalternativeHeaderISOpen.next(false);
     this.navigationService.isalternativeHeaderISOpen(false);
     this.navigationService.isalternativeHeaderISOpen(false);
@@ -314,6 +315,7 @@ export class EditAdvertisementComponent
     this.authService.IsalternativeHeaderISOpen.next(true);
     this.navigationService.isalternativeHeaderISOpen(true);
     this.authService.ISEditAdvertisementISOpen.next(true);
+    this.navigationService.isEditAdvertisementISOpen(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
 
     this.route.params.subscribe((params) => {
