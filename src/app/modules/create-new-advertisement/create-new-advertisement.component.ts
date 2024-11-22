@@ -187,6 +187,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.authService.IsalternativeHeaderISOpen.next(false);
+    this.navigationService.isalternativeHeaderISOpen(false);
+    this.navigationService.isalternativeHeaderISOpen(false);
     this.authService.IsHeaderAndFooterOpen(true, true);
     this.navigationService.IsHeaderAndFooterOpen(true, true);
 
@@ -233,6 +235,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
     this.authService.IsalternativeHeaderISOpen.next(true);
+    this.navigationService.isalternativeHeaderISOpen(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
     this.navigationService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('create-new-advertisement');

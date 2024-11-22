@@ -1,5 +1,5 @@
 @if ((this.authService.IsMainHeaderISOpen | async)) {
-@if(!(this.authService.IsalternativeHeaderISOpen | async)) {
+@if(!(this.navigationService.IsalternativeHeaderISOpen())) {
 
 <header
   [ngClass]="
@@ -517,7 +517,7 @@
     </button>
   </div>
 </header>
-} } @if((this.authService.IsalternativeHeaderISOpen | async)) {
+} } @if((this.navigationService.IsalternativeHeaderISOpen())) {
 @if(!(this.authService.ISEditAdvertisementISOpen | async)) {
 <div class="orange-line"></div>
 <header>

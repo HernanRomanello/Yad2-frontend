@@ -24,6 +24,10 @@ export class NavigationService {
     this.IsMainFooterISOpen = signal(IsFooterhide);
   }
 
+  isalternativeHeaderISOpen(IsOpen: boolean) {
+    this.IsalternativeHeaderISOpen = signal(IsOpen);
+  }
+
   isUserAreaOpen(isOpen: boolean) {
     this.IsUserAreaISOpen = signal(isOpen);
     if (isOpen) {

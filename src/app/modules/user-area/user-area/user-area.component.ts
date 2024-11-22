@@ -31,6 +31,7 @@ export class UserAreaComponent implements OnInit, OnDestroy {
     this.authService.isUserAreaOpen(true);
     this.navigationService.isUserAreaOpen(true);
     this.authService.IsalternativeHeaderISOpen.next(true);
+    this.navigationService.isalternativeHeaderISOpen(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
     this.navigationService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('user-area');
