@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { AuthService } from './services/user/auth.service';
 import { ModalStateService } from './services/modal-state.service';
+import { NavigationService } from './services/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
     document.body.addEventListener('click', this.handleBodyClick);
   }
   authService = inject(AuthService);
+  navigationService = inject(NavigationService);
   modalStateService = inject(ModalStateService);
   renderer = inject(Renderer2);
 

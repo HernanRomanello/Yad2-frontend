@@ -2,12 +2,12 @@
   <div
     [ngStyle]="{
       'max-height':
-        (authService.IsFavoritesAdvertisementIsOpen | async) ? '327px' : '',
+        (navigationService.IsFavoritesAdvertisementIsOpen()) ? '327px' : '',
      
     }"
     class="footer-content"
   >
-    @if(!(authService.IsFavoritesAdvertisementIsOpen |async)){
+    @if(!(navigationService.IsFavoritesAdvertisementIsOpen())){
     <div class="app-explanation">
       <p>
         מחפשים דירות להשכרה? בלוח נכסים להשכרה של יד2 תמצאו בקלות ובמהירות. מאגר
@@ -93,7 +93,7 @@
     }
     <div
       [ngClass]="
-        (authService.IsFavoritesAdvertisementIsOpen | async)
+        navigationService.IsFavoritesAdvertisementIsOpen()
           ? 'logos-favorite-page'
           : 'logos'
       "
@@ -111,7 +111,7 @@
       </div>
     </div>
 
-    @if(!(authService.IsFavoritesAdvertisementIsOpen |async)){
+    @if(!(navigationService.IsFavoritesAdvertisementIsOpen())){
     <footer class="AllRightAreSave">
       <div class="">
         כל הזכויות שמורות לחברת קורל תל מפעילות לוח יד2 - לוח מודעות: דרושים,
@@ -134,11 +134,11 @@
     <div
       [ngStyle]="{
         height:
-          (authService.IsFavoritesAdvertisementIsOpen | async) ? '2px' : '1px',
+          (navigationService.IsFavoritesAdvertisementIsOpen()) ? '2px' : '1px',
       
       }"
       [ngClass]="
-        (authService.IsFavoritesAdvertisementIsOpen | async)
+        navigationService.IsFavoritesAdvertisementIsOpen()
           ? 'line-favorite-page'
           : 'line'
       "
@@ -148,7 +148,7 @@
 
     <ul
       [ngClass]="
-        (authService.IsFavoritesAdvertisementIsOpen | async)
+        navigationService.IsFavoritesAdvertisementIsOpen()
           ? 'footer-links-favorite-page'
           : 'footer-links'
       "
@@ -162,7 +162,7 @@
       <li><a href="#">קריירה ביד2</a></li>
       <li><a href="#"> פרויקטי נדלניישן </a></li>
     </ul>
-    @if(!(authService.IsFavoritesAdvertisementIsOpen |async)){
+    @if(!(navigationService.IsFavoritesAdvertisementIsOpen())){
     <p class="version">גרסה:prod</p>
     }@else {
     <p class="version font16 margin-top">גירסה: pro</p>

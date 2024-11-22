@@ -3,20 +3,20 @@
 
 <header
   [ngClass]="
-    (this.authService.IsFavoritesAdvertisementIsOpen | async)
+    this.navigationService.IsFavoritesAdvertisementIsOpen()
       ? 'header shadow none-border'
       : 'header'
   "
 >
   <div
     [ngClass]="
-      (this.authService.IsFavoritesAdvertisementIsOpen | async)
+      this.navigationService.IsFavoritesAdvertisementIsOpen()
         ? 'header none-border'
         : 'header'
     "
   >
     <div class="left-side">
-      @if(!(this.authService.IsFavoritesAdvertisementIsOpen | async)) {
+      @if(!(this.navigationService.IsFavoritesAdvertisementIsOpen())) {
       <div class="Post-Btn">
         <button class="light" routerLink="create-advertisement">
           פרסום הודעה
@@ -345,7 +345,7 @@
   </div>
   <div
     [ngClass]="
-      (this.authService.IsFavoritesAdvertisementIsOpen | async)
+      this.navigationService.IsFavoritesAdvertisementIsOpen()
         ? 'header none-border'
         : 'header'
     "
@@ -524,7 +524,7 @@
   <div [ngClass]="setHeaderHeight()">
     <div class="left-side2 flex-center2">
       <div class="gray-btns-container2">
-        @if(!(this.authService.IsUserAreaISOpen | async)){
+        @if(!(this.navigationService.IsUserAreaISOpen())){
         <button
           class="gray-btn2 close-btn-container flex-center2"
           (click)="
@@ -554,7 +554,7 @@
       >
         <div>
           <div routerLink="/profile" class="flex-center2">
-            @if(!(this.authService.IsUserAreaISOpen | async)) {
+            @if(!(this.navigationService.IsUserAreaISOpen())) {
             <div class="user-name2 flex-center2">
               {{ this.userName }}
             </div>
@@ -573,7 +573,7 @@
             class="menu2"
             *ngIf="
               this.isUserAreaDropdownVisible &&
-              !(this.authService.IsUserAreaISOpen | async)
+              !this.navigationService.IsUserAreaISOpen()
             "
             (mouseover)="isUserAreaDropdownOpen(true)"
             (mouseleave)="isUserAreaDropdownOpen(false)"

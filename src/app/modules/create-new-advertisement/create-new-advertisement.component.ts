@@ -26,6 +26,7 @@ import {
   CityListService,
   Street,
 } from '../../services/city-list.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -51,6 +52,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   authService = inject(AuthService);
   imageService = inject(ImageuploadService);
   formBuilder = inject(FormBuilder);
+  navigationService = inject(NavigationService);
   isAssetTypeDropdownHidden = false;
   isNumberOfPaymentsTypeDropdownHidden = false;
   isCityDropdownHidden = false;
@@ -186,6 +188,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.authService.IsalternativeHeaderISOpen.next(false);
     this.authService.IsHeaderAndFooterOpen(true, true);
+    this.navigationService.IsHeaderAndFooterOpen(true, true);
+
     this.authService.SetPageRender('');
   }
 
@@ -230,6 +234,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.authService.IsalternativeHeaderISOpen.next(true);
     this.authService.IsHeaderAndFooterOpen(true, false);
+    this.navigationService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('create-new-advertisement');
     this.advertisementForm = this.formBuilder.group({
       city: ['', [Validators.required, this.isValidCityName.bind(this)]],

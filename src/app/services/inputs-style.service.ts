@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './user/auth.service';
+import { NavigationService } from './navigation.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InputsStyleService {
-  constructor(private router: Router, private authServise: AuthService) {}
+  constructor(
+    private router: Router,
+    private authServise: AuthService,
+    private navigationService: NavigationService
+  ) {}
   switchPasswordVisibility(isPasswordHidden: boolean): string {
     return isPasswordHidden
       ? 'assets/images/password-exposed.svg'
@@ -22,6 +27,7 @@ export class InputsStyleService {
 
   navigateTomainPage(): void {
     this.authServise.IsHeaderAndFooterOpen(true, true);
+    this.navigationService.IsHeaderAndFooterOpen(true, true);
     this.router.navigate(['/']);
     this.reloloadPage();
   }

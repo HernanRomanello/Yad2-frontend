@@ -1,9 +1,8 @@
-@if (this.authService.IsMainHeaderISOpen | async) {
+@if ( this.navigationService.IsMainHeaderISOpen()) {
 <app-header></app-header>
 }
-
 <router-outlet></router-outlet>
-@if (this.authService.IsMainFooterISOpen | async) {
+@if (this.navigationService.IsMainFooterISOpen()) {
 <app-footer></app-footer>
 }
 

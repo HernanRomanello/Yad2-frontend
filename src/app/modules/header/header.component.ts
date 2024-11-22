@@ -10,6 +10,7 @@ import { AuthService } from '../../services/user/auth.service';
 import { UserModel } from '../../shared/models/UserModel';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
+import { NavigationService } from '../../services/navigation.service';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -37,6 +38,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isUserAreaDropdownVisible = false;
   _LogoPic = 'assets/images/logo-default.svg';
   authService = inject(AuthService);
+  navigationService = inject(NavigationService);
   modalStateSerrvice = inject(ModalStateService);
   isUserConnected: boolean = false;
   firstLetterUserEmailAddress = '';
@@ -86,7 +88,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   setHeaderHeight(): string {
-    if (this.authService.IsUserAreaISOpen.getValue() === true) {
+    if (this.navigationService.IsUserAreaISOpen() === true) {
       return 'header2 increase-height';
     } else {
       return 'header2';

@@ -15,7 +15,7 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   constructor(
     public authService: AuthService,
     private renderer: Renderer2,
-    public navigationService: NavigationService
+    private navigationService: NavigationService
   ) {}
 
   openInNewWindow(adId: string): void {
@@ -75,6 +75,7 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.authService.isFavoritesAdIsOpen(true);
+    this.navigationService.isFavoritesAdIsOpen(true);
 
     this.authService.getUserNotes();
 
@@ -98,6 +99,7 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.authService.isFavoritesAdIsOpen(false);
+    this.navigationService.isFavoritesAdIsOpen(false);
     this.authService.userNotes.unsubscribe();
   }
 

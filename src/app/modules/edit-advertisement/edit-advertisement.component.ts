@@ -20,6 +20,7 @@ import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { environment } from '../../../environments/environment.development';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -131,11 +132,13 @@ export class EditAdvertisementComponent
   advertisementService = inject(AdvertisementService);
   inputsStyleService = inject(InputsStyleService);
   imageuploadService = inject(ImageuploadService);
+  navigationService = inject(NavigationService);
 
   ngOnDestroy(): void {
     this.authService.ISEditAdvertisementISOpen.next(false);
     this.authService.IsalternativeHeaderISOpen.next(false);
     this.authService.IsHeaderAndFooterOpen(true, true);
+    this.navigationService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
     this.authService.user.unsubscribe();
   }
