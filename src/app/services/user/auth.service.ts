@@ -1,6 +1,6 @@
 import { Injectable, OnInit, afterNextRender } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { BehaviorSubject, Observable, ReplaySubject, filter, map } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, filter, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';

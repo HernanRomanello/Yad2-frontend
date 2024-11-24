@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { NavigationService } from '../../services/navigation.service';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-favorite-ads',
@@ -15,7 +16,8 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   constructor(
     public authService: AuthService,
     private renderer: Renderer2,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private route: ActivatedRoute
   ) {}
 
   openInNewWindow(adId: string): void {
@@ -76,11 +78,12 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.navigationService.isFavoritesAdIsOpen(true);
 
-    this.authService.getUserNotes();
+    // this.authService.getUserNotes();
 
-    this.authService.userNotes.subscribe((notes) => {
-      this.userNotes = notes;
-    });
+    // this.authService.userNotes.subscribe((notes) => {
+    //   this.userNotes = notes;
+    // });
+    this.userNotes = this.route.snapshot.data['userNotes'];
   }
 
   updateUserNote(adID: number, newNote: string): void {
@@ -98,7 +101,7 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.navigationService.isFavoritesAdIsOpen(false);
-    this.authService.userNotes.unsubscribe();
+    // this.authService.userNotes.unsubscribe();
   }
 
   displayAdOptions(event: any, index: number) {

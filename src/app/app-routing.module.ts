@@ -8,6 +8,7 @@ import { CreateNewAdvertisementComponent } from './modules/create-new-advertisem
 import { PostAdConfirmationModalComponent } from './modules/post-ad-confirmation-modal/post-ad-confirmation-modal.component';
 import { EditAdvertisementComponent } from './modules/edit-advertisement/edit-advertisement.component';
 import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.component';
+import { favoritesNotesResolver } from './Resolvers/favoritesNotes.resolver';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
     title: 'Favorite Ads',
     component: FavoriteAdsComponent,
     canActivate: [authGuard],
+    resolve: { userNotes: favoritesNotesResolver },
   },
   {
     path: 'advertisement/:id',
