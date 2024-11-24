@@ -3,6 +3,7 @@ import { AuthService } from '../../services/user/auth.service';
 import { NavigationService } from '../../services/navigation.service';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
 import { ActivatedRoute } from '@angular/router';
+import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 
 @Component({
   selector: 'app-favorite-ads',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class FavoriteAdsComponent implements OnInit, OnDestroy {
   hasPopupOpen: boolean = true;
   userNotes: UserNoteModel[] | null = null;
+  userFavoritesAds: AdvertisementsModel[] = [];
 
   constructor(
     public authService: AuthService,
@@ -79,6 +81,7 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     this.navigationService.isFavoritesAdIsOpen(true);
 
     this.userNotes = this.route.snapshot.data['userNotes'];
+    this.userFavoritesAds = this.route.snapshot.data['userAds'];
   }
 
   updateUserNote(adID: number, newNote: string): void {

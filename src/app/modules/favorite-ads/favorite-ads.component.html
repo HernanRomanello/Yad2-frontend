@@ -42,8 +42,7 @@
 
         <button (click)="this.hasPopupOpen = false">מעולה, תודה</button>
       </div>
-      } @for (ad of this.authService.UserFavoriteAdvertisements |async; track
-      $index) {
+      } @for (ad of userFavoritesAds ; track $index) {
 
       <div
         (mouseenter)="
