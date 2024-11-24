@@ -25,12 +25,6 @@ export class AuthService implements OnInit {
   >([]);
   UserAdvertisementsStatistics =
     new BehaviorSubject<AdvertisementsModel | null>(null);
-  IsMainHeaderISOpen = new BehaviorSubject<boolean>(true);
-  IsMainFooterISOpen = new BehaviorSubject<boolean>(true);
-  IsalternativeHeaderISOpen = new BehaviorSubject<boolean>(false);
-  ISEditAdvertisementISOpen = new BehaviorSubject<boolean>(false);
-  IsFavoritesAdvertisementIsOpen = new BehaviorSubject<boolean>(false);
-  IsUserAreaISOpen = new BehaviorSubject<boolean>(false);
   UserPageRender = new BehaviorSubject<string>('');
   userName = new ReplaySubject<string>(1);
   firstLetterUserEmailAddress = new ReplaySubject<string>(1);
@@ -94,20 +88,6 @@ export class AuthService implements OnInit {
     }
   }
 
-  isUserAreaOpen(isOpen: boolean) {
-    this.IsUserAreaISOpen.next(isOpen);
-    if (isOpen) {
-      this.IsFavoritesAdvertisementIsOpen.next(false);
-    }
-  }
-
-  isFavoritesAdIsOpen(isOpen: boolean) {
-    this.IsFavoritesAdvertisementIsOpen.next(isOpen);
-    if (isOpen) {
-      this.IsUserAreaISOpen.next(false);
-    }
-  }
-
   postAdNoteToUser(advertisementId: number, note: string) {
     const newNote = { adID: advertisementId, note: note };
     this.httpClient
@@ -125,11 +105,6 @@ export class AuthService implements OnInit {
           this.userNotes.next(response);
         }
       });
-  }
-
-  IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
-    this.IsMainHeaderISOpen.next(IsHeaderhide);
-    this.IsMainFooterISOpen.next(IsFooterhide);
   }
 
   async login(email: string, password: string): Promise<boolean> {

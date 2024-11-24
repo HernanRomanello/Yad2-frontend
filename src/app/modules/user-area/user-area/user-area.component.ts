@@ -18,9 +18,7 @@ export class UserAreaComponent implements OnInit, OnDestroy {
   userLastname: string = '';
   UserEmailAddress: string = '';
   ngOnDestroy(): void {
-    this.authService.isUserAreaOpen(false);
     this.navigationService.isUserAreaOpen(false);
-    this.authService.IsHeaderAndFooterOpen(false, false);
     this.navigationService.IsHeaderAndFooterOpen(false, false);
     this.authService.SetPageRender('');
     window.scrollTo(0, 0);
@@ -28,11 +26,8 @@ export class UserAreaComponent implements OnInit, OnDestroy {
     this.authService.user.unsubscribe();
   }
   ngOnInit(): void {
-    this.authService.isUserAreaOpen(true);
     this.navigationService.isUserAreaOpen(true);
-    this.authService.IsalternativeHeaderISOpen.next(true);
     this.navigationService.isalternativeHeaderISOpen(true);
-    this.authService.IsHeaderAndFooterOpen(true, false);
     this.navigationService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('user-area');
 

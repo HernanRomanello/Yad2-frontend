@@ -26,7 +26,6 @@ export class InputsStyleService {
   }
 
   navigateTomainPage(): void {
-    this.authServise.IsHeaderAndFooterOpen(true, true);
     this.navigationService.IsHeaderAndFooterOpen(true, true);
     this.router.navigate(['/']);
     this.reloloadPage();

@@ -47,7 +47,6 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   signupForm!: FormGroup;
 
   ngOnInit(): void {
-    this.authService.IsHeaderAndFooterOpen(false, false);
     this.navigationService.IsHeaderAndFooterOpen(false, false);
 
     this.signupForm = this.formbuilder.group({

@@ -6,12 +6,7 @@ import { Router } from '@angular/router';
 })
 export class NavigationService {
   constructor(private router: Router) {}
-  // IsMainHeaderISOpen = new BehaviorSubject<boolean>(true);
-  // IsMainFooterISOpen = new BehaviorSubject<boolean>(true);
-  // IsalternativeHeaderISOpen = new BehaviorSubject<boolean>(false);
-  // ISEditAdvertisementISOpen = new BehaviorSubject<boolean>(false);
-  // IsFavoritesAdvertisementIsOpen = new BehaviorSubject<boolean>(false);
-  // IsUserAreaISOpen = new BehaviorSubject<boolean>(false);
+
   IsMainHeaderISOpen = signal<boolean>(true);
   IsMainFooterISOpen = signal<boolean>(true);
   IsalternativeHeaderISOpen = signal<boolean>(false);
