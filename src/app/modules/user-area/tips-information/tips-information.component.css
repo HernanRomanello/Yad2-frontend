@@ -1,0 +1,35 @@
+.infomation {
+}
+
+.page {
+  background-color: #f9f9f9;
+  margin: auto;
+}
+
+body,
+body {
+  /* width: 695px; */
+  width: 100%;
+  direction: rtl;
+  font-size: 18px;
+  word-spacing: 0 !important;
+  letter-spacing: -0.1px !important;
+
+  margin-top: 88px;
+}
+
+.flex-center {
+  display: flex;
+}
+.flex-center {
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.font36 {
+  font-size: 36px !important;
+}
