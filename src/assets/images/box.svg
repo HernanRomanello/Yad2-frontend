@@ -1,0 +1,16 @@
+<svg width="275" height="246" viewBox="0 0 275 246" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <svg width="136" height="136" viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg" id="box">
+      <path d="M25.5361 93.8762V37.0186L68.4874 57.9661V115L25.5361 93.8762Z" fill="#F8F8F8" stroke="#CCCCCC"/>
+      <path d="M111.438 93.877V37.1953L68.4872 57.9668V115.001L111.438 93.877Z" fill="#EEEEEE" stroke="#CCCCCC"/>
+      <path d="M68 21L25.8877 36.8427L68.839 57.9663L110.5 36.5L68 21Z" fill="#DCDCDC" stroke="#CCCCCC"/>
+      <path d="M111 36.5L68.4873 57.6142L87.8506 75.9214L127.281 53.7416L111 36.5Z" fill="#EEEEEE" stroke="#CCCCCC"/>
+      <path d="M55.0016 76.2747L13.1871 55.0715L25.5359 36.8426L68.4525 57.4163L55.0016 76.2747Z" fill="#EEEEEE" stroke="#CCCCCC"/>
+    </svg>
+  </defs>
+
+  <rect width="280" height="250" rx="0" fill="#EEEEEE" />
+  <use x="75" y="60" width="130" height="130" href="#box">
+  </use>
+</svg>
+

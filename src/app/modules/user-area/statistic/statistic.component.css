@@ -61,6 +61,12 @@
   gap: 22px;
 }
 
+#box-img,
+.box-img-container {
+  height: 146px;
+  width: 260px;
+}
+
 .right-side {
   gap: 24px;
 }
@@ -101,7 +107,8 @@
 }
 
 .number,
-.title {
+.title,
+.font500 {
   font-weight: 500;
 }
 
@@ -173,6 +180,12 @@
   font-size: 16px;
 }
 
+.ad-insight-title {
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding: 0.5rem 1rem 1.25rem 1rem;
+}
+
 .stats-data,
 .first-column {
   gap: 16px;
@@ -182,4 +195,76 @@
 .first-column {
   padding-left: 2rem !important;
   width: 165px !important;
+}
+
+.form-frame {
+  height: 320px;
+  width: 675px;
+  border: 1px solid rgb(226, 232, 240);
+
+  padding: 6px 30px 0px;
+
+  border-radius: 10px;
+}
+
+.box-img-container {
+  margin: auto;
+  background-color: #eeeeee;
+}
+.box-img-container,
+.form-frame {
+  margin: auto;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl; /* For right-to-left layout */
+}
+
+.action-item label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-item span {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Style for the checkboxes */
+.check-input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.check-input::after {
+  content: "✔";
+  font-size: 12px;
+  color: white;
+  display: none;
+}
+
+.check-input:checked::after {
+  display: block;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: teal;
 }
