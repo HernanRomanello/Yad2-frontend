@@ -14,11 +14,16 @@
   direction: rtl;
 }
 
-.right-side {
+.right-side,
+.stats-numbers {
   width: 715px;
 }
 .left-side {
   width: 300px;
+}
+
+.massages {
+  height: 70px;
 }
 
 #chat-img {
@@ -28,6 +33,10 @@
 .title,
 .body {
   width: 1038px;
+}
+
+.stats-numbers {
+  height: 140px;
 }
 
 .title {
@@ -41,11 +50,21 @@
   flex-direction: column;
 }
 
-.left-side div,
-.right-side div {
+.stats-numbers,
+.massages,
+.ad-insight,
+.general-data {
   background-color: rgb(255, 255, 255);
+
   border: 1px solid rgb(238, 238, 238);
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
   border-radius: 10px;
   width: 100%;
+}
+
+.general-data {
+  height: 424px;
+}
+.ad-insight {
+  height: 300px;
 }
