@@ -27,6 +27,10 @@
   gap: 22px;
 }
 
+.right-side {
+  gap: 24px;
+}
+
 .massages {
   height: 70px;
 }
