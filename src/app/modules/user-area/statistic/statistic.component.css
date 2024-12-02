@@ -1,0 +1,30 @@
+.page,
+.flex-center {
+  display: flex;
+}
+.page,
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  width: 100%;
+  direction: rtl;
+}
+
+.title,
+body {
+  width: 1038px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 65px;
+}
+
+.page,
+.column {
+  flex-direction: column;
+}
