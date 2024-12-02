@@ -1,10 +1,12 @@
 .page,
 .flex-center,
-.flex {
+.flex,
+.stats-data {
   display: flex;
 }
 .page,
-.flex-center {
+.flex-center,
+.stats-data {
   align-items: center;
   justify-content: center;
 }
@@ -21,6 +23,9 @@
 .left-side {
   width: 300px;
 }
+.left-side {
+  gap: 22px;
+}
 
 .massages {
   height: 70px;
@@ -35,6 +40,10 @@
   width: 1038px;
 }
 
+.body {
+  gap: 30px;
+}
+
 .title {
   margin-bottom: 22px;
 }
@@ -42,15 +51,23 @@
 .stats-numbers {
   height: 140px;
 }
+.stats-numbers {
+  gap: 22px;
+}
 
 .title {
   font-size: 1.5rem;
-  font-weight: 500;
   margin-top: 65px;
 }
 
+.number,
+.title {
+  font-weight: 500;
+}
+
 .page,
-.column {
+.column,
+.stats-data {
   flex-direction: column;
 }
 
@@ -70,5 +87,25 @@
   height: 424px;
 }
 .ad-insight {
-  height: 300px;
+  height: 400px;
+}
+
+.line-separator {
+  width: 1px;
+
+  border-left: 1px solid rgb(238, 238, 238);
+}
+
+.stats-data,
+.line-separator {
+  height: 90px;
+}
+
+.font32,
+.number {
+  font-size: 32px;
+}
+
+.font16 {
+  font-size: 16px;
 }
