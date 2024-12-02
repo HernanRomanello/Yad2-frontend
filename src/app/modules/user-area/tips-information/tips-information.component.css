@@ -1,4 +1,5 @@
 .infomation {
+  gap: 64px;
 }
 
 .page {
@@ -8,28 +9,72 @@
 
 body,
 body {
-  /* width: 695px; */
   width: 100%;
   direction: rtl;
   font-size: 18px;
-  word-spacing: 0 !important;
-  letter-spacing: -0.1px !important;
 
   margin-top: 88px;
 }
 
-.flex-center {
+.title div {
+  word-spacing: 0 !important;
+  letter-spacing: -0.1px !important;
+}
+
+.title {
+  gap: 1.25rem;
+}
+.title div {
+  gap: 0.5rem;
+}
+
+.flex-center,
+.infomation-square {
   display: flex;
 }
-.flex-center {
+.flex-center,
+.infomation-square {
   align-items: center !important;
   justify-content: center !important;
 }
 
-.column {
+.column,
+.infomation-square {
   flex-direction: column;
 }
 
 .font36 {
   font-size: 36px !important;
+}
+
+.infomation-square {
+  text-align: center;
+  height: 256px;
+  width: 285.109px;
+  padding: 40px 0px 60px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 6px 0px;
+  border-radius: 12px;
+  background-color: #f8f8f8;
+  border: 1px solid rgb(54, 54, 54, 0.15);
+}
+
+.infomation-square {
+  cursor: pointer;
+}
+.infomation-square div {
+  font-size: 16px;
+}
+
+.infomation-square {
+  gap: 0.75rem;
+}
+
+.infomation-square:hover {
+  border: 1px solid rgb(255, 113, 0);
+
+  background-color: rgb(255, 250, 245);
+}
+
+.infomation-squares {
+  gap: 3rem;
 }

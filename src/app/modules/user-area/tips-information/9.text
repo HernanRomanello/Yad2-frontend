@@ -1,0 +1,84 @@
+div .box-link_box__UrSnq {
+	/* Font & Text */
+	font-family: Rubik, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	line-height: 21px;
+	text-decoration: none solid rgb(54, 54, 54);
+	text-align: center;
+	text-indent: 0px;
+	text-transform: none;
+	vertical-align: baseline;
+	white-space: normal;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgb(255, 250, 245);
+	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	color: rgb(54, 54, 54);
+
+	/* Box */
+	height: 256px;
+	width: 285.109px;
+	border: 1px solid rgb(255, 113, 0);
+	border-top: 1px solid rgb(255, 113, 0);
+	border-right: 1px solid rgb(255, 113, 0);
+	border-bottom: 1px solid rgb(255, 113, 0);
+	border-left: 1px solid rgb(255, 113, 0);
+	margin: 0px;
+	padding: 40px 0px 60px;
+	max-height: none;
+	min-height: auto;
+	max-width: none;
+	min-width: auto;
+
+	/* Positioning */
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
+	float: none;
+	display: flex;
+	clear: none;
+	z-index: auto;
+
+	/* List */
+	list-style-image: none;
+	list-style-type: disc;
+	list-style-position: outside;
+
+	/* Table */
+	border-collapse: separate;
+	border-spacing: 0px 0px;
+	caption-side: top;
+	empty-cells: show;
+	table-layout: auto;
+
+	/* Miscellaneous */
+	overflow: visible;
+	cursor: pointer;
+	visibility: visible;
+
+	/* Effects */
+	transform: none;
+	transition: all;
+	outline: rgb(255, 0, 0) dashed 1px;
+	outline-offset: 0px;
+	box-sizing: border-box;
+	resize: none;
+	text-shadow: none;
+	text-overflow: clip;
+	word-wrap: normal;
+	box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 6px 0px;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
