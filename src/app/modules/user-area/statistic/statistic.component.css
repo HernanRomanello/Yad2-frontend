@@ -1,5 +1,6 @@
 .page,
-.flex-center {
+.flex-center,
+.flex {
   display: flex;
 }
 .page,
@@ -13,8 +14,19 @@
   direction: rtl;
 }
 
+.right-side {
+  width: 715px;
+}
+.left-side {
+  width: 300px;
+}
+
+#chat-img {
+  width: 50px;
+  height: 50px;
+}
 .title,
-body {
+.body {
   width: 1038px;
 }
 
@@ -27,4 +39,13 @@ body {
 .page,
 .column {
   flex-direction: column;
+}
+
+.left-side div,
+.right-side div {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(238, 238, 238);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
+  border-radius: 10px;
+  width: 100%;
 }

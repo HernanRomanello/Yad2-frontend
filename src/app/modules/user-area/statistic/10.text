@@ -1,4 +1,4 @@
-div .box-link_box__UrSnq {
+div .my-data_myDataContainer__qw0MH {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -8,7 +8,7 @@ div .box-link_box__UrSnq {
 	letter-spacing: normal;
 	line-height: 21px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: center;
+	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,26 +17,26 @@ div .box-link_box__UrSnq {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 250, 245);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 256px;
-	width: 285.109px;
-	border: 1px solid rgb(255, 113, 0);
-	border-top: 1px solid rgb(255, 113, 0);
-	border-right: 1px solid rgb(255, 113, 0);
-	border-bottom: 1px solid rgb(255, 113, 0);
-	border-left: 1px solid rgb(255, 113, 0);
+	height: 140px;
+	width: 715px;
+	border: 1px solid rgb(238, 238, 238);
+	border-top: 1px solid rgb(238, 238, 238);
+	border-right: 1px solid rgb(238, 238, 238);
+	border-bottom: 1px solid rgb(238, 238, 238);
+	border-left: 1px solid rgb(238, 238, 238);
 	margin: 0px;
-	padding: 40px 0px 60px;
+	padding: 0px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -63,7 +63,7 @@ div .box-link_box__UrSnq {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: pointer;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -76,9 +76,9 @@ div .box-link_box__UrSnq {
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 6px 0px;
-	border-top-left-radius: 12px;
-	border-top-right-radius: 12px;
-	border-bottom-left-radius: 12px;
-	border-bottom-right-radius: 12px;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
