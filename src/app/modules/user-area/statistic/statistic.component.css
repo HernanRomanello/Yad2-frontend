@@ -35,6 +35,10 @@
   width: 1038px;
 }
 
+.title {
+  margin-bottom: 22px;
+}
+
 .stats-numbers {
   height: 140px;
 }
