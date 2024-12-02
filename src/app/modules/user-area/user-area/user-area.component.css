@@ -182,7 +182,12 @@
   cursor: pointer;
 }
 
-.sidebar li:hover {
+.sidebar li:hover,
+.sidebar li:active {
+  background-color: #23242c !important;
+}
+
+.sidebar-active {
   background-color: #23242c !important;
 }
 

@@ -16,7 +16,11 @@
     </div>
     <div class="links">
       <ul>
-        <li routerLink="user-advertisement">
+        <li
+          (click)="activeLink = 'user-advertisement'"
+          [ngClass]="{ 'sidebar-active': activeLink === 'user-advertisement' }"
+          routerLink="user-advertisement"
+        >
           <a routerLink="user-advertisement" routerLinkActive="active"
             >המודעות שלי</a
           >
@@ -26,11 +30,19 @@
             alt="adds"
           />
         </li>
-        <li routerLink="edit-details">
+        <li
+          (click)="activeLink = 'edit-details'"
+          [ngClass]="{ 'sidebar-active': activeLink === 'edit-details' }"
+          routerLink="edit-details"
+        >
           <a routerLink="edit-details" routerLinkActive="active">עדכון פרטים</a>
           <img class="svg-icon" src="assets/images/pencil.svg" alt="adds" />
         </li>
-        <li routerLink="statistic">
+        <li
+          (click)="activeLink = 'statistic'"
+          [ngClass]="{ 'sidebar-active': activeLink === 'statistic' }"
+          routerLink="statistic"
+        >
           <a routerLink="statistic" routerLinkActive="active">סטטיסטיקות</a>
           <img
             class="svg-icon"
@@ -44,7 +56,11 @@
           </a>
           <img class="svg-icon" src="assets/images/heart-dark.svg" alt="adds" />
         </li>
-        <li routerLink="last-searches">
+        <li
+          (click)="activeLink = 'last-searches'"
+          [ngClass]="{ 'sidebar-active': activeLink === 'last-searches' }"
+          routerLink="last-searches"
+        >
           <a routerLink="last-searches" routerLinkActive="active"
             >חיפושים אחורונים</a
           >
@@ -54,7 +70,11 @@
             alt="adds"
           />
         </li>
-        <li routerLink="tips-information">
+        <li
+          (click)="activeLink = 'tips-information'"
+          [ngClass]="{ 'sidebar-active': activeLink === 'tips-information' }"
+          routerLink="tips-information"
+        >
           <a routerLink="tips-information" routerLinkActive="active"
             >טיפים ומידע</a
           >

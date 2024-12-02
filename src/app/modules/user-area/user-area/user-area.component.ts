@@ -17,6 +17,7 @@ export class UserAreaComponent implements OnInit, OnDestroy {
   userName: string = '';
   userLastname: string = '';
   UserEmailAddress: string = '';
+  activeLink = 'user-advertisement';
   ngOnDestroy(): void {
     this.navigationService.isUserAreaOpen(false);
     this.navigationService.IsHeaderAndFooterOpen(false, false);
