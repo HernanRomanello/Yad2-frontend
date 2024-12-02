@@ -28,12 +28,34 @@
   direction: rtl;
 }
 
+.massages-number {
+  border-radius: 50%;
+  background-color: #ff7100;
+  color: #ffffff;
+  height: 18px;
+  width: 18px;
+  font-size: 13px;
+}
+
+.massages-number {
+  transform: translateX(-2px) translateY(25px);
+}
+
+.chat-img-container {
+  margin-left: 0.5rem;
+}
+
+.massages-number span {
+  transform: translateY(0.4px);
+}
+
 .right-side,
 .stats-numbers {
   width: 715px;
 }
-.left-side {
-  width: 300px;
+.left-side,
+.massages {
+  width: 300px !important;
 }
 .left-side {
   gap: 22px;
@@ -135,6 +157,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   word-spacing: 0 !important;
+}
+
+.word-spacing0 {
+  /* word-spacing: -2px !important; */
+  letter-spacing: -0.02px !important;
 }
 
 .font32,
