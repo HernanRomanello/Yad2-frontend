@@ -5,7 +5,8 @@
 .massage div,
 .action-item label,
 .flex-space-between,
-.dropdown {
+.dropdown,
+.box-img-container {
   display: flex;
 }
 
@@ -14,7 +15,8 @@
 }
 .flex-center,
 .stats-data,
-.check-input {
+.check-input,
+.box-img-container {
   align-items: center;
   justify-content: center;
 }
@@ -103,10 +105,14 @@
   gap: 22px;
 }
 
-#box-img,
 .box-img-container {
   height: 146px;
   width: 260px;
+}
+
+#box-img {
+  height: 130px;
+  width: 130px;
 }
 
 .right-side {
