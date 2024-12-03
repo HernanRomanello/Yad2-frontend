@@ -43,6 +43,15 @@
   padding: 0 0.5rem;
 }
 
+.decoration-box {
+  height: 207px;
+  width: 570px;
+  border-top: 2px solid #e5e7eb;
+  border-bottom: 2px solid #e5e7eb;
+  margin-top: 26px;
+  transform: translateX(-7px);
+}
+
 .page {
   width: 100%;
   direction: rtl;
