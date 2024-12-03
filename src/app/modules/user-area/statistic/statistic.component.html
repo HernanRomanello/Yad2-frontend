@@ -56,9 +56,20 @@
                       : 'dropdown-item font16'
                   "
                   *ngFor="let item of dropDownOptions"
-                  (click)="dropDownValue = item"
+                  (click)="dropDownValue = item; dropDownIsVisible = false"
                 >
-                  {{ item }}
+                  <span>
+                    {{ item }}
+                  </span>
+                  @if(dropDownValue === item){
+                  <span>
+                    <img
+                      id="check-img"
+                      src="assets/images/check-svgrepo-com.svg"
+                      alt="check"
+                    />
+                  </span>
+                  }
                 </div>
               </div>
               }
