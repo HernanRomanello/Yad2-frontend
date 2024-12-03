@@ -6,7 +6,7 @@ import { NavigationService } from '../../../services/navigation.service';
   templateUrl: './statistic.component.html',
   styleUrl: './statistic.component.css',
 })
-export class StatisticComponent implements OnInit, OnDestroy {
+export class StatisticComponent {
   watchedAdisChecked = true;
   watchedAdisCheckedFrame = false;
   saveAdisChecked = true;
@@ -24,16 +24,6 @@ export class StatisticComponent implements OnInit, OnDestroy {
   dropDownIsVisible = false;
   blueDecorationIsVisible = false;
 
-  constructor(private navigationService: NavigationService) {}
-
-  ngOnDestroy() {
-    // this.navigationService.isFavoritesAdvertisementOrStatisticIsOpen(false);
-    this.navigationService.isFavoritesAdIsOpen(true);
-  }
-  ngOnInit() {
-    // this.navigationService.isFavoritesAdvertisementOrStatisticIsOpen(true);
-    this.navigationService.isFavoritesAdIsOpen(true);
-  }
   closeDropDown(event: any) {
     if (
       event.target.id !== 'dropdown-btn' &&

@@ -10,6 +10,7 @@ import { EditAdvertisementComponent } from './modules/edit-advertisement/edit-ad
 import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.component';
 import { favoritesNotesResolver } from './Resolvers/favoritesNotes.resolver';
 import { favoritesAdResolver } from './Resolvers/favorites-ad.resolver';
+import { LastSearchesComponent } from './modules/user-area/last-searches/last-searches.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,14 @@ const routes: Routes = [
       userNotes: favoritesNotesResolver,
       userAds: favoritesAdResolver,
     },
+  },
+
+  {
+    path: 'last-searches',
+    title: 'Last Searches',
+    component: LastSearchesComponent,
+    canActivate: [authGuard],
+    // { path: 'last-searches', component: LastSearchesComponent }
   },
   {
     path: 'advertisement/:id',

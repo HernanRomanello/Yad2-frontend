@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'edit-details', component: EditDetailsComponent },
       { path: 'statistic', component: StatisticComponent },
 
-      { path: 'last-searches', component: LastSearchesComponent },
+      // { path: 'last-searches', component: LastSearchesComponent },
       { path: 'tips-information', component: TipsInformationComponent },
       { path: '', redirectTo: 'user-advertisement', pathMatch: 'full' },
     ],

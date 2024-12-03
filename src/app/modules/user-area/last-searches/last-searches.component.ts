@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-last-searches',
   templateUrl: './last-searches.component.html',
-  styleUrl: './last-searches.component.css'
+  styleUrl: './last-searches.component.css',
 })
-export class LastSearchesComponent {
+export class LastSearchesComponent implements OnInit, OnDestroy {
+  constructor(private navigationService: NavigationService) {}
 
+  ngOnDestroy() {
+    this.navigationService.isFavoritesAdIsOpen(true);
+  }
+  ngOnInit() {
+    this.navigationService.isFavoritesAdIsOpen(true);
+  }
 }
