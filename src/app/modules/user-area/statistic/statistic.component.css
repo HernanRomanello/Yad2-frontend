@@ -12,7 +12,6 @@
 .flex-space-between {
   justify-content: space-between;
 }
-.page,
 .flex-center,
 .stats-data,
 .check-input {
@@ -25,7 +24,8 @@
 }
 .align-items-center,
 .action-item label,
-.dropdown {
+.dropdown,
+.page {
   align-items: center;
 }
 
@@ -67,6 +67,7 @@
 .page {
   width: 100%;
   direction: rtl;
+  height: 1000px;
 }
 
 .massages-number {
