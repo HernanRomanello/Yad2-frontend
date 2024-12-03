@@ -51,6 +51,10 @@
   border-bottom: 2px solid #e5e7eb;
   margin-top: 26px;
   transform: translateX(-7px);
+}
+
+.dropdown-container,
+.decoration-box {
   position: relative;
 }
 
@@ -62,8 +66,33 @@
   width: 1.5px;
   background-color: #e5e7eb;
   background-color: rgb(54, 54, 54, 0.2);
-  position: absolute;
   left: -34px;
+}
+
+.dropdown-content,
+.vertical-line {
+  position: absolute;
+}
+
+.dropdown-content {
+  z-index: 10 !important;
+
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 16px;
+  transform: translateY(10px);
+}
+
+.dropdown-item,
+.dropdown-item-active {
+  height: 42px;
+  width: 200px;
+  padding: 5px 12px;
+  z-index: 10;
+}
+
+.dropdown-item-active {
+  background-color: rgb(248, 248, 248) !important;
 }
 
 .page {
@@ -171,12 +200,18 @@
 .massages,
 .ad-insight,
 .general-data {
-  background-color: rgb(255, 255, 255);
-
   border: 1px solid rgb(238, 238, 238);
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
   border-radius: 10px;
   width: 100%;
+}
+
+.dropdown-item,
+.stats-numbers,
+.massages,
+.ad-insight,
+.general-data {
+  background-color: rgb(255, 255, 255);
 }
 
 .stats-numbers {
@@ -285,7 +320,8 @@
 
 input[type="checkbox"],
 .check-input,
-.dropdown {
+.dropdown,
+.dropdown-item {
   cursor: pointer;
 }
 

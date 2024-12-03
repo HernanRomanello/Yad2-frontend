@@ -26,17 +26,37 @@
         <div>
           <div class="flex-space-between title-form">
             <div class="font16 font500 flex-center">נתונים כלליים</div>
-            <div class="dropdown font16 flex-space-between">
-              <span>
-                {{ dropDownValue }}
-              </span>
-              <span>
-                <img
-                  id="arrow-down"
-                  src="assets/images/down-arrow2-svgrepo-com.svg"
-                  alt="arrow-down"
-                />
-              </span>
+            <div class="dropdown-container">
+              <div
+                (click)="dropDownIsVisible = !dropDownIsVisible"
+                class="dropdown font16 flex-space-between"
+              >
+                <span>
+                  {{ dropDownValue }}
+                </span>
+                <span>
+                  <img
+                    id="arrow-down"
+                    src="assets/images/down-arrow2-svgrepo-com.svg"
+                    alt="arrow-down"
+                  />
+                </span>
+              </div>
+              @if(dropDownIsVisible){
+              <div class="dropdown-content">
+                <div
+                  [ngClass]="
+                    dropDownValue === item
+                      ? 'dropdown-item-active font16'
+                      : 'dropdown-item font16'
+                  "
+                  *ngFor="let item of dropDownOptions"
+                  (click)="dropDownValue = item"
+                >
+                  {{ item }}
+                </div>
+              </div>
+              }
             </div>
           </div>
           <div class="form-frame">
