@@ -45,4 +45,11 @@ export class StatisticComponent {
     this.saveAdisCheckedFrame = saveAdisCheckedFrame;
     this.watchedAdisCheckedFrame = watchedAdisCheckedFrame;
   }
+
+  removeBlueFrameFromCheckedInputs(event: any) {
+    const className = event.target.className;
+    if (!className.includes('check-input')) {
+      this.setBlueFrameToCheckedInput(false, false, false);
+    }
+  }
 }

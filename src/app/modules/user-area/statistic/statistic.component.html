@@ -1,4 +1,7 @@
-<div (click)="closeDropDown($event)" class="page">
+<div
+  (click)="closeDropDown($event); removeBlueFrameFromCheckedInputs($event)"
+  class="page"
+>
   <div class="title">הנתונים שלי</div>
   <div class="body flex">
     <div class="right-side flex-center column">
