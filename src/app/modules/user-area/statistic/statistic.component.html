@@ -1,4 +1,4 @@
-<div class="page">
+<div (click)="closeDropDown($event)" class="page">
   <div class="title">הנתונים שלי</div>
   <div class="body flex">
     <div class="right-side flex-center column">
@@ -28,10 +28,11 @@
             <div class="font16 font500 flex-center">נתונים כלליים</div>
             <div class="dropdown-container">
               <div
+                id="dropdown-btn"
                 (click)="dropDownIsVisible = !dropDownIsVisible"
                 class="dropdown font16 flex-space-between"
               >
-                <span>
+                <span id="dropdown-btn-text">
                   {{ dropDownValue }}
                 </span>
                 <span>
@@ -58,11 +59,11 @@
                   *ngFor="let item of dropDownOptions"
                   (click)="dropDownValue = item; dropDownIsVisible = false"
                 >
-                  <span>
+                  <span class="flex-center">
                     {{ item }}
                   </span>
                   @if(dropDownValue === item){
-                  <span>
+                  <span class="flex-center">
                     <img
                       id="check-img"
                       src="assets/images/check-svgrepo-com.svg"

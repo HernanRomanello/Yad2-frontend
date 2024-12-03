@@ -18,4 +18,14 @@ export class StatisticComponent {
   ];
   dropDownValue = this.dropDownOptions[0];
   dropDownIsVisible = false;
+
+  closeDropDown(event: any) {
+    // alert(event.target.id);
+    if (
+      event.target.id !== 'dropdown-btn' &&
+      event.target.id !== 'dropdown-btn-text'
+    ) {
+      this.dropDownIsVisible = false;
+    }
+  }
 }

@@ -81,7 +81,7 @@
 #check-img {
   width: 16px;
   height: 16px;
-  transform: translateY(3px);
+  /* transform: translateY(3px); */
 }
 
 .dropdown-content {
