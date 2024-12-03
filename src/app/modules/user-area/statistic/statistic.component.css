@@ -167,7 +167,6 @@
 }
 
 .word-spacing0 {
-  /* word-spacing: -2px !important; */
   letter-spacing: -0.02px !important;
 }
 
@@ -220,7 +219,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  direction: rtl; /* For right-to-left layout */
+  direction: rtl;
 }
 
 .action-item label {
@@ -243,6 +242,10 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+
+input[type="checkbox"],
+.check-input {
   cursor: pointer;
 }
 
@@ -258,13 +261,13 @@
 }
 
 .purple {
-  background-color: purple;
+  background-color: #8942d0;
 }
 
 .red {
-  background-color: red;
+  background-color: #e2414d;
 }
 
 .green {
-  background-color: teal;
+  background-color: #22c1a1;
 }

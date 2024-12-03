@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './statistic.component.css',
 })
 export class StatisticComponent {
-  isChecked = true;
+  watchedAdisChecked = true;
+  saveAdisChecked = true;
+  clickedAdisChecked = true;
 }
