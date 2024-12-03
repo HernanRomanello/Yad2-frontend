@@ -3,8 +3,13 @@
 .flex,
 .stats-data,
 .massage div,
-.action-item label {
+.action-item label,
+.flex-space-between {
   display: flex;
+}
+
+.flex-space-between {
+  justify-content: space-between;
 }
 .page,
 .flex-center,
@@ -199,9 +204,13 @@
   width: 165px !important;
 }
 
+.title-form,
+.form-frame {
+  width: 675px;
+}
+
 .form-frame {
   height: 320px;
-  width: 675px;
   border: 1px solid rgb(226, 232, 240);
 
   padding: 6px 30px 0px;
@@ -210,11 +219,12 @@
 }
 
 .box-img-container {
-  margin: auto;
   background-color: #eeeeee;
 }
 .box-img-container,
-.form-frame {
+.form-frame,
+.title-form,
+.box-img-container {
   margin: auto;
 }
 
