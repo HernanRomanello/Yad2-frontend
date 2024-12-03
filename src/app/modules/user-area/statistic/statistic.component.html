@@ -29,11 +29,16 @@
             <div class="dropdown-container">
               <div
                 id="dropdown-btn"
-                (click)="dropDownIsVisible = !dropDownIsVisible"
+                (click)="
+                  dropDownIsVisible = !dropDownIsVisible;
+                  blueDecorationIsVisible = true
+                "
                 class="dropdown font16 flex-space-between"
               >
-                <span id="dropdown-btn-text">
-                  {{ dropDownValue }}
+                <span id="dropdown-btn-text" class="flex-center">
+                  <span class="extra-padding">
+                    {{ dropDownValue }}
+                  </span>
                 </span>
                 <span>
                   <img
@@ -48,8 +53,13 @@
                   />
                 </span>
               </div>
-              @if(dropDownIsVisible){
-              <div class="dropdown-content">
+              @if(blueDecorationIsVisible){
+              <div id="blue-decoration" class="blue-decoration"></div>
+              } @if(dropDownIsVisible){
+              <div
+                (click)="blueDecorationIsVisible = false"
+                class="dropdown-content"
+              >
                 <div
                   [ngClass]="
                     dropDownValue === item
@@ -57,7 +67,11 @@
                       : 'dropdown-item font16'
                   "
                   *ngFor="let item of dropDownOptions"
-                  (click)="dropDownValue = item; dropDownIsVisible = false"
+                  (click)="
+                    dropDownValue = item;
+                    dropDownIsVisible = false;
+                    blueDecorationIsVisible = false
+                  "
                 >
                   <span class="flex-center">
                     {{ item }}

@@ -74,14 +74,14 @@
 }
 
 .dropdown-content,
-.vertical-line {
+.vertical-line,
+.blue-decoration {
   position: absolute;
 }
 
 #check-img {
   width: 16px;
   height: 16px;
-  /* transform: translateY(3px); */
 }
 
 .dropdown-content {
@@ -331,7 +331,8 @@
 input[type="checkbox"],
 .check-input,
 .dropdown,
-.dropdown-item {
+.dropdown-item,
+.blue-decoration {
   cursor: pointer;
 }
 
@@ -367,6 +368,19 @@ input[type="checkbox"],
   padding: 0px 11px;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
+}
+
+.blue-decoration {
+  height: 44px;
+  width: 157px;
+  border-left: 1px solid blue;
+  border-right: 1px solid blue;
+  top: 0px;
+  right: 12px;
+}
+
+.extra-padding {
+  padding-right: 1rem;
 }
 
 .dropdown:hover {
