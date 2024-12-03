@@ -10,4 +10,5 @@ export class StatisticComponent {
   saveAdisChecked = true;
   clickedAdisChecked = true;
   dropDownValue = '7 ימים אחרונים';
+  vaerticalLineIsVisible = false;
 }

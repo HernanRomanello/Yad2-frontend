@@ -44,12 +44,24 @@
 }
 
 .decoration-box {
-  height: 207px;
   width: 570px;
   border-top: 2px solid #e5e7eb;
   border-bottom: 2px solid #e5e7eb;
   margin-top: 26px;
   transform: translateX(-7px);
+  position: relative;
+}
+
+.vertical-line,
+.decoration-box {
+  height: 207px;
+}
+.vertical-line {
+  width: 1.5px;
+  background-color: #e5e7eb;
+  background-color: rgb(54, 54, 54, 0.2);
+  position: absolute;
+  left: -34px;
 }
 
 .page {

@@ -73,7 +73,18 @@
               </div>
             </div>
 
-            <div class="decoration-box"></div>
+            <div
+              class="decoration-box"
+              (mouseenter)="vaerticalLineIsVisible = true"
+            >
+              @if (vaerticalLineIsVisible) {
+
+              <div
+                (mouseenter)="vaerticalLineIsVisible = false"
+                class="vertical-line"
+              ></div>
+              }
+            </div>
           </div>
         </div>
         <div></div>
