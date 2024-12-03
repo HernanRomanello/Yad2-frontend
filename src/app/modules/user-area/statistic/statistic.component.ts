@@ -30,6 +30,7 @@ export class StatisticComponent {
       event.target.id !== 'arrow-down'
     ) {
       this.dropDownIsVisible = false;
+      this.blueDecorationIsVisible = false;
     }
   }
 }

@@ -53,8 +53,12 @@
                   />
                 </span>
               </div>
-              @if(false){
-              <div id="blue-decoration" class="blue-decoration"></div>
+              @if(blueDecorationIsVisible){
+              <div
+                (click)="dropDownIsVisible = !dropDownIsVisible"
+                id="blue-decoration"
+                class="blue-decoration"
+              ></div>
               } @if(dropDownIsVisible){
               <div
                 (click)="blueDecorationIsVisible = false"
