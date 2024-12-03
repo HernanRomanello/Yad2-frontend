@@ -37,6 +37,11 @@
                 <span>
                   <img
                     id="arrow-down"
+                    [ngStyle]="{
+                      transform: dropDownIsVisible
+                        ? 'rotate(180deg)'
+                        : 'rotate(0deg)'
+                    }"
                     src="assets/images/down-arrow2-svgrepo-com.svg"
                     alt="arrow-down"
                   />

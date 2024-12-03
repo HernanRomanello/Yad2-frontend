@@ -17,5 +17,5 @@ export class StatisticComponent {
     '90 ימים אחרונים',
   ];
   dropDownValue = this.dropDownOptions[0];
-  dropDownIsVisible = true;
+  dropDownIsVisible = false;
 }
