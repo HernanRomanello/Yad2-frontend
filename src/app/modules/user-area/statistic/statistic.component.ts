@@ -21,10 +21,13 @@ export class StatisticComponent {
   blueDecorationIsVisible = false;
 
   closeDropDown(event: any) {
+    // alert(event.target.id);
     if (
       event.target.id !== 'dropdown-btn' &&
       event.target.id !== 'dropdown-btn-text' &&
-      event.target.id !== 'blue-decoration'
+      event.target.id !== 'blue-decoration' &&
+      event.target.id !== 'dropdown-btn-text-value' &&
+      event.target.id !== 'arrow-down'
     ) {
       this.dropDownIsVisible = false;
     }
