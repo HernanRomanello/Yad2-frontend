@@ -2,12 +2,14 @@
 .flex-center,
 .flex,
 .stats-data,
-.massage div {
+.massage div,
+.action-item label {
   display: flex;
 }
 .page,
 .flex-center,
-.stats-data {
+.stats-data,
+.check-input {
   align-items: center;
   justify-content: center;
 }
@@ -15,7 +17,8 @@
 .justify-content-center {
   justify-content: center;
 }
-.align-items-center {
+.align-items-center,
+.action-item label {
   align-items: center;
 }
 
@@ -215,33 +218,15 @@
   margin: auto;
 }
 
-.actions-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  direction: rtl;
-}
-
-.action-item label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.action-item span {
-  font-size: 14px;
-  color: #333;
-}
-
-/* Style for the checkboxes */
 .check-input {
   appearance: none;
   width: 16px;
   height: 16px;
   border: none;
+}
+
+.check-input {
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
 }
 
 input[type="checkbox"],
@@ -254,6 +239,7 @@ input[type="checkbox"],
   font-size: 12px;
   color: white;
   display: none;
+  transform: rotate(15deg) translateY(-0.5px) translateX(-1px) scaleY(0.9);
 }
 
 .check-input:checked::after {
