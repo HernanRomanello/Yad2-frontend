@@ -101,7 +101,11 @@
                   <input
                     [(ngModel)]="watchedAdisChecked"
                     type="checkbox"
-                    class="check-input purple"
+                    [ngClass]="
+                      !watchedAdisChecked
+                        ? 'check-input border'
+                        : 'check-input purple'
+                    "
                   />
                   <span>צפו במודעה</span>
                 </label>
