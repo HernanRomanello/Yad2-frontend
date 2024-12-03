@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-statistic',
   templateUrl: './statistic.component.html',
   styleUrl: './statistic.component.css',
 })
-export class StatisticComponent {
+export class StatisticComponent implements OnInit, OnDestroy {
   watchedAdisChecked = true;
   watchedAdisCheckedFrame = false;
   saveAdisChecked = true;
@@ -23,6 +24,16 @@ export class StatisticComponent {
   dropDownIsVisible = false;
   blueDecorationIsVisible = false;
 
+  constructor(private navigationService: NavigationService) {}
+
+  ngOnDestroy() {
+    // this.navigationService.isFavoritesAdvertisementOrStatisticIsOpen(false);
+    this.navigationService.isFavoritesAdIsOpen(true);
+  }
+  ngOnInit() {
+    // this.navigationService.isFavoritesAdvertisementOrStatisticIsOpen(true);
+    this.navigationService.isFavoritesAdIsOpen(true);
+  }
   closeDropDown(event: any) {
     if (
       event.target.id !== 'dropdown-btn' &&
