@@ -11,7 +11,7 @@ export class NavigationService {
   IsMainFooterISOpen = signal<boolean>(true);
   IsalternativeHeaderISOpen = signal<boolean>(false);
   IsEditAdvertisementISOpen = signal<boolean>(false);
-  IsFavoritesAdvertisementIsOpen = signal<boolean>(false);
+  IsFavoriteAdvertisementOrLastsearchesIsOpen = signal<boolean>(false);
   IsUserAreaISOpen = signal<boolean>(false);
 
   IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
@@ -30,12 +30,12 @@ export class NavigationService {
   isUserAreaOpen(isOpen: boolean) {
     this.IsUserAreaISOpen = signal(isOpen);
     if (isOpen) {
-      this.IsFavoritesAdvertisementIsOpen = signal(false);
+      this.IsFavoriteAdvertisementOrLastsearchesIsOpen = signal(false);
     }
   }
 
-  isFavoritesAdIsOpen(isOpen: boolean) {
-    this.IsFavoritesAdvertisementIsOpen = signal(isOpen);
+  isFavoriteAdvertisementOrLastsearchesIsOpen(isOpen: boolean) {
+    this.IsFavoriteAdvertisementOrLastsearchesIsOpen = signal(isOpen);
     if (isOpen) {
       this.IsUserAreaISOpen = signal(false);
     }

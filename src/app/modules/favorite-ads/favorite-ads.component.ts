@@ -78,7 +78,7 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.navigationService.isFavoritesAdIsOpen(true);
+    this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(true);
 
     this.userNotes = this.route.snapshot.data['userNotes'];
     this.userFavoritesAds = this.route.snapshot.data['userAds'];
@@ -98,7 +98,7 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.navigationService.isFavoritesAdIsOpen(false);
+    this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }
 
   displayAdOptions(event: any, index: number) {

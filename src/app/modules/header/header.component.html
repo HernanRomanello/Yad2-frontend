@@ -3,20 +3,21 @@
 
 <header
   [ngClass]="
-    this.navigationService.IsFavoritesAdvertisementIsOpen()
+    this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
       ? 'header shadow none-border'
       : 'header'
   "
 >
   <div
     [ngClass]="
-      this.navigationService.IsFavoritesAdvertisementIsOpen()
+      this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
         ? 'header none-border'
         : 'header'
     "
   >
     <div class="left-side">
-      @if(!(this.navigationService.IsFavoritesAdvertisementIsOpen())) {
+      @if(!(this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()))
+      {
       <div class="Post-Btn">
         <button class="light" routerLink="create-advertisement">
           פרסום הודעה
@@ -62,7 +63,7 @@
           }
 
           <button class="user-area-btn">
-            <div>חיפושים אחרונים</div>
+            <div routerLink="/last-searches">חיפושים אחרונים</div>
             <mat-icon>history</mat-icon>
           </button>
           <button class="user-area-btn">
@@ -216,7 +217,7 @@
             </button>
 
             <button id="last-searched-btn" class="user-area-btn">
-              <div>חיפושים אחרונים</div>
+              <div routerLink="/last-searches">חיפושים אחרונים</div>
               <img
                 id="last-searched-icon"
                 class="svg-icon"
@@ -345,7 +346,7 @@
   </div>
   <div
     [ngClass]="
-      this.navigationService.IsFavoritesAdvertisementIsOpen()
+      this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
         ? 'header none-border'
         : 'header'
     "
