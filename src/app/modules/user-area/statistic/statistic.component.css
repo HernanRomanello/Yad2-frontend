@@ -4,7 +4,8 @@
 .stats-data,
 .massage div,
 .action-item label,
-.flex-space-between {
+.flex-space-between,
+.dropdown {
   display: flex;
 }
 
@@ -23,8 +24,15 @@
   justify-content: center;
 }
 .align-items-center,
-.action-item label {
+.action-item label,
+.dropdown {
   align-items: center;
+}
+
+#arrow-down {
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
 }
 
 .massages {
@@ -209,6 +217,10 @@
   width: 675px;
 }
 
+.title-form {
+  margin: 26px auto 12px !important;
+}
+
 .form-frame {
   height: 320px;
   border: 1px solid rgb(226, 232, 240);
@@ -240,7 +252,8 @@
 }
 
 input[type="checkbox"],
-.check-input {
+.check-input,
+.dropdown {
   cursor: pointer;
 }
 
@@ -266,4 +279,18 @@ input[type="checkbox"],
 
 .green {
   background-color: #22c1a1;
+}
+
+.dropdown {
+  background-color: rgb(255, 255, 255);
+  height: 44px;
+  width: 200px;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 0px 11px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown:hover {
+  border: 1px solid #363636;
 }
