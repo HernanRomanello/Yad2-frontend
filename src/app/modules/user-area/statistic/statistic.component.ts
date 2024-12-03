@@ -7,8 +7,11 @@ import { Component } from '@angular/core';
 })
 export class StatisticComponent {
   watchedAdisChecked = true;
+  watchedAdisCheckedFrame = false;
   saveAdisChecked = true;
+  saveAdisCheckedFrame = false;
   clickedAdisChecked = true;
+  clickedAdisCheckedFrame = false;
   vaerticalLineIsVisible = false;
   dropDownOptions: string[] = [
     '7 ימים אחרונים',
@@ -21,7 +24,6 @@ export class StatisticComponent {
   blueDecorationIsVisible = false;
 
   closeDropDown(event: any) {
-    // alert(event.target.id);
     if (
       event.target.id !== 'dropdown-btn' &&
       event.target.id !== 'dropdown-btn-text' &&
@@ -32,5 +34,15 @@ export class StatisticComponent {
       this.dropDownIsVisible = false;
       this.blueDecorationIsVisible = false;
     }
+  }
+
+  setBlueFrameToCheckedInput(
+    clickedAdisCheckedFrame: boolean,
+    saveAdisCheckedFrame: boolean,
+    watchedAdisCheckedFrame: boolean
+  ) {
+    this.clickedAdisCheckedFrame = clickedAdisCheckedFrame;
+    this.saveAdisCheckedFrame = saveAdisCheckedFrame;
+    this.watchedAdisCheckedFrame = watchedAdisCheckedFrame;
   }
 }

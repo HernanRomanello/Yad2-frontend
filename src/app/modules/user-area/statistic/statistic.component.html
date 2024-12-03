@@ -98,6 +98,7 @@
             <div class="actions-container flex-space-between">
               <div class="action-item">
                 <label>
+                  @if(!watchedAdisCheckedFrame){
                   <input
                     [(ngModel)]="watchedAdisChecked"
                     type="checkbox"
@@ -106,12 +107,32 @@
                         ? 'check-input border'
                         : 'check-input purple'
                     "
+                    (click)="
+                      setBlueFrameToCheckedInput(false, false, true);
+                      watchedAdisChecked = !watchedAdisChecked
+                    "
                   />
-                  <span>צפו במודעה</span>
+                  }@else {
+                  <div class="blue-frame flex-center">
+                    <input
+                      [(ngModel)]="watchedAdisChecked"
+                      type="checkbox"
+                      style="width: 16px; height: 16px"
+                      [ngClass]="
+                        !watchedAdisChecked
+                          ? 'check-input-marked border flex-center'
+                          : 'check-input-marked purple flex-center'
+                      "
+                    />
+                  </div>
+
+                  }
+                  <span class="flex-center">צפו במודעה</span>
                 </label>
               </div>
               <div class="action-item">
                 <label>
+                  @if(!saveAdisCheckedFrame){
                   <input
                     [(ngModel)]="saveAdisChecked"
                     type="checkbox"
@@ -120,12 +141,33 @@
                         ? 'check-input border'
                         : 'check-input red'
                     "
+                    (click)="
+                      setBlueFrameToCheckedInput(false, true, false);
+                      saveAdisChecked = !saveAdisChecked
+                    "
                   />
+                  }@else {
+                  <div class="blue-frame flex-center">
+                    <input
+                      [(ngModel)]="saveAdisChecked"
+                      type="checkbox"
+                      style="width: 16px; height: 16px"
+                      [ngClass]="
+                        !saveAdisChecked
+                          ? 'check-input-marked border'
+                          : 'check-input-marked red'
+                      "
+                    />
+                  </div>
+
+                  }
+
                   <span>שמרו את המודעה</span>
                 </label>
               </div>
               <div class="action-item">
                 <label>
+                  @if(!clickedAdisCheckedFrame){
                   <input
                     [(ngModel)]="clickedAdisChecked"
                     type="checkbox"
@@ -134,7 +176,26 @@
                         ? 'check-input border'
                         : 'check-input green'
                     "
+                    (click)="
+                      setBlueFrameToCheckedInput(true, false, false);
+                      clickedAdisChecked = !clickedAdisChecked
+                    "
                   />
+                  } @else {
+                  <div class="blue-frame flex-center">
+                    <input
+                      [(ngModel)]="clickedAdisChecked"
+                      type="checkbox"
+                      style="width: 16px; height: 16px"
+                      [ngClass]="
+                        !clickedAdisChecked
+                          ? 'check-input-marked border'
+                          : 'check-input-marked green'
+                      "
+                    />
+                  </div>
+
+                  }
                   <span> לחצו על מס׳ הטלפון</span>
                 </label>
               </div>
