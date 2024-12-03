@@ -115,7 +115,11 @@
                   <input
                     [(ngModel)]="saveAdisChecked"
                     type="checkbox"
-                    class="check-input red"
+                    [ngClass]="
+                      !saveAdisChecked
+                        ? 'check-input border'
+                        : 'check-input red'
+                    "
                   />
                   <span>שמרו את המודעה</span>
                 </label>
@@ -125,7 +129,11 @@
                   <input
                     [(ngModel)]="clickedAdisChecked"
                     type="checkbox"
-                    class="check-input green"
+                    [ngClass]="
+                      !clickedAdisChecked
+                        ? 'check-input border'
+                        : 'check-input green'
+                    "
                   />
                   <span> לחצו על מס׳ הטלפון</span>
                 </label>
