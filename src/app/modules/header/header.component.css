@@ -44,10 +44,13 @@
 }
 
 .logo-btn {
-  width: 73;
-  height: 37;
-  transform: translateX(-16px);
+  transform: translateX(-14px) translateY(2px);
   margin-left: 5px;
+}
+
+.logo-btn img {
+  width: 74px;
+  height: 37px;
 }
 
 button {
@@ -740,10 +743,6 @@ button,
   gap: 16px;
 }
 
-.test {
-  /* background-color: red !important; */
-}
-
 .flex,
 .menu {
   display: flex;
@@ -751,27 +750,15 @@ button,
 
 .menu {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  /* display: grid; */
-  /* grid-template-columns: 1fr 1fr; */
   right: -1rem;
   top: 100%;
-  /* transform: translateY(10px); */
   border-radius: 6px;
-  /* min-width: max-content; */
   overflow: auto;
   z-index: 40 !important;
   background-color: rgb(255, 255, 255);
+  transform: translateX(-10px);
   padding: 25px;
   gap: 90px;
-}
-
-.menu :hover {
-  /* background-color: rgb(255, 255, 255); */
-  /* color: rgb(255, 113, 0); */
-}
-.menu button[mat-menu-item] {
-  /* direction: rtl; */
-  text-align: right;
 }
 
 .menu span {
@@ -782,4 +769,8 @@ button,
 
 .menu span:hover {
   color: rgb(255, 113, 0);
+}
+
+.vehicle {
+  gap: 60px;
 }
