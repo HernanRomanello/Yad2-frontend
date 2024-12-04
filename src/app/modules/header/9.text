@@ -1,4 +1,4 @@
-nav .main-menu {
+a .sub-category-link_link__9JOql {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 16px;
@@ -6,8 +6,8 @@ nav .main-menu {
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 16px;
-	text-decoration: none solid rgb(54, 54, 54);
+	line-height: 25px;
+	text-decoration: none solid rgb(255, 113, 0);
 	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,41 +17,41 @@ nav .main-menu {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(255, 113, 0);
 
 	/* Box */
-	height: 64px;
-	width: 1423px;
-	border: ;
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 1px solid rgb(238, 238, 238);
-	border-left: 0px none rgb(54, 54, 54);
+	height: 25px;
+	width: 150px;
+	border: 0px none rgb(255, 113, 0);
+	border-top: 0px none rgb(255, 113, 0);
+	border-right: 0px none rgb(255, 113, 0);
+	border-bottom: 0px none rgb(255, 113, 0);
+	border-left: 0px none rgb(255, 113, 0);
 	margin: 0px;
-	padding: 0px 20px;
+	padding: 0px;
 	max-height: none;
 	min-height: 0px;
 	max-width: none;
-	min-width: 0px;
+	min-width: 150px;
 
 	/* Positioning */
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
 	display: flex;
 	clear: none;
-	z-index: 800;
+	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: disc;
+	list-style-type: none;
 	list-style-position: outside;
 
 	/* Table */
@@ -63,7 +63,7 @@ nav .main-menu {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: auto;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
@@ -76,7 +76,7 @@ nav .main-menu {
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
+	box-shadow: none;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
 	border-bottom-left-radius: 0px;

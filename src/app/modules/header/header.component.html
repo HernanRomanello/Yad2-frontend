@@ -497,18 +497,22 @@
       (mouseleave)="closeMenu('menu_RealEstate')"
     >
       <button class="light">נדל"ן</button>
-      <div class="menu" *ngIf="menus['menu_RealEstate']">
-        <div>
-          <button mat-menu-item>דירות למכירה</button>
-          <button mat-menu-item>דירות להשכרה</button>
-          <button mat-menu-item>נדלן מסחרי</button>
-          <button mat-menu-item>עסקים למכירה</button>
+      <div
+        class="menu flex real-estate-options"
+        *ngIf="menus['menu_RealEstate']"
+      >
+        <div class="column-menu">
+          <span>יד1 דירות חדשות</span>
+          <span>כונס נכסים</span>
+          <span>הערכת שווי נכס</span>
+          <span>משרדי תיווך בישראל</span>
+          <span>יעוץ משכנתאות</span>
         </div>
-        <div>
-          <button mat-menu-item>יד1 דירות חדשות</button>
-          <button mat-menu-item>כונס נכסים</button>
-          <button mat-menu-item>הערכת שווי נכס</button>
-          <button mat-menu-item>משרדי תיווך בישראל</button>
+        <div class="column-menu test">
+          <span>דירות למכירה</span>
+          <span>דירות להשכרה</span>
+          <span>נדלן מסחרי</span>
+          <span>עסקים למכירה</span>
         </div>
       </div>
     </div>

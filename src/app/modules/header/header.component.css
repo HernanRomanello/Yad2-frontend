@@ -218,34 +218,6 @@ button {
   z-index: 200;
 }
 
-.menu {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  right: -1rem;
-  top: 100%;
-  transform: translateY(10px);
-  border-radius: 6px;
-  min-width: max-content;
-  overflow: auto;
-  z-index: 40 !important;
-  background-color: rgb(255, 255, 255);
-}
-
-.menu :hover {
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 113, 0);
-}
-.menu button[mat-menu-item] {
-  text-align: right;
-  direction: rtl;
-}
-
-.menu button {
-  padding-block: 16px;
-  padding-inline: 20px;
-}
-
 .Post-Btn button {
   display: flex;
   align-items: center;
@@ -753,4 +725,61 @@ button,
 }
 .header div {
   white-space: nowrap;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-menu {
+  display: flex;
+  flex-direction: column;
+  max-width: 185px;
+  gap: 16px;
+}
+
+.test {
+  /* background-color: red !important; */
+}
+
+.flex,
+.menu {
+  display: flex;
+}
+
+.menu {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr; */
+  right: -1rem;
+  top: 100%;
+  /* transform: translateY(10px); */
+  border-radius: 6px;
+  /* min-width: max-content; */
+  overflow: auto;
+  z-index: 40 !important;
+  background-color: rgb(255, 255, 255);
+  padding: 25px;
+  gap: 90px;
+}
+
+.menu :hover {
+  /* background-color: rgb(255, 255, 255); */
+  /* color: rgb(255, 113, 0); */
+}
+.menu button[mat-menu-item] {
+  /* direction: rtl; */
+  text-align: right;
+}
+
+.menu span {
+  height: 25px;
+  text-align: right;
+  font-size: 16px;
+}
+
+.menu span:hover {
+  color: rgb(255, 113, 0);
 }
