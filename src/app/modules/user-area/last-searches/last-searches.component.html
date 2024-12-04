@@ -1,1 +1,19 @@
-<p>last-searches works!</p>
+<div class="page">
+  <div class="body">
+    <div class="title justify-content-space-between">
+      <div class="font500 font24">חיפושים אחרונים</div>
+      <div class="grayfont underline pointer">מחק הכל</div>
+    </div>
+    <div class="btns">
+      <button class="font500 orange-border all">הכל</button>
+      <button class="border-none gray pointer real-estate">נדל"ן</button>
+    </div>
+    <div class="date font500 font18">4 דצמבר</div>
+    <div class="searches">
+      @for (item of searches; track $index) {
+      <div class="search">{{ item }}</div>
+      }
+      <!-- <div class="search">frewergre</div> -->
+    </div>
+  </div>
+</div>

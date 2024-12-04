@@ -1,17 +1,17 @@
-input #checkbox-36 .checkbox_green__jAN3Q {
+li {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 21px;
-	text-decoration: none solid rgb(37, 99, 235);
-	text-align: start;
+	line-height: 16px;
+	text-decoration: none solid rgb(54, 54, 54);
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
-	vertical-align: middle;
+	vertical-align: baseline;
 	white-space: normal;
 	word-spacing: 0px;
 
@@ -21,37 +21,37 @@ input #checkbox-36 .checkbox_green__jAN3Q {
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(37, 99, 235);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 16px;
-	width: 16px;
-	border: 1px solid rgb(255, 113, 0);
-	border-top: 1px solid rgb(255, 113, 0);
-	border-right: 1px solid rgb(255, 113, 0);
-	border-bottom: 1px solid rgb(255, 113, 0);
-	border-left: 1px solid rgb(255, 113, 0);
-	margin: 0px;
+	height: 117px;
+	width: 770px;
+	border: 1px solid rgb(219, 219, 219);
+	border-top: 1px solid rgb(219, 219, 219);
+	border-right: 1px solid rgb(219, 219, 219);
+	border-bottom: 1px solid rgb(219, 219, 219);
+	border-left: 1px solid rgb(219, 219, 219);
+	margin: 0px 0px 19px;
 	padding: 0px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
-	display: flex;
+	display: list-item;
 	clear: none;
 	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: disc;
+	list-style-type: none;
 	list-style-position: outside;
 
 	/* Table */
@@ -63,22 +63,22 @@ input #checkbox-36 .checkbox_green__jAN3Q {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: pointer;
+	cursor: default;
 	visibility: visible;
 
 	/* Effects */
 	transform: none;
 	transition: all;
 	outline: rgb(255, 0, 0) dashed 1px;
-	outline-offset: 2px;
+	outline-offset: 0px;
 	box-sizing: border-box;
 	resize: none;
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
+	box-shadow: none;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
 }
