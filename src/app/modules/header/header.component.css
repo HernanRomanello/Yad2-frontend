@@ -313,6 +313,7 @@ button {
 
 #bell-icon {
   transform: scale(1.2) rotate(25deg);
+  display: none;
 }
 
 .btn {
