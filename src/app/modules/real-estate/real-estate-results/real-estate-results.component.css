@@ -15,7 +15,7 @@
   top: 0;
   left: 0;
   padding: 0.5rem;
-  background-color: white;
+  /* background-color: white; */
   transform: scale(0.9) translateY(5px) translateX(2px) !important;
 }
 
@@ -145,8 +145,13 @@
 }
 
 .sort-container,
-.container {
+.container,
+.sort-btn,
+.sort-container {
   position: relative;
+}
+.sort-container,
+.container {
   width: 663px;
   margin-left: auto;
 }
@@ -185,10 +190,7 @@ i,
 .container,
 .sort-dropdown div {
   cursor: pointer;
-}
-
-.sort-btn {
-  position: relative;
+  /* background-color: red !important; */
 }
 
 .sort-dropdown {
@@ -210,9 +212,10 @@ i,
 .sort-option,
 .sort-dropdown,
 .sort-option span,
-#location {
+#location,
+.sort-option,
+.sort-option span {
   background-color: rgb(255, 255, 255) !important;
-  z-index: 100 !important;
 }
 
 .sort-option:hover {
@@ -242,4 +245,14 @@ i,
 
 .rotate {
   transform: scaleX(1.2) scaleY(1.2) translateY(-1px) rotate(180deg);
+}
+
+.sort-dropdown div,
+.sort-dropdown,
+.sort-dropdown span,
+.sort-option,
+.sort-option span,
+.sort-option div,
+.z100 {
+  z-index: 100 !important;
 }

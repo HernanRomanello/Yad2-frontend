@@ -54,6 +54,11 @@
   background-color: #f8f8f8 !important;
 }
 
+:host {
+  position: relative !important;
+  z-index: 50 !important;
+}
+
 .dropdown-menu button:hover {
   background-color: #f1f1f1;
 }
