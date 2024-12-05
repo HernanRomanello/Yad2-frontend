@@ -1,10 +1,3 @@
-div,
-input,
-button,
-span {
-  font-family: Rubik !important;
-}
-
 .input-search,
 .input-search:focus {
   border: 1px solid #cccccc;
