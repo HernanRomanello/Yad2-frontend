@@ -148,7 +148,8 @@
 .option,
 .reset-btn,
 .select-btn,
-.remove-btn {
+.remove-btn,
+.ad {
   cursor: pointer;
 }
 
@@ -264,12 +265,10 @@ i {
   font-weight: 500;
   line-height: 27.6px;
   text-align: end;
-  /* height: 84px; */
   width: 742px;
   width: 693px;
   align-items: end;
   direction: ltl !important;
-  margin-left: auto;
 }
 
 .project-container,
@@ -319,7 +318,6 @@ i {
 }
 
 .project-div {
-  justify-content: center;
   padding: 10px 10px 14px 0;
 }
 
@@ -329,28 +327,40 @@ i {
 }
 
 .adds {
-  margin-left: auto;
   line-height: 16.1px;
-  height: 260px;
   width: 663px;
+  gap: 16px;
+  transform: translateX(-3px) translateY(-1px);
+  padding-bottom: 12px;
+}
+
+.adds,
+.project-container {
+  margin-left: auto;
+}
+
+.adds {
   display: flex;
+}
+.project-div,
+.ad {
   justify-content: center;
-  gap: 0.4rem;
-  margin: 0px 40px 50px auto;
 }
 
 .ad {
-  justify-content: center;
   text-align: end;
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.09);
-  height: 266px;
+  height: 250px;
+  width: 206px;
+}
+
+.ad,
+.content {
   border-bottom-left-radius: 12px;
   border-top-right-radius: 12px;
 }
 
 .content {
-  border-bottom-left-radius: 12px;
-  border-top-right-radius: 12px;
   padding-inline: 0.5rem;
   padding-bottom: 1rem !important;
 }
