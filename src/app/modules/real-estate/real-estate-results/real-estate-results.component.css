@@ -76,8 +76,13 @@
 
 .price {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 500;
   margin-right: 40px !important;
+  transform: translateY(-11px);
+}
+
+.price span {
+  transform: translateX(-4px);
 }
 
 .title {

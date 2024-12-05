@@ -134,7 +134,9 @@
 
         <div class="last-row">
           <div class="tags">
-            <div class="price">₪{{ advertisement.price | number }}</div>
+            <div class="price">
+              <span>₪</span> {{ advertisement.price | number }}
+            </div>
 
             <!-- <div class="list-tags">
               <li
