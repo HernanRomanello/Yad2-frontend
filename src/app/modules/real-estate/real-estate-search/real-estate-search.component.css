@@ -86,12 +86,10 @@ span {
 
 .search-suggestion {
   padding: 20px 16px !important;
-  /* display: none !important; */
 }
 
 .title-locationSuggestions {
   padding: 0 20px !important;
-  /* display: none !important; */
 }
 
 .suggestion-location {
@@ -226,13 +224,13 @@ i {
   font-size: 24px;
   line-height: 27.6px;
   text-align: end;
-  width: 98.5vw;
   padding: 0.25rem;
-  margin-top: 2.2rem;
+  padding: 1.25rem 14px 0 0;
+  font-weight: 500;
+  word-spacing: 0 !important;
 }
 
 .select-btn,
-.title,
 #selected-street,
 .instruction-title {
   font-weight: bold;
