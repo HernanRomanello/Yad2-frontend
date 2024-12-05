@@ -21,13 +21,11 @@ export class NavigationService {
   }
 
   searchFilterOpenClose() {
-    // this.IsSearchFilterOpen = signal(!this.IsSearchFilterOpen);
     if (this.IsSearchFilterOpen().valueOf() === true) {
       this.IsSearchFilterOpen = signal(false);
     } else {
       this.IsSearchFilterOpen = signal(true);
     }
-    // alert(this.IsSearchFilterOpen().valueOf());
   }
 
   isEditAdvertisementISOpen(IsOpen: boolean) {

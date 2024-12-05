@@ -1,14 +1,18 @@
 <div *ngIf="this.$sortedApartments | async as apartments">
   <div class="sort-container z100">
     <div class="sort-btn" (click)="SortDropdownOpen()">
-      @if (!(this.navigationService.IsSearchFilterOpen())) {
-
-      <div>
+      <div
+        [ngStyle]="{
+          visibility: !this.navigationService.IsSearchFilterOpen()
+            ? 'visible'
+            : 'hidden'
+        }"
+      >
         <i #sortDropdown class="material-icons">keyboard_arrow_down</i>
-        <span class="result">מיון לפי</span
-        ><span class="date"> {{ this.sortTypeChosen }} </span>
+        <span class="result">מיון לפי</span>
+        <span class="date"> {{ this.sortTypeChosen }} </span>
       </div>
-      } @if(this.isSortDropdownOpen){
+      @if(this.isSortDropdownOpen){
       <div class="sort-dropdown">
         <div class="sort-option" id="date" (click)="sortResults('תאריך')">
           <span>

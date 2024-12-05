@@ -113,6 +113,7 @@ export class RealEstateSearchComponent
             document.getElementById('propertyRoomButton');
           roomsAmountContainer?.click();
           this.hideAllMenus('');
+          this.navigationService.IsSearchFilterOpen.set(false);
         }
 
         if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
@@ -352,6 +353,7 @@ export class RealEstateSearchComponent
         this.rotateAllArrows('propertyTypeArrow');
         this.hideAllMenus('propertyTypeMenu');
         this.roomsFilterIsOpen = false;
+        this.navigationService.searchFilterOpenClose();
 
         break;
       case 'roomsAmountMenu':
