@@ -194,7 +194,6 @@ i,
 .sort-dropdown {
   position: absolute;
   transform: translateY(16px);
-  z-index: 100;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -206,7 +205,14 @@ i,
 .sort-option {
   height: 42.3906px;
   width: 192.094px;
-  background-color: rgb(255, 255, 255);
+}
+
+.sort-option,
+.sort-dropdown,
+.sort-option span,
+#location {
+  background-color: rgb(255, 255, 255) !important;
+  z-index: 100 !important;
 }
 
 .sort-option:hover {

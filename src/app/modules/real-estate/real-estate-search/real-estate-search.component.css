@@ -49,7 +49,8 @@
 #neighborhood-option:hover,
 #city-option:hover,
 #area-option:hover,
-#selected-street:hover {
+#selected-street:hover,
+.type-btn:hover {
   background-color: #f8f8f8 !important;
 }
 
@@ -125,7 +126,7 @@
 .search-suggestions,
 .Search-bar,
 .type-btn {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
 
 .type-btn {
