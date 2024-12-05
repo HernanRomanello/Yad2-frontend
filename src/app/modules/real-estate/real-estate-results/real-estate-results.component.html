@@ -74,7 +74,8 @@
     </div>
 
     <div class="result">
-      <span style="font-size: 24px">{{ apartments.length }}</span> תוצאות
+      <span style="font-size: 18px">{{ apartments.length }}</span>
+      <span> תוצאות </span>
     </div>
   </div>
 
@@ -111,28 +112,31 @@
         class="advertisement-details"
         routerLink="/advertisement/{{ advertisement.id }}"
       >
-        <div class="title">
-          {{ advertisement.street + " " + advertisement.number }}
+        <div class="ad-content-text">
+          <div class="title">
+            {{ advertisement.street + " " + advertisement.number }}
+          </div>
+
+          <div class="list-group-item">
+            <ng-container>
+              {{ advertisement.assetType }},{{
+                " " + advertisement.neighborhood
+              }},{{ " " + advertisement.city }}
+            </ng-container>
+          </div>
+
+          <div class="list-group-item">
+            <li>{{ advertisement.rooms }} חדרים •</li>
+            <li>קומה {{ advertisement.floor }} •</li>
+            <li>{{ advertisement.totalSquareMeters }} מ"ר</li>
+          </div>
         </div>
 
-        <div class="list-group-item">
-          <ng-container>
-            {{ advertisement.assetType }},{{ advertisement.neighborhood }},{{
-              advertisement.city
-            }}
-          </ng-container>
-        </div>
-
-        <div class="list-group-item">
-          <li>{{ advertisement.rooms }} חדרים •</li>
-          <li>קומה {{ advertisement.floor }} •</li>
-          <li>{{ advertisement.totalSquareMeters }} מ"ר</li>
-        </div>
         <div class="last-row">
           <div class="tags">
             <div class="price">₪{{ advertisement.price | number }}</div>
 
-            <div class="list-tags">
+            <!-- <div class="list-tags">
               <li
                 *ngFor="
                   let word of advertisementService.getFirstThreeAdvertisementParameters(
@@ -143,7 +147,7 @@
               >
                 {{ word }}
               </li>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
