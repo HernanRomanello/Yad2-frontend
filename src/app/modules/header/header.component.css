@@ -1,6 +1,6 @@
 :host {
   position: relative !important;
-  z-index: 60 !important;
+  /* z-index: 60 !important; */
 }
 
 .header,

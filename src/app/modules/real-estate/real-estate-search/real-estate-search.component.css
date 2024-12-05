@@ -56,7 +56,6 @@
 
 :host {
   position: relative !important;
-  z-index: 50 !important;
 }
 
 .dropdown-menu button:hover {
