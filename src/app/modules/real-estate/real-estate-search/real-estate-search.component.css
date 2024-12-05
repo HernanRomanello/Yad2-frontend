@@ -56,6 +56,18 @@
 .dropdown-menu button:hover {
   background-color: #f1f1f1;
 }
+.project-title {
+  transform: translateX(30px);
+  word-spacing: 0;
+  line-height: 18.6px;
+  letter-spacing: -0px;
+}
+
+.arrow_left {
+  height: 14px;
+  width: 14px;
+  transform: translateX(5px) translateY(1px);
+}
 
 .hidden {
   display: none;
@@ -251,17 +263,18 @@ i {
 .project-container {
   font-weight: 500;
   line-height: 27.6px;
-  text-decoration: none solid rgb(54, 54, 54);
   text-align: end;
-  height: 84px;
+  /* height: 84px; */
   width: 742px;
+  width: 693px;
   align-items: end;
   direction: ltl !important;
   margin-left: auto;
 }
 
 .project-container,
-.filters-btns {
+.filters-btns,
+.project-title {
   justify-content: space-between;
 }
 
@@ -273,15 +286,24 @@ i {
 .filters-btns,
 #subSearchQuery,
 #subSearchQueryBox,
-.location-list {
+.location-list,
+.project-title {
   display: flex;
+}
+
+.project-title {
+  width: 663px;
+}
+
+.left-side {
+  transform: translateX(-24px);
+  padding: 0 !important;
 }
 
 .locations {
   display: grid;
   gap: 0.25rem;
   grid-template-columns: repeat(2, auto);
-  /* align-items: flex-start; */
   direction: rtl;
   justify-content: flex-start;
   width: 280px;
@@ -297,9 +319,8 @@ i {
 }
 
 .project-div {
-  flex-direction: row;
   justify-content: center;
-  padding: 1rem;
+  padding: 10px 10px 14px 0;
 }
 
 .logo-img {
