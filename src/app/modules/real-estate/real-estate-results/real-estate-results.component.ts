@@ -12,6 +12,7 @@ import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, combineLatest, map, of } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
 import { FilterValue } from '../../../shared/models/Filters';
+import { NavigationService } from '../../../services/navigation.service';
 @Component({
   selector: 'app-real-estate-results',
   templateUrl: './real-estate-results.component.html',
@@ -36,10 +37,14 @@ export class RealEstateResultsComponent implements OnInit {
   isSortDropdownOpen: boolean = false;
   @ViewChild('sortDropdown', { static: false })
   sortDropdown!: ElementRef;
+  IsSearchFilterOpen = false;
 
   hoverIndex: number = -1;
 
-  constructor(private render: Renderer2) {
+  constructor(
+    private render: Renderer2,
+    public navigationService: NavigationService
+  ) {
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
 

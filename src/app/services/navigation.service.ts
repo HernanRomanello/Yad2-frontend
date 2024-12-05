@@ -13,10 +13,21 @@ export class NavigationService {
   IsEditAdvertisementISOpen = signal<boolean>(false);
   IsFavoriteAdvertisementOrLastsearchesIsOpen = signal<boolean>(false);
   IsUserAreaISOpen = signal<boolean>(false);
+  IsSearchFilterOpen = signal<boolean>(false);
 
   IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
     this.IsMainHeaderISOpen = signal(IsHeaderhide);
     this.IsMainFooterISOpen = signal(IsFooterhide);
+  }
+
+  searchFilterOpenClose() {
+    // this.IsSearchFilterOpen = signal(!this.IsSearchFilterOpen);
+    if (this.IsSearchFilterOpen().valueOf() === true) {
+      this.IsSearchFilterOpen = signal(false);
+    } else {
+      this.IsSearchFilterOpen = signal(true);
+    }
+    // alert(this.IsSearchFilterOpen().valueOf());
   }
 
   isEditAdvertisementISOpen(IsOpen: boolean) {

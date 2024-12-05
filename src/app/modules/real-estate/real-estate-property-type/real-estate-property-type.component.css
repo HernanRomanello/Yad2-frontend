@@ -5,9 +5,16 @@
   flex-direction: column;
   padding: 1rem;
   margin: 1rem;
-  background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
   border-radius: 5px;
+}
+
+.property-type-header,
+.property-type-select,
+div,
+.property-type-select p {
+  background-color: #ffffff !important;
+  z-index: 999 !important;
 }
 
 .property-type-select p {

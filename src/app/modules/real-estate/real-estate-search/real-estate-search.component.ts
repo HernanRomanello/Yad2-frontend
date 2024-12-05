@@ -16,6 +16,7 @@ import {
   Street,
 } from '../../../services/city-list.service';
 import { Subscription } from 'rxjs';
+import { NavigationService } from '../../../services/navigation.service';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
@@ -92,7 +93,7 @@ export class RealEstateSearchComponent
       .classList.add('hidden');
   }
 
-  constructor() {
+  constructor(private navigationService: NavigationService) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
         const clickedElement = event.target as HTMLElement;
@@ -361,7 +362,7 @@ export class RealEstateSearchComponent
       case 'additionalFiltersMenu':
         this.hideAllMenus('additionalFiltersArrow');
         this.toggleMenuDropdown(this.additionalFiltersMenu);
-        this.roomsFilterIsOpen = false;
+        this.navigationService.searchFilterOpenClose();
 
         break;
       case 'tradeTypeMenu':
