@@ -46,7 +46,8 @@ export class RealEstateResultsComponent implements OnInit {
       if (
         !target.classList.contains('result') &&
         !target.classList.contains('date') &&
-        !target.classList.contains('material-icons')
+        !target.classList.contains('material-icons') &&
+        !target.classList.contains('search-button')
       ) {
         if (this.isSortDropdownOpen.valueOf() === true) {
           this.SortDropdownOpen();
