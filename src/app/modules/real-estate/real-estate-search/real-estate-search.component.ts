@@ -15,7 +15,7 @@ import {
   CityListService,
   Street,
 } from '../../../services/city-list.service';
-import { debounceTime, fromEvent, map, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
@@ -99,7 +99,14 @@ export class RealEstateSearchComponent
         if (
           !clickedElement.classList.contains('search-button') &&
           !clickedElement.classList.contains('rooms-select') &&
-          !clickedElement.classList.contains('room-btn')
+          !clickedElement.classList.contains('room-btn') &&
+          !clickedElement.classList.contains('p-slider-handle') &&
+          !clickedElement.classList.contains('slider') &&
+          !clickedElement.classList.contains('price') &&
+          !clickedElement.classList.contains('price-slider-bg') &&
+          !clickedElement.classList.contains('price-container') &&
+          !clickedElement.classList.contains('hyphen') &&
+          !clickedElement.classList.contains('material-icons')
         ) {
           const roomsAmountContainer =
             document.getElementById('propertyRoomButton');
