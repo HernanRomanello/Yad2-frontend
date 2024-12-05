@@ -42,9 +42,6 @@
 .right-side {
   padding: 4.75px !important;
 }
-/* .right-side .light {
-  padding: 4.75px !important;
-} */
 
 .logo-btn {
   transform: translateX(-14px) translateY(2px);
@@ -759,7 +756,7 @@ button,
   overflow: auto;
   z-index: 40 !important;
   background-color: rgb(255, 255, 255);
-  transform: translateX(-10px);
+  transform: translateX(-15px);
   padding: 25px;
   gap: 90px;
 }
@@ -774,6 +771,18 @@ button,
   color: rgb(255, 113, 0);
 }
 
-.vehicle {
+.vehicle,
+.Yad2 {
   gap: 60px;
+}
+
+.other-fields {
+  gap: 45px;
+}
+
+.pets {
+  padding-left: 95px;
+}
+.professionals {
+  padding-left: 45px;
 }

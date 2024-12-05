@@ -357,7 +357,7 @@
       (mouseleave)="closeMenu('menu_Yad2Magazine')"
     >
       <button class="light">מגזין יד2</button>
-      <div class="menu" *ngIf="menus['menu_Yad2Magazine']"></div>
+      <!-- <div class="menu" *ngIf="menus['menu_Yad2Magazine']"></div> -->
     </div>
 
     <div
@@ -366,18 +366,20 @@
       (mouseleave)="closeMenu('menu_proffesionals')"
     >
       <button class="light">בעלי מקצוע</button>
-      <div class="menu" *ngIf="menus['menu_proffesionals']">
-        <button>מכוני בדיקה ורישוי לרכב</button>
-        <button>רחיצת רכב</button>
-        <button>חומרי בניין</button>
-        <button>אינסטלטורים</button>
-        <button>חשמלאים</button>
-        <button>שמאי מקרקעין</button>
-        <button>שיפוצים</button>
-        <button>הובלות</button>
-        <button>רהיטים</button>
-        <button>חברות ניקיון ואחזקה</button>
-        <button>לכל בעלי המקצוע</button>
+      <div class="menu professionals" *ngIf="menus['menu_proffesionals']">
+        <div class="column-menu">
+          <span>מכוני בדיקה ורישוי לרכב</span>
+          <span>רחיצת רכב</span>
+          <span>חומרי בניין</span>
+          <span>אינסטלטורים</span>
+          <span>חשמלאים</span>
+          <span>שמאי מקרקעין</span>
+          <span>שיפוצים</span>
+          <span>הובלות</span>
+          <span>רהיטים</span>
+          <span>חברות ניקיון ואחזקה</span>
+          <span>לכל בעלי המקצוע</span>
+        </div>
       </div>
     </div>
 
@@ -387,17 +389,19 @@
       (mouseleave)="closeMenu('menu_Pets')"
     >
       <button class="light">חיות מחמד</button>
-      <div class="menu" *ngIf="menus['menu_Pets']">
-        <button>כלבים</button>
-        <button>חתולים</button>
-        <button>תוכים ובעלי כנף</button>
-        <button>דגים</button>
-        <button>זוחלים</button>
-        <button>מכרסמים</button>
-        <button>סוסים</button>
-        <button>תרנגולים</button>
-        <button>חיות משק</button>
-        <button>חמוסים</button>
+      <div class="menu pets" *ngIf="menus['menu_Pets']">
+        <div class="column-menu">
+          <span>כלבים</span>
+          <span>חתולים</span>
+          <span>תוכים ובעלי כנף</span>
+          <span>דגים</span>
+          <span>זוחלים</span>
+          <span>מכרסמים</span>
+          <span>סוסים</span>
+          <span>תרנגולים</span>
+          <span>חיות משק</span>
+          <span>חמוסים</span>
+        </div>
       </div>
     </div>
 
@@ -408,13 +412,15 @@
     >
       <button class="light">עסקים למכירה</button>
       <div class="menu" *ngIf="menus['menu_BusinessesforSale']">
-        <button>בתי קפה ומסעדות</button>
-        <button>זכיינות</button>
-        <button>קווי חלוקה</button>
-        <button>הזדמנויות עסקיות</button>
-        <button>מינימרקטים וסופרמרקטים</button>
-        <button>קיוסקים ובפיצוציות</button>
-        <button>לכל העסקים</button>
+        <div class="column-menu">
+          <span>בתי קפה ומסעדות</span>
+          <span>זכיינות</span>
+          <span>קווי חלוקה</span>
+          <span>הזדמנויות עסקיות</span>
+          <span>מינימרקטים וסופרמרקטים</span>
+          <span>קיוסקים ובפיצוציות</span>
+          <span>לכל העסקים</span>
+        </div>
       </div>
     </div>
 
@@ -424,29 +430,30 @@
       (mouseleave)="closeMenu('menu_JobsIL')"
     >
       <button class="light">IL דרושים</button>
-      <div class="menu" *ngIf="menus['menu_JobsIL']">
-        <div>
-          <button>חיפוש עבודה</button>
-          <button>פרסום משרות</button>
-          <button>כתיבת קורות חיים</button>
-          <button>אודות החברות</button>
-          <button>דרושים הייטק</button>
-          <button>דרושים סטודנטים</button>
-          <button>מגזין הקריירה</button>
-          <button>כספים</button>
-          <button>מכירות</button>
-          <button>שירות לקוחות</button>
+      <div class="menu other-fields" *ngIf="menus['menu_JobsIL']">
+        <div class="column-menu">
+          <span>אדמיניסטרציה</span>
+          <span>מהנדסים</span>
+          <span>תחבורה</span>
+          <span>מסעדנות/תיירות</span>
+          <span>אבטחה</span>
+          <span>בריאות</span>
+          <span>בעלי מקצוע</span>
+          <span>הדרכה/הוראה</span>
+          <span>שיווק</span>
+          <span>לתחומים נוספים</span>
         </div>
-        <div>
-          <button>מהנדסים</button>
-          <button>תחבורה</button>
-          <button>מסעדנות/תיירות</button>
-          <button>אבטחה</button>
-          <button>בריאות</button>
-          <button>בעלי מקצוע</button>
-          <button>הדרכה/הוראה</button>
-          <button>שיווק</button>
-          <button>לתחומים נוספים</button>
+        <div class="column-menu">
+          <span>חיפוש עבודה</span>
+          <span>פרסום משרות</span>
+          <span>כתיבת קורות חיים</span>
+          <span>אודות החברות</span>
+          <span>דרושים הייטק</span>
+          <span>דרושים סטודנטים</span>
+          <span>מגזין הקריירה</span>
+          <span>כספים</span>
+          <span>מכירות</span>
+          <span>שירות לקוחות</span>
         </div>
       </div>
     </div>
@@ -457,7 +464,7 @@
       (mouseleave)="closeMenu('menu_Yad2')"
     >
       <button class="light">יד שנייה</button>
-      <div class="menu" *ngIf="menus['menu_Yad2']">
+      <div class="menu Yad2" *ngIf="menus['menu_Yad2']">
         <div class="column-menu">
           <span>מחשבים וציוד נלווה</span>
           <span>לגינה</span>
