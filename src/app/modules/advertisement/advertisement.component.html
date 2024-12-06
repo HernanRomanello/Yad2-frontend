@@ -33,21 +33,27 @@
           alt="share"
         />
       </div>
-      <div class="flex-center gap">
+      <div
+        (click)="authSerivce.updateAdvertisementToFavorites(adID)"
+        class="flex-center gap"
+      >
         <span>שמירה</span>
-
+        @if(!this.isFavorite(adID)){
         <img
           id="favorite-icon"
           src="assets/images/heart-svgrepo-com (5).svg"
           class="type-pic"
           alt="favorite"
         />
-        <!-- <img
+
+        }@else {
+        <img
           id="favorite-icon-red"
           src="assets/images/heart-svgrepo-com-red.svg"
           class="type-pic"
           alt="share"
-        /> -->
+        />
+        }
       </div>
     </div>
     } @else{

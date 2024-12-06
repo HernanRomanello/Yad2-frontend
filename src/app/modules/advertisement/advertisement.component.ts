@@ -3,6 +3,7 @@ import { AdvertisementService } from '../../services/advertisement.service';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { catchError } from 'rxjs';
+import { AuthService } from '../../services/user/auth.service';
 
 @Component({
   selector: 'app-advertisement',
@@ -12,12 +13,15 @@ import { catchError } from 'rxjs';
 export class AdvertisementComponent {
   advertisement!: AdvertisementsModel;
   entryDate: string = '';
+  adID = -1;
   constructor(
     private route: ActivatedRoute,
-    private AdvertisementsService: AdvertisementService
+    private AdvertisementsService: AdvertisementService,
+    public authSerivce: AuthService
   ) {
     this.route.params.subscribe((params) => {
       if (params['id']) {
+        this.adID = +params['id'];
         this.AdvertisementsService.GetAdvertisementById(+params['id'])
           .pipe(
             catchError((e) => {
@@ -43,5 +47,11 @@ export class AdvertisementComponent {
     } else {
       return 'light-text';
     }
+  }
+
+  isFavorite(advertisementId: number): boolean {
+    return this.authSerivce.UserFavoriteAdvertisements.value.some(
+      (ad) => ad.id === advertisementId
+    );
   }
 }

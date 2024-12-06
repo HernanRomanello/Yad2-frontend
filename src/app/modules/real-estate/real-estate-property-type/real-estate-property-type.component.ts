@@ -79,7 +79,6 @@ export class RealEstatePropertyTypeComponent {
         if (allApartmentsElements) {
           allApartmentsElements.classList.remove('selected');
           this.searchService.propertyTypeFilterValue.set('סוג הנכס');
-          ///hernan
         }
         return;
       } else {
