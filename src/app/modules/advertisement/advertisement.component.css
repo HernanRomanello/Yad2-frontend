@@ -6,8 +6,13 @@
 }
 
 .flex-center,
-.pics-container {
+.pics-container,
+.flex {
   display: flex;
+}
+
+.column {
+  flex-direction: column;
 }
 .flex-center {
   justify-content: center;
@@ -212,15 +217,10 @@ img,
 }
 
 .add-info {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: fit-content;
   margin-left: auto !important;
-  margin-right: 2rem !important;
   justify-content: end !important;
-  margin-top: -12.5rem;
-  margin-right: 0rem !important;
+  margin-top: -13.75rem;
+  transform: translateX(3px);
   text-align: right;
 }
 
@@ -238,7 +238,7 @@ img,
   border-radius: 12px;
   font-size: 18px !important;
   direction: rtl !important;
-  margin-right: auto !important;
+  margin-left: auto !important;
   margin-bottom: 40px !important;
 }
 
