@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { SearchService } from '../../../services/search.service';
 
 @Component({
   selector: 'app-real-estate-property-type',
@@ -43,6 +44,8 @@ export class RealEstatePropertyTypeComponent {
   // event emitter for selected
   // property type
 
+  constructor(private searchService: SearchService) {}
+
   @Output() propertyTypeSelected = new EventEmitter<string[]>();
 
   emit(propertyType: string) {
@@ -75,6 +78,8 @@ export class RealEstatePropertyTypeComponent {
         }
         if (allApartmentsElements) {
           allApartmentsElements.classList.remove('selected');
+          this.searchService.propertyTypeFilterValue.set('סוג הנכס');
+          ///hernan
         }
         return;
       } else {

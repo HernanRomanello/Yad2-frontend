@@ -529,30 +529,45 @@ export class RealEstateSearchComponent
   }
 
   onPriceRangeSelected(priceRange: [number, number]) {
+    // console.log(priceRange[0]);
+    // console.log(priceRange[1]);
+    //hernan
     this.selectedPriceRange = priceRange;
   }
 
   onPropertyTypeSelected(propertyTypes: string[]) {
-    const optionsNumber = propertyTypes.length;
+    const uniquePropertyTypes = [...new Set(propertyTypes)];
+    let optionsNumber = uniquePropertyTypes.length;
 
     if (optionsNumber === 0) {
       this.searchService.propertyTypeFilterValue.set('סוג הנכס');
     } else if (optionsNumber === 1) {
       this.searchService.propertyTypeFilterValue.set(propertyTypes[0]);
     } else if (optionsNumber > 1) {
+      let count = 0;
+      if (uniquePropertyTypes.includes('דירות_הכל')) {
+        optionsNumber--;
+        count++;
+      }
+      if (uniquePropertyTypes.includes('בתים_הכל')) {
+        optionsNumber--;
+        count++;
+      }
       this.searchService.propertyTypeFilterValue.set(
-        `סוג הנכס (${optionsNumber}) `
+        `סוג הנכס (${optionsNumber - count}) `
       );
     }
 
-    if (optionsNumber === 12 && propertyTypes.includes('דירות_הכל')) {
+    if (optionsNumber === 11 && propertyTypes.includes('דירות_הכל')) {
       this.searchService.propertyTypeFilterValue.set('דירות');
     }
-    if (optionsNumber === 5 && propertyTypes.includes('בתים_הכל')) {
+    if (optionsNumber === 4 && propertyTypes.includes('בתים_הכל')) {
       this.searchService.propertyTypeFilterValue.set('בתים');
     }
 
-    this.selectedPropertyTypes = propertyTypes;
+    if (propertyTypes.length > 0) {
+      this.selectedPropertyTypes = uniquePropertyTypes;
+    }
   }
 
   onRoomsAmountSelected(roomsAmount: string[]) {
