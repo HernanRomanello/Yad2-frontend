@@ -8,7 +8,7 @@ import { PropertyFilters } from '../shared/models/Filters';
 export class SearchService {
   propertyTypeFilterValue = signal<string>('סוג הנכס');
   priceRangeFilterValue = signal<string>('מחיר');
-  roomNumberFilterValue = signal<string>('');
+  roomNumberFilterValue = signal<string>('חדרים');
   additionalFilterValue = signal<string>('');
   private propertyFilters: PropertyFilters = {
     hasImage: undefined,

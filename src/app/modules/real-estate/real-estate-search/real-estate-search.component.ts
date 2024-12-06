@@ -29,6 +29,7 @@ export class RealEstateSearchComponent
   clickedIndex: number[] = [-1, -1, -1];
   propertyTypeFilterValue: string = 'סוג הנכס';
   priceRangeFilterValue: string = 'מחיר';
+  roomNumberFilterValue: string = 'חדרים';
   searchService = inject(SearchService);
   cityList: City[] = [];
   streetList: Street[] = [];
