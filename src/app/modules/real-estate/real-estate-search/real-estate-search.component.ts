@@ -545,6 +545,13 @@ export class RealEstateSearchComponent
       );
     }
 
+    if (optionsNumber === 12 && propertyTypes.includes('דירות_הכל')) {
+      this.searchService.propertyTypeFilterValue.set('דירות');
+    }
+    if (optionsNumber === 5 && propertyTypes.includes('בתים_הכל')) {
+      this.searchService.propertyTypeFilterValue.set('בתים');
+    }
+
     this.selectedPropertyTypes = propertyTypes;
   }
 

@@ -16,6 +16,8 @@ export class RealEstatePropertyTypeComponent {
       'מרתף/ פרטר',
       'טריפלקס',
       'יחידת דיור',
+      'החלפת דירות',
+      'סאבלט',
       'סטודיו/ לופט',
     ] as const,
     house: [
