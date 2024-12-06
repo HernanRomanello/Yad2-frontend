@@ -595,3 +595,7 @@ i,
 .hover-btn-background:hover {
   background-color: #f8f8f8 !important;
 }
+
+.search-button-selected {
+  border: 1px solid #828282;
+}

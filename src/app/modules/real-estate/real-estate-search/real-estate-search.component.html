@@ -352,7 +352,11 @@
 
       <div class="menu-container" #propertyTypeMenu>
         <button
-          class="search-button hover-btn-background"
+          [ngClass]="
+            propertyTypeFilterValue === 'סוג הנכס'
+              ? 'search-button hover-btn-background'
+              : 'search-button hover-btn-background search-button-selected'
+          "
           type="button"
           (click)="toggleMenu('propertyTypeMenu')"
         >
