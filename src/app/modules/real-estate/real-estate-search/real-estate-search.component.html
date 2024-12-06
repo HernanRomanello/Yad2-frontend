@@ -402,6 +402,11 @@
             this.roomsFilterIsOpen = !this.roomsFilterIsOpen
           "
           class="search-button hover-btn-background"
+          [ngClass]="
+            roomNumberFilterValue === 'חדרים'
+              ? 'search-button hover-btn-background'
+              : 'search-button hover-btn-background search-button-selected'
+          "
           type="button"
         >
           <!-- חדרים -->

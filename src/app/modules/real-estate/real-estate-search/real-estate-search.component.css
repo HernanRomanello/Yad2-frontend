@@ -599,3 +599,7 @@ i,
 .search-button-selected {
   border: 1px solid #828282;
 }
+
+.not-Rotate {
+  transform: rotate(0deg) !important;
+}

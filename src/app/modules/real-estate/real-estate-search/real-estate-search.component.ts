@@ -4,6 +4,7 @@ import {
   ElementRef,
   OnDestroy,
   OnInit,
+  Renderer2,
   ViewChild,
   afterNextRender,
   inject,
@@ -98,7 +99,10 @@ export class RealEstateSearchComponent
       .classList.add('hidden');
   }
 
-  constructor(private navigationService: NavigationService) {
+  constructor(
+    private navigationService: NavigationService,
+    private render: Renderer2
+  ) {
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
         const clickedElement = event.target as HTMLElement;
@@ -122,11 +126,11 @@ export class RealEstateSearchComponent
             document.getElementById('propertyRoomButton');
           roomsAmountContainer?.click();
           roomsAmountContainer?.click();
-          alert(roomsAmountContainer);
+          const propertyRoomArrow =
+            document.getElementById('propertyRoomArrow');
+          this.render.addClass(propertyRoomArrow, 'not-Rotate');
           this.rotateAllArrows('');
-          // alert(searchContainer);
           //hernan
-          // searchContainer?.click();
 
           this.hideAllMenus('');
           if (!clickedElement.classList.contains('overlay')) {
@@ -394,6 +398,8 @@ export class RealEstateSearchComponent
 
         break;
       case 'roomsAmountMenu':
+        const propertyRoomArrow = document.getElementById('propertyRoomArrow');
+        this.render.removeClass(propertyRoomArrow, 'not-Rotate');
         this.toggleMenuDropdown(this.roomsAmountMenu);
         this.rotateAllArrows('roomsAmountMenu');
         this.hideAllMenus('propertyRoomMenu');
