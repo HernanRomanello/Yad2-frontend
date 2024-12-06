@@ -9,6 +9,7 @@
 .main-pic {
   flex: 2;
   height: 440px;
+  max-width: 796.688px;
   background-size: cover;
   background-position: center;
   border-top-right-radius: 12px;
