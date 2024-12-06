@@ -164,9 +164,17 @@ img,
 #favorite-icon,
 #share-icon,
 #favorite-icon-red,
-#img-box-icon {
+#img-box-icon,
+#door-icon,
+#stairs-icon,
+#bricks-icon {
   width: 20px;
   height: 20px;
+}
+#door-icon,
+#stairs-icon,
+#bricks-icon {
+  opacity: 0.6 !important;
 }
 
 .all-pics-link span,
@@ -251,12 +259,6 @@ img,
 
 .size-details div {
   padding: 0 1.5rem;
-}
-
-#door-icon,
-#stairs-icon {
-  width: 20px;
-  height: 20px;
 }
 
 .font500,
