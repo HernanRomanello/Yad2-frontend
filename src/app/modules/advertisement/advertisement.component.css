@@ -1,29 +1,35 @@
 .pics-container {
-  display: flex;
   gap: 10px;
   margin: 20px;
   width: 83vw;
   margin: 2rem auto;
 }
 
+.flex-center,
+.pics-container {
+  display: flex;
+}
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.main-pic {
+  max-width: 796.688px;
+}
+
 .main-pic {
   flex: 2;
-  height: 440px;
-  max-width: 796.688px;
   background-size: cover;
   background-position: center;
+  height: 440px;
+
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
 
-.main-img {
-  flex: 2;
-  height: 440px;
-  background-size: cover;
-  background-position: center;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  max-width: 790px !important;
+.pics-container {
+  position: relative;
 }
 
 .pics {
@@ -33,12 +39,33 @@
   gap: 10px;
 }
 
+.white-btns {
+  position: absolute;
+}
+.white-btns {
+  z-index: 10 !important;
+  top: 19px;
+  right: 14px;
+  gap: 13px;
+}
+
+.white-btns div {
+  background-color: rgb(255, 255, 255);
+  height: 36px;
+  width: 95.7969px;
+  border-radius: 30px;
+}
+
+.white-btns div:hover {
+  border: 1px solid rgb(153, 153, 153);
+}
+
 .small-pic {
   flex: 1;
   background-size: cover;
   background-position: center;
   max-height: 215px;
-  max-width: 393.3px;
+  width: 393.297px;
 }
 
 .pic2 {
@@ -103,8 +130,33 @@
 }
 
 .call-button,
-img {
+img,
+.white-btns div {
   cursor: pointer;
+}
+
+.gap {
+  gap: 0.25rem;
+}
+
+#favorite-icon,
+#share-icon,
+#favorite-icon-red {
+  width: 20px;
+  height: 20px;
+}
+
+#favorite-icon {
+  transform: scale(0.9);
+}
+
+#favorite-icon:hover {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(90%) saturate(700%)
+    hue-rotate(-10deg) brightness(1.2);
+}
+
+#share-icon {
+  transform: scale(1.05);
 }
 
 .call-button:hover {
