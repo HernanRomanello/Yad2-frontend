@@ -107,6 +107,10 @@ export class RealEstateSearchComponent
           !clickedElement.classList.contains('price-slider-bg') &&
           !clickedElement.classList.contains('price-container') &&
           !clickedElement.classList.contains('hyphen') &&
+          !clickedElement.classList.contains('property-type-header') &&
+          !clickedElement.classList.contains('property-type-select') &&
+          !clickedElement.classList.contains('property-type selected') &&
+          !clickedElement.classList.contains('property-type') &&
           !clickedElement.classList.contains('material-icons')
         ) {
           const roomsAmountContainer =
