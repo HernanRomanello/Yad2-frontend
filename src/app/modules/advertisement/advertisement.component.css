@@ -39,14 +39,32 @@
   gap: 10px;
 }
 
-.white-btns {
+.white-btns,
+.all-pics-link-btn {
   position: absolute;
 }
-.white-btns {
+.white-btns,
+.all-pics-link-btn {
   z-index: 10 !important;
+}
+.white-btns {
   top: 19px;
   right: 14px;
   gap: 13px;
+}
+
+.all-pics-link-btn {
+  bottom: 0;
+  left: 0;
+  line-height: 18.4px;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgb(255, 255, 255);
+  height: 28px;
+  width: 148.609px;
+  padding: 4px 6px 4px 10px;
+
+  border-radius: 5px;
 }
 
 .white-btns div {
@@ -108,7 +126,6 @@
 
 .call-button {
   font-size: 18px;
-  font-weight: 500;
   line-height: 16.1px;
   text-align: center;
   background-color: rgb(16, 173, 111);
@@ -141,9 +158,17 @@ img,
 
 #favorite-icon,
 #share-icon,
-#favorite-icon-red {
+#favorite-icon-red,
+#img-box-icon {
   width: 20px;
   height: 20px;
+}
+
+.all-pics-link span,
+.wrap {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  transform: translateX(-2px);
 }
 
 #favorite-icon {
@@ -225,13 +250,15 @@ img,
   padding: 0 1.5rem;
 }
 
-.size-details span {
+.font500,
+.call-button,
+.size-details span,
+.add-title {
   font-weight: 500;
 }
 
 .add-title {
   font-size: 28px;
-  font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 32.2px;
 }
@@ -245,7 +272,6 @@ img,
 .description {
   height: 100px;
   width: 770px;
-  font-size: 16px;
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
@@ -253,9 +279,23 @@ img,
   line-height: 25px;
   margin: 34px 0px 0px;
 }
+
+.font16,
+.description,
+.map,
+.add-block {
+  font-size: 16px;
+}
+
+.add-block {
+  display: flex;
+  direction: rtl;
+  width: fit-content !important;
+  margin: 0 !important;
+}
+
 .map {
   color: rgb(216, 96, 0);
-  font-size: 16px;
   margin: 32px 0px 0px;
   height: 24px;
   padding-bottom: 64px !important;
@@ -276,14 +316,6 @@ img,
   line-height: 23px;
   margin: 0px 0px 20px !important;
   width: 770px;
-}
-
-.add-block {
-  display: flex;
-  direction: rtl;
-  width: fit-content !important;
-  margin: 0 !important;
-  font-size: 16px;
 }
 
 .add-block div {
