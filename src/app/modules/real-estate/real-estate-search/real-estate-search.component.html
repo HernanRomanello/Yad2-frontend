@@ -377,6 +377,11 @@
           #priceSliderButton
           (click)="toggleMenu('priceSlider')"
           class="search-button price-btn hover-btn-background"
+          [ngClass]="
+            priceRangeFilterValue === 'מחיר'
+              ? 'search-button price-btn hover-btn-background'
+              : 'search-button price-btn hover-btn-background search-button-selected'
+          "
           type="button"
         >
           <!-- מחיר -->
