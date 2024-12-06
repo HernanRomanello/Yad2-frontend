@@ -113,7 +113,9 @@ export class RealEstateSearchComponent
             document.getElementById('propertyRoomButton');
           roomsAmountContainer?.click();
           this.hideAllMenus('');
-          this.navigationService.IsSearchFilterOpen.set(false);
+          if (!clickedElement.classList.contains('overlay')) {
+            this.navigationService.IsSearchFilterOpen.set(false);
+          }
         }
 
         if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
