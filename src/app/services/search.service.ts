@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal, Signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PropertyFilters } from '../shared/models/Filters';
 
@@ -6,6 +6,10 @@ import { PropertyFilters } from '../shared/models/Filters';
   providedIn: 'root',
 })
 export class SearchService {
+  propertyTypeFilterValue = signal<string>('סוג הנכס');
+  priceRangeFilterValue = signal<string>('');
+  roomNumberFilterValue = signal<string>('');
+  additionalFilterValue = signal<string>('');
   private propertyFilters: PropertyFilters = {
     hasImage: undefined,
     moshavOrKibutz: undefined,

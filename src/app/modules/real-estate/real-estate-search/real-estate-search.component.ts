@@ -27,7 +27,7 @@ export class RealEstateSearchComponent
   implements OnInit, OnDestroy, AfterViewInit
 {
   clickedIndex: number[] = [-1, -1, -1];
-
+  propertyTypeFilterValue: string = 'סוג הנכס';
   searchService = inject(SearchService);
   cityList: City[] = [];
   streetList: Street[] = [];
@@ -148,6 +148,9 @@ export class RealEstateSearchComponent
         this.propertyTypeMenu.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
+        this.propertyTypeFilterValue =
+          this.searchService.propertyTypeFilterValue();
+
         this.priceSlider.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
@@ -367,6 +370,8 @@ export class RealEstateSearchComponent
         break;
       case 'propertyTypeMenu':
         this.toggleMenuDropdown(this.propertyTypeMenu);
+        this.propertyTypeFilterValue =
+          this.searchService.propertyTypeFilterValue();
         this.rotateAllArrows('propertyTypeArrow');
         this.hideAllMenus('propertyTypeMenu');
         this.roomsFilterIsOpen = false;
@@ -528,6 +533,18 @@ export class RealEstateSearchComponent
   }
 
   onPropertyTypeSelected(propertyTypes: string[]) {
+    const optionsNumber = propertyTypes.length;
+
+    if (optionsNumber === 0) {
+      this.searchService.propertyTypeFilterValue.set('סוג הנכס');
+    } else if (optionsNumber === 1) {
+      this.searchService.propertyTypeFilterValue.set(propertyTypes[0]);
+    } else if (optionsNumber > 1) {
+      this.searchService.propertyTypeFilterValue.set(
+        `סוג הנכס (${optionsNumber}) `
+      );
+    }
+
     this.selectedPropertyTypes = propertyTypes;
   }
 
