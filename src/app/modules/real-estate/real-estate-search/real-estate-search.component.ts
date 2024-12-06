@@ -141,7 +141,6 @@ export class RealEstateSearchComponent
           .classList.contains('hidden');
 
         this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
-        //hernan
 
         if (!isSliderHidden && this.selectedPriceRange[0] !== -1) {
           changeButtonInnerHtml(
@@ -160,11 +159,8 @@ export class RealEstateSearchComponent
           .querySelector('.menu')
           .classList.add('hidden');
 
-        //hernan
-        // alert('priceSlider' + this.priceRangeFilterValue === '');
         this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
 
-        // if(this.priceRangeFilterValue)
         this.rotateAllArrows('tradeTypeArrow');
 
         if (!clickedElement.classList.contains('search-button')) {
@@ -413,8 +409,9 @@ export class RealEstateSearchComponent
     const menu = tradeTypeMenu.nativeElement.querySelector('.menu');
     if (menu) {
       menu.classList.toggle('hidden');
+      // hernan
+      this.roomNumberFilterValue = this.searchService.roomNumberFilterValue();
       this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
-      //hernan
     }
 
     const arrow = tradeTypeMenu.nativeElement.querySelector('.material-icons');
@@ -440,7 +437,6 @@ export class RealEstateSearchComponent
       if (!menu.classList.contains('hidden') && menu.id !== id) {
         if (menu.id !== 'additionalFiltersMenu') {
           menu.classList.add('hidden');
-          // hernan
 
           this.priceRangeFilterValue =
             this.searchService.priceRangeFilterValue();
@@ -565,7 +561,6 @@ export class RealEstateSearchComponent
       : result.join('');
   }
   onPriceRangeSelected(priceRange: [number, number]) {
-    //hernan
     let newValue = 'מחיר';
     if (priceRange[0] < priceRange[1] && priceRange[1] !== 20000) {
       newValue = `${this.formatNumberWithComma(
@@ -580,7 +575,6 @@ export class RealEstateSearchComponent
         priceRange[1]
       )} ₪ - ${this.formatNumberWithComma(priceRange[0])} ₪`;
     }
-    // alert('priceRange' + priceRange);
     this.searchService.priceRangeFilterValue.set(newValue);
     this.selectedPriceRange = priceRange;
   }
@@ -621,6 +615,17 @@ export class RealEstateSearchComponent
   }
 
   onRoomsAmountSelected(roomsAmount: string[]) {
+    const minRooms = Math.min(...roomsAmount.map((room) => parseInt(room)));
+    const maxRooms = Math.max(...roomsAmount.map((room) => parseInt(room)));
+    let buttonText = 'חדרים';
+    if (minRooms !== maxRooms) {
+      buttonText = `${minRooms} - ${maxRooms}` + ' חדרים';
+    } else if (maxRooms > 0) {
+      buttonText = `${maxRooms}` + ' חדרים';
+    }
+
+    //hernan
+    this.searchService.roomNumberFilterValue.set(buttonText);
     this.selectedRoomsAmount = roomsAmount;
   }
 
