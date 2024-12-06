@@ -121,6 +121,13 @@ export class RealEstateSearchComponent
           const roomsAmountContainer =
             document.getElementById('propertyRoomButton');
           roomsAmountContainer?.click();
+          roomsAmountContainer?.click();
+          alert(roomsAmountContainer);
+          this.rotateAllArrows('');
+          // alert(searchContainer);
+          //hernan
+          // searchContainer?.click();
+
           this.hideAllMenus('');
           if (!clickedElement.classList.contains('overlay')) {
             this.navigationService.IsSearchFilterOpen.set(false);
@@ -368,6 +375,7 @@ export class RealEstateSearchComponent
       | 'additionalFiltersMenu'
       | 'tradeTypeMenu'
   ) {
+    //hernan
     switch (type) {
       case 'priceSlider':
         this.toggleMenuDropdown(this.priceSlider);
@@ -387,7 +395,7 @@ export class RealEstateSearchComponent
         break;
       case 'roomsAmountMenu':
         this.toggleMenuDropdown(this.roomsAmountMenu);
-        this.rotateAllArrows('propertyRoomArrow');
+        this.rotateAllArrows('roomsAmountMenu');
         this.hideAllMenus('propertyRoomMenu');
         break;
       case 'additionalFiltersMenu':
