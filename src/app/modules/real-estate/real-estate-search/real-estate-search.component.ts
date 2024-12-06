@@ -615,8 +615,8 @@ export class RealEstateSearchComponent
   }
 
   onRoomsAmountSelected(roomsAmount: string[]) {
-    const minRooms = Math.min(...roomsAmount.map((room) => parseInt(room)));
-    const maxRooms = Math.max(...roomsAmount.map((room) => parseInt(room)));
+    const minRooms = Math.min(...roomsAmount.map((room) => parseFloat(room)));
+    const maxRooms = Math.max(...roomsAmount.map((room) => parseFloat(room)));
     let buttonText = 'חדרים';
     if (minRooms !== maxRooms) {
       buttonText = `${minRooms} - ${maxRooms}` + ' חדרים';
