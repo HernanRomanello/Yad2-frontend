@@ -16,6 +16,10 @@
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 6px -2px;
 }
 
+.maegin-left {
+  margin-left: 20px;
+}
+
 .header {
   border-bottom: 1px solid lightgray;
 }
