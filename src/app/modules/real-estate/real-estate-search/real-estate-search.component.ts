@@ -139,7 +139,6 @@ export class RealEstateSearchComponent
           .querySelector('.menu')
           .classList.contains('hidden');
 
-        alert('isSliderHidden: ' + this.searchService.priceRangeFilterValue());
         this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
         //hernan
 
@@ -159,6 +158,12 @@ export class RealEstateSearchComponent
         this.priceSlider.nativeElement
           .querySelector('.menu')
           .classList.add('hidden');
+
+        //hernan
+        // alert('priceSlider' + this.priceRangeFilterValue === '');
+        this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
+
+        // if(this.priceRangeFilterValue)
         this.rotateAllArrows('tradeTypeArrow');
 
         if (!clickedElement.classList.contains('search-button')) {
@@ -407,6 +412,8 @@ export class RealEstateSearchComponent
     const menu = tradeTypeMenu.nativeElement.querySelector('.menu');
     if (menu) {
       menu.classList.toggle('hidden');
+      this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
+      //hernan
     }
 
     const arrow = tradeTypeMenu.nativeElement.querySelector('.material-icons');
@@ -432,6 +439,10 @@ export class RealEstateSearchComponent
       if (!menu.classList.contains('hidden') && menu.id !== id) {
         if (menu.id !== 'additionalFiltersMenu') {
           menu.classList.add('hidden');
+          // hernan
+
+          this.priceRangeFilterValue =
+            this.searchService.priceRangeFilterValue();
         }
       }
     });
@@ -555,14 +566,20 @@ export class RealEstateSearchComponent
   onPriceRangeSelected(priceRange: [number, number]) {
     //hernan
     let newValue = 'מחיר';
-    // let number1 = this.formatNumberWithComma(priceRange[0]);
-    // let number2 = this.formatNumberWithComma(priceRange[1]);
     if (priceRange[0] < priceRange[1] && priceRange[1] !== 20000) {
       newValue = `${this.formatNumberWithComma(
         priceRange[0]
       )} ₪ - ${this.formatNumberWithComma(priceRange[1])} ₪`;
+    } else if (priceRange[1] === 20000) {
+      newValue = `${this.formatNumberWithComma(
+        priceRange[0]
+      )} ₪ - ${this.formatNumberWithComma(priceRange[1])}+ ₪`;
+    } else if (priceRange[0] < priceRange[1]) {
+      newValue = `${this.formatNumberWithComma(
+        priceRange[1]
+      )} ₪ - ${this.formatNumberWithComma(priceRange[0])} ₪`;
     }
-
+    // alert('priceRange' + priceRange);
     this.searchService.priceRangeFilterValue.set(newValue);
     this.selectedPriceRange = priceRange;
   }

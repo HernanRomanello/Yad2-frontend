@@ -7,7 +7,7 @@ import { PropertyFilters } from '../shared/models/Filters';
 })
 export class SearchService {
   propertyTypeFilterValue = signal<string>('סוג הנכס');
-  priceRangeFilterValue = signal<string>('');
+  priceRangeFilterValue = signal<string>('מחיר');
   roomNumberFilterValue = signal<string>('');
   additionalFilterValue = signal<string>('');
   private propertyFilters: PropertyFilters = {
