@@ -225,13 +225,12 @@ img,
 }
 
 .size-details {
-  gap: 1rem;
+  /* gap: 1rem; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-content: space-around;
   height: 62px;
-  width: 391.75px;
   border: 1px solid rgb(238, 238, 238);
   margin: 34px 0px 0px;
   padding: 18px 0px;
@@ -242,12 +241,22 @@ img,
   margin-bottom: 40px !important;
 }
 
+.size-details div {
+  gap: 2px;
+}
+
 .size-details span {
   padding: 0.1rem;
 }
 
 .size-details div {
   padding: 0 1.5rem;
+}
+
+#door-icon,
+#stairs-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .font500,
