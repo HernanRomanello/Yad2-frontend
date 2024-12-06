@@ -28,6 +28,7 @@ export class RealEstateSearchComponent
 {
   clickedIndex: number[] = [-1, -1, -1];
   propertyTypeFilterValue: string = 'סוג הנכס';
+  priceRangeFilterValue: string = 'מחיר';
   searchService = inject(SearchService);
   cityList: City[] = [];
   streetList: Street[] = [];
@@ -137,6 +138,10 @@ export class RealEstateSearchComponent
         const isSliderHidden = this.priceSlider.nativeElement
           .querySelector('.menu')
           .classList.contains('hidden');
+
+        alert('isSliderHidden: ' + this.searchService.priceRangeFilterValue());
+        this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
+        //hernan
 
         if (!isSliderHidden && this.selectedPriceRange[0] !== -1) {
           changeButtonInnerHtml(
@@ -527,11 +532,38 @@ export class RealEstateSearchComponent
     this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
     this.searchService.emitSelectedRoomsAmount(this.selectedRoomsAmount);
   }
+  formatNumberWithComma(num: number): string {
+    const numStr = num.toString();
 
+    const [integerPart, fractionalPart] = numStr.split('.');
+
+    const result: string[] = [];
+    let count = 0;
+
+    for (let i = integerPart.length - 1; i >= 0; i--) {
+      result.unshift(integerPart[i]);
+      count++;
+      if (count % 3 === 0 && i !== 0) {
+        result.unshift(',');
+      }
+    }
+
+    return fractionalPart
+      ? `${result.join('')}.${fractionalPart}`
+      : result.join('');
+  }
   onPriceRangeSelected(priceRange: [number, number]) {
-    // console.log(priceRange[0]);
-    // console.log(priceRange[1]);
     //hernan
+    let newValue = 'מחיר';
+    // let number1 = this.formatNumberWithComma(priceRange[0]);
+    // let number2 = this.formatNumberWithComma(priceRange[1]);
+    if (priceRange[0] < priceRange[1] && priceRange[1] !== 20000) {
+      newValue = `${this.formatNumberWithComma(
+        priceRange[0]
+      )} ₪ - ${this.formatNumberWithComma(priceRange[1])} ₪`;
+    }
+
+    this.searchService.priceRangeFilterValue.set(newValue);
     this.selectedPriceRange = priceRange;
   }
 
