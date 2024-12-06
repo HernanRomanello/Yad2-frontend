@@ -17,6 +17,7 @@ import {
 } from '../../../services/city-list.service';
 import { Subscription } from 'rxjs';
 import { NavigationService } from '../../../services/navigation.service';
+import e from 'express';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
@@ -25,6 +26,8 @@ import { NavigationService } from '../../../services/navigation.service';
 export class RealEstateSearchComponent
   implements OnInit, OnDestroy, AfterViewInit
 {
+  clickedIndex: number[] = [-1, -1, -1];
+
   searchService = inject(SearchService);
   cityList: City[] = [];
   streetList: Street[] = [];
@@ -175,6 +178,14 @@ export class RealEstateSearchComponent
         }
       });
     });
+  }
+
+  toggleFavoriteAd(index: number): void {
+    if (this.clickedIndex[index] === -1) {
+      this.clickedIndex[index] = index;
+    } else {
+      this.clickedIndex[index] = -1;
+    }
   }
 
   showSuggestionBox(searchQuery: string) {

@@ -54,10 +54,6 @@
   background-color: #f8f8f8 !important;
 }
 
-:host {
-  position: relative !important;
-}
-
 .dropdown-menu button:hover {
   background-color: #f1f1f1;
 }
@@ -83,14 +79,21 @@
   z-index: 20;
 }
 .menu-container,
-.input-box {
+.input-box,
+:host,
+.ad {
   position: relative;
 }
+
 .menu {
   right: -2rem;
 }
 .menu,
-.search-suggestions {
+.search-suggestions,
+.like-button,
+.like-button-sm,
+.like-button-sm-selected,
+.like-button-selected {
   position: absolute;
 }
 
@@ -505,8 +508,6 @@ i,
 
 .location-list {
   background-color: rgb(238, 238, 238);
-  /* padding: 0px 8px 0px 0px; */
-  /* max-width: 130px; */
 }
 
 .ad-city {
@@ -553,4 +554,40 @@ i,
   width: 280px;
   height: 44.4px;
   padding: 12px;
+}
+
+.like-button,
+.like-button-sm-selected,
+.like-button-sm,
+.like-button-selected {
+  top: 0.25rem;
+  left: 0.5rem;
+  transform: scale(0.9);
+}
+
+.like-button,
+.like-button-selected {
+  text-shadow: 0px 0px 2px gray;
+  color: #ffffff !important;
+  z-index: 20 !important;
+}
+
+.like-button-sm,
+.like-button-sm-selected {
+  z-index: 10 !important;
+  color: rgb(125, 122, 119, 0.5) !important;
+}
+
+.like-button:hover {
+  color: red !important;
+  text-shadow: none !important;
+}
+.like-button-selected:hover {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.like-button-sm-selected {
+  color: red !important;
+  transform: scale(0.8) !important;
 }
