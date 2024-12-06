@@ -333,7 +333,7 @@
 
       <div class="menu-container" #tradeTypeMenu>
         <button
-          class="search-button"
+          class="search-button hover-btn-background"
           type="button"
           (click)="toggleMenu('tradeTypeMenu')"
         >
@@ -352,7 +352,7 @@
 
       <div class="menu-container" #propertyTypeMenu>
         <button
-          class="search-button"
+          class="search-button hover-btn-background"
           type="button"
           (click)="toggleMenu('propertyTypeMenu')"
         >
@@ -372,7 +372,7 @@
         <button
           #priceSliderButton
           (click)="toggleMenu('priceSlider')"
-          class="search-button price-btn"
+          class="search-button price-btn hover-btn-background"
           type="button"
         >
           מחיר
@@ -392,7 +392,7 @@
             toggleMenu('roomsAmountMenu');
             this.roomsFilterIsOpen = !this.roomsFilterIsOpen
           "
-          class="search-button"
+          class="search-button hover-btn-background"
           type="button"
         >
           חדרים
@@ -417,7 +417,7 @@
       <div class="menu-container" #additionalFiltersMenu>
         <button
           (click)="toggleMenu('additionalFiltersMenu')"
-          class="search-button"
+          class="search-button hover-btn-background"
           type="button"
         >
           <i id="additionalFiltersArrow" class="material-icons">tune</i>
@@ -484,25 +484,6 @@
         clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
       "
     ></mat-icon>
-    <!-- <mat-icon
-    [ngClass]="{
-      'like-button-red-color': hoverIndex === i
-    }"
-    *ngIf="!this.isFavorite(advertisement.id)"
-    aria-hidden="false"
-    aria-label="Example home icon"
-    fontIcon="favorite_border"
-    (mouseenter)="hoverIndex = i"
-    (mouseleave)="hoverIndex = -1"
-  ></mat-icon> -->
-
-    <!-- <mat-icon
-  *ngIf="this.isFavorite(advertisement.id)"
-  aria-hidden="false"
-  aria-label="Example home icon"
-  fontIcon="favorite"
-  class="like-button-selected"
-></mat-icon> -->
   </div>
 </div>
 

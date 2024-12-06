@@ -591,3 +591,7 @@ i,
   color: red !important;
   transform: scale(0.8) !important;
 }
+
+.hover-btn-background:hover {
+  background-color: #f8f8f8 !important;
+}
