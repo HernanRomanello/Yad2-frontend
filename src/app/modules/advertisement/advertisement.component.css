@@ -252,7 +252,6 @@ img,
 
 .font500,
 .call-button,
-.size-details span,
 .add-title {
   font-weight: 500;
 }
@@ -266,7 +265,6 @@ img,
 .location-details {
   margin: 10px 0px 0px;
   font-size: 18px;
-  font-weight: 400;
 }
 
 .description {
