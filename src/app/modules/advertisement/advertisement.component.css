@@ -105,7 +105,6 @@
   height: 140px;
   background-color: white;
   font-size: 14px;
-  font-weight: 400;
   line-height: 16.1px;
   height: 214.797px;
   width: 385px;
@@ -279,14 +278,9 @@ img,
 }
 
 .description {
-  height: 100px;
-  width: 770px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 400;
-  letter-spacing: normal;
   line-height: 25px;
-  margin: 34px 0px 0px;
+  max-width: 770px;
+  text-wrap: wrap;
 }
 
 .font16,
@@ -294,6 +288,11 @@ img,
 .map,
 .add-block {
   font-size: 16px;
+}
+
+#location-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .add-block {
