@@ -80,9 +80,6 @@ button {
   display: flex;
 }
 
-.Post-Btn-Favorite {
-  padding-left: 1.25rem;
-}
 .round,
 .round-gray,
 .user-name,
