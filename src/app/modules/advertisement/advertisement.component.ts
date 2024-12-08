@@ -1,23 +1,25 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { catchError } from 'rxjs';
 import { AuthService } from '../../services/user/auth.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-advertisement',
   templateUrl: './advertisement.component.html',
   styleUrl: './advertisement.component.css',
 })
-export class AdvertisementComponent {
+export class AdvertisementComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
   entryDate: string = '';
   adID = -1;
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
-    public authSerivce: AuthService
+    public authSerivce: AuthService,
+    private navigationService: NavigationService
   ) {
     this.route.params.subscribe((params) => {
       if (params['id']) {
@@ -39,6 +41,14 @@ export class AdvertisementComponent {
           });
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.navigationService.IsAdpageOpen.set(false);
+  }
+
+  ngOnInit() {
+    this.navigationService.IsAdpageOpen.set(true);
   }
 
   fillApartmentCondition(condition: boolean): string {

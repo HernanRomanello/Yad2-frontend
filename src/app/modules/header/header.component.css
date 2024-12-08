@@ -11,8 +11,9 @@
   height: 64px !important;
 }
 
-.header {
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 6px -2px;
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
+  /* box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 6px -2px; */
 }
 
 .maegin-left {
@@ -36,10 +37,6 @@
 
 .empty-space {
   width: 120px;
-}
-
-.shadow {
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
 }
 
 .none-border,
