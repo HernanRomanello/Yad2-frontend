@@ -189,10 +189,14 @@
       <div class="additional-details-title">מה יש בנכס</div>
       <div class="additional-details-table">
         <div class="add-block">
-          <div [ngClass]="fillApartmentCondition(advertisement.longTerm)">
+          <div [ngClass]="fillApartmentCondition(advertisement.elevator)">
             מעלית
           </div>
-          <div [ngClass]="fillApartmentCondition(advertisement.longTerm)">
+          <div
+            [ngClass]="
+              fillApartmentCondition(advertisement.accessibleForDisabled)
+            "
+          >
             גישה לנכים
           </div>
         </div>
