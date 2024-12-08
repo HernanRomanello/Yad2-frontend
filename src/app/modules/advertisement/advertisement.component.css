@@ -1,8 +1,26 @@
 .flex-center,
 .pics-container,
 .flex,
-.pics {
+.pics,
+.align-items {
   display: flex;
+}
+
+.column,
+.pics {
+  flex-direction: column;
+}
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+.align-items {
+  align-items: center;
+}
+
+.pics-container,
+.card-content {
+  position: relative;
 }
 
 .pics-container {
@@ -28,20 +46,6 @@
 
 .pics {
   gap: 10px;
-}
-
-.column,
-.pics {
-  flex-direction: column;
-}
-.flex-center {
-  justify-content: center;
-  align-items: center;
-}
-
-.pics-container,
-.card-content {
-  position: relative;
 }
 
 .gap1 {
@@ -231,6 +235,11 @@ img,
   padding-bottom: 4rem;
 }
 
+.icons {
+  width: 30px;
+  height: 30px;
+}
+
 .price-box {
   height: 60px;
   border-bottom: 1px solid rgb(238, 238, 238);
@@ -406,10 +415,10 @@ img,
   width: 192.5px !important;
 }
 
-.space {
-  height: 41px !important;
+.light-text {
+  opacity: 0.3;
 }
 
-.light-text {
-  color: #cccccc;
+.space {
+  height: 41px !important;
 }

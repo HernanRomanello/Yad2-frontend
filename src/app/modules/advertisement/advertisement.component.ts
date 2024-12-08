@@ -43,9 +43,9 @@ export class AdvertisementComponent {
 
   fillApartmentCondition(condition: boolean): string {
     if (condition) {
-      return 'text';
+      return 'text align-items';
     } else {
-      return 'light-text';
+      return 'light-text align-items';
     }
   }
 

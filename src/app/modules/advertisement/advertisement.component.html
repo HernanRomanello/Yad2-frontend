@@ -190,7 +190,12 @@
       <div class="additional-details-table">
         <div class="add-block">
           <div [ngClass]="fillApartmentCondition(advertisement.elevator)">
-            מעלית
+            <img
+              class="icons"
+              src="assets/images/elevator-svgrepo-com (1).svg"
+              alt="location"
+            />
+            <span> מעלית </span>
           </div>
           <div
             [ngClass]="
@@ -214,7 +219,12 @@
           <div
             [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
           >
-            מיזוג
+            <img
+              class="icons"
+              src="assets/images/air-conditioning-svgrepo-com.svg"
+              alt="location"
+            />
+            <span> מיזוג </span>
           </div>
           <div [ngClass]="fillApartmentCondition(advertisement.windowBars)">
             סורגים
