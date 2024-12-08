@@ -130,7 +130,6 @@ export class RealEstateSearchComponent
             document.getElementById('propertyRoomArrow');
           this.render.addClass(propertyRoomArrow, 'not-Rotate');
           this.rotateAllArrows('');
-          //hernan
 
           this.hideAllMenus('');
           if (!clickedElement.classList.contains('overlay')) {
@@ -173,8 +172,10 @@ export class RealEstateSearchComponent
         this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
 
         this.rotateAllArrows('tradeTypeArrow');
-
-        if (!clickedElement.classList.contains('search-button')) {
+        if (
+          !clickedElement.classList.contains('search-button') &&
+          !clickedElement.classList.contains('arrow-up')
+        ) {
           this.tradeTypeMenu.nativeElement
             .querySelector('.menu')
             .classList.add('hidden');
@@ -379,7 +380,6 @@ export class RealEstateSearchComponent
       | 'additionalFiltersMenu'
       | 'tradeTypeMenu'
   ) {
-    //hernan
     switch (type) {
       case 'priceSlider':
         this.toggleMenuDropdown(this.priceSlider);
@@ -423,7 +423,6 @@ export class RealEstateSearchComponent
     const menu = tradeTypeMenu.nativeElement.querySelector('.menu');
     if (menu) {
       menu.classList.toggle('hidden');
-      // hernan
       this.roomNumberFilterValue = this.searchService.roomNumberFilterValue();
       this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
     }
@@ -638,7 +637,6 @@ export class RealEstateSearchComponent
       buttonText = `${maxRooms}` + ' חדרים';
     }
 
-    //hernan
     this.searchService.roomNumberFilterValue.set(buttonText);
     this.selectedRoomsAmount = roomsAmount;
   }
