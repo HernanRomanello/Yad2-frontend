@@ -152,7 +152,7 @@
 
     <div class="additional-details">
       <div class="additional-details-title">פרטים נוספים</div>
-      <div class="additional-details-table">
+      <div class="additional-details-table1">
         <div class="add-block">
           <div class="gray-text">סוג העסקה</div>
           <div>{{ advertisement.tradeType }}</div>
@@ -187,7 +187,7 @@
     </div>
     <div class="additional-details">
       <div class="additional-details-title">מה יש בנכס</div>
-      <div class="additional-details-table">
+      <div class="additional-details-table2">
         <div class="add-block icons-div">
           <div [ngClass]="fillApartmentCondition(advertisement.elevator)">
             <img
@@ -319,13 +319,6 @@
           </div>
         </div>
 
-        <!-- <div class="add-block">
-          @if (advertisement.longTerm) {
-          <div>לטווח ארוך</div>
-          }
-
-          <div [ngClass]="fillApartmentCondition(false)">מרפסת</div>
-        </div> -->
         <div class="space"></div>
         <div class="space"></div>
       </div>

@@ -341,26 +341,14 @@ img,
 .font16,
 .description,
 .map,
-.add-block {
+.add-block,
+.add-block div {
   font-size: 16px;
 }
 
 #location-icon {
   width: 18px;
   height: 18px;
-}
-
-.add-block {
-  display: flex;
-  direction: rtl;
-  width: fit-content !important;
-  margin: 0 !important;
-}
-
-.add-block div {
-  width: 200.2px;
-  font-size: 16px;
-  margin: 20px 0px 0px 0px;
 }
 
 .icons-div div {
@@ -410,13 +398,36 @@ img,
   height: fit-content !important;
 }
 
-.additional-details-table {
+.additional-details-table1,
+.additional-details-table2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   direction: rtl;
-  gap: 1rem;
+  /* gap: 1rem; */
+  /* background-color: rosybrown !important; */
+
+  /* hernan */
+}
+.additional-details-table2,
+.additional-details-table1 {
+  row-gap: 1rem;
 }
 
+.add-block div {
+  /* width: 200.2px; */
+}
+
+.additional-details-table2 > .add-block div {
+  width: 192.5px;
+}
+
+.add-block {
+  display: flex;
+  direction: rtl;
+  width: fit-content !important;
+  margin: 0 !important;
+}
 .gray-text {
   color: rgb(153, 153, 153);
   width: 154px !important;
