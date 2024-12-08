@@ -122,7 +122,8 @@
   padding: 0px 18px;
   min-height: 36px;
   border-radius: 30px;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  transform: translateY(35px);
 }
 .call-button {
   border: none;
@@ -322,6 +323,9 @@ img,
 #phone-icon {
   width: 24px;
   height: 24px;
+}
+#phone-icon {
+  transform: rotate(10deg) translateY(2px) scale(0.9);
 }
 
 .font16,
