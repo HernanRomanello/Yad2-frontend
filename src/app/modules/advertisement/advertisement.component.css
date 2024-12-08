@@ -228,6 +228,7 @@ img,
   width: 83vw;
   flex-direction: column !important;
   margin: auto;
+  padding-bottom: 4rem;
 }
 
 .price-box {
