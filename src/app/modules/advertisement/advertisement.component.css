@@ -299,8 +299,8 @@ img,
 }
 
 #location-icon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
 }
 
 .add-block {
@@ -313,10 +313,15 @@ img,
 .map {
   color: rgb(216, 96, 0);
   /* margin: 32px 0px 0px; */
+  /* background-color: royalblue; */
   height: 24px;
-  padding-bottom: 64px !important;
+  padding: 45px 4px 64px 0 !important;
   border-bottom: 1px solid lightgray;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end !important;
+  gap: 0.5rem;
 }
 
 .additional-details {
