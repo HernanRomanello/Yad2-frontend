@@ -96,51 +96,54 @@
     </div>
   </div>
   <div class="add-info flex column">
-    <div class="add-title">
-      {{ advertisement.street }} {{ advertisement.number }}
-    </div>
-    <div class="location-details">
-      <span>{{ advertisement.assetType }}, </span>
-      {{ advertisement.neighborhood }},<span> {{ advertisement.city }}</span>
-    </div>
-    <div class="size-details">
-      <div class="flex-center">
-        <img
-          id="door-icon"
-          src="assets/images/door-svgrepo-com (1).svg"
-          alt="door"
-        />
-        <span>{{ advertisement.rooms }}</span>
-        <span>חדרים</span>
+    <div>
+      <div class="add-title">
+        {{ advertisement.street }} {{ advertisement.number }}
       </div>
-      <div class="flex-center">
-        <img
-          id="stairs-icon"
-          src="assets/images/stairs-56-svgrepo-com.svg"
-          alt="stairs"
-        />
-        <span>קומה</span>
-        <span>{{ advertisement.floor }}</span>
+      <div class="location-details">
+        <span>{{ advertisement.assetType }}, </span>
+        {{ advertisement.neighborhood }},<span> {{ advertisement.city }}</span>
       </div>
-      <div class="flex-center">
+      <div class="size-details">
+        <div class="flex-center">
+          <img
+            id="door-icon"
+            src="assets/images/door-svgrepo-com (1).svg"
+            alt="door"
+          />
+          <span>{{ advertisement.rooms }}</span>
+          <span>חדרים</span>
+        </div>
+        <div class="flex-center">
+          <img
+            id="stairs-icon"
+            src="assets/images/stairs-56-svgrepo-com.svg"
+            alt="stairs"
+          />
+          <span>קומה</span>
+          <span>{{ advertisement.floor }}</span>
+        </div>
+        <div class="flex-center">
+          <img
+            id="bricks-icon"
+            src="assets/images/bricks-svgrepo-com.svg"
+            alt="stairs"
+          />
+          <span>{{ advertisement.totalFloors }}</span
+          ><span>מ"ר</span>
+        </div>
+      </div>
+      <div class="description">{{ advertisement.description }}</div>
+      <div class="map">
+        <span> מפה </span>
         <img
-          id="bricks-icon"
-          src="assets/images/bricks-svgrepo-com.svg"
-          alt="stairs"
+          id="location-icon"
+          src="assets/images/location-svgrepo-com2.svg"
+          alt="location"
         />
-        <span>{{ advertisement.totalFloors }}</span
-        ><span>מ"ר</span>
       </div>
     </div>
-    <div class="description">{{ advertisement.description }}</div>
-    <div class="map">
-      <span> מפה </span>
-      <img
-        id="location-icon"
-        src="assets/images/location-svgrepo-com2.svg"
-        alt="location"
-      />
-    </div>
+
     <div class="additional-details">
       <div class="additional-details-title">פרטים נוספים</div>
       <div class="additional-details-table">
