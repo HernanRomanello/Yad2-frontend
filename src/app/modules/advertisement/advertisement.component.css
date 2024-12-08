@@ -236,8 +236,8 @@ img,
 }
 
 .icons {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .price-box {
@@ -357,10 +357,15 @@ img,
   margin: 0 !important;
 }
 
-/* .additional-details,
-.map {
-  border-bottom: 1px solid #eeeeee;
-} */
+.add-block div {
+  width: 200.2px;
+  font-size: 16px;
+  margin: 20px 0px 0px 0px;
+}
+
+.icons-div div {
+  gap: 6px;
+}
 
 .add-info > div {
   border-bottom: 1px solid #eeeeee;
@@ -391,12 +396,6 @@ img,
 }
 .additional-details {
   height: fit-content !important;
-}
-
-.add-block div {
-  width: 200.2px;
-  font-size: 16px;
-  margin: 20px 0px 0px 0px;
 }
 
 .additional-details-table {

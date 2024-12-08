@@ -188,7 +188,7 @@
     <div class="additional-details">
       <div class="additional-details-title">מה יש בנכס</div>
       <div class="additional-details-table">
-        <div class="add-block">
+        <div class="add-block icons-div">
           <div [ngClass]="fillApartmentCondition(advertisement.elevator)">
             <img
               class="icons"
@@ -202,20 +202,35 @@
               fillApartmentCondition(advertisement.accessibleForDisabled)
             "
           >
-            גישה לנכים
+            <img
+              class="icons"
+              src="assets/images/disability-svgrepo-com.svg"
+              alt="location"
+            />
+            <span> גישה לנכים </span>
           </div>
         </div>
-        <div class="add-block">
+        <div class="add-block icons-div">
           <div
             [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
           >
-            מזגן טורנדו
+            <img
+              class="icons"
+              src="assets/images/air-conditioner-svgrepo-com.svg"
+              alt="air-conditioner"
+            />
+            <span> מזגן טורנדו </span>
           </div>
           <div [ngClass]="fillApartmentCondition(advertisement.multiLockDoors)">
-            דלתות רב-בריח
+            <img
+              class="icons"
+              src="assets/images/door-svgrepo-com (1).svg"
+              alt="door"
+            />
+            <span> דלתות רב-בריח </span>
           </div>
         </div>
-        <div class="add-block">
+        <div class="add-block icons-div">
           <div
             [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
           >
@@ -227,34 +242,86 @@
             <span> מיזוג </span>
           </div>
           <div [ngClass]="fillApartmentCondition(advertisement.windowBars)">
-            סורגים
+            <img
+              class="icons"
+              src="assets/images/square-split-2x2-svgrepo-com.svg"
+              alt="square-split"
+            />
+            <span> סורגים </span>
           </div>
         </div>
-        <div class="add-block">
+        <div class="add-block icons-div">
           <div [ngClass]="fillApartmentCondition(advertisement.storageRoom)">
-            מחסן
+            <img
+              class="icons"
+              src="assets/images/box-svgrepo-com.svg"
+              alt="box"
+            />
+            <span> מחסן </span>
           </div>
           <div
             [ngClass]="fillApartmentCondition(advertisement.solarWaterHeater)"
           >
-            דוד שמש
+            <img
+              class="icons"
+              src="assets/images/solar-energy-svgrepo-com (1).svg"
+              alt="solar-energy"
+            />
+
+            <span> דוד שמש </span>
           </div>
         </div>
-        <div class="add-block">
+        <div class="add-block icons-div">
           <div [ngClass]="fillApartmentCondition(advertisement.renovated)">
-            משופצת
+            <img
+              class="icons"
+              src="assets/images/paint-roller-solid-svgrepo-com.svg"
+              alt="door"
+            />
+            <span> משופצת </span>
           </div>
           <div [ngClass]="fillApartmentCondition(advertisement.safeRoom)">
-            ממ"ד
+            <img
+              class="icons"
+              src="assets/images/secure-shield-password-protect-safe-svgrepo-com.svg"
+              alt="secure"
+            />
+            <span> ממ"ד </span>
           </div>
         </div>
-        <div class="add-block">
+
+        <div class="add-block icons-div">
+          <div
+            *ngIf="true"
+            [ngClass]="fillApartmentCondition(advertisement.longTerm)"
+          >
+            <img
+              class="icons"
+              src="assets/images/calender-svgrepo-com.svg"
+              alt="door"
+            />
+            <span> לטווח ארוך </span>
+          </div>
+          <div
+            *ngIf="advertisement.hasBolcony"
+            [ngClass]="fillApartmentCondition(advertisement.hasBolcony)"
+          >
+            <img
+              class="icons"
+              src="assets/images/icons_565162.svg"
+              alt="secure"
+            />
+            <span> מרפסת</span>
+          </div>
+        </div>
+
+        <!-- <div class="add-block">
           @if (advertisement.longTerm) {
           <div>לטווח ארוך</div>
           }
 
           <div [ngClass]="fillApartmentCondition(false)">מרפסת</div>
-        </div>
+        </div> -->
         <div class="space"></div>
         <div class="space"></div>
       </div>
