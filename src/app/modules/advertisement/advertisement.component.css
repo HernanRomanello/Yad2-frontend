@@ -39,13 +39,38 @@
   align-items: center;
 }
 
-.pics-container {
+.pics-container,
+.card-content {
   position: relative;
 }
 
-.white-btns,
-.all-pics-link-btn {
-  position: absolute;
+.gap1 {
+  gap: 0.25rem;
+  padding-right: 12px;
+}
+
+#information-icon {
+  width: 18px;
+  height: 18px;
+}
+#information-icon {
+  opacity: 0.8;
+}
+
+.contact-card {
+  position: sticky !important;
+  top: 2rem !important;
+  height: 140px;
+  background-color: white;
+  font-size: 14px;
+  line-height: 16.1px;
+  height: 214.797px;
+  width: 385px;
+  border: 1px solid rgb(238, 238, 238);
+  margin: 0px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 12px 0px;
 }
 .white-btns,
 .all-pics-link-btn {
@@ -55,20 +80,6 @@
   top: 19px;
   right: 14px;
   gap: 13px;
-}
-
-.all-pics-link-btn {
-  bottom: 11px;
-  left: 11px;
-  line-height: 18.4px;
-
-  background-color: rgba(0, 0, 0, 0.6);
-  color: rgb(255, 255, 255);
-  height: 28px;
-  width: 148.609px;
-  padding: 4px 6px 4px 10px;
-
-  border-radius: 5px;
 }
 
 .white-btns div {
@@ -98,49 +109,55 @@
   border-top-left-radius: 12px;
 }
 
-.contact-card {
-  position: sticky !important;
-  top: 2rem !important;
-  height: 140px;
-  background-color: white;
-  font-size: 14px;
-  line-height: 16.1px;
-  height: 214.797px;
-  width: 385px;
-  border: 1px solid rgb(238, 238, 238);
-  margin: 0px;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 12px 0px;
-}
-
 .card-content {
   text-align: center;
 }
 
-.price {
-  font-weight: 600 !important;
-  opacity: 0.95;
-  margin-bottom: 10px !important;
-  font-size: 32px;
-  line-height: 36.8px;
-  text-align: right;
-}
-
 .call-button {
-  font-size: 18px;
   line-height: 16.1px;
-  text-align: center;
   background-color: rgb(16, 173, 111);
-  color: rgb(255, 255, 255);
   height: 48px;
   width: 323px;
-  border: 0px none rgb(255, 255, 255);
+
   padding: 0px 18px;
   min-height: 36px;
   border-radius: 30px;
+  gap: 0.5rem;
+}
+.call-button {
+  border: none;
+}
 
-  margin: 60px 0px 6px 0px;
+.white-btns,
+.all-pics-link-btn,
+.add-id {
+  position: absolute;
+}
+
+.add-id {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  transform: translateX(-25px) translateY(67px);
+  width: 385px;
+}
+
+.all-pics-link-btn {
+  bottom: 11px;
+  left: 11px;
+  line-height: 18.4px;
+
+  background-color: rgba(0, 0, 0, 0.6);
+
+  height: 28px;
+  width: 148.609px;
+  padding: 4px 6px 4px 10px;
+
+  border-radius: 5px;
+}
+.all-pics-link-btn,
+.call-button {
+  color: rgb(255, 255, 255);
 }
 
 .location-details {
@@ -217,14 +234,6 @@ img,
   border-bottom: 1px solid rgb(238, 238, 238);
 }
 
-.add-id {
-  display: flex;
-  justify-content: space-between;
-  width: 120%;
-  margin-left: -10%;
-  margin-top: 2rem;
-}
-
 .size-details {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -243,13 +252,36 @@ img,
   justify-content: end !important;
   margin-top: -13.75rem;
   transform: translateX(3px);
+  gap: 2.5rem !important;
+}
+
+.price {
+  font-weight: 600 !important;
+  opacity: 0.95;
+  margin-bottom: 10px !important;
+  font-size: 32px;
+  line-height: 36.8px;
+}
+.price,
+.add-info {
   text-align: right;
-  gap: 0rem !important;
 }
 
 .size-details,
 .add-info {
   margin-left: auto !important;
+}
+
+.ad-details {
+  height: 339.875 !important;
+}
+
+.map {
+  color: rgb(216, 96, 0);
+  height: 24px;
+  padding: 45px 4px 54px 0 !important;
+
+  gap: 0.5rem;
 }
 
 .location-details,
@@ -287,12 +319,6 @@ img,
   line-height: 32.2px;
 }
 
-.description {
-  line-height: 25px;
-  max-width: 770px;
-  text-wrap: wrap;
-}
-
 #phone-icon {
   width: 24px;
   height: 24px;
@@ -317,20 +343,6 @@ img,
   margin: 0 !important;
 }
 
-.map {
-  color: rgb(216, 96, 0);
-  height: 24px;
-  padding: 45px 4px 54px 0 !important;
-
-  gap: 0.5rem;
-}
-
-.additional-details {
-  height: fit-content !important;
-  width: 770px;
-  margin-bottom: 2rem;
-}
-
 /* .additional-details,
 .map {
   border-bottom: 1px solid #eeeeee;
@@ -351,7 +363,20 @@ img,
   font-weight: 550;
   line-height: 23px;
   margin: 0px 0px 20px !important;
+}
+
+.additional-details,
+.additional-details-title {
   width: 770px;
+}
+
+.description {
+  line-height: 25px;
+  max-width: 770px;
+  text-wrap: wrap;
+}
+.additional-details {
+  height: fit-content !important;
 }
 
 .add-block div {

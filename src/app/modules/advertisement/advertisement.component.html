@@ -81,7 +81,6 @@
       </div>
       <button class="call-button flex-center">
         הצגת מספר טלפון
-        <!-- <i class="material-icons">local_phone</i> -->
         <img
           id="phone-icon"
           class=""
@@ -89,14 +88,21 @@
           alt="phone"
         />
       </button>
-    </div>
-    <div class="add-id">
-      <div class="id-text">{{ advertisement.id }} :מס' מודעה</div>
-      <div class="id-text">דווח על מודעה</div>
+      <div class="add-id">
+        <div class="id-text">{{ advertisement.id }} :מס' מודעה</div>
+        <div class="id-text gap1 flex-center">
+          <span> דווח על מודעה </span>
+          <img
+            id="information-icon"
+            src="assets/images/information-svgrepo-com.svg"
+            alt="information"
+          />
+        </div>
+      </div>
     </div>
   </div>
   <div class="add-info flex column">
-    <div>
+    <div class="ad-details">
       <div class="add-title">
         {{ advertisement.street }} {{ advertisement.number }}
       </div>
