@@ -166,7 +166,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   closeDropdownSection2(event: any) {
     const elememt = event.target as HTMLElement;
-    //hernan
     if (this.isAssetTypeDropdownHidden) {
       this.isAssetAssetstateDropdownHidden = false;
     }
@@ -181,7 +180,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
   closeDropdownSection3(event: any) {
     const elememt = event.target as HTMLElement;
-    //hernan
     if (!elememt.classList.contains('dropdown-btn')) {
       this.isRoomsDropdownHidden = false;
     }
@@ -191,7 +189,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
   closeDropdownSection4(event: any) {
     const elememt = event.target as HTMLElement;
-    //hernan
 
     if (
       !elememt.classList.contains('rotate-icon') &&
@@ -694,12 +691,11 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.advertisementForm.get('assetType').setValue(type);
   }
 
-  toggleDropdown(type: string): void {
-    this.openAndCloseButtons(type);
-
-    // this.rotateArrowAssetType(type);
-    // this.rotateArrowAssetState(type);
-  }
+  // toggleDropdown(type: string): void {
+  //   this.openAndCloseButtons(type);
+  //   this.rotateArrowAssetType(type);
+  //   this.rotateArrowAssetState(type);
+  // }
 
   private rotateArrowAssetType(type: string) {
     if (type === 'assetType') {
@@ -781,34 +777,34 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
-  private openAndCloseButtons(type: string) {
-    if (type === 'assetType') {
-      this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
-      this.isAssetAssetstateDropdownHidden = false;
-      this.rotateArrowAssetType('assetType');
-      this.rotateArrowAssetState('assetState');
-    } else if (type === 'assetState') {
-      this.isAssetAssetstateDropdownHidden =
-        !this.isAssetAssetstateDropdownHidden;
-      this.isAssetTypeDropdownHidden = false;
-      this.rotateArrowAssetType('assetType');
-      this.rotateArrowAssetState('assetState');
-    } else if (type === 'rooms') {
-      this.isRoomsDropdownHidden = !this.isRoomsDropdownHidden;
-      this.rotateArrowRooms('rooms');
-    } else if (type === 'numberOfPayments') {
-      this.isNumberOfPaymentsTypeDropdownHidden =
-        !this.isNumberOfPaymentsTypeDropdownHidden;
-      this.rotateArrowNumberOfPayments('numberOfPayments');
-    } else if (type === 'asset_owner') {
-      this.isAssetAssetOwnerDropdownHidden =
-        !this.isAssetAssetOwnerDropdownHidden;
-      this.rotateArrowAssetOwner('asset_owner');
-    }
-  }
+  // private openAndCloseButtons(type: string) {
+  //   if (type === 'assetType') {
+  //     this.isAssetTypeDropdownHidden = !this.isAssetTypeDropdownHidden;
+  //     this.isAssetAssetstateDropdownHidden = false;
+  //     this.rotateArrowAssetType('assetType');
+  //     this.rotateArrowAssetState('assetState');
+  //   } else if (type === 'assetState') {
+  //     this.isAssetAssetstateDropdownHidden =
+  //       !this.isAssetAssetstateDropdownHidden;
+  //     this.isAssetTypeDropdownHidden = false;
+  //     this.rotateArrowAssetType('assetType');
+  //     this.rotateArrowAssetState('assetState');
+  //   } else if (type === 'rooms') {
+  //     this.isRoomsDropdownHidden = !this.isRoomsDropdownHidden;
+  //     this.rotateArrowRooms('rooms');
+  //   } else if (type === 'numberOfPayments') {
+  //     this.isNumberOfPaymentsTypeDropdownHidden =
+  //       !this.isNumberOfPaymentsTypeDropdownHidden;
+  //     this.rotateArrowNumberOfPayments('numberOfPayments');
+  //   } else if (type === 'asset_owner') {
+  //     this.isAssetAssetOwnerDropdownHidden =
+  //       !this.isAssetAssetOwnerDropdownHidden;
+  //     this.rotateArrowAssetOwner('asset_owner');
+  //   }
+  // }
 
   selectOption(option: string, type: string) {
-    this.openAndCloseButtons(type);
+    // this.openAndCloseButtons(type);
     if (type === 'assetType') {
       this.asset_type = option;
       this.setAssetType(option);
@@ -851,7 +847,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   ReturnToPrevFormPart(formPageNumber: number) {
-    alert('formPageNumber');
     this.openToEditFormPart(formPageNumber - 1);
     this.scrollToFormPart(formPageNumber - 1);
   }

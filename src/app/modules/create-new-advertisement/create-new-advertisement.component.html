@@ -513,7 +513,9 @@
           id="assetState"
           class="input large dropdown-btn asset_State-value"
           type="button"
-          (click)="toggleDropdown('assetState')"
+          (click)="
+            isAssetAssetstateDropdownHidden = !isAssetAssetstateDropdownHidden
+          "
         >
           {{ asset_State ?? "משופץ? חדש מקבלן" }}
           <i
@@ -1262,7 +1264,9 @@
           class="input large dropdown-btn"
           type="button"
           [ngStyle]="{ opacity: getColor(asset_owner) }"
-          (click)="toggleDropdown('asset_owner')"
+          (click)="
+            isAssetAssetOwnerDropdownHidden = !isAssetAssetOwnerDropdownHidden
+          "
         >
           @if(asset_owner ===''){
           {{ "בעלות הנכס" }}
