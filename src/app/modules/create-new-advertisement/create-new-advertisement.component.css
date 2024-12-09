@@ -74,7 +74,7 @@ textarea,
 .dropdown-menu li,
 .select-options
   li
-  .svg-iconת.post-btnת.remove-add-contactת.file-inputת.Featureת.checkbox-input
+  .svg-icon.post-btnת.remove-add-contactת.file-inputת.Featureת.checkbox-input
   input[type="checkbox"],
 .check-input input[type="checkbox"],
 input[type="checkbox"],
@@ -526,8 +526,8 @@ input[type="checkbox"] {
 }
 
 i.material-icons {
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
   opacity: 0.5;
 }
 
@@ -1164,6 +1164,9 @@ textarea::placeholder,
 .svg-icon {
   width: 24px;
   height: 24px;
+}
+.svg-icon {
+  transform: translateY(-2px);
 }
 
 .border-invalid {
