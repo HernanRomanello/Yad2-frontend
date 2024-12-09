@@ -87,7 +87,7 @@ input[matAutocomplete] {
 .asset-type-buttons {
   display: flex;
   margin: auto;
-  gap: 2rem;
+  gap: 30px;
 }
 
 .asset-type {
@@ -123,7 +123,7 @@ input[matAutocomplete] {
 }
 
 #Selection-1 {
-  height: 360px;
+  height: 359.484px;
 }
 
 #Selection-2,
@@ -270,8 +270,12 @@ input::placeholder,
 .type-pic {
   transform: translateY(-4px);
 }
+.translateY2 {
+  transform: translateY(-12px);
+}
+
 .translateY {
-  transform: translateY(-14px);
+  transform: translateY(-20px);
 }
 
 .asset-type {
