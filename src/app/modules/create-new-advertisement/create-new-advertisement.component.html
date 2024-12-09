@@ -312,7 +312,6 @@
               let i = index
             "
             (click)="
-              advertisementForm.get('city').setValue(item.city_name_he);
               this.checkIfValidCity(item.city_name_he);
               advertisementForm.get('city').setValue(item.city_name_he)
             "
@@ -496,11 +495,7 @@
           <li
             class="dropdown-item"
             *ngFor="let option of assetTypes"
-            (click)="
-              asset_type = option;
-              selectOption(option, 'assetType');
-              setAssetType(option)
-            "
+            (click)="selectOption(option, 'assetType')"
           >
             {{ option }}
           </li>
@@ -538,7 +533,7 @@
           <li
             class="dropdown-item assetState"
             *ngFor="let option of advertisementService.assetConditions"
-            (click)="asset_State = option; selectOption(option, 'assetState')"
+            (click)="selectOption(option, 'assetState')"
           >
             {{ option }}
           </li>

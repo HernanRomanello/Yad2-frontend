@@ -54,7 +54,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   navigationService = inject(NavigationService);
   isAssetTypeDropdownHidden = false;
   isNumberOfPaymentsTypeDropdownHidden = false;
-  isCityDropdownHidden = false;
+  isCityDropdownHidden = true;
   isStreetDropdownHidden = false;
   isAssetAssetstateDropdownHidden = false;
   isAssetAssetOwnerDropdownHidden = false;
@@ -150,16 +150,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           return;
         }
 
-        this.isCityDropdownHidden = clickedElement.classList.contains(
-          'city-Input'
-        )
-          ? true
-          : false;
-        this.isStreetDropdownHidden = clickedElement.classList.contains(
-          'street-Input'
-        )
-          ? true
-          : false;
+        // this.isCityDropdownHidden = clickedElement.classList.contains(
+        //   'city-Input'
+        // )
+        //   ? true
+        //   : false;
+        // this.isStreetDropdownHidden = clickedElement.classList.contains(
+        //   'street-Input'
+        // )
+        //   ? true
+        //   : false;
       });
     });
   }
@@ -676,20 +676,20 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.modalstate.isModalVisible.next(isVisible);
   }
 
-  set_Number_Of_Payments(type: string) {
-    this.advertisementForm.get('numberOfPayments').setValue(type);
-  }
-  set_assetState(type: string) {
-    this.advertisementForm.get('assetState').setValue(type);
-  }
+  // set_Number_Of_Payments(type: string) {
+  //   this.advertisementForm.get('numberOfPayments').setValue(type);
+  // }
+  // set_assetState(type: string) {
+  //   this.advertisementForm.get('assetState').setValue(type);
+  // }
 
-  set_Number_Of_Rooms(type: string) {
-    this.advertisementForm.get('rooms').setValue(type);
-  }
+  // set_Number_Of_Rooms(type: string) {
+  //   this.advertisementForm.get('rooms').setValue(type);
+  // }
 
-  setAssetType(type: string) {
-    this.advertisementForm.get('assetType').setValue(type);
-  }
+  // setAssetType(type: string) {
+  //   this.advertisementForm.get('assetType').setValue(type);
+  // }
 
   // toggleDropdown(type: string): void {
   //   this.openAndCloseButtons(type);
@@ -697,85 +697,85 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   //   this.rotateArrowAssetState(type);
   // }
 
-  private rotateArrowAssetType(type: string) {
-    if (type === 'assetType') {
-      if (this.isAssetTypeDropdownHidden) {
-        this.renderer.addClass(
-          this.dropdownIconAsset_type.nativeElement,
-          'rotate-icon'
-        );
-      } else {
-        this.renderer.removeClass(
-          this.dropdownIconAsset_type.nativeElement,
-          'rotate-icon'
-        );
-      }
-    }
-  }
+  // private rotateArrowAssetType(type: string) {
+  //   if (type === 'assetType') {
+  //     if (this.isAssetTypeDropdownHidden) {
+  //       this.renderer.addClass(
+  //         this.dropdownIconAsset_type.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     } else {
+  //       this.renderer.removeClass(
+  //         this.dropdownIconAsset_type.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     }
+  //   }
+  // }
 
-  private rotateArrowRooms(type: string) {
-    if (type === 'rooms') {
-      if (this.isRoomsDropdownHidden) {
-        this.renderer.addClass(
-          this.dropdownIconRooms.nativeElement,
-          'rotate-icon'
-        );
-      } else {
-        this.renderer.removeClass(
-          this.dropdownIconRooms.nativeElement,
-          'rotate-icon'
-        );
-      }
-    }
-  }
+  // private rotateArrowRooms(type: string) {
+  //   if (type === 'rooms') {
+  //     if (this.isRoomsDropdownHidden) {
+  //       this.renderer.addClass(
+  //         this.dropdownIconRooms.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     } else {
+  //       this.renderer.removeClass(
+  //         this.dropdownIconRooms.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     }
+  //   }
+  // }
 
-  private rotateArrowNumberOfPayments(type: string) {
-    if (type === 'numberOfPayments') {
-      if (this.isNumberOfPaymentsTypeDropdownHidden) {
-        this.renderer.addClass(
-          this.dropdownIconnumber_Of_Payments_type.nativeElement,
-          'rotate-icon'
-        );
-      } else {
-        this.renderer.removeClass(
-          this.dropdownIconnumber_Of_Payments_type.nativeElement,
-          'rotate-icon'
-        );
-      }
-    }
-  }
+  // private rotateArrowNumberOfPayments(type: string) {
+  //   if (type === 'numberOfPayments') {
+  //     if (this.isNumberOfPaymentsTypeDropdownHidden) {
+  //       this.renderer.addClass(
+  //         this.dropdownIconnumber_Of_Payments_type.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     } else {
+  //       this.renderer.removeClass(
+  //         this.dropdownIconnumber_Of_Payments_type.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     }
+  //   }
+  // }
 
-  private rotateArrowAssetState(type: string) {
-    if (type === 'assetState') {
-      if (this.isAssetAssetstateDropdownHidden) {
-        this.renderer.addClass(
-          this.dropdownIconAsset_State.nativeElement,
-          'rotate-icon'
-        );
-      } else {
-        this.renderer.removeClass(
-          this.dropdownIconAsset_State.nativeElement,
-          'rotate-icon'
-        );
-      }
-    }
-  }
+  // private rotateArrowAssetState(type: string) {
+  //   if (type === 'assetState') {
+  //     if (this.isAssetAssetstateDropdownHidden) {
+  //       this.renderer.addClass(
+  //         this.dropdownIconAsset_State.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     } else {
+  //       this.renderer.removeClass(
+  //         this.dropdownIconAsset_State.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     }
+  //   }
+  // }
 
-  private rotateArrowAssetOwner(type: string) {
-    if (type === 'asset_owner') {
-      if (this.isAssetAssetOwnerDropdownHidden) {
-        this.renderer.addClass(
-          this.dropdownIconasset_owner.nativeElement,
-          'rotate-icon'
-        );
-      } else {
-        this.renderer.removeClass(
-          this.dropdownIconasset_owner.nativeElement,
-          'rotate-icon'
-        );
-      }
-    }
-  }
+  // private rotateArrowAssetOwner(type: string) {
+  //   if (type === 'asset_owner') {
+  //     if (this.isAssetAssetOwnerDropdownHidden) {
+  //       this.renderer.addClass(
+  //         this.dropdownIconasset_owner.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     } else {
+  //       this.renderer.removeClass(
+  //         this.dropdownIconasset_owner.nativeElement,
+  //         'rotate-icon'
+  //       );
+  //     }
+  //   }
+  // }
 
   // private openAndCloseButtons(type: string) {
   //   if (type === 'assetType') {
@@ -807,16 +807,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     // this.openAndCloseButtons(type);
     if (type === 'assetType') {
       this.asset_type = option;
-      this.setAssetType(option);
+      this.advertisementForm.get('assetType').setValue(option);
     } else if (type === 'assetState') {
       this.asset_State = option;
-      this.set_assetState(option);
+      this.advertisementForm.get('assetState').setValue(option);
     } else if (type === 'rooms') {
       this.asset_Rooms = option;
-      this.set_Number_Of_Rooms(option);
+      this.advertisementForm.get('rooms').setValue(option);
     } else if (type === 'numberOfPayments') {
       this.number_Of_Payments = option;
-      this.set_Number_Of_Payments(option);
+      this.advertisementForm.get('numberOfPayments').setValue(option);
     } else if (type === 'asset_owner') {
       this.asset_owner = option;
     }
