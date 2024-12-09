@@ -8,10 +8,25 @@ body {
   padding: 0;
   margin: 0;
   border: 1px solid #ccc;
-  position: absolute;
   transform: translateY(70px);
   border: transparent !important;
   border-radius: 4px;
+}
+.dropdown-menu,
+.select-options,
+.checkbox-input input[type="checkbox"]:checked::after,
+.check-input input[type="checkbox"]:checked::after,
+input[type="checkbox"]:checked::after,
+.recommend-pic,
+.insight-pic,
+.insight-pic,
+.upgrade-add-pic {
+  position: absolute;
+}
+
+.recommend-pic {
+  top: 32px;
+  left: 32px;
 }
 
 .dropdown-menu,
@@ -401,13 +416,7 @@ input::placeholder {
   transform: translatex(12px) !important;
 }
 
-.recommend-pic {
-  position: absolute;
-  top: 30%;
-}
-
 .insight-pic {
-  position: absolute;
   top: 46%;
   right: 51%;
 }
@@ -421,7 +430,6 @@ input::placeholder {
 }
 
 .upgrade-add-pic {
-  position: absolute;
   top: 38%;
   right: 51%;
 }
@@ -641,7 +649,6 @@ input[type="checkbox"] {
   -moz-appearance: none;
   border: 1px solid lightgray;
   border-radius: 2px;
-  position: relative;
 }
 
 .checkbox {
@@ -663,7 +670,6 @@ input[type="checkbox"]:checked {
 .check-input input[type="checkbox"]:checked::after,
 input[type="checkbox"]:checked::after {
   content: "";
-  position: absolute;
   top: 1px;
   left: 4px;
   width: 4px;
@@ -797,13 +803,20 @@ textarea::placeholder {
 }
 
 .process-bar {
-  position: relative;
   top: -158px;
   right: 0px;
   width: 0px;
   height: 5px;
   z-index: 100 !important;
   border-top-right-radius: 5px;
+}
+
+.checkbox-input input[type="checkbox"],
+.check-input input[type="checkbox"],
+input[type="checkbox"],
+.process-bar,
+#Selection-2 {
+  position: relative;
 }
 
 .date-container div {
