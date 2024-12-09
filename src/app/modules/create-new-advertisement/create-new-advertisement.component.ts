@@ -170,6 +170,22 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     });
   }
 
+  closeDropdownSection2(event: any) {
+    const elememt = event.target as HTMLElement;
+
+    if (this.isAssetTypeDropdownHidden) {
+      this.isAssetAssetstateDropdownHidden = false;
+    }
+    if (this.isAssetAssetstateDropdownHidden) {
+      this.isAssetTypeDropdownHidden = false;
+    }
+
+    if (!elememt.classList.contains('dropdown-btn')) {
+      this.isAssetTypeDropdownHidden = false;
+      this.isAssetAssetstateDropdownHidden = false;
+    }
+  }
+
   resetAllDropdowns() {
     this.isAssetTypeDropdownHidden = false;
     this.isAssetAssetstateDropdownHidden = false;

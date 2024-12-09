@@ -413,13 +413,9 @@ input::placeholder {
 }
 
 .rooms {
-  max-width: 270px !important;
+  max-width: 260px !important;
 }
 
-#rooms {
-  background-color: #0e9c64 !important;
-  padding: 0px 1rem 0 0.5rem !important;
-}
 
 .date-input,
 .assetState,
@@ -542,7 +538,7 @@ input[type="checkbox"] {
 
 .dropdown-item {
   line-height: 18.4px;
-  width: 250px;
+  width: 240px;
 }
 .dropdown-item,
 #city-option,
