@@ -20,7 +20,18 @@
 .select-options,
 #city-option,
 .dropdown-item,
-#street-option {
+#street-option,
+.advertisement-selection,
+.asset-type,
+.continue-btn,
+.return-btn,
+.input,
+.option,
+.Feature,
+textarea,
+.upload-card,
+.ad-images-box,
+.choice-note {
   background-color: rgb(255, 255, 255) !important;
 }
 
@@ -72,30 +83,9 @@ input[matAutocomplete] {
   display: none;
 }
 
-.asset-type {
-  margin: 0px;
-  padding: 12px 0px 22px;
-  height: 188.484px;
-  width: 177px;
-  border: 1px solid rgb(204, 204, 204);
-  font-weight: 400;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-}
-
 .type-pic {
   width: 120px;
   height: 120px;
-  /* hernan */
-}
-
-.btn-text2 {
-  line-height: 16.1px;
-  font-weight: 400;
-  font-size: 14px;
-  color: rgb(153, 153, 153);
 }
 
 .asset-type-buttons {
@@ -104,8 +94,16 @@ input[matAutocomplete] {
   gap: 2rem;
 }
 
-.advertisement-selection {
-  background-color: rgb(255, 255, 255) !important;
+.asset-type {
+  /* padding: 12px 0px 22px; */
+  height: 188.484px;
+  width: 177px;
+  border: 1px solid rgb(204, 204, 204);
+  /* font-weight: 400; */
+  border-radius: 10px;
+  /* display: grid;
+  grid-template-rows: 1fr 1fr 1fr; */
+  /* hernan */
 }
 
 .close-section,
@@ -204,11 +202,9 @@ form {
   font-weight: 600 !important;
   color: rgb(255, 113, 0, 0.8);
   border: 1px solid rgb(255, 113, 0);
-  background-color: rgb(255, 255, 255);
 }
 
 .return-btn {
-  background-color: rgb(255, 255, 255);
   background-repeat: repeat;
   border: 1px solid rgb(153, 153, 153, 0.5);
 }
@@ -237,8 +233,7 @@ form {
 .input {
   font-size: 16px;
   line-height: 18.4px;
-  font-weight: 400;
-  background-color: rgb(255, 255, 255) !important;
+  /* font-weight: 400; */
   color: rgb(54, 54, 54);
   height: 42px;
   border-radius: 4px;
@@ -246,15 +241,9 @@ form {
   padding-right: 1rem !important;
 }
 
-.btn-text1 {
-  line-height: 18.4px;
-  font-weight: 600;
-  opacity: 0.65 !important;
-}
-
 .date-input {
   line-height: 18.4px;
-  font-weight: 400;
+  /* font-weight: 400; */
   height: 42px;
   width: 270px;
   padding: 10px;
@@ -274,6 +263,35 @@ form {
 input::placeholder,
 #street-option {
   font-size: 16px;
+}
+
+.btn-text1 {
+  /* line-height: 18.4px; */
+  font-weight: 500;
+  /* opacity: 0.65 !important; */
+  color: #363636;
+}
+
+.btn-text1,
+.btn-text2 {
+  transform: translateY(-20px);
+}
+.type-pic {
+  transform: translateY(-10px);
+}
+.translateY {
+  transform: translateY(-24px);
+}
+
+.asset-type {
+  transform: translateY(-20px) !important;
+}
+
+.btn-text2 {
+  line-height: 16.1px;
+  font-size: 14px;
+  color: rgb(153, 153, 153);
+  padding-top: 0.25rem;
 }
 
 .dropdown-btn {
@@ -531,7 +549,7 @@ i.material-icons {
 .dropdown-item,
 #city-option,
 #street-option {
-  font-weight: 400;
+  /* font-weight: 400; */
 }
 
 .asset {
@@ -555,7 +573,6 @@ i.material-icons {
 
 .option {
   line-height: 16.1px;
-  background-color: rgb(255, 255, 255);
   height: 42px;
   width: 67px;
   border: 1px solid #cccccc;
@@ -697,7 +714,6 @@ input[type="checkbox"]:checked::after {
 
 .Feature {
   line-height: 16.1px;
-  background-color: rgb(255, 255, 255);
   border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   height: 42px;
@@ -750,7 +766,6 @@ input[type="checkbox"]:checked::after {
 textarea {
   line-height: 18.4px;
   text-align: start;
-  background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   height: 157.906px;
   width: 398px;
@@ -768,7 +783,7 @@ textarea:hover {
 textarea::placeholder {
   color: rgb(0, 0, 0, 0.3);
   font-size: 18px;
-  font-weight: 400;
+  /* font-weight: 400; */
   font-family: "rubik" sans-serif;
   letter-spacing: -0.8px;
   line-height: 1.1;
@@ -820,7 +835,7 @@ textarea::placeholder {
 
 .date-input {
   line-height: 18.4px;
-  font-weight: 400;
+  /* font-weight: 400; */
   height: 42px;
   width: 270px !important;
   padding: 0px 1px 0px 0px;
@@ -876,7 +891,6 @@ textarea::placeholder {
   border-radius: 10px;
   width: 245.344px;
   height: 233px !important;
-  background-color: rgb(255, 255, 255);
 }
 
 .card-header {
@@ -890,14 +904,24 @@ textarea::placeholder {
 
 .card-content {
   display: flex;
+
+  align-items: center;
+}
+.card-content,
+.column,
+.asset-type {
   flex-direction: column;
+}
+
+.flex-center,
+.upload-part,
+.asset-type {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .upload-part {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-left: auto !important;
   margin-right: 40px !important;
   margin-top: 25px !important;
@@ -948,7 +972,6 @@ textarea::placeholder {
   direction: rtl;
   max-width: 900px !important;
   flex-wrap: wrap !important;
-  background-color: rgb(255, 255, 255) !important;
 }
 
 mat-icon {
@@ -986,8 +1009,7 @@ textarea::placeholder,
 }
 
 .choice-note {
-  font-weight: 400;
-  background-color: rgb(255, 255, 255);
+  /* font-weight: 400; */
   height: 76px;
   width: 798px;
   border: 1px solid rgb(238, 238, 238);
