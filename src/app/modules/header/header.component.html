@@ -567,12 +567,29 @@
         }
       </div>
       <div
-        class="user-area2 flex-center2 hover-background"
+        [ngClass]="
+          this.navigationService.isCreateNewAdIsOpen()
+            ? 'user-area2 flex-center2 hover-background'
+            : 'user-area2 flex-center2 hover-background2'
+        "
         (mouseover)="isUserAreaDropdownOpen(true)"
         (mouseleave)="isUserAreaDropdownOpen(false)"
       >
-        <div class="hover-background">
-          <div routerLink="/profile" class="flex-center2 hover-background">
+        <div
+          [ngClass]="
+            this.navigationService.isCreateNewAdIsOpen()
+              ? 'hover-background'
+              : 'hover-background2'
+          "
+        >
+          <div
+            routerLink="/profile"
+            [ngClass]="
+              this.navigationService.isCreateNewAdIsOpen()
+                ? 'flex-center2 hover-background'
+                : 'flex-center2 hover-background2'
+            "
+          >
             @if(!(this.navigationService.IsUserAreaISOpen())) {
             <div class="user-name2 flex-center2 font16">
               {{ this.userName }}

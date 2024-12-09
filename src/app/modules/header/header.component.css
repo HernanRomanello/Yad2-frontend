@@ -286,8 +286,13 @@ button {
 .user-favorite-btn:hover,
 .bell-container:hover,
 .user-name2:hover,
-.hover-background:hover {
+.hover-background:hover,
+.hover-background2:hover {
   background-color: #f8f8f8 !important;
+}
+
+.hover-background {
+  height: 64px !important;
 }
 
 #bell-icon {
@@ -522,10 +527,6 @@ img,
   height: 54px;
   width: 109.547px;
   padding: 0px 20px;
-}
-
-.hover-background {
-  height: 64px !important;
 }
 
 .right-side2 {
