@@ -567,14 +567,14 @@
         }
       </div>
       <div
-        class="user-area2 flex-center2"
+        class="user-area2 flex-center2 hover-background"
         (mouseover)="isUserAreaDropdownOpen(true)"
         (mouseleave)="isUserAreaDropdownOpen(false)"
       >
-        <div>
-          <div routerLink="/profile" class="flex-center2">
+        <div class="hover-background">
+          <div routerLink="/profile" class="flex-center2 hover-background">
             @if(!(this.navigationService.IsUserAreaISOpen())) {
-            <div class="user-name2 flex-center2">
+            <div class="user-name2 flex-center2 font16">
               {{ this.userName }}
             </div>
 
