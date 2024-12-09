@@ -889,7 +889,11 @@
     </div>
   </div>
   } @else{
-  <div class="advertisement-selection" id="Selection-4">
+  <div
+    (click)="closeDropdownSection4($event)"
+    class="advertisement-selection"
+    id="Selection-4"
+  >
     <div>
       <img src="assets/images/insight.JPG" class="insight-pic" alt="ad2" />
     </div>
@@ -903,7 +907,10 @@
           id="numberOfPayments"
           class="input large dropdown-btn"
           type="button"
-          (click)="toggleDropdown('numberOfPayments')"
+          (click)="
+            isNumberOfPaymentsTypeDropdownHidden =
+              !isNumberOfPaymentsTypeDropdownHidden
+          "
         >
           <span
             [ngStyle]="{ color: changeColorIfSelected(number_Of_Payments) }"

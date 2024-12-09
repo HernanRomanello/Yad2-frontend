@@ -1,7 +1,6 @@
 import {
   Component,
   ElementRef,
-  NgZone,
   OnDestroy,
   OnInit,
   Renderer2,
@@ -139,7 +138,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   constructor(
     private renderer: Renderer2,
-    private zone: NgZone,
     private modalstate: ModalStateService
   ) {
     afterNextRender(() => {
@@ -162,11 +160,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         )
           ? true
           : false;
-
-        this.zone.run(() => {
-          // this.resetAllDropdowns();
-          //hernan
-        });
       });
     });
   }
@@ -196,21 +189,17 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       this.isRoomsDropdownHidden = !this.isRoomsDropdownHidden;
     }
   }
-
-  resetAllDropdowns() {
-    this.isAssetTypeDropdownHidden = false;
-    this.isAssetAssetstateDropdownHidden = false;
-    this.isRoomsDropdownHidden = false;
-    this.isNumberOfPaymentsTypeDropdownHidden = false;
-    this.isAssetAssetOwnerDropdownHidden = false;
-    // this.rotateArrowAssetState('assetState');
-    // this.rotateArrowAssetType('assetType');
-    // this.rotateArrowRooms('rooms');
-    // this.rotateArrowNumberOfPayments('numberOfPayments');
-    // this.rotateArrowAssetOwner('asset_owner');
-
+  closeDropdownSection4(event: any) {
+    const elememt = event.target as HTMLElement;
     //hernan
-    // toggleDropdown('assetState');
+
+    if (
+      !elememt.classList.contains('rotate-icon') &&
+      !elememt.classList.contains('dropdown-btn')
+    ) {
+      this.isNumberOfPaymentsTypeDropdownHidden =
+        !this.isNumberOfPaymentsTypeDropdownHidden;
+    }
   }
 
   ngOnDestroy(): void {
