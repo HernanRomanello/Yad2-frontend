@@ -265,17 +265,17 @@ input::placeholder,
 
 .btn-text1,
 .btn-text2 {
-  transform: translateY(-20px);
-}
-.type-pic {
   transform: translateY(-10px);
 }
+.type-pic {
+  transform: translateY(-4px);
+}
 .translateY {
-  transform: translateY(-24px);
+  transform: translateY(-14px);
 }
 
 .asset-type {
-  transform: translateY(-20px) !important;
+  transform: translateY(-14px) !important;
 }
 
 .btn-text2 {
