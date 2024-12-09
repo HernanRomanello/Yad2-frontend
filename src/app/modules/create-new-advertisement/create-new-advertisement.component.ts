@@ -165,6 +165,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
         this.zone.run(() => {
           // this.resetAllDropdowns();
+          //hernan
         });
       });
     });
@@ -172,7 +173,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   closeDropdownSection2(event: any) {
     const elememt = event.target as HTMLElement;
-
+    //hernan
     if (this.isAssetTypeDropdownHidden) {
       this.isAssetAssetstateDropdownHidden = false;
     }
@@ -183,6 +184,16 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     if (!elememt.classList.contains('dropdown-btn')) {
       this.isAssetTypeDropdownHidden = false;
       this.isAssetAssetstateDropdownHidden = false;
+    }
+  }
+  closeDropdownSection3(event: any) {
+    const elememt = event.target as HTMLElement;
+    //hernan
+    if (!elememt.classList.contains('dropdown-btn')) {
+      this.isRoomsDropdownHidden = false;
+    }
+    if (elememt.classList.contains('rotate-icon')) {
+      this.isRoomsDropdownHidden = !this.isRoomsDropdownHidden;
     }
   }
 

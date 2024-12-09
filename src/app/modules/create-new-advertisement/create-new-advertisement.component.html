@@ -634,7 +634,11 @@
     </div>
   </div>
   } @else{
-  <div class="advertisement-selection" id="Selection-3">
+  <div
+    (click)="closeDropdownSection3($event)"
+    class="advertisement-selection"
+    id="Selection-3"
+  >
     <div>
       <img
         src="assets/images/upgrade-add.JPG"
@@ -651,7 +655,7 @@
             id="rooms"
             class="input large dropdown-btn"
             type="button"
-            (click)="toggleDropdown('rooms')"
+            (click)="isRoomsDropdownHidden = !isRoomsDropdownHidden"
           >
             {{ asset_Rooms ?? "בחירת מספר חדרים" }}
             <i
