@@ -458,13 +458,16 @@ img,
 .round2 {
   line-height: 16.1px;
   background-color: rgb(171, 71, 188);
+  background-color: #ef6c00;
   height: 40px;
   width: 40px;
+  /* height: 38px;
+  width: 38px; */
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 22px;
   color: white;
   margin-left: 6px;
-  border: solid 1px #ff7100;
+  /* border: solid 1px #ff7100; */
 }
 
 .user-name {
