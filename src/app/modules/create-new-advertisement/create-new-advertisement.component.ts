@@ -171,6 +171,17 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     alert('isCityDropdownHidden ' + this.isCityDropdownHidden);
   }
 
+  HideCityAndStreetDropdown(event: any) {
+    const elememt = event.target as HTMLElement;
+    if (
+      !elememt.classList.contains('city-Input') &&
+      !elememt.classList.contains('street-Input')
+    ) {
+      this.isCityDropdownHidden = true;
+      this.isStreetDropdownHidden = true;
+    }
+  }
+
   closeDropdownSection2(event: any) {
     const elememt = event.target as HTMLElement;
     if (this.isAssetTypeDropdownHidden) {
