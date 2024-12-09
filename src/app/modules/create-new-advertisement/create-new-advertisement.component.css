@@ -99,21 +99,14 @@ input[matAutocomplete] {
 }
 
 .asset-type {
-  /* padding: 12px 0px 22px; */
   height: 188.484px;
   width: 177px;
   border: 1px solid rgb(204, 204, 204);
-  /* font-weight: 400; */
   border-radius: 10px;
-  /* display: grid;
-  grid-template-rows: 1fr 1fr 1fr; */
-  /* hernan */
 }
 
 .close-section,
 .advertisement-selection {
-  width: 880px !important;
-  /* width: 61.11111vw !important; */
   margin: auto !important;
   display: flex;
   justify-content: center;
@@ -121,15 +114,16 @@ input[matAutocomplete] {
   flex-direction: column;
   border-radius: 10px;
   border: 1px solid rgb(230, 230, 230);
-  /* background-color: rgb(34, 206, 138) !important; */
-  /* hernan */
+}
+.advertisement-selection,
+.close-section {
+  width: 880px !important;
 }
 
 .close-section span,
 .close-section div {
   font-size: 20px !important;
   color: rgb(54, 54, 54, 0.5);
-  font-weight: 500 !important;
 }
 
 .gray-border {
@@ -277,9 +271,6 @@ input::placeholder,
 }
 
 .btn-text1 {
-  /* line-height: 18.4px; */
-  font-weight: 500;
-  /* opacity: 0.65 !important; */
   color: #363636;
 }
 
@@ -705,7 +696,7 @@ input[type="checkbox"]:checked::after {
 }
 
 .Selection-2-content {
-  transform: translateX(-50px);
+  transform: translateX(-40px);
 }
 
 .Selection-6-content,
@@ -812,7 +803,6 @@ textarea::placeholder {
   line-height: 13.8px;
   height: 13.7969px;
   margin: 10px 0px 0px;
-  font-weight: 500;
 }
 
 .process-bar {
@@ -1111,10 +1101,17 @@ textarea::placeholder,
 
 .green-btn {
   background-color: rgb(15, 202, 128) !important;
-  font-weight: 500;
   color: rgb(255, 255, 255) !important;
   border: 0px none rgb(255, 255, 255) !important;
   width: 168.906px !important;
+}
+
+.close-section span,
+.close-section div.btn-text1,
+.nano-text1,
+.font500,
+.green-btn {
+  font-weight: 500 !important;
 }
 
 .green-btn:hover {
