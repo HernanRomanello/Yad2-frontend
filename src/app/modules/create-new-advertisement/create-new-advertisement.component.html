@@ -786,11 +786,11 @@
             </div>
 
             <textarea
+              id="description"
               maxlength="400"
               placeholder="זה המקום לתאר את הפרטים הבולטים,למשל,האם נערך שיפוץ במבנה,מה שופץ,כיווני אוויר,האווירה ברחוב וכו'"
               (input)="updateDescription(description.value)"
               #description
-              id="description"
               formControlName="description"
             ></textarea>
             <div

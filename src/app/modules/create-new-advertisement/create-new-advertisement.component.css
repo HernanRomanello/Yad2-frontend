@@ -204,7 +204,6 @@ form {
 }
 .orange-small-text,
 .light-opacity-orange,
-.sub-title,
 .section-title,
 .continue-btn {
   font-weight: 600 !important;
@@ -235,16 +234,6 @@ form {
   height: 36px;
 }
 
-.input {
-  font-size: 16px;
-  line-height: 18.4px;
-  color: rgb(54, 54, 54);
-  height: 42px;
-  border-radius: 4px;
-  direction: rtl;
-  padding-right: 1rem !important;
-}
-
 .date-input {
   line-height: 18.4px;
   height: 42px;
@@ -263,8 +252,18 @@ form {
 .date-input,
 .dropdown-btn,
 input::placeholder,
-#street-option {
+#street-option,
+.input {
   font-size: 16px;
+}
+
+.input {
+  line-height: 18.4px;
+  color: rgb(54, 54, 54);
+  height: 42px;
+  border-radius: 4px;
+  direction: rtl;
+  padding-right: 1rem !important;
 }
 
 .btn-text1 {
@@ -752,6 +751,7 @@ input[type="checkbox"]:checked::after {
 
 textarea {
   line-height: 18.4px;
+  font-size: 16px !important;
   text-align: start;
   color: rgb(0, 0, 0);
   height: 157.906px;
@@ -784,14 +784,6 @@ textarea::placeholder {
   color: #cccccc;
 }
 
-.nano-text1 {
-  font-size: 11.5px;
-  text-align: start;
-  line-height: 13.8px;
-  height: 13.7969px;
-  margin: 10px 0px 0px;
-}
-
 .process-bar {
   top: -158px;
   right: 0px;
@@ -814,8 +806,8 @@ input[type="checkbox"],
   /* top: 38%; */
   /* right: 51%; */
   /* hernan */
-  top: 30px;
-  left: 30px;
+  top: 18px;
+  left: 22px;
 }
 
 .date-container div {
@@ -1122,10 +1114,18 @@ textarea::placeholder,
 }
 
 .btn-text1,
-.nano-text1,
 .font500,
-.green-btn {
+.green-btn,
+.sub-title {
   font-weight: 500 !important;
+}
+
+.nano-text1 {
+  font-size: 12px;
+}
+
+.sub-title {
+  letter-spacing: 0 !important;
 }
 
 .close-section span,
