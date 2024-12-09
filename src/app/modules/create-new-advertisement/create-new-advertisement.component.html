@@ -113,7 +113,10 @@
         }
       </div>
       <div>
-        <span class="title-div"> אני רוצה להשכיר נכס</span>
+        <span class="title-div">
+          @if(advertisementForm.get('tradeType').value === 'השכרה'){ אני רוצה
+          להשכיר נכס } @else{ אני רוצה למכור נכס }
+        </span>
         @if(isFormPagesAreCompleted[0]){
 
         <span class="section-title light-green-circle">

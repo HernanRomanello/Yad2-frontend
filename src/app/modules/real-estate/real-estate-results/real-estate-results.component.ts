@@ -248,6 +248,7 @@ export class RealEstateResultsComponent implements OnInit {
       }
     )
   );
+
   isFavorite(advertisementId: number): boolean {
     return this.authSerivce.UserFavoriteAdvertisements.value.some(
       (ad) => ad.id === advertisementId
