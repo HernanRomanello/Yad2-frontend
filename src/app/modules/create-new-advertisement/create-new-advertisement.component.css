@@ -416,6 +416,12 @@ input::placeholder {
   max-width: 260px !important;
 }
 
+.asset_State-value {
+  text-wrap: nowrap !important;
+  letter-spacing: -0.05px !important;
+  overflow: hidden !important;
+  padding-right: 0.5rem !important;
+}
 
 .date-input,
 .assetState,
