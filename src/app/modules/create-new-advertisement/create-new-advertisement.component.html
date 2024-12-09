@@ -266,6 +266,7 @@
           #cityInput
           formControlName="city"
           placeholder="  איפה נמצא הנכס?"
+          autocomplete="off"
           (focus)="
             this.isCityDropdownHidden = true;
             advertisementForm.get('city').setValue(cityInput.value)

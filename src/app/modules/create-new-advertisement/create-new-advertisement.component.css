@@ -458,7 +458,7 @@ input::placeholder {
 .orange-small-text {
   color: rgb(255, 113, 0);
   height: 23px;
-  margin: 24px 0px;
+  margin: 14px 0px 10px 0;
   font-weight: 600 !important;
 }
 
