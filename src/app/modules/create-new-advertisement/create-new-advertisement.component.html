@@ -471,15 +471,21 @@
           id="assetType"
           class="input large dropdown-btn"
           type="button"
-          (click)="toggleDropdown('assetType')"
+          (click)="isAssetTypeDropdownHidden = !isAssetTypeDropdownHidden"
         >
           {{ asset_type ?? "דירה או אולי פנטהאוז?" }}
-          <i #dropdownIconAsset_type class="material-icons arrow-down"
+          <i
+            #dropdownIconAsset_type
+            [ngClass]="
+              isAssetTypeDropdownHidden
+                ? 'material-icons rotate-icon'
+                : 'material-icons arrow-down'
+            "
             >keyboard_arrow_down</i
           >
         </button>
         <div id="assetType-error" class="error-text">שדה חובה</div>
-        <ul *ngIf="this.isAssetTypeDropdownHidden" class="dropdown-menu asset">
+        <ul *ngIf="isAssetTypeDropdownHidden" class="dropdown-menu asset">
           <li
             class="dropdown-item"
             *ngFor="let option of assetTypes"
@@ -499,7 +505,13 @@
           (click)="toggleDropdown('assetState')"
         >
           {{ asset_State ?? "משופץ? חדש מקבלן" }}
-          <i #dropdownIconAsset_State class="material-icons arrow-down"
+          <i
+            #dropdownIconAsset_State
+            [ngClass]="
+              isAssetAssetstateDropdownHidden
+                ? 'material-icons rotate-icon'
+                : 'material-icons arrow-down'
+            "
             >keyboard_arrow_down</i
           >
         </button>
@@ -507,7 +519,7 @@
           שדה לא חוקי - מצב הנכס
         </div>
         <ul
-          *ngIf="this.isAssetAssetstateDropdownHidden"
+          *ngIf="isAssetAssetstateDropdownHidden"
           class="dropdown-menu asset dropdown-assetState"
         >
           <li
@@ -635,13 +647,19 @@
             (click)="toggleDropdown('rooms')"
           >
             {{ asset_Rooms ?? "בחירת מספר חדרים" }}
-            <i #dropdownIconRooms class="material-icons arrow-down"
+            <i
+              #dropdownIconRooms
+              [ngClass]="
+                isRoomsDropdownHidden
+                  ? 'material-icons rotate-icon'
+                  : 'material-icons arrow-down'
+              "
               >keyboard_arrow_down</i
             >
           </button>
           <div id="rooms-error" class="error-text">שדה חובה</div>
           <ul
-            *ngIf="this.isRoomsDropdownHidden"
+            *ngIf="isRoomsDropdownHidden"
             class="dropdown-menu asset dropdown-assetState rooms"
           >
             <li
@@ -882,13 +900,19 @@
             {{ number_Of_Payments }}
           </span>
 
-          <i #dropdownIconnumber_Of_Payments_type class="material-icons"
+          <i
+            #dropdownIconnumber_Of_Payments_type
+            [ngClass]="
+              isNumberOfPaymentsTypeDropdownHidden
+                ? 'material-icons rotate-icon'
+                : 'material-icons arrow-down'
+            "
             >keyboard_arrow_down</i
           >
         </button>
         <div id="numberOfPayments-error" class="error-text">שדה חובה</div>
         <ul
-          *ngIf="this.isNumberOfPaymentsTypeDropdownHidden"
+          *ngIf="isNumberOfPaymentsTypeDropdownHidden"
           class="dropdown-menu asset"
         >
           <li
@@ -1223,12 +1247,18 @@
           }@else {
           {{ asset_owner }}
           }
-          <i #dropdownIconasset_owner class="material-icons arrow-down"
+          <i
+            #dropdownIconasset_owner
+            [ngClass]="
+              isAssetAssetOwnerDropdownHidden
+                ? 'material-icons rotate-icon'
+                : 'material-icons arrow-down'
+            "
             >keyboard_arrow_down</i
           >
         </button>
         <ul
-          *ngIf="this.isAssetAssetOwnerDropdownHidden"
+          *ngIf="isAssetAssetOwnerDropdownHidden"
           class="dropdown-menu asset dropdown-assetState"
         >
           <li

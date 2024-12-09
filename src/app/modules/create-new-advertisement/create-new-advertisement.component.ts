@@ -164,7 +164,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           : false;
 
         this.zone.run(() => {
-          this.resetAllDropdowns();
+          // this.resetAllDropdowns();
         });
       });
     });
@@ -176,11 +176,14 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.isRoomsDropdownHidden = false;
     this.isNumberOfPaymentsTypeDropdownHidden = false;
     this.isAssetAssetOwnerDropdownHidden = false;
-    this.rotateArrowAssetState('assetState');
-    this.rotateArrowAssetType('assetType');
-    this.rotateArrowRooms('rooms');
-    this.rotateArrowNumberOfPayments('numberOfPayments');
-    this.rotateArrowAssetOwner('asset_owner');
+    // this.rotateArrowAssetState('assetState');
+    // this.rotateArrowAssetType('assetType');
+    // this.rotateArrowRooms('rooms');
+    // this.rotateArrowNumberOfPayments('numberOfPayments');
+    // this.rotateArrowAssetOwner('asset_owner');
+
+    //hernan
+    // toggleDropdown('assetState');
   }
 
   ngOnDestroy(): void {
@@ -679,8 +682,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   toggleDropdown(type: string): void {
     this.openAndCloseButtons(type);
 
-    this.rotateArrowAssetType(type);
-    this.rotateArrowAssetState(type);
+    // this.rotateArrowAssetType(type);
+    // this.rotateArrowAssetState(type);
   }
 
   private rotateArrowAssetType(type: string) {
