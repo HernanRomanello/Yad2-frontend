@@ -238,7 +238,6 @@ form {
 .input {
   font-size: 16px;
   line-height: 18.4px;
-  /* font-weight: 400; */
   color: rgb(54, 54, 54);
   height: 42px;
   border-radius: 4px;
@@ -248,7 +247,6 @@ form {
 
 .date-input {
   line-height: 18.4px;
-  /* font-weight: 400; */
   height: 42px;
   width: 270px;
   padding: 10px;
@@ -546,11 +544,6 @@ i.material-icons {
 #street-option {
   padding: 5px 12px;
 }
-.dropdown-item,
-#city-option,
-#street-option {
-  /* font-weight: 400; */
-}
 
 .asset {
   max-height: 420px !important;
@@ -782,7 +775,6 @@ textarea:hover {
 textarea::placeholder {
   color: rgb(0, 0, 0, 0.3);
   font-size: 18px;
-  /* font-weight: 400; */
   font-family: "rubik" sans-serif;
   letter-spacing: -0.8px;
   line-height: 1.1;
@@ -833,7 +825,6 @@ textarea::placeholder {
 
 .date-input {
   line-height: 18.4px;
-  /* font-weight: 400; */
   height: 42px;
   width: 270px !important;
   padding: 0px 1px 0px 0px;
@@ -1007,7 +998,6 @@ textarea::placeholder,
 }
 
 .choice-note {
-  /* font-weight: 400; */
   height: 76px;
   width: 798px;
   border: 1px solid rgb(238, 238, 238);

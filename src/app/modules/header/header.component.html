@@ -530,7 +530,14 @@
       </div>
     </div>
 
-    <button class="logo-btn" routerLink="/">
+    <button
+      [ngClass]="
+        navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+          ? 'logo-btn-favorite-page'
+          : 'logo-btn-main-page'
+      "
+      routerLink="/"
+    >
       <img src="{{ _LogoPic }}" alt="logo" />
     </button>
   </div>

@@ -48,16 +48,6 @@
   padding: 4.75px !important;
 }
 
-.logo-btn {
-  transform: translateX(-14px) translateY(2px);
-  margin-left: 8px;
-}
-
-.logo-btn img {
-  width: 74px;
-  height: 37px;
-}
-
 button {
   background-color: transparent;
   border: none;
@@ -803,4 +793,28 @@ button,
 }
 .professionals {
   padding-left: 45px;
+}
+
+.logo-btn-main-page {
+  margin-left: 8px;
+}
+
+.logo-btn-favorite-page {
+  margin: 0px 8px 0 15px;
+}
+.logo-btn-main-page,
+.logo-btn-favorite-page {
+  transform: translateX(-14px) translateY(2px);
+}
+
+.logo-btn-main-page img {
+  height: 37px;
+}
+
+.logo-btn-favorite-page img {
+  height: 36px;
+}
+.logo-btn-main-page img,
+.logo-btn-favorite-page img {
+  width: 74px;
 }

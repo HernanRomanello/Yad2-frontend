@@ -107,6 +107,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  setLogoClassByComponent(): string {
+    if (this.navigationService.IsMainHeaderISOpen()) {
+      return 'logo-btn main-page';
+    } else if (
+      this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+    ) {
+      return 'logo-btn favorite-page';
+    } else if (this.navigationService.isCreateNewAdIsOpen()) {
+      return 'logo-btn create-ad-page';
+    }
+
+    return 'logo-btn';
+  }
+
   openMenu(menu: keyof MenuTriggers) {
     this.menus[menu] = true;
   }
