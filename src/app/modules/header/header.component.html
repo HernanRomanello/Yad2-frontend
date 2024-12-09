@@ -631,7 +631,7 @@
                 <img
                   class="svg-icon2"
                   src="assets/images/edit-2-svgrepo-com.svg"
-                  alt="logo"
+                  alt="edit"
                 />
               </div>
             </div>
@@ -646,7 +646,7 @@
               <img
                 class="svg-icon2"
                 src="assets/images/house-floor-svgrepo-com.svg"
-                alt="logo"
+                alt="house-floor"
               />
             </div>
             <div class="menu-bar2 border-top2">
@@ -656,7 +656,7 @@
                 <img
                   class="svg-icon2"
                   src="assets/images/door-svgrepo-com.svg"
-                  alt="logo"
+                  alt="door"
                 />
               </div>
             </div>
@@ -665,19 +665,22 @@
       </div>
     </div>
 
-    <div class="right-side2 flex-center2">
-      @if (this.authService.UserPageRender.value ==='create-new-advertisement')
-      {
+    @if(this.navigationService.isCreateNewAdIsOpen()){
+    <div class="flex-center font18 post-ad-container">
+      <div class="post-ad-title">פרסום מודעה חדשה</div>
 
-      <div>פרסום מודעה חדשה</div>
-      } @if (this.authService.UserPageRender.value ==='user-area') {
-
-      <div class="user-area-text2 flex-center2">איזור אישי</div>
-      }
-      <div routerLink="/">
+      <div class="post-ad-logo" routerLink="/">
         <img src="assets/images/logo-default.svg" alt="logo" />
       </div>
     </div>
+    }@else {
+    <div class="right-side2 flex-center2">
+      <div class="user-area-text2 flex-center2">איזור אישי</div>
+      <div class="" routerLink="/">
+        <img src="assets/images/logo-default.svg" alt="logo" />
+      </div>
+    </div>
+    }
   </div>
 </header>
 } @if(navigationService.IsEditAdvertisementISOpen()) {

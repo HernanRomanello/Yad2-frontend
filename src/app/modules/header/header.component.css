@@ -458,13 +458,10 @@ img,
   background-color: #ef6c00;
   height: 40px;
   width: 40px;
-  /* height: 38px;
-  width: 38px; */
   border-radius: 50%;
   font-size: 22px;
   color: white;
   margin-left: 6px;
-  /* border: solid 1px #ff7100; */
   cursor: default;
 }
 
@@ -497,7 +494,8 @@ img,
 
 .gray-btn2 i,
 .post-ad,
-.right-side2 {
+.right-side2,
+.font18 {
   font-size: 18px !important;
 }
 
@@ -506,6 +504,19 @@ img,
   height: 36px;
   display: flex;
   gap: 10px;
+}
+
+.post-ad-container {
+  margin-right: 20px;
+  transform: translateY(2px);
+  gap: 1.25rem;
+}
+.post-ad-logo > img {
+  transform: scale(1.03);
+}
+.post-ad-title {
+  transform: translateY(-2px);
+  letter-spacing: 0 !important;
 }
 
 .gray-btns-container2 button {
@@ -746,9 +757,12 @@ button,
 
 .column-menu {
   display: flex;
-  flex-direction: column;
   max-width: 185px;
   gap: 16px;
+}
+.column-menu,
+.column {
+  flex-direction: column;
 }
 
 .flex,
@@ -809,6 +823,10 @@ button,
 
 .logo-btn-main-page img {
   height: 37px;
+}
+
+.post-ad-logo {
+  /* background-color: #fc8c31; */
 }
 
 .logo-btn-favorite-page img {
