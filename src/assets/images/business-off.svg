@@ -1,0 +1,15 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M60 101C85.9574 101 107 97.6421 107 93.5C107 89.3579 85.9574 86 60 86C34.0426 86 13 89.3579 13 93.5C13 97.6421 34.0426 101 60 101Z" fill="#F8F8F8"/>
+<path d="M88 44H32V92H88V44Z" fill="#F8F8F8" stroke="#363636"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M38 92V64.7867C38 63.7999 38.8185 63 39.8281 63H54.1719C55.1815 63 56 63.7999 56 64.7867V92" fill="white"/>
+<path d="M38 92V64.7867C38 63.7999 38.8185 63 39.8281 63H54.1719C55.1815 63 56 63.7999 56 64.7867V92" stroke="#363636"/>
+<path d="M80.3077 63H61.6923C60.7577 63 60 63.8954 60 65V81C60 82.1046 60.7577 83 61.6923 83H80.3077C81.2423 83 82 82.1046 82 81V65C82 63.8954 81.2423 63 80.3077 63Z" fill="white" stroke="#363636"/>
+<path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd" d="M64 63V78C64 79.1046 64.7577 80 65.6923 80H82V81C82 82.1046 81.2423 83 80.3077 83H61.6923C60.7577 83 60 82.1046 60 81V65C60 63.8954 60.7577 63 61.6923 63H64Z" fill="#363636"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M41 33H54V47.3217C54 51.01 51.0899 54 47.5 54C43.9101 54 41 51.01 41 47.3217V33Z" fill="#EEEEEE" stroke="#363636"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M54 33H67V47.3217C67 51.01 64.0899 54 60.5 54C56.9101 54 54 51.01 54 47.3217V33Z" fill="white" stroke="#363636"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M67 33H80V47.3217C80 51.01 77.0899 54 73.5 54C69.9101 54 67 51.01 67 47.3217V33Z" fill="#EEEEEE" stroke="#363636"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M80 33H92.0715L92.9871 47.3352C93.2077 50.7894 90.5746 53.7677 87.1059 53.9874C86.9729 53.9958 86.8396 54 86.7064 54C83.0026 54 80 51.01 80 47.3217V33Z" fill="white" stroke="#363636"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M28.9283 33H41V47.3217C41 51.01 37.9974 54 34.2935 54C30.8177 54 28 51.1941 28 47.733C28 47.6003 28.0042 47.4676 28.0127 47.3352L28.9283 33Z" fill="white" stroke="#363636"/>
+<rect x="49" y="77" width="5" height="1" rx="0.5" fill="#363636"/>
+<rect x="28" y="91.5" width="64" height="1" rx="0.5" fill="#363636"/>
+</svg>
