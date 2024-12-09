@@ -67,11 +67,15 @@ textarea,
   padding: 8px 12px;
 }
 .dropdown-menu li,
-.select-options
-  li
-  .svg-icon.post-btnת.remove-add-contactת.file-inputת.Featureת.checkbox-input
-  input[type="checkbox"],
-.check-input input[type="checkbox"],
+.select-options li,
+.svg-icon.post-btn,
+.remove-add-contact,
+.file-input,
+.Feature,
+.checkbox-input,
+input[type="checkbox"],
+.check-input,
+input[type="checkbox"],
 input[type="checkbox"],
 .option,
 button,
@@ -421,11 +425,6 @@ input::placeholder {
 .date-input {
   width: 270px !important;
   width: 260px !important;
-}
-
-.upgrade-add-pic {
-  top: 38%;
-  right: 51%;
 }
 
 .small-text {
@@ -806,8 +805,17 @@ textarea::placeholder {
 .check-input input[type="checkbox"],
 input[type="checkbox"],
 .process-bar,
-#Selection-2 {
+#Selection-2,
+#Selection-3 {
   position: relative;
+}
+
+.upgrade-add-pic {
+  /* top: 38%; */
+  /* right: 51%; */
+  /* hernan */
+  top: 30px;
+  left: 30px;
 }
 
 .date-container div {
@@ -1125,8 +1133,6 @@ textarea::placeholder,
   font-size: 20px !important;
   color: rgb(150, 148, 148);
   letter-spacing: 0 !important;
-
-  /* hernan */
 }
 
 .title-div {
