@@ -393,7 +393,7 @@ img,
 .orange-line {
   border-top: 5px solid rgb(255, 113, 0);
   height: 59px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   z-index: 110;
 }

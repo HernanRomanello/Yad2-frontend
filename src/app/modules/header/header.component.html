@@ -612,7 +612,8 @@
             class="menu2"
             *ngIf="
               this.isUserAreaDropdownVisible &&
-              !this.navigationService.IsUserAreaISOpen()
+              !this.navigationService.IsUserAreaISOpen() &&
+              !this.navigationService.isCreateNewAdIsOpen()
             "
             (mouseover)="isUserAreaDropdownOpen(true)"
             (mouseleave)="isUserAreaDropdownOpen(false)"
