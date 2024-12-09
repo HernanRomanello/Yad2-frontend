@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .dropdown-menu,
@@ -113,7 +113,7 @@ input[matAutocomplete] {
 .close-section,
 .advertisement-selection {
   width: 880px !important;
-  width: 61.11111vw !important;
+  /* width: 61.11111vw !important; */
   margin: auto !important;
   display: flex;
   justify-content: center;
@@ -121,6 +121,8 @@ input[matAutocomplete] {
   flex-direction: column;
   border-radius: 10px;
   border: 1px solid rgb(230, 230, 230);
+  /* background-color: rgb(34, 206, 138) !important; */
+  /* hernan */
 }
 
 .close-section span,
