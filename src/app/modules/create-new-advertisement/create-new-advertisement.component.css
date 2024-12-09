@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .dropdown-menu,
 .select-options {
   list-style-type: none;
@@ -162,7 +166,6 @@ form {
   width: 30px;
   height: 30px;
   font-size: 18px !important;
-  font-weight: 600 !important;
 }
 
 .section-title-container,
@@ -199,9 +202,15 @@ form {
 }
 
 .continue-btn {
-  font-weight: 600 !important;
   color: rgb(255, 113, 0, 0.8);
   border: 1px solid rgb(255, 113, 0);
+}
+.orange-small-text,
+.light-opacity-orange,
+.sub-title,
+.section-title,
+.continue-btn {
+  font-weight: 600 !important;
 }
 
 .return-btn {
@@ -455,16 +464,14 @@ input::placeholder {
   margin: 4px 0px 0px;
 }
 
+.light-opacity-orange {
+  color: #ff7f30 !important;
+}
+
 .orange-small-text {
   color: rgb(255, 113, 0);
   height: 23px;
   margin: 14px 0px 10px 0;
-  font-weight: 600 !important;
-}
-
-.light-opacity-orange {
-  color: #ff7f30 !important;
-  font-weight: 600 !important;
 }
 
 .floor-description,
@@ -707,7 +714,6 @@ input[type="checkbox"]:checked::after {
 
 .sub-title {
   font-size: 18px;
-  font-weight: 600 !important;
   line-height: 20.7px;
   margin: 20px 0px 24px;
 }
