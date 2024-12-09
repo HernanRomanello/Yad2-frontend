@@ -468,6 +468,7 @@ img,
   color: white;
   margin-left: 6px;
   /* border: solid 1px #ff7100; */
+  cursor: default;
 }
 
 .user-name {
