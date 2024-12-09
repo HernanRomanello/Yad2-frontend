@@ -521,8 +521,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.chosenTradeType = type;
     this.buttonsTypes.forEach((buttonType, index) => {
       if (buttonType === this.chosenTradeType) {
-        this.hoverColors[index] = '#ff5100';
-        this.ClickBorderColors[index] = '#ff5100';
+        this.hoverColors[index] = '#ff7100';
+        this.ClickBorderColors[index] = '#ff7100';
       } else {
         this.hoverColors[index] = '#000000';
         this.ClickBorderColors[index] = '#cccccc';
@@ -650,7 +650,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.buttonsTypes.forEach((buttonType, index) => {
       const ActiveIndex = this.buttonsTypes.indexOf(this.chosenTradeType);
       if (buttonType === type) {
-        this.hoverColors[index] = '#ff5100';
+        this.hoverColors[index] = '#ff7100';
       } else if (index !== ActiveIndex) {
         this.hoverColors[index] = '#000000';
       }
@@ -659,12 +659,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   showOrHideModal(isVisible: boolean) {
     this.modalstate.isModalVisible.next(isVisible);
-  }
-
-  onMouseClick(type: string) {
-    this.buttonsTypes.forEach((buttonType, index) => {
-      this.hoverColors[index] = buttonType === type ? '#ff5100' : '#000000';
-    });
   }
 
   set_Number_Of_Payments(type: string) {

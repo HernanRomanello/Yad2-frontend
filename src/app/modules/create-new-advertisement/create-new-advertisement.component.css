@@ -52,18 +52,6 @@ textarea,
   width: 270px !important;
 }
 
-.check-circle {
-  color: #ffffff;
-  background-color: rgb(13, 172, 108);
-  border-radius: 50%;
-  font-size: 36px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .dropdown-menu li,
 .select-options li {
   padding: 8px 12px;
@@ -910,10 +898,20 @@ textarea::placeholder {
 
 .flex-center,
 .upload-part,
-.asset-type {
+.asset-type,
+.check-circle {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.check-circle {
+  color: #ffffff;
+  background-color: rgb(13, 172, 108);
+  border-radius: 50%;
+  font-size: 36px;
+  width: 36px;
+  height: 36px;
 }
 
 .upload-part {
@@ -1108,7 +1106,8 @@ textarea::placeholder,
 }
 
 .close-section span,
-.close-section div.btn-text1,
+.close-section div,
+.btn-text1,
 .nano-text1,
 .font500,
 .green-btn {
