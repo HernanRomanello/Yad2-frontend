@@ -416,14 +416,30 @@ input::placeholder {
   max-width: 270px !important;
 }
 
+#rooms {
+  background-color: #0e9c64 !important;
+  padding: 0px 1rem 0 0.5rem !important;
+}
+
 .date-input,
 .assetState,
 .large,
 #city-option,
 #street-option,
 .date-input {
-  width: 270px !important;
   width: 260px !important;
+}
+
+i.material-icons {
+  height: 18px;
+  width: 18px;
+  opacity: 0.5;
+}
+.rotate-icon {
+  transform: rotate(180deg) translateX(8px) !important;
+}
+.arrow-down {
+  transform: translateX(8px) !important;
 }
 
 .small-text {
@@ -523,12 +539,6 @@ input[type="checkbox"] {
   transform: translateX(40px);
 }
 
-i.material-icons {
-  height: 18px;
-  width: 18px;
-  opacity: 0.5;
-}
-
 .dropdown-item {
   line-height: 18.4px;
   width: 250px;
@@ -554,10 +564,6 @@ i.material-icons {
 .stages,
 .select-options {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.rotate-icon {
-  transform: rotate(180deg) !important;
 }
 
 .option {

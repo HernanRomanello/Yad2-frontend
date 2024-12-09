@@ -474,7 +474,7 @@
           (click)="toggleDropdown('assetType')"
         >
           {{ asset_type ?? "דירה או אולי פנטהאוז?" }}
-          <i #dropdownIconAsset_type class="material-icons"
+          <i #dropdownIconAsset_type class="material-icons arrow-down"
             >keyboard_arrow_down</i
           >
         </button>
@@ -499,7 +499,7 @@
           (click)="toggleDropdown('assetState')"
         >
           {{ asset_State ?? "משופץ? חדש מקבלן" }}
-          <i #dropdownIconAsset_State class="material-icons"
+          <i #dropdownIconAsset_State class="material-icons arrow-down"
             >keyboard_arrow_down</i
           >
         </button>
@@ -635,7 +635,9 @@
             (click)="toggleDropdown('rooms')"
           >
             {{ asset_Rooms ?? "בחירת מספר חדרים" }}
-            <i #dropdownIconRooms class="material-icons">keyboard_arrow_down</i>
+            <i #dropdownIconRooms class="material-icons arrow-down"
+              >keyboard_arrow_down</i
+            >
           </button>
           <div id="rooms-error" class="error-text">שדה חובה</div>
           <ul
@@ -1221,7 +1223,7 @@
           }@else {
           {{ asset_owner }}
           }
-          <i #dropdownIconasset_owner class="material-icons"
+          <i #dropdownIconasset_owner class="material-icons arrow-down"
             >keyboard_arrow_down</i
           >
         </button>
