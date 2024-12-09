@@ -214,10 +214,14 @@
 }
 
 .links {
-  /* background-color: #ff7100 !important; */
   transform: translateY(-8px);
 }
 
 .key-img {
   transform: scaleY(0.8);
+}
+
+.round {
+  background-color: #ef6c00 !important;
+  border: none !important;
 }
