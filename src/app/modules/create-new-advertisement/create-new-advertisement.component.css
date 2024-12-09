@@ -17,9 +17,17 @@ body {
 .dropdown-menu,
 .select-options,
 #city-option,
-#street-option {
+#street-option,
+#city-option:hover,
+#street-option:hover {
   z-index: 100 !important;
 }
+#city-option:hover,
+#street-option:hover,
+.dropdown-item:hover {
+  background-color: #f8f8f8 !important;
+}
+
 .dropdown-menu,
 .select-options,
 #city-option,
