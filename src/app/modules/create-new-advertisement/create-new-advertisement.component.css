@@ -74,7 +74,7 @@ textarea,
 input[type="checkbox"],
 .option,
 button,
-#city-optionm,
+#city-option,
 #street-option {
   cursor: pointer;
 }
