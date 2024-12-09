@@ -55,7 +55,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   isAssetTypeDropdownHidden = false;
   isNumberOfPaymentsTypeDropdownHidden = false;
   isCityDropdownHidden = true;
-  isStreetDropdownHidden = false;
+  isStreetDropdownHidden = true;
   isAssetAssetstateDropdownHidden = false;
   isAssetAssetOwnerDropdownHidden = false;
   isRoomsDropdownHidden = false;
@@ -162,6 +162,13 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         //   : false;
       });
     });
+  }
+
+  setCity(city: string) {
+    this.checkIfValidCity(city);
+    this.advertisementForm.get('city').setValue(city);
+    this.isCityDropdownHidden = true;
+    alert('isCityDropdownHidden ' + this.isCityDropdownHidden);
   }
 
   closeDropdownSection2(event: any) {

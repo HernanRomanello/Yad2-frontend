@@ -287,7 +287,7 @@
           placeholder="  איפה נמצא הנכס?"
           autocomplete="off"
           (focus)="
-            this.isCityDropdownHidden = true;
+            this.isCityDropdownHidden = false;
             advertisementForm.get('city').setValue(cityInput.value)
           "
           (keydown)="
@@ -298,7 +298,7 @@
         />
         <div id="city-error" class="error-text">שדה חובה</div>
         <div class="select-options">
-          @if(this.isCityDropdownHidden && cityInput.value.length > 0){
+          @if(!this.isCityDropdownHidden && cityInput.value.length > 0){
           <div
             id="city-option"
             #cityOption
@@ -311,10 +311,7 @@
               );
               let i = index
             "
-            (click)="
-              this.checkIfValidCity(item.city_name_he);
-              advertisementForm.get('city').setValue(item.city_name_he)
-            "
+            (click)="setCity(item.city_name_he)"
           >
             {{ item.city_name_he }}
           </div>
@@ -339,11 +336,11 @@
               this.isFormHasvalidStreetAddress
             )
           "
-          (focus)="this.isStreetDropdownHidden = true"
+          (focus)="this.isStreetDropdownHidden = false"
         />
         <div id="street-error" class="error-text">שדה חובה</div>
         <div class="select-options">
-          @if(this.isStreetDropdownHidden && streetInput.value.length > 1){
+          @if(!this.isStreetDropdownHidden && streetInput.value.length > 1){
           <div
             id="street-option"
             *ngFor="
@@ -359,7 +356,7 @@
               advertisementForm.get('street').setValue(item.Street_Name);
               advertisementForm.get('neighborhood').setValue(item.Street_Name);
               this.checkIfValidStreet(item.Street_Name);
-              advertisementForm.get('street').setValue(item.Street_Name)
+              isStreetDropdownHidden = true
             "
           >
             {{ item.Street_Name }}
