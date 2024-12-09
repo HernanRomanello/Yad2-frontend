@@ -197,8 +197,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       !elememt.classList.contains('rotate-icon') &&
       !elememt.classList.contains('dropdown-btn')
     ) {
-      this.isNumberOfPaymentsTypeDropdownHidden =
-        !this.isNumberOfPaymentsTypeDropdownHidden;
+      this.isNumberOfPaymentsTypeDropdownHidden = false;
     }
   }
 
