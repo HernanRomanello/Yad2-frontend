@@ -96,6 +96,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   setHeaderHeight(): string {
+    if (this.navigationService.isCreateNewAdIsOpen()) {
+      return 'header2 increase-height2';
+    }
+
     if (this.navigationService.IsUserAreaISOpen() === true) {
       return 'header2 increase-height';
     } else {

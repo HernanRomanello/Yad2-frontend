@@ -587,6 +587,11 @@ img,
 .increase-height {
   height: 60px !important;
 }
+.increase-height2 {
+  height: 64px !important;
+  margin: 0 !important;
+  top: 0 !important;
+}
 
 .edit-ad-header {
   height: 55px;

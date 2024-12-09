@@ -63,8 +63,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   descriptionMessage = 'הידעת: מודעה ללא תיאור, כמעט ולא מקבלת שיחות';
   minPrice = 0;
   averagePrice = 0;
-  // cityList: any;
-  // cityData: any;
   hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
   ClickBorderColors: string[] = ['#cccccc', '#cccccc', '#cccccc', '#cccccc'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
@@ -187,8 +185,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.navigationService.isalternativeHeaderISOpen(false);
-    this.navigationService.isalternativeHeaderISOpen(false);
     this.navigationService.IsHeaderAndFooterOpen(true, true);
+    this.navigationService.isCreateNewAdIsOpen.set(false);
 
     this.authService.SetPageRender('');
   }
@@ -233,6 +231,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
     this.navigationService.isalternativeHeaderISOpen(true);
+    this.navigationService.isCreateNewAdIsOpen.set(true);
     this.navigationService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('create-new-advertisement');
     this.advertisementForm = this.formBuilder.group({
