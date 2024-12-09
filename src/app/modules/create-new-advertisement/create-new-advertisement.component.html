@@ -497,8 +497,9 @@
             class="dropdown-item"
             *ngFor="let option of assetTypes"
             (click)="
-              advertisementForm.get('assetType').setValue(option);
-              asset_type = option
+              asset_type = option;
+              selectOption(option, 'assetType');
+              setAssetType(option)
             "
           >
             {{ option }}
@@ -535,7 +536,7 @@
           <li
             class="dropdown-item assetState"
             *ngFor="let option of advertisementService.assetConditions"
-            (click)="asset_State = option"
+            (click)="asset_State = option; selectOption(option, 'assetState')"
           >
             {{ option }}
           </li>

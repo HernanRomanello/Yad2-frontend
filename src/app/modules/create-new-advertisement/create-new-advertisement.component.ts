@@ -851,6 +851,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   ReturnToPrevFormPart(formPageNumber: number) {
+    alert('formPageNumber');
     this.openToEditFormPart(formPageNumber - 1);
     this.scrollToFormPart(formPageNumber - 1);
   }
