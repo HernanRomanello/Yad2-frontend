@@ -64,11 +64,6 @@ textarea,
   justify-content: center;
 }
 
-.light-green-circle {
-  border: none !important;
-  background-color: rgb(15, 202, 128, 0.25) !important;
-}
-
 .dropdown-menu li,
 .select-options li {
   padding: 8px 12px;
@@ -83,7 +78,8 @@ input[type="checkbox"],
 .option,
 button,
 #city-option,
-#street-option {
+#street-option,
+.svg-icon {
   cursor: pointer;
 }
 
@@ -331,6 +327,9 @@ input::placeholder {
 
 .input:focus {
   border: 1px solid rgb(54, 54, 54) !important;
+}
+.input:focus,
+.outline-none:focus {
   outline: none !important;
 }
 
@@ -929,7 +928,6 @@ textarea::placeholder {
   height: 150px;
   background-size: cover;
   background-position: center;
-  border: none;
   outline: none;
   z-index: 100;
   color: transparent;
@@ -953,8 +951,14 @@ textarea::placeholder {
   display: none;
 }
 
-.none-border {
+.none-border,
+.file-input,
+.light-green-circle,
+.none-border-focus:focus {
   border: none !important;
+}
+.light-green-circle {
+  background-color: rgb(15, 202, 128, 0.25) !important;
 }
 
 .ad-images {
