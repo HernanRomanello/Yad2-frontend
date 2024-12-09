@@ -1133,6 +1133,10 @@ textarea::placeholder,
   /* hernan */
 }
 
+.title-div {
+  padding-right: 0.25rem;
+}
+
 .green-btn:hover {
   background-color: #0e9c64 !important;
   transition: background-color 0.2s ease-in-out;
