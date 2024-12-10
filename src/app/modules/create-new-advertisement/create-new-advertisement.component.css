@@ -19,9 +19,13 @@ body {
 input[type="checkbox"]:checked::after,
 .recommend-pic,
 .insight-pic,
-.insight-pic,
 .upgrade-add-pic {
   position: absolute;
+}
+
+.insight-pic {
+  top: 10px !important;
+  left: 10px !important;
 }
 
 .recommend-pic {
@@ -401,11 +405,6 @@ input::placeholder {
 
 .right-side {
   transform: translatex(12px) !important;
-}
-
-.insight-pic {
-  top: 46%;
-  right: 51%;
 }
 
 .spaceship-icon {
@@ -807,7 +806,8 @@ textarea::placeholder {
 input[type="checkbox"],
 .process-bar,
 #Selection-2,
-#Selection-3 {
+#Selection-3,
+#Selection-4 {
   position: relative;
 }
 

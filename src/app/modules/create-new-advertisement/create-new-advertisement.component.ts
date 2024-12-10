@@ -881,10 +881,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   continueToTheNextFormPage(formPageNumber: number) {
     this.isFormPagesAreSubmitted[formPageNumber - 1] = true;
-    if (this.checkIfThisFormPartIsValid(formPageNumber)) {
-      this.updateIfFormPartCompleted(formPageNumber);
-      this.continueToTheNextFormPage(formPageNumber);
-    }
+
+    // if (this.checkIfThisFormPartIsValid(formPageNumber)) {
+    this.updateIfFormPartCompleted(formPageNumber);
+    this.continueToTheNextFormPage(formPageNumber);
+    //hernan
+    // }
   }
 
   checkIfThisFormPartIsValid(formPageNumber: number) {
