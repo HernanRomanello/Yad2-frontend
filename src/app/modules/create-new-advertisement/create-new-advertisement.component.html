@@ -1272,15 +1272,27 @@
             id="pictures"
             (change)="onFileChange($event)"
           />
-          <div class="upload-btn flex-center column">
-            <div>
+          <div class="upload-btn flex-center column gap">
+            <div class="upload-icons">
               <img
+                id="image-photo-icon"
                 class="image-photo"
-                src="assets/images/image-photo-picture-svgrepo-com.svg"
-                alt="bin"
+                src="assets/images/image-1-svgrepo-com.svg"
+                alt="image-photo"
+              />
+              <img
+                id="plus-circle-icon"
+                class="image-photo"
+                src="assets/images/plus-circle-svgrepo-com1.svg"
+                alt="plus-circle"
               />
             </div>
-            <div>גרור ושחרר או העלה את הקובץ שלך {{ images.length }}/10</div>
+            <div
+              class="upload-btn-text flex-center column nano-gray-text nano-text1"
+            >
+              <span> גרור ושחרר או העלה את הקובץ </span>
+              <span class="translateY3"> שלך ({{ images.length }}/10)</span>
+            </div>
           </div>
         </div>
       </div>

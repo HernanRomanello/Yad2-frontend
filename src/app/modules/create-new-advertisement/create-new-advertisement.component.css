@@ -25,8 +25,19 @@ input[type="checkbox"]:checked::after,
 .img-edit-btns,
 .shekel,
 .img-edit-btns-main-img,
-.upload-btn {
+.upload-btn,
+#plus-circle-icon {
   position: absolute;
+}
+
+#plus-circle-icon {
+  top: 50%;
+  left: 50%;
+  z-index: 100 !important;
+}
+
+#image-photo-icon {
+  z-index: 10 !important;
 }
 
 .ad-images,
@@ -824,7 +835,8 @@ input[type="checkbox"],
 #Selection-4,
 .upload-container-main-pic,
 .upload-container,
-.upload-card2 {
+.upload-card2,
+.upload-icons {
   position: relative;
 }
 
@@ -979,8 +991,12 @@ input[type="checkbox"],
 }
 
 .image-photo {
-  width: 36px;
-  height: 36px;
+  width: 50px;
+  height: 50px;
+}
+
+.gap {
+  gap: 0.5rem;
 }
 
 #balconiesNumber {
@@ -1238,6 +1254,15 @@ textarea::placeholder,
 
 .nano-text1 {
   font-size: 12px;
+}
+
+#plus-circle-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.translateY3 {
+  transform: translateY(-7px);
 }
 
 .close-section span,
