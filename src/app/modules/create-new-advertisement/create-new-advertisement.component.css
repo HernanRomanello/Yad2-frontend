@@ -1131,14 +1131,15 @@ textarea::placeholder,
   font-size: 12px;
 }
 
-.sub-title {
-  letter-spacing: 0 !important;
-}
-
 .close-section span,
 .close-section div {
   font-size: 20px !important;
   color: rgb(150, 148, 148);
+}
+.close-section span,
+.close-section div,
+.sub-title,
+.nano-text1 {
   letter-spacing: 0 !important;
 }
 
