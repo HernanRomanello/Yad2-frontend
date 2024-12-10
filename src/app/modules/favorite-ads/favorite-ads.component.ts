@@ -93,10 +93,6 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     }
   }
 
-  countLetters() {
-    alert('countLetters');
-  }
-
   ngOnDestroy() {
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }

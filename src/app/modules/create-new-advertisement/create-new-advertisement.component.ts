@@ -26,6 +26,7 @@ import {
 } from '../../services/city-list.service';
 import { NavigationService } from '../../services/navigation.service';
 import { last } from 'rxjs';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -145,7 +146,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.checkIfValidCity(city);
     this.advertisementForm.get('city').setValue(city);
     this.isCityDropdownHidden = true;
-    alert('isCityDropdownHidden ' + this.isCityDropdownHidden);
   }
 
   HideCityAndStreetDropdown(event: any) {
@@ -608,10 +608,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       return;
     }
     const file = input.files[0];
-    this.video = file;
+    // this.video = file;
+
+    //hernan
+    const Url = environment.URl;
+    // console.log('video', file);
+
+    console.log('video', file.name);
 
     const videoUrl = URL.createObjectURL(file);
-    this.vidoeUrl = videoUrl;
+    this.vidoeUrl = environment.URl + 'uploads/' + file.name;
+    // console.log('video', this.vidoeUrl);
+
+    this.imageService.uploadImage(file);
   }
 
   async uploadAllImages() {
@@ -648,9 +657,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     try {
       form.assetState = this.asset_State;
       const uploadedImages = await this.uploadAllImages();
-      const video = await this.uploadVideo();
+      // const video = await this.uploadVideo();
       form.pictures = uploadedImages;
-      form.video = video;
+      form.video = this.vidoeUrl;
 
       this.advertisementForm.get('pictures').setValue(this.imagesUrl);
       this.advertisementForm.get('video').setValue(this.vidoeUrl);

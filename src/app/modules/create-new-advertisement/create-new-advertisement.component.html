@@ -1205,8 +1205,7 @@
           </div>
         </div>
       </div>
-      }
-
+      } @if(this.vidoeUrl == ''){
       <div class="upload-container gray">
         <div class="card-header">סרטון הנכס</div>
         <div class="upload-card">
@@ -1226,6 +1225,12 @@
           </video>
         </div>
       </div>
+      } @else {
+      <video width="320" height="240" controls>
+        <source [src]="this.vidoeUrl" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      }
     </div>
     @if(this.hasImage ){
 
