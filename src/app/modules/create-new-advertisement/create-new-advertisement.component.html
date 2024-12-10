@@ -1237,17 +1237,17 @@
         "
       >
         <div
-          class="img-edit-btns"
+          class="img-edit-btns pointer"
           [ngClass]="i === 0 ? 'img-edit-btns-main-img' : 'img-edit-btns'"
         >
-          <div class="edit-img">
+          <div class="edit-img pointer">
             <img
               class="svg-icon-edit"
               src="assets/images/edit-svgrepo-com (3).svg"
               alt="edit"
             />
           </div>
-          <div (click)="removeFileChange(i)" class="remove-img">
+          <div (click)="removeFileChange(i)" class="remove-img pointer">
             <img
               class="svg-icon-edit"
               src="assets/images/bin-svgrepo-com.svg"
@@ -1257,7 +1257,7 @@
         </div>
         <div [ngClass]="i === 0 ? 'card-header' : 'hidden'">תמונה ראשית</div>
         <img
-          [ngClass]="i === 0 ? 'main-image' : 'ad-images'"
+          [ngClass]="i === 0 ? 'main-image pointer' : 'ad-images pointer'"
           [src]="this.advertisementService.src(image)"
         />
       </div>

@@ -156,7 +156,8 @@ input[type="checkbox"],
 button,
 #city-option,
 #street-option,
-.svg-icon {
+.svg-icon,
+.pointer {
   cursor: pointer;
 }
 
