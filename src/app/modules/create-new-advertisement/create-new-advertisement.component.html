@@ -552,6 +552,14 @@
               advertisementForm.get('airDirections').value === number
             "
             (click)="selectAirDirections(number)"
+            (mouseover)="
+              removeBorederIfNeed(
+                i,
+                +advertisementForm.get('airDirections').value,
+                $event
+              )
+            "
+            (mouseleave)="addBorederIfNeed($event)"
           >
             {{ number }}
           </div>

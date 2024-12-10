@@ -498,18 +498,33 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       .setValue(this.advertisementForm.get('tornadoAirConditioner').value);
   }
 
-  optionClass(option: number length: number): string {
+  optionClass(option: number, length: number): string {
     const lastOptionIndex = length;
 
-  
-
     if (option === lastOptionIndex - 1) {
-      return 'option border-option-left';
+      return 'option border-option-left border-right-none';
     } else if (option === 0) {
       return 'option border-option-right';
     } else {
-      return 'option';
+      return 'option border-right-none';
     }
+  }
+
+  removeBorederIfNeed(option: number, selected: number, event: any) {
+    const elememt = event.target as HTMLElement;
+    console.log('option', option);
+    console.log('selected', selected);
+    if (option === selected) {
+      this.renderer.addClass(elememt, 'border-right-none1');
+    }
+    if (option === selected - 2) {
+      this.renderer.addClass(elememt, 'border-left-none1');
+    }
+  }
+  addBorederIfNeed(event: any) {
+    const elememt = event.target as HTMLElement;
+    this.renderer.removeClass(elememt, 'border-right-none1');
+    this.renderer.removeClass(elememt, 'border-left-none1');
   }
   updateDescription(description: string) {
     this.advertisementForm.get('description').setValue(description);
