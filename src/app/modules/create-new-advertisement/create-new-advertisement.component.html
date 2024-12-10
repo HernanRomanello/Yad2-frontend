@@ -1230,7 +1230,7 @@
             <source [src]="this.vidoeUrl" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div class="remove-video">
+          <div class="remove-video" (click)="this.vidoeUrl = ''">
             <img
               class="svg-icon-edit"
               src="assets/images/bin-svgrepo-com.svg"
