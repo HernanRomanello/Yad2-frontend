@@ -586,6 +586,13 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
+  clickOnImageInput() {
+    const input = document.getElementById(
+      'upload-img-input'
+    ) as HTMLInputElement;
+    input.click();
+  }
+
   removeFileChange(index: number) {
     this.images.splice(index, 1);
     if (this.images.length > 0) {

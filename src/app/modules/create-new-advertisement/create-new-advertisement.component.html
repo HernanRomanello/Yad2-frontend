@@ -1199,7 +1199,7 @@
             <input
               class="file-input upload-pictures"
               type="file"
-              id="pictures"
+              id=""
               (change)="onFileChange($event)"
             />
           </div>
@@ -1266,10 +1266,13 @@
           <input
             class="file-input"
             type="file"
-            id="pictures"
+            id="upload-img-input"
             (change)="onFileChange($event)"
           />
-          <div class="upload-btn flex-center column gap">
+          <div
+            (click)="clickOnImageInput()"
+            class="upload-btn flex-center column gap"
+          >
             <div class="upload-icons">
               <img
                 id="image-photo-icon"
