@@ -25,6 +25,7 @@ import {
   Street,
 } from '../../services/city-list.service';
 import { NavigationService } from '../../services/navigation.service';
+import { last } from 'rxjs';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -497,10 +498,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       .setValue(this.advertisementForm.get('tornadoAirConditioner').value);
   }
 
-  optionClass(option: number, fiveOptions: boolean): string {
-    if (option === 4 && fiveOptions) {
-      return 'option border-option-left';
-    } else if (option === 3 && !fiveOptions) {
+  optionClass(option: number length: number): string {
+    const lastOptionIndex = length;
+
+  
+
+    if (option === lastOptionIndex - 1) {
       return 'option border-option-left';
     } else if (option === 0) {
       return 'option border-option-right';

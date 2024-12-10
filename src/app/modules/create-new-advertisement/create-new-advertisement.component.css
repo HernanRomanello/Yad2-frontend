@@ -569,31 +569,10 @@ input[type="checkbox"] {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.option {
-  line-height: 16.1px;
-  height: 42px;
-  width: 67px;
-  border: 1px solid #cccccc;
-  padding: 0px 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .option:hover,
 .Feature:hover {
   border: 1px solid rgb(255, 113, 0);
   color: #ff7100;
-}
-
-.border-option-right {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
-}
-
-.border-option-left {
-  border-top-left-radius: 4px !important;
-  border-bottom-left-radius: 4px !important;
 }
 
 .selected,
@@ -617,10 +596,6 @@ input[type="checkbox"] {
   align-items: center;
   gap: 0.25rem;
   margin-top: 1rem !important;
-}
-
-#balconiesNumber {
-  width: 54px !important;
 }
 
 .stages {
@@ -914,10 +889,44 @@ input[type="checkbox"],
 .flex-center,
 .upload-part,
 .asset-type,
-.check-circle {
+.check-circle,
+.option {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#balconiesNumber {
+  width: 51.8281px !important;
+}
+
+.option {
+  line-height: 16.1px;
+  height: 42px;
+  /* width: 67px; */
+  width: 64.7969px;
+  /* hernan */
+  border: 1px solid #cccccc;
+  padding: 0px 12px;
+  /* background-color: aqua !important; */
+}
+
+.border-option-right {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.border-option-left {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
+
+.border-left-none {
+  border-left: none !important;
+}
+
+.border-right-none {
+  border-right: none !important;
 }
 
 .check-circle {

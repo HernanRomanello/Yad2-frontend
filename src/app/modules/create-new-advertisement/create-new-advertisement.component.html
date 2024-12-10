@@ -545,7 +545,9 @@
               let number of advertisementService.AirDirections;
               let i = index
             "
-            [ngClass]="optionClass(i, false)"
+            [ngClass]="
+              optionClass(i, advertisementService.AirDirections.length)
+            "
             [class.selected]="
               advertisementForm.get('airDirections').value === number
             "
@@ -561,7 +563,7 @@
         <div class="Select-options">
           <div
             *ngFor="let view of advertisementService.viewOptions; let i = index"
-            [ngClass]="optionClass(i, false)"
+            [ngClass]="optionClass(i, advertisementService.viewOptions.length)"
             [class.selected]="advertisementForm.get('view').value === view"
             (click)="selectAirView(view)"
           >
@@ -689,7 +691,9 @@
                 let number of advertisementService.ShowerRooms;
                 let i = index
               "
-              [ngClass]="optionClass(i, false)"
+              [ngClass]="
+                optionClass(i, advertisementService.ShowerRooms.length)
+              "
               [class.selected]="
                 advertisementForm.get('showerRooms').value === number
               "
@@ -708,7 +712,9 @@
                 let number of advertisementService.privateParking;
                 let i = index
               "
-              [ngClass]="optionClass(i, false)"
+              [ngClass]="
+                optionClass(i, advertisementService.privateParking.length)
+              "
               [class.selected]="
                 advertisementForm.get('privateParking').value === number
               "
@@ -728,7 +734,13 @@
                 let number of advertisementService.balconiesNumber;
                 let i = index
               "
-              [ngClass]="optionClass(i, true)"
+              [ngClass]="
+                optionClass(
+                  i,
+
+                  advertisementService.balconiesNumber.length
+                )
+              "
               [class.selected]="
                 advertisementForm.get('balconiesNumber').value === number
               "
