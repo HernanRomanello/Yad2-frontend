@@ -19,8 +19,26 @@ body {
 input[type="checkbox"]:checked::after,
 .recommend-pic,
 .insight-pic,
-.upgrade-add-pic {
+.upgrade-add-pic,
+.ad-images,
+.main-image {
   position: absolute;
+}
+
+.ad-images,
+.main-image {
+  border-radius: 10px;
+  width: 249.328px;
+  left: 5px;
+}
+
+.ad-images {
+  height: 198.125px;
+  top: 55px;
+}
+.main-image {
+  height: 186.984px;
+  top: 58px;
 }
 
 .insight-pic {
@@ -832,7 +850,6 @@ input[type="checkbox"],
 .upload-container-main-pic {
   display: flex;
   flex-direction: column;
-  /* background-color: rgb(238, 238, 238); */
   height: 266.266px;
   border-radius: 8px;
 }
@@ -1002,10 +1019,6 @@ input[type="checkbox"],
 }
 .light-green-circle {
   background-color: rgb(15, 202, 128, 0.25) !important;
-}
-
-.ad-images {
-  border-radius: 10px !important;
 }
 
 .ad-images-box {

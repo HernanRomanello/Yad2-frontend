@@ -1238,10 +1238,8 @@
       >
         <div [ngClass]="i === 0 ? 'card-header' : 'hidden'">תמונה ראשית</div>
         <img
-          class="add-images"
+          [ngClass]="i === 0 ? 'main-image' : 'ad-images'"
           [src]="this.advertisementService.src(image)"
-          height="185"
-          width="250"
         />
       </div>
       <div class="upload-container">
