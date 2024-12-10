@@ -19,7 +19,7 @@ export class AdvertisementService {
   AirDirections = [1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
   privateParking = [0, 1, 2, 3];
-  balconiesNumber = [0, 1, 2, 3];
+  balconiesNumber = [0, 1, 2, 3, 4];
   propertyFeaturesIcons: string[] = [
     'accessible',
     'false',
