@@ -26,8 +26,14 @@ input[type="checkbox"]:checked::after,
 .shekel,
 .img-edit-btns-main-img,
 .upload-btn,
-#plus-circle-icon {
+#plus-circle-icon,
+.remove-video {
   position: absolute;
+}
+
+.remove-video {
+  top: 32px;
+  left: 14px;
 }
 
 #plus-circle-icon {
@@ -65,7 +71,8 @@ input[type="checkbox"]:checked::after,
 }
 
 .remove-img,
-.edit-img {
+.edit-img,
+.remove-video {
   background-color: rgb(0, 0, 0, 0.5);
   height: 30px;
   width: 30px;
@@ -837,7 +844,8 @@ input[type="checkbox"],
 .upload-container-main-pic,
 .upload-container,
 .upload-card2,
-.upload-icons {
+.upload-icons,
+.card-content {
   position: relative;
 }
 
@@ -965,7 +973,8 @@ input[type="checkbox"],
 .option,
 .card-header,
 .edit-img,
-.remove-img {
+.remove-img,
+.remove-video {
   display: flex;
   justify-content: center;
   align-items: center;
