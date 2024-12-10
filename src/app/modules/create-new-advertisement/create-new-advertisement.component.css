@@ -177,10 +177,6 @@ form {
   margin-left: auto;
 }
 
-.section-title-container {
-  padding: 24px 16px !important;
-}
-
 .section-title-container-close {
   width: 100%;
   justify-content: space-between;
@@ -438,7 +434,6 @@ i.material-icons {
 }
 .rotate-icon {
   transform: rotate(180deg) translateX(-13px) translateY(-4px) !important;
-  /* hernan */
 }
 .arrow-down {
   transform: translateX(8px) !important;
@@ -537,8 +532,14 @@ input[type="checkbox"] {
   padding: 1px 2px;
 }
 
+.section-title-container {
+  padding: 24px 16px !important;
+}
+
 #section-title-container3 {
   transform: translateX(40px);
+
+  padding: 24px 16px 10px 16px !important;
 }
 
 .dropdown-item {
