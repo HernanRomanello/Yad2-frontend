@@ -55,11 +55,15 @@ input[type="checkbox"]:checked::after,
 .remove-img,
 .edit-img {
   background-color: rgb(0, 0, 0, 0.5);
-  /* background-color: rgb(95, 95, 95); */
   height: 30px;
   width: 30px;
   border-radius: 50%;
   z-index: 100 !important;
+}
+
+.svg-icon-edit {
+  width: 14px;
+  height: 14px;
 }
 
 .ad-images {
@@ -950,7 +954,9 @@ input[type="checkbox"],
 .asset-type,
 .check-circle,
 .option,
-.card-header {
+.card-header,
+.edit-img,
+.remove-img {
   display: flex;
   justify-content: center;
   align-items: center;

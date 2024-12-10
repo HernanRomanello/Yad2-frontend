@@ -1240,8 +1240,22 @@
           class="img-edit-btns"
           [ngClass]="i === 0 ? 'img-edit-btns-main-img' : 'img-edit-btns'"
         >
-          <div class="remove-img"></div>
-          <div class="edit-img"></div>
+          <div class="edit-img">
+            <img
+              (click)="openToEditFormPart(5)"
+              class="svg-icon-edit"
+              src="assets/images/edit-svgrepo-com (3).svg"
+              alt="edit"
+            />
+          </div>
+          <div class="remove-img">
+            <img
+              (click)="openToEditFormPart(5)"
+              class="svg-icon-edit"
+              src="assets/images/bin-svgrepo-com.svg"
+              alt="bin"
+            />
+          </div>
         </div>
         <div [ngClass]="i === 0 ? 'card-header' : 'hidden'">תמונה ראשית</div>
         <img
