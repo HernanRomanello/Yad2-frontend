@@ -24,7 +24,8 @@ input[type="checkbox"]:checked::after,
 .main-image,
 .img-edit-btns,
 .shekel,
-.img-edit-btns-main-img {
+.img-edit-btns-main-img,
+.upload-btn {
   position: absolute;
 }
 
@@ -202,10 +203,16 @@ input[matAutocomplete] {
 #Selection-4,
 #Selection-6 {
   display: flex;
-  flex-direction: column;
   direction: rtl;
   justify-content: space-between;
   padding-bottom: 2rem;
+}
+#Selection-2,
+#Selection-3,
+#Selection-4,
+#Selection-6,
+.column {
+  flex-direction: column;
 }
 
 form {
@@ -816,7 +823,8 @@ input[type="checkbox"],
 #Selection-3,
 #Selection-4,
 .upload-container-main-pic,
-.upload-container {
+.upload-container,
+.upload-card2 {
   position: relative;
 }
 
@@ -926,18 +934,6 @@ input[type="checkbox"],
   width: 255.344px;
 }
 
-.upload-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  margin-bottom: 5px;
-  border: 2px dashed #cccccc;
-  border-radius: 10px;
-  width: 245.344px;
-  height: 233px !important;
-}
-
 .card-content {
   display: flex;
 
@@ -960,6 +956,31 @@ input[type="checkbox"],
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.upload-card,
+.upload-card2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 5px;
+  border: 2px dashed #cccccc;
+  border-radius: 10px;
+}
+.upload-card {
+  width: 245.344px;
+  height: 233px !important;
+}
+
+.upload-card2 {
+  height: 237.062px;
+  width: 249.344px;
+}
+
+.image-photo {
+  width: 36px;
+  height: 36px;
 }
 
 #balconiesNumber {

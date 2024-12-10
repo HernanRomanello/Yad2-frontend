@@ -1,4 +1,4 @@
-button .thumbnail_circle__ZZurV {
+div .upload-box_uploadBoxDrag__gvTq_ upload-box_uploadBoxDragDnd__g5iK9 upload-box_dashedBorder__jA0Av {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
 	font-size: 14px;
@@ -8,7 +8,7 @@ button .thumbnail_circle__ZZurV {
 	letter-spacing: normal;
 	line-height: 16.1px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: center;
+	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,21 +17,21 @@ button .thumbnail_circle__ZZurV {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 30px;
-	width: 30px;
-	border: 0px outset rgb(0, 0, 0);
-	border-top: 0px outset rgb(0, 0, 0);
-	border-right: 0px outset rgb(0, 0, 0);
-	border-bottom: 0px outset rgb(0, 0, 0);
-	border-left: 0px outset rgb(0, 0, 0);
-	margin: 0px;
+	height: 237.062px;
+	width: 249.344px;
+	border: 2px dashed rgb(204, 204, 204);
+	border-top: 2px dashed rgb(204, 204, 204);
+	border-right: 2px dashed rgb(204, 204, 204);
+	border-bottom: 2px dashed rgb(204, 204, 204);
+	border-left: 2px dashed rgb(204, 204, 204);
+	margin: 0px 5px 5px;
 	padding: 0px;
 	max-height: none;
 	min-height: 0px;
@@ -39,11 +39,11 @@ button .thumbnail_circle__ZZurV {
 	min-width: 0px;
 
 	/* Positioning */
-	position: static;
-	top: auto;
-	bottom: auto;
-	right: auto;
-	left: auto;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
 	float: none;
 	display: flex;
 	clear: none;
@@ -62,8 +62,8 @@ button .thumbnail_circle__ZZurV {
 	table-layout: auto;
 
 	/* Miscellaneous */
-	overflow: visible;
-	cursor: pointer;
+	overflow: hidden;
+	cursor: default;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ button .thumbnail_circle__ZZurV {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 50%;
-	border-top-right-radius: 50%;
-	border-bottom-left-radius: 50%;
-	border-bottom-right-radius: 50%;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 }

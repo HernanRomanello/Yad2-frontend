@@ -1242,7 +1242,6 @@
         >
           <div class="edit-img">
             <img
-              (click)="openToEditFormPart(5)"
               class="svg-icon-edit"
               src="assets/images/edit-svgrepo-com (3).svg"
               alt="edit"
@@ -1250,7 +1249,6 @@
           </div>
           <div class="remove-img">
             <img
-              (click)="openToEditFormPart(5)"
               class="svg-icon-edit"
               src="assets/images/bin-svgrepo-com.svg"
               alt="bin"
@@ -1264,16 +1262,25 @@
         />
       </div>
       <div class="upload-container">
-        <div class="card-header">תמונות הנכס</div>
+        <!-- <div class="card-header">תמונות הנכס</div> -->
 
-        <div class="upload-card">
-          <div class="card-content">
-            <input
-              class="file-input upload-pictures"
-              type="file"
-              id="pictures"
-              (change)="onFileChange($event)"
-            />
+        <div class="upload-card2 flex-center column">
+          <!-- <div class="card-content"> -->
+          <input
+            class="file-input"
+            type="file"
+            id="pictures"
+            (change)="onFileChange($event)"
+          />
+          <div class="upload-btn flex-center column">
+            <div>
+              <img
+                class="image-photo"
+                src="assets/images/image-photo-picture-svgrepo-com.svg"
+                alt="bin"
+              />
+            </div>
+            <div>גרור ושחרר או העלה את הקובץ שלך {{ images.length }}/10</div>
           </div>
         </div>
       </div>
