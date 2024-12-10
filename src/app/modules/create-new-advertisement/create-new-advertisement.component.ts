@@ -619,8 +619,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
     //hernan
 
-    console.log('video', file.name);
-
     this.vidoeUrl = environment.URl + 'uploads/' + file.name;
 
     this.imageService.uploadImage(file);
@@ -641,13 +639,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     });
   }
 
-  async uploadVideo() {
-    if (!this.video) return '';
-    return await this.imageService
-      .uploadImage(this.video)
-      .then((u) => u.fileUrl);
-  }
-
   async handleSubmit() {
     this.defineAssetState();
     const cityControl = this.advertisementForm.get('city');
@@ -660,7 +651,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     try {
       form.assetState = this.asset_State;
       const uploadedImages = await this.uploadAllImages();
-      // const video = await this.uploadVideo();
       form.pictures = uploadedImages;
       form.video = this.vidoeUrl;
 
