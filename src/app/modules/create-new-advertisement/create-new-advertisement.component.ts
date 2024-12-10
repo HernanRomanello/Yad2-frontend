@@ -586,6 +586,15 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
+  removeFileChange(index: number) {
+    this.images.splice(index, 1);
+    if (this.images.length > 0) {
+      this.hasImage = true;
+    } else {
+      this.hasImage = false;
+    }
+  }
+
   onFileVideoChange(event: Event) {
     const input = event.target as HTMLInputElement;
     if (!input.files?.length) {

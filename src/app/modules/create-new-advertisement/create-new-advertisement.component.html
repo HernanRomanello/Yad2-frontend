@@ -1247,7 +1247,7 @@
               alt="edit"
             />
           </div>
-          <div class="remove-img">
+          <div (click)="removeFileChange(i)" class="remove-img">
             <img
               class="svg-icon-edit"
               src="assets/images/bin-svgrepo-com.svg"
@@ -1262,10 +1262,7 @@
         />
       </div>
       <div class="upload-container">
-        <!-- <div class="card-header">תמונות הנכס</div> -->
-
         <div class="upload-card2 flex-center column">
-          <!-- <div class="card-content"> -->
           <input
             class="file-input"
             type="file"
