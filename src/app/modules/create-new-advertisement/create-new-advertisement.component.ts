@@ -41,6 +41,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   asset_State: string | undefined = undefined;
   asset_Rooms: string | undefined = undefined;
   asset_owner: string = '';
+  firstError: string = '';
   number_Of_Payments: string = 'לא בחר';
   hasImage: boolean = false;
   has2Contacts: boolean = false;
@@ -768,11 +769,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   continueToTheNextFormPage(formPageNumber: number) {
     this.isFormPagesAreSubmitted[formPageNumber - 1] = true;
 
-    // if (this.checkIfThisFormPartIsValid(formPageNumber)) {
-    this.updateIfFormPartCompleted(formPageNumber);
-    this.continueToTheNextFormPage(formPageNumber);
-    //hernan
-    // }
+    if (this.checkIfThisFormPartIsValid(formPageNumber)) {
+      this.updateIfFormPartCompleted(formPageNumber);
+      this.continueToTheNextFormPage(formPageNumber);
+      //hernan
+      this.firstError = '';
+    } else {
+      if (this.firstError !== '') {
+        const errorElement = document.getElementById(this.firstError);
+        if (errorElement) {
+          errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
   }
 
   checkIfThisFormPartIsValid(formPageNumber: number) {
@@ -786,11 +795,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           'assetType',
           'assetState',
         ];
-
+        this.firstError = this.markTheFirstError(mustFieldsInFormPart1);
         return this.checkInputs(mustFieldsInFormPart1, true);
       }
       case 2: {
         const mustFieldsInFormPart2 = ['rooms'];
+        this.firstError = this.markTheFirstError(mustFieldsInFormPart2);
         return this.checkInputs(mustFieldsInFormPart2, true);
       }
       case 3: {
@@ -799,6 +809,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           'totalSquareMeters',
           'numberOfPayments',
         ];
+        this.firstError = this.markTheFirstError(mustFieldsInFormPart3);
+
         return this.checkInputs(mustFieldsInFormPart3, true);
       }
 
@@ -822,6 +834,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
             errorStandardizationAccepted.classList.remove('display-block');
           }
         }
+        this.firstError = this.markTheFirstError(mustFieldsInFormPart5);
+
         return this.checkInputs(mustFieldsInFormPart5, true);
       }
       default: {
@@ -862,6 +876,17 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       }
     }
     return validForm;
+  }
+
+  markTheFirstError(mustFieldsInFormPart: string[]): string {
+    for (const field of mustFieldsInFormPart) {
+      const fieldControl = this.advertisementForm.get(field);
+      const elementErrorText = document.getElementById(`${field}-error`);
+      if (!fieldControl.valid && this.firstError === '' && elementErrorText) {
+        return elementErrorText?.id;
+      }
+    }
+    return '';
   }
 
   private markErrorIfInvalidInput(
