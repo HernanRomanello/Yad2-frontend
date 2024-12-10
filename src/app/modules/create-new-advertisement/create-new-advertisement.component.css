@@ -517,8 +517,8 @@ input[type="checkbox"] {
   width: 800px;
   height: 1px;
   background-color: rgb(238, 238, 238);
-  margin-bottom: 40px !important;
-  margin-top: 45px !important;
+  margin-bottom: 35px !important;
+  margin-top: 35px !important;
 }
 
 .line2 {
@@ -890,12 +890,9 @@ input[type="checkbox"],
 .option {
   line-height: 16.1px;
   height: 42px;
-  /* width: 67px; */
   width: 64.7969px;
-  /* hernan */
   border: 1px solid #cccccc;
   padding: 0px 12px;
-  /* background-color: aqua !important; */
 }
 
 .option:hover,
