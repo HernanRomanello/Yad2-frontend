@@ -504,23 +504,6 @@ input[type="checkbox"] {
   color: #999999;
 }
 
-.line {
-  width: 800px;
-  height: 1px;
-  background-color: rgb(238, 238, 238);
-  margin: 40px !important;
-  margin-bottom: 10px !important;
-  transform: translateX(5%);
-}
-
-.line3 {
-  width: 800px;
-  height: 1px;
-  background-color: rgb(238, 238, 238);
-  margin-bottom: 35px !important;
-  margin-top: 35px !important;
-}
-
 .line2 {
   margin: 20px 40px !important;
 }
@@ -770,7 +753,9 @@ input[type="checkbox"],
 .process-bar,
 #Selection-2,
 #Selection-3,
-#Selection-4 {
+#Selection-4,
+.upload-container-main-pic,
+.upload-container {
   position: relative;
 }
 
@@ -832,13 +817,53 @@ input[type="checkbox"],
   max-width: 800px !important;
 }
 
-.upload-container {
+.card-header {
+  font-weight: 500;
+  width: 100%;
+
+  height: 28px;
+}
+
+.hidden {
+  display: none;
+}
+
+.upload-container,
+.upload-container-main-pic {
   display: flex;
   flex-direction: column;
-  background-color: rgb(238, 238, 238);
+  /* background-color: rgb(238, 238, 238); */
   height: 266.266px;
-  width: 255.344px;
   border-radius: 8px;
+}
+
+.gray,
+.line,
+.line3 {
+  background-color: rgb(238, 238, 238);
+}
+
+.line {
+  width: 800px;
+  height: 1px;
+  margin: 40px !important;
+  margin-bottom: 10px !important;
+  transform: translateX(5%);
+}
+
+.line3 {
+  width: 800px;
+  height: 1px;
+  margin-bottom: 35px !important;
+  margin-top: 35px !important;
+}
+
+.upload-container-main-pic {
+  width: 259.328px;
+}
+
+.upload-container {
+  width: 255.344px;
 }
 
 .upload-card {
@@ -869,22 +894,10 @@ input[type="checkbox"],
 .asset-type,
 .check-circle,
 .option,
-.card-header,
-.main-pic-card-header {
+.card-header {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.card-header,
-.main-pic-card-header {
-  font-weight: 500;
-  width: 100%;
-
-  height: 28px;
-}
-.main-pic-card-header {
-  width: 259.328px !important;
 }
 
 #balconiesNumber {

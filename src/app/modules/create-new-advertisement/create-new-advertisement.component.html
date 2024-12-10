@@ -1191,7 +1191,7 @@
     </div>
     <div class="upload-part">
       @if(!this.hasImage ){
-      <div class="upload-container">
+      <div class="upload-container gray">
         <div class="card-header">תמונות הנכס</div>
 
         <div class="upload-card">
@@ -1207,7 +1207,7 @@
       </div>
       }
 
-      <div class="upload-container">
+      <div class="upload-container gray">
         <div class="card-header">סרטון הנכס</div>
         <div class="upload-card">
           <div class="card-content">
@@ -1230,10 +1230,13 @@
     @if(this.hasImage ){
 
     <div class="upload-part ad-images-box">
-      <div *ngFor="let image of images; let i = index" class="upload-container">
-        @if(i===0){
-        <div class="main-pic-card-header">תמונה ראשית</div>
-        }
+      <div
+        *ngFor="let image of images; let i = index"
+        [ngClass]="
+          i === 0 ? 'upload-container-main-pic gray' : 'upload-container'
+        "
+      >
+        <div [ngClass]="i === 0 ? 'card-header' : 'hidden'">תמונה ראשית</div>
         <img
           class="add-images"
           [src]="this.advertisementService.src(image)"
