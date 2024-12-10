@@ -551,12 +551,13 @@
             [class.selected]="
               advertisementForm.get('airDirections').value === number
             "
-            (click)="selectAirDirections(number)"
+            (click)="addBorederIfNeed($event); selectAirDirections(number)"
             (mouseover)="
               removeBorederIfNeed(
                 i,
                 +advertisementForm.get('airDirections').value,
-                $event
+                $event,
+                false
               )
             "
             (mouseleave)="addBorederIfNeed($event)"
@@ -573,7 +574,16 @@
             *ngFor="let view of advertisementService.viewOptions; let i = index"
             [ngClass]="optionClass(i, advertisementService.viewOptions.length)"
             [class.selected]="advertisementForm.get('view').value === view"
-            (click)="selectAirView(view)"
+            (click)="addBorederIfNeed($event); selectAirView(view)"
+            (mouseover)="
+              removeBorederIfNeed(
+                i,
+                +advertisementForm.get('view').value,
+                $event,
+                true
+              )
+            "
+            (mouseleave)="addBorederIfNeed($event)"
           >
             {{ view }}
           </div>
@@ -705,7 +715,16 @@
               [class.selected]="
                 advertisementForm.get('showerRooms').value === number
               "
-              (click)="selectShowerRooms(number)"
+              (click)="addBorederIfNeed($event); selectShowerRooms(number)"
+              (mouseover)="
+                removeBorederIfNeed(
+                  i,
+                  +advertisementForm.get('showerRooms').value,
+                  $event,
+                  false
+                )
+              "
+              (mouseleave)="addBorederIfNeed($event)"
             >
               {{ number }}@if(number==4){ {{ "+" }}}
             </div>
@@ -726,7 +745,16 @@
               [class.selected]="
                 advertisementForm.get('privateParking').value === number
               "
-              (click)="selectPrivateParking(number)"
+              (click)="addBorederIfNeed($event); selectPrivateParking(number)"
+              (mouseover)="
+                removeBorederIfNeed(
+                  i,
+                  +advertisementForm.get('privateParking').value,
+                  $event,
+                  true
+                )
+              "
+              (mouseleave)="addBorederIfNeed($event)"
             >
               @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
             </div>
@@ -752,7 +780,16 @@
               [class.selected]="
                 advertisementForm.get('balconiesNumber').value === number
               "
-              (click)="selectBalconiesNumber(number)"
+              (click)="addBorederIfNeed($event); selectBalconiesNumber(number)"
+              (mouseover)="
+                removeBorederIfNeed(
+                  i,
+                  +advertisementForm.get('balconiesNumber').value,
+                  $event,
+                  true
+                )
+              "
+              (mouseleave)="addBorederIfNeed($event)"
             >
               @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
             </div>

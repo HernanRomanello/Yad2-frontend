@@ -510,10 +510,23 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
-  removeBorederIfNeed(option: number, selected: number, event: any) {
+  removeBorederIfNeed(
+    option: number,
+    selected: number,
+    event: any,
+    words: boolean
+  ) {
     const elememt = event.target as HTMLElement;
-    console.log('option', option);
-    console.log('selected', selected);
+    if (
+      event.target.classList.contains('selected1') ||
+      event.target.classList.contains('selected')
+    ) {
+      return;
+    }
+
+    if (words) {
+      return;
+    }
     if (option === selected) {
       this.renderer.addClass(elememt, 'border-right-none1');
     }
