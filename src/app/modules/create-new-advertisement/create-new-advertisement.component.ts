@@ -136,7 +136,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   areas: any[] = [];
   errorMessage: string | null = null;
-
   constructor(
     private renderer: Renderer2,
     private modalstate: ModalStateService
@@ -608,17 +607,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       return;
     }
     const file = input.files[0];
-    // this.video = file;
 
     //hernan
-    const Url = environment.URl;
-    // console.log('video', file);
 
     console.log('video', file.name);
 
-    const videoUrl = URL.createObjectURL(file);
     this.vidoeUrl = environment.URl + 'uploads/' + file.name;
-    // console.log('video', this.vidoeUrl);
 
     this.imageService.uploadImage(file);
   }

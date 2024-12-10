@@ -978,12 +978,23 @@ input[type="checkbox"],
   align-items: center;
   margin: auto;
   margin-bottom: 5px;
-  border: 2px dashed #cccccc;
+
   border-radius: 10px;
 }
-.upload-card {
+.upload-card,
+.upload-card2 {
+  border: 2px dashed #cccccc;
+}
+
+.upload-card,
+.file-input-video {
   width: 245.344px;
   height: 233px !important;
+}
+
+.file-input-video {
+  transform: translateY(20px);
+  border-radius: 10px !important;
 }
 
 .upload-card2 {
@@ -1067,16 +1078,28 @@ input[type="checkbox"],
 }
 
 .file-input {
-  width: 240px;
-  height: 150px;
   background-size: cover;
   background-position: center;
-  outline: none;
   z-index: 100;
   color: transparent;
-  opacity: 1;
-  display: block;
   margin: 20% auto;
+}
+
+.file-input-video {
+  /* background-size: cover; */
+  /* background-position: center; */
+  z-index: 200;
+  /* color: transparent; */
+  margin: 20% auto;
+}
+.file-input {
+  width: 240px;
+  height: 150px;
+}
+
+.file-input-video {
+  height: 140px !important;
+  width: 245.344px !important;
 }
 
 #video {

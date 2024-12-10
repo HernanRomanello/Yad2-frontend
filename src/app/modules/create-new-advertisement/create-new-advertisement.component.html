@@ -1205,10 +1205,16 @@
           </div>
         </div>
       </div>
-      } @if(this.vidoeUrl == ''){
+      }
+
       <div class="upload-container gray">
         <div class="card-header">סרטון הנכס</div>
-        <div class="upload-card">
+        <div
+          [ngClass]="
+            this.vidoeUrl === '' ? 'upload-card' : 'upload-card none-border'
+          "
+        >
+          @if(this.vidoeUrl === ''){
           <div class="card-content">
             <input
               type="file"
@@ -1219,18 +1225,14 @@
               (change)="onFileVideoChange($event)"
             />
           </div>
-          <video #videoPlayer controls *ngIf="false">
+          } @else {
+          <video class="file-input-video" #videoPlayer controls>
             <source [src]="this.vidoeUrl" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          }
         </div>
       </div>
-      } @else {
-      <video width="320" height="240" controls>
-        <source [src]="this.vidoeUrl" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      }
     </div>
     @if(this.hasImage ){
 
@@ -1242,7 +1244,7 @@
         "
       >
         <div
-          class="img-edit-btns pointer"
+          class="img-edit-btns"
           [ngClass]="i === 0 ? 'img-edit-btns-main-img' : 'img-edit-btns'"
         >
           <div class="edit-img pointer">
@@ -1252,7 +1254,7 @@
               alt="edit"
             />
           </div>
-          <div (click)="removeFileChange(i)" class="remove-img pointer">
+          <div (click)="removeFileChange(i)" class="remove-img">
             <img
               class="svg-icon-edit"
               src="assets/images/bin-svgrepo-com.svg"
