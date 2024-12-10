@@ -181,6 +181,15 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       this.isRoomsDropdownHidden = !this.isRoomsDropdownHidden;
     }
   }
+  closeDropdownSection6(event: any) {
+    const elememt = event.target as HTMLElement;
+    if (
+      !elememt.classList.contains('rotate-icon') &&
+      !elememt.classList.contains('dropdown-btn')
+    ) {
+      this.isAssetAssetOwnerDropdownHidden = false;
+    }
+  }
   closeDropdownSection4(event: any) {
     const elememt = event.target as HTMLElement;
 
