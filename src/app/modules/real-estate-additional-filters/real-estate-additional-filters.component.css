@@ -193,6 +193,9 @@ footer button {
 input[type="checkbox"] {
   height: 16px;
   width: 16px;
+}
+input[type="checkbox"]:hover {
+  border: 1px solid #ff7100 !important;
   cursor: pointer;
 }
 
