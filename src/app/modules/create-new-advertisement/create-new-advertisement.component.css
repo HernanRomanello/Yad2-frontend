@@ -135,13 +135,16 @@ input[type="checkbox"]:checked::after,
 .continue-btn,
 .return-btn,
 .input,
-.option,
 .Feature,
 textarea,
 .upload-card,
 .ad-images-box,
 .choice-note {
   background-color: rgb(255, 255, 255) !important;
+}
+
+.option {
+  background-color: rgb(255, 255, 255);
 }
 
 .dropdown-menu li,

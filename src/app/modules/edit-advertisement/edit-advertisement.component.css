@@ -430,18 +430,6 @@ form,
   font-size: 16.8px !important;
 }
 
-.Feature {
-  height: 36px !important;
-  width: 138px !important;
-}
-.Feature {
-  border-radius: 17px !important;
-}
-.Feature:hover,
-.textarea {
-  border: 1px solid rgb(204, 204, 204) !important;
-}
-
 .property-Features {
   gap: 1rem !important;
   width: fit-content !important;
@@ -670,28 +658,6 @@ textarea {
 }
 .content-chars {
   color: #555555 !important;
-}
-
-.selected3,
-.selected2,
-.selected {
-  background-color: rgb(238, 238, 238) !important;
-}
-
-.selected3:hover {
-  background-color: #cccccc !important;
-}
-
-.selected3 {
-  outline: none !important;
-}
-
-.selected3:hover,
-.selected3,
-.selected,
-.selected2,
-.selected2:hover {
-  color: #000000 !important;
 }
 
 .dropdown-option {
@@ -1128,4 +1094,38 @@ textarea {
 
 .note span {
   max-width: 269px !important;
+}
+
+.Feature {
+  height: 36px !important;
+  width: 138px !important;
+}
+.Feature {
+  border-radius: 17px !important;
+}
+.Feature:hover,
+.textarea {
+  border: 1px solid rgb(204, 204, 204) !important;
+}
+
+.selected3,
+.selected2,
+.selected {
+  background-color: rgb(238, 238, 238) !important;
+}
+
+.selected3:hover {
+  background-color: #cccccc !important;
+}
+
+.selected3 {
+  outline: none !important;
+}
+
+.selected3:hover,
+.selected3,
+.selected,
+.selected2,
+.selected2:hover {
+  color: #000000 !important;
 }
