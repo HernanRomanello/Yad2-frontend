@@ -13,6 +13,11 @@
   z-index: 9999;
 }
 
+#x-icon {
+  width: 24px;
+  height: 24px;
+}
+
 .filter-options {
   display: flex;
   flex-direction: column;
