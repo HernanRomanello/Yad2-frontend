@@ -260,7 +260,7 @@
               let i = index
             "
             [ngClass]="[optionClass(i, false), 'small-option']"
-            [class.selected3]="advertisement.privateParking === number"
+            [class.selected2]="advertisement.privateParking === number"
             (click)="selectBtnOption(number, 'privateParking', 'none')"
           >
             @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
@@ -276,7 +276,7 @@
               let i = index
             "
             [ngClass]="[optionClass(i, false), 'small-option']"
-            [class.selected3]="advertisement.balconiesNumber === number"
+            [class.selected2]="advertisement.balconiesNumber === number"
             (click)="selectBtnOption(number, 'balconiesNumber', 'none')"
           >
             @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
