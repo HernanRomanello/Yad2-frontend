@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
@@ -185,7 +185,7 @@ export class EditAdvertisementComponent
     this.addScore = adRank;
   }
 
-  constructor(render: Renderer2) {
+  constructor(render: Renderer2, private router: Router) {
     document.body.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
       const clickOutsdieDropdown =
@@ -553,6 +553,10 @@ export class EditAdvertisementComponent
         this.advertisement.id,
         ImagesURLsForPosting
       );
+
+      //hernan
+
+      this.router.navigate(['/profile/user-advertisement']);
     } catch (e) {
       console.log('Error updating advertisement:', e);
     }

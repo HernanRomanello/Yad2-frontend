@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AdvertisementsModel } from '../shared/models/AdvertisementsModel';
 import { environment } from '../../environments/environment.development';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from './user/auth.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,6 +16,7 @@ export class AdvertisementService {
   UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
   advertisementResult: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  authService = inject(AuthService);
 
   AirDirections = [1, 2, 3, 4];
   viewOptions: string[] = ['ללא', 'לים', 'לפארק', 'לעיר'];
@@ -227,7 +229,9 @@ export class AdvertisementService {
     this.httpClient
       .put(`${this.Url}api/Users/UpdateAdvertisement/${id}`, updatedAd)
       .subscribe(
-        (data) => {},
+        (data) => {
+          this.authService.GetUsersAdvertisements();
+        },
         (error) => {
           console.error('Error updating advertisement:', error);
         }
