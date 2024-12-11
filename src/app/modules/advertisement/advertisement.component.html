@@ -1,6 +1,6 @@
 <div class="advertisement-page">
   <div class="pics-container">
-    @if(advertisement.pictures[0].url.length>0){
+    @if(advertisement.mainPicture !== ''){
 
     <div class="pics">
       <img
@@ -18,8 +18,8 @@
     </div>
 
     <img
-      *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-      [src]="advertisement.pictures[0].url"
+      *ngIf="advertisement.mainPicture !== ''"
+      [src]="advertisement.mainPicture"
       class="main-pic"
       alt="Advertisement Image"
     />
