@@ -42,6 +42,9 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
       }
     });
   }
+  removeParenthesesContent(input: string): string {
+    return input.replace(/\s*\(.*?\)\s*/g, ' ').trim();
+  }
 
   ngOnDestroy() {
     this.navigationService.IsAdpageOpen.set(false);

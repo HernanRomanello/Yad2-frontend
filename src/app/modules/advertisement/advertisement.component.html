@@ -159,7 +159,9 @@
         </div>
         <div class="add-block">
           <div class="gray-text">מצב הנכס</div>
-          <div class="ad-data-text">{{ advertisement.assetState }}</div>
+          <div class="ad-data-text">
+            {{ removeParenthesesContent(advertisement.assetState) }}
+          </div>
         </div>
         <div class="add-block">
           <div class="gray-text">קומות בבניין</div>
