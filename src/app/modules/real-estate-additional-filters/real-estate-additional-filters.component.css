@@ -131,7 +131,6 @@ footer button {
 
 .filter-options label {
   display: block;
-  margin: 5px 0;
 }
 .filter-options input[type="number"] {
   width: 60px;
@@ -179,22 +178,14 @@ footer button {
   width: 460px;
   border-bottom: 1px solid rgb(238, 238, 238) !important;
   padding: 0px 0px 25px;
-  /* margin: auto; */
   margin-top: 1rem;
-}
-
-.add-checkboxs {
-  width: 460px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  padding-top: 5px !important;
 }
 
 input[type="checkbox"] {
   height: 16px;
   width: 16px;
 }
-input[type="checkbox"]:hover {
+.hover:hover {
   border: 1px solid #ff7100 !important;
   cursor: pointer;
 }
@@ -202,7 +193,15 @@ input[type="checkbox"]:hover {
 .add-checkboxs label {
   display: flex;
   align-items: center;
-  padding: 1;
+}
+
+.add-checkboxs {
+  width: 460px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 6px !important;
+  padding-top: 15px !important;
+  letter-spacing: 0;
 }
 
 footer {
@@ -308,14 +307,15 @@ footer {
 
 .add-checkboxs input[type="checkbox"]:checked,
 .add-block input[type="checkbox"]:checked {
-  background-color: #d86000;
+  background-color: #ff7100;
+  border: none;
 }
 
 .add-checkboxs input[type="checkbox"]:checked::after,
 .add-block input[type="checkbox"]:checked::after {
   content: "";
   position: absolute;
-  top: 1px;
+  top: 3px;
   left: 4px;
   width: 4px;
   height: 7px;

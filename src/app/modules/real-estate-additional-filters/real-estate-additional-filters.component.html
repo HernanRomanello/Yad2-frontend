@@ -16,30 +16,47 @@
         <span class="font16 font500">מאפייני מודעה</span>
         <div class="add-checkboxs">
           <label>
-            <input type="checkbox" [(ngModel)]="filters.hasImage" />
+            <input
+              [ngClass]="!filters.hasImage ? 'hover' : ''"
+              type="checkbox"
+              [(ngModel)]="filters.hasImage"
+            />
             עם תמונה
           </label>
           <label>
-            <input type="checkbox" [(ngModel)]="filters.moshavOrKibutz" />
+            <input
+              type="checkbox"
+              [ngClass]="!filters.moshavOrKibutz ? 'hover' : ''"
+              [(ngModel)]="filters.moshavOrKibutz"
+            />
             רק מושבים וקיבוצים
           </label>
           <label>
-            <input type="checkbox" [(ngModel)]="filters.hasPrice" />
+            <input
+              type="checkbox"
+              [ngClass]="!filters.hasPrice ? 'hover' : ''"
+              [(ngModel)]="filters.hasPrice"
+            />
             עם מחיר
           </label>
           <label>
-            <input type="checkbox" [(ngModel)]="filters.pirceDiscount" />
+            <input
+              type="checkbox"
+              [ngClass]="!filters.pirceDiscount ? 'hover' : ''"
+              [(ngModel)]="filters.pirceDiscount"
+            />
             נכסים שמחירם ירד חדש
           </label>
         </div>
       </div>
       <div class="add-block">
-        <span class="title"> מי המפרסם</span>
+        <span class="font500 font16"> מי המפרסם</span>
 
         <div class="add-checkboxs">
           <label>
             <input
               type="checkbox"
+              [ngClass]="!filters.publisherIsMiddleMan ? 'hover' : ''"
               [(ngModel)]="filters.publisherIsMiddleMan"
               value="broker"
             />
@@ -48,6 +65,7 @@
           <label>
             <input
               type="checkbox"
+              [ngClass]="!filters.publisherIsContractor ? 'hover' : ''"
               [(ngModel)]="filters.publisherIsContractor"
               value="developer"
             />
@@ -158,8 +176,8 @@
       </div>
     </div>
     <footer>
-      <button class="ok-btn" (click)="close()">אישור</button>
       <button class="reset-btn" (click)="resetFilters()">איפוס</button>
+      <button class="ok-btn" (click)="close()">אישור</button>
     </footer>
   </div>
 </div>
