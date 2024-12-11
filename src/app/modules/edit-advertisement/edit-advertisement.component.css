@@ -27,7 +27,7 @@ li {
   font-size: 16px !important;
 }
 
-.ad-images,
+.ad-pics,
 #contact-form,
 .note {
   display: grid !important;
@@ -40,15 +40,15 @@ li {
 #contact-form {
   grid-template-columns: 1fr 1fr !important;
 }
-.ad-images {
+.ad-pics {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
-.ad-images {
+.ad-pics {
   row-gap: 26px !important;
 }
 
-.ad-images {
+.ad-pics {
   width: 780px !important;
 }
 
