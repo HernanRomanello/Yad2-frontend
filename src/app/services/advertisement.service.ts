@@ -219,9 +219,12 @@ export class AdvertisementService {
       longTerm: advertisement.longTerm,
 
       pictures: pictures,
+      mainPicture: advertisement.mainPicture,
       video: 'url_to_video',
       contactName: advertisement.contactName,
+      secondContactName: advertisement.secondContactName,
       contactPhone: advertisement.contactPhone,
+      secondContactPhone: advertisement.secondContactPhone,
       standardizationAccepted: advertisement.standardizationAccepted,
     };
 

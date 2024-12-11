@@ -4,7 +4,6 @@ import {
   OnDestroy,
   ViewChild,
   ElementRef,
-  Input,
 } from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
