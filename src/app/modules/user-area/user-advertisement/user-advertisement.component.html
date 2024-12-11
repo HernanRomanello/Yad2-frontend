@@ -105,9 +105,15 @@
                 </div>
               </div>
               <div class="slide">
-                @for (image of advertisement.pictures; track $index) {
-                @if($index== this.findAdIndexById(advertisement.id)){
+                @for (image of advertisement.pictures; track $index) { @if(
+                $index== this.findAdIndexById(advertisement.id)){ @if($index >
+                0){
+
                 <img class="user-card-img" [src]="image.url" [alt]="image" />
+                }@else {
+                <img class="user-card-img" [src]="advertisement.mainPicture" />
+
+                }
                 <div class="slider-indicators">
                   @for (image of advertisement.pictures; track $index) {
                   @if($index== this.findAdIndexById(advertisement.id)){

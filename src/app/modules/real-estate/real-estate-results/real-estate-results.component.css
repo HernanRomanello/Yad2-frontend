@@ -33,6 +33,10 @@
   justify-content: space-between;
 }
 
+.margin-left {
+  margin-left: auto !important;
+}
+
 .advertisement-details {
   padding-inline: 18px;
   padding-top: 12px;
