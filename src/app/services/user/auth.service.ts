@@ -288,6 +288,14 @@ export class AuthService implements OnInit {
       });
   }
 
+  deleteAdvertisement(advertisementId: number) {
+    this.httpClient
+      .delete(`${this.Url}api/Users/DeleteAdvertisement/${advertisementId}`)
+      .subscribe(() => {
+        this.GetUsersAdvertisements();
+      });
+  }
+
   async updateAdvertisementToFavorites(advertisementId: number) {
     this.httpClient
       .post(`${this.Url}api/Users/user/updateFavorite/${advertisementId}`, null)

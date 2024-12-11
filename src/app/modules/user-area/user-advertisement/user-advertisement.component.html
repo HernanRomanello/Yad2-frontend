@@ -144,17 +144,17 @@
                 </div>
               </div>
             </div>
-            <div
-              (click)="
-                this.navigationService.navigateInNewWindow(
-                  '/edit-advertisement/' + advertisement.id
-                )
-              "
-              class="icon-circle-container"
-            >
+            <div class="icon-circle-container">
               <div class="icon-div">
                 <div>
-                  <div class="icon-circle">
+                  <div
+                    class="icon-circle"
+                    (click)="
+                      this.navigationService.navigateInNewWindow(
+                        '/edit-advertisement/' + advertisement.id
+                      )
+                    "
+                  >
                     <img
                       class="icon-pic"
                       src="assets/images/edit-pencil.svg"
@@ -195,11 +195,14 @@
               </div>
               <div class="icon-div">
                 <div>
-                  <div class="icon-circle">
+                  <div
+                    (click)="authService.deleteAdvertisement(advertisement.id)"
+                    class="icon-circle"
+                  >
                     <img
                       class="icon-pic bin-icon"
                       src="assets/images/remove-bin-delete.svg"
-                      alt="edit-pencil"
+                      alt="bin-icon"
                     />
                   </div>
                 </div>

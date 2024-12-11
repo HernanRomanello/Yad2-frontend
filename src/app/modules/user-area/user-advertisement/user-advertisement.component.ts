@@ -1,10 +1,4 @@
-import {
-  Component,
-  inject,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/user/auth.service';
 import { AdvertisementService } from '../../../services/advertisement.service';
 import { NavigationService } from '../../../services/navigation.service';

@@ -4,11 +4,9 @@ import {
   Component,
   ElementRef,
   inject,
-  OnChanges,
   OnDestroy,
   OnInit,
   Renderer2,
-  viewChild,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
