@@ -7,6 +7,15 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 9999;
 }
+.page {
+  position: relative;
+  /* top: 0; */
+  /* left: 0; */
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  /* z-index: 9999; */
+}
 
 #x-icon {
   width: 24px;
@@ -16,13 +25,30 @@
 .filter-options {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  margin-top: 45px;
-  height: 80vh;
+
   z-index: 99999 !important;
   border-radius: 12px;
-  width: 520px;
   background-color: rgb(255, 255, 255) !important;
+}
+
+.filter-options {
+  position: absolute;
+  height: 88vh;
+  top: 0px !important;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 520px;
+}
+
+.body {
+  flex: 1;
+  direction: rtl;
+  overflow-y: auto;
+  margin-right: auto;
+  height: 535px;
+  padding-right: 25px;
 }
 
 .flex-center,
@@ -32,7 +58,8 @@ header div {
   align-items: center;
 }
 
-header {
+header,
+.body {
   width: 100%;
 }
 header {
@@ -138,12 +165,12 @@ footer button {
   margin-bottom: 2px !important;
 }
 
-.body {
-  overflow-y: auto;
-  flex: 1;
-  direction: rtl;
-  width: 99% !important;
-  margin-right: auto;
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
 }
 
 .body::-webkit-scrollbar {
@@ -169,7 +196,7 @@ footer button {
   width: 460px;
   border-bottom: 1px solid rgb(238, 238, 238) !important;
   padding: 0px 0px 25px;
-  margin: auto;
+  /* margin: auto; */
   margin-top: 1rem;
 }
 
@@ -245,7 +272,7 @@ footer {
 
 .add-features {
   width: 460px !important;
-  margin: auto;
+  /* margin: auto; */
   border-bottom: 1px solid rgb(220, 220, 220) !important;
   cursor: pointer;
   padding-top: 2rem;

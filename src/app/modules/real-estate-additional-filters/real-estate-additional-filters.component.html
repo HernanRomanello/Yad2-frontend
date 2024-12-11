@@ -1,160 +1,164 @@
 <div class="overlay">
-  <div class="filter-options">
-    <header class="flex-center">
-      <div class="close-btn" (click)="close()">
-        <img
-          id="x-icon"
-          src="assets/images/close-svgrepo-com (3).svg"
-          alt="check"
-        />
-      </div>
-      <div class="font18 font500">סינונים נוספים</div>
-    </header>
-    <div class="border"></div>
-    <div class="body">
-      <div class="add-block">
-        <span class="font16 font500">מאפייני מודעה</span>
-        <div class="add-checkboxs">
-          <label>
-            <input type="checkbox" [(ngModel)]="filters.hasImage" />
-            עם תמונה
-          </label>
-          <label>
-            <input type="checkbox" [(ngModel)]="filters.moshavOrKibutz" />
-            רק מושבים וקיבוצים
-          </label>
-          <label>
-            <input type="checkbox" [(ngModel)]="filters.hasPrice" />
-            עם מחיר
-          </label>
-          <label>
-            <input type="checkbox" [(ngModel)]="filters.pirceDiscount" />
-            נכסים שמחירם ירד חדש
-          </label>
+  <div class="page">
+    <div class="filter-options">
+      <header class="flex-center">
+        <div class="close-btn pointer" (click)="close()">
+          <img
+            id="x-icon"
+            src="assets/images/close-svgrepo-com (3).svg"
+            alt="check"
+          />
         </div>
-      </div>
-      <div class="add-block">
-        <span class="title"> מי המפרסם</span>
+        <div class="font18 font500">סינונים נוספים</div>
+      </header>
+      <div class="border"></div>
+      <div class="body column flex">
+        <div class="add-block">
+          <span class="font16 font500">מאפייני מודעה</span>
+          <div class="add-checkboxs">
+            <label>
+              <input type="checkbox" [(ngModel)]="filters.hasImage" />
+              עם תמונה
+            </label>
+            <label>
+              <input type="checkbox" [(ngModel)]="filters.moshavOrKibutz" />
+              רק מושבים וקיבוצים
+            </label>
+            <label>
+              <input type="checkbox" [(ngModel)]="filters.hasPrice" />
+              עם מחיר
+            </label>
+            <label>
+              <input type="checkbox" [(ngModel)]="filters.pirceDiscount" />
+              נכסים שמחירם ירד חדש
+            </label>
+          </div>
+        </div>
+        <div class="add-block">
+          <span class="title"> מי המפרסם</span>
 
-        <div class="add-checkboxs">
-          <label>
-            <input
-              type="checkbox"
-              [(ngModel)]="filters.publisherIsMiddleMan"
-              value="broker"
-            />
-            תיווך
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              [(ngModel)]="filters.publisherIsContractor"
-              value="developer"
-            />
-            יזם/קבלן
-          </label>
+          <div class="add-checkboxs">
+            <label>
+              <input
+                type="checkbox"
+                [(ngModel)]="filters.publisherIsMiddleMan"
+                value="broker"
+              />
+              תיווך
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                [(ngModel)]="filters.publisherIsContractor"
+                value="developer"
+              />
+              יזם/קבלן
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="add-features">
-        <div class="title">מאפייני הנכס</div>
-        <div class="features">
-          <span
-            (click)="
-              filters[
-                propertyFeaturesHebrewToProperty[filters_.propertyFeatures[i]]
-              ] =
-                !filters[
+        <div class="add-features">
+          <div class="title">מאפייני הנכס</div>
+          <div class="features">
+            <span
+              (click)="
+                filters[
+                  propertyFeaturesHebrewToProperty[filters_.propertyFeatures[i]]
+                ] =
+                  !filters[
+                    propertyFeaturesHebrewToProperty[
+                      filters_.propertyFeatures[i]
+                    ]
+                  ]
+              "
+              class="feature {{
+                filters[
                   propertyFeaturesHebrewToProperty[filters_.propertyFeatures[i]]
                 ]
-            "
-            class="feature {{
-              filters[
-                propertyFeaturesHebrewToProperty[filters_.propertyFeatures[i]]
-              ]
-                ? 'selected'
-                : 'unselected'
-            }}"
-            *ngFor="let item of filters_.propertyFeatures; index as i"
-          >
-            {{ item }}
-          </span>
+                  ? 'selected'
+                  : 'unselected'
+              }}"
+              *ngFor="let item of filters_.propertyFeatures; index as i"
+            >
+              {{ item }}
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="add-block add-condition">
-        <div class="title">מצב הנכס</div>
-        <div>
-          <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.isNewFromBuilder" />
-            חדש מקבלן (לא גרו בכלל)</label
-          >
-          <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.isNew" /> חדש (נכס בן
-            עד 10 שנים)</label
-          >
-          <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.isRenovated" /> משופץ
-            (שופץ ב-5 שנים האחרונות)</label
-          >
-          <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.isWellMaintained" />
-            במצב שמור (במצב טוב, לא שופץ)</label
-          >
-          <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.needsRenovation" />
-            דרוש שיפוץ (זקוק לעבודת שיפוץ)</label
-          >
-        </div>
-        <div class="range-slider">
+        <div class="add-block add-condition">
+          <div class="title">מצב הנכס</div>
           <div>
-            <div class="title">קומה</div>
+            <label class="asset-stete-checkBox"
+              ><input type="checkbox" [(ngModel)]="filters.isNewFromBuilder" />
+              חדש מקבלן (לא גרו בכלל)</label
+            >
+            <label class="asset-stete-checkBox"
+              ><input type="checkbox" [(ngModel)]="filters.isNew" /> חדש (נכס בן
+              עד 10 שנים)</label
+            >
+            <label class="asset-stete-checkBox"
+              ><input type="checkbox" [(ngModel)]="filters.isRenovated" /> משופץ
+              (שופץ ב-5 שנים האחרונות)</label
+            >
+            <label class="asset-stete-checkBox"
+              ><input type="checkbox" [(ngModel)]="filters.isWellMaintained" />
+              במצב שמור (במצב טוב, לא שופץ)</label
+            >
+            <label class="asset-stete-checkBox"
+              ><input type="checkbox" [(ngModel)]="filters.needsRenovation" />
+              דרוש שיפוץ (זקוק לעבודת שיפוץ)</label
+            >
+          </div>
+          <div class="range-slider">
             <div>
-              <app-real-estate-price-slider-select
-                [hasBackground]="false"
-                (selectedPriceRange)="onFloorsSelected($event)"
-              ></app-real-estate-price-slider-select>
-            </div>
-          </div>
-        </div>
-        <br />
-
-        <div class="range-slider">
-          <div class="title t2">גודל דירה (במ״ר)</div>
-          <div>
-            <app-real-estate-price-slider
-              [hasBackground]="false"
-              (selectedPriceRange)="onAptSizeSelected($event)"
-            ></app-real-estate-price-slider>
-            <br />
-            <br />
-            <br />
-            <br />
-          </div>
-
-          <div class="date-select">
-            <div class="date-container">
-              <div class="title">תאריך כניסה</div>
-              <div class="date">
-                <input
-                  class="date-input"
-                  type="date"
-                  placeholder="dd/mm/yyyy"
-                />
-                <label class="date-checkbox">
-                  <input type="checkbox" />
-                  כניסה מיידית
-                </label>
+              <div class="title">קומה</div>
+              <div>
+                <app-real-estate-price-slider-select
+                  [hasBackground]="false"
+                  (selectedPriceRange)="onFloorsSelected($event)"
+                ></app-real-estate-price-slider-select>
               </div>
             </div>
           </div>
+          <br />
 
-          <div class="free-search"></div>
-          <div class="title">חיפוש חופשי</div>
-          <div class="text-serch">
-            <input type="text" placeholder="חיפוש חופשי" />
+          <div class="range-slider">
+            <div class="title t2">גודל דירה (במ״ר)</div>
+            <div>
+              <app-real-estate-price-slider
+                [hasBackground]="false"
+                (selectedPriceRange)="onAptSizeSelected($event)"
+              ></app-real-estate-price-slider>
+              <br />
+              <br />
+              <br />
+              <br />
+            </div>
+
+            <div class="date-select">
+              <div class="date-container">
+                <div class="title">תאריך כניסה</div>
+                <div class="date">
+                  <input
+                    class="date-input"
+                    type="date"
+                    placeholder="dd/mm/yyyy"
+                  />
+                  <label class="date-checkbox">
+                    <input type="checkbox" />
+                    כניסה מיידית
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="free-search"></div>
+            <div class="title">חיפוש חופשי</div>
+            <div class="text-serch">
+              <input type="text" placeholder="חיפוש חופשי" />
+            </div>
           </div>
-        </div>
 
-        <div class="border"></div>
+          <div class="border"></div>
+        </div>
       </div>
       <footer>
         <button class="ok-btn" (click)="close()">אישור</button>
