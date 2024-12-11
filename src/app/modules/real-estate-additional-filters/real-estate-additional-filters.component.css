@@ -25,19 +25,6 @@
   background-color: rgb(255, 255, 255) !important;
 }
 
-/* header {
-  display: grid;
-  grid-template-columns: 1fr 9fr;
-  grid-gap: 20px;
-  direction: ltr !important;
-}
-
-header div {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20.7px;
-} */
-
 .flex-center,
 header div {
   display: flex;
@@ -70,25 +57,65 @@ header {
   font-size: 18px;
 }
 
+.font16,
+.date-input,
+.date-select,
+.text-serch input[type="text"],
+.free-search,
+footer button {
+  font-size: 16px;
+}
+
+.date-input {
+  font-weight: 400;
+  color: rgb(54, 54, 54);
+  height: 42px;
+  width: 201px;
+}
+
+.date-select {
+  line-height: 18.4px;
+  color: rgb(54, 54, 54);
+  height: 140.391px;
+  width: 460px;
+  border-bottom: 1px solid rgb(238, 238, 238);
+  border-top: 1px solid rgb(238, 238, 238);
+}
+.text-serch input[type="text"] {
+  margin-top: 8px;
+  line-height: 18.4px;
+  color: rgb(54, 54, 54);
+  background-color: rgb(255, 255, 255);
+  height: 44px !important;
+  width: 436px;
+  padding: 0px 11px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 4px;
+}
+.free-search {
+  font-weight: 400;
+  text-align: start;
+  height: 95.3906px;
+  width: 460px;
+  padding: 25px 0px 0px;
+}
+footer button,
+.pointer {
+  cursor: pointer;
+}
+footer button {
+  background-color: transparent !important;
+}
+
 .header-title {
   margin: auto;
 }
 
-/* header button {
-  background-color: rgb(255, 255, 255) !important;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 16.1px;
-  cursor: pointer;
-  border: transparent;
-} */
-.title {
+/* .title {
   font-weight: 700 !important;
   font-size: 16px !important;
   opacity: 0.85 !important;
-}
+} */
 .filter-options label {
   display: block;
   margin: 5px 0;
@@ -175,12 +202,6 @@ footer {
   border-top: 1px solid rgb(220, 220, 220) !important;
 }
 
-footer button {
-  font-size: 16px;
-  cursor: pointer;
-  background-color: transparent !important;
-}
-
 .reset-btn {
   font-weight: 400;
   line-height: 18.4px;
@@ -250,40 +271,6 @@ footer button {
   width: 460px;
 }
 
-.free-search {
-  font-weight: 400;
-  font-size: 16px;
-  text-align: start;
-  height: 95.3906px;
-  width: 460px;
-  padding: 25px 0px 0px;
-}
-
-.text-serch input[type="text"] {
-  margin-top: 8px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18.4px;
-  color: rgb(54, 54, 54);
-  background-color: rgb(255, 255, 255);
-  height: 44px !important;
-  width: 436px;
-  padding: 0px 11px;
-  border: 1px solid rgb(211, 211, 211);
-  border-radius: 4px;
-}
-
-.date-select {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 18.4px;
-  color: rgb(54, 54, 54);
-  height: 140.391px;
-  width: 460px;
-  border-bottom: 1px solid rgb(238, 238, 238);
-  border-top: 1px solid rgb(238, 238, 238);
-}
-
 .date {
   gap: 10px;
   padding: 10px 0px;
@@ -293,14 +280,6 @@ footer button {
 
 .date-container {
   padding-top: 2rem !important;
-}
-
-.date-input {
-  font-size: 16px;
-  font-weight: 400;
-  color: rgb(54, 54, 54);
-  height: 42px;
-  width: 201px;
 }
 
 .add-checkboxs input[type="checkbox"],
