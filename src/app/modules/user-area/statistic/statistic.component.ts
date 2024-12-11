@@ -1,12 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationService } from '../../../services/navigation.service';
+import { AuthService } from '../../../services/user/auth.service';
+import { AdvertisementModelStatistic } from '../../../shared/models/AdvertisementModelStatistic';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-statistic',
   templateUrl: './statistic.component.html',
   styleUrl: './statistic.component.css',
 })
-export class StatisticComponent {
+export class StatisticComponent implements OnInit {
   watchedAdisChecked = true;
   watchedAdisCheckedFrame = false;
   saveAdisChecked = true;
@@ -23,6 +26,16 @@ export class StatisticComponent {
   dropDownValue = this.dropDownOptions[0];
   dropDownIsVisible = false;
   blueDecorationIsVisible = false;
+  // userStatistics: BehaviorSubject<AdvertisementModelStatistic>;
+  userStatistics: any;
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.userStatistics = this.authService.UserAdvertisementsStatistics.value;
+    console.log(this.userStatistics);
+    // console.log(this.authService.UserAdvertisementsStatistics.value);
+  }
 
   closeDropDown(event: any) {
     if (

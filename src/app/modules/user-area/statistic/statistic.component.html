@@ -7,7 +7,9 @@
     <div class="right-side flex-center column">
       <div class="stats-numbers flex-center">
         <div class="stats-data left-border first-column">
-          <div class="number">0</div>
+          <div class="number">
+            {{ userStatistics.activeAdvertisement }}
+          </div>
           <div class="font16 wrap-text">מודעות פעילות</div>
         </div>
 
@@ -21,7 +23,9 @@
         </div>
 
         <div class="stats-data">
-          <div class="number">0</div>
+          <div class="number">
+            {{ userStatistics.advertismentPublishedUntilNow }}
+          </div>
           <div class="font16 wrap-text">מודעות שעלו עד היום</div>
         </div>
       </div>
