@@ -182,7 +182,6 @@ export class AdvertisementService {
       hasImage: advertisement.hasImage,
       hasPrice: advertisement.hasPrice,
       moshavOrKibutz: advertisement.moshavOrKibutz,
-      priceDiscount: advertisement.priceDiscount,
       publisherIsMiddleMan: advertisement.publisherIsMiddleMan,
       publisherIsContractor: advertisement.publisherIsContractor,
       balconiesNumber: advertisement.balconiesNumber,

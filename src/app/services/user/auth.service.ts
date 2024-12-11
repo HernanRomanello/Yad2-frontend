@@ -261,9 +261,12 @@ export class AuthService implements OnInit {
       longTerm: NewAdvertisement.longTerm,
 
       pictures: NewAdvertisement.pictures,
+      MainPicture: NewAdvertisement.pictures[0],
       video: NewAdvertisement.video,
       contactName: NewAdvertisement.contactName,
+      SecondContactName: NewAdvertisement.secondContactName,
       contactPhone: NewAdvertisement.contactPhone,
+      SecondContactPhone: NewAdvertisement.secondContactName,
       standardizationAccepted: NewAdvertisement.standardizationAccepted,
     };
 

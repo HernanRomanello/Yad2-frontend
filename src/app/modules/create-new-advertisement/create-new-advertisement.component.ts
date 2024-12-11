@@ -49,6 +49,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   images: File[] = [];
   vidoeUrl: string = '';
   imagesUrl: string[] = [];
+  MainPicture: string = '';
+
   video: File | undefined = undefined;
   authService = inject(AuthService);
   imageService = inject(ImageuploadService);
@@ -332,8 +334,18 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         this.authService.user.getValue()?.name || '',
         Validators.required,
       ],
+      secondContactName: ['', Validators.required],
       contactPhone: [
         this.authService.user.getValue()?.phoneNumber || '',
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+          Validators.minLength(10),
+          Validators.maxLength(10),
+        ],
+      ],
+      secondContactPhone: [
+        '',
         [
           Validators.required,
           Validators.pattern('^[0-9]*$'),
@@ -769,19 +781,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   continueToTheNextFormPage(formPageNumber: number) {
     this.isFormPagesAreSubmitted[formPageNumber - 1] = true;
 
-    if (this.checkIfThisFormPartIsValid(formPageNumber)) {
-      this.updateIfFormPartCompleted(formPageNumber);
-      this.continueToTheNextFormPage(formPageNumber);
-      //hernan
-      this.firstError = '';
-    } else {
-      if (this.firstError !== '') {
-        const errorElement = document.getElementById(this.firstError);
-        if (errorElement) {
-          errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }
-    }
+    // if (this.checkIfThisFormPartIsValid(formPageNumber)) {
+    this.updateIfFormPartCompleted(formPageNumber);
+    this.continueToTheNextFormPage(formPageNumber);
+    //hernan
+    //   this.firstError = '';
+    // } else {
+    //   if (this.firstError !== '') {
+    //     const errorElement = document.getElementById(this.firstError);
+    //     if (errorElement) {
+    //       errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    //     }
+    //   }
+    // }
   }
 
   checkIfThisFormPartIsValid(formPageNumber: number) {
