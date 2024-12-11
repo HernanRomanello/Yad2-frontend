@@ -231,6 +231,7 @@ export class AdvertisementService {
       .subscribe(
         (data) => {
           this.authService.GetUsersAdvertisements();
+          this.GetAdvertisements();
         },
         (error) => {
           console.error('Error updating advertisement:', error);
