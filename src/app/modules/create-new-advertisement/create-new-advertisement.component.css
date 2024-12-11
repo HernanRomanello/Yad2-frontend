@@ -135,7 +135,6 @@ input[type="checkbox"]:checked::after,
 .continue-btn,
 .return-btn,
 .input,
-.Feature,
 textarea,
 .upload-card,
 .ad-images-box,
@@ -143,6 +142,7 @@ textarea,
   background-color: rgb(255, 255, 255) !important;
 }
 
+.Feature,
 .option {
   background-color: rgb(255, 255, 255);
 }
