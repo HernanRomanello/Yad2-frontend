@@ -220,7 +220,7 @@ export class AdvertisementService {
 
       pictures: pictures,
       mainPicture: advertisement.mainPicture,
-      video: 'url_to_video',
+      video: advertisement.video,
       contactName: advertisement.contactName,
       secondContactName: advertisement.secondContactName,
       contactPhone: advertisement.contactPhone,
