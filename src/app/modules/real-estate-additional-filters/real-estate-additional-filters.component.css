@@ -178,12 +178,6 @@ input[type="checkbox"] {
   padding-top: 1rem !important;
 }
 
-.add-checkboxs3 {
-  margin-right: -2px;
-  padding: 14px 0 0px 0;
-  gap: 1rem;
-}
-
 .add-checkboxs label,
 .add-checkboxs2 label {
   display: flex;
@@ -346,8 +340,27 @@ footer {
 }
 
 .add-features {
-  border-bottom: 1px solid rgb(220, 220, 220) !important;
   padding-top: 1.5rem;
+}
+
+.add-checkboxs3 {
+  margin-right: -2px;
+  padding: 14px 0 0px 0;
+  gap: 1rem;
+}
+.add-checkboxs3,
+.add-features,
+.date-select,
+.add-block1,
+.add-block2,
+.add-block3 {
+  border-bottom: 1px solid #eeeeee !important;
+}
+
+.date-select {
+  line-height: 18.4px;
+  height: 140.391px;
+  border-top: 1px solid rgb(238, 238, 238);
 }
 
 .add-checkboxs,
@@ -370,11 +383,6 @@ footer {
   width: 460px;
 }
 
-.add-block1,
-.add-block2,
-.add-block3 {
-  border-bottom: 1px solid rgb(238, 238, 238) !important;
-}
 .add-block3 {
   padding: 24px 0 0 0;
 }
@@ -383,14 +391,6 @@ footer {
   text-align: start;
   height: 95.3906px;
   padding: 25px 0px 0px;
-}
-
-.date-select {
-  line-height: 18.4px;
-  color: rgb(54, 54, 54);
-  height: 140.391px;
-  border-bottom: 1px solid rgb(238, 238, 238);
-  border-top: 1px solid rgb(238, 238, 238);
 }
 
 .range-slider {
