@@ -259,7 +259,8 @@ input[type="checkbox"] {
 .hover2:hover,
 .hover:hover,
 footer button,
-.pointer {
+.pointer,
+.feature {
   cursor: pointer;
 }
 
@@ -348,7 +349,7 @@ footer {
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
-  padding-top: 12px;
+  padding: 12px 0px 24px;
 }
 
 .add-features {
