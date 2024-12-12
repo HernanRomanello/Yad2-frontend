@@ -279,8 +279,12 @@ footer button,
   width: 80.6875px;
   text-align: center;
   border-radius: 47px;
-  font-weight: 550 !important;
   color: rgb(255, 113, 0);
+  transition: all 0.3s ease;
+}
+
+.ok-btn:hover {
+  background-color: #fff1e5 !important;
 }
 
 .text-serch input[type="text"],
