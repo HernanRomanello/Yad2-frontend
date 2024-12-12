@@ -17,7 +17,7 @@
         <div class="add-checkboxs">
           <label>
             <input
-              [ngClass]="!filters.hasImage ? 'hover' : ''"
+              [ngClass]="!filters.hasImage ? 'hover' : 'hover2'"
               type="checkbox"
               [(ngModel)]="filters.hasImage"
             />
@@ -26,7 +26,7 @@
           <label>
             <input
               type="checkbox"
-              [ngClass]="!filters.moshavOrKibutz ? 'hover' : ''"
+              [ngClass]="!filters.moshavOrKibutz ? 'hover' : 'hover2'"
               [(ngModel)]="filters.moshavOrKibutz"
             />
             רק מושבים וקיבוצים
@@ -34,7 +34,7 @@
           <label>
             <input
               type="checkbox"
-              [ngClass]="!filters.hasPrice ? 'hover' : ''"
+              [ngClass]="!filters.hasPrice ? 'hover' : 'hover2'"
               [(ngModel)]="filters.hasPrice"
             />
             עם מחיר
@@ -42,7 +42,7 @@
           <label>
             <input
               type="checkbox"
-              [ngClass]="!filters.pirceDiscount ? 'hover' : ''"
+              [ngClass]="!filters.pirceDiscount ? 'hover' : 'hover2'"
               [(ngModel)]="filters.pirceDiscount"
             />
 
@@ -57,7 +57,7 @@
           <label>
             <input
               type="checkbox"
-              [ngClass]="!filters.publisherIsMiddleMan ? 'hover' : ''"
+              [ngClass]="!filters.publisherIsMiddleMan ? 'hover' : 'hover2'"
               [(ngModel)]="filters.publisherIsMiddleMan"
               value="broker"
             />
@@ -66,7 +66,7 @@
           <label>
             <input
               type="checkbox"
-              [ngClass]="!filters.publisherIsContractor ? 'hover' : ''"
+              [ngClass]="!filters.publisherIsContractor ? 'hover' : 'hover2'"
               [(ngModel)]="filters.publisherIsContractor"
               value="developer"
             />

@@ -188,6 +188,12 @@ input[type="checkbox"] {
 }
 .hover:hover {
   border: 1px solid #ff7100 !important;
+}
+.hover2:hover {
+  background-color: #d86000 !important;
+}
+.hover2:hover,
+.hover:hover {
   cursor: pointer;
 }
 
