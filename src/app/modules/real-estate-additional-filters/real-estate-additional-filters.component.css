@@ -357,6 +357,21 @@ footer {
   border-bottom: 1px solid #eeeeee !important;
 }
 
+.range-slider {
+  padding: 25px 0 0 0;
+}
+
+.line {
+  width: 460px;
+  border-bottom: 1px solid rgb(238, 238, 238);
+  margin: auto;
+  transform: translateY(-30px);
+}
+
+.size-slider {
+  transform: translateY(-10px);
+}
+
 .date-select {
   line-height: 18.4px;
   height: 140.391px;
@@ -391,10 +406,6 @@ footer {
   text-align: start;
   height: 95.3906px;
   padding: 25px 0px 0px;
-}
-
-.range-slider {
-  padding: 25px 0 0 0;
 }
 
 .t2 {

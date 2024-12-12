@@ -171,20 +171,17 @@
             (selectedPriceRange)="onFloorsSelected($event)"
           ></app-real-estate-price-slider-select>
         </div>
-
-        <div class="range-slider">
+        <div class="line"></div>
+        <div class="size-slider">
           <div class="title t2">גודל דירה (במ״ר)</div>
-          <div>
-            <app-real-estate-price-slider
-              [hasBackground]="false"
-              (selectedPriceRange)="onAptSizeSelected($event)"
-            ></app-real-estate-price-slider>
-            <br />
-            <br />
-            <br />
-            <br />
-          </div>
 
+          <app-real-estate-price-slider-component2
+            [hasBackground]="false"
+            (selectedPriceRange)="onAptSizeSelected($event)"
+          ></app-real-estate-price-slider-component2>
+        </div>
+
+        <div class="">
           <div class="date-select">
             <div class="date-container">
               <div class="title">תאריך כניסה</div>

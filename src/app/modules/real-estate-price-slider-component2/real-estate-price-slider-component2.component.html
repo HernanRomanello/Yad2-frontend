@@ -1,0 +1,30 @@
+<div class="{{ sliderClass() }}">
+  <div class="price-container">
+    <input
+      class="price"
+      (input)="emit()"
+      [(ngModel)]="rangeValuesBuy[1]"
+      (input)="manualSelectMaxPrice($event)"
+      [value]="formatPrice(rangeValuesBuy[1])"
+    />
+
+    <span class="hyphen"></span>
+    <input
+      (input)="emit()"
+      (input)="manualSelectMinPrice($event)"
+      [(ngModel)]="rangeValuesBuy[0]"
+      class="price"
+      [value]="formatPrice(rangeValuesBuy[0])"
+    />
+  </div>
+
+  <div class="slider">
+    <p-slider
+      (onChange)="emit()"
+      [(ngModel)]="rangeValuesBuy"
+      [range]="true"
+      [min]="rangeValuesBuyMinMax[0]"
+      [max]="rangeValuesBuyMinMax[1]"
+    />
+  </div>
+</div>
