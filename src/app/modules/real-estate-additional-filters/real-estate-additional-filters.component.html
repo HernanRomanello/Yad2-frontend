@@ -90,12 +90,20 @@
               filters[
                 propertyFeaturesHebrewToProperty[filters_.propertyFeatures[i]]
               ]
-                ? 'selected'
-                : 'unselected'
+                ? 'selected align-items-center'
+                : 'unselected align-items-center'
             }}"
             *ngFor="let item of filters_.propertyFeatures; index as i"
           >
-            {{ item }}
+            <img
+              [id]="item"
+              class="svg-icon"
+              [src]="selectSvgURLByFilter(item)"
+              alt="check"
+            />
+            <span>
+              {{ item }}
+            </span>
           </span>
         </div>
       </div>

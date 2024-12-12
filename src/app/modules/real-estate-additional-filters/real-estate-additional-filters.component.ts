@@ -82,6 +82,40 @@ export class RealEstateAdditionalFiltersComponent {
     this.closeMenu.emit();
   }
 
+  selectSvgURLByFilter(filter: string) {
+    switch (filter) {
+      case 'חניה':
+        return 'assets/images/parking-svgrepo-com.svg';
+      case 'מעלית':
+        return 'assets/images/elevator-svgrepo-com.svg';
+      case 'ממ״ד':
+        return 'assets/images/secure-shield-password-protect-safe-svgrepo-com.svg';
+      case 'מרפסת':
+        return 'assets/images/icons_565162.svg';
+      case 'מיזוג':
+        return 'assets/images/air-conditioner-svgrepo-com.svg';
+      case 'מחסן':
+        return 'assets/images/box-svgrepo-com.svg';
+      case 'משופצת':
+        return 'assets/images/paint-roller-solid-svgrepo-com.svg';
+      case 'גישה לנכים':
+        return 'assets/images/disability-svgrepo-com.svg';
+      case 'סורגים':
+        return 'assets/images/square-split-2x2-svgrepo-com.svg';
+      case 'מרוהטת':
+        return 'assets/images/drawers-end-table-svgrepo-com.svg';
+      case 'בבלעדיות':
+        return 'assets/images/diamond-svgrepo-com.svg';
+      case 'חיות מחמד':
+        return 'assets/images/dog-svgrepo-com.svg';
+      case 'לשותפים':
+        return 'assets/images/users-svgrepo-com.svg';
+
+      default:
+        return '';
+    }
+  }
+
   resetFilters() {
     this.filters = {
       hasImage: undefined,

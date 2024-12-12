@@ -12,6 +12,10 @@
   width: 24px;
   height: 24px;
 }
+.svg-icon {
+  width: 20px;
+  height: 20px;
+}
 
 .filter-options {
   display: flex;
@@ -46,6 +50,10 @@
 header div {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.align-items-center {
+  display: flex;
   align-items: center;
 }
 
@@ -326,13 +334,13 @@ footer {
 }
 
 .feature {
-  padding: 7.14px 14px;
+  padding: 7px 14px;
   border: 1px solid rgb(211, 211, 211);
   background-color: rgb(255, 255, 255);
   border-radius: 3.92px;
   text-align: right;
-  font-weight: 400;
   width: 145px;
+  height: 40.25px;
 }
 
 .features {
@@ -340,9 +348,7 @@ footer {
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
-  right: 0 !important;
-  padding: 1rem;
-  transform: translateX(20px);
+  padding-top: 12px;
 }
 
 .add-features {
@@ -361,6 +367,11 @@ footer {
 
 .selected {
   border: 1px solid orange;
+}
+
+.unselected,
+.selected {
+  gap: 0.25rem;
 }
 
 .range-slider {
