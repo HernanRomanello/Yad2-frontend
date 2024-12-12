@@ -54,7 +54,6 @@ export class SearchService {
       this.minSquareSize(),
       this.maxSqaureSize(),
     ];
-    console.log(this.propertyFilters);
   }
 
   adds = [
