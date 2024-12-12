@@ -124,23 +124,43 @@
         <div class="title">מצב הנכס</div>
         <div>
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.isNewFromBuilder" />
+            ><input
+              [ngClass]="!filters.isNewFromBuilder ? 'hover' : 'hover2'"
+              type="checkbox"
+              [(ngModel)]="filters.isNewFromBuilder"
+            />
             חדש מקבלן (לא גרו בכלל)</label
           >
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.isNew" /> חדש (נכס בן
-            עד 10 שנים)</label
+            ><input
+              type="checkbox"
+              [ngClass]="!filters.isNew ? 'hover' : 'hover2'"
+              [(ngModel)]="filters.isNew"
+            />
+            חדש (נכס בן עד 10 שנים)</label
           >
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.isRenovated" /> משופץ
-            (שופץ ב-5 שנים האחרונות)</label
+            ><input
+              type="checkbox"
+              [ngClass]="!filters.isRenovated ? 'hover' : 'hover2'"
+              [(ngModel)]="filters.isRenovated"
+            />
+            משופץ (שופץ ב-5 שנים האחרונות)</label
           >
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.isWellMaintained" />
+            ><input
+              type="checkbox"
+              [ngClass]="!filters.isWellMaintained ? 'hover' : 'hover2'"
+              [(ngModel)]="filters.isWellMaintained"
+            />
             במצב שמור (במצב טוב, לא שופץ)</label
           >
           <label class="asset-stete-checkBox"
-            ><input type="checkbox" [(ngModel)]="filters.needsRenovation" />
+            ><input
+              type="checkbox"
+              [ngClass]="!filters.needsRenovation ? 'hover' : 'hover2'"
+              [(ngModel)]="filters.needsRenovation"
+            />
             דרוש שיפוץ (זקוק לעבודת שיפוץ)</label
           >
         </div>
