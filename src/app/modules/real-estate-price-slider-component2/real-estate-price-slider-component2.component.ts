@@ -18,7 +18,7 @@ export class RealEstateSquareSizeSliderComponent {
 
   rangeValuesBuy: [number, number] = [...this.rangeValuesBuyMinMax];
 
-  @Output() selectedPriceRange = new EventEmitter<[number, number]>();
+  @Output() selectedSquareSizeRange = new EventEmitter<[number, number]>();
 
   @Input() hasBackground = true;
 
@@ -30,7 +30,7 @@ export class RealEstateSquareSizeSliderComponent {
   }
 
   emit() {
-    this.selectedPriceRange.emit(this.rangeValuesBuy);
+    this.selectedSquareSizeRange.emit(this.rangeValuesBuy);
   }
   manualSelectMinPrice(event: Event) {
     const value = (event.target as HTMLInputElement).value;

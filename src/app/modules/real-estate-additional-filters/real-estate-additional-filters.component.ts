@@ -161,7 +161,7 @@ export class RealEstateAdditionalFiltersComponent {
 
   onAptSizeSelected(size: any) {
     this.aptSizeRange = size;
-    // alert('this.aptSizeRange : ' + this.aptSizeRange);
+    alert('this.aptSizeRange : ' + this.aptSizeRange);
   }
   onFloorsSelected(floors: any) {
     this.floorsRange = floors;
