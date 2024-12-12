@@ -118,10 +118,7 @@ footer button {
   width: 460px;
   padding: 25px 0px 0px;
 }
-footer button,
-.pointer {
-  cursor: pointer;
-}
+
 footer button {
   background-color: transparent !important;
 }
@@ -198,10 +195,6 @@ input[type="checkbox"] {
 .hover2:hover {
   background-color: #d86000 !important;
 }
-.hover2:hover,
-.hover:hover {
-  cursor: pointer;
-}
 
 .translateY {
   padding-top: 1rem !important;
@@ -240,6 +233,16 @@ input[type="checkbox"] {
   border: 1px solid lightgray;
   border-radius: 2px;
   position: relative;
+}
+
+.add-checkboxs input[type="checkbox"],
+.add-block1 input[type="checkbox"],
+.add-block2 input[type="checkbox"],
+.add-block3 input[type="checkbox"],
+.hover2:hover,
+.hover:hover,
+footer button,
+.pointer {
   cursor: pointer;
 }
 
@@ -335,9 +338,7 @@ footer {
 
 .add-features {
   width: 460px !important;
-  /* margin: auto; */
   border-bottom: 1px solid rgb(220, 220, 220) !important;
-  cursor: pointer;
   padding-top: 2rem;
 }
 
