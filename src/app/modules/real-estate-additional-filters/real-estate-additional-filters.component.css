@@ -361,11 +361,17 @@ footer {
   padding: 25px 0 0 0;
 }
 
-.line {
+.line,
+.line2 {
   width: 460px;
   border-bottom: 1px solid rgb(238, 238, 238);
   margin: auto;
+}
+.line {
   transform: translateY(-30px);
+}
+.line2 {
+  transform: translateY(-40px);
 }
 
 .size-slider {
@@ -373,9 +379,9 @@ footer {
 }
 
 .date-select {
-  line-height: 18.4px;
-  height: 140.391px;
-  border-top: 1px solid rgb(238, 238, 238);
+  /* line-height: 18.4px; */
+  /* height: 140.391px; */
+  /* border-top: 1px solid rgb(238, 238, 238); */
 }
 
 .add-checkboxs,
@@ -422,10 +428,6 @@ footer {
   padding: 10px 0px;
   display: flex;
   justify-content: start;
-}
-
-.date-container {
-  padding-top: 2rem !important;
 }
 
 .asset-stete-checkBox {
