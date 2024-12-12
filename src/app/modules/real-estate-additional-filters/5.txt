@@ -1,13 +1,13 @@
-header .flex-center {
+span .ad-attributes-input_tag__WyX__ {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 14px;
+	font-size: 12px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
-	letter-spacing: 0.25px;
-	line-height: 20px;
-	text-decoration: none solid rgb(54, 54, 54);
+	font-weight: 500;
+	letter-spacing: normal;
+	line-height: 13.8px;
+	text-decoration: none solid rgb(255, 255, 255);
 	text-align: start;
 	text-indent: 0px;
 	text-transform: none;
@@ -17,35 +17,35 @@ header .flex-center {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(16, 173, 111);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(54, 54, 54);
+	color: rgb(255, 255, 255);
 
 	/* Box */
-	height: 49.6875px;
-	width: 520px;
-	border: 0px none rgb(54, 54, 54);
-	border-top: 0px none rgb(54, 54, 54);
-	border-right: 0px none rgb(54, 54, 54);
-	border-bottom: 0px none rgb(54, 54, 54);
-	border-left: 0px none rgb(54, 54, 54);
+	height: 17.7969px;
+	width: 35.0781px;
+	border: 0px none rgb(255, 255, 255);
+	border-top: 0px none rgb(255, 255, 255);
+	border-right: 0px none rgb(255, 255, 255);
+	border-bottom: 0px none rgb(255, 255, 255);
+	border-left: 0px none rgb(255, 255, 255);
 	margin: 0px;
-	padding: 0px;
+	padding: 2px 6px;
 	max-height: none;
 	min-height: auto;
 	max-width: none;
 	min-width: auto;
 
 	/* Positioning */
-	position: relative;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
 	z-index: auto;
 
@@ -63,7 +63,7 @@ header .flex-center {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: auto;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ header .flex-center {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }

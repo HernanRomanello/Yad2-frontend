@@ -67,7 +67,8 @@ header {
   left: 10px;
 }
 
-.font500 {
+.font500,
+.green-box {
   font-weight: 500;
 }
 
@@ -193,6 +194,22 @@ input[type="checkbox"] {
 .add-checkboxs label {
   display: flex;
   align-items: center;
+}
+
+.green-box {
+  font-size: 12px;
+}
+.green-box {
+  line-height: 13.8px;
+  background-color: rgb(16, 173, 111);
+
+  color: rgb(255, 255, 255);
+
+  height: 17.7969px;
+  width: 35.0781px;
+  padding: 2px 6px;
+  margin-right: 6px;
+  border-radius: 4px;
 }
 
 .add-checkboxs {
