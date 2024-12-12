@@ -95,12 +95,25 @@
             }}"
             *ngFor="let item of filters_.propertyFeatures; index as i"
           >
+            @if(filters[
+            propertyFeaturesHebrewToProperty[filters_.propertyFeatures[i]] ]){
+            <img
+              [id]="item"
+              class="svg-icon-selected"
+              [src]="selectSvgURLByFilter(item)"
+              alt="check"
+            />
+            }@else {
+
             <img
               [id]="item"
               class="svg-icon"
               [src]="selectSvgURLByFilter(item)"
               alt="check"
             />
+
+            }
+
             <span>
               {{ item }}
             </span>
