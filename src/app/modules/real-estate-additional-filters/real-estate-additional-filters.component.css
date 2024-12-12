@@ -88,7 +88,6 @@ header {
 
 .font16,
 .date-input,
-.date-select,
 .text-serch input[type="text"],
 .free-search,
 footer button,
@@ -350,11 +349,16 @@ footer {
 }
 .add-checkboxs3,
 .add-features,
-.date-select,
+.date-container,
 .add-block1,
 .add-block2,
 .add-block3 {
   border-bottom: 1px solid #eeeeee !important;
+}
+
+.date-container {
+  transform: translateY(-15px);
+  padding-bottom: 18px;
 }
 
 .range-slider {
@@ -378,12 +382,6 @@ footer {
   transform: translateY(-10px);
 }
 
-.date-select {
-  /* line-height: 18.4px; */
-  /* height: 140.391px; */
-  /* border-top: 1px solid rgb(238, 238, 238); */
-}
-
 .add-checkboxs,
 .add-checkboxs2 {
   display: grid;
@@ -396,7 +394,6 @@ footer {
 .add-block2,
 .add-block3,
 .free-search,
-.date-select,
 .range-slider,
 .add-checkboxs,
 .add-checkboxs2,
