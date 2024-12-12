@@ -7,12 +7,12 @@ import { SliderModule } from 'primeng/slider';
 import { formatPrice } from '../../../utilities';
 @Component({
   selector: 'app-real-estate-price-slider-select',
-  templateUrl: './RealEstateFloorSliderSelect.component.html',
-  styleUrl: './RealEstateFloorSliderSelect.component.css',
+  templateUrl: './real-estate-price-slider-select.component.html',
+  styleUrl: './real-estate-price-slider-select.component.css',
   standalone: true,
   imports: [CommonModule, MatIconModule, SliderModule, FormsModule],
 })
-export class RealEstateFloorSliderSelectComponent {
+export class RealEstatePriceSliderSelectComponent {
   values = [
     'מרתף',
     'קרקע',

@@ -12,7 +12,7 @@ import { SliderModule } from 'primeng/slider';
 import { RealEstatePriceSliderComponent } from './real-estate-price-slider/real-estate-price-slider.component';
 import { RealEstateAdditionalFiltersComponent } from '../real-estate-additional-filters/real-estate-additional-filters.component';
 import { RealEstateRoomsAmountComponent } from '../real-estate-rooms-amount/real-estate-rooms-amount.component';
-import { RealEstatePriceSliderSelectComponent } from './real-estate-price-slider-select/real-estate-price-slider-select.component';
+import { RealEstateFloorSliderSelectComponent } from './real-estate-price-slider-select/real-estate-price-slider-select.component';
 import { RealEstateSquareSizeSliderComponent } from '../real-estate-price-slider-component2/real-estate-price-slider-component2.component';
 
 @NgModule({
@@ -29,7 +29,7 @@ import { RealEstateSquareSizeSliderComponent } from '../real-estate-price-slider
     SliderModule,
     RealEstateRoutingModule,
     RealEstatePriceSliderComponent,
-    RealEstatePriceSliderSelectComponent,
+    RealEstateFloorSliderSelectComponent,
     ListboxModule,
     FormsModule,
     RealEstateSquareSizeSliderComponent,
