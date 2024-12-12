@@ -244,6 +244,9 @@ export class RealEstateResultsComponent implements OnInit {
         }
 
         this.apartmentsAmount = ads.length;
+        if (filters.hasImage) {
+          ads = ads.filter((ad) => ad.hasImage === filters.hasImage);
+        }
         return ads;
       }
     )
