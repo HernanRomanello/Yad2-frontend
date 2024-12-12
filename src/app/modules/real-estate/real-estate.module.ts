@@ -13,7 +13,7 @@ import { RealEstatePriceSliderComponent } from './real-estate-price-slider/real-
 import { RealEstateAdditionalFiltersComponent } from '../real-estate-additional-filters/real-estate-additional-filters.component';
 import { RealEstateRoomsAmountComponent } from '../real-estate-rooms-amount/real-estate-rooms-amount.component';
 import { RealEstatePriceSliderSelectComponent } from './real-estate-price-slider-select/real-estate-price-slider-select.component';
-import { RealEstatePriceSliderComponent2Component } from '../real-estate-price-slider-component2/real-estate-price-slider-component2.component';
+import { RealEstateSquareSizeSliderComponent } from '../real-estate-price-slider-component2/real-estate-price-slider-component2.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { RealEstatePriceSliderComponent2Component } from '../real-estate-price-s
     RealEstatePriceSliderSelectComponent,
     ListboxModule,
     FormsModule,
-    RealEstatePriceSliderComponent2Component,
+    RealEstateSquareSizeSliderComponent,
   ],
 })
 export class RealEstateModule {}

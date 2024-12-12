@@ -7,13 +7,13 @@ import { SliderModule } from 'primeng/slider';
 import { formatPrice } from '../../utilities';
 
 @Component({
-  selector: 'SquareSizeSlider',
-  templateUrl: './RealEstateSquareSizeSlider.component.html',
-  styleUrl: './RealEstateSquareSizeSlider.component.css',
+  selector: 'app-real-estate-price-slider-component2',
+  templateUrl: './real-estate-price-slider-component2.component.html',
+  styleUrl: './real-estate-price-slider-component2.component.css',
   standalone: true,
   imports: [CommonModule, MatIconModule, SliderModule, FormsModule],
 })
-export class RealEstateSquareSizeSliderComponent {
+export class RealEstatePriceSliderComponent2Component {
   rangeValuesBuyMinMax: [number, number] = [0, 500];
 
   rangeValuesBuy: [number, number] = [...this.rangeValuesBuyMinMax];
