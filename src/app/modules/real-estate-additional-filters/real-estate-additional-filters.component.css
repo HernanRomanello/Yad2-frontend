@@ -373,6 +373,9 @@ footer {
 .add-block3 {
   border-bottom: 1px solid rgb(238, 238, 238) !important;
 }
+.add-block3 {
+  padding: 24px 0 0 0;
+}
 
 .free-search {
   text-align: start;
@@ -392,10 +395,6 @@ footer {
   padding: 25px 0px;
   padding: 25px 0px;
   height: 171.391px;
-}
-
-.add-condition {
-  height: fit-content !important;
 }
 
 .t2 {
