@@ -14,7 +14,7 @@ import { formatPrice } from '../../utilities';
   imports: [CommonModule, MatIconModule, SliderModule, FormsModule],
 })
 export class RealEstatePriceSliderComponent2Component {
-  rangeValuesBuyMinMax: [number, number] = [0, 20000];
+  rangeValuesBuyMinMax: [number, number] = [0, 500];
 
   rangeValuesBuy: [number, number] = [...this.rangeValuesBuyMinMax];
 
