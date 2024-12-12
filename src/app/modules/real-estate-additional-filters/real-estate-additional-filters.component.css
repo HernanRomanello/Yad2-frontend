@@ -68,7 +68,8 @@ header {
 }
 
 .font500,
-.green-box {
+.green-box,
+.title {
   font-weight: 500;
 }
 
@@ -81,7 +82,8 @@ header {
 .date-select,
 .text-serch input[type="text"],
 .free-search,
-footer button {
+footer button,
+.title {
   font-size: 16px;
 }
 
@@ -204,6 +206,7 @@ input[type="checkbox"] {
 .add-checkboxs2 label {
   display: flex;
   align-items: center;
+  gap: 2px;
 }
 
 .add-checkboxs,
@@ -211,7 +214,7 @@ input[type="checkbox"] {
   width: 460px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  row-gap: 6px !important;
+  gap: 6px !important;
   letter-spacing: 0;
   transform: translateX(4px);
 }
