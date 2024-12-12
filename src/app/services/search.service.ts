@@ -10,6 +10,10 @@ export class SearchService {
   priceRangeFilterValue = signal<string>('מחיר');
   roomNumberFilterValue = signal<string>('חדרים');
   additionalFilterValue = signal<string>('');
+  minFloor = signal<number>(-1);
+  maxFloor = signal<number>(20);
+  minSquareSize = signal<number>(0);
+  maxSqaureSize = signal<number>(99999999);
   private propertyFilters: PropertyFilters = {
     hasImage: undefined,
     moshavOrKibutz: undefined,
@@ -30,8 +34,8 @@ export class SearchService {
     exclusivity: undefined,
     petsAllowed: undefined,
     forRoommates: undefined,
-    floorsRange: ['0', '18'],
-    aptSizeRange: [0, 500],
+    floorsRange: ['-1', '180'],
+    aptSizeRange: [0, 9999999999],
   };
 
   apartmentsSortedByStreet: BehaviorSubject<boolean> =
@@ -42,6 +46,15 @@ export class SearchService {
   }
   setFilters(filters: PropertyFilters) {
     this.propertyFilters = filters;
+    this.propertyFilters.floorsRange = [
+      this.minFloor().toString(),
+      this.maxFloor().toString(),
+    ];
+    this.propertyFilters.aptSizeRange = [
+      this.minSquareSize(),
+      this.maxSqaureSize(),
+    ];
+    console.log(this.propertyFilters);
   }
 
   adds = [

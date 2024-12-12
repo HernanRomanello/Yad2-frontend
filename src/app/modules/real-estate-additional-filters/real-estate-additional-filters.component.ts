@@ -73,6 +73,8 @@ export class RealEstateAdditionalFiltersComponent {
     needsRenovation: undefined,
   };
 
+  @Output() applyFilters = new EventEmitter<any>();
+
   @Output() closeMenu = new EventEmitter<any>();
 
   constructor(private navigationService: NavigationService) {
@@ -152,29 +154,39 @@ export class RealEstateAdditionalFiltersComponent {
       needsRenovation: undefined,
     };
 
-    this.searchService.setFilters({
-      ...this.filters,
-      aptSizeRange: [0, 500],
-      floorsRange: ['0', '18'],
-    });
+    // this.searchService.setFilters({
+    //   ...this.filters,
+    //   aptSizeRange: [0, 500],
+    //   floorsRange: ['0', '18'],
+    // });
   }
 
   onAptSizeSelected(size: any) {
     this.aptSizeRange = size;
-    // alert('this.aptSizeRange : ' + this.aptSizeRange);
+    let minAptSizeRange = size[0] > size[1] ? size[1] : size[0];
+    let maxAptSizeRange = size[0] > size[1] ? size[0] : size[1];
+    if (size[0] !== 0) {
+      this.searchService.minSquareSize.set(minAptSizeRange);
+    }
+    if (size[1] !== 500) {
+      this.searchService.maxSqaureSize.set(maxAptSizeRange);
+    }
+    // alert('this.aptSizeRange : ' + this.aptSizeRange[0]);
+    // alert('this.aptSizeRange : ' + this.aptSizeRange[1]);
   }
   onFloorsSelected(floors: any) {
     this.floorsRange = floors;
-    alert('this.floorsRange : ' + this.floorsRange);
+    // alert('this.floorsRange : ' + this.floorsRange[0]);
+    // alert('this.floorsRange : ' + this.floorsRange[1]);
   }
 
-  applyFilters() {
-    let filters = {
-      ...this.filters,
-      aptSizeRange: this.aptSizeRange,
-      floorsRange: this.floorsRange,
-    };
-    this.searchService.setFilters(filters);
-    this.close();
-  }
+  // applyFilters() {
+  //   let filters = {
+  //     ...this.filters,
+  //     aptSizeRange: this.aptSizeRange,
+  //     floorsRange: this.floorsRange,
+  //   };
+  //   this.searchService.setFilters(filters);
+  //   this.close();
+  // }
 }
