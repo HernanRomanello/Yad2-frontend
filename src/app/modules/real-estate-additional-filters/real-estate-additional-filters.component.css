@@ -216,8 +216,13 @@ input[type="checkbox"] {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 6px !important;
-  letter-spacing: 0;
   transform: translateX(4px);
+}
+.add-checkboxs,
+.add-checkboxs2,
+.title,
+.main-title {
+  letter-spacing: 0;
 }
 .add-checkboxs {
   padding: 13px 0 23px 0 !important;
@@ -343,7 +348,7 @@ footer {
 .add-features {
   width: 460px !important;
   border-bottom: 1px solid rgb(220, 220, 220) !important;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 }
 
 .add-condition {
