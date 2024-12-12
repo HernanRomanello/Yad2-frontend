@@ -247,6 +247,52 @@ export class RealEstateResultsComponent implements OnInit {
         if (filters.hasImage) {
           ads = ads.filter((ad) => ad.hasImage === filters.hasImage);
         }
+        if (filters.hasPrice) {
+          ads = ads.filter((ad) => ad.hasPrice === filters.hasPrice);
+        }
+        if (filters.hasPrivateParking) {
+          ads = ads.filter(
+            (ad) => ad.hasPrivateParking === filters.hasPrivateParking
+          );
+        }
+        if (filters.safeRoom) {
+          ads = ads.filter((ad) => ad.safeRoom === filters.safeRoom);
+        }
+        if (filters.hasBolcony) {
+          ads = ads.filter((ad) => ad.hasBolcony === filters.hasBolcony);
+        }
+        if (filters.airConditioner) {
+          ads = ads.filter(
+            (ad) => ad.airConditioning === filters.airConditioner
+          );
+        }
+        if (filters.storageRoom) {
+          ads = ads.filter((ad) => ad.storageRoom === filters.storageRoom);
+        }
+        if (filters.renovated) {
+          ads = ads.filter((ad) => ad.renovated === filters.renovated);
+        }
+        if (filters.accessibleForDisabled) {
+          ads = ads.filter(
+            (ad) => ad.accessibleForDisabled === filters.accessibleForDisabled
+          );
+        }
+        if (filters.windowBars) {
+          ads = ads.filter((ad) => ad.windowBars === filters.windowBars);
+        }
+        if (filters.furnished) {
+          ads = ads.filter((ad) => ad.furnished === filters.furnished);
+        }
+        if (filters.petsAllowed) {
+          ads = ads.filter((ad) => ad.petsAllowed === filters.petsAllowed);
+        }
+        if (filters.petsAllowed) {
+          ads = ads.filter((ad) => ad.forRoommates === filters.forRoommates);
+        }
+        // ads = ads.filter((ad) => {
+        //   ad.totalSquareMeters >= filters.aptSizeRange[0] &&
+        //     ad.totalSquareMeters <= filters.aptSizeRange[1];
+        // });
         return ads;
       }
     )
