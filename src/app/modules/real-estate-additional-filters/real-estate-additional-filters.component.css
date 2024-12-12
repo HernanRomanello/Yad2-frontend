@@ -178,6 +178,12 @@ input[type="checkbox"] {
   padding-top: 1rem !important;
 }
 
+.add-checkboxs3 {
+  margin-right: -2px;
+  padding: 14px 0 0px 0;
+  gap: 1rem;
+}
+
 .add-checkboxs label,
 .add-checkboxs2 label {
   display: flex;
@@ -211,15 +217,13 @@ input[type="checkbox"] {
   position: relative;
 }
 
-.add-checkboxs input[type="checkbox"],
-.add-block1 input[type="checkbox"],
-.add-block2 input[type="checkbox"],
-.add-block3 input[type="checkbox"],
+input[type="checkbox"],
 .hover2:hover,
 .hover:hover,
 footer button,
 .pointer,
-.feature {
+.feature,
+.asset-stete-checkBox {
   cursor: pointer;
 }
 
@@ -415,8 +419,9 @@ footer {
   padding-top: 2rem !important;
 }
 
-.asset-stete-checkBox input[type="checkbox"] {
-  transform: translateY(7px);
+.asset-stete-checkBox {
+  display: flex !important;
+  align-items: center !important;
 }
 
 .date-checkbox {
