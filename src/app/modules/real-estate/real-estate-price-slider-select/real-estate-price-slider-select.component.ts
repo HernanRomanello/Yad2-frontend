@@ -41,7 +41,7 @@ export class RealEstateFloorSliderSelectComponent {
   selectedStartIndex = 0;
   selectedEndIndex = 0;
 
-  @Output() selectedPriceRange = new EventEmitter<[string, string]>();
+  @Output() selectedFloorRange = new EventEmitter<[string, string]>();
 
   @Input() hasBackground = true;
 
@@ -56,7 +56,7 @@ export class RealEstateFloorSliderSelectComponent {
     const selected = event.target.value;
     const index = this.values.indexOf(selected);
     this.selectedStartIndex = index;
-    this.selectedPriceRange.emit([
+    this.selectedFloorRange.emit([
       this.values[this.selectedStartIndex],
       this.values[this.selectedEndIndex],
     ]);
@@ -65,7 +65,7 @@ export class RealEstateFloorSliderSelectComponent {
     const selected = event.target.value;
     const index = this.values.indexOf(selected);
     this.selectedEndIndex = index;
-    this.selectedPriceRange.emit([
+    this.selectedFloorRange.emit([
       this.values[this.selectedStartIndex],
       this.values[this.selectedEndIndex],
     ]);
@@ -78,7 +78,7 @@ export class RealEstateFloorSliderSelectComponent {
     const [min, max] = event.values;
     this.selectedStartIndex = min;
     this.selectedEndIndex = max;
-    this.selectedPriceRange.emit([this.values[min], this.values[max]]);
+    this.selectedFloorRange.emit([this.values[min], this.values[max]]);
   }
   manualSelectMinPrice(event: Event) {
     const value = (event.target as HTMLInputElement).value;
