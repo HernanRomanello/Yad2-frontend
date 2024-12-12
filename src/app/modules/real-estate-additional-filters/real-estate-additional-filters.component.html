@@ -1,7 +1,7 @@
 <div class="overlay">
   <div class="filter-options">
     <header class="flex-center">
-      <div class="close-btn pointer" (click)="close()">
+      <div class="close-btn pointer close-filter" (click)="close()">
         <img
           id="x-icon"
           src="assets/images/close-svgrepo-com (3).svg"
@@ -203,7 +203,13 @@
     </div>
     <footer>
       <button class="reset-btn pointer" (click)="resetFilters()">איפוס</button>
-      <button class="ok-btn pointer font500" (click)="close()">אישור</button>
+      <button
+        id="ok-btn"
+        class="ok-btn pointer font500 close-filter"
+        (click)="close()"
+      >
+        אישור
+      </button>
     </footer>
   </div>
 </div>

@@ -75,7 +75,15 @@ export class RealEstateAdditionalFiltersComponent {
 
   @Output() closeMenu = new EventEmitter<any>();
 
-  constructor(private navigationService: NavigationService) {}
+  constructor(private navigationService: NavigationService) {
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+
+      if (target.id !== 'x-icon' && target.id !== 'ok-btn') {
+        this.navigationService.IsSearchFilterOpen.set(true);
+      }
+    });
+  }
 
   close() {
     this.navigationService.searchFilterOpenClose();
