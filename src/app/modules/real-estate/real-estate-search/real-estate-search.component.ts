@@ -279,6 +279,13 @@ export class RealEstateSearchComponent
       return;
     }
 
+    if (city) {
+      this.searchService.city.set(city);
+    }
+    if (neighborhood) {
+      this.searchService.neighborhood.set(neighborhood);
+    }
+
     this.locationList.push(location);
 
     if (this.locationList.length == 1 && areaLocation) {

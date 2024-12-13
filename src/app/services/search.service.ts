@@ -19,6 +19,8 @@ export class SearchService {
   minSquareSize = signal<number>(0);
   maxSqaureSize = signal<number>(99999999);
   uniqueMonthDayArray = signal<{ month: number; day: number }[]>([]);
+  city = signal<string>('');
+  neighborhood = signal<string>('');
 
   public UserLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   constructor(private httpClient: HttpClient) {}
@@ -188,5 +190,42 @@ export class SearchService {
           console.error('Error deleting all last searches:', error);
         }
       );
+  }
+
+  addLastSearchToDB() {
+    // city: string | null;
+    // neighborhood: string | null;
+    // forSale: boolean;
+    // forRent: boolean;
+    // moshavOrKibuutz: boolean;
+    // assetType: string | null;
+    // minRooms: number;
+    // maxRooms: number;
+    // minPrice: number;
+    // maxPrice: number;
+    // hasImmediateEntry: boolean;
+    // hasAccessibleForDisabled: boolean;
+    // hasAirConditioner: boolean;
+    // hasExclusivity: boolean;
+    // hasBalcony: boolean;
+    // hasWindowBars: boolean;
+    // hasElevator: boolean;
+    // minFloor: number;
+    // maxFloor: number;
+    // forRoommates: boolean;
+    // hasFurnished: boolean;
+    // hasPrivateParking: boolean;
+    // petsAllowed: boolean;
+    // hasPrice: boolean;
+    // hasImage: boolean;
+    // isRenovated: boolean;
+    // hasSafeRoom: boolean;
+    // minSquareSize: number;
+    // maxSquareSize: number;
+    // hasStorageRoom: boolean;
+    const lastSearch = {
+      city: this.city(),
+      neighborhood: this.neighborhood(),
+    };
   }
 }
