@@ -18,6 +18,12 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
     public searchService: SearchService
   ) {}
 
+  addZeroToNumberToHour(hour: number, minutes: number): string {
+    return `${hour < 10 ? '0' + hour : hour}:${
+      minutes < 10 ? '0' + minutes : minutes
+    }`;
+  }
+
   ngOnDestroy() {
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }

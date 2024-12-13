@@ -12,9 +12,15 @@
   position: relative;
 }
 
-#close-icon {
+#close-icon,
+.time {
   position: absolute;
 }
+.time {
+  bottom: 10px;
+  left: 10px;
+}
+
 #close-icon {
   width: 30px;
   height: 30px;
