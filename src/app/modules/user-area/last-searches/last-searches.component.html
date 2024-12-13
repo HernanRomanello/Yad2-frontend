@@ -29,12 +29,10 @@
           <span>{{ search.forSale ? "מכירה" : "השכרה" }}</span>
         </div>
         <div class="search-body">
-          <div *ngIf="search.assetType !== ''">
-            <span class="grayfont"> סוג נכס : </span>
+          <div *ngIf="!search.moshavOrKibuutz">
+            <span class="grayfont"> הצגת מושבים וקיבוצים בלבד: </span>
 
-            <span>
-              {{ search.assetType }}
-            </span>
+            <span>כן</span>
             <span class="grayfont"> | </span>
           </div>
           <div *ngIf="search.assetType !== ''">

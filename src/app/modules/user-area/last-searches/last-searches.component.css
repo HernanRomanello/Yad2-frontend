@@ -60,9 +60,13 @@ body,
 .search-body div {
   flex-wrap: nowrap;
 }
-.search-body,
-.search-body div {
+.search-body {
   gap: 4px;
+}
+
+.search-body div {
+  gap: 6px;
+  letter-spacing: 0 !important;
 }
 
 .search-body div span {
