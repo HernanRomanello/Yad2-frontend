@@ -87,6 +87,124 @@
             </span>
             <span class="grayfont"> | </span>
           </div>
+          <div *ngIf="search.hasAccessibleForDisabled">
+            <span class="grayfont"> גישה לנכים: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasAirConditioner">
+            <span class="grayfont"> מיזוג: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasExclusivity">
+            <span class="grayfont"> בבלעדיות: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasBolcony">
+            <span class="grayfont"> מרפסת: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.haswindowBars">
+            <span class="grayfont"> סורגים: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasElevator">
+            <span class="grayfont"> מעלית: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.minFloor > 0">
+            <span class="grayfont"> קומה : </span>
+
+            <span>
+              <span>
+                {{ search.minFloor }}
+              </span>
+              <span> - </span>
+              <span>
+                {{ search.maxFloor }}
+              </span>
+            </span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.forRoommates">
+            <span class="grayfont"> לשותפים: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasFurnished">
+            <span class="grayfont"> מרוהטת: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasPrivateParking">
+            <span class="grayfont"> חניה: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.petsAllowed">
+            <span class="grayfont"> חיות מחמד: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasPrice">
+            <span class="grayfont"> עם מחיר: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.isRenovated">
+            <span class="grayfont"> משופצת: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasSafeRoom">
+            <span class="grayfont"> ממ"ד: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasSafeRoom">
+            <span class="grayfont"> ממ"ד: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.minSquareSize > 0">
+            <span class="grayfont"> גודל דירה (במ"ר) : </span>
+
+            <span>
+              <span>
+                {{ search.minSquareSize }}
+              </span>
+              <span> - </span>
+              <span>
+                {{ search.maxSquareSize }}
+              </span>
+            </span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.hasStorageRoom">
+            <span class="grayfont"> מחסן: </span>
+
+            <span>כן</span>
+            <span class="grayfont"> | </span>
+          </div>
         </div>
       </div>
       }
