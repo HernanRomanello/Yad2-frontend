@@ -1,11 +1,15 @@
 import { Injectable, signal, Signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PropertyFilters } from '../shared/models/Filters';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment.development';
+import { LastsearchesModel } from '../shared/models/LastsearchesModel';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
+  Url = environment.URl;
   propertyTypeFilterValue = signal<string>('סוג הנכס');
   priceRangeFilterValue = signal<string>('מחיר');
   roomNumberFilterValue = signal<string>('חדרים');
@@ -14,6 +18,7 @@ export class SearchService {
   maxFloor = signal<number>(20);
   minSquareSize = signal<number>(0);
   maxSqaureSize = signal<number>(99999999);
+  constructor(private httpClient: HttpClient) {}
   private propertyFilters: PropertyFilters = {
     hasImage: undefined,
     moshavOrKibutz: undefined,
@@ -99,7 +104,6 @@ export class SearchService {
   selectedRoomsAmount: BehaviorSubject<string[]> = new BehaviorSubject<
     string[]
   >([]);
-  constructor() {}
 
   emitSelectedTradeType(searchType: 'מכירה' | 'השכרה') {
     this.selectedTradeType.next(searchType);
@@ -130,5 +134,11 @@ export class SearchService {
 
   emitLocation(location: { city: string; neighborhood: string }[]) {
     this.locationSubject.next(location);
+  }
+
+  GetUserLastSearches() {
+    return this.httpClient.get<LastsearchesModel>(
+      this.Url + 'api/Users/user/GetLastSearches'
+    );
   }
 }
