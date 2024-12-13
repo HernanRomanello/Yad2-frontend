@@ -145,4 +145,31 @@ export class SearchService {
         console.log(this.UserLastSearches.value);
       });
   }
+
+  removeLastSearch(id: string) {
+    this.httpClient
+      .delete(this.Url + 'api/Users/user/DeleteLastSearch/' + id)
+      .subscribe(
+        () => {
+          this.GetUserLastSearches();
+        },
+        (error) => {
+          console.error('Error deleting last search:', error);
+          alert('שגיאה במחיקת החיפוש');
+        }
+      );
+  }
+
+  removeAllLastSearches() {
+    this.httpClient
+      .delete(this.Url + 'api/Users/user/DeleteAllLastSearches')
+      .subscribe(
+        () => {
+          this.GetUserLastSearches();
+        },
+        (error) => {
+          console.error('Error deleting all last searches:', error);
+        }
+      );
+  }
 }

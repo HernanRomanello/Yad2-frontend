@@ -2,7 +2,12 @@
   <div class="body">
     <div class="title justify-content-space-between">
       <div class="font500 font24">חיפושים אחרונים</div>
-      <div class="grayfont underline pointer">מחק הכל</div>
+      <div
+        (click)="searchService.removeAllLastSearches()"
+        class="grayfont underline pointer"
+      >
+        מחק הכל
+      </div>
     </div>
     <div class="btns">
       <button class="font500 orange-border all">הכל</button>
@@ -17,7 +22,12 @@
       </div>
 
       <div class="search">
-        <img id="close-icon" src="assets/images/close-sm.svg" alt="" />
+        <img
+          (click)="searchService.removeLastSearch(search.id)"
+          id="close-icon"
+          src="assets/images/close-sm.svg"
+          alt=""
+        />
         <div class="search-title font500 font18">
           <span>נדל"ן - </span>
           <span>{{ search.forSale ? "מכירה" : "השכרה" }}</span>
