@@ -8,6 +8,22 @@
   margin: auto;
 }
 
+.search {
+  position: relative;
+}
+
+#close-icon {
+  position: absolute;
+}
+#close-icon {
+  width: 30px;
+  height: 30px;
+}
+#close-icon {
+  top: 10px;
+  left: 10px;
+}
+
 .page {
   height: 100%;
   width: 100%;
@@ -115,7 +131,6 @@ body {
 .btns {
   margin-bottom: 44px;
 }
-
 
 .font18 {
   font-size: 18px;
