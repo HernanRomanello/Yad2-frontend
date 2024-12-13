@@ -32,8 +32,10 @@
 
 .page {
   height: 100%;
+  height: fit-content !important;
   width: 100%;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9 !important;
+  padding-bottom: 42px;
 }
 
 .search-title {
