@@ -98,10 +98,19 @@ body {
 
 .orange-border {
   border: 1px solid #ff7f00;
+  transform: scale(1.05) !important;
 }
 
 .border-none {
   border: none;
+}
+
+.search-body {
+  display: flex;
+}
+
+.search-body div {
+  flex-wrap: wrap;
 }
 
 .gray {

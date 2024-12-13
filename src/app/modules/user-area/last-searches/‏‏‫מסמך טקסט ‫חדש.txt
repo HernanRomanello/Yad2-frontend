@@ -1,12 +1,12 @@
-a {
+h3 {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
+	font-weight: 500;
 	letter-spacing: normal;
-	line-height: 16px;
+	line-height: 22px;
 	text-decoration: none solid rgb(54, 54, 54);
 	text-align: right;
 	text-indent: 0px;
@@ -24,14 +24,14 @@ a {
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 126px;
-	width: 737px;
+	height: 22px;
+	width: 770px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
 	border-bottom: 0px none rgb(54, 54, 54);
 	border-left: 0px none rgb(54, 54, 54);
-	margin: 0px;
+	margin: 0px 0px 9.5px;
 	padding: 0px;
 	max-height: none;
 	min-height: 0px;
@@ -63,7 +63,7 @@ a {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: pointer;
+	cursor: default;
 	visibility: visible;
 
 	/* Effects */
