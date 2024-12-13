@@ -43,7 +43,8 @@
 }
 
 .date {
-  padding-bottom: 10px;
+  width: 100%;
+  justify-content: start !important;
 }
 
 .pointer {

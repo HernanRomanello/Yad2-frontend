@@ -16,7 +16,14 @@
 
     <div class="searches flex column">
       <ng-container *ngFor="let date of searchService.uniqueMonthDayArray()">
-        <div class="date font500 font18">{{ date.month }}" "{{ date.day }}</div>
+        <div class="date flex font500 font18">
+          <span>
+            {{ date.day }}
+          </span>
+          <span>
+            {{ transformToHebrewMonth(date.month) }}
+          </span>
+        </div>
         <ng-container
           *ngFor="let search of searchService.UserLastSearches | async"
         >
