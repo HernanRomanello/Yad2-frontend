@@ -107,6 +107,10 @@ body {
 .gray {
   background-color: #eeeeee !important;
 }
+.gray:hover {
+  background-color: #cccccc !important;
+  font-weight: 500 !important;
+}
 
 .btns {
   margin-top: 14px;
