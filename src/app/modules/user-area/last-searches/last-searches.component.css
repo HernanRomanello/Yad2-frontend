@@ -47,8 +47,26 @@
 .justify-content-space-between,
 .btns,
 .btns button,
-body {
+body,
+.search-body,
+.search-body div {
   display: flex;
+}
+
+.search-body {
+  flex-wrap: wrap;
+}
+
+.search-body div {
+  flex-wrap: nowrap;
+}
+.search-body,
+.search-body div {
+  gap: 4px;
+}
+
+.search-body div span {
+  white-space: nowrap;
 }
 .flex,
 .flex-center,
@@ -103,25 +121,6 @@ body {
 
 .border-none {
   border: none;
-}
-
-.search-body {
-  display: flex;
-}
-
-.search-body {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.search-body div {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.search-body div span {
-  white-space: nowrap;
 }
 
 .gray {
