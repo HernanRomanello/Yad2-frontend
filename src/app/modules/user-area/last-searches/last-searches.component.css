@@ -31,7 +31,7 @@
 }
 
 .search-title {
-  padding: 10px;
+  padding: 0 0 12px 0;
 }
 
 .date {
@@ -125,15 +125,19 @@ body {
 
 .search {
   background-color: rgb(255, 255, 255) !important;
-  height: 117px;
-  width: 770px;
+  width: 768px;
   border: 1px solid rgb(219, 219, 219) !important;
 
+  padding: 13.5px 15.5px 0px;
   border-radius: 6px;
 }
 
 .font18 {
   font-size: 18px;
+}
+
+.search-body {
+  padding-bottom: 3rem;
 }
 
 .btns {

@@ -17,7 +17,7 @@
     <div class="searches">
       @for (search of (searchService.UserLastSearches | async) ; track $index) {
 
-      <div class="search">
+      <div class="search pointer">
         <img
           (click)="searchService.removeLastSearch(search.id)"
           id="close-icon"
@@ -28,8 +28,11 @@
           <span>נדל"ן - </span>
           <span>{{ search.forSale ? "מכירה" : "השכרה" }}</span>
         </div>
-
-        {{ search.assetType }}
+        <div class="search-body">
+          <span>
+            {{ search.assetType }}
+          </span>
+        </div>
       </div>
       }
 
