@@ -85,8 +85,13 @@ body,
   align-items: center;
 }
 
-.body {
+.body,
+.column {
   flex-direction: column;
+}
+
+.searches {
+  gap: 1rem;
 }
 
 .justify-content-space-between {

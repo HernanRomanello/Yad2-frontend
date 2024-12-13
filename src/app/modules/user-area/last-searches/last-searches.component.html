@@ -14,7 +14,7 @@
       <button class="border-none gray pointer real-estate">נדל"ן</button>
     </div>
     <div class="date font500 font18">12 דצמבר</div>
-    <div class="searches">
+    <div class="searches flex column">
       @for (search of (searchService.UserLastSearches | async) ; track $index) {
 
       <div class="search pointer">

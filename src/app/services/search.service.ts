@@ -18,6 +18,8 @@ export class SearchService {
   maxFloor = signal<number>(20);
   minSquareSize = signal<number>(0);
   maxSqaureSize = signal<number>(99999999);
+  uniqueMonthDayArray = signal<{ month: number; day: number }[]>([]);
+
   public UserLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   constructor(private httpClient: HttpClient) {}
   private propertyFilters: PropertyFilters = {
@@ -143,6 +145,21 @@ export class SearchService {
       .subscribe((data) => {
         this.UserLastSearches.next(data);
         console.log(this.UserLastSearches.value);
+        const uniqueMonthDayArray = data
+          .map((search) => ({
+            month: search.monthOfCreation,
+            day: search.dayOfCreation,
+          }))
+          .filter(
+            (value, index, self) =>
+              index ===
+              self.findIndex(
+                (t) => t.month === value.month && t.day === value.day
+              )
+          );
+
+        console.log('Unique Month-Day Combinations:', uniqueMonthDayArray);
+        this.uniqueMonthDayArray.set(uniqueMonthDayArray);
       });
   }
 
