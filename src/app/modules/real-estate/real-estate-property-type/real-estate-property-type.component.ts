@@ -41,8 +41,6 @@ export class RealEstatePropertyTypeComponent {
   allApartmentTypesChecked = false;
 
   selectedPropertyTypes: string[] = [];
-  // event emitter for selected
-  // property type
 
   constructor(private searchService: SearchService) {}
 
