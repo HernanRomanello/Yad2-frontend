@@ -29,7 +29,7 @@
           <span>{{ search.forSale ? "מכירה" : "השכרה" }}</span>
         </div>
         <div class="search-body">
-          <div *ngIf="!search.moshavOrKibuutz">
+          <div *ngIf="search.moshavOrKibuutz">
             <span class="grayfont"> הצגת מושבים וקיבוצים בלבד: </span>
 
             <span>כן</span>
@@ -43,11 +43,23 @@
             </span>
             <span class="grayfont"> | </span>
           </div>
+          <div *ngIf="search.minRooms > 0">
+            <span class="grayfont"> חדרים : </span>
+
+            <span>
+              <span>
+                {{ search.minRooms }}
+              </span>
+              <span> - </span>
+              <span>
+                {{ search.maxRooms }}
+              </span>
+            </span>
+            <span class="grayfont"> | </span>
+          </div>
         </div>
       </div>
       }
-
-      <!-- <div class="search">frewergre</div> -->
     </div>
   </div>
 </div>
