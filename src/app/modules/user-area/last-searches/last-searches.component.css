@@ -109,8 +109,19 @@ body {
   display: flex;
 }
 
-.search-body div {
+.search-body {
+  display: flex;
   flex-wrap: wrap;
+  gap: 4px;
+}
+
+.search-body div {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.search-body div span {
+  white-space: nowrap;
 }
 
 .gray {
