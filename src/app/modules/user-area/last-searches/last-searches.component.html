@@ -29,6 +29,22 @@
           <span>{{ search.forSale ? "מכירה" : "השכרה" }}</span>
         </div>
         <div class="search-body">
+          <div *ngIf="search.city !== ''">
+            <span class="grayfont"> עיר: </span>
+
+            <span>
+              {{ search.city }}
+            </span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.neighborhood !== ''">
+            <span class="grayfont"> שכונה: </span>
+
+            <span>
+              {{ search.neighborhood }}
+            </span>
+            <span class="grayfont"> | </span>
+          </div>
           <div *ngIf="search.moshavOrKibuutz">
             <span class="grayfont"> הצגת מושבים וקיבוצים בלבד: </span>
 
@@ -53,6 +69,20 @@
               <span> - </span>
               <span>
                 {{ search.maxRooms }}
+              </span>
+            </span>
+            <span class="grayfont"> | </span>
+          </div>
+          <div *ngIf="search.minPrice > 0">
+            <span class="grayfont"> מחיר : </span>
+
+            <span>
+              <span>
+                {{ search.minPrice }}
+              </span>
+              <span> - </span>
+              <span>
+                {{ search.maxPrice }}
               </span>
             </span>
             <span class="grayfont"> | </span>

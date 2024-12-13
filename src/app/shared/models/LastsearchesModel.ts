@@ -2,12 +2,15 @@ export type LastsearchesModel = {
   id: string;
   userId: string | null;
   creationDate: string;
+  minuteOfCreation: number;
   hourOfCreation: number;
   dayOfCreation: number;
   monthOfCreation: number;
   yearOfCreation: number;
   forSale: boolean;
   forRent: boolean;
+  city: string | null;
+  neighborhood: string | null;
   moshavOrKibuutz: boolean;
   assetType: string | null;
   minRooms: number;
