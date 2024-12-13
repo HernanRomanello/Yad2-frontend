@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationService } from '../../../services/navigation.service';
 import { SearchService } from '../../../services/search.service';
 import { LastsearchesModel } from '../../../shared/models/LastsearchesModel';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-last-searches',
@@ -9,21 +10,19 @@ import { LastsearchesModel } from '../../../shared/models/LastsearchesModel';
   styleUrl: './last-searches.component.css',
 })
 export class LastSearchesComponent implements OnInit, OnDestroy {
-  searches = ['search1', 'search2', 'search3', 'search4', 'search5'];
-  LastSearches!: LastsearchesModel;
+  LastSearches$!: LastsearchesModel;
+  LastSearches: BehaviorSubject<LastsearchesModel | null> =
+    new BehaviorSubject<LastsearchesModel | null>(null);
   constructor(
     private navigationService: NavigationService,
-    private searchService: SearchService
+    public searchService: SearchService
   ) {}
 
   ngOnDestroy() {
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }
   ngOnInit() {
-    this.searchService.GetUserLastSearches().subscribe((data) => {
-      this.LastSearches = data;
-      console.log(this.LastSearches);
-    });
+    this.searchService.GetUserLastSearches();
 
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(true);
   }

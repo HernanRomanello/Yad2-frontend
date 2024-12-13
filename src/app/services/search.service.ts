@@ -18,6 +18,7 @@ export class SearchService {
   maxFloor = signal<number>(20);
   minSquareSize = signal<number>(0);
   maxSqaureSize = signal<number>(99999999);
+  public UserLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   constructor(private httpClient: HttpClient) {}
   private propertyFilters: PropertyFilters = {
     hasImage: undefined,
@@ -137,8 +138,11 @@ export class SearchService {
   }
 
   GetUserLastSearches() {
-    return this.httpClient.get<LastsearchesModel>(
-      this.Url + 'api/Users/user/GetLastSearches'
-    );
+    this.httpClient
+      .get<LastsearchesModel[]>(this.Url + 'api/Users/user/GetLastSearches')
+      .subscribe((data) => {
+        this.UserLastSearches.next(data);
+        console.log(this.UserLastSearches.value);
+      });
   }
 }
