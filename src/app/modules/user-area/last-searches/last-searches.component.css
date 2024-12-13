@@ -30,6 +30,14 @@
   background-color: #f9f9f9;
 }
 
+.search-title {
+  padding: 10px;
+}
+
+.date {
+  padding-bottom: 10px;
+}
+
 .pointer {
   cursor: pointer;
 }

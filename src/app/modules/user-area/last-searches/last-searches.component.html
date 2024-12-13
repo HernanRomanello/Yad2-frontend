@@ -13,13 +13,9 @@
       <button class="font500 orange-border all">הכל</button>
       <button class="border-none gray pointer real-estate">נדל"ן</button>
     </div>
-    <div class="date font500 font18">4 דצמבר</div>
+    <div class="date font500 font18">12 דצמבר</div>
     <div class="searches">
       @for (search of (searchService.UserLastSearches | async) ; track $index) {
-      <div class="search-title">
-        <span>נדל"ן - </span>
-        <span>{{ search.forSale ? "מכירה" : "השכרה" }}</span>
-      </div>
 
       <div class="search">
         <img
