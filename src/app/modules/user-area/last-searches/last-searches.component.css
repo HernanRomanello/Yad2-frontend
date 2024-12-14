@@ -195,3 +195,14 @@ body,
 .font500 {
   font-weight: 500;
 }
+
+.Notification-For-Other-Words {
+  background-color: rgb(255, 241, 229);
+  color: rgb(255, 113, 0) !important;
+
+  margin: 0px 4px 0px 0px;
+  border-radius: 17px;
+  padding: 2px 2px;
+  font-size: 12px;
+  transform: translateY(-2px);
+}

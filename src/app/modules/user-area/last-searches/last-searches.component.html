@@ -81,6 +81,11 @@
                   <span>
                     {{ decreaseLargeString(search.assetType) }}
                   </span>
+                  @if(countStringWords(search.assetType)>3){
+                  <span class="Notification-For-Other-Words">
+                    {{ addNotificationForTheOtherWords(search.assetType) }}
+                  </span>
+                  }
                   <span class="grayfont"> | </span>
                 </div>
                 <div *ngIf="search.minRooms > 0">

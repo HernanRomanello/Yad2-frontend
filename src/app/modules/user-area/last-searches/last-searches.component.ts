@@ -71,6 +71,19 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
     return newString;
   }
 
+  countStringWords(str: string | null): number {
+    if (!str) return 0;
+    return str.split(' ').length;
+  }
+  addNotificationForTheOtherWords(str: string | null): string {
+    const wordsCounter = this.countStringWords(str);
+    if (wordsCounter <= 3) {
+      return '';
+    } else {
+      return (wordsCounter - 3).toString() + '+';
+    }
+  }
+
   ngOnDestroy() {
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }
