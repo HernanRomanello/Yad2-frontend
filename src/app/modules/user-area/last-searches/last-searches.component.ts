@@ -55,6 +55,22 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
     }
   }
 
+  decreaseLargeString(str: string | null): string {
+    if (!str) return '';
+    let newString = '';
+    const stringArray = str.split(',');
+    stringArray.forEach((element, index) => {
+      if (index < 3) {
+        newString += element + ',';
+      }
+    });
+    if (newString.endsWith(',')) {
+      newString = newString.slice(0, newString.length - 1);
+    }
+
+    return newString;
+  }
+
   ngOnDestroy() {
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }
