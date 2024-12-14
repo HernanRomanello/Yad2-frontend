@@ -4,12 +4,14 @@
 
     <div class="pics">
       <img
+        routerLink="/user-images/{{ advertisement.id }}"
         *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
         [src]="advertisement.pictures[1].url"
         class="small-pic pic1"
         alt="Advertisement Image"
       />
       <img
+        routerLink="/user-images/{{ advertisement.id }}"
         *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
         [src]="advertisement.pictures[2].url"
         class="small-pic pic2"
@@ -18,6 +20,7 @@
     </div>
 
     <img
+      routerLink="/user-images/{{ advertisement.id }}"
       *ngIf="advertisement.mainPicture !== ''"
       [src]="advertisement.mainPicture"
       class="main-pic"
