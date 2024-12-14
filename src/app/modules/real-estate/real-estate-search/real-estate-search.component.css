@@ -325,6 +325,10 @@ i {
   gap: 0.5rem;
 }
 
+#subSearchQueryBox {
+  z-index: 200 !important;
+}
+
 .project-div {
   padding: 10px 10px 14px 0;
 }
