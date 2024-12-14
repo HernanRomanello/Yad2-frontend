@@ -11,6 +11,7 @@ import { UserModel } from '../../shared/models/UserModel';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
 import { NavigationService } from '../../services/navigation.service';
+import { SearchService } from '../../services/search.service';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -40,6 +41,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   authService = inject(AuthService);
   navigationService = inject(NavigationService);
   modalStateSerrvice = inject(ModalStateService);
+  searchService = inject(SearchService);
   isUserConnected: boolean = false;
   firstLetterUserEmailAddress = '';
   @ViewChild('alternativeHeader', { static: false })
@@ -65,20 +67,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isUserAreaDropdownVisible = isUserAreaDropdownOpen;
   }
 
-  setHederShadow(): boolean {
-    // if{
-
-    //   this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen();
-    // }
-    return true;
-  }
-
   ngOnDestroy(): void {
     this.authService.isUserLogin.unsubscribe();
     this.authService.user.unsubscribe();
     this.authService.UserFavoriteAdvertisements.unsubscribe();
   }
   ngOnInit(): void {
+    this.searchService.GetUserLastSearches();
     this.authService.UserFavoriteAdvertisements.subscribe((ads) => {
       this.favoriteAds = ads;
       this.countFavoriteAds = ads.length;

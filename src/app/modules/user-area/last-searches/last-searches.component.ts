@@ -88,8 +88,6 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }
   ngOnInit() {
-    this.searchService.GetUserLastSearches();
-
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(true);
   }
 }
