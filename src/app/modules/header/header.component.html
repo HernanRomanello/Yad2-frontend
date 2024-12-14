@@ -5,13 +5,13 @@
   [ngClass]="
     this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
       ? 'header shadow none-border'
-      : 'header'
+      : 'header '
   "
 >
   <div
     [ngClass]="
       this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
-        ? 'header none-border'
+        ? 'header shadow none-border'
         : 'header'
     "
   >
@@ -360,7 +360,7 @@
   <div
     [ngClass]="
       this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
-        ? 'header none-border'
+        ? 'header shadow none-border'
         : 'header'
     "
   >
@@ -370,7 +370,6 @@
       (mouseleave)="closeMenu('menu_Yad2Magazine')"
     >
       <button class="light">מגזין יד2</button>
-      <!-- <div class="menu" *ngIf="menus['menu_Yad2Magazine']"></div> -->
     </div>
 
     <div
