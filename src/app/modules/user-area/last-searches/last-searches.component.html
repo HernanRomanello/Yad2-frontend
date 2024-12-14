@@ -1,20 +1,35 @@
-<div class="modal-overlay">
+@if(!isRemoveModalIsHidden){
+<div (click)="closeModal($event)" class="modal-overlay">
   <div class="modal flex-center column">
     <div class="font16 nowrap modal-title">
       ?האם להסיר מרשימת חיפושים אחרונים
     </div>
     <div class="modal-btns flex">
-      <button class="modal-btn remove-btn pointer font16 font500">להסיר</button>
-      <button class="modal-btn save-btn pointer font500">לשמור</button>
+      <button
+        (click)="
+          searchService.removeAllLastSearches(); isRemoveModalIsHidden = true
+        "
+        class="modal-btn remove-btn pointer font16 font500"
+      >
+        להסיר
+      </button>
+      <button
+        (click)="isRemoveModalIsHidden = true"
+        class="modal-btn save-btn pointer font500"
+      >
+        לשמור
+      </button>
     </div>
   </div>
 </div>
+}
+
 <div class="page">
   <div class="body">
     <div class="title justify-content-space-between">
       <div class="font500 font24">חיפושים אחרונים</div>
       <div
-        (keydown)="searchService.removeAllLastSearches()"
+        (click)="isRemoveModalIsHidden = false"
         class="grayfont underline pointer"
       >
         מחק הכל

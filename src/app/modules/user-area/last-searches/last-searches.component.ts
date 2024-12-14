@@ -13,10 +13,18 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
   LastSearches$!: LastsearchesModel;
   LastSearches: BehaviorSubject<LastsearchesModel | null> =
     new BehaviorSubject<LastsearchesModel | null>(null);
+  isRemoveModalIsHidden: boolean = true;
   constructor(
     private navigationService: NavigationService,
     public searchService: SearchService
   ) {}
+
+  closeModal(event: any) {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('modal-overlay')) {
+      this.isRemoveModalIsHidden = true;
+    }
+  }
 
   addZeroToNumberToHour(hour: number, minutes: number): string {
     return `${hour < 10 ? '0' + hour : hour}:${
