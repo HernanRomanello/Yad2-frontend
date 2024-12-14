@@ -1,4 +1,6 @@
-<div *ngIf="this.$sortedApartments | async as apartments">
+<div class="page" *ngIf="this.$sortedApartments | async as apartments">
+  @if(apartments.length>0){
+
   <div class="sort-container z100">
     <div class="sort-btn" (click)="SortDropdownOpen()">
       <div
@@ -165,4 +167,18 @@
       </div>
     </div>
   </div>
+  }@else{
+  <div class="not-found column flex-center">
+    <img id="no-results-img" src="assets/images/no-results.svg" alt="" />
+    <div>
+      <div>זה לא עניין שבשגרה, אבל מה</div>
+      <div>שחיפשת לא נמצא</div>
+    </div>
+    <div>
+      <div>ממליצים ליצור התראה, ככה נעדכן אותך ברגע שיעלו</div>
+      <div>מודעות נוספות (ועולות פה הרבה)</div>
+    </div>
+    <div>יצירת התראה</div>
+  </div>
+  }
 </div>
