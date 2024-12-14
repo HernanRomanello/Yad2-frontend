@@ -21,6 +21,8 @@ export class SearchService {
   uniqueMonthDayArray = signal<{ month: number; day: number }[]>([]);
   city = signal<string>('');
   neighborhood = signal<string>('');
+  forRent = signal<boolean>(false);
+  forSale = signal<boolean>(false);
 
   public UserLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   constructor(private httpClient: HttpClient) {}
@@ -226,6 +228,10 @@ export class SearchService {
     const lastSearch = {
       city: this.city(),
       neighborhood: this.neighborhood(),
+      forSale: this.forSale(),
+      forRent: this.forRent(),
     };
+
+    console.log('Last search:', lastSearch);
   }
 }

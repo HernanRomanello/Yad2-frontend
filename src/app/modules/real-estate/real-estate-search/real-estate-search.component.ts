@@ -279,12 +279,8 @@ export class RealEstateSearchComponent
       return;
     }
 
-    if (city) {
-      this.searchService.city.set(city);
-    }
-    if (neighborhood) {
-      this.searchService.neighborhood.set(neighborhood);
-    }
+    this.searchService.city.set(city);
+    this.searchService.neighborhood.set(neighborhood);
 
     this.locationList.push(location);
 
@@ -479,6 +475,13 @@ export class RealEstateSearchComponent
     this.tradeTypeMenu.nativeElement
       .querySelector('.menu')
       .classList.add('hidden');
+    if (option === 'מכירה') {
+      this.searchService.forSale.set(true);
+      this.searchService.forRent.set(false);
+    } else if (option === 'השכרה') {
+      this.searchService.forSale.set(false);
+      this.searchService.forRent.set(true);
+    }
     this.searchService.emitSelectedTradeType(option);
   }
 

@@ -446,7 +446,13 @@
         </div>
       </div>
 
-      <button class="search-button-orange" type="submit">חיפוש</button>
+      <button
+        (click)="searchService.addLastSearchToDB()"
+        class="search-button-orange"
+        type="submit"
+      >
+        חיפוש
+      </button>
       <button class="search-button alert-btn" type="button">
         <div class="">
           <img class="bell-img" src="assets/images/bell.svg" alt="" />
