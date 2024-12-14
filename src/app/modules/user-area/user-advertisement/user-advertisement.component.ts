@@ -66,6 +66,15 @@ export class UserAdvertisementComponent implements OnInit {
     return true;
   }
 
+  transformDateToString(date: Date | string): string {
+    const d = new Date(date);
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = d.getFullYear();
+
+    return `${day}.${month}.${year}`;
+  }
+
   changeColor(currentIndex: number, advertisementId: number): string {
     if (currentIndex == 0) {
       for (const key in this.currentSlidesPromotionIndex) {

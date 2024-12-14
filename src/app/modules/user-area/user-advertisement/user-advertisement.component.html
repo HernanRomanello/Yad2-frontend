@@ -398,7 +398,6 @@
               <div class="underline bold">השלימו</div>
             </div>
           </div>
-          <!-- problem here -->
         </div>
         <div class="add-details">
           <div class="add-details-btn pointer">
@@ -433,9 +432,16 @@
             </div>
           </div>
           <div class="add-details-btn light-gray-small-text">
-            <div>נוצרה ב-14.8.2024</div>
+            <!-- <div>נוצרה ב-14.8.2024</div> -->
+            <div>
+              נוצרה ב-{{ transformDateToString(advertisement.creationDate) }}
+            </div>
             <div class="or-sign">|</div>
-            <div>תאריך תפוגה 24.9.2024</div>
+            <!-- <div>תאריך תפוגה 24.9.2024</div> -->
+            <div>
+              תאריך תפוגה
+              {{ transformDateToString(advertisement.expirationDate) }}
+            </div>
             <div class="or-sign">|</div>
             <div>
               מס' מודעה {{ aggregateZerosToIDNumber(advertisement.id) }}

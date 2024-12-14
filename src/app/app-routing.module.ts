@@ -39,7 +39,6 @@ const routes: Routes = [
     title: 'Last Searches',
     component: LastSearchesComponent,
     canActivate: [authGuard],
-    // { path: 'last-searches', component: LastSearchesComponent }
   },
   {
     path: 'advertisement/:id',
