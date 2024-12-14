@@ -62,8 +62,11 @@
           </button>
           }
 
-          <button class="user-area-btn">
-            <div routerLink="/last-searches">חיפושים אחרונים</div>
+          <button routerLink="/last-searches" class="user-area-btn">
+            <div class="last-searches-notification">
+              {{ searchService.UserLastSearches.getValue().length }}
+            </div>
+            <div>חיפושים אחרונים</div>
             <mat-icon>history</mat-icon>
           </button>
           <button class="user-area-btn">

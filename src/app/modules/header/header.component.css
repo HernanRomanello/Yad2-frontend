@@ -194,8 +194,24 @@ button {
 }
 .favorite-link:hover {
   background-color: rgb(255, 113, 0);
-  color: rgb(255, 255, 255);
   border-radius: 2px;
+}
+.favorite-link:hover,
+.last-searches-notification {
+  color: rgb(255, 255, 255);
+}
+
+.last-searches-notification {
+  font-size: 10px;
+
+  background-color: #ff7100 !important;
+
+  padding: 0px 5px;
+
+  border-radius: 10px;
+  line-height: 15px;
+  opacity: 1 !important;
+  margin-right: 4px;
 }
 
 .favorite-ad:hover {
@@ -823,10 +839,6 @@ button,
 
 .logo-btn-main-page img {
   height: 37px;
-}
-
-.post-ad-logo {
-  /* background-color: #fc8c31; */
 }
 
 .logo-btn-favorite-page img {
