@@ -1,14 +1,14 @@
-button .remove {
+div .empty_results_latest_searches {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 13.3333px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: normal;
+	line-height: 16px;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: center;
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,26 +17,26 @@ button .remove {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(216, 96, 0);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 40px;
-	width: 124px;
+	height: 122px;
+	width: 770px;
 	border: 0px none rgb(54, 54, 54);
 	border-top: 0px none rgb(54, 54, 54);
 	border-right: 0px none rgb(54, 54, 54);
 	border-bottom: 0px none rgb(54, 54, 54);
 	border-left: 0px none rgb(54, 54, 54);
-	margin: 0px;
-	padding: 0px;
+	margin: 40px 0px 0px;
+	padding: 20px 15px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -45,7 +45,7 @@ button .remove {
 	right: auto;
 	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
@@ -63,7 +63,7 @@ button .remove {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: pointer;
+	cursor: auto;
 	visibility: visible;
 
 	/* Effects */
@@ -77,8 +77,8 @@ button .remove {
 	text-overflow: clip;
 	word-wrap: normal;
 	box-shadow: none;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }

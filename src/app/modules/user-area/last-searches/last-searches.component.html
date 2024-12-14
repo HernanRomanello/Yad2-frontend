@@ -27,13 +27,24 @@
 <div class="page">
   <div class="body">
     <div class="title justify-content-space-between">
-      <div class="font500 font24 letter-spacing">חיפושים אחרונים</div>
+      <div
+        class=""
+        [ngClass]="
+          searchService.UserLastSearches.value.length > 0
+            ? 'font500 font24 letter-spacing'
+            : 'font500 font24 letter-spacing translateY'
+        "
+      >
+        חיפושים אחרונים
+      </div>
+      @if((searchService.UserLastSearches.value.length > 0)){
       <div
         (click)="isRemoveModalIsHidden = false"
         class="grayfont underline pointer"
       >
         מחק הכל
       </div>
+      }
     </div>
     @if((searchService.UserLastSearches.value.length > 0)){
 
@@ -268,6 +279,8 @@
         </ng-container>
       </ng-container>
     </div>
+    } @else {
+    <div class="not-found-box"></div>
     }
   </div>
 </div>

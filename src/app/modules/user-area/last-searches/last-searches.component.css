@@ -14,7 +14,8 @@
 
 #close-icon,
 .time,
-.modal {
+.modal,
+.not-found-box {
   position: absolute;
 }
 .time {
@@ -278,4 +279,20 @@ body,
 .remove-btn,
 .save-btn:hover {
   color: #ffffff;
+}
+
+.translateY {
+  transform: translateY(5px);
+}
+
+.not-found-box {
+  background-color: rgb(255, 255, 255);
+  height: 122px;
+  width: 770px;
+  /* margin: 40px 0px 0px; */
+
+  padding: 20px 15px;
+
+  border-radius: 4px;
+  transform: translateY(61px);
 }
