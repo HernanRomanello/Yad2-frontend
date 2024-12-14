@@ -554,8 +554,6 @@ export class EditAdvertisementComponent
         ImagesURLsForPosting
       );
 
-      //hernan
-
       this.router.navigate(['/profile/user-advertisement']);
     } catch (e) {
       console.log('Error updating advertisement:', e);

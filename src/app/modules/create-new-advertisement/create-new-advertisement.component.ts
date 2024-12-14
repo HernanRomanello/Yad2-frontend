@@ -630,8 +630,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
     const file = input.files[0];
 
-    //hernan
-
     this.vidoeUrl = environment.URl + 'uploads/' + file.name;
 
     this.imageService.uploadImage(file);
@@ -784,7 +782,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     if (this.checkIfThisFormPartIsValid(formPageNumber)) {
       this.updateIfFormPartCompleted(formPageNumber);
       this.continueToTheNextFormPage(formPageNumber);
-      //hernan
       this.firstError = '';
     } else {
       if (this.firstError !== '') {

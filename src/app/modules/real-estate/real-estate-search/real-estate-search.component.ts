@@ -605,7 +605,8 @@ export class RealEstateSearchComponent
   onPropertyTypeSelected(propertyTypes: string[]) {
     const uniquePropertyTypes = [...new Set(propertyTypes)];
     let optionsNumber = uniquePropertyTypes.length;
-
+    //hernan
+    // console.log('optionsNumber', propertyTypes);
     if (optionsNumber === 0) {
       this.searchService.propertyTypeFilterValue.set('סוג הנכס');
     } else if (optionsNumber === 1) {
@@ -634,7 +635,25 @@ export class RealEstateSearchComponent
 
     if (propertyTypes.length > 0) {
       this.selectedPropertyTypes = uniquePropertyTypes;
+
+      this.searchService.assetTypeList.set(
+        this.transformArrayTOPropertyTypesString(uniquePropertyTypes)
+      );
     }
+  }
+
+  transformArrayTOPropertyTypesString(propertyTypes: string[]): string {
+    let searchText = '';
+
+    propertyTypes.forEach((propertyType) => {
+      if (propertyType !== 'דירות_הכל' && propertyType !== 'בתים_הכל') {
+        searchText += propertyType + ', ';
+      }
+    });
+    if (searchText.endsWith(', ')) {
+      searchText = searchText.slice(0, -2);
+    }
+    return searchText;
   }
 
   onRoomsAmountSelected(roomsAmount: string[]) {

@@ -21,6 +21,7 @@ export class SearchService {
   uniqueMonthDayArray = signal<{ month: number; day: number }[]>([]);
   city = signal<string>('');
   neighborhood = signal<string>('');
+  assetTypeList = signal<string>('');
   forRent = signal<boolean>(false);
   forSale = signal<boolean>(false);
 
@@ -148,7 +149,6 @@ export class SearchService {
       .get<LastsearchesModel[]>(this.Url + 'api/Users/user/GetLastSearches')
       .subscribe((data) => {
         this.UserLastSearches.next(data);
-        console.log(this.UserLastSearches.value);
         const uniqueMonthDayArray = data
           .map((search) => ({
             month: search.monthOfCreation,
@@ -162,7 +162,6 @@ export class SearchService {
               )
           );
 
-        console.log('Unique Month-Day Combinations:', uniqueMonthDayArray);
         this.uniqueMonthDayArray.set(uniqueMonthDayArray);
       });
   }
@@ -195,11 +194,6 @@ export class SearchService {
   }
 
   addLastSearchToDB() {
-    // city: string | null;
-    // neighborhood: string | null;
-    // forSale: boolean;
-    // forRent: boolean;
-    // moshavOrKibuutz: boolean;
     // assetType: string | null;
     // minRooms: number;
     // maxRooms: number;
@@ -230,7 +224,33 @@ export class SearchService {
       neighborhood: this.neighborhood(),
       forSale: this.forSale(),
       forRent: this.forRent(),
+      moshavOrKibuutz: this.propertyFilters.moshavOrKibutz,
+      assetType: this.assetTypeList(),
     };
+
+    // private propertyFilters: PropertyFilters = {
+    //   hasImage: undefined,
+    //   moshavOrKibutz: undefined,
+    //   hasPrice: undefined,
+    //   pirceDiscount: undefined,
+    //   publisherIsMiddleMan: undefined,
+    //   publisherIsContractor: undefined,
+    //   hasPrivateParking: undefined,
+    //   elevator: undefined,
+    //   safeRoom: undefined,
+    //   hasBolcony: undefined,
+    //   airConditioner: undefined,
+    //   storageRoom: undefined,
+    //   renovated: undefined,
+    //   accessibleForDisabled: undefined,
+    //   windowBars: undefined,
+    //   furnished: undefined,
+    //   exclusivity: undefined,
+    //   petsAllowed: undefined,
+    //   forRoommates: undefined,
+    //   floorsRange: ['-1', '180'],
+    //   aptSizeRange: [0, 9999999999],
+    // };
 
     console.log('Last search:', lastSearch);
   }
