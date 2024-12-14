@@ -2,7 +2,9 @@
 <app-header></app-header>
 }
 <router-outlet></router-outlet>
-@if (this.navigationService.IsMainFooterISOpen()) {
+@if (this.navigationService.IsMainFooterISOpen()&&
+!this.navigationService.IsSearchFilterOpen()) {
+
 <app-footer></app-footer>
 }
 
