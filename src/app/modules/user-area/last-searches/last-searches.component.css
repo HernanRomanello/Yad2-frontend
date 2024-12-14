@@ -94,7 +94,6 @@ body,
 .nowrap {
   white-space: nowrap;
 }
-.flex,
 .flex-center,
 .btns button {
   justify-content: center;
@@ -290,7 +289,7 @@ body,
   height: 122px;
   width: 770px;
 
-  padding: 20px 15px 20px 15px;
+  padding: 24px 15px 20px 15px;
 
   border-radius: 4px;
   transform: translateY(61px);
@@ -300,5 +299,16 @@ body,
 #search-img {
   width: 68px;
   height: 68px;
-  transform: translateX(10px);
+  transform: translateX(10px) translateY(3px);
+}
+.align-items-start {
+  align-items: start !important;
+}
+
+.gap {
+  gap: 1rem;
+}
+
+.gap1 {
+  gap: 2px;
 }
