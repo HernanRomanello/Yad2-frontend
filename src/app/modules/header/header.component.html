@@ -1,244 +1,89 @@
-@if ((this.navigationService.IsMainHeaderISOpen())) {
-@if(!(this.navigationService.IsalternativeHeaderISOpen())) {
+<div class="shadow">
+  @if ((this.navigationService.IsMainHeaderISOpen())) {
+  @if(!(this.navigationService.IsalternativeHeaderISOpen())) {
 
-<header
-  [ngClass]="
-    this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
-      ? 'header shadow none-border'
-      : 'header '
-  "
->
-  <div
+  <header
     [ngClass]="
       this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
         ? 'header shadow none-border'
-        : 'header'
+        : 'header '
     "
   >
-    <div class="left-side maegin-left">
-      @if(!(this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()))
-      {
-      <div class="Post-Btn">
-        <button class="light" routerLink="create-advertisement">
-          פרסום הודעה
-          <i class="material-icons">add</i>
-        </button>
-      </div>
-
-      <div
-        class="menu-container menu-button-trigger-area"
-        (mouseover)="openMenu('menu_User')"
-        (mouseleave)="closeMenu('menu_User')"
-      >
-        <div class="user-name-btn" style="display: flex">
-          <button class="user-name">
-            @if (this.isUserConnected) {
-
-            <span style="color: #363636"> {{ this.userName }}</span>
-            }@else { <span routerLink="login">התחברות</span> }
+    <div
+      [ngClass]="
+        this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+          ? 'header shadow none-border'
+          : 'header'
+      "
+    >
+      <div class="left-side maegin-left">
+        @if(!(this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()))
+        {
+        <div class="Post-Btn">
+          <button class="light" routerLink="create-advertisement">
+            פרסום הודעה
+            <i class="material-icons">add</i>
           </button>
-          <div [ngClass]="getCircleClass()">
-            @if (this.isUserConnected) {
-            {{ this.userName.slice(0, 2) }}
-            }@else {
-            <img
-              class="svg-icon user-img"
-              src="assets/images/user.svg"
-              alt="logo"
-            />
-            }
-          </div>
         </div>
-        <div class="menu-user-area-btn" *ngIf="menus['menu_User']">
-          @if (this.isUserConnected) {
-          <button class="user-area-btn" routerLink="/profile">
-            <div>אזור אישי</div>
 
-            <img
-              class="svg-icon user-img"
-              src="assets/images/user.svg"
-              alt="logo"
-            />
-          </button>
-          }
-
-          <button
-            (click)="closeMenu('menu_User')"
-            routerLink="/last-searches"
-            class="user-area-btn"
-          >
-            <div class="last-searches-notification">
-              {{ searchService.UserLastSearches.getValue().length }}
-            </div>
-            <div>חיפושים אחרונים</div>
-            <mat-icon>history</mat-icon>
-          </button>
-          <button class="user-area-btn">
-            <div>התראות</div>
-
-            <img
-              class="svg-icon bell-img"
-              src="assets/images/bell1.svg"
-              alt="logo"
-            />
-          </button>
-          @if (this.isUserConnected) {
-          <button
-            (click)="this.authService.logout()"
-            class="user-area-btn border-top"
-          >
-            <div>התנתקות</div>
-
-            <img
-              class="svg-icon"
-              src="assets/images/door-svgrepo-com.svg"
-              alt="logo"
-            />
-          </button>
-          }
-        </div>
-      </div>
-
-      <div
-        class="menu-container menu-button-trigger-area btn"
-        (mouseover)="
-          openMenu('menu_FavoriteAds');
-          this.HasFavoriteAdsDropdownVisible = true
-        "
-        (mouseleave)="
-          closeMenu('menu_FavoriteAds');
-          this.HasFavoriteAdsDropdownVisible = false
-        "
-      >
-        <button
-          class="light favorite-btn"
-          [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
-        >
-          <div
-            (click)="this.HasFavoriteAdsDropdownVisible = false"
-            routerLink="/favorites"
-            class="favorite-text-btn"
-          >
-            מודעות שאהבתי
-          </div>
-
-          <div class="favorites-counter">
-            @if(this.countFavoriteAds > 0) {
-            <div class="favorite-counter">
-              {{ this.countFavoriteAds }}
-            </div>
-            @if(HasFavoriteAdsDropdownVisible){
-            <div class="favorite-ads-dropdown">
-              <div
-                class="favorite-ad"
-                *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
-                (click)="this.HasFavoriteAdsDropdownVisible = false"
-                routerLink="/advertisement/{{ favorite.id }}"
-              >
-                <div class="favorite-ad-text">
-                  <div class="favorite-ad-price">
-                    <span class="currency">₪</span
-                    ><span>{{ favorite.price | number }}</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="favorite-ad-text">
-                    <div class="favorite-address">
-                      <div>
-                        <span>{{
-                          favorite.number + " " + favorite.street
-                        }}</span>
-                      </div>
-                      <div>
-                        <span style="font-size: 14px">{{
-                          favorite.assetType + ", " + favorite.city
-                        }}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="favorite-ad-img">
-                    <img
-                      class="house-pic"
-                      src="assets/images/feed_re_placeholder_small.png"
-                      alt=""
-                    />
-                    <div class="favorite-symbol">
-                      <img
-                        class="house-pic"
-                        src="assets/images/heart-svgrepo-com-orange.svg"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="favorite-link-btn">
-                <button
-                  (click)="this.HasFavoriteAdsDropdownVisible = false"
-                  routerLink="/favorites"
-                  class="favorite-link"
-                >
-                  לכל המודעות שסימנתי
-                </button>
-              </div>
-            </div>
-            } }
-            <i class="material-icons">favorite_border</i>
-          </div>
-        </button>
-      </div>
-
-      } @else {
-      <div class="Post-Btn-Favorite">
-        <button class="green flex-center" routerLink="create-advertisement">
-          <span> פרסום מודעה חדשה </span>
-          <img
-            id="plus-icon"
-            src="assets/images/plus-svgrepo-com.svg"
-            alt="Post-Btn"
-          />
-        </button>
         <div
-          class="user-favorite-btn"
-          style="height: 64px; width: 71px"
+          class="menu-container menu-button-trigger-area"
           (mouseover)="openMenu('menu_User')"
           (mouseleave)="closeMenu('menu_User')"
         >
-          <div class="round none-border font16">
-            {{ this.userName.slice(0, 2) }}
+          <div class="user-name-btn" style="display: flex">
+            <button class="user-name">
+              @if (this.isUserConnected) {
+
+              <span style="color: #363636"> {{ this.userName }}</span>
+              }@else { <span routerLink="login">התחברות</span> }
+            </button>
+            <div [ngClass]="getCircleClass()">
+              @if (this.isUserConnected) {
+              {{ this.userName.slice(0, 2) }}
+              }@else {
+              <img
+                class="svg-icon user-img"
+                src="assets/images/user.svg"
+                alt="logo"
+              />
+              }
+            </div>
           </div>
-          <div
-            id="user-area-btn-dropdown"
-            class="menu-user-area-btn"
-            *ngIf="menus['menu_User']"
-          >
+          <div class="menu-user-area-btn" *ngIf="menus['menu_User']">
+            @if (this.isUserConnected) {
             <button class="user-area-btn" routerLink="/profile">
               <div>אזור אישי</div>
 
               <img
                 class="svg-icon user-img"
-                src="assets/images/user-svgrepo-com (2).svg"
+                src="assets/images/user.svg"
                 alt="logo"
               />
             </button>
+            }
 
-            <button id="last-searched-btn" class="user-area-btn">
-              <div routerLink="/last-searches">חיפושים אחרונים</div>
-              <div
-                id="notification-searches"
-                class="last-searches-notification"
-              >
+            <button
+              (click)="closeMenu('menu_User')"
+              routerLink="/last-searches"
+              class="user-area-btn"
+            >
+              <div class="last-searches-notification">
                 {{ searchService.UserLastSearches.getValue().length }}
               </div>
+              <div>חיפושים אחרונים</div>
+              <mat-icon>history</mat-icon>
+            </button>
+            <button class="user-area-btn">
+              <div>התראות</div>
+
               <img
-                id="last-searched-icon"
-                class="svg-icon"
-                src="assets/images/history-svgrepo-com (1).svg"
-                alt="history"
+                class="svg-icon bell-img"
+                src="assets/images/bell1.svg"
+                alt="logo"
               />
             </button>
-
+            @if (this.isUserConnected) {
             <button
               (click)="this.authService.logout()"
               class="user-area-btn border-top"
@@ -251,470 +96,631 @@
                 alt="logo"
               />
             </button>
+            }
           </div>
         </div>
+
         <div
-          id="heart-btn"
-          style="width: 51px; height: 64px"
-          class="user-favorite-btn"
-          (mouseenter)="this.HasFavoriteAdsDropdownVisible = true"
-          (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
+          class="menu-container menu-button-trigger-area btn"
+          (mouseover)="
+            openMenu('menu_FavoriteAds');
+            this.HasFavoriteAdsDropdownVisible = true
+          "
+          (mouseleave)="
+            closeMenu('menu_FavoriteAds');
+            this.HasFavoriteAdsDropdownVisible = false
+          "
         >
-          <div class="favorites-counter">
-            @if(this.countFavoriteAds > 0) {
-            <div id="counter" class="favorite-counter flex-center">
-              {{ this.countFavoriteAds }}
+          <button
+            class="light favorite-btn"
+            [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
+          >
+            <div
+              (click)="this.HasFavoriteAdsDropdownVisible = false"
+              routerLink="/favorites"
+              class="favorite-text-btn"
+            >
+              מודעות שאהבתי
             </div>
-            @if(HasFavoriteAdsDropdownVisible){
-            <div id="dropdown-favorite-ads" class="favorite-ads-dropdown">
-              <div
-                class="favorite-ad"
-                *ngFor="
-                  let favorite of this.favoriteAds.slice(0, 3);
-                  let i = index
-                "
-                routerLink="/advertisement/{{ favorite.id }}"
-                (click)="this.HasFavoriteAdsDropdownVisible = false"
-              >
-                <div class="favorite-ad-text">
-                  <div class="favorite-ad-price">
-                    <span class="currency">₪</span
-                    ><span>{{ favorite.price | number }}</span>
-                  </div>
-                </div>
-                <div class="favorite-ad-content">
+
+            <div class="favorites-counter">
+              @if(this.countFavoriteAds > 0) {
+              <div class="favorite-counter">
+                {{ this.countFavoriteAds }}
+              </div>
+              @if(HasFavoriteAdsDropdownVisible){
+              <div class="favorite-ads-dropdown">
+                <div
+                  class="favorite-ad"
+                  *ngFor="let favorite of this.favoriteAds.slice(0, 3)"
+                  (click)="this.HasFavoriteAdsDropdownVisible = false"
+                  routerLink="/advertisement/{{ favorite.id }}"
+                >
                   <div class="favorite-ad-text">
-                    <div class="favorite-address">
-                      <div>
-                        <span>{{
-                          favorite.number + " " + favorite.street
-                        }}</span>
-                      </div>
-                      <div>
-                        <span style="font-size: 14px">{{
-                          favorite.assetType + ", " + favorite.city
-                        }}</span>
-                      </div>
+                    <div class="favorite-ad-price">
+                      <span class="currency">₪</span
+                      ><span>{{ favorite.price | number }}</span>
                     </div>
                   </div>
+                  <div>
+                    <div class="favorite-ad-text">
+                      <div class="favorite-address">
+                        <div>
+                          <span>{{
+                            favorite.number + " " + favorite.street
+                          }}</span>
+                        </div>
+                        <div>
+                          <span style="font-size: 14px">{{
+                            favorite.assetType + ", " + favorite.city
+                          }}</span>
+                        </div>
+                      </div>
+                    </div>
 
-                  <div class="favorite-ad-img">
-                    @if(favorite.pictures[0].url.length>0){
-
-                    <img
-                      id="ad-image"
-                      class="house-pic"
-                      src="assets/images/feed_re_placeholder_small.png"
-                      [src]="favorite.pictures[0].url"
-                      alt=""
-                    />
-                    }@else {
-                    <img
-                      id="ad-image"
-                      class="house-pic"
-                      src="assets/images/feed_re_placeholder_small (1).png"
-                      alt=""
-                    />
-                    }
-                    <div id="heart-icon" class="favorite-symbol">
+                    <div class="favorite-ad-img">
                       <img
                         class="house-pic"
-                        src="assets/images/heart-svgrepo-com-orange2.svg"
+                        src="assets/images/feed_re_placeholder_small.png"
                         alt=""
                       />
+                      <div class="favorite-symbol">
+                        <img
+                          class="house-pic"
+                          src="assets/images/heart-svgrepo-com-orange.svg"
+                          alt=""
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div class="favorite-link-btn">
+                  <button
+                    (click)="this.HasFavoriteAdsDropdownVisible = false"
+                    routerLink="/favorites"
+                    class="favorite-link"
+                  >
+                    לכל המודעות שסימנתי
+                  </button>
+                </div>
               </div>
-              <div class="favorite-link-btn">
-                <button
-                  (click)="this.HasFavoriteAdsDropdownVisible = false"
-                  routerLink="/favorites"
-                  class="favorite-link"
+              } }
+              <i class="material-icons">favorite_border</i>
+            </div>
+          </button>
+        </div>
+
+        } @else {
+        <div class="Post-Btn-Favorite">
+          <button class="green flex-center" routerLink="create-advertisement">
+            <span> פרסום מודעה חדשה </span>
+            <img
+              id="plus-icon"
+              src="assets/images/plus-svgrepo-com.svg"
+              alt="Post-Btn"
+            />
+          </button>
+          <div
+            class="user-favorite-btn"
+            style="height: 64px; width: 71px"
+            (mouseover)="openMenu('menu_User')"
+            (mouseleave)="closeMenu('menu_User')"
+          >
+            <div class="round none-border font16">
+              {{ this.userName.slice(0, 2) }}
+            </div>
+            <div
+              id="user-area-btn-dropdown"
+              class="menu-user-area-btn"
+              *ngIf="menus['menu_User']"
+            >
+              <button class="user-area-btn" routerLink="/profile">
+                <div>אזור אישי</div>
+
+                <img
+                  class="svg-icon user-img"
+                  src="assets/images/user-svgrepo-com (2).svg"
+                  alt="logo"
+                />
+              </button>
+
+              <button id="last-searched-btn" class="user-area-btn">
+                <div routerLink="/last-searches">חיפושים אחרונים</div>
+                <div
+                  id="notification-searches"
+                  class="last-searches-notification"
                 >
-                  לכל המודעות שסימנתי
-                </button>
+                  {{ searchService.UserLastSearches.getValue().length }}
+                </div>
+                <img
+                  id="last-searched-icon"
+                  class="svg-icon"
+                  src="assets/images/history-svgrepo-com (1).svg"
+                  alt="history"
+                />
+              </button>
+
+              <button
+                (click)="this.authService.logout()"
+                class="user-area-btn border-top"
+              >
+                <div>התנתקות</div>
+
+                <img
+                  class="svg-icon"
+                  src="assets/images/door-svgrepo-com.svg"
+                  alt="logo"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            id="heart-btn"
+            style="width: 51px; height: 64px"
+            class="user-favorite-btn"
+            (mouseenter)="this.HasFavoriteAdsDropdownVisible = true"
+            (mouseleave)="this.HasFavoriteAdsDropdownVisible = false"
+          >
+            <div class="favorites-counter">
+              @if(this.countFavoriteAds > 0) {
+              <div id="counter" class="favorite-counter flex-center">
+                {{ this.countFavoriteAds }}
+              </div>
+              @if(HasFavoriteAdsDropdownVisible){
+              <div id="dropdown-favorite-ads" class="favorite-ads-dropdown">
+                <div
+                  class="favorite-ad"
+                  *ngFor="
+                    let favorite of this.favoriteAds.slice(0, 3);
+                    let i = index
+                  "
+                  routerLink="/advertisement/{{ favorite.id }}"
+                  (click)="this.HasFavoriteAdsDropdownVisible = false"
+                >
+                  <div class="favorite-ad-text">
+                    <div class="favorite-ad-price">
+                      <span class="currency">₪</span
+                      ><span>{{ favorite.price | number }}</span>
+                    </div>
+                  </div>
+                  <div class="favorite-ad-content">
+                    <div class="favorite-ad-text">
+                      <div class="favorite-address">
+                        <div>
+                          <span>{{
+                            favorite.number + " " + favorite.street
+                          }}</span>
+                        </div>
+                        <div>
+                          <span style="font-size: 14px">{{
+                            favorite.assetType + ", " + favorite.city
+                          }}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="favorite-ad-img">
+                      @if(favorite.pictures[0].url.length>0){
+
+                      <img
+                        id="ad-image"
+                        class="house-pic"
+                        src="assets/images/feed_re_placeholder_small.png"
+                        [src]="favorite.pictures[0].url"
+                        alt=""
+                      />
+                      }@else {
+                      <img
+                        id="ad-image"
+                        class="house-pic"
+                        src="assets/images/feed_re_placeholder_small (1).png"
+                        alt=""
+                      />
+                      }
+                      <div id="heart-icon" class="favorite-symbol">
+                        <img
+                          class="house-pic"
+                          src="assets/images/heart-svgrepo-com-orange2.svg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="favorite-link-btn">
+                  <button
+                    (click)="this.HasFavoriteAdsDropdownVisible = false"
+                    routerLink="/favorites"
+                    class="favorite-link"
+                  >
+                    לכל המודעות שסימנתי
+                  </button>
+                </div>
+              </div>
+              } }
+              <div id="heart-icon-link">
+                <img src="assets/images/heart-alt-svgrepo-com.svg" alt="" />
               </div>
             </div>
-            } }
-            <div id="heart-icon-link">
-              <img src="assets/images/heart-alt-svgrepo-com.svg" alt="" />
+          </div>
+          <div
+            class="flex-center bell-container"
+            style="height: 63px; width: 52px"
+          >
+            <img
+              id="bell-icon"
+              class="svg-icon2"
+              src="assets/images/bell-music-svgrepo-com.svg"
+              alt="bell-music-svgrepo-com"
+            />
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    <div id="space3">ggg</div>
+
+    <div
+      [ngClass]="
+        this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+          ? 'header shadow none-border'
+          : 'header'
+      "
+    >
+      <div
+        id="magazin-yad2"
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="openMenu('menu_Yad2Magazine')"
+        (mouseleave)="closeMenu('menu_Yad2Magazine')"
+      >
+        <button id="magazin-yad2-text" class="light">מגזין יד2</button>
+      </div>
+      <div
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="openMenu('menu_proffesionals')"
+        (mouseleave)="closeMenu('menu_proffesionals')"
+      >
+        <button class="light">בעלי מקצוע</button>
+        <div class="menu professionals" *ngIf="menus['menu_proffesionals']">
+          <div class="column-menu">
+            <span>מכוני בדיקה ורישוי לרכב</span>
+            <span>רחיצת רכב</span>
+            <span>חומרי בניין</span>
+            <span>אינסטלטורים</span>
+            <span>חשמלאים</span>
+            <span>שמאי מקרקעין</span>
+            <span>שיפוצים</span>
+            <span>הובלות</span>
+            <span>רהיטים</span>
+            <span>חברות ניקיון ואחזקה</span>
+            <span>לכל בעלי המקצוע</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="openMenu('menu_Pets')"
+        (mouseleave)="closeMenu('menu_Pets')"
+      >
+        <button class="light">חיות מחמד</button>
+        <div class="menu pets" *ngIf="menus['menu_Pets']">
+          <div class="column-menu">
+            <span>כלבים</span>
+            <span>חתולים</span>
+            <span>תוכים ובעלי כנף</span>
+            <span>דגים</span>
+            <span>זוחלים</span>
+            <span>מכרסמים</span>
+            <span>סוסים</span>
+            <span>תרנגולים</span>
+            <span>חיות משק</span>
+            <span>חמוסים</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="openMenu('menu_BusinessesforSale')"
+        (mouseleave)="closeMenu('menu_BusinessesforSale')"
+      >
+        <button class="light">עסקים למכירה</button>
+        <div class="menu" *ngIf="menus['menu_BusinessesforSale']">
+          <div class="column-menu">
+            <span>בתי קפה ומסעדות</span>
+            <span>זכיינות</span>
+            <span>קווי חלוקה</span>
+            <span>הזדמנויות עסקיות</span>
+            <span>מינימרקטים וסופרמרקטים</span>
+            <span>קיוסקים ובפיצוציות</span>
+            <span>לכל העסקים</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="openMenu('menu_JobsIL')"
+        (mouseleave)="closeMenu('menu_JobsIL')"
+      >
+        <button class="light">IL דרושים</button>
+        <div class="menu other-fields" *ngIf="menus['menu_JobsIL']">
+          <div class="column-menu">
+            <span>אדמיניסטרציה</span>
+            <span>מהנדסים</span>
+            <span>תחבורה</span>
+            <span>מסעדנות/תיירות</span>
+            <span>אבטחה</span>
+            <span>בריאות</span>
+            <span>בעלי מקצוע</span>
+            <span>הדרכה/הוראה</span>
+            <span>שיווק</span>
+            <span>לתחומים נוספים</span>
+          </div>
+          <div class="column-menu">
+            <span>חיפוש עבודה</span>
+            <span>פרסום משרות</span>
+            <span>כתיבת קורות חיים</span>
+            <span>אודות החברות</span>
+            <span>דרושים הייטק</span>
+            <span>דרושים סטודנטים</span>
+            <span>מגזין הקריירה</span>
+            <span>כספים</span>
+            <span>מכירות</span>
+            <span>שירות לקוחות</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="openMenu('menu_Yad2')"
+        (mouseleave)="closeMenu('menu_Yad2')"
+      >
+        <button class="light">יד שנייה</button>
+        <div class="menu Yad2" *ngIf="menus['menu_Yad2']">
+          <div class="column-menu">
+            <span>מחשבים וציוד נלווה</span>
+            <span>לגינה</span>
+            <span>אופנה וטיפוח</span>
+          </div>
+          <div class="column-menu">
+            <span>כל המוצרים</span>
+            <span>מוצרי חשמל</span>
+            <span>ריהוט</span>
+            <span>ספורט</span>
+            <span>סלולרי</span>
+            <span>לתינוק ולילד</span>
+            <span>הכל בחינם!</span>
+            <span>קונסולות משחק</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="openMenu('menu_Cars')"
+        (mouseleave)="closeMenu('menu_Cars')"
+      >
+        <button class="light">רכב</button>
+        <div class="menu vehicle" *ngIf="menus['menu_Cars']">
+          <div class="column-menu">
+            <span>מחירון רכב</span>
+            <span>מימון רכב</span>
+            <span> רכבים מכונס נכסים</span>
+          </div>
+          <div class="column-menu">
+            <span>פרטיים ומסחריים</span>
+            <span>אופנועים</span>
+            <span>קטנועים</span>
+            <span>מיוחדים</span>
+            <span>אביזרים</span>
+            <span>משאיות</span>
+            <span>כלי שייט</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="menu-container menu-button-trigger-area btn"
+        (mouseover)="openMenu('menu_RealEstate')"
+        (mouseleave)="closeMenu('menu_RealEstate')"
+      >
+        <button class="light">נדל"ן</button>
+        <div class="menu" *ngIf="menus['menu_RealEstate']">
+          <div class="column-menu">
+            <span>יד1 דירות חדשות</span>
+            <span>כונס נכסים</span>
+            <span>הערכת שווי נכס</span>
+            <span>משרדי תיווך בישראל</span>
+            <span>יעוץ משכנתאות</span>
+          </div>
+          <div class="column-menu">
+            <span>דירות למכירה</span>
+            <span>דירות להשכרה</span>
+            <span>נדלן מסחרי</span>
+            <span>עסקים למכירה</span>
+          </div>
+        </div>
+      </div>
+
+      <button
+        [ngClass]="
+          navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+            ? 'logo-btn-favorite-page'
+            : 'logo-btn-main-page'
+        "
+        routerLink="/"
+      >
+        <img src="{{ _LogoPic }}" alt="logo" />
+      </button>
+    </div>
+  </header>
+  } } @if((this.navigationService.IsalternativeHeaderISOpen())) {
+  @if(!(this.navigationService.IsEditAdvertisementISOpen())) {
+
+  <div class="orange-line"></div>
+  <header>
+    <div [ngClass]="setHeaderHeight()">
+      <div class="left-side2 flex-center2">
+        <div class="gray-btns-container2">
+          @if(!(this.navigationService.IsUserAreaISOpen())){
+          <button
+            class="gray-btn2 close-btn-container flex-center2"
+            (click)="
+              this.modalStateSerrvice.openOrCloseModal(true);
+              this.modalStateSerrvice.setModalContent(0)
+            "
+          >
+            <span class="flex-center2 close-btn"
+              ><i class="material-icons">close</i>יציאה</span
+            >
+          </button>
+          <button class="gray-btn2">צור קשר</button>
+          }@else {
+
+          <div class="Post-Btn">
+            <button class="light" routerLink="create-advertisement">
+              פרסום הודעה
+              <i class="material-icons">add</i>
+            </button>
+          </div>
+          }
+        </div>
+        <div
+          [ngClass]="
+            this.navigationService.isCreateNewAdIsOpen()
+              ? 'user-area2 flex-center2 hover-background'
+              : 'user-area2 flex-center2 hover-background2'
+          "
+          (mouseover)="isUserAreaDropdownOpen(true)"
+          (mouseleave)="isUserAreaDropdownOpen(false)"
+        >
+          <div
+            [ngClass]="
+              this.navigationService.isCreateNewAdIsOpen()
+                ? 'hover-background'
+                : 'hover-background2'
+            "
+          >
+            <div
+              routerLink="/profile"
+              [ngClass]="
+                this.navigationService.isCreateNewAdIsOpen()
+                  ? 'flex-center2 hover-background'
+                  : 'flex-center2 hover-background2'
+              "
+            >
+              @if(!(this.navigationService.IsUserAreaISOpen())) {
+              <div class="user-name2 flex-center2 font16">
+                {{ this.userName }}
+              </div>
+
+              <div class="round2 flex-center2">
+                <!-- {{ this.firstLetterUserEmailAddress }} -->
+                {{ this.userName[0] }}
+              </div>
+              }@else {
+              <div class="round2 flex-center2 move-left">
+                {{ this.userName[0] }}
+
+                <!-- {{ this.firstLetterUserEmailAddress }} -->
+              </div>
+
+              }
+            </div>
+            <div
+              class="menu2"
+              *ngIf="
+                this.isUserAreaDropdownVisible &&
+                !this.navigationService.IsUserAreaISOpen() &&
+                !this.navigationService.isCreateNewAdIsOpen()
+              "
+              (mouseover)="isUserAreaDropdownOpen(true)"
+              (mouseleave)="isUserAreaDropdownOpen(false)"
+            >
+              <div class="menu-bar2" routerLink="/profile">
+                <div>עריכת פרופיל</div>
+                <div>
+                  <img
+                    class="svg-icon2"
+                    src="assets/images/edit-2-svgrepo-com.svg"
+                    alt="edit"
+                  />
+                </div>
+              </div>
+              <div class="menu-bar2">
+                המודעות שלי<mat-icon>star_border</mat-icon>
+              </div>
+              <div class="menu-bar2">
+                חפושים אחרונים <mat-icon>history</mat-icon>
+              </div>
+              <div class="menu-bar2">
+                <div>חזרה לאתר הראשי</div>
+                <img
+                  class="svg-icon2"
+                  src="assets/images/house-floor-svgrepo-com.svg"
+                  alt="house-floor"
+                />
+              </div>
+              <div class="menu-bar2 border-top2">
+                <div (click)="authService.logout()">התנתקות</div>
+
+                <div>
+                  <img
+                    class="svg-icon2"
+                    src="assets/images/door-svgrepo-com.svg"
+                    alt="door"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div
-          class="flex-center bell-container"
-          style="height: 63px; width: 52px"
-        >
-          <img
-            id="bell-icon"
-            class="svg-icon2"
-            src="assets/images/bell-music-svgrepo-com.svg"
-            alt="bell-music-svgrepo-com"
-          />
+      </div>
+
+      @if(this.navigationService.isCreateNewAdIsOpen()){
+      <div class="flex-center font18 post-ad-container">
+        <div class="post-ad-title">פרסום מודעה חדשה</div>
+
+        <div class="post-ad-logo" routerLink="/">
+          <img src="assets/images/logo-default.svg" alt="logo" />
+        </div>
+      </div>
+      }@else {
+      <div class="right-side2 flex-center2">
+        <div class="user-area-text2 flex-center2">איזור אישי</div>
+        <div class="" routerLink="/">
+          <img src="assets/images/logo-default.svg" alt="logo" />
         </div>
       </div>
       }
     </div>
-  </div>
-  <div
-    [ngClass]="
-      this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
-        ? 'header shadow none-border'
-        : 'header'
-    "
-  >
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_Yad2Magazine')"
-      (mouseleave)="closeMenu('menu_Yad2Magazine')"
-    >
-      <button class="light">מגזין יד2</button>
-    </div>
-
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_proffesionals')"
-      (mouseleave)="closeMenu('menu_proffesionals')"
-    >
-      <button class="light">בעלי מקצוע</button>
-      <div class="menu professionals" *ngIf="menus['menu_proffesionals']">
-        <div class="column-menu">
-          <span>מכוני בדיקה ורישוי לרכב</span>
-          <span>רחיצת רכב</span>
-          <span>חומרי בניין</span>
-          <span>אינסטלטורים</span>
-          <span>חשמלאים</span>
-          <span>שמאי מקרקעין</span>
-          <span>שיפוצים</span>
-          <span>הובלות</span>
-          <span>רהיטים</span>
-          <span>חברות ניקיון ואחזקה</span>
-          <span>לכל בעלי המקצוע</span>
-        </div>
+  </header>
+  } @if(navigationService.IsEditAdvertisementISOpen()) {
+  <div class="edit-ad-header">
+    <div id="post-ad-title" class="flex-center2 post-ad-box">
+      <div class="logo-img" routerLink="/">
+        <img id="logo-pic" src="assets/images/logo-default.svg" alt="logo" />
       </div>
+      <div class="post-ad">פרסום מודעה חדשה</div>
     </div>
-
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_Pets')"
-      (mouseleave)="closeMenu('menu_Pets')"
-    >
-      <button class="light">חיות מחמד</button>
-      <div class="menu pets" *ngIf="menus['menu_Pets']">
-        <div class="column-menu">
-          <span>כלבים</span>
-          <span>חתולים</span>
-          <span>תוכים ובעלי כנף</span>
-          <span>דגים</span>
-          <span>זוחלים</span>
-          <span>מכרסמים</span>
-          <span>סוסים</span>
-          <span>תרנגולים</span>
-          <span>חיות משק</span>
-          <span>חמוסים</span>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_BusinessesforSale')"
-      (mouseleave)="closeMenu('menu_BusinessesforSale')"
-    >
-      <button class="light">עסקים למכירה</button>
-      <div class="menu" *ngIf="menus['menu_BusinessesforSale']">
-        <div class="column-menu">
-          <span>בתי קפה ומסעדות</span>
-          <span>זכיינות</span>
-          <span>קווי חלוקה</span>
-          <span>הזדמנויות עסקיות</span>
-          <span>מינימרקטים וסופרמרקטים</span>
-          <span>קיוסקים ובפיצוציות</span>
-          <span>לכל העסקים</span>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_JobsIL')"
-      (mouseleave)="closeMenu('menu_JobsIL')"
-    >
-      <button class="light">IL דרושים</button>
-      <div class="menu other-fields" *ngIf="menus['menu_JobsIL']">
-        <div class="column-menu">
-          <span>אדמיניסטרציה</span>
-          <span>מהנדסים</span>
-          <span>תחבורה</span>
-          <span>מסעדנות/תיירות</span>
-          <span>אבטחה</span>
-          <span>בריאות</span>
-          <span>בעלי מקצוע</span>
-          <span>הדרכה/הוראה</span>
-          <span>שיווק</span>
-          <span>לתחומים נוספים</span>
-        </div>
-        <div class="column-menu">
-          <span>חיפוש עבודה</span>
-          <span>פרסום משרות</span>
-          <span>כתיבת קורות חיים</span>
-          <span>אודות החברות</span>
-          <span>דרושים הייטק</span>
-          <span>דרושים סטודנטים</span>
-          <span>מגזין הקריירה</span>
-          <span>כספים</span>
-          <span>מכירות</span>
-          <span>שירות לקוחות</span>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_Yad2')"
-      (mouseleave)="closeMenu('menu_Yad2')"
-    >
-      <button class="light">יד שנייה</button>
-      <div class="menu Yad2" *ngIf="menus['menu_Yad2']">
-        <div class="column-menu">
-          <span>מחשבים וציוד נלווה</span>
-          <span>לגינה</span>
-          <span>אופנה וטיפוח</span>
-        </div>
-        <div class="column-menu">
-          <span>כל המוצרים</span>
-          <span>מוצרי חשמל</span>
-          <span>ריהוט</span>
-          <span>ספורט</span>
-          <span>סלולרי</span>
-          <span>לתינוק ולילד</span>
-          <span>הכל בחינם!</span>
-          <span>קונסולות משחק</span>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_Cars')"
-      (mouseleave)="closeMenu('menu_Cars')"
-    >
-      <button class="light">רכב</button>
-      <div class="menu vehicle" *ngIf="menus['menu_Cars']">
-        <div class="column-menu">
-          <span>מחירון רכב</span>
-          <span>מימון רכב</span>
-          <span> רכבים מכונס נכסים</span>
-        </div>
-        <div class="column-menu">
-          <span>פרטיים ומסחריים</span>
-          <span>אופנועים</span>
-          <span>קטנועים</span>
-          <span>מיוחדים</span>
-          <span>אביזרים</span>
-          <span>משאיות</span>
-          <span>כלי שייט</span>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="menu-container menu-button-trigger-area btn"
-      (mouseover)="openMenu('menu_RealEstate')"
-      (mouseleave)="closeMenu('menu_RealEstate')"
-    >
-      <button class="light">נדל"ן</button>
-      <div class="menu" *ngIf="menus['menu_RealEstate']">
-        <div class="column-menu">
-          <span>יד1 דירות חדשות</span>
-          <span>כונס נכסים</span>
-          <span>הערכת שווי נכס</span>
-          <span>משרדי תיווך בישראל</span>
-          <span>יעוץ משכנתאות</span>
-        </div>
-        <div class="column-menu">
-          <span>דירות למכירה</span>
-          <span>דירות להשכרה</span>
-          <span>נדלן מסחרי</span>
-          <span>עסקים למכירה</span>
-        </div>
-      </div>
-    </div>
-
-    <button
-      [ngClass]="
-        navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
-          ? 'logo-btn-favorite-page'
-          : 'logo-btn-main-page'
-      "
-      routerLink="/"
-    >
-      <img src="{{ _LogoPic }}" alt="logo" />
-    </button>
-  </div>
-</header>
-} } @if((this.navigationService.IsalternativeHeaderISOpen())) {
-@if(!(this.navigationService.IsEditAdvertisementISOpen())) {
-
-<div class="orange-line"></div>
-<header>
-  <div [ngClass]="setHeaderHeight()">
-    <div class="left-side2 flex-center2">
-      <div class="gray-btns-container2">
-        @if(!(this.navigationService.IsUserAreaISOpen())){
-        <button
-          class="gray-btn2 close-btn-container flex-center2"
-          (click)="
-            this.modalStateSerrvice.openOrCloseModal(true);
-            this.modalStateSerrvice.setModalContent(0)
-          "
-        >
-          <span class="flex-center2 close-btn"
-            ><i class="material-icons">close</i>יציאה</span
-          >
-        </button>
-        <button class="gray-btn2">צור קשר</button>
-        }@else {
-
-        <div class="Post-Btn">
-          <button class="light" routerLink="create-advertisement">
-            פרסום הודעה
-            <i class="material-icons">add</i>
-          </button>
-        </div>
-        }
-      </div>
-      <div
-        [ngClass]="
-          this.navigationService.isCreateNewAdIsOpen()
-            ? 'user-area2 flex-center2 hover-background'
-            : 'user-area2 flex-center2 hover-background2'
-        "
-        (mouseover)="isUserAreaDropdownOpen(true)"
-        (mouseleave)="isUserAreaDropdownOpen(false)"
-      >
-        <div
-          [ngClass]="
-            this.navigationService.isCreateNewAdIsOpen()
-              ? 'hover-background'
-              : 'hover-background2'
-          "
-        >
-          <div
-            routerLink="/profile"
-            [ngClass]="
-              this.navigationService.isCreateNewAdIsOpen()
-                ? 'flex-center2 hover-background'
-                : 'flex-center2 hover-background2'
-            "
-          >
-            @if(!(this.navigationService.IsUserAreaISOpen())) {
-            <div class="user-name2 flex-center2 font16">
-              {{ this.userName }}
-            </div>
-
-            <div class="round2 flex-center2">
-              <!-- {{ this.firstLetterUserEmailAddress }} -->
-              {{ this.userName[0] }}
-            </div>
-            }@else {
-            <div class="round2 flex-center2 move-left">
-              {{ this.userName[0] }}
-
-              <!-- {{ this.firstLetterUserEmailAddress }} -->
-            </div>
-
-            }
-          </div>
-          <div
-            class="menu2"
-            *ngIf="
-              this.isUserAreaDropdownVisible &&
-              !this.navigationService.IsUserAreaISOpen() &&
-              !this.navigationService.isCreateNewAdIsOpen()
-            "
-            (mouseover)="isUserAreaDropdownOpen(true)"
-            (mouseleave)="isUserAreaDropdownOpen(false)"
-          >
-            <div class="menu-bar2" routerLink="/profile">
-              <div>עריכת פרופיל</div>
-              <div>
-                <img
-                  class="svg-icon2"
-                  src="assets/images/edit-2-svgrepo-com.svg"
-                  alt="edit"
-                />
-              </div>
-            </div>
-            <div class="menu-bar2">
-              המודעות שלי<mat-icon>star_border</mat-icon>
-            </div>
-            <div class="menu-bar2">
-              חפושים אחרונים <mat-icon>history</mat-icon>
-            </div>
-            <div class="menu-bar2">
-              <div>חזרה לאתר הראשי</div>
-              <img
-                class="svg-icon2"
-                src="assets/images/house-floor-svgrepo-com.svg"
-                alt="house-floor"
-              />
-            </div>
-            <div class="menu-bar2 border-top2">
-              <div (click)="authService.logout()">התנתקות</div>
-
-              <div>
-                <img
-                  class="svg-icon2"
-                  src="assets/images/door-svgrepo-com.svg"
-                  alt="door"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    @if(this.navigationService.isCreateNewAdIsOpen()){
-    <div class="flex-center font18 post-ad-container">
-      <div class="post-ad-title">פרסום מודעה חדשה</div>
-
-      <div class="post-ad-logo" routerLink="/">
-        <img src="assets/images/logo-default.svg" alt="logo" />
-      </div>
-    </div>
-    }@else {
     <div class="right-side2 flex-center2">
-      <div class="user-area-text2 flex-center2">איזור אישי</div>
-      <div class="" routerLink="/">
-        <img src="assets/images/logo-default.svg" alt="logo" />
+      <div class="user-name">
+        <span>
+          <img
+            id="orange-user"
+            src="assets/images/orange-user.svg"
+            alt="orange-user"
+        /></span>
+        <span id="user-name">
+          {{ this.userName }} {{ this.userLastName }}
+        </span>
       </div>
+      <div class="contact">צור קשר</div>
     </div>
-    }
   </div>
-</header>
-} @if(navigationService.IsEditAdvertisementISOpen()) {
-<div class="edit-ad-header">
-  <div id="post-ad-title" class="flex-center2 post-ad-box">
-    <div class="logo-img" routerLink="/">
-      <img id="logo-pic" src="assets/images/logo-default.svg" alt="logo" />
-    </div>
-    <div class="post-ad">פרסום מודעה חדשה</div>
-  </div>
-  <div class="right-side2 flex-center2">
-    <div class="user-name">
-      <span>
-        <img
-          id="orange-user"
-          src="assets/images/orange-user.svg"
-          alt="orange-user"
-      /></span>
-      <span id="user-name"> {{ this.userName }} {{ this.userLastName }} </span>
-    </div>
-    <div class="contact">צור קשר</div>
-  </div>
-</div>
 
-} }
+  } }
+</div>

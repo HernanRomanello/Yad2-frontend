@@ -7,10 +7,6 @@
   height: 64px !important;
 }
 
-.shadow {
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px;
-}
-
 .maegin-left {
   margin-left: 20px;
 }
@@ -26,7 +22,8 @@
 .favorite-symbol,
 .header,
 .left-side,
-.right-side {
+.right-side,
+.header {
   background-color: #ffffff;
 }
 
@@ -851,4 +848,16 @@ button,
 .logo-btn-main-page img,
 .logo-btn-favorite-page img {
   width: 74px;
+}
+
+#space3 {
+  background-color: #ffffff !important;
+  height: 100%;
+  z-index: 200 !important;
+  color: transparent !important;
+  width: 12px !important;
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px !important;
 }
