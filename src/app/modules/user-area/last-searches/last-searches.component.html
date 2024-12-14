@@ -25,6 +25,7 @@
 }
 
 <div class="page">
+  @if((searchService.UserLastSearches.value.length > 0)){
   <div class="body">
     <div class="title justify-content-space-between">
       <div class="font500 font24">חיפושים אחרונים</div>
@@ -267,4 +268,7 @@
       </ng-container>
     </div>
   </div>
+  }@else{
+  <div id="empty-body" class="body"></div>
+  }
 </div>
