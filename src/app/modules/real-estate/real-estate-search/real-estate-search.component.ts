@@ -598,6 +598,8 @@ export class RealEstateSearchComponent
         priceRange[1]
       )} ₪ - ${this.formatNumberWithComma(priceRange[0])} ₪`;
     }
+    this.searchService.minPrice.set(priceRange[0]);
+    this.searchService.maxPrice.set(priceRange[1]);
     this.searchService.priceRangeFilterValue.set(newValue);
     this.selectedPriceRange = priceRange;
   }

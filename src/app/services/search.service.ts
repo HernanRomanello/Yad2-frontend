@@ -18,6 +18,8 @@ export class SearchService {
   maxFloor = signal<number>(20);
   minRooms = signal<number>(0);
   maxRooms = signal<number>(0);
+  minPrice = signal<number>(0);
+  maxPrice = signal<number>(0);
   minSquareSize = signal<number>(0);
   maxSqaureSize = signal<number>(99999999);
   uniqueMonthDayArray = signal<{ month: number; day: number }[]>([]);
@@ -196,30 +198,6 @@ export class SearchService {
   }
 
   addLastSearchToDB() {
-    // minRooms: number;
-    // maxRooms: number;
-    // minPrice: number;
-    // maxPrice: number;
-    // hasImmediateEntry: boolean;
-    // hasAccessibleForDisabled: boolean;
-    // hasAirConditioner: boolean;
-    // hasExclusivity: boolean;
-    // hasBalcony: boolean;
-    // hasWindowBars: boolean;
-    // hasElevator: boolean;
-    // minFloor: number;
-    // maxFloor: number;
-    // forRoommates: boolean;
-    // hasFurnished: boolean;
-    // hasPrivateParking: boolean;
-    // petsAllowed: boolean;
-    // hasPrice: boolean;
-    // hasImage: boolean;
-    // isRenovated: boolean;
-    // hasSafeRoom: boolean;
-    // minSquareSize: number;
-    // maxSquareSize: number;
-    // hasStorageRoom: boolean;
     const lastSearch = {
       city: this.city(),
       neighborhood: this.neighborhood(),
@@ -229,31 +207,29 @@ export class SearchService {
       assetType: this.assetTypeList(),
       minRooms: this.minRooms(),
       maxRooms: this.maxRooms(),
+      minPrice: this.minPrice(),
+      maxPrice: this.maxPrice(),
+      hasImmediateEntry: false,
+      hasAccessibleForDisabled: this.propertyFilters.accessibleForDisabled,
+      hasAirConditioner: this.propertyFilters.airConditioner,
+      hasExclusivity: this.propertyFilters.exclusivity,
+      hasBalcony: this.propertyFilters.hasBolcony,
+      hasWindowBars: this.propertyFilters.windowBars,
+      minFloor: this.minFloor(),
+      maxFloor: this.maxFloor(),
+      forRoommates: this.propertyFilters.forRoommates,
+      hasFurnished: this.propertyFilters.furnished,
+      hasPrivateParking: this.propertyFilters.hasPrivateParking,
+      petsAllowed: this.propertyFilters.petsAllowed,
+      hasPrice: this.propertyFilters.hasPrice,
+      hasImage: this.propertyFilters.hasImage,
+      isRenovated: this.propertyFilters.renovated,
+      hasSafeRoom: this.propertyFilters.safeRoom,
+      hasElevator: this.propertyFilters.elevator,
+      minSquareSize: this.minSquareSize(),
+      maxSquareSize: this.maxSqaureSize(),
+      hasStorageRoom: this.propertyFilters.storageRoom,
     };
-
-    // private propertyFilters: PropertyFilters = {
-    //   hasImage: undefined,
-    //   moshavOrKibutz: undefined,
-    //   hasPrice: undefined,
-    //   pirceDiscount: undefined,
-    //   publisherIsMiddleMan: undefined,
-    //   publisherIsContractor: undefined,
-    //   hasPrivateParking: undefined,
-    //   elevator: undefined,
-    //   safeRoom: undefined,
-    //   hasBolcony: undefined,
-    //   airConditioner: undefined,
-    //   storageRoom: undefined,
-    //   renovated: undefined,
-    //   accessibleForDisabled: undefined,
-    //   windowBars: undefined,
-    //   furnished: undefined,
-    //   exclusivity: undefined,
-    //   petsAllowed: undefined,
-    //   forRoommates: undefined,
-    //   floorsRange: ['-1', '180'],
-    //   aptSizeRange: [0, 9999999999],
-    // };
 
     console.log('Last search:', lastSearch);
   }
