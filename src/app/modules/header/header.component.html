@@ -62,7 +62,11 @@
           </button>
           }
 
-          <button routerLink="/last-searches" class="user-area-btn">
+          <button
+            (click)="closeMenu('menu_User')"
+            routerLink="/last-searches"
+            class="user-area-btn"
+          >
             <div class="last-searches-notification">
               {{ searchService.UserLastSearches.getValue().length }}
             </div>
