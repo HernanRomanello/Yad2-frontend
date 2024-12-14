@@ -10,6 +10,10 @@ body header {
   cursor: default;
 }
 
+body {
+  min-height: 660px;
+}
+
 .font14 {
   font-size: 14px !important;
 }
