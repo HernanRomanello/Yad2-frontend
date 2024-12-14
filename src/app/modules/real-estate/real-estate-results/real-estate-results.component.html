@@ -118,7 +118,11 @@
       </div>
       <div
         class="advertisement-details"
-        routerLink="/advertisement/{{ advertisement.id }}"
+        (click)="
+          this.navigationService.navigateInNewWindow(
+            '/advertisement/' + advertisement.id
+          )
+        "
       >
         <div class="ad-content-text">
           <div class="title">
