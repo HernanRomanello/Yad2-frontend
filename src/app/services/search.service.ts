@@ -16,6 +16,8 @@ export class SearchService {
   additionalFilterValue = signal<string>('');
   minFloor = signal<number>(-1);
   maxFloor = signal<number>(20);
+  minRooms = signal<number>(0);
+  maxRooms = signal<number>(0);
   minSquareSize = signal<number>(0);
   maxSqaureSize = signal<number>(99999999);
   uniqueMonthDayArray = signal<{ month: number; day: number }[]>([]);
@@ -194,7 +196,6 @@ export class SearchService {
   }
 
   addLastSearchToDB() {
-    // assetType: string | null;
     // minRooms: number;
     // maxRooms: number;
     // minPrice: number;
@@ -226,6 +227,8 @@ export class SearchService {
       forRent: this.forRent(),
       moshavOrKibuutz: this.propertyFilters.moshavOrKibutz,
       assetType: this.assetTypeList(),
+      minRooms: this.minRooms(),
+      maxRooms: this.maxRooms(),
     };
 
     // private propertyFilters: PropertyFilters = {

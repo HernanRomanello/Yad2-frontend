@@ -666,6 +666,8 @@ export class RealEstateSearchComponent
       buttonText = `${maxRooms}` + ' חדרים';
     }
 
+    this.searchService.minRooms.set(minRooms);
+    this.searchService.maxRooms.set(maxRooms);
     this.searchService.roomNumberFilterValue.set(buttonText);
     this.selectedRoomsAmount = roomsAmount;
   }
