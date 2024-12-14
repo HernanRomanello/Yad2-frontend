@@ -230,7 +230,18 @@ export class SearchService {
       maxSquareSize: this.maxSqaureSize(),
       hasStorageRoom: this.propertyFilters.storageRoom,
     };
+    this.httpClient
+      .post(this.Url + 'api/Users/user/AddLastSearch', lastSearch)
+      .subscribe(
+        () => {
+          this.GetUserLastSearches();
+        },
+        (error) => {
+          console.error('Error adding last search:', error);
+          alert('שגיאה בהוספת החיפוש');
+        }
+      );
 
-    console.log('Last search:', lastSearch);
+    // console.log('Last search:', lastSearch);
   }
 }
