@@ -304,9 +304,6 @@ body,
   height: 68px;
   transform: translateX(10px) translateY(3px);
 }
-.align-items-start {
-  align-items: start !important;
-}
 
 .gap {
   gap: 15px;
