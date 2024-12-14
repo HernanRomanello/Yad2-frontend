@@ -1,9 +1,12 @@
+<div class="modal-overlay">
+  <div class="modal"></div>
+</div>
 <div class="page">
   <div class="body">
     <div class="title justify-content-space-between">
       <div class="font500 font24">חיפושים אחרונים</div>
       <div
-        (click)="searchService.removeAllLastSearches()"
+        (keydown)="searchService.removeAllLastSearches()"
         class="grayfont underline pointer"
       >
         מחק הכל

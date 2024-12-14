@@ -1,14 +1,14 @@
-span .badge desktop {
+div .content {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 12px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 20px;
-	text-decoration: none solid rgb(255, 113, 0);
-	text-align: center;
+	line-height: 16px;
+	text-decoration: none solid rgb(54, 54, 54);
+	text-align: right;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,26 +17,26 @@ span .badge desktop {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 241, 229);
+	background-color: rgb(255, 255, 255);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	color: rgb(255, 113, 0);
+	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 20px;
-	width: 24px;
-	border: 0px none rgb(255, 113, 0);
-	border-top: 0px none rgb(255, 113, 0);
-	border-right: 0px none rgb(255, 113, 0);
-	border-bottom: 0px none rgb(255, 113, 0);
-	border-left: 0px none rgb(255, 113, 0);
-	margin: 0px 4px 0px 0px;
-	padding: 0px;
+	height: 140px;
+	width: 300px;
+	border: 1px solid rgb(204, 204, 204);
+	border-top: 1px solid rgb(204, 204, 204);
+	border-right: 1px solid rgb(204, 204, 204);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	border-left: 1px solid rgb(204, 204, 204);
+	margin: 0px;
+	padding: 18px 20px 20px;
 	max-height: none;
-	min-height: auto;
+	min-height: 0px;
 	max-width: none;
-	min-width: auto;
+	min-width: 0px;
 
 	/* Positioning */
 	position: static;
@@ -45,13 +45,13 @@ span .badge desktop {
 	right: auto;
 	left: auto;
 	float: none;
-	display: block;
+	display: flex;
 	clear: none;
 	z-index: auto;
 
 	/* List */
 	list-style-image: none;
-	list-style-type: none;
+	list-style-type: disc;
 	list-style-position: outside;
 
 	/* Table */
@@ -63,7 +63,7 @@ span .badge desktop {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: pointer;
+	cursor: default;
 	visibility: visible;
 
 	/* Effects */
@@ -76,9 +76,9 @@ span .badge desktop {
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: none;
-	border-top-left-radius: 17px;
-	border-top-right-radius: 17px;
-	border-bottom-left-radius: 17px;
-	border-bottom-right-radius: 17px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 6px 0px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }
