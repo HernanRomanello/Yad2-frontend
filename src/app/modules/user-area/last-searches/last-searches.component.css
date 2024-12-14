@@ -289,10 +289,16 @@ body,
   background-color: rgb(255, 255, 255);
   height: 122px;
   width: 770px;
-  /* margin: 40px 0px 0px; */
 
-  padding: 20px 15px;
+  padding: 20px 15px 20px 15px;
 
   border-radius: 4px;
   transform: translateY(61px);
+  justify-content: space-between;
+}
+
+#search-img {
+  width: 68px;
+  height: 68px;
+  transform: translateX(10px);
 }
