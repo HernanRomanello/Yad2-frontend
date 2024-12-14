@@ -421,7 +421,15 @@
                   alt="external-link"
                 />
               </div>
-              <div>צפייה במודעה</div>
+              <div
+                (click)="
+                  this.navigationService.navigateInNewWindow(
+                    '/advertisement/' + advertisement.id
+                  )
+                "
+              >
+                צפייה במודעה
+              </div>
             </div>
           </div>
           <div class="add-details-btn light-gray-small-text">
