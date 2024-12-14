@@ -241,7 +241,5 @@ export class SearchService {
           alert('שגיאה בהוספת החיפוש');
         }
       );
-
-    // console.log('Last search:', lastSearch);
   }
 }

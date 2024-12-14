@@ -172,6 +172,9 @@ body,
   padding: 13.5px 15.5px 0px;
   border-radius: 6px;
 }
+.search:hover {
+  background-color: rgb(242, 242, 242) !important;
+}
 
 .font18 {
   font-size: 18px;
