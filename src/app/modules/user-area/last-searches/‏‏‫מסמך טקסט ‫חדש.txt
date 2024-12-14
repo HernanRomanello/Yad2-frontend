@@ -1,14 +1,14 @@
-div .content {
+button .remove {
 	/* Font & Text */
 	font-family: Rubik, sans-serif;
-	font-size: 16px;
+	font-size: 13.3333px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 16px;
+	line-height: normal;
 	text-decoration: none solid rgb(54, 54, 54);
-	text-align: right;
+	text-align: center;
 	text-indent: 0px;
 	text-transform: none;
 	vertical-align: baseline;
@@ -17,26 +17,26 @@ div .content {
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(216, 96, 0);
 	background-image: none;
 	background-position: 0% 0%;
 	background-repeat: repeat;
 	color: rgb(54, 54, 54);
 
 	/* Box */
-	height: 140px;
-	width: 300px;
-	border: 1px solid rgb(204, 204, 204);
-	border-top: 1px solid rgb(204, 204, 204);
-	border-right: 1px solid rgb(204, 204, 204);
-	border-bottom: 1px solid rgb(204, 204, 204);
-	border-left: 1px solid rgb(204, 204, 204);
+	height: 40px;
+	width: 124px;
+	border: 0px none rgb(54, 54, 54);
+	border-top: 0px none rgb(54, 54, 54);
+	border-right: 0px none rgb(54, 54, 54);
+	border-bottom: 0px none rgb(54, 54, 54);
+	border-left: 0px none rgb(54, 54, 54);
 	margin: 0px;
-	padding: 18px 20px 20px;
+	padding: 0px;
 	max-height: none;
-	min-height: 0px;
+	min-height: auto;
 	max-width: none;
-	min-width: 0px;
+	min-width: auto;
 
 	/* Positioning */
 	position: static;
@@ -45,7 +45,7 @@ div .content {
 	right: auto;
 	left: auto;
 	float: none;
-	display: flex;
+	display: block;
 	clear: none;
 	z-index: auto;
 
@@ -63,7 +63,7 @@ div .content {
 
 	/* Miscellaneous */
 	overflow: visible;
-	cursor: default;
+	cursor: pointer;
 	visibility: visible;
 
 	/* Effects */
@@ -76,9 +76,9 @@ div .content {
 	text-shadow: none;
 	text-overflow: clip;
 	word-wrap: normal;
-	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 6px 0px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+	box-shadow: none;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
 }

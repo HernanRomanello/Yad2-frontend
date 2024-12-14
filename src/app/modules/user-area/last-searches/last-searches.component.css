@@ -79,7 +79,8 @@ body,
   letter-spacing: 0 !important;
 }
 
-.search-body div span {
+.search-body div span,
+.nowrap {
   white-space: nowrap;
 }
 .flex,
@@ -223,9 +224,47 @@ body,
   height: 140px;
   width: 300px;
   border: 1px solid rgb(204, 204, 204);
-
+  gap: 3rem;
   padding: 18px 20px 20px;
   border-radius: 4px;
   top: 300px;
   left: 561px;
+}
+
+.font16 {
+  font-size: 16px;
+}
+
+.modal-btn {
+  height: 40px;
+  width: 124px;
+  border-bottom-right-radius: 2px;
+  border: none;
+}
+
+.modal-btns {
+  gap: 10px;
+}
+
+.remove-btn:hover {
+  background-color: rgb(216, 96, 0);
+}
+
+.save-btn {
+  color: #ff7100;
+  border: 1px solid #ff7100;
+  background-color: #ffffff;
+}
+.save-btn,
+.font14 {
+  font-size: 14px;
+}
+
+.remove-btn,
+.save-btn:hover {
+  background-color: #ff7100;
+}
+.remove-btn,
+.save-btn:hover {
+  color: #ffffff;
 }
