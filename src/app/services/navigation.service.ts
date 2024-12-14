@@ -16,6 +16,7 @@ export class NavigationService {
   IsSearchFilterOpen = signal<boolean>(false);
   IsAdpageOpen = signal<boolean>(false);
   isCreateNewAdIsOpen = signal<boolean>(false);
+  isUserImagesIsOpen = signal<boolean>(false);
 
   IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
     this.IsMainHeaderISOpen = signal(IsHeaderhide);

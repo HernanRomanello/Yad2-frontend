@@ -1,9 +1,11 @@
-@if ( this.navigationService.IsMainHeaderISOpen()) {
+@if ( this.navigationService.IsMainHeaderISOpen() &&
+!this.navigationService.isUserImagesIsOpen() ) {
 <app-header></app-header>
 }
 <router-outlet></router-outlet>
 @if (this.navigationService.IsMainFooterISOpen()&&
-!this.navigationService.IsSearchFilterOpen()) {
+!this.navigationService.IsSearchFilterOpen()&&
+!this.navigationService.isUserImagesIsOpen() ) {
 
 <app-footer></app-footer>
 }

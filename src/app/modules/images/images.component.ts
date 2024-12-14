@@ -1,22 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
-import { AuthService } from '../../services/user/auth.service';
-import { NavigationService } from '../../services/navigation.service';
 import { catchError } from 'rxjs';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
   styleUrl: './images.component.css',
 })
-export class ImagesComponent {
+export class ImagesComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
+
+  ngOnInit() {
+    this.navigationService.isUserImagesIsOpen.set(true);
+  }
+
+  ngOnDestroy() {
+    this.navigationService.isUserImagesIsOpen.set(false);
+  }
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
-    public authSerivce: AuthService,
     private navigationService: NavigationService
   ) {
     this.route.params.subscribe((params) => {
@@ -30,7 +36,6 @@ export class ImagesComponent {
           )
           .subscribe((response) => {
             this.advertisement = response;
-            console.log(this.advertisement);
           });
       }
     });
