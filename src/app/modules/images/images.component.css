@@ -1,6 +1,56 @@
+.flex,
+.align-items-center,
+.flex-center,
+.flex-space-between,
+.header-btn {
+  display: flex;
+}
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-center,
+.header-btn {
+  justify-content: center;
+}
+.flex-center,
+.align-items-center,
+.header-btn {
+  align-items: center;
+}
+
+.header-btn,
+.font16 {
+  font-size: 16px;
+}
+.header-btn,
 header {
   background-color: rgb(255, 255, 255) !important;
+}
+
+header {
   height: 78px;
   width: 100%;
   padding: 24px 24px 18px;
+}
+
+.header-btn {
+  border: 1px solid rgb(204, 204, 204);
+  padding: 0px 18px 0px 12px;
+
+  border-radius: 30px;
+  height: 36px;
+}
+.hover-border:hover {
+  border: 1px solid #999999;
+}
+
+.header-btn,
+.pointer {
+  cursor: pointer;
+}
+
+.gap {
+  gap: 0.5rem;
 }
