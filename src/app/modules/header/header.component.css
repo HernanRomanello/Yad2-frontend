@@ -110,9 +110,19 @@ button {
 }
 .menu-container,
 .favorites-counter,
-.favorite-ad-img {
+.favorite-ad-img,
+.last-searched-btn {
   position: relative;
 }
+
+#last-searched-btn img {
+  transform: translateX(2px) !important;
+}
+
+#last-searched-btn div {
+  transform: translateX(6px) !important;
+}
+
 .favorite-counter {
   line-height: 10px;
   background-color: rgb(255, 113, 0);
@@ -132,8 +142,20 @@ button {
 .favorite-counter,
 .menu,
 .favorite-ads-dropdown,
-.favorite-symbol {
+.favorite-symbol,
+#notification-searches {
   position: absolute;
+}
+
+#notification-searches {
+  top: 49px;
+  right: 8px;
+  z-index: 100 !important;
+}
+
+#last-searched-icon {
+  height: 24px !important;
+  width: 24px !important;
 }
 
 .favorite-ads-dropdown,
@@ -739,19 +761,6 @@ button,
 #user-area-btn-dropdown button,
 #user-area-btn-dropdown button mat-icon {
   gap: 0.5rem;
-}
-
-#last-searched-icon {
-  height: 20px !important;
-  width: 20px !important;
-}
-
-#last-searched-btn img {
-  transform: translateX(2px) !important;
-}
-
-#last-searched-btn div {
-  transform: translateX(6px) !important;
 }
 
 .header {

@@ -221,6 +221,12 @@
 
             <button id="last-searched-btn" class="user-area-btn">
               <div routerLink="/last-searches">חיפושים אחרונים</div>
+              <div
+                id="notification-searches"
+                class="last-searches-notification"
+              >
+                {{ searchService.UserLastSearches.getValue().length }}
+              </div>
               <img
                 id="last-searched-icon"
                 class="svg-icon"
