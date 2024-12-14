@@ -11,6 +11,7 @@ import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.compon
 import { favoritesNotesResolver } from './Resolvers/favoritesNotes.resolver';
 import { favoritesAdResolver } from './Resolvers/favorites-ad.resolver';
 import { LastSearchesComponent } from './modules/user-area/last-searches/last-searches.component';
+import { ImagesComponent } from './modules/images/images.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,12 @@ const routes: Routes = [
     path: 'register',
     component: RegistrationFormComponent,
     title: 'Registration',
+  },
+  {
+    path: 'user-images/:id',
+    component: ImagesComponent,
+    title: 'Images',
+    canActivate: [authGuard],
   },
   {
     path: 'favorites',

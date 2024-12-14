@@ -38,6 +38,7 @@ import * as moment from 'moment';
 import 'moment/locale/he';
 import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.component';
 import { RealEstateSquareSizeSliderComponent } from './modules/real-estate-price-slider-component2/real-estate-price-slider-component2.component';
+import { ImagesComponent } from './modules/images/images.component';
 
 moment.locale('he');
 
@@ -54,6 +55,7 @@ moment.locale('he');
     PostAdConfirmationModalComponent,
     EditAdvertisementComponent,
     FavoriteAdsComponent,
+    ImagesComponent,
   ],
   imports: [
     BrowserModule,

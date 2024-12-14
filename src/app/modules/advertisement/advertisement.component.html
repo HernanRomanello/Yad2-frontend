@@ -56,7 +56,10 @@
         }
       </div>
     </div>
-    <div class="all-pics-link-btn font16 font500 flex-center">
+    <div
+      routerLink="/user-images/{{ advertisement.id }}"
+      class="all-pics-link-btn font16 font500 flex-center"
+    >
       <span class="wrap">
         הצגת {{ advertisement.pictures.length }} תמונות
       </span>

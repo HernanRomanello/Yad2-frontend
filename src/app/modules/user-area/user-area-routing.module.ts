@@ -4,7 +4,6 @@ import { UserAreaComponent } from './user-area/user-area.component';
 import { UserAdvertisementComponent } from './user-advertisement/user-advertisement.component';
 import { EditDetailsComponent } from './edit-details/edit-details.component';
 import { StatisticComponent } from './statistic/statistic.component';
-import { LastSearchesComponent } from './last-searches/last-searches.component';
 import { TipsInformationComponent } from './tips-information/tips-information.component';
 
 const routes: Routes = [
@@ -16,7 +15,6 @@ const routes: Routes = [
       { path: 'edit-details', component: EditDetailsComponent },
       { path: 'statistic', component: StatisticComponent },
 
-      // { path: 'last-searches', component: LastSearchesComponent },
       { path: 'tips-information', component: TipsInformationComponent },
       { path: '', redirectTo: 'user-advertisement', pathMatch: 'full' },
     ],
