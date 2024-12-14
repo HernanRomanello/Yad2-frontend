@@ -84,9 +84,12 @@
 
 .price {
   font-size: 20px;
-  font-weight: 500;
   margin-right: 40px !important;
   transform: translateY(-11px);
+}
+.price,
+.font500 {
+  font-weight: 500;
 }
 
 .price span {
@@ -162,13 +165,17 @@
   position: relative;
 }
 .sort-container,
+.container {
+  width: 663px;
+}
+.sort-container,
 .container,
 .not-found {
-  width: 663px;
   margin-left: auto;
 }
 .not-found {
-  padding-top: 90px;
+  padding-top: 44px;
+  width: 693px;
 }
 
 .page {
@@ -176,8 +183,13 @@
 }
 
 #no-results-img {
-  height: 180px;
-  width: 190px;
+  height: 220px;
+  width: 220px;
+  padding-bottom: 35px;
+}
+
+.gap3 {
+  gap: 0.75rem;
 }
 
 .container {
@@ -187,6 +199,10 @@
   border: 1px solid rgb(238, 238, 238);
   justify-content: flex-end;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
+}
+
+.font28 {
+  font-size: 28px;
 }
 
 .advertisement-details,
