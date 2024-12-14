@@ -46,6 +46,8 @@
 .date {
   width: 100%;
   justify-content: start !important;
+  gap: 4px;
+  margin-bottom: -5px;
 }
 
 .pointer {
@@ -77,14 +79,14 @@ body,
 .search-body div {
   gap: 6px;
 }
-.search-body div {
+.search-body div,
+.letter-spacing {
   letter-spacing: 0 !important;
 }
 .modal-title {
   letter-spacing: 0px !important;
   word-spacing: 0px !important;
   transform: translateX(4px);
-  /* hernan  */
 }
 
 .search-body div span,
