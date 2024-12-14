@@ -90,6 +90,9 @@ body,
   transform: translateX(4px);
 }
 
+.word-spacing {
+  word-spacing: -0.5px !important;
+}
 .search-body div span,
 .nowrap {
   white-space: nowrap;
@@ -306,7 +309,7 @@ body,
 }
 
 .gap {
-  gap: 1rem;
+  gap: 15px;
 }
 
 .gap1 {
