@@ -206,13 +206,6 @@ i,
   height: 20px;
   width: 20px;
   margin-right: 4px;
-  /* transform: translateY(3px); */
-  /* transform: translateY(3px) rotate(0deg) !important; */
-}
-
-.rotate-arrow-down {
-  /* transform: translateY(-1px) rotate(180deg) !important; */
-  /* hernan  */
 }
 
 .material-icons {

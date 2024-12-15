@@ -113,19 +113,11 @@ export class RealEstateSearchComponent
         const propertyRoomArrow = document.getElementById('propertyRoomArrow');
         if (this.roomsFilterIsOpen) {
           this.render.addClass(propertyRoomArrow, 'arrow-up1');
-          // alert('open');
         } else {
           this.render.removeClass(propertyRoomArrow, 'arrow-up1');
-          // alert('close');
         }
         if (clickedElement.id !== 'propertyRoomButton') {
           this.render.removeClass(propertyRoomArrow, 'arrow-up1');
-        }
-
-        alert(clickedElement.id);
-        if (clickedElement.classList.contains('room-btn')) {
-          // this.roomsFilterIsOpen = true;
-          // alert('close');
         }
 
         if (
@@ -146,9 +138,8 @@ export class RealEstateSearchComponent
         ) {
           const roomsAmountContainer =
             document.getElementById('propertyRoomButton');
-          // roomsAmountContainer?.click();
-          // roomsAmountContainer?.click();
-          // alert('close');
+          roomsAmountContainer?.click();
+
           this.rotateAllArrows('');
           this.hideAllMenus('');
           if (!clickedElement.classList.contains('overlay')) {
