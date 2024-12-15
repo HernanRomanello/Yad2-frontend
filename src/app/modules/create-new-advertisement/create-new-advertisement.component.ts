@@ -353,7 +353,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           Validators.maxLength(10),
         ],
       ],
-      standardizationAccepted: [false],
+      standardizationAccepted: [false, Validators.required],
     });
 
     this.cityListService.getCityList().subscribe((cities) => {
@@ -650,6 +650,30 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     });
   }
 
+  fillEmptyFields() {
+    const areaControl = this.advertisementForm.get('area');
+    const neighborhoodControl = this.advertisementForm.get('neighborhood');
+    const tradeTypeControl = this.advertisementForm.get('tradeType');
+    const cityTypeControl = this.advertisementForm.get('city');
+    const streetTypeControl = this.advertisementForm.get('street');
+    const minimumAmountTypeControl =
+      this.advertisementForm.get('minimumAmount');
+
+    if (tradeTypeControl === 'מכירה') {
+      minimumAmountTypeControl.setValue(10000);
+    } else {
+      minimumAmountTypeControl.setValue(100);
+    }
+
+    if (areaControl && neighborhoodControl) {
+      areaControl.setValue(cityTypeControl.value);
+    }
+
+    if (neighborhoodControl) {
+      neighborhoodControl.setValue(streetTypeControl.value);
+    }
+  }
+
   async handleSubmit() {
     this.defineAssetState();
     const cityControl = this.advertisementForm.get('city');
@@ -657,7 +681,11 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       cityControl.setErrors({ invalid: true });
       cityControl.markAsTouched();
     }
+
+    this.fillEmptyFields();
     const form = this.advertisementForm.value;
+
+    console.log(form);
 
     try {
       form.assetState = this.asset_State;

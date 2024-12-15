@@ -7,6 +7,7 @@ import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
+import { AdvertisementService } from '../advertisement.service';
 
 @Injectable({
   providedIn: 'root',
@@ -200,75 +201,88 @@ export class AuthService implements OnInit {
     const date = new Date(NewAdvertisement.entryDate);
     const milliseconds = date.getTime();
 
+    NewAdvertisement.entryDate = milliseconds;
+    NewAdvertisement.number = parseInt(NewAdvertisement.number, 10);
+    NewAdvertisement.floor = parseInt(NewAdvertisement.floor, 10);
+    NewAdvertisement.totalFloors = parseInt(NewAdvertisement.totalFloors, 10);
+    NewAdvertisement.houseCommitteePayment = parseInt(
+      NewAdvertisement.houseCommitteePayment,
+      10
+    );
+    NewAdvertisement.price = parseInt(NewAdvertisement.price, 10);
+
     const formData = {
-      city: NewAdvertisement.city,
-      tradeType: NewAdvertisement.tradeType,
-      street: NewAdvertisement.street,
-      number: NewAdvertisement.number,
-      floor: NewAdvertisement.floor,
-      totalFloors: NewAdvertisement.totalFloors,
-      onPillars: NewAdvertisement.onPillars,
-      neighborhood: NewAdvertisement.neighborhood,
-      area: NewAdvertisement.area,
-      assetType: NewAdvertisement.assetType,
-      assetState: NewAdvertisement.assetState,
-      airDirections: NewAdvertisement.airDirections,
-      view: NewAdvertisement.view,
-      rearProperty: NewAdvertisement.rearProperty,
-      rooms: NewAdvertisement.rooms,
-      showerRooms: NewAdvertisement.showerRooms,
-      privateParking: NewAdvertisement.privateParking,
-      hasPrivateParking: NewAdvertisement.hasPrivateParking,
-      hasBolcony: NewAdvertisement.hasBolcony,
-      hasImage: NewAdvertisement.hasImage,
-      hasPrice: NewAdvertisement.hasPrice,
+      city: NewAdvertisement.city ?? '',
+      tradeType: NewAdvertisement.tradeType ?? '',
+      street: NewAdvertisement.street ?? '',
+      number: parseInt(NewAdvertisement.number, 10),
+      floor: parseInt(NewAdvertisement.floor, 10),
+      totalFloors: parseInt(NewAdvertisement.totalFloors, 10),
+      onPillars: NewAdvertisement.onPillars ?? false,
+      neighborhood: NewAdvertisement.neighborhood ?? '',
+      area: NewAdvertisement.area ?? '',
+      assetType: NewAdvertisement.assetType ?? '',
+      assetState: NewAdvertisement.assetState ?? '',
+      airDirections: parseInt(NewAdvertisement.totalFloors, 10) ?? 0,
+      view: NewAdvertisement.view ?? '',
+      rearProperty: NewAdvertisement.rearProperty ?? '',
+      rooms: NewAdvertisement.rooms ?? 0,
+      showerRooms: NewAdvertisement.showerRooms ?? 0,
+      privateParking: NewAdvertisement.privateParking ?? 0,
+      hasPrivateParking: NewAdvertisement.hasPrivateParking ?? false,
+      hasBolcony: NewAdvertisement.hasBolcony ?? false,
+      hasImage: NewAdvertisement.hasImage ?? false,
+      hasPrice: NewAdvertisement.hasPrice ?? false,
       moshavOrKibutz: false,
       pirceDiscount: false,
       publisherIsMiddleMan: false,
       publisherIsContractor: false,
-      balconiesNumber: NewAdvertisement.balconiesNumber,
-      accessibleForDisabled: NewAdvertisement.accessibleForDisabled,
-      airConditioning: NewAdvertisement.airConditioning,
-      windowBars: NewAdvertisement.windowBars,
-      solarWaterHeater: NewAdvertisement.solarWaterHeater,
-      elevator: NewAdvertisement.elevator,
-      forRoommates: NewAdvertisement.forRoommates,
-      furnished: NewAdvertisement.furnished,
-      separateUnit: NewAdvertisement.separateUnit,
-      kosherKitchen: NewAdvertisement.kosherKitchen,
-      petsAllowed: NewAdvertisement.petsAllowed,
-      renovated: NewAdvertisement.renovated,
-      safeRoom: NewAdvertisement.safeRoom,
-      multiLockDoors: NewAdvertisement.multiLockDoors,
-      airConditioner: false,
-      tornadoAirConditioner: NewAdvertisement.tornadoAirConditioner,
-      storageRoom: NewAdvertisement.storageRoom,
-      description: NewAdvertisement.description,
-      furnituredescription: NewAdvertisement.furnituredescription,
-      numberOfPayments: NewAdvertisement.numberOfPayments,
-      houseCommitteePayment: NewAdvertisement.houseCommitteePayment,
+      balconiesNumber: NewAdvertisement.balconiesNumber ?? 0,
+      accessibleForDisabled: NewAdvertisement.accessibleForDisabled ?? false,
+      airConditioning: NewAdvertisement.airConditioning ?? false,
+      windowBars: NewAdvertisement.windowBars ?? false,
+      solarWaterHeater: NewAdvertisement.solarWaterHeater ?? false,
+      elevator: NewAdvertisement.elevator ?? false,
+      forRoommates: NewAdvertisement.forRoommates ?? false,
+      furnished: NewAdvertisement.furnished ?? false,
+      separateUnit: NewAdvertisement.separateUnit ?? false,
+      kosherKitchen: NewAdvertisement.kosherKitchen ?? false,
+      petsAllowed: NewAdvertisement.petsAllowed ?? false,
+      renovated: NewAdvertisement.renovated ?? false,
+      safeRoom: NewAdvertisement.safeRoom ?? false,
+      multiLockDoors: NewAdvertisement.multiLockDoors ?? false,
+      airConditioner: NewAdvertisement.airConditioner ?? false,
+      tornadoAirConditioner: NewAdvertisement.tornadoAirConditioner ?? false,
+      storageRoom: NewAdvertisement.storageRoom ?? false,
+      description: NewAdvertisement.description ?? '',
+      furnituredescription: NewAdvertisement.furnituredescription ?? '',
+      numberOfPayments: NewAdvertisement.numberOfPayments ?? 0,
+      houseCommitteePayment: NewAdvertisement.houseCommitteePayment ?? 0,
       municipalityMonthlyPropertyTax:
-        NewAdvertisement.municipalityMonthlyPropertyTax,
-      builtSquareMeters: NewAdvertisement.builtSquareMeters,
-      gardenSquareMeters: NewAdvertisement.gardenSquareMeters,
-      totalSquareMeters: NewAdvertisement.totalSquareMeters,
-      price: NewAdvertisement.price,
-      minimumAmount: '100',
-      pricePerMeter: NewAdvertisement.pricePerMeter,
-      entryDate: milliseconds,
-      immediate: NewAdvertisement.immediate,
-      flexible: NewAdvertisement.flexible,
-      longTerm: NewAdvertisement.longTerm,
+        NewAdvertisement.municipalityMonthlyPropertyTax ?? 0,
+      builtSquareMeters: NewAdvertisement.builtSquareMeters ?? 0,
+      gardenSquareMeters: NewAdvertisement.gardenSquareMeters ?? 0,
+      totalSquareMeters: NewAdvertisement.totalSquareMeters ?? 0,
+      price: NewAdvertisement.price ?? 0,
+      minimumAmount: NewAdvertisement.minimumAmount ?? 0,
+      pricePerMeter: NewAdvertisement.pricePerMeter ?? 0,
+      entryDate: milliseconds ?? 0,
+      immediate: NewAdvertisement.immediate ?? false,
+      flexible: NewAdvertisement.flexible ?? false,
+      longTerm: NewAdvertisement.longTerm ?? false,
 
-      pictures: NewAdvertisement.pictures,
-      MainPicture: NewAdvertisement.pictures[0],
-      video: NewAdvertisement.video,
-      contactName: NewAdvertisement.contactName,
-      SecondContactName: NewAdvertisement.secondContactName,
-      contactPhone: NewAdvertisement.contactPhone,
-      SecondContactPhone: NewAdvertisement.secondContactName,
-      standardizationAccepted: NewAdvertisement.standardizationAccepted,
+      pictures: NewAdvertisement.pictures ?? [],
+      MainPicture: NewAdvertisement.pictures[0] ?? '',
+      video: NewAdvertisement.video ?? '',
+      contactName: NewAdvertisement.contactName ?? '',
+      SecondContactName: NewAdvertisement.secondContactName ?? '',
+      contactPhone: NewAdvertisement.contactPhone ?? '',
+      SecondContactPhone: NewAdvertisement.secondContactName ?? '',
+      standardizationAccepted:
+        NewAdvertisement.standardizationAccepted ?? false,
     };
+
+    console.log(NewAdvertisement);
 
     this.httpClient
       .post<HttpResponse<any>>(
@@ -288,6 +302,8 @@ export class AuthService implements OnInit {
           ...this.UserAdvertisements.value,
           data as any,
         ]);
+        // this.advertisementService.GetAdvertisements();
+        // this.GetUsersAdvertisements();
       });
   }
 
