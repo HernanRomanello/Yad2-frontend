@@ -103,6 +103,8 @@
         </div>
 
         <div
+          (click)="onMouseMove($event); closeMenu('menu_FavoriteAds')"
+          routerLink="/favorites"
           class="menu-container menu-button-trigger-area btn"
           (mouseover)="
             openMenu('menu_FavoriteAds');
@@ -114,7 +116,6 @@
           "
         >
           <button
-            routerLink="/favorites"
             class="light favorite-btn"
             [ngStyle]="{ gap: this.countFavoriteAds > 0 ? '0px' : '0.25rem' }"
           >

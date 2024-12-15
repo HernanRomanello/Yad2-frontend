@@ -62,9 +62,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
     menu_Cars: false,
     menu_RealEstate: false,
   };
+  cursorX: number = 0;
+  cursorY: number = 0;
 
   isUserAreaDropdownOpen(isUserAreaDropdownOpen: boolean) {
     this.isUserAreaDropdownVisible = isUserAreaDropdownOpen;
+  }
+
+  onMouseMove(event: any): void {
+    this.closeMenu('menu_User');
+    this.cursorX = event.offsetX;
+    this.cursorY = event.offsetY;
+    window.scrollTo(event.offsetX + 500, 0);
+    this.HasFavoriteAdsDropdownVisible = false;
   }
 
   ngOnDestroy(): void {
