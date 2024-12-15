@@ -665,6 +665,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   async handleSubmit() {
     this.defineAssetState();
+    if (!this.checkIfThisFormPartIsValid(5)) {
+      return;
+    }
     const cityControl = this.advertisementForm.get('city');
     if (cityControl) {
       cityControl.setErrors({ invalid: true });
@@ -673,8 +676,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
     this.fillEmptyFields();
     const form = this.advertisementForm.value;
-
-    console.log(form);
 
     try {
       form.assetState = this.asset_State;
@@ -850,17 +851,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         const errorStandardizationAccepted = document.getElementById(
           'standardizationAccepted-error'
         );
+
         if (errorStandardizationAccepted) {
           if (
             this.advertisementForm.get('standardizationAccepted').value ===
             false
           ) {
             errorStandardizationAccepted.classList.add('display-block');
+            this.firstError = this.markTheFirstError(mustFieldsInFormPart5);
+            return false;
           } else {
             errorStandardizationAccepted.classList.remove('display-block');
           }
         }
-        this.firstError = this.markTheFirstError(mustFieldsInFormPart5);
 
         return this.checkInputs(mustFieldsInFormPart5, true);
       }
