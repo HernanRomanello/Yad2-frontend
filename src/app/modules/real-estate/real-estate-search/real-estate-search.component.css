@@ -195,9 +195,14 @@ img {
   margin: 5px;
 }
 
-i {
+i,
+#additionalFiltersArrow {
   height: 16px;
   width: 16px;
+  margin: 0;
+}
+
+i {
   margin-right: 4px;
 }
 
@@ -536,10 +541,15 @@ i,
   padding: 13px;
   border-radius: 32px;
   border: 1px solid #cccccc;
+  opacity: 0.8;
 }
 .search-button,
 .location-list {
   width: fit-content;
+}
+
+#additionalFiltersButton {
+  padding: 15px;
 }
 
 .search-button-orange {
