@@ -259,10 +259,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       city: ['', [Validators.required, this.isValidCityName.bind(this)]],
       tradeType: ['', Validators.required],
       street: [, [Validators.required, this.isValidStreetName.bind(this)]],
-      number: [
-        this.authService.user.getValue()?.houseNumber || '',
-        Validators.required,
-      ],
+      number: ['', Validators.required],
       floor: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       totalFloors: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       onPillars: [false],
@@ -310,8 +307,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       airConditioner: [false],
       tornadoAirConditioner: [false],
       storageRoom: [false],
-      description: ['', Validators.required],
-      furnituredescription: ['', Validators.required],
+      description: [''],
+      furnituredescription: [''],
       numberOfPayments: [null, [Validators.required]],
       houseCommitteePayment: [null],
       municipalityMonthlyPropertyTax: [null],
@@ -321,7 +318,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         '',
         [Validators.required, Validators.pattern('^[0-9]*$')],
       ],
-      price: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
+      price: [null, [Validators.pattern('^[0-9]*$')]],
       minimumAmount: [null],
       pricePerMeter: [null],
       entryDate: ['', Validators.required],
@@ -334,7 +331,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         this.authService.user.getValue()?.name || '',
         Validators.required,
       ],
-      secondContactName: ['', Validators.required],
+      secondContactName: [''],
       contactPhone: [
         this.authService.user.getValue()?.phoneNumber || '',
         [
@@ -344,15 +341,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           Validators.maxLength(10),
         ],
       ],
-      secondContactPhone: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[0-9]*$'),
-          Validators.minLength(10),
-          Validators.maxLength(10),
-        ],
-      ],
+      secondContactPhone: ['', []],
       standardizationAccepted: [false, Validators.required],
     });
 

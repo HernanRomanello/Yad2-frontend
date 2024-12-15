@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
 import { AuthService } from '../../services/user/auth.service';
@@ -8,7 +8,7 @@ import { AuthService } from '../../services/user/auth.service';
   templateUrl: './interactive-modal.component.html',
   styleUrls: ['./interactive-modal.component.css'],
 })
-export class InteractiveModalComponent implements OnInit {
+export class InteractiveModalComponent implements OnInit, OnDestroy {
   modalContent!: ModalContent;
 
   modalstate = inject(ModalStateService);
@@ -21,12 +21,15 @@ export class InteractiveModalComponent implements OnInit {
     this.modalstate.setModalContent(0);
   }
 
+  ngOnDestroy() {}
+
   openModal() {
     this.modalstate.openOrCloseModal(true);
   }
 
   closeModal() {
     this.modalstate.openOrCloseModal(false);
+    window.location.reload();
   }
 
   confirm() {

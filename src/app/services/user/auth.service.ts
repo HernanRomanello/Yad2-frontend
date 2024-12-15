@@ -197,33 +197,81 @@ export class AuthService implements OnInit {
       });
   }
 
+  validateNumberString(input: string): number | null {
+    if (!input || input === '') {
+      return 0;
+    }
+
+    for (let i = 0; i < input.length; i++) {
+      const char = input[i];
+      if (char < '0' || char > '9') {
+        return 0;
+      }
+    }
+
+    return parseInt(input, 10) || 0;
+  }
+
   postNewAdvertisement(NewAdvertisement: any) {
     const date = new Date(NewAdvertisement.entryDate);
     const milliseconds = date.getTime();
 
-    NewAdvertisement.entryDate = milliseconds;
-    NewAdvertisement.number = parseInt(NewAdvertisement.number, 10);
-    NewAdvertisement.floor = parseInt(NewAdvertisement.floor, 10);
-    NewAdvertisement.totalFloors = parseInt(NewAdvertisement.totalFloors, 10);
-    NewAdvertisement.houseCommitteePayment = parseInt(
-      NewAdvertisement.houseCommitteePayment,
-      10
+    NewAdvertisement.number = this.validateNumberString(
+      NewAdvertisement.number
     );
-    NewAdvertisement.price = parseInt(NewAdvertisement.price, 10);
+    NewAdvertisement.floor = this.validateNumberString(NewAdvertisement.floor);
+    NewAdvertisement.totalFloors = this.validateNumberString(
+      NewAdvertisement.totalFloors
+    );
+    NewAdvertisement.airDirections = this.validateNumberString(
+      NewAdvertisement.airDirections
+    );
+    NewAdvertisement.rooms = this.validateNumberString(NewAdvertisement.rooms);
+    NewAdvertisement.showerRooms = this.validateNumberString(
+      NewAdvertisement.showerRooms
+    );
+    NewAdvertisement.privateParking = this.validateNumberString(
+      NewAdvertisement.privateParking
+    );
+    NewAdvertisement.balconiesNumber = this.validateNumberString(
+      NewAdvertisement.balconiesNumber
+    );
+    NewAdvertisement.numberOfPayments = this.validateNumberString(
+      NewAdvertisement.numberOfPayments
+    );
+    NewAdvertisement.builtSquareMeters = this.validateNumberString(
+      NewAdvertisement.builtSquareMeters
+    );
+    NewAdvertisement.gardenSquareMeters = this.validateNumberString(
+      NewAdvertisement.builtSquareMeters
+    );
+    NewAdvertisement.minimumAmount = this.validateNumberString(
+      NewAdvertisement.minimumAmount
+    );
+    NewAdvertisement.minimumAmount = this.validateNumberString(
+      NewAdvertisement.minimumAmount
+    );
+    NewAdvertisement.builtSqpricePerMeteruareMeters = this.validateNumberString(
+      NewAdvertisement.builtSqpricePerMeteruareMeters
+    );
+    NewAdvertisement.price = this.validateNumberString(NewAdvertisement.price);
+    NewAdvertisement.totalSquareMeters = this.validateNumberString(
+      NewAdvertisement.totalSquareMeters
+    );
 
     const formData = {
       city: NewAdvertisement.city ?? '',
       tradeType: NewAdvertisement.tradeType ?? '',
       street: NewAdvertisement.street ?? '',
-      number: parseInt(NewAdvertisement.number, 10),
-      floor: parseInt(NewAdvertisement.floor, 10),
-      totalFloors: parseInt(NewAdvertisement.totalFloors, 10),
+      number: NewAdvertisement.number ?? 0,
+      floor: NewAdvertisement.floor ?? 0,
+      totalFloors: NewAdvertisement.totalFloors ?? 0,
       onPillars: NewAdvertisement.onPillars ?? false,
       neighborhood: NewAdvertisement.neighborhood ?? '',
       area: NewAdvertisement.area ?? '',
       assetType: NewAdvertisement.assetType ?? '',
       assetState: NewAdvertisement.assetState ?? '',
-      airDirections: parseInt(NewAdvertisement.totalFloors, 10) ?? 0,
+      airDirections: NewAdvertisement.airDirections ?? 0,
       view: NewAdvertisement.view ?? '',
       rearProperty: NewAdvertisement.rearProperty ?? '',
       rooms: NewAdvertisement.rooms ?? 0,
@@ -265,7 +313,7 @@ export class AuthService implements OnInit {
       totalSquareMeters: NewAdvertisement.totalSquareMeters ?? 0,
       price: NewAdvertisement.price ?? 0,
       minimumAmount: NewAdvertisement.minimumAmount ?? 0,
-      pricePerMeter: NewAdvertisement.pricePerMeter ?? 0,
+      pricePerMeter: NewAdvertisement.builtSqpricePerMeteruareMeters ?? 0,
       entryDate: milliseconds ?? 0,
       immediate: NewAdvertisement.immediate ?? false,
       flexible: NewAdvertisement.flexible ?? false,
@@ -282,6 +330,7 @@ export class AuthService implements OnInit {
         NewAdvertisement.standardizationAccepted ?? false,
     };
 
+    alert('המודעה נוספה בהצלחה');
     console.log(NewAdvertisement);
 
     this.httpClient
