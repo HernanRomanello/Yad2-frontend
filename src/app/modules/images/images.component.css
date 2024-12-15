@@ -20,7 +20,6 @@
   align-items: center;
 }
 
-.header-btn,
 .font16 {
   font-size: 16px;
 }
@@ -53,4 +52,36 @@ header {
 
 .gap {
   gap: 0.5rem;
+}
+
+#close-icon {
+  width: 29px;
+  height: 29px;
+}
+#map-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.view-street-btn > img,
+.view-street-btn > span {
+  transform: translateX(8px);
+}
+
+.view-street-btn {
+  width: 121.906px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.map-btn {
+  gap: 5px;
+  width: 81.25px;
+}
+
+.map-btn > img,
+.map-btn > span {
+  transform: translateX(6px);
 }
