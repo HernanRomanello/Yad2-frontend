@@ -24,7 +24,8 @@
 .like-button-sm,
 .like-button-sm-selected,
 .like-button,
-.like-button-selected {
+.like-button-selected,
+.new-poject-text {
   position: absolute;
 }
 .promotion-gallery {
@@ -225,4 +226,20 @@ header {
 .small-img {
   width: 474px;
   height: 268px;
+}
+
+.new-poject-text {
+  font-size: 12px;
+  background-color: rgb(4, 149, 255);
+
+  color: rgb(255, 255, 255);
+
+  padding: 0px 6px;
+
+  border-radius: 4px;
+}
+.new-poject-text {
+  top: 8px;
+  right: 8px;
+  letter-spacing: 0;
 }
