@@ -22,6 +22,12 @@ export class ImagesComponent implements OnInit, OnDestroy {
       this.clickedIndex[index] = -1;
     }
   }
+  setImageSize(index: number): boolean {
+    if (index === 0 || index % 3 === 0) {
+      return true;
+    }
+    return false;
+  }
 
   ngOnInit() {
     this.navigationService.isUserImagesIsOpen.set(true);

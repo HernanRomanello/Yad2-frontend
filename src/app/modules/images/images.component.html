@@ -1,4 +1,36 @@
 <header class="flex-space-between">
+  <div class="promotion-gallery">
+    <div class="font16 text-start promotion-gallery-title">
+      פרוייקטים חדשים באזור
+    </div>
+    <div class="adds flex-center colunm">
+      <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
+        <img [src]="ad.pic" alt="" />
+        <div class="content text-start">
+          <div class="ad-title font500 font16">{{ ad.title }}</div>
+          <div class="ad-city">{{ ad.city }}</div>
+          <div class="ad-project font500 nowrap">{{ ad.program }}</div>
+        </div>
+        <mat-icon
+          (click)="toggleFavoriteAd(i)"
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="favorite_border"
+          [ngClass]="
+            clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
+          "
+        ></mat-icon>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="favorite"
+          [ngClass]="
+            clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
+          "
+        ></mat-icon>
+      </div>
+    </div>
+  </div>
   <div class="header-btn">
     <img
       id="close-icon"
@@ -20,36 +52,13 @@
     </div>
   </div>
 </header>
-
-<div class="promotion-gallery">
-  <div class="font16 text-start promotion-gallery-title">
-    פרוייקטים חדשים באזור
-  </div>
-  <div class="adds flex-center colunm">
-    <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
-      <img [src]="ad.pic" alt="" />
-      <div class="content text-start">
-        <div class="ad-title font500 font16">{{ ad.title }}</div>
-        <div class="ad-city">{{ ad.city }}</div>
-        <div class="ad-project font500 font16 nowrap">{{ ad.program }}</div>
-      </div>
-      <mat-icon
-        (click)="toggleFavoriteAd(i)"
-        aria-hidden="false"
-        aria-label="Example home icon"
-        fontIcon="favorite_border"
-        [ngClass]="
-          clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
-        "
-      ></mat-icon>
-      <mat-icon
-        aria-hidden="false"
-        aria-label="Example home icon"
-        fontIcon="favorite"
-        [ngClass]="
-          clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
-        "
-      ></mat-icon>
-    </div>
+<div class="ad-images">
+  <div class="image-container flex-wrap-wrap">
+    <img
+      *ngFor="let image of advertisement.pictures; let i = index"
+      [src]="image.url"
+      alt="image"
+      [ngClass]="setImageSize(i) ? 'large-img' : 'small-img'"
+    />
   </div>
 </div>
