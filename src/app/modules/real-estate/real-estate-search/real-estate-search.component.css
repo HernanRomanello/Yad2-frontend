@@ -93,7 +93,8 @@
 .like-button,
 .like-button-sm,
 .like-button-sm-selected,
-.like-button-selected {
+.like-button-selected,
+.new-poject-text {
   position: absolute;
 }
 
@@ -244,7 +245,6 @@ i {
   text-align: end;
   padding: 0.25rem;
   padding: 1.25rem 14px 0 0;
-  font-weight: 500;
   word-spacing: 0 !important;
 }
 
@@ -274,7 +274,6 @@ i {
 }
 
 .project-container {
-  font-weight: 500;
   line-height: 27.6px;
   text-align: end;
   width: 742px;
@@ -551,9 +550,16 @@ i,
   width: 108px;
   min-height: 36px;
   color: #ffffff;
-  font-weight: 500;
   background-color: #ff7100;
 }
+
+.title,
+.font500,
+.project-container,
+.search-button-orange {
+  font-weight: 500;
+}
+
 .input-search {
   width: 280px;
   height: 44.4px;
@@ -606,4 +612,21 @@ i,
 
 .not-Rotate {
   transform: rotate(0deg) !important;
+}
+
+.new-poject-text {
+  font-size: 12px;
+  background-color: rgb(4, 149, 255);
+
+  color: rgb(255, 255, 255);
+
+  padding: 3px 6px;
+
+  border-radius: 4px;
+  z-index: 10;
+}
+.new-poject-text {
+  top: 2px;
+  right: 8px;
+  letter-spacing: 0;
 }
