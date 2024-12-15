@@ -4,6 +4,7 @@ import { AdvertisementService } from '../../services/advertisement.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { catchError } from 'rxjs';
 import { NavigationService } from '../../services/navigation.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-images',
@@ -12,6 +13,15 @@ import { NavigationService } from '../../services/navigation.service';
 })
 export class ImagesComponent implements OnInit, OnDestroy {
   advertisement!: AdvertisementsModel;
+  clickedIndex: number[] = [-1, -1, -1];
+
+  toggleFavoriteAd(index: number): void {
+    if (this.clickedIndex[index] === -1) {
+      this.clickedIndex[index] = index;
+    } else {
+      this.clickedIndex[index] = -1;
+    }
+  }
 
   ngOnInit() {
     this.navigationService.isUserImagesIsOpen.set(true);
@@ -23,7 +33,8 @@ export class ImagesComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    public searchService: SearchService
   ) {
     this.route.params.subscribe((params) => {
       if (params['id']) {

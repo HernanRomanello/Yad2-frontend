@@ -101,3 +101,17 @@ header {
 .map-btn > span {
   transform: translateX(6px);
 }
+
+.ad > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.text-start {
+  text-align: end;
+}
+
+.promotion-gallery-title {
+  padding-bottom: 10px;
+}
