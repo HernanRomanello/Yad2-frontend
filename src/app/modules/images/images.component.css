@@ -20,7 +20,11 @@
   align-items: center;
 }
 
-.promotion-gallery {
+.promotion-gallery,
+.like-button-sm,
+.like-button-sm-selected,
+.like-button,
+.like-button-selected {
   position: absolute;
 }
 .promotion-gallery {
@@ -66,7 +70,8 @@ header {
 }
 
 .header-btn,
-.pointer {
+.pointer,
+.ad {
   cursor: pointer;
 }
 
@@ -175,4 +180,8 @@ header {
 
 .adds {
   gap: 1rem;
+}
+
+.ad {
+  position: relative;
 }

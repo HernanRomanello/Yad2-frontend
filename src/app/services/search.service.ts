@@ -91,7 +91,7 @@ export class SearchService {
       title: 'מורשת טל',
       pic: 'assets/images/ad3.jpg',
       city: 'מודעין מכבים רעות',
-      program: 'מבצע חד-פעמי לפנטהואוזים!',
+      program: 'המרכז החדש של מודעין',
     },
   ];
   selectedPropertyTypes: BehaviorSubject<string[]> = new BehaviorSubject<
