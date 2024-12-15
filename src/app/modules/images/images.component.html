@@ -28,10 +28,10 @@
   <div class="adds flex-center colunm">
     <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
       <img [src]="ad.pic" alt="" />
-      <div class="content">
-        <div class="ad-title">{{ ad.title }}</div>
+      <div class="content text-start">
+        <div class="ad-title font500 font16">{{ ad.title }}</div>
         <div class="ad-city">{{ ad.city }}</div>
-        <div class="ad-project">{{ ad.program }}</div>
+        <div class="ad-project font500 font16">{{ ad.program }}</div>
       </div>
       <mat-icon
         (click)="toggleFavoriteAd(i)"
