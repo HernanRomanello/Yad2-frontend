@@ -330,7 +330,6 @@ export class AuthService implements OnInit {
         NewAdvertisement.standardizationAccepted ?? false,
     };
 
-    alert('המודעה נוספה בהצלחה');
     console.log(NewAdvertisement);
 
     this.httpClient
@@ -351,8 +350,6 @@ export class AuthService implements OnInit {
           ...this.UserAdvertisements.value,
           data as any,
         ]);
-        // this.advertisementService.GetAdvertisements();
-        // this.GetUsersAdvertisements();
       });
   }
 
