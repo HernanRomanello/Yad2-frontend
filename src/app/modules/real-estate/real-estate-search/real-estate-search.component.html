@@ -396,11 +396,8 @@
 
       <div class="menu-container" #roomsAmountMenu>
         <button
+          (click)="toggleMenu('roomsAmountMenu')"
           id="propertyRoomButton"
-          (click)="
-            toggleMenu('roomsAmountMenu');
-            this.roomsFilterIsOpen = !this.roomsFilterIsOpen
-          "
           class="search-button hover-btn-background"
           [ngClass]="
             roomNumberFilterValue === 'חדרים'
@@ -409,14 +406,8 @@
           "
           type="button"
         >
-          <!-- חדרים -->
           {{ roomNumberFilterValue }}
-          <i
-            id="propertyRoomArrow"
-            class="material-icons"
-            [ngStyle]="{
-              transform: roomsFilterIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
-            }"
+          <i id="propertyRoomArrow" class="material-icons"
             >keyboard_arrow_down</i
           >
         </button>

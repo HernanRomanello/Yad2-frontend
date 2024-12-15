@@ -99,6 +99,10 @@ export class RealEstateSearchComponent
       .classList.add('hidden');
   }
 
+  test() {
+    console.log('test');
+  }
+
   constructor(
     private navigationService: NavigationService,
     private render: Renderer2
@@ -106,6 +110,24 @@ export class RealEstateSearchComponent
     afterNextRender(() => {
       document.body.addEventListener('click', (event) => {
         const clickedElement = event.target as HTMLElement;
+        const propertyRoomArrow = document.getElementById('propertyRoomArrow');
+        if (this.roomsFilterIsOpen) {
+          this.render.addClass(propertyRoomArrow, 'arrow-up1');
+          // alert('open');
+        } else {
+          this.render.removeClass(propertyRoomArrow, 'arrow-up1');
+          // alert('close');
+        }
+        if (clickedElement.id !== 'propertyRoomButton') {
+          this.render.removeClass(propertyRoomArrow, 'arrow-up1');
+        }
+
+        alert(clickedElement.id);
+        if (clickedElement.classList.contains('room-btn')) {
+          // this.roomsFilterIsOpen = true;
+          // alert('close');
+        }
+
         if (
           !clickedElement.classList.contains('search-button') &&
           !clickedElement.classList.contains('rooms-select') &&
@@ -124,13 +146,10 @@ export class RealEstateSearchComponent
         ) {
           const roomsAmountContainer =
             document.getElementById('propertyRoomButton');
-          roomsAmountContainer?.click();
-          roomsAmountContainer?.click();
-          const propertyRoomArrow =
-            document.getElementById('propertyRoomArrow');
-          this.render.addClass(propertyRoomArrow, 'not-Rotate');
+          // roomsAmountContainer?.click();
+          // roomsAmountContainer?.click();
+          // alert('close');
           this.rotateAllArrows('');
-
           this.hideAllMenus('');
           if (!clickedElement.classList.contains('overlay')) {
             this.navigationService.IsSearchFilterOpen.set(false);
@@ -388,7 +407,7 @@ export class RealEstateSearchComponent
         this.toggleMenuDropdown(this.priceSlider);
         this.rotateAllArrows('PriceRangeArrow');
         this.hideAllMenus('PriceRangeMenu');
-        this.roomsFilterIsOpen = false;
+        // this.roomsFilterIsOpen = false;
         break;
       case 'propertyTypeMenu':
         this.toggleMenuDropdown(this.propertyTypeMenu);
@@ -396,7 +415,7 @@ export class RealEstateSearchComponent
           this.searchService.propertyTypeFilterValue();
         this.rotateAllArrows('propertyTypeArrow');
         this.hideAllMenus('propertyTypeMenu');
-        this.roomsFilterIsOpen = false;
+        // this.roomsFilterIsOpen = false;
         this.navigationService.searchFilterOpenClose();
 
         break;
@@ -406,6 +425,7 @@ export class RealEstateSearchComponent
         this.toggleMenuDropdown(this.roomsAmountMenu);
         this.rotateAllArrows('roomsAmountMenu');
         this.hideAllMenus('propertyRoomMenu');
+        this.roomsFilterIsOpen = !this.roomsFilterIsOpen;
         break;
       case 'additionalFiltersMenu':
         this.hideAllMenus('additionalFiltersArrow');
@@ -417,7 +437,7 @@ export class RealEstateSearchComponent
         this.toggleMenuDropdown(this.tradeTypeMenu);
         this.rotateAllArrows('tradeTypeArrow');
         this.hideAllMenus('tradeTypeMenu');
-        this.roomsFilterIsOpen = false;
+        // this.roomsFilterIsOpen = false;
         break;
     }
   }
@@ -659,6 +679,7 @@ export class RealEstateSearchComponent
   }
 
   onRoomsAmountSelected(roomsAmount: string[]) {
+    this.roomsFilterIsOpen = true;
     const minRooms = Math.min(...roomsAmount.map((room) => parseFloat(room)));
     const maxRooms = Math.max(...roomsAmount.map((room) => parseFloat(room)));
     let buttonText = 'חדרים';
