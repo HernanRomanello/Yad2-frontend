@@ -689,7 +689,13 @@
       </label>
 
       <div class="WeCheck-container">
-        <div class="WeCheck-ad"></div>
+        <div class="WeCheck-ad">
+          <img
+            id="WeCheck-pic"
+            src="assets/images/video-ad.JPG"
+            alt="WeCheck"
+          />
+        </div>
       </div>
       <div class="main-images-container">
         <div class="video-upload">
@@ -722,15 +728,15 @@
           (mouseleave)="
             hideImageOnHover(
               0,
-              this.advertisement.pictures[0].url,
-              this.imagesURlWasDeleted[0]
+              this.advertisement.mainPicture,
+              this.mainImageURLwasDeleted
             )
           "
         >
           @if((!this.imagesURlWasDeleted[0]) ){
           <div
             class="image-btns"
-            (mouseenter)="hideImageOnHover(0, '', this.imagesURlWasDeleted[0])"
+            (mouseenter)="hideImageOnHover(0, '', this.mainImageURLwasDeleted)"
           >
             <div class="image-btn-circle">
               <img
@@ -755,7 +761,7 @@
             (mouseenter)="
               hideImageOnHover(
                 0,
-                this.advertisement.pictures[0].url,
+                this.advertisement.mainPicture,
                 this.imagesURlWasDeleted[0]
               )
             "
@@ -764,7 +770,7 @@
           </div>
 
           <div id="main-image-frame" class="upload-img-card">
-            @if(this.imagesURLs[0] === '' ){
+            @if(this.mainImageURL === '' ){
             <div class="camara-image-container">
               <div>
                 <input

@@ -218,11 +218,6 @@ li {
   align-items: flex-start !important;
 }
 
-form,
-.WeCheck-ad {
-  background-color: #f8f8f8 !important;
-}
-
 .data-input,
 .data {
   height: 40px !important;
@@ -408,7 +403,8 @@ form,
 .textarea,
 .input-container,
 .upload-container,
-.card-content {
+.card-content,
+.WeCheck-ad {
   position: relative;
 }
 
@@ -534,8 +530,35 @@ textarea {
 .currency,
 .erase-input-btn,
 .camara-image-container,
-.image-card-container {
+.image-card-container,
+#WeCheck-pic {
   position: absolute;
+}
+#WeCheck-pic {
+  top: 0;
+  right: 0px;
+}
+
+#WeCheck-pic {
+  height: 178px !important;
+  width: 730px !important;
+}
+
+.WeCheck-ad {
+  height: 193px !important;
+  width: 793px !important;
+}
+
+form {
+  background-color: #f8f8f8 !important;
+}
+
+.WeCheck-container {
+  box-shadow: rgba(12, 0, 51, 0.1) 0px 2px 12px 0px;
+  padding: 10px 20px;
+  background-color: rgb(248, 248, 248);
+  max-width: 790px !important;
+  transform: translateY(10px) translateX(10px);
 }
 
 .red-gradient {
@@ -694,11 +717,6 @@ textarea {
 
 .move-right {
   transform: translateX(-1900%) translateY(170%) scale(1.4);
-}
-
-.WeCheck-ad {
-  height: 193px !important;
-  width: 793px !important;
 }
 
 .WeCheck-container,

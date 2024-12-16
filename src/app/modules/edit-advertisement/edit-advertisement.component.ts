@@ -41,6 +41,7 @@ export class EditAdvertisementComponent
   imagesURLs: string[] = [];
   imagesURLsForPosting: string[] = [];
   imagesURlWasDeleted: boolean[] = [];
+  mainImageURLwasDeleted: boolean = false;
   ImagesThatCanEdit: boolean[] = [];
   numberValuesForForm: (string | number)[] = new Array(5);
   mainImage: File | undefined = undefined;
@@ -323,6 +324,8 @@ export class EditAdvertisementComponent
           .subscribe((response) => {
             this.advertisement = response;
             this.asset_State = this.advertisement.assetState;
+            this.mainImageURL = this.advertisement.mainPicture;
+            console.log('this.advertisement:', this.mainImageURL);
           });
       }
     });
@@ -336,8 +339,13 @@ export class EditAdvertisementComponent
   }
 
   deleteImage(index: number) {
-    this.imagesURlWasDeleted[index] = true;
-    this.imagesURLs[index] = '';
+    if (index === 0) {
+      this.mainImageURLwasDeleted = true;
+      this.mainImageURL = '';
+    } else {
+      this.imagesURlWasDeleted[index] = true;
+      this.imagesURLs[index] = '';
+    }
   }
 
   selectPropertyFeatures(index: number) {
@@ -530,13 +538,16 @@ export class EditAdvertisementComponent
       var ImagesURLsForPosting = this.imagesURLsForPosting.filter(
         (url) => url !== ''
       );
-      ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
+
+      // ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
+      console.log('ImagesURLsForPosting:', ImagesURLsForPosting);
 
       this.imagesURlWasDeleted.forEach((isDeleted, index) => {
         if (isDeleted) {
           ImagesURLsForPosting.splice(index, 1);
         }
       });
+      this.advertisement.mainPicture = this.mainImageURL;
 
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;

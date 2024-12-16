@@ -63,8 +63,7 @@
                   : 'slider gray-frame'
               "
             >
-              @if(advertisement.mainPicture.length > 2 &&
-              advertisement.pictures.length > 0){
+              @if( advertisement.pictures.length > 0){
               <div class="slider-indicators slider-arrows">
                 @if(findIfIsVisibleById(advertisement.id,this.currentSlidesData)){
                 <span class="dark-circle">
@@ -118,7 +117,30 @@
                 </div>
               </div>
               <div class="slide">
-                @for (image of advertisement.pictures; track $index) { @if(
+                @for (image of advertisement.pictures; track $index) {
+                @if($index== this.findAdIndexById(advertisement.id)){
+
+                <!-- <img class="user-card-img" [src]="  image.url " [alt]="image" /> -->
+                <img
+                  class="user-card-img"
+                  [src]="$index !== 0 ? image.url : advertisement.mainPicture"
+                  [alt]="image"
+                />
+
+                <div class="slider-indicators">
+                  @for (image of advertisement.pictures; track $index) {
+                  @if($index== this.findAdIndexById(advertisement.id)){
+                  <span class="dot dot-active"></span>
+
+                  } @else {
+                  <span class="dot"></span>
+                  } }
+                </div>
+                } }
+              </div>
+              <!-- <div class="slide">
+                @for (image of advertisement.pictures; track $index) { 
+                  @if(
                 $index== this.findAdIndexById(advertisement.id)){ @if($index >
                 0){ @if(image.url.length >2){
 
@@ -128,8 +150,11 @@
                   class="user-card-img"
                   src="assets/images/realestateNoImage.svg"
                 />
-                } } }@else { @if(image.url.length >2){
-                <img class="user-card-img" [src]="advertisement.mainPicture" />
+                } } }@else { @if(true){
+                <img
+                  class="user-card-img"
+                  [src]="advertisement.pictures[$index].url"
+                />
 
                 }
                 <div class="slider-indicators">
@@ -142,7 +167,7 @@
                   } }
                 </div>
                 } }
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="advertisement-content">
