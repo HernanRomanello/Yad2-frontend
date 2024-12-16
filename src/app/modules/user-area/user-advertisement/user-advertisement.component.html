@@ -57,7 +57,11 @@
               (mouseleave)="
                 showArrow(advertisement.id, false, this.currentSlidesData)
               "
-              class="slider"
+              [ngClass]="
+                advertisement.mainPicture.length > 2
+                  ? 'slider'
+                  : 'slider gray-frame'
+              "
             >
               @if(advertisement.mainPicture.length > 2 &&
               advertisement.pictures.length > 0){
