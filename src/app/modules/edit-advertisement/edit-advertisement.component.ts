@@ -273,12 +273,17 @@ export class EditAdvertisementComponent
     if (this.imagesURLs[index]) {
       URL.revokeObjectURL(this.imagesURLs[index]);
     }
-    this.imagesURLs[index] = fileURL;
+
+    //hernan
+
+    this.imageuploadService.uploadImage(file);
+
+    this.imagesURLs[index + 1] = fileURL;
     if (isMainImage) {
-      this.imageuploadService.uploadImage(file);
       this.mainImageURL = this.Url + 'uploads/' + file.name;
+      this.imageuploadService.uploadImage(file);
     } else {
-      this.imagesURLsForPosting[index + 1] = this.Url + 'uploads/' + file.name;
+      this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
     }
 
     return fileURL;
@@ -544,20 +549,19 @@ export class EditAdvertisementComponent
 
   async handleSubmit() {
     try {
-      await this.uploadAllImages();
-
-      var ImagesURLsForPosting = this.imagesURLsForPosting.filter(
-        (url) => url !== ''
-      );
+      // await this.uploadAllImages();
+      ///hernan
+      var ImagesURLsForPosting = this.imagesURLs.filter((url) => url !== '');
 
       // ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
       console.log('ImagesURLsForPosting:', ImagesURLsForPosting);
+      console.log('ImagesURLsForPosting:', this.imagesURLs);
 
-      this.imagesURlWasDeleted.forEach((isDeleted, index) => {
-        if (isDeleted) {
-          ImagesURLsForPosting.splice(index, 1);
-        }
-      });
+      // this.imagesURlWasDeleted.forEach((isDeleted, index) => {
+      //   if (isDeleted) {
+      //     ImagesURLsForPosting.splice(index, 1);
+      //   }
+      // });
       this.advertisement.mainPicture = this.mainImageURL;
 
       if (this.advertisement.pictures.length > 0) {

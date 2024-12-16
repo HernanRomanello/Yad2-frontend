@@ -816,13 +816,13 @@
             class="image-card"
             (mouseleave)="
               hideImageOnHover(
-                index + 1,
+                index,
                 this.advertisement.pictures[index + 1].url,
                 this.imagesURlWasDeleted[index + 1]
               )
             "
           >
-            @if((!this.imagesURlWasDeleted[index + 1]) &&
+            @if((!this.imagesURlWasDeleted[index + 1 ]) &&
             this.ImagesThatCanEdit[index +1] ){
             <div
               class="image-btns image-card-container"
