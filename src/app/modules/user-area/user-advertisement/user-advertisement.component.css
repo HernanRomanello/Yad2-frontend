@@ -373,11 +373,6 @@ i.material-icons {
 .large {
   width: 240px;
 }
-.gray-frame {
-  background-color: #eeeeee !important;
-  /* width: 200px; */
-  /* height: 200px; */
-}
 
 .dropdown-btn {
   padding: 1px 2px;
@@ -447,14 +442,18 @@ i.material-icons {
   transform: translateY(420%) !important;
 }
 
-.user-card-img {
+.user-card-img,
+.gray-frame,
+.user-card-img:hover {
   border-radius: 0.5rem;
 }
 .user-card-img:hover {
-  border-radius: 0.5rem;
-
   transform: translateX(-100%) !important;
   display: none;
+}
+
+.gray-frame {
+  background-color: #eeeeee !important;
 }
 
 .user-card-img,
