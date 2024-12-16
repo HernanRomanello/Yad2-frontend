@@ -816,9 +816,9 @@
             class="image-card"
             (mouseleave)="
               hideImageOnHover(
-                index,
+                index + 1,
                 this.advertisement.pictures[index + 1].url,
-                this.imagesURlWasDeleted[index + 1]
+                this.imagesURlWasDeleted[index]
               )
             "
           >

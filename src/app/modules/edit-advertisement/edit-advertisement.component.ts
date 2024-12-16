@@ -276,17 +276,20 @@ export class EditAdvertisementComponent
 
     //hernan
 
-    this.imageuploadService.uploadImage(file);
-
-    this.imagesURLs[index + 1] = fileURL;
+    this.imagesURLs[index] = fileURL;
     if (isMainImage) {
       this.mainImageURL = this.Url + 'uploads/' + file.name;
+      // this.imageuploadService.uploadImage(file);
+      // alert(this.mainImageURL);
       this.imageuploadService.uploadImage(file);
-    } else {
-      this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
-    }
 
-    return fileURL;
+      return fileURL;
+    } else {
+      this.imageuploadService.uploadImage(file);
+
+      this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
+      return fileURL;
+    }
   }
 
   Definecontacts(numberOfContacts: number) {
