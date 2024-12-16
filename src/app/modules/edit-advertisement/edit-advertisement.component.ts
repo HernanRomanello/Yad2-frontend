@@ -275,6 +275,7 @@ export class EditAdvertisementComponent
     }
     this.imagesURLs[index] = fileURL;
     if (isMainImage) {
+      this.imageuploadService.uploadImage(file);
       this.mainImageURL = this.Url + 'uploads/' + file.name;
     } else {
       this.imagesURLsForPosting[index + 1] = this.Url + 'uploads/' + file.name;
@@ -291,7 +292,13 @@ export class EditAdvertisementComponent
     const newImageUrl = this.onFileChange(event, index, index === 0);
 
     if (newImageUrl) {
-      this.advertisement.pictures[index].url = newImageUrl;
+      if (index === 0) {
+        this.mainImageURL = newImageUrl;
+        this.mainImageURLwasDeleted = false;
+      } else {
+        this.advertisement.pictures[index].url = newImageUrl;
+      }
+      // this.advertisement.pictures[index].url = newImageUrl;
     }
 
     this.imagesURlWasDeleted[index] = false;
@@ -302,6 +309,10 @@ export class EditAdvertisementComponent
     imageURL: string,
     imagesURlWasDeleted: boolean
   ) {
+    if (index === 0 && !imagesURlWasDeleted) {
+      this.mainImageURL = imageURL;
+    }
+
     if (imagesURlWasDeleted === false) {
       this.imagesURLs[index] = imageURL;
     }

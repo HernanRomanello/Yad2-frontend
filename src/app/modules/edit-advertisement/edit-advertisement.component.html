@@ -762,7 +762,7 @@
               hideImageOnHover(
                 0,
                 this.advertisement.mainPicture,
-                this.imagesURlWasDeleted[0]
+                this.mainImageURLwasDeleted
               )
             "
           >
@@ -788,16 +788,16 @@
             <img
               id="main-image"
               class=""
-              [src]="this.imagesURLs[0]"
+              [src]="this.mainImageURL"
               (mouseleave)="
                 hideImageOnHover(
                   0,
-                  this.advertisement.pictures[0].url,
-                  this.imagesURlWasDeleted[0]
+                  this.advertisement.mainPicture,
+                  this.mainImageURLwasDeleted
                 )
               "
               (mouseenter)="
-                hideImageOnHover(0, '', this.imagesURlWasDeleted[0])
+                hideImageOnHover(0, '', this.mainImageURLwasDeleted)
               "
             />
             }
