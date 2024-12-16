@@ -511,8 +511,13 @@ i.material-icons {
 .slider-indicators,
 .arrows-pic-round-div,
 .ad-status-container,
-.active-circle {
+.active-circle,
+#empty-image {
   position: absolute;
+}
+#empty-image {
+  top: 75px;
+  right: 64px;
 }
 
 .dark-circle {
