@@ -267,12 +267,15 @@ img,
 }
 
 .price {
-  font-weight: 600 !important;
   opacity: 0.95;
   margin-bottom: 10px !important;
   font-size: 32px;
   line-height: 36.8px;
 }
+.font600 {
+  font-weight: 600 !important;
+}
+
 .price,
 .add-info {
   text-align: right;
@@ -324,10 +327,19 @@ img,
   font-weight: 500;
 }
 
+.translateY2 {
+  transform: translateY(-4px);
+}
+
 .add-title {
   font-size: 28px;
   letter-spacing: 0.25px;
   line-height: 32.2px;
+}
+
+.letter-spacing {
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
 }
 
 #phone-icon {

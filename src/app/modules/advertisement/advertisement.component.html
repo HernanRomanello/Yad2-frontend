@@ -85,7 +85,12 @@
   <div class="contact-card">
     <div class="card-content">
       <div class="price-box">
-        <p class="price">₪{{ advertisement.price | number }}</p>
+        @if(advertisement.price >0){
+        <p class="price font600">₪{{ advertisement.price | number }}</p>
+        }@else{
+        <p class="price font500 translateY2 letter-spacing">לא צוין מחיר</p>
+
+        }
       </div>
       <button class="call-button flex-center">
         הצגת מספר טלפון
