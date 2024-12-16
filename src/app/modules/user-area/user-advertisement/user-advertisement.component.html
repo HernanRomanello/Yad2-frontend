@@ -130,7 +130,12 @@
           <div class="advertisement-content">
             <div class="add-data-container">
               <div class="ad-data ad-price">
-                {{ advertisement.price | number : "1.0-0" }} ₪&nbsp;
+                @if(advertisement.price>0){
+
+                {{ advertisement.price | number : "1.0-0" }} ₪&nbsp; }@else {
+
+                <span> ללא מחיר </span>
+                }
               </div>
               <div class="ad-data ad-address">
                 <div>{{ advertisement.assetType }},</div>
