@@ -59,6 +59,8 @@
               "
               class="slider"
             >
+              @if(advertisement.mainPicture.length > 2 &&
+              advertisement.pictures.length > 0){
               <div class="slider-indicators slider-arrows">
                 @if(findIfIsVisibleById(advertisement.id,this.currentSlidesData)){
                 <span class="dark-circle">
@@ -93,6 +95,7 @@
                 </span>
                 }
               </div>
+              }
               <div class="ad-status-container">
                 <div class="status-div basic-status">מודעה בסיסית</div>
                 <div class="status-div active-div">
@@ -107,10 +110,15 @@
               <div class="slide">
                 @for (image of advertisement.pictures; track $index) { @if(
                 $index== this.findAdIndexById(advertisement.id)){ @if($index >
-                0){
+                0){ @if(image.url.length >2){
 
                 <img class="user-card-img" [src]="image.url" [alt]="image" />
-                }@else {
+                } @else {
+                <img
+                  class="user-card-img"
+                  src="assets/images/realestateNoImage.svg"
+                />
+                } } }@else { @if(image.url.length >2){
                 <img class="user-card-img" [src]="advertisement.mainPicture" />
 
                 }
