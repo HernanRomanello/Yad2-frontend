@@ -145,7 +145,11 @@
         <div class="last-row">
           <div class="tags">
             <div class="price">
+              @if(advertisement.price >0){
               <span>₪</span> {{ advertisement.price | number }}
+              }@else{
+              <span class="letter-spacing"> לא צוין מחיר</span>
+              }
             </div>
           </div>
         </div>
