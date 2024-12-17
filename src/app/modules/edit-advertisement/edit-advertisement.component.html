@@ -701,6 +701,7 @@
         <div class="video-upload">
           <div class="card-content">
             <div class="camara-image-container">
+              @if(this.videoURL === '' ){
               <div>
                 <img
                   id="video-pic"
@@ -709,6 +710,7 @@
                 />
               </div>
               <div class="upload-video-box">העלאת סרטון</div>
+              }
             </div>
             <input
               type="file"

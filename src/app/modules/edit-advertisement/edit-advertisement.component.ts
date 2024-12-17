@@ -41,6 +41,7 @@ export class EditAdvertisementComponent
   imagesURLs: string[] = [];
   imagesURLsForPosting: string[] = [];
   imagesURlWasDeleted: boolean[] = [];
+  videoURL: string = '';
   mainImageURLwasDeleted: boolean = false;
   ImagesThatCanEdit: boolean[] = [];
   numberValuesForForm: (string | number)[] = new Array(5);
@@ -352,6 +353,7 @@ export class EditAdvertisementComponent
 
             this.asset_State = this.advertisement.assetState;
             this.mainImageURL = this.advertisement.mainPicture;
+            this.videoURL = this.advertisement.video;
           });
       }
     });
