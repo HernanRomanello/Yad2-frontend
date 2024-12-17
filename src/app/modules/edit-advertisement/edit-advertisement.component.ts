@@ -291,8 +291,6 @@ export class EditAdvertisementComponent
       URL.revokeObjectURL(this.imagesURLs[index]);
     }
 
-    //hernan
-
     this.imagesURLs[index] = fileURL;
 
     this.imageuploadService.uploadImage(file);
@@ -367,8 +365,6 @@ export class EditAdvertisementComponent
   }
 
   deleteImage(index: number) {
-    alert('Are you sure you want to delete this image?');
-    //hernan
     if (index === 0) {
       this.mainImageURLwasDeleted = true;
       this.mainImageURL = '';
@@ -563,34 +559,16 @@ export class EditAdvertisementComponent
 
   async handleSubmit() {
     try {
-      // await this.uploadAllImages();
-      ///hernan
       var ImagesURLsForPosting = this.imagesURLs.filter((url) => url !== '');
 
-      // ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
-      // console.log('ImagesURLsForPosting:', ImagesURLsForPosting);
-      // console.log('ImagesURLsForPosting:', this.imagesURLs);
-
-      // this.imagesURlWasDeleted.forEach((isDeleted, index) => {
-      //   if (isDeleted) {
-      //     ImagesURLsForPosting.splice(index, 1);
-      //   }
-      // });
-      // this.advertisement.mainPicture = this.mainImageURL;
-      // console.log('this.advertisement:', ImagesURLsForPosting);
-      // console.log('this.advertisement:', this.advertisement.mainPicture);
-
       if (this.mainImageURLwasDeleted && this.imagesURLs.length > 0) {
-        // Find the first valid image URL
         const newMainImageURL = this.imagesURLs.find((url) => url !== '');
 
         if (newMainImageURL) {
-          // Update main image and reset the flag
           this.advertisement.mainPicture = newMainImageURL;
           this.mainImageURL = newMainImageURL;
           this.mainImageURLwasDeleted = false;
 
-          // Remove the used URL from the array
           this.imagesURLs.splice(this.imagesURLs.indexOf(newMainImageURL), 1);
         }
       }
