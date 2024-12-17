@@ -49,6 +49,7 @@ export class EditAdvertisementComponent
   mainImageURL: string = '';
   Url = environment.URl;
   video: File | undefined = undefined;
+  videoWasDeleted: boolean = false;
   isHouseNumberEraseBtnHidden = true;
   isTotalFloorsEraseBtnHidden = true;
   isBuiltSquareMetersEraseBtnHidden = true;
@@ -374,6 +375,12 @@ export class EditAdvertisementComponent
       this.imagesURlWasDeleted[index] = true;
       this.imagesURLs[index] = '';
     }
+  }
+
+  deleteVideo() {
+    this.advertisement.video = '';
+    this.videoURL = '';
+    this.videoWasDeleted = true;
   }
 
   selectPropertyFeatures(index: number) {

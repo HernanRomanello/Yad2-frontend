@@ -556,8 +556,8 @@ textarea {
 }
 
 .video-remove-btn {
-  top: 0;
-  right: 0;
+  top: 6px;
+  right: 6px;
 }
 
 #WeCheck-pic {
@@ -807,6 +807,9 @@ form {
 
 #delete-image {
   transform: scaleY(1.1);
+}
+#delete-image-video {
+  transform: scaleY(0.9);
 }
 
 .card-content,
