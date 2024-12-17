@@ -700,6 +700,17 @@
       <div class="main-images-container">
         <div class="video-upload">
           <div class="card-content">
+            @if(this.videoURL !== '' ){
+            <div class="image-btn-circle video-remove-btn">
+              <img
+                id="delete-image"
+                class="image-btn"
+                src="assets/images/recycle-bin-garbage.svg"
+                alt=""
+                (click)="deleteImage(0)"
+              />
+            </div>
+            }
             <div class="camara-image-container">
               @if(this.videoURL === '' ){
               <div>
@@ -714,15 +725,7 @@
               <div class="upload-video-box translateY spacing">
                 הסרטון עלה, אפשר להמשיך בפרסום
               </div>
-              <div class="image-btn-circle video-remove-btn">
-                <img
-                  id="delete-image"
-                  class="image-btn"
-                  src="assets/images/recycle-bin-garbage.svg"
-                  alt=""
-                  (click)="deleteImage(0)"
-                />
-              </div>
+
               }
             </div>
             <input
