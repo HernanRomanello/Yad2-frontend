@@ -243,3 +243,7 @@ header {
   right: 8px;
   letter-spacing: 0;
 }
+
+.page {
+  padding-bottom: 5rem;
+}

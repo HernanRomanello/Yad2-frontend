@@ -1,65 +1,73 @@
-<header class="flex-space-between">
-  <div class="promotion-gallery">
-    <div class="font16 text-start promotion-gallery-title">
-      פרוייקטים חדשים באזור
-    </div>
-    <div class="adds flex-center colunm">
-      <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
-        <div class="new-poject-text font500">פרויקט חדש</div>
-        <img [src]="ad.pic" alt="" />
-        <div class="content text-start">
-          <div class="ad-title font500 font16">{{ ad.title }}</div>
-          <div class="ad-city">{{ ad.city }}</div>
-          <div class="ad-project font500 nowrap">{{ ad.program }}</div>
+<div class="page">
+  <header class="flex-space-between">
+    <div class="promotion-gallery">
+      <div class="font16 text-start promotion-gallery-title">
+        פרוייקטים חדשים באזור
+      </div>
+      <div class="adds flex-center colunm">
+        <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
+          <div class="new-poject-text font500">פרויקט חדש</div>
+          <img [src]="ad.pic" alt="" />
+          <div class="content text-start">
+            <div class="ad-title font500 font16">{{ ad.title }}</div>
+            <div class="ad-city">{{ ad.city }}</div>
+            <div class="ad-project font500 nowrap">{{ ad.program }}</div>
+          </div>
+          <mat-icon
+            (click)="toggleFavoriteAd(i)"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="favorite_border"
+            [ngClass]="
+              clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
+            "
+          ></mat-icon>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="favorite"
+            [ngClass]="
+              clickedIndex[i] === i
+                ? 'like-button-sm-selected'
+                : 'like-button-sm'
+            "
+          ></mat-icon>
         </div>
-        <mat-icon
-          (click)="toggleFavoriteAd(i)"
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="favorite_border"
-          [ngClass]="
-            clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
-          "
-        ></mat-icon>
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="favorite"
-          [ngClass]="
-            clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
-          "
-        ></mat-icon>
       </div>
     </div>
-  </div>
-  <div class="header-btn">
-    <img
-      id="close-icon"
-      src="assets/images/close--svgrepo-com.svg"
-      alt="close"
-    />
-    <span class="font16"> סגירת גלריה </span>
-  </div>
-
-  <div class="flex-center gap">
-    <div class="header-btn hover-border view-street-btn">
-      <span class="nowrap"> תצוגת רחוב </span>
-      <img id="nearby-icon" src="assets/images/Nearby.JPG" alt="close" />
+    <div class="header-btn">
+      <img
+        id="close-icon"
+        src="assets/images/close--svgrepo-com.svg"
+        alt="close"
+      />
+      <span class="font16"> סגירת גלריה </span>
     </div>
 
-    <div class="header-btn hover-border map-btn">
-      <span> מפה </span>
-      <img id="map-icon" src="assets/images/map-svgrepo-com.svg" alt="close" />
+    <div class="flex-center gap">
+      <div class="header-btn hover-border view-street-btn">
+        <span class="nowrap"> תצוגת רחוב </span>
+        <img id="nearby-icon" src="assets/images/Nearby.JPG" alt="close" />
+      </div>
+
+      <div class="header-btn hover-border map-btn">
+        <span> מפה </span>
+        <img
+          id="map-icon"
+          src="assets/images/map-svgrepo-com.svg"
+          alt="close"
+        />
+      </div>
     </div>
-  </div>
-</header>
-<div class="ad-images">
-  <div class="image-container flex-wrap-wrap">
-    <img
-      *ngFor="let image of advertisement.pictures; let i = index"
-      [src]="image.url"
-      alt="image"
-      [ngClass]="setImageSize(i) ? 'large-img' : 'small-img'"
-    />
+  </header>
+  <div class="ad-images">
+    <div class="image-container flex-wrap-wrap">
+      <img
+        *ngFor="let image of advertisement.pictures; let i = index"
+        [src]="image.url"
+        alt="image"
+        [ngClass]="setImageSize(i) ? 'large-img' : 'small-img'"
+      />
+    </div>
   </div>
 </div>
