@@ -476,6 +476,10 @@ textarea {
   border: none !important;
 }
 
+.border-none {
+  border: none !important;
+}
+
 .textarea {
   width: 398px !important;
 }

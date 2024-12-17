@@ -863,7 +863,14 @@
               "
             ></div>
 
-            <div id="" class="upload-img-card ad-card-container dashed-frame">
+            <div
+              id=""
+              [ngClass]="
+                this.imagesURLs[index + 1] !== ''
+                  ? ' upload-img-card ad-card-container  '
+                  : ' upload-img-card ad-card-container dashed-frame '
+              "
+            >
               @if(this.imagesURLs[index + 1] === '' ){
               <div class="camara-image-container">
                 <div>
