@@ -282,7 +282,7 @@ export class EditAdvertisementComponent
       if (this.mainImageURL) {
         URL.revokeObjectURL(this.imagesURLs[index]);
       }
-      this.advertisement.pictures[0].url = this.mainImageURL;
+      // this.advertisement.pictures[0].url = this.mainImageURL;
       this.advertisement.mainPicture = this.mainImageURL;
 
       return this.mainImageURL;
