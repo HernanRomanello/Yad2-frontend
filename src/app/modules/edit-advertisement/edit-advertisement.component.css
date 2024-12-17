@@ -755,6 +755,9 @@ form {
   height: 198.5px !important;
   width: 234px !important;
 }
+.upload-container {
+  background-color: #eeeeee;
+}
 
 .upload-pictures {
   background-image: url("../../../assets/images/add-svgrepo-com.svg") !important;
@@ -832,6 +835,10 @@ form {
 #main-image-frame,
 .upload-img-card {
   height: 160.5px;
+}
+
+#main-image-frame {
+  background-color: #ffffff;
 }
 
 .data,
