@@ -342,6 +342,7 @@ export class EditAdvertisementComponent
           )
           .subscribe((response) => {
             this.advertisement = response;
+
             this.asset_State = this.advertisement.assetState;
             this.mainImageURL = this.advertisement.mainPicture;
             console.log('this.advertisement:', this.mainImageURL);
@@ -557,8 +558,8 @@ export class EditAdvertisementComponent
       var ImagesURLsForPosting = this.imagesURLs.filter((url) => url !== '');
 
       // ImagesURLsForPosting = [this.mainImageURL, ...ImagesURLsForPosting];
-      console.log('ImagesURLsForPosting:', ImagesURLsForPosting);
-      console.log('ImagesURLsForPosting:', this.imagesURLs);
+      // console.log('ImagesURLsForPosting:', ImagesURLsForPosting);
+      // console.log('ImagesURLsForPosting:', this.imagesURLs);
 
       // this.imagesURlWasDeleted.forEach((isDeleted, index) => {
       //   if (isDeleted) {
@@ -566,8 +567,8 @@ export class EditAdvertisementComponent
       //   }
       // });
       this.advertisement.mainPicture = this.mainImageURL;
-      console.log('this.advertisement:', ImagesURLsForPosting);
-      console.log('this.advertisement:', this.advertisement.mainPicture);
+      // console.log('this.advertisement:', ImagesURLsForPosting);
+      // console.log('this.advertisement:', this.advertisement.mainPicture);
 
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;
