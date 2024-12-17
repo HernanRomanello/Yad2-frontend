@@ -330,10 +330,8 @@ body,
 .pop-up {
   width: 330px !important;
   height: max-content !important;
-  /* padding: 10px; */
 
   border-radius: 6px;
-  /* top: -68px; */
   bottom: 32px;
   left: -150px;
   background-color: rgb(54, 54, 54);
@@ -353,4 +351,12 @@ body,
   font-size: 14px !important;
   text-align: center !important;
   line-height: 16px !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.pop-up-container {
+  display: none !important ;
 }

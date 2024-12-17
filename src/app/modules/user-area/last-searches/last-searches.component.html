@@ -64,8 +64,12 @@
           </span>
         </div>
         <ng-container
-          *ngFor="let search of searchService.UserLastSearches | async"
+          *ngFor="
+            let search of searchService.UserLastSearches | async;
+            let i = index
+          "
         >
+          >
           <ng-container
             *ngIf="
               date.day === search.dayOfCreation &&
@@ -124,14 +128,16 @@
 
                   <span class="Notification-For-Other-Words">
                     {{ addNotificationForTheOtherWords(search.assetType) }}
-                    <div class="sm-triangle"></div>
+                    <div class="pop-up-container">
+                      <div class="sm-triangle hidden"></div>
 
-                    <div class="pop-up">
-                      {{
-                        addNotificationForTheOtherWordsThatDontFit(
-                          search.assetType
-                        )
-                      }}
+                      <div class="pop-up">
+                        {{
+                          addNotificationForTheOtherWordsThatDontFit(
+                            search.assetType
+                          )
+                        }}
+                      </div>
                     </div>
                   </span>
                   }
