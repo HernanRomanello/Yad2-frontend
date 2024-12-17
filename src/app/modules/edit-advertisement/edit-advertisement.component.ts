@@ -252,6 +252,9 @@ export class EditAdvertisementComponent
     }
 
     this.images[index] = file;
+    this.mainImage = file;
+
+    //hernan
 
     this.advertisement.hasImage = this.images.length > 0;
 
@@ -270,6 +273,21 @@ export class EditAdvertisementComponent
       };
     }
 
+    if (isMainImage) {
+      this.mainImageURL = this.Url + 'uploads/' + file.name;
+      console.log('this.mainImageURL:', this.imagesURLs);
+      console.log('this.mainImageURL:', this.mainImageURL);
+      this.imageuploadService.uploadImage(file);
+
+      if (this.mainImageURL) {
+        URL.revokeObjectURL(this.imagesURLs[index]);
+      }
+      this.advertisement.pictures[0].url = this.mainImageURL;
+      this.advertisement.mainPicture = this.mainImageURL;
+
+      return this.mainImageURL;
+    }
+
     if (this.imagesURLs[index]) {
       URL.revokeObjectURL(this.imagesURLs[index]);
     }
@@ -277,19 +295,11 @@ export class EditAdvertisementComponent
     //hernan
 
     this.imagesURLs[index] = fileURL;
-    if (isMainImage) {
-      this.mainImageURL = this.Url + 'uploads/' + file.name;
-      // this.imageuploadService.uploadImage(file);
-      // alert(this.mainImageURL);
-      this.imageuploadService.uploadImage(file);
 
-      return fileURL;
-    } else {
-      this.imageuploadService.uploadImage(file);
+    this.imageuploadService.uploadImage(file);
 
-      this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
-      return fileURL;
-    }
+    this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
+    return fileURL;
   }
 
   Definecontacts(numberOfContacts: number) {
@@ -345,7 +355,6 @@ export class EditAdvertisementComponent
 
             this.asset_State = this.advertisement.assetState;
             this.mainImageURL = this.advertisement.mainPicture;
-            console.log('this.advertisement:', this.mainImageURL);
           });
       }
     });
@@ -566,8 +575,8 @@ export class EditAdvertisementComponent
       //     ImagesURLsForPosting.splice(index, 1);
       //   }
       // });
-      this.advertisement.mainPicture = this.mainImageURL;
-      console.log('this.advertisement:', ImagesURLsForPosting);
+      // this.advertisement.mainPicture = this.mainImageURL;
+      // console.log('this.advertisement:', ImagesURLsForPosting);
       // console.log('this.advertisement:', this.advertisement.mainPicture);
 
       if (this.advertisement.pictures.length > 0) {
