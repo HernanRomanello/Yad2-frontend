@@ -69,7 +69,6 @@
             let i = index
           "
         >
-          >
           <ng-container
             *ngIf="
               date.day === search.dayOfCreation &&
@@ -126,8 +125,13 @@
                   </span>
                   @if(countStringWords(search.assetType)>3){
 
-                  <span class="Notification-For-Other-Words">
+                  <span
+                    (mouseover)="isAssetTypePopupIsHidden[i] = true"
+                    (mouseleave)="isAssetTypePopupIsHidden[i] = false"
+                    class="Notification-For-Other-Words"
+                  >
                     {{ addNotificationForTheOtherWords(search.assetType) }}
+                    @if(isAssetTypePopupIsHidden[i]){
                     <div class="pop-up-container">
                       <div class="sm-triangle hidden"></div>
 
@@ -139,6 +143,7 @@
                         }}
                       </div>
                     </div>
+                    }
                   </span>
                   }
                   <span class="grayfont"> | </span>

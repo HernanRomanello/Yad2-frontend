@@ -14,6 +14,7 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
   LastSearches: BehaviorSubject<LastsearchesModel | null> =
     new BehaviorSubject<LastsearchesModel | null>(null);
   isRemoveModalIsHidden: boolean = true;
+  isAssetTypePopupIsHidden: boolean[] = [];
   constructor(
     private navigationService: NavigationService,
     public searchService: SearchService
@@ -108,5 +109,8 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(true);
+    this.searchService.UserLastSearches.forEach((element) => {
+      this.isAssetTypePopupIsHidden.push(false);
+    });
   }
 }
