@@ -83,7 +83,8 @@ li {
 .score-container,
 .score-content,
 .double-input-box,
-.descriptionMessage {
+.descriptionMessage,
+.flex-center {
   display: flex;
 }
 
@@ -150,7 +151,8 @@ li {
 .image-btns,
 .camara-image-container,
 .card-content,
-.miniSpot-img {
+.miniSpot-img,
+.flex-center {
   align-items: center !important;
 }
 
@@ -306,7 +308,8 @@ li {
 .image-btn-circle,
 .camara-image-container,
 .card-content,
-.miniSpot-img {
+.miniSpot-img,
+.flex-center {
   justify-content: center !important;
 }
 .description-box,
@@ -322,6 +325,14 @@ li {
 }
 .left-div {
   align-items: flex-end;
+}
+
+.translateY {
+  transform: translateY(-4px) !important;
+}
+.spacing {
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
 }
 
 .description-box {
@@ -535,12 +546,18 @@ textarea {
 .erase-input-btn,
 .camara-image-container,
 .image-card-container,
-#WeCheck-pic {
+#WeCheck-pic,
+.video-remove-btn {
   position: absolute;
 }
 #WeCheck-pic {
   top: 0;
   right: 0px;
+}
+
+.video-remove-btn {
+  top: 0;
+  right: 0;
 }
 
 #WeCheck-pic {

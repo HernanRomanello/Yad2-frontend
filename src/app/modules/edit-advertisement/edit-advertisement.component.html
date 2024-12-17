@@ -710,6 +710,19 @@
                 />
               </div>
               <div class="upload-video-box">העלאת סרטון</div>
+              }@else {
+              <div class="upload-video-box translateY spacing">
+                הסרטון עלה, אפשר להמשיך בפרסום
+              </div>
+              <div class="image-btn-circle video-remove-btn">
+                <img
+                  id="delete-image"
+                  class="image-btn"
+                  src="assets/images/recycle-bin-garbage.svg"
+                  alt=""
+                  (click)="deleteImage(0)"
+                />
+              </div>
               }
             </div>
             <input
