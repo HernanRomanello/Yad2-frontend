@@ -567,7 +567,7 @@ export class EditAdvertisementComponent
       //   }
       // });
       this.advertisement.mainPicture = this.mainImageURL;
-      // console.log('this.advertisement:', ImagesURLsForPosting);
+      console.log('this.advertisement:', ImagesURLsForPosting);
       // console.log('this.advertisement:', this.advertisement.mainPicture);
 
       if (this.advertisement.pictures.length > 0) {
