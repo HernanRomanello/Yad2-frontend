@@ -77,7 +77,8 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 12px 0px;
 }
 .white-btns,
-.all-pics-link-btn {
+.all-pics-link-btn,
+.video-pics-link-btn {
   z-index: 10 !important;
 }
 .white-btns {
@@ -135,7 +136,8 @@
 
 .white-btns,
 .all-pics-link-btn,
-.add-id {
+.add-id,
+.video-pics-link-btn {
   position: absolute;
 }
 
@@ -147,22 +149,28 @@
   width: 385px;
 }
 
-.all-pics-link-btn {
-  bottom: 11px;
-  left: 11px;
+.all-pics-link-btn,
+.video-pics-link-btn {
   line-height: 18.4px;
-
   background-color: rgba(0, 0, 0, 0.6);
-
   height: 28px;
-  width: 148.609px;
   padding: 4px 6px 4px 10px;
-
   border-radius: 5px;
+  bottom: 11px;
+}
+
+.all-pics-link-btn {
+  left: 11px;
+  width: 148.609px;
 }
 .all-pics-link-btn,
-.call-button {
+.call-button,
+.video-pics-link-btn {
   color: rgb(255, 255, 255);
+}
+.video-pics-link-btn {
+  width: 73.6406px;
+  left: 168px;
 }
 
 .location-details {
@@ -176,7 +184,9 @@
 
 .call-button,
 img,
-.white-btns div {
+.white-btns div,
+.all-pics-link-btn,
+.video-pics-link-btn {
   cursor: pointer;
 }
 
