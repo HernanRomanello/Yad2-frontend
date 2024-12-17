@@ -301,6 +301,18 @@ export class EditAdvertisementComponent
     return fileURL;
   }
 
+  uploadVideoFile(event: any) {
+    const file = event.target.files[0];
+
+    if (!file) {
+      return;
+    }
+
+    this.video = file;
+    this.imageuploadService.uploadImage(file);
+    this.videoURL = this.Url + 'uploads/' + file.name;
+  }
+
   Definecontacts(numberOfContacts: number) {
     this.has2Contacts = numberOfContacts === 2 ? true : false;
   }
@@ -592,6 +604,7 @@ export class EditAdvertisementComponent
       } else {
         this.advertisement.hasImage = false;
       }
+      this.advertisement.video = this.videoURL;
       this.advertisementService.updateAdvertisement(
         this.advertisement,
         this.advertisement.id,
