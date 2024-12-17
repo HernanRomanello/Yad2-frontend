@@ -66,6 +66,10 @@ export class UserAdvertisementComponent implements OnInit {
     return true;
   }
 
+  getRandomNumber(boundary: number): number {
+    return Math.floor(Math.random() * boundary) + 1;
+  }
+
   transformDateToString(date: Date | string): string {
     const d = new Date(date);
     const day = String(d.getDate()).padStart(2, '0');
