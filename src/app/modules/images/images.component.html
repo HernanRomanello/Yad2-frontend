@@ -62,12 +62,30 @@
   </header>
   <div class="ad-images">
     <div class="image-container flex-wrap-wrap">
+      @if(advertisement.video === ''){
       <img
         *ngFor="let image of advertisement.pictures; let i = index"
         [src]="image.url"
         alt="image"
         [ngClass]="setImageSize(i) ? 'large-img' : 'small-img'"
       />
+      }@else {
+      <video
+        *ngIf="advertisement.video"
+        [src]="advertisement.video"
+        controls
+        class="large-img"
+        alt="video"
+      >
+        Your browser does not support the video tag.
+      </video>
+      <img
+        *ngFor="let image of advertisement.pictures; let i = index"
+        [src]="image.url"
+        alt="image"
+        [ngClass]="setImageSize(i + 1) ? 'large-img' : 'small-img'"
+      />
+      }
     </div>
   </div>
 </div>
