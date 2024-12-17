@@ -121,8 +121,18 @@
                     {{ decreaseLargeString(search.assetType) }}
                   </span>
                   @if(countStringWords(search.assetType)>3){
+
                   <span class="Notification-For-Other-Words">
                     {{ addNotificationForTheOtherWords(search.assetType) }}
+                    <div class="sm-triangle"></div>
+
+                    <div class="pop-up">
+                      {{
+                        addNotificationForTheOtherWordsThatDontFit(
+                          search.assetType
+                        )
+                      }}
+                    </div>
                   </span>
                   }
                   <span class="grayfont"> | </span>

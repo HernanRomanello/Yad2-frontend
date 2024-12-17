@@ -92,6 +92,18 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
     }
   }
 
+  addNotificationForTheOtherWordsThatDontFit(str: string | null): string {
+    if (!str) return '';
+
+    const words = str.split(' ');
+    if (words.length <= 3) {
+      return ''; // No need to remove anything if there are 3 or fewer words
+    }
+
+    // Remove the first 3 words
+    return words.slice(3).join(' ');
+  }
+
   ngOnDestroy() {
     this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }
