@@ -282,7 +282,6 @@ export class EditAdvertisementComponent
       if (this.mainImageURL) {
         URL.revokeObjectURL(this.imagesURLs[index]);
       }
-      // this.advertisement.pictures[0].url = this.mainImageURL;
       this.advertisement.mainPicture = this.mainImageURL;
 
       return this.mainImageURL;
@@ -368,6 +367,8 @@ export class EditAdvertisementComponent
   }
 
   deleteImage(index: number) {
+    alert('Are you sure you want to delete this image?');
+    //hernan
     if (index === 0) {
       this.mainImageURLwasDeleted = true;
       this.mainImageURL = '';
@@ -578,6 +579,21 @@ export class EditAdvertisementComponent
       // this.advertisement.mainPicture = this.mainImageURL;
       // console.log('this.advertisement:', ImagesURLsForPosting);
       // console.log('this.advertisement:', this.advertisement.mainPicture);
+
+      if (this.mainImageURLwasDeleted && this.imagesURLs.length > 0) {
+        // Find the first valid image URL
+        const newMainImageURL = this.imagesURLs.find((url) => url !== '');
+
+        if (newMainImageURL) {
+          // Update main image and reset the flag
+          this.advertisement.mainPicture = newMainImageURL;
+          this.mainImageURL = newMainImageURL;
+          this.mainImageURLwasDeleted = false;
+
+          // Remove the used URL from the array
+          this.imagesURLs.splice(this.imagesURLs.indexOf(newMainImageURL), 1);
+        }
+      }
 
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;
