@@ -120,7 +120,6 @@
                 @for (image of advertisement.pictures; track $index) {
                 @if($index== this.findAdIndexById(advertisement.id)){
 
-                <!-- <img class="user-card-img" [src]="  image.url " [alt]="image" /> -->
                 <img
                   class="user-card-img"
                   [src]="$index !== 0 ? image.url : advertisement.mainPicture"
@@ -138,36 +137,6 @@
                 </div>
                 } }
               </div>
-              <!-- <div class="slide">
-                @for (image of advertisement.pictures; track $index) { 
-                  @if(
-                $index== this.findAdIndexById(advertisement.id)){ @if($index >
-                0){ @if(image.url.length >2){
-
-                <img class="user-card-img" [src]="image.url" [alt]="image" />
-                } @else {
-                <img
-                  class="user-card-img"
-                  src="assets/images/realestateNoImage.svg"
-                />
-                } } }@else { @if(true){
-                <img
-                  class="user-card-img"
-                  [src]="advertisement.pictures[$index].url"
-                />
-
-                }
-                <div class="slider-indicators">
-                  @for (image of advertisement.pictures; track $index) {
-                  @if($index== this.findAdIndexById(advertisement.id)){
-                  <span class="dot dot-active"></span>
-
-                  } @else {
-                  <span class="dot"></span>
-                  } }
-                </div>
-                } }
-              </div> -->
             </div>
           </div>
           <div class="advertisement-content">
@@ -293,9 +262,7 @@
               </div>
             </div>
           </div>
-          <!-- problem here -->
           <div class="ad-content">
-            <!-- problem here -->
             <div
               class="promotion-information-content"
               (mouseenter)="
@@ -309,7 +276,6 @@
                 )
               "
             >
-              <!-- problem here focus -->
               @if(findIfTheFirstSlideIsVisibleById(advertisement.id)){
               <div class="info-insight">
                 <div class="info-insight-text">
@@ -384,7 +350,6 @@
               </div>
               }
 
-              <!-- problem here focus -->
               <div
                 [ngClass]="{
                   'move-up': !findIfTheFirstSlideIsVisibleById(advertisement.id)
@@ -418,8 +383,6 @@
                 </div>
                 }
                 <div class="promotion-indicators">
-                  <!-- problem here -->
-                  <!-- problem here changeColor function-->
                   <span
                     class="dot"
                     [ngStyle]="{
@@ -433,11 +396,9 @@
                     }"
                   ></span>
                 </div>
-                <!-- problem here changeColor function-->
               </div>
               <div></div>
             </div>
-            <!-- problem here -->
             <div class="promotion-information">
               <div class="promotion-information-details">
                 <div class="bold lg-text">80%</div>
