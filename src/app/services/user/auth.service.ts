@@ -162,7 +162,13 @@ export class AuthService implements OnInit {
       .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetAdvertisements`)
       .subscribe((response) => {
         if (response) {
-          this.UserAdvertisements.next(response);
+          this.UserAdvertisements.next(
+            response
+              .sort((a, b) => b.id - a.id)
+              .map((ad) => {
+                return ad;
+              })
+          );
         }
       });
   }
