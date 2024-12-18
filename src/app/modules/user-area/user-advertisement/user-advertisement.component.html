@@ -235,7 +235,9 @@
             <div class="stats-information-container">
               <div class="stats-information-btn">
                 <div class="stats-information">
-                  <div class="stats-num">{{ getRandomNumber(1000) }}</div>
+                  <div class="stats-num">
+                    {{ this.adsStatistics[1][$index] }}
+                  </div>
                   <div class="small-icon-circle light-pink">
                     <img
                       id="eye-icon"
@@ -249,7 +251,9 @@
               </div>
               <div class="stats-information-btn">
                 <div class="stats-information">
-                  <div class="stats-num">{{ getRandomNumber(100) }}</div>
+                  <div class="stats-num">
+                    {{ this.adsStatistics[0][$index] }}
+                  </div>
                   <div class="small-icon-circle light-red">
                     <img
                       class="icon-pic"

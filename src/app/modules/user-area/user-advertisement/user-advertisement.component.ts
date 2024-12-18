@@ -13,6 +13,7 @@ export class UserAdvertisementComponent implements OnInit {
   navigationService = inject(NavigationService);
   advertisementService = inject(AdvertisementService);
   assetTypes: string[] = [];
+  adsStatistics: number[][] = [];
   userAdvertisements = this.authService.UserAdvertisements;
   currentSlidesData: {
     [key: number]: { adIndex: number; id: number; isVisible: boolean };
@@ -33,6 +34,10 @@ export class UserAdvertisementComponent implements OnInit {
   ngOnInit(): void {
     this.authService.UserAdvertisements.subscribe((ads) => {
       ads.forEach((value, index) => {
+        this.adsStatistics.push([
+          this.getRandomNumber(100),
+          this.getRandomNumber(100),
+        ]);
         this.currentSlidesData[index] = {
           adIndex: 0,
           id: value.id,
