@@ -72,18 +72,19 @@
         alt="img-box"
       />
     </div>
+    @if(advertisement.video !== ''){
     <div
       routerLink="/user-images/{{ advertisement.id }}"
       class="video-pics-link-btn font16 font500 flex-center"
     >
-      <span class="wrap"> וידיאו </span>
+      <span class="wrap"> וידאו </span>
       <img
         id="img-box-icon"
         src="assets/images/video-svgrepo1.svg"
         alt="img-box"
       />
     </div>
-    } @else{
+    } } @else{
     <img
       id="ad-image"
       class="house-pic"
