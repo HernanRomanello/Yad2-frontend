@@ -34,13 +34,9 @@ import { PostAdConfirmationModalComponent } from './modules/post-ad-confirmation
 import { EditAdvertisementComponent } from './modules/edit-advertisement/edit-advertisement.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import * as moment from 'moment';
-import 'moment/locale/he';
 import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.component';
-import { RealEstateSquareSizeSliderComponent } from './modules/real-estate-price-slider-component2/real-estate-price-slider-component2.component';
 import { ImagesComponent } from './modules/images/images.component';
 
-moment.locale('he');
 
 @NgModule({
   declarations: [
@@ -72,7 +68,6 @@ moment.locale('he');
     SplitButtonModule,
     SidebarModule,
     ListboxModule,
-    FormsModule,
     BrowserModule,
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,

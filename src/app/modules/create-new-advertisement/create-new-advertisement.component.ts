@@ -25,7 +25,6 @@ import {
   Street,
 } from '../../services/city-list.service';
 import { NavigationService } from '../../services/navigation.service';
-import { last } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 
 @Component({
