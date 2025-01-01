@@ -98,10 +98,6 @@ export class RealEstateSearchComponent
       .classList.add('hidden');
   }
 
-  test() {
-    console.log('test');
-  }
-
   constructor(
     private navigationService: NavigationService,
     private render: Renderer2
