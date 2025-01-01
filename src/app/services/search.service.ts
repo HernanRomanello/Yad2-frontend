@@ -179,7 +179,6 @@ export class SearchService {
         },
         (error) => {
           console.error('Error deleting last search:', error);
-          alert('שגיאה במחיקת החיפוש');
         }
       );
   }
@@ -238,7 +237,6 @@ export class SearchService {
         },
         (error) => {
           console.error('Error adding last search:', error);
-          alert('שגיאה בהוספת החיפוש');
         }
       );
   }

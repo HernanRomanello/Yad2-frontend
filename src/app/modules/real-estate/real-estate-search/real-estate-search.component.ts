@@ -131,9 +131,14 @@ export class RealEstateSearchComponent
           !clickedElement.classList.contains('property-type') &&
           !clickedElement.classList.contains('material-icons')
         ) {
-          const roomsAmountContainer =
-            document.getElementById('propertyRoomButton');
-          roomsAmountContainer?.click();
+          if (
+            propertyRoomArrow &&
+            propertyRoomArrow.className.includes('arrow-up1')
+          ) {
+            const roomsAmountContainer =
+              document.getElementById('propertyRoomButton');
+            roomsAmountContainer?.click();
+          }
 
           this.rotateAllArrows('');
           this.hideAllMenus('');
@@ -341,8 +346,6 @@ export class RealEstateSearchComponent
       .subscribe((data) => {
         this.streetList = data;
       });
-
-    this.searchService.forSale.set(true);
   }
 
   resetSearchInput() {
