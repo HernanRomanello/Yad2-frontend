@@ -265,10 +265,6 @@ i,
   background-color: rgb(255, 255, 255) !important;
 }
 
-.sort-option:hover {
-  background-color: #f8f8f8 !important;
-}
-
 .sort-option span {
   padding: 0.5rem;
 }
@@ -320,4 +316,15 @@ i,
 .letter-spacing {
   letter-spacing: 0 !important;
   word-spacing: 0 !important;
+}
+
+.sort-option:hover,
+#location:hover,
+#price-asc:hover,
+#price-desc:hover {
+  background-color: #f8f8f8 !important;
+}
+
+.transparent-background {
+  height: 42px !important;
 }
