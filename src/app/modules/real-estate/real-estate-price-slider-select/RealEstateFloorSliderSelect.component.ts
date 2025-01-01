@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SliderModule } from 'primeng/slider';
 
-import { formatPrice } from '../../../utilities';
+import { formatPrice } from '../../../pipes/utilities.pipe';
 @Component({
   selector: 'app-real-estate-price-slider-select',
-  templateUrl: './real-estate-price-slider-select.component.html',
-  styleUrl: './real-estate-price-slider-select.component.css',
+  templateUrl: './RealEstateFloorSliderSelect.component.html',
+  styleUrl: './RealEstateFloorSliderSelect.component.css',
   standalone: true,
   imports: [CommonModule, MatIconModule, SliderModule, FormsModule],
 })
