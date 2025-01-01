@@ -57,6 +57,7 @@ export class UserAdvertisementComponent implements OnInit {
         };
       });
     });
+    this.authService.GetUsersAdvertisements();
   }
 
   findIfTheFirstSlideIsVisibleById(advertisementId: number): boolean {
