@@ -341,12 +341,10 @@
           <i id="tradeTypeArrow" class="material-icons">keyboard_arrow_down</i>
         </button>
         <div id="tradeTypeMenu" class="menu hidden dropdown-menu">
-          <button
-            class="type-btn "
-            type="button"
-            (click)="applyFilter('מכירה')"
-          >
-            <span> מכירה </span>
+          <button class="type-btn" type="button" (click)="applyFilter('מכירה')">
+            <span [ngClass]="this.searchService.forSale() ? 'font500' : ''">
+              מכירה
+            </span>
             <span>
               @if(this.searchService.forSale()){
               <img
@@ -357,12 +355,10 @@
               }
             </span>
           </button>
-          <button
-            class="type-btn "
-            type="button"
-            (click)="applyFilter('השכרה')"
-          >
-            <span> השכרה </span>
+          <button class="type-btn" type="button" (click)="applyFilter('השכרה')">
+            <span [ngClass]="this.searchService.forRent() ? 'font500' : ''">
+              השכרה
+            </span>
             @if(this.searchService.forRent()){
             <img
               class="svg-icon"
