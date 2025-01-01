@@ -15,7 +15,7 @@ import { SearchService } from '../../../services/search.service';
 })
 export class RealEstatePriceSliderComponent {
   searchService = inject(SearchService);
-  rangeValuesBuyMinMax: [number, number] = this.searchService.forRent()
+  rangeValuesBuyMinMax: [number, number] = !this.searchService.forSale()
     ? [0, 20000]
     : [0, 20000000];
 

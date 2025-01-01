@@ -571,6 +571,7 @@ export class RealEstateSearchComponent
     this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
     this.searchService.emitSelectedRoomsAmount(this.selectedRoomsAmount);
   }
+
   formatNumberWithComma(num: number): string {
     const numStr = num.toString();
 
