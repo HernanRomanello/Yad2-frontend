@@ -133,7 +133,7 @@
               [value]="phoneNumber | phoneNumberFormat"
               (input)="
                 phoneNumber = phoneNumberInput.value;
-                $user ? ($user.phoneNumber = phoneNumberInput.value) : null
+                $user ? ($user.phoneNumber = phoneNumberInput.value) : ''
               "
               [ngStyle]="{
                 borderColor: $updatedUser.get('phoneNumber')?.invalid
