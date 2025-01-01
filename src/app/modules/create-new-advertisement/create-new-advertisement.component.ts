@@ -226,7 +226,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   assetTypes = [
     'דירה',
     'דירת גן',
-    "בית פרטי/ קוטג'",
+    'בית פרטי/ קוטג',
     'גג/ פנטהאוז',
     'מגרשים',
     'דופלקס',

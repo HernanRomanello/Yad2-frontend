@@ -191,13 +191,32 @@ export class RealEstateResultsComponent implements OnInit {
           (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax
         );
 
+        // if (selectedPropertyTypes.length > 0) {
+        //   alert(selectedPropertyTypes);
+        //   ads.forEach((ad) => {
+        //     console.log(ad.assetType);
+        //     console.log(selectedPropertyTypes.includes(ad.assetType));
+        //     console.log(selectedPropertyTypes.toString());
+        //   });
+        //   ads = ads.filter((ad) =>
+        //     selectedPropertyTypes.includes(ad.assetType)
+        //   );
+        // }
+
         if (selectedPropertyTypes.length > 0) {
+          ads.forEach((ad) => {
+            console.log(ad.assetType);
+            console.log(selectedPropertyTypes.map((type) => type.trim()));
+          });
+
           ads = ads.filter((ad) =>
-            selectedPropertyTypes.includes(ad.assetType)
+            selectedPropertyTypes
+              .map((type) => type.trim())
+              .includes(ad.assetType.trim())
           );
         }
 
-        if (selectedPriceRange[0] >= 0 || selectedPriceRange[1] !== 20000) {
+        if (selectedPriceRange[0] >= 0) {
           ads = ads.filter(
             (ad) =>
               ad.price >= selectedPriceRange[0] &&
