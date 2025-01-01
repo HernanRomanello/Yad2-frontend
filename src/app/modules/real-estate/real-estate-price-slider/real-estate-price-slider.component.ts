@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+  signal,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SliderModule } from 'primeng/slider';
@@ -20,6 +27,8 @@ export class RealEstatePriceSliderComponent {
     : [0, 20000000];
 
   rangeValuesBuy: [number, number] = [...this.rangeValuesBuyMinMax];
+  // rangeValuesBuy = signal<[number, number]>([...this.rangeValuesBuyMinMax]);
+  // rangeValuesBuy: [number, number] = [0, 200000];
 
   @Output() selectedPriceRange = new EventEmitter<[number, number]>();
 

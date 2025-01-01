@@ -486,6 +486,7 @@ export class RealEstateSearchComponent
     if (option === 'מכירה') {
       this.searchService.forSale.set(true);
       this.searchService.forRent.set(false);
+      this.searchService.forRent.set(false);
     } else if (option === 'השכרה') {
       this.searchService.forSale.set(false);
       this.searchService.forRent.set(true);

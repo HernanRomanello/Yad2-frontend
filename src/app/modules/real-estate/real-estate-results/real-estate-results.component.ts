@@ -191,18 +191,6 @@ export class RealEstateResultsComponent implements OnInit {
           (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax
         );
 
-        // if (selectedPropertyTypes.length > 0) {
-        //   alert(selectedPropertyTypes);
-        //   ads.forEach((ad) => {
-        //     console.log(ad.assetType);
-        //     console.log(selectedPropertyTypes.includes(ad.assetType));
-        //     console.log(selectedPropertyTypes.toString());
-        //   });
-        //   ads = ads.filter((ad) =>
-        //     selectedPropertyTypes.includes(ad.assetType)
-        //   );
-        // }
-
         if (selectedPropertyTypes.length > 0) {
           ads.forEach((ad) => {
             console.log(ad.assetType);
