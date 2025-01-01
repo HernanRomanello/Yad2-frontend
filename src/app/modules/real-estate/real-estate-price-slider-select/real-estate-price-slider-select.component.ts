@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SliderModule } from 'primeng/slider';
 
-import { formatPrice } from '../../../utilities';
+import { formatPrice } from '../../../pipes/utilities.pipe';
 @Component({
   selector: 'app-real-estate-price-slider-select',
   templateUrl: './RealEstateFloorSliderSelect.component.html',

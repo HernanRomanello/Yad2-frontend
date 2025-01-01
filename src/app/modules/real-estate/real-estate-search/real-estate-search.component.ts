@@ -10,7 +10,8 @@ import {
   inject,
 } from '@angular/core';
 import { SearchService } from '../../../services/search.service';
-import { formatPrice } from '../../../utilities';
+// import { formatPrice } from '../../../utilities';
+import { formatPrice } from '../../../pipes/utilities.pipe';
 import {
   City,
   CityListService,
