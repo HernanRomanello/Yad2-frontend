@@ -90,6 +90,7 @@ button {
 }
 .btn-container {
   margin-top: 6rem;
+  margin-top: 3rem;
   margin-left: 10.25rem;
 }
 
@@ -100,15 +101,17 @@ button {
 }
 
 .user-form {
-  font-weight: 400;
   background-color: rgb(255, 255, 255);
 
-  height: 777px;
   width: 1044px;
   border: 1px solid rgb(238, 238, 238);
   padding: 42px 0px;
   box-shadow: rgba(107, 107, 107, 0.086) 0px 2px 25px 0px;
   border-radius: 8px;
+}
+
+#user-form {
+  height: 1000px !important;
 }
 
 .title {

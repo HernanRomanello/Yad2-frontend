@@ -124,8 +124,9 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       this.userService.user as BehaviorSubject<UserModel | null>
     ).subscribe((user) => {
       this.$user = user;
-      this.phoneNumber =
-        user?.phoneNumber?.slice(0, 3) + '-' + user?.phoneNumber?.slice(3, 10);
+      this.phoneNumber = user?.phoneNumber
+        ? user.phoneNumber.slice(0, 3) + '-' + user.phoneNumber.slice(3, 10)
+        : '';
       this.profileImageURL = user?.picture || '';
 
       this.$updatedUser = this.formBuilder.group({
