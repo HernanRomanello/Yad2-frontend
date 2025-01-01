@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';

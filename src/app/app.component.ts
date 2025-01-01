@@ -1,10 +1,4 @@
-import {
-  Component,
-  inject,
-  OnInit,
-  Renderer2,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, inject, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from './services/user/auth.service';
 import { ModalStateService } from './services/modal-state.service';
 import { NavigationService } from './services/navigation.service';

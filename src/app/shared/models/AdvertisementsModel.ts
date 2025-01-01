@@ -1,7 +1,6 @@
 import { Picture } from './Picture';
 
 export type AdvertisementsModel = {
-  sort(arg0: (a: any, b: any) => number): AdvertisementsModel;
   id: number;
   creationDate: string;
   expirationDate: string;

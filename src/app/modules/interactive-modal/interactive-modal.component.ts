@@ -1,4 +1,4 @@
-import { Component, inject, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
 import { AuthService } from '../../services/user/auth.service';

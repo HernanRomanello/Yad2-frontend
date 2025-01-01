@@ -30,14 +30,14 @@ import { environment } from '../../../../environments/environment.development';
   styleUrls: ['./edit-details.component.css'],
   animations: [
     trigger('modalEnterExit', [
-      state('in', style({ transform: 'translateX(0)' })), // No translation when in
-      state('out', style({ transform: 'translateX(100%)' })), // Move out to the right
+      state('in', style({ transform: 'translateX(0)' })),
+      state('out', style({ transform: 'translateX(100%)' })),
       transition('void => in', [
-        style({ transform: 'translateX(-100%)' }), // Start from the left
-        animate('2000ms ease-in'), // Animate in
+        style({ transform: 'translateX(-100%)' }),
+        animate('2000ms ease-in'),
       ]),
       transition('in => out', [
-        animate('2000ms linear', style({ transform: 'translateX(-100%)' })), // Animate out to the right
+        animate('2000ms linear', style({ transform: 'translateX(-100%)' })),
       ]),
     ]),
   ],

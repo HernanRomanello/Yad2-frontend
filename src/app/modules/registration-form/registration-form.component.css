@@ -4,11 +4,6 @@
   background-color: #fff8ef !important;
 }
 
-div,
-form {
-  /* border: 1px solid red !important; */
-}
-
 .left-part {
   display: flex;
   flex-direction: column;

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './user/auth.service';
 import { NavigationService } from './navigation.service';
 
 @Injectable({
@@ -9,7 +8,6 @@ import { NavigationService } from './navigation.service';
 export class InputsStyleService {
   constructor(
     private router: Router,
-    private authServise: AuthService,
     private navigationService: NavigationService
   ) {}
   switchPasswordVisibility(isPasswordHidden: boolean): string {

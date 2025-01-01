@@ -98,7 +98,6 @@ export class RealEstateRoomsAmountComponent {
     }
 
     if (this.selectedRoom_1 && this.selectedRoom_2) {
-      // remove children
       this.bar.nativeElement.innerHTML = '';
       let index1 = this.rooms.indexOf(this.selectedRoom_1);
       let index2 = this.rooms.indexOf(this.selectedRoom_2);

@@ -12,9 +12,6 @@ body {
   color: #363636;
 }
 
-/* button[mat-menu-item] {
-  color: #4a4a4a;
-} */
 button.light {
   font-weight: 100 !important;
 }

@@ -7,7 +7,6 @@ import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
-import { AdvertisementService } from '../advertisement.service';
 
 @Injectable({
   providedIn: 'root',

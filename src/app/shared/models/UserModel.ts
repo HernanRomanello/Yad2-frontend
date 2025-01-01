@@ -4,7 +4,6 @@ import { LastsearchesModel } from './LastsearchesModel';
 
 export type UserModel = {
   email: string;
-
   name: string;
   phoneNumber?: string;
   lastName: string;

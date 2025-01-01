@@ -85,7 +85,6 @@ const routes: Routes = [
         (m) => m.RealEstateModule
       ),
     title: 'Main Page',
-    // canActivate: [authGuard],
   },
 ];
 

@@ -1,4 +1,4 @@
-import { Injectable, signal, Signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PropertyFilters } from '../shared/models/Filters';
 import { HttpClient } from '@angular/common/http';

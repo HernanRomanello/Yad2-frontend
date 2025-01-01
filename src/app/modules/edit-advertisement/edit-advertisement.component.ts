@@ -112,20 +112,20 @@ export class EditAdvertisementComponent
   ];
 
   propertyFeaturesChecked: { key: string; checked: boolean }[] = [
-    { key: 'airConditioning', checked: false }, // מיזוג
-    { key: 'safeRoom', checked: false }, // ממ"ד
-    { key: 'storageRoom', checked: false }, // מחסן
-    { key: 'furnished', checked: false }, // ריהוט
-    { key: 'accessibleForDisabled', checked: false }, // גישה לנכים
-    { key: 'elevator', checked: false }, // מעלית
-    { key: 'renovated', checked: false }, // משופצת
-    { key: 'windowBars', checked: false }, // סורגים
-    { key: 'forRoommates', checked: false }, // לשותפים
-    { key: 'petsAllowed', checked: false }, // חיות מחמד
-    { key: 'kosherKitchen', checked: false }, // מטבח כשר
-    { key: 'solarWaterHeater', checked: false }, // דוד שמש
-    { key: 'multiLockDoors', checked: false }, // דלתות רב-בריח
-    { key: 'tornadoAirConditioner', checked: false }, // מזגן טורנדו
+    { key: 'airConditioning', checked: false },
+    { key: 'safeRoom', checked: false },
+    { key: 'storageRoom', checked: false },
+    { key: 'furnished', checked: false },
+    { key: 'accessibleForDisabled', checked: false },
+    { key: 'elevator', checked: false },
+    { key: 'renovated', checked: false },
+    { key: 'windowBars', checked: false },
+    { key: 'forRoommates', checked: false },
+    { key: 'petsAllowed', checked: false },
+    { key: 'kosherKitchen', checked: false },
+    { key: 'solarWaterHeater', checked: false },
+    { key: 'multiLockDoors', checked: false },
+    { key: 'tornadoAirConditioner', checked: false },
   ];
 
   authService = inject(AuthService);
@@ -256,8 +256,6 @@ export class EditAdvertisementComponent
     this.images[index] = file;
     this.mainImage = file;
 
-    //hernan
-
     this.advertisement.hasImage = this.images.length > 0;
 
     const fileURL = URL.createObjectURL(file);
@@ -327,7 +325,6 @@ export class EditAdvertisementComponent
       } else {
         this.advertisement.pictures[index].url = newImageUrl;
       }
-      // this.advertisement.pictures[index].url = newImageUrl;
     }
 
     this.imagesURlWasDeleted[index] = false;
@@ -657,7 +654,6 @@ export class EditAdvertisementComponent
     if (textLength >= 160) {
       return '100%';
     }
-    // var width = textLength * 1.8125;
     var width = textLength * 1.9125;
     return width + 'px';
   }

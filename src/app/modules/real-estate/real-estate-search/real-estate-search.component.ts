@@ -10,7 +10,6 @@ import {
   inject,
 } from '@angular/core';
 import { SearchService } from '../../../services/search.service';
-// import { formatPrice } from '../../../utilities';
 import { formatPrice } from '../../../pipes/utilities.pipe';
 import {
   City,
@@ -19,7 +18,6 @@ import {
 } from '../../../services/city-list.service';
 import { Subscription } from 'rxjs';
 import { NavigationService } from '../../../services/navigation.service';
-import e from 'express';
 @Component({
   selector: 'app-real-estate-search',
   templateUrl: './real-estate-search.component.html',
@@ -399,7 +397,6 @@ export class RealEstateSearchComponent
         this.toggleMenuDropdown(this.priceSlider);
         this.rotateAllArrows('PriceRangeArrow');
         this.hideAllMenus('PriceRangeMenu');
-        // this.roomsFilterIsOpen = false;
         break;
       case 'propertyTypeMenu':
         this.toggleMenuDropdown(this.propertyTypeMenu);
@@ -407,7 +404,6 @@ export class RealEstateSearchComponent
           this.searchService.propertyTypeFilterValue();
         this.rotateAllArrows('propertyTypeArrow');
         this.hideAllMenus('propertyTypeMenu');
-        // this.roomsFilterIsOpen = false;
         this.navigationService.searchFilterOpenClose();
 
         break;
@@ -429,7 +425,6 @@ export class RealEstateSearchComponent
         this.toggleMenuDropdown(this.tradeTypeMenu);
         this.rotateAllArrows('tradeTypeArrow');
         this.hideAllMenus('tradeTypeMenu');
-        // this.roomsFilterIsOpen = false;
         break;
     }
   }
@@ -619,8 +614,6 @@ export class RealEstateSearchComponent
   onPropertyTypeSelected(propertyTypes: string[]) {
     const uniquePropertyTypes = [...new Set(propertyTypes)];
     let optionsNumber = uniquePropertyTypes.length;
-    //hernan
-    // console.log('optionsNumber', propertyTypes);
     if (optionsNumber === 0) {
       this.searchService.propertyTypeFilterValue.set('סוג הנכס');
     } else if (optionsNumber === 1) {

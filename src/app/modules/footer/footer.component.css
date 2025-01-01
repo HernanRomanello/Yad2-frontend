@@ -40,7 +40,6 @@
 
 .footer-note {
   max-width: 580px;
-  /* max-height: 28px; */
   padding: 0 1rem;
   word-spacing: 0px;
   letter-spacing: 0px !important;
@@ -71,7 +70,6 @@
 .category-title {
   font-size: 17px !important;
   font-weight: 500 !important;
-  /* margin-bottom: 0.5rem !important; */
   color: #ffffff !important;
 }
 
