@@ -27,7 +27,7 @@ export class SearchService {
   neighborhood = signal<string>('');
   assetTypeList = signal<string>('');
   forRent = signal<boolean>(false);
-  forSale = signal<boolean>(false);
+  forSale = signal<boolean>(true);
 
   public UserLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   constructor(private httpClient: HttpClient) {}
