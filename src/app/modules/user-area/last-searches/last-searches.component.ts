@@ -82,7 +82,7 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
 
   countStringWords(str: string | null): number {
     if (!str) return 0;
-    return str.split(' ').length;
+    return str.split(',').length;
   }
   addNotificationForTheOtherWords(str: string | null): string {
     const wordsCounter = this.countStringWords(str);
