@@ -14,6 +14,11 @@
   border: transparent;
 }
 
+.svg-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .input-search::placeholder,
 .type-btn,
 .select-btn,
@@ -315,7 +320,9 @@ i {
 #subSearchQuery,
 #subSearchQueryBox,
 .location-list,
-.project-title {
+.project-title,
+.flex,
+.type-btn {
   display: flex;
 }
 
@@ -648,4 +655,12 @@ i,
   top: 2px;
   right: 8px;
   letter-spacing: 0;
+}
+
+.type-btn {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding-right: 1rem !important;
+  gap: 4rem !important;
 }

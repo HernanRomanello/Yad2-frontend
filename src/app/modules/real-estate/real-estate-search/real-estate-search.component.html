@@ -341,11 +341,35 @@
           <i id="tradeTypeArrow" class="material-icons">keyboard_arrow_down</i>
         </button>
         <div id="tradeTypeMenu" class="menu hidden dropdown-menu">
-          <button class="type-btn" type="button" (click)="applyFilter('מכירה')">
-            מכירה
+          <button
+            class="type-btn "
+            type="button"
+            (click)="applyFilter('מכירה')"
+          >
+            <span> מכירה </span>
+            <span>
+              @if(this.searchService.forSale()){
+              <img
+                class="svg-icon"
+                src="assets/images/check-orange.svg"
+                alt="check"
+              />
+              }
+            </span>
           </button>
-          <button class="type-btn" type="button" (click)="applyFilter('השכרה')">
-            השכרה
+          <button
+            class="type-btn "
+            type="button"
+            (click)="applyFilter('השכרה')"
+          >
+            <span> השכרה </span>
+            @if(this.searchService.forRent()){
+            <img
+              class="svg-icon"
+              src="assets/images/check-orange.svg"
+              alt="check"
+            />
+            }
           </button>
         </div>
       </div>

@@ -345,6 +345,8 @@ export class RealEstateSearchComponent
       .subscribe((data) => {
         this.streetList = data;
       });
+
+    this.searchService.forSale.set(true);
   }
 
   resetSearchInput() {
