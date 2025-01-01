@@ -101,7 +101,7 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
       return '';
     }
 
-    return words.slice(3).join(' ');
+    return words.slice(3).join(' ').replace(/,/g, ' ');
   }
 
   ngOnDestroy() {
