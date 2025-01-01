@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SliderModule } from 'primeng/slider';
 
 import { formatPrice } from '../../../pipes/utilities.pipe';
+import { SearchService } from '../../../services/search.service';
 @Component({
   selector: 'app-real-estate-price-slider',
   templateUrl: './real-estate-price-slider.component.html',
@@ -13,7 +14,10 @@ import { formatPrice } from '../../../pipes/utilities.pipe';
   imports: [CommonModule, MatIconModule, SliderModule, FormsModule],
 })
 export class RealEstatePriceSliderComponent {
-  rangeValuesBuyMinMax: [number, number] = [0, 20000];
+  searchService = inject(SearchService);
+  rangeValuesBuyMinMax: [number, number] = this.searchService.forRent()
+    ? [0, 20000]
+    : [0, 20000000];
 
   rangeValuesBuy: [number, number] = [...this.rangeValuesBuyMinMax];
 
