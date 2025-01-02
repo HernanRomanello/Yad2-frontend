@@ -72,9 +72,9 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   }
 
   updateNoteAd(adID: number, note: string): void {
-    this.authService.getUserNotes();
+    // this.authService.getUserNotes();
     this.authService.postAdNoteToUser(adID, note);
-    this.authService.getUserNotes();
+    // this.authService.getUserNotes();
   }
 
   ngOnInit() {

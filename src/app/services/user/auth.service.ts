@@ -93,7 +93,8 @@ export class AuthService implements OnInit {
     this.httpClient
       .post(`${this.Url}api/Users/user/addNote/${advertisementId}`, newNote)
       .subscribe(() => {
-        this.getUserFavoriteAdvertisements();
+        // this.getUserFavoriteAdvertisements();
+        this.getUserNotes();
       });
   }
 
