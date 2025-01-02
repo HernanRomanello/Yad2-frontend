@@ -28,6 +28,7 @@ export class SearchService {
   assetTypeList = signal<string>('');
   forRent = signal<boolean>(false);
   forSale = signal<boolean>(true);
+  needToMakeResetFilters = signal<boolean>(false);
 
   public UserLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   constructor(private httpClient: HttpClient) {}

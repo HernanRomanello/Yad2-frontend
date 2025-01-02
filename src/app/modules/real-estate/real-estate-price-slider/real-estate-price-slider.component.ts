@@ -27,8 +27,6 @@ export class RealEstatePriceSliderComponent {
     : [0, 20000000];
 
   rangeValuesBuy: [number, number] = [...this.rangeValuesBuyMinMax];
-  // rangeValuesBuy = signal<[number, number]>([...this.rangeValuesBuyMinMax]);
-  // rangeValuesBuy: [number, number] = [0, 200000];
 
   @Output() selectedPriceRange = new EventEmitter<[number, number]>();
 

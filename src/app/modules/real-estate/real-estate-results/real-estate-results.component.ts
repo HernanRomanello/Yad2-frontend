@@ -1,4 +1,5 @@
 import {
+  AfterContentChecked,
   Component,
   ElementRef,
   inject,
@@ -13,6 +14,7 @@ import { BehaviorSubject, combineLatest, map, of } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
 import { FilterValue } from '../../../shared/models/Filters';
 import { NavigationService } from '../../../services/navigation.service';
+import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 @Component({
   selector: 'app-real-estate-results',
   templateUrl: './real-estate-results.component.html',
@@ -152,6 +154,19 @@ export class RealEstateResultsComponent implements OnInit {
         selectedTradeType,
         selectedRoomsAmount,
       ]) => {
+        isFakeTouchstartFromScreenReader;
+        if (this.searchService.needToMakeResetFilters()) {
+          this.searchService.needToMakeResetFilters.set(false);
+
+          const tradeTypeFilter = this.searchService.forRent()
+            ? 'מכירה'
+            : 'השכרה';
+
+          return advertisements.filter(
+            (ad) => ad.tradeType === tradeTypeFilter
+          );
+        }
+        ///hernan
         const filters = this.searchService.getFilters();
         let booleanFilters: { [key: string]: FilterValue } = Object.keys(
           filters
@@ -192,11 +207,6 @@ export class RealEstateResultsComponent implements OnInit {
         );
 
         if (selectedPropertyTypes.length > 0) {
-          ads.forEach((ad) => {
-            console.log(ad.assetType);
-            console.log(selectedPropertyTypes.map((type) => type.trim()));
-          });
-
           ads = ads.filter((ad) =>
             selectedPropertyTypes
               .map((type) => type.trim())

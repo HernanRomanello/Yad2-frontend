@@ -477,6 +477,8 @@ export class RealEstateSearchComponent
   }
 
   applyFilter(option: 'מכירה' | 'השכרה') {
+    //hernan
+    this.searchService.needToMakeResetFilters.set(true);
     this.selectedOption = option;
     this.advertisementTypebuttonText = option;
     this.title = option === 'מכירה' ? 'נדל"ן למכירה' : 'נדל"ן להשכרה';
