@@ -141,8 +141,13 @@
                 >
                   <div class="favorite-ad-text">
                     <div class="favorite-ad-price">
+                      @if (favorite.price > 0) {
+
                       <span class="currency">₪</span
                       ><span>{{ favorite.price | number }}</span>
+                      } @else {
+                      <span> לא צוין מחיר</span>
+                      }
                     </div>
                   </div>
                   <div>
