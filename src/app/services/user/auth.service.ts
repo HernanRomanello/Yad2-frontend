@@ -1,4 +1,4 @@
-import { Injectable, OnInit, afterNextRender } from '@angular/core';
+import { Injectable, OnInit, afterNextRender, inject } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject, ReplaySubject, filter, map } from 'rxjs';
 import { Router } from '@angular/router';
