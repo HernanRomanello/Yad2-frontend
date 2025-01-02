@@ -93,7 +93,6 @@ export class AuthService implements OnInit {
     this.httpClient
       .post(`${this.Url}api/Users/user/addNote/${advertisementId}`, newNote)
       .subscribe(() => {
-        // this.getUserFavoriteAdvertisements();
         this.getUserNotes();
       });
   }
@@ -285,7 +284,7 @@ export class AuthService implements OnInit {
       privateParking: NewAdvertisement.privateParking ?? 0,
       hasPrivateParking: NewAdvertisement.hasPrivateParking ?? false,
       hasBolcony: NewAdvertisement.hasBolcony ?? false,
-      hasImage: NewAdvertisement.hasImage ?? false,
+      hasImage: NewAdvertisement.pictures[0] !== '' ? true : false,
       hasPrice: NewAdvertisement.hasPrice ?? false,
       moshavOrKibutz: false,
       pirceDiscount: false,
