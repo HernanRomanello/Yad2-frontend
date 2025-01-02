@@ -158,7 +158,7 @@ export class RealEstateResultsComponent implements OnInit {
         if (this.searchService.needToMakeResetFilters()) {
           this.searchService.needToMakeResetFilters.set(false);
 
-          const tradeTypeFilter = this.searchService.forRent()
+          const tradeTypeFilter = !this.searchService.forRent()
             ? 'מכירה'
             : 'השכרה';
 
