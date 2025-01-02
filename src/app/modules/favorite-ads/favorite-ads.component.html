@@ -57,7 +57,7 @@
         <div class="flex-center">
           <div class="ad-part1 flex">
             <div class="ad-image-container">
-              @if(ad.pictures[0].url.length > 0){
+              @if( ad.mainPicture !== "") {
               <img
                 ngClass="ad-image"
                 id="ad-image{{ $index }}"
