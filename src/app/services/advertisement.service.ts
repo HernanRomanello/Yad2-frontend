@@ -228,6 +228,8 @@ export class AdvertisementService {
       standardizationAccepted: advertisement.standardizationAccepted,
     };
 
+    console.log(updatedAd);
+
     this.httpClient
       .put(`${this.Url}api/Users/UpdateAdvertisement/${id}`, updatedAd)
       .subscribe(

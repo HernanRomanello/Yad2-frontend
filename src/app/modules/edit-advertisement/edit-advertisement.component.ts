@@ -263,6 +263,7 @@ export class EditAdvertisementComponent
     if (this.advertisement.pictures[index]) {
       this.advertisement.pictures[index].url = fileURL;
       this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
+
       this.ImagesThatCanEdit[index] = true;
       this.imagesURlWasDeleted[index] = false;
     } else {
@@ -275,8 +276,6 @@ export class EditAdvertisementComponent
 
     if (isMainImage) {
       this.mainImageURL = this.Url + 'uploads/' + file.name;
-      console.log('this.mainImageURL:', this.imagesURLs);
-      console.log('this.mainImageURL:', this.mainImageURL);
       this.imageuploadService.uploadImage(file);
 
       if (this.mainImageURL) {
@@ -577,7 +576,9 @@ export class EditAdvertisementComponent
 
   async handleSubmit() {
     try {
-      var ImagesURLsForPosting = this.imagesURLs.filter((url) => url !== '');
+      var ImagesURLsForPosting = this.imagesURLsForPosting.filter(
+        (url) => url !== ''
+      );
 
       if (this.mainImageURLwasDeleted && this.imagesURLs.length > 0) {
         const newMainImageURL = this.imagesURLs.find((url) => url !== '');
