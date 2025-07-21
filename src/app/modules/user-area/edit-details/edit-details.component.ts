@@ -81,24 +81,24 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private cityListService: CityListService,
     private imageuploadService: ImageuploadService
-  ) {
-    document.body.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
-      if (target.id !== 'CityInput') {
-        this.isCityDropdownHidden = false;
-      }
-      if (target.id !== 'street') {
-        this.isStreetDropdownHidden = false;
-      }
-      if (
-        target.id !== 'edit-image' &&
-        target.id !== 'edit-img' &&
-        target.id !== 'pencil-image' &&
-        target.id !== 'delete-img'
-      ) {
-        this.isProfileImageDropdownHidden = false;
-      }
-    });
+  ) {}
+
+  clickEvent(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.id !== 'CityInput') {
+      this.isCityDropdownHidden = false;
+    }
+    if (target.id !== 'street') {
+      this.isStreetDropdownHidden = false;
+    }
+    if (
+      target.id !== 'edit-image' &&
+      target.id !== 'edit-img' &&
+      target.id !== 'pencil-image' &&
+      target.id !== 'delete-img'
+    ) {
+      this.isProfileImageDropdownHidden = false;
+    }
   }
 
   toogleImageModal(event: any) {
