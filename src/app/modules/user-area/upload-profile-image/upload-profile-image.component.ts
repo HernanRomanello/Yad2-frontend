@@ -22,7 +22,6 @@ export class UploadProfileImageComponent implements OnInit {
   ngOnInit() {}
 
   clickEvent(event: Event) {
-    alert('rgttttt33333333rty');
     const target = event.target as HTMLElement;
     if (target && target.id !== 'edit-img') {
       const backgroundColor = window.getComputedStyle(target).backgroundColor;
