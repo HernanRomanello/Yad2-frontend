@@ -71,7 +71,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   InvalidCity: boolean = false;
   InvalidStreet: boolean = false;
   InvalidHouseNumber: boolean = false;
-  validCityCharcters: number = 0;
+  validCityCharacters: number = 0;
   cityWasEdited: boolean = false;
   profileImageURL: string = '';
   profileImage: File | null = null;
@@ -145,7 +145,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       this.chosenCity = this.$user?.city || '';
       this.chosenStreet = this.$user?.street || '';
       this.chosenHouseNumber = this.$user?.houseNumber.toString() || '';
-      this.validCityCharcters = this.$user?.city?.length || 0;
+      this.validCityCharacters = this.$user?.city?.length || 0;
     });
     this.cityListService.getCityList().subscribe((cities) => {
       this.$cities = cities;
