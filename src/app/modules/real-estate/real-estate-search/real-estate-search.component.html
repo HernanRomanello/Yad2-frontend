@@ -1,528 +1,546 @@
-<div class="search-container">
-  <form (submit)="onSearch()">
-    <div class="Search-bar">
-      <div
-        id="subSearchQueryBox"
-        class="input-box invalid"
-        (click)="openSeveralSearches()"
-      >
-        @if(this.locationList.length > 0 && !this.hasSelectedStreet) {
-
+<span (click)="clickEvent($event)">
+  <div class="search-container">
+    <form (submit)="onSearch()">
+      <div class="Search-bar">
         <div
-          type="text"
-          id="subSearchQuery"
-          name="searchQuery"
-          placeholder="איזור, עיר שכונה או רחוב"
-          class="input-search fit-hieght"
-          autocomplete="off"
-          [ngStyle]="{
-            border:
-              this.hasSelectedStreet || this.hasSelectedLocation
-                ? '1px solid #828282'
-                : '1px solid #cccccc',
-            transform: this.searchSuggestionsIsOpen
-              ? 'translateY(16px) scaleY(1.05)'
-              : 'translateY(0%)'
-          }"
+          id="subSearchQueryBox"
+          class="input-box invalid"
+          (click)="openSeveralSearches()"
         >
-          <div class="box-wrapper">
-            <div
-              style="padding-right: 0.25rem"
-              [ngStyle]="{
-                transform: this.searchSuggestionsIsOpen
-                  ? 'translateY(-4px)'
-                  : 'translateY(0)'
-              }"
-            >
-              @if(!this.firstLocationIsArea){
-              <span>{{
-                this.addSpaceAfterComma(
-                  locationList[0].neighborhood + "," + locationList[0].city
-                )
-              }}</span>
-              } @else {
-              <span>{{
-                this.addSpaceAfterComma(
-                  locationList[0].neighborhood +
-                    "," +
-                    "אזור" +
-                    " " +
-                    locationList[0].city +
-                    " " +
-                    "והסביבה"
-                )
-              }}</span>
-              } @if (this.locationList.length >1 ) {
-              <span style="font-size: 16px; padding-right: 0.25rem"
-                >(+{{ this.locationList.length - 1 }})</span
-              >
+          @if(this.locationList.length > 0 && !this.hasSelectedStreet) {
 
+          <div
+            type="text"
+            id="subSearchQuery"
+            name="searchQuery"
+            placeholder="איזור, עיר שכונה או רחוב"
+            class="input-search fit-hieght"
+            autocomplete="off"
+            [ngStyle]="{
+              border:
+                this.hasSelectedStreet || this.hasSelectedLocation
+                  ? '1px solid #828282'
+                  : '1px solid #cccccc',
+              transform: this.searchSuggestionsIsOpen
+                ? 'translateY(16px) scaleY(1.05)'
+                : 'translateY(0%)'
+            }"
+          >
+            <div class="box-wrapper">
+              <div
+                style="padding-right: 0.25rem"
+                [ngStyle]="{
+                  transform: this.searchSuggestionsIsOpen
+                    ? 'translateY(-4px)'
+                    : 'translateY(0)'
+                }"
+              >
+                @if(!this.firstLocationIsArea){
+                <span>{{
+                  this.addSpaceAfterComma(
+                    locationList[0].neighborhood + "," + locationList[0].city
+                  )
+                }}</span>
+                } @else {
+                <span>{{
+                  this.addSpaceAfterComma(
+                    locationList[0].neighborhood +
+                      "," +
+                      "אזור" +
+                      " " +
+                      locationList[0].city +
+                      " " +
+                      "והסביבה"
+                  )
+                }}</span>
+                } @if (this.locationList.length >1 ) {
+                <span style="font-size: 16px; padding-right: 0.25rem"
+                  >(+{{ this.locationList.length - 1 }})</span
+                >
+
+                }
+              </div>
+              @if(this.searchSuggestionsIsOpen){
+              <input
+                #subSearchInputLocation
+                autocomplete="off"
+                class="sub-search"
+                type="text"
+                name="searchQuery"
+                placeholder="הוספת מיקום"
+                (input)="
+                  subSearchInputLocation.value.length > 1
+                    ? this.showSuggestionBox(subSearchInputLocation.value)
+                    : '';
+                  subSearchInputLocation.value.length > 1
+                    ? (this.hasSelectedLocation = false)
+                    : (this.hasSelectedLocation = true)
+                "
+                (blur)="subSearchInputLocation.value = ''"
+              />
               }
             </div>
-            @if(this.searchSuggestionsIsOpen){
-            <input
-              #subSearchInputLocation
-              autocomplete="off"
-              class="sub-search"
-              type="text"
-              name="searchQuery"
-              placeholder="הוספת מיקום"
-              (input)="
-                subSearchInputLocation.value.length > 1
-                  ? this.showSuggestionBox(subSearchInputLocation.value)
-                  : '';
-                subSearchInputLocation.value.length > 1
-                  ? (this.hasSelectedLocation = false)
-                  : (this.hasSelectedLocation = true)
-              "
-              (blur)="subSearchInputLocation.value = ''"
-            />
-            }
           </div>
-        </div>
 
-        } @else{
-        <input
-          type="text"
-          name="searchQuery"
-          id="searchQuery"
-          placeholder="איזור, עיר שכונה או רחוב"
-          class="input-search"
-          #searchInputLocation
-          autocomplete="off"
-          [ngStyle]="{
-            border:
-              this.hasSelectedStreet || this.hasSelectedLocation
-                ? '1px solid #828282'
-                : '1px solid #cccccc'
-          }"
-          [value]="this.searchInput"
-          (focus)="this.searchSuggestionsIsOpen = true"
-          (input)="
-            this.displayHistory(searchInputLocation.value.length);
-            searchInputLocation.focus();
-            searchInputLocation.value.length > 1
-              ? this.showSuggestionBox(searchInputLocation.value)
-              : ''
-          "
-        />
+          } @else{
+          <input
+            type="text"
+            name="searchQuery"
+            id="searchQuery"
+            placeholder="איזור, עיר שכונה או רחוב"
+            class="input-search"
+            #searchInputLocation
+            autocomplete="off"
+            [ngStyle]="{
+              border:
+                this.hasSelectedStreet || this.hasSelectedLocation
+                  ? '1px solid #828282'
+                  : '1px solid #cccccc'
+            }"
+            [value]="this.searchInput"
+            (focus)="this.searchSuggestionsIsOpen = true"
+            (input)="
+              this.displayHistory(searchInputLocation.value.length);
+              searchInputLocation.focus();
+              searchInputLocation.value.length > 1
+                ? this.showSuggestionBox(searchInputLocation.value)
+                : ''
+            "
+          />
 
-        } @if(this.searchSuggestionsIsOpen ){
-        <div
-          class="search-suggestions"
-          [ngStyle]="{
-            transform:
-              this.locationList.length > 0
-                ? 'translateY(9px)'
-                : 'translateY(0%)'
-          }"
-        >
-          @if(this.locationList.length > 0 ){
-          <div class="instruction-title">ניתן לבחור עד 5 מיקומים</div>
-          <div class="locations">
-            @for (location of this.locationList; track $index) {
-            <div class="location-list">
-              <span>{{
-                this.reduceTextLength(
-                  location.neighborhood + "," + location.city,
-                  14
-                )
-              }}</span>
+          } @if(this.searchSuggestionsIsOpen ){
+          <div
+            class="search-suggestions"
+            [ngStyle]="{
+              transform:
+                this.locationList.length > 0
+                  ? 'translateY(9px)'
+                  : 'translateY(0%)'
+            }"
+          >
+            @if(this.locationList.length > 0 ){
+            <div class="instruction-title">ניתן לבחור עד 5 מיקומים</div>
+            <div class="locations">
+              @for (location of this.locationList; track $index) {
+              <div class="location-list">
+                <span>{{
+                  this.reduceTextLength(
+                    location.neighborhood + "," + location.city,
+                    14
+                  )
+                }}</span>
 
+                <img
+                  (click)="
+                    removeSelectedLocation(location.city, location.neighborhood)
+                  "
+                  class="remove-btn"
+                  src="assets/images/close-svgrepo-com.svg"
+                  alt=""
+                />
+              </div>
+              }
+            </div>
+            } @if( !this.hasSelectedStreet && !this.hasSelectedLocation &&
+            !(this.locationList.length > 0)){
+            <div
+              id="locationSuggestion"
+              class="search-suggestion"
+              [ngStyle]="{ height: '54px', color: '#ff7100' }"
+            >
               <img
-                (click)="
-                  removeSelectedLocation(location.city, location.neighborhood)
-                "
-                class="remove-btn"
-                src="assets/images/close-svgrepo-com.svg"
+                class="location-arrow-img"
+                src="assets/images/location-arrow.svg"
                 alt=""
               />
+              <span class="valid"> קרוב אליי </span>
+            </div>
+
+            } @if(this.historyLocationSearchIsOpen && !this.hasSelectedStreet &&
+            !this.hasSelectedLocation && !this.hasSelectedLocation){
+            <div class="title-locationSuggestion">חיפושים אחרונים</div>
+
+            <div
+              *ngFor="
+                let suggestion of historyLocationSearchSuggestions;
+                let index = index
+              "
+              class="search-suggestion"
+              [ngStyle]="{
+                height: '48px',
+                'border-bottom-left-radius':
+                  calculateArrayLength(this.historyLocationSearchSuggestions) ==
+                  index + 1
+                    ? '12px'
+                    : '0px',
+                'border-bottom-right-radius':
+                  calculateArrayLength(this.historyLocationSearchSuggestions) ==
+                  index + 1
+                    ? '12px'
+                    : '0px'
+              }"
+              (mouseenter)="this.lastHoverSearchHistory = index"
+              [ngClass]="
+                this.lastHoverSearchHistory === index
+                  ? 'gray-color search-suggestion'
+                  : 'search-suggestion'
+              "
+            >
+              <img
+                class="history-img valid"
+                src="assets/images/history-svgrepo-com.svg"
+                alt=""
+              />
+              <span class="suggestion-location valid"> {{ suggestion }}</span>
+            </div>
+            } @else if( !this.hasSelectedStreet && !this.hasSelectedLocation){
+            @if(this.neighborhoodSuggestion.length > 0 ){
+            <div style="height: 34.9px" class="title-locationSuggestions">
+              שכונה
+            </div>
+            <div
+              (click)="
+                this.searchInput = item.Street_Name + ', ' + item.City_Name;
+                this.addLocationToSearchQuery(
+                  item.City_Name,
+                  item.Street_Name,
+                  false
+                )
+              "
+              id="neighborhood-option"
+              class="title-locationSuggestions option"
+              *ngFor="let item of this.neighborhoodSuggestion; let i = index"
+              style="height: 42.3906px"
+            >
+              <span class="valid"> {{ item.Street_Name }}</span>
+              <span class="comma valid"> ,</span><br />
+              <span class="valid">{{ item.City_Name }}</span>
+            </div>
+
+            } @if( this.citySuggestion.length > 0 && !this.hasSelectedStreet &&
+            !this.hasSelectedLocation){
+            <div style="height: 34.9px" class="title-locationSuggestions">
+              עיר
+            </div>
+
+            <div
+              id="city-option"
+              class="title-locationSuggestions option"
+              (click)="
+                this.searchInput = item.city_name_he;
+                this.addLocationToSearchQuery(item.city_name_he, '', false)
+              "
+              *ngFor="let item of this.citySuggestion"
+              style="height: 42.3906px"
+            >
+              <span class="valid">{{ item.city_name_he }}</span>
+            </div>
+
+            } @if( this.areaSuggestion.length > 0 ){
+            <div style="height: 34.9px" class="title-locationSuggestions">
+              אזור
+            </div>
+
+            <div
+              id="area-option"
+              class="title-locationSuggestions option"
+              (click)="
+                this.addLocationToSearchQuery(item.city_name_he, '', true)
+              "
+              *ngFor="let item of this.areaSuggestion"
+              style="height: 42.3906px"
+            >
+              <span class="word-space valid">אזור</span>
+              <span class="word-space valid">{{ item.city_name_he }}</span>
+              <span class="valid">והסביבה</span>
+            </div>
+            } @if( this.streetSuggestion.length > 0 && !this.hasSelectedStreet
+            && !this.hasSelectedLocation){
+            <div style="height: 34.9px" class="title-locationSuggestions">
+              רחוב
+            </div>
+
+            <div
+              (click)="
+                this.hasSelectedStreet = true;
+                this.setSearchValues(item.City_Name, item.Street_Name);
+                this.searchInput = item.Street_Name + ', ' + item.City_Name
+              "
+              id="street-option"
+              class="title-locationSuggestions option"
+              *ngFor="let item of this.streetSuggestion; let index = index"
+              [ngStyle]="{
+                height: '42.3906px',
+                'border-bottom-left-radius':
+                  8 ===
+                  index +
+                    this.calculateArrayLength(this.citySuggestion) +
+                    this.calculateArrayLength(this.neighborhoodSuggestion) +
+                    this.calculateArrayLength(this.areaSuggestion)
+                    ? '12px'
+                    : '0px',
+                'border-bottom-right-radius':
+                  8 ===
+                  index +
+                    this.calculateArrayLength(this.citySuggestion) +
+                    this.calculateArrayLength(this.neighborhoodSuggestion) +
+                    this.calculateArrayLength(this.areaSuggestion)
+                    ? '12px'
+                    : '0px'
+              }"
+            >
+              <span class="valid"> {{ item.Street_Name }}</span>
+              <span class="comma valid"> ,</span><br />
+              <span class="valid">{{ item.City_Name }}</span>
+            </div>
+            } } @if(this.hasSelectedStreet || this.hasSelectedLocation) {
+            @if(this.hasSelectedStreet ){
+
+            <div style="height: 34.9px" class="title-locationSuggestions">
+              רחוב
+            </div>
+            <div
+              id="selected-street"
+              class="title-locationSuggestions option"
+              (click)="resetSearchInput()"
+            >
+              <span class="valid">
+                {{ this.selectedStreetAndCitySearchTexts.street }}</span
+              >
+              <span class="comma valid"> ,</span><br />
+              <span class="valid"
+                >{{ this.selectedStreetAndCitySearchTexts.city }}
+              </span>
+            </div>
+
+            }
+
+            <div class="filters-btns">
+              <div
+                (click)="resetSearchInput(); this.searchInput = ''"
+                class="reset-btn"
+              >
+                איפוס
+              </div>
+              <div
+                (click)="this.emitQuerySearch(false, this.hasSelectedStreet)"
+                class="select-btn"
+              >
+                אישור
+              </div>
             </div>
             }
           </div>
-          } @if( !this.hasSelectedStreet && !this.hasSelectedLocation &&
-          !(this.locationList.length > 0)){
-          <div
-            id="locationSuggestion"
-            class="search-suggestion"
-            [ngStyle]="{ height: '54px', color: '#ff7100' }"
-          >
-            <img
-              class="location-arrow-img"
-              src="assets/images/location-arrow.svg"
-              alt=""
-            />
-            <span class="valid"> קרוב אליי </span>
-          </div>
-
-          } @if(this.historyLocationSearchIsOpen && !this.hasSelectedStreet &&
-          !this.hasSelectedLocation && !this.hasSelectedLocation){
-          <div class="title-locationSuggestion">חיפושים אחרונים</div>
-
-          <div
-            *ngFor="
-              let suggestion of historyLocationSearchSuggestions;
-              let index = index
-            "
-            class="search-suggestion"
-            [ngStyle]="{
-              height: '48px',
-              'border-bottom-left-radius':
-                calculateArrayLength(this.historyLocationSearchSuggestions) ==
-                index + 1
-                  ? '12px'
-                  : '0px',
-              'border-bottom-right-radius':
-                calculateArrayLength(this.historyLocationSearchSuggestions) ==
-                index + 1
-                  ? '12px'
-                  : '0px'
-            }"
-            (mouseenter)="this.lastHoverSearchHistory = index"
-            [ngClass]="
-              this.lastHoverSearchHistory === index
-                ? 'gray-color search-suggestion'
-                : 'search-suggestion'
-            "
-          >
-            <img
-              class="history-img valid"
-              src="assets/images/history-svgrepo-com.svg"
-              alt=""
-            />
-            <span class="suggestion-location valid"> {{ suggestion }}</span>
-          </div>
-          } @else if( !this.hasSelectedStreet && !this.hasSelectedLocation){
-          @if(this.neighborhoodSuggestion.length > 0 ){
-          <div style="height: 34.9px" class="title-locationSuggestions">
-            שכונה
-          </div>
-          <div
-            (click)="
-              this.searchInput = item.Street_Name + ', ' + item.City_Name;
-              this.addLocationToSearchQuery(
-                item.City_Name,
-                item.Street_Name,
-                false
-              )
-            "
-            id="neighborhood-option"
-            class="title-locationSuggestions option"
-            *ngFor="let item of this.neighborhoodSuggestion; let i = index"
-            style="height: 42.3906px"
-          >
-            <span class="valid"> {{ item.Street_Name }}</span>
-            <span class="comma valid"> ,</span><br />
-            <span class="valid">{{ item.City_Name }}</span>
-          </div>
-
-          } @if( this.citySuggestion.length > 0 && !this.hasSelectedStreet &&
-          !this.hasSelectedLocation){
-          <div style="height: 34.9px" class="title-locationSuggestions">
-            עיר
-          </div>
-
-          <div
-            id="city-option"
-            class="title-locationSuggestions option"
-            (click)="
-              this.searchInput = item.city_name_he;
-              this.addLocationToSearchQuery(item.city_name_he, '', false)
-            "
-            *ngFor="let item of this.citySuggestion"
-            style="height: 42.3906px"
-          >
-            <span class="valid">{{ item.city_name_he }}</span>
-          </div>
-
-          } @if( this.areaSuggestion.length > 0 ){
-          <div style="height: 34.9px" class="title-locationSuggestions">
-            אזור
-          </div>
-
-          <div
-            id="area-option"
-            class="title-locationSuggestions option"
-            (click)="this.addLocationToSearchQuery(item.city_name_he, '', true)"
-            *ngFor="let item of this.areaSuggestion"
-            style="height: 42.3906px"
-          >
-            <span class="word-space valid">אזור</span>
-            <span class="word-space valid">{{ item.city_name_he }}</span>
-            <span class="valid">והסביבה</span>
-          </div>
-          } @if( this.streetSuggestion.length > 0 && !this.hasSelectedStreet &&
-          !this.hasSelectedLocation){
-          <div style="height: 34.9px" class="title-locationSuggestions">
-            רחוב
-          </div>
-
-          <div
-            (click)="
-              this.hasSelectedStreet = true;
-              this.setSearchValues(item.City_Name, item.Street_Name);
-              this.searchInput = item.Street_Name + ', ' + item.City_Name
-            "
-            id="street-option"
-            class="title-locationSuggestions option"
-            *ngFor="let item of this.streetSuggestion; let index = index"
-            [ngStyle]="{
-              height: '42.3906px',
-              'border-bottom-left-radius':
-                8 ===
-                index +
-                  this.calculateArrayLength(this.citySuggestion) +
-                  this.calculateArrayLength(this.neighborhoodSuggestion) +
-                  this.calculateArrayLength(this.areaSuggestion)
-                  ? '12px'
-                  : '0px',
-              'border-bottom-right-radius':
-                8 ===
-                index +
-                  this.calculateArrayLength(this.citySuggestion) +
-                  this.calculateArrayLength(this.neighborhoodSuggestion) +
-                  this.calculateArrayLength(this.areaSuggestion)
-                  ? '12px'
-                  : '0px'
-            }"
-          >
-            <span class="valid"> {{ item.Street_Name }}</span>
-            <span class="comma valid"> ,</span><br />
-            <span class="valid">{{ item.City_Name }}</span>
-          </div>
-          } } @if(this.hasSelectedStreet || this.hasSelectedLocation) {
-          @if(this.hasSelectedStreet ){
-
-          <div style="height: 34.9px" class="title-locationSuggestions">
-            רחוב
-          </div>
-          <div
-            id="selected-street"
-            class="title-locationSuggestions option"
-            (click)="resetSearchInput()"
-          >
-            <span class="valid">
-              {{ this.selectedStreetAndCitySearchTexts.street }}</span
-            >
-            <span class="comma valid"> ,</span><br />
-            <span class="valid"
-              >{{ this.selectedStreetAndCitySearchTexts.city }}
-            </span>
-          </div>
-
-          }
-
-          <div class="filters-btns">
-            <div
-              (click)="resetSearchInput(); this.searchInput = ''"
-              class="reset-btn"
-            >
-              איפוס
-            </div>
-            <div
-              (click)="this.emitQuerySearch(false, this.hasSelectedStreet)"
-              class="select-btn"
-            >
-              אישור
-            </div>
-          </div>
           }
         </div>
-        }
-      </div>
 
-      <div class="menu-container" #tradeTypeMenu>
-        <button
-          class="search-button hover-btn-background"
-          type="button"
-          (click)="toggleMenu('tradeTypeMenu')"
-        >
-          {{ advertisementTypebuttonText }}
-          <i id="tradeTypeArrow" class="material-icons">keyboard_arrow_down</i>
-        </button>
-        <div id="tradeTypeMenu" class="menu hidden dropdown-menu">
-          <button class="type-btn" type="button" (click)="applyFilter('מכירה')">
-            <span [ngClass]="this.searchService.forSale() ? 'font500' : ''">
-              מכירה
-            </span>
-            <span>
-              @if(this.searchService.forSale()){
+        <div class="menu-container" #tradeTypeMenu>
+          <button
+            class="search-button hover-btn-background"
+            type="button"
+            (click)="toggleMenu('tradeTypeMenu')"
+          >
+            {{ advertisementTypebuttonText }}
+            <i id="tradeTypeArrow" class="material-icons"
+              >keyboard_arrow_down</i
+            >
+          </button>
+          <div id="tradeTypeMenu" class="menu hidden dropdown-menu">
+            <button
+              class="type-btn"
+              type="button"
+              (click)="applyFilter('מכירה')"
+            >
+              <span [ngClass]="this.searchService.forSale() ? 'font500' : ''">
+                מכירה
+              </span>
+              <span>
+                @if(this.searchService.forSale()){
+                <img
+                  class="svg-icon"
+                  src="assets/images/check-orange.svg"
+                  alt="check"
+                />
+                }
+              </span>
+            </button>
+            <button
+              class="type-btn"
+              type="button"
+              (click)="applyFilter('השכרה')"
+            >
+              <span [ngClass]="this.searchService.forRent() ? 'font500' : ''">
+                השכרה
+              </span>
+              @if(this.searchService.forRent()){
               <img
                 class="svg-icon"
                 src="assets/images/check-orange.svg"
                 alt="check"
               />
               }
-            </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-container" #propertyTypeMenu>
+          <button
+            [ngClass]="
+              propertyTypeFilterValue === 'סוג הנכס'
+                ? 'search-button hover-btn-background'
+                : 'search-button hover-btn-background search-button-selected'
+            "
+            type="button"
+            (click)="toggleMenu('propertyTypeMenu')"
+          >
+            {{ propertyTypeFilterValue }}
+
+            <i id="propertyTypeArrow" class="material-icons"
+              >keyboard_arrow_down</i
+            >
           </button>
-          <button class="type-btn" type="button" (click)="applyFilter('השכרה')">
-            <span [ngClass]="this.searchService.forRent() ? 'font500' : ''">
-              השכרה
-            </span>
-            @if(this.searchService.forRent()){
+          <div id="propertyTypeMenu" class="menu hidden">
+            <app-real-estate-property-type
+              (propertyTypeSelected)="onPropertyTypeSelected($event)"
+            ></app-real-estate-property-type>
+          </div>
+        </div>
+        <div class="menu-container" #priceSlider>
+          <button
+            #priceSliderButton
+            (click)="toggleMenu('priceSlider')"
+            class="search-button price-btn hover-btn-background"
+            [ngClass]="
+              priceRangeFilterValue === 'מחיר'
+                ? 'search-button hover-btn-background'
+                : 'search-button hover-btn-background search-button-selected'
+            "
+            type="button"
+          >
+            {{ priceRangeFilterValue }}
+            <i id="PriceRangeArrow" class="material-icons"
+              >keyboard_arrow_down</i
+            >
+          </button>
+          <div id="PriceRangeMenu" class="menu hidden">
+            <app-real-estate-price-slider
+              (selectedPriceRange)="onPriceRangeSelected($event)"
+            ></app-real-estate-price-slider>
+          </div>
+        </div>
+
+        <div class="menu-container" #roomsAmountMenu>
+          <button
+            (click)="toggleMenu('roomsAmountMenu')"
+            id="propertyRoomButton"
+            class="search-button hover-btn-background"
+            [ngClass]="
+              roomNumberFilterValue === 'חדרים'
+                ? 'search-button hover-btn-background'
+                : 'search-button hover-btn-background search-button-selected'
+            "
+            type="button"
+          >
+            {{ roomNumberFilterValue }}
+            <i id="propertyRoomArrow" class="material-icons"
+              >keyboard_arrow_down</i
+            >
+          </button>
+          <div id="propertyRoomMenu" class="menu hidden">
+            <app-real-estate-rooms-amount
+              id="roomsAmountFilter"
+              (propertyRoomSelected)="onRoomsAmountSelected($event)"
+            ></app-real-estate-rooms-amount>
+          </div>
+        </div>
+
+        <div class="menu-container" #additionalFiltersMenu>
+          <button
+            id="additionalFiltersButton"
+            (click)="toggleMenu('additionalFiltersMenu')"
+            class="search-button hover-btn-background"
+            type="button"
+          >
             <img
-              class="svg-icon"
-              src="assets/images/check-orange.svg"
-              alt="check"
+              id="additionalFiltersArrow"
+              src="assets/images/filter-alt-2-svgrepo-com.svg"
+              class="type-pic"
+              alt="additional-Filters-Arrow"
             />
-            }
+            <div class="space"></div>
+
+            סינונים נוספים
           </button>
+          <div id="additionalFiltersMenu" class="menu hidden">
+            <app-real-estate-additional-filters
+              (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
+            ></app-real-estate-additional-filters>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-container" #propertyTypeMenu>
         <button
-          [ngClass]="
-            propertyTypeFilterValue === 'סוג הנכס'
-              ? 'search-button hover-btn-background'
-              : 'search-button hover-btn-background search-button-selected'
-          "
-          type="button"
-          (click)="toggleMenu('propertyTypeMenu')"
+          (click)="searchService.addLastSearchToDB()"
+          class="search-button-orange"
+          type="submit"
         >
-          {{ propertyTypeFilterValue }}
-
-          <i id="propertyTypeArrow" class="material-icons"
-            >keyboard_arrow_down</i
-          >
+          חיפוש
         </button>
-        <div id="propertyTypeMenu" class="menu hidden">
-          <app-real-estate-property-type
-            (propertyTypeSelected)="onPropertyTypeSelected($event)"
-          ></app-real-estate-property-type>
-        </div>
-      </div>
-      <div class="menu-container" #priceSlider>
-        <button
-          #priceSliderButton
-          (click)="toggleMenu('priceSlider')"
-          class="search-button price-btn hover-btn-background"
-          [ngClass]="
-            priceRangeFilterValue === 'מחיר'
-              ? 'search-button hover-btn-background'
-              : 'search-button hover-btn-background search-button-selected'
-          "
-          type="button"
-        >
-          {{ priceRangeFilterValue }}
-          <i id="PriceRangeArrow" class="material-icons">keyboard_arrow_down</i>
+        <button class="search-button alert-btn" type="button">
+          <div class="">
+            <img class="bell-img" src="assets/images/bell.svg" alt="" />
+          </div>
+          <div>יצירת התראה</div>
         </button>
-        <div id="PriceRangeMenu" class="menu hidden">
-          <app-real-estate-price-slider
-            (selectedPriceRange)="onPriceRangeSelected($event)"
-          ></app-real-estate-price-slider>
-        </div>
       </div>
+    </form>
+  </div>
 
-      <div class="menu-container" #roomsAmountMenu>
-        <button
-          (click)="toggleMenu('roomsAmountMenu')"
-          id="propertyRoomButton"
-          class="search-button hover-btn-background"
-          [ngClass]="
-            roomNumberFilterValue === 'חדרים'
-              ? 'search-button hover-btn-background'
-              : 'search-button hover-btn-background search-button-selected'
-          "
-          type="button"
-        >
-          {{ roomNumberFilterValue }}
-          <i id="propertyRoomArrow" class="material-icons"
-            >keyboard_arrow_down</i
-          >
-        </button>
-        <div id="propertyRoomMenu" class="menu hidden">
-          <app-real-estate-rooms-amount
-            id="roomsAmountFilter"
-            (propertyRoomSelected)="onRoomsAmountSelected($event)"
-          ></app-real-estate-rooms-amount>
-        </div>
+  <div class="title">{{ title }}</div>
+
+  <div class="project-container">
+    <div class="project-title">
+      <div class="project-div left-side">
+        <img
+          class="arrow_left"
+          src="assets/images/left-arrow-svgrepo-com.svg"
+          alt="arrow_left"
+        />
+        <span style="font-weight: 400">לכל הפרויקטים</span>
       </div>
-
-      <div class="menu-container" #additionalFiltersMenu>
-        <button
-          id="additionalFiltersButton"
-          (click)="toggleMenu('additionalFiltersMenu')"
-          class="search-button hover-btn-background"
-          type="button"
-        >
-          <img
-            id="additionalFiltersArrow"
-            src="assets/images/filter-alt-2-svgrepo-com.svg"
-            class="type-pic"
-            alt="additional-Filters-Arrow"
-          />
-          <div class="space"></div>
-
-          סינונים נוספים
-        </button>
-        <div id="additionalFiltersMenu" class="menu hidden">
-          <app-real-estate-additional-filters
-            (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
-          ></app-real-estate-additional-filters>
-        </div>
+      <div class="project-div">
+        <span style="font-weight: 400"> פרויקטים חדשים </span>
+        <img class="logo-img" src="assets/images/logo-yad-blue.svg" alt="" />
       </div>
-
-      <button
-        (click)="searchService.addLastSearchToDB()"
-        class="search-button-orange"
-        type="submit"
-      >
-        חיפוש
-      </button>
-      <button class="search-button alert-btn" type="button">
-        <div class="">
-          <img class="bell-img" src="assets/images/bell.svg" alt="" />
-        </div>
-        <div>יצירת התראה</div>
-      </button>
-    </div>
-  </form>
-</div>
-
-<div class="title">{{ title }}</div>
-
-<div class="project-container">
-  <div class="project-title">
-    <div class="project-div left-side">
-      <img
-        class="arrow_left"
-        src="assets/images/left-arrow-svgrepo-com.svg"
-        alt="arrow_left"
-      />
-      <span style="font-weight: 400">לכל הפרויקטים</span>
-    </div>
-    <div class="project-div">
-      <span style="font-weight: 400"> פרויקטים חדשים </span>
-      <img class="logo-img" src="assets/images/logo-yad-blue.svg" alt="" />
     </div>
   </div>
-</div>
-<div class="adds">
-  <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
-    <div class="new-poject-text font500">פרויקט חדש</div>
-    <img [src]="ad.pic" alt="" />
-    <div class="content">
-      <div class="ad-title">{{ ad.title }}</div>
-      <div class="ad-city">{{ ad.city }}</div>
-      <div class="ad-project">{{ ad.program }}</div>
+  <div class="adds">
+    <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
+      <div class="new-poject-text font500">פרויקט חדש</div>
+      <img [src]="ad.pic" alt="" />
+      <div class="content">
+        <div class="ad-title">{{ ad.title }}</div>
+        <div class="ad-city">{{ ad.city }}</div>
+        <div class="ad-project">{{ ad.program }}</div>
+      </div>
+      <mat-icon
+        (click)="toggleFavoriteAd(i)"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="favorite_border"
+        [ngClass]="
+          clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
+        "
+      ></mat-icon>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="favorite"
+        [ngClass]="
+          clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
+        "
+      ></mat-icon>
     </div>
-    <mat-icon
-      (click)="toggleFavoriteAd(i)"
-      aria-hidden="false"
-      aria-label="Example home icon"
-      fontIcon="favorite_border"
-      [ngClass]="clickedIndex[i] === i ? 'like-button-selected' : 'like-button'"
-    ></mat-icon>
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Example home icon"
-      fontIcon="favorite"
-      [ngClass]="
-        clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
-      "
-    ></mat-icon>
   </div>
-</div>
 
-<app-real-estate-results></app-real-estate-results>
+  <app-real-estate-results></app-real-estate-results>
+</span>

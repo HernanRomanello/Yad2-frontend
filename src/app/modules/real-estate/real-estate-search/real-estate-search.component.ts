@@ -101,115 +101,109 @@ export class RealEstateSearchComponent
   constructor(
     private navigationService: NavigationService,
     private render: Renderer2
-  ) {
-    afterNextRender(() => {
-      document.body.addEventListener('click', (event) => {
-        const clickedElement = event.target as HTMLElement;
-        const propertyRoomArrow = document.getElementById('propertyRoomArrow');
-        if (this.roomsFilterIsOpen) {
-          this.render.addClass(propertyRoomArrow, 'arrow-up1');
-        } else {
-          this.render.removeClass(propertyRoomArrow, 'arrow-up1');
+  ) {}
+
+  clickEvent(event: Event) {
+    const clickedElement = event.target as HTMLElement;
+    const propertyRoomArrow = document.getElementById('propertyRoomArrow');
+    if (this.roomsFilterIsOpen) {
+      this.render.addClass(propertyRoomArrow, 'arrow-up1');
+    } else {
+      this.render.removeClass(propertyRoomArrow, 'arrow-up1');
+    }
+    if (clickedElement.id !== 'propertyRoomButton') {
+      this.render.removeClass(propertyRoomArrow, 'arrow-up1');
+    }
+
+    if (
+      !clickedElement.classList.contains('search-button') &&
+      !clickedElement.classList.contains('rooms-select') &&
+      !clickedElement.classList.contains('room-btn') &&
+      !clickedElement.classList.contains('p-slider-handle') &&
+      !clickedElement.classList.contains('slider') &&
+      !clickedElement.classList.contains('price') &&
+      !clickedElement.classList.contains('price-slider-bg') &&
+      !clickedElement.classList.contains('price-container') &&
+      !clickedElement.classList.contains('hyphen') &&
+      !clickedElement.classList.contains('property-type-header') &&
+      !clickedElement.classList.contains('property-type-select') &&
+      !clickedElement.classList.contains('property-type selected') &&
+      !clickedElement.classList.contains('property-type') &&
+      !clickedElement.classList.contains('material-icons')
+    ) {
+      if (
+        propertyRoomArrow &&
+        propertyRoomArrow.className.includes('arrow-up1')
+      ) {
+        const roomsAmountContainer =
+          document.getElementById('propertyRoomButton');
+        roomsAmountContainer?.click();
+      }
+
+      this.rotateAllArrows('');
+      this.hideAllMenus('');
+      if (!clickedElement.classList.contains('overlay')) {
+        this.navigationService.IsSearchFilterOpen.set(false);
+      }
+    }
+
+    if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
+      return;
+    } else if (this.priceSlider.nativeElement.contains(clickedElement)) {
+      if (this.selectedPriceRange[0] !== -1) {
+      }
+
+      return;
+    }
+
+    const isSliderHidden = this.priceSlider.nativeElement
+      .querySelector('.menu')
+      .classList.contains('hidden');
+
+    this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
+
+    if (!isSliderHidden && this.selectedPriceRange[0] !== -1) {
+      changeButtonInnerHtml(this.priceSliderButton, this.selectedPriceRange);
+    }
+
+    this.propertyTypeMenu.nativeElement
+      .querySelector('.menu')
+      .classList.add('hidden');
+    this.propertyTypeFilterValue = this.searchService.propertyTypeFilterValue();
+
+    this.priceSlider.nativeElement
+      .querySelector('.menu')
+      .classList.add('hidden');
+
+    this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
+
+    this.rotateAllArrows('tradeTypeArrow');
+    if (
+      !clickedElement.classList.contains('search-button') &&
+      !clickedElement.classList.contains('arrow-up')
+    ) {
+      this.tradeTypeMenu.nativeElement
+        .querySelector('.menu')
+        .classList.add('hidden');
+      const arrow =
+        this.tradeTypeMenu.nativeElement.querySelector('#tradeTypeArrow');
+      if (arrow) {
+        if (arrow.classList.contains('arrow-up')) {
+          arrow.classList.remove('arrow-up');
         }
-        if (clickedElement.id !== 'propertyRoomButton') {
-          this.render.removeClass(propertyRoomArrow, 'arrow-up1');
-        }
-
-        if (
-          !clickedElement.classList.contains('search-button') &&
-          !clickedElement.classList.contains('rooms-select') &&
-          !clickedElement.classList.contains('room-btn') &&
-          !clickedElement.classList.contains('p-slider-handle') &&
-          !clickedElement.classList.contains('slider') &&
-          !clickedElement.classList.contains('price') &&
-          !clickedElement.classList.contains('price-slider-bg') &&
-          !clickedElement.classList.contains('price-container') &&
-          !clickedElement.classList.contains('hyphen') &&
-          !clickedElement.classList.contains('property-type-header') &&
-          !clickedElement.classList.contains('property-type-select') &&
-          !clickedElement.classList.contains('property-type selected') &&
-          !clickedElement.classList.contains('property-type') &&
-          !clickedElement.classList.contains('material-icons')
-        ) {
-          if (
-            propertyRoomArrow &&
-            propertyRoomArrow.className.includes('arrow-up1')
-          ) {
-            const roomsAmountContainer =
-              document.getElementById('propertyRoomButton');
-            roomsAmountContainer?.click();
-          }
-
-          this.rotateAllArrows('');
-          this.hideAllMenus('');
-          if (!clickedElement.classList.contains('overlay')) {
-            this.navigationService.IsSearchFilterOpen.set(false);
-          }
-        }
-
-        if (this.propertyTypeMenu.nativeElement.contains(clickedElement)) {
-          return;
-        } else if (this.priceSlider.nativeElement.contains(clickedElement)) {
-          if (this.selectedPriceRange[0] !== -1) {
-          }
-
-          return;
-        }
-
-        const isSliderHidden = this.priceSlider.nativeElement
-          .querySelector('.menu')
-          .classList.contains('hidden');
-
-        this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
-
-        if (!isSliderHidden && this.selectedPriceRange[0] !== -1) {
-          changeButtonInnerHtml(
-            this.priceSliderButton,
-            this.selectedPriceRange
-          );
-        }
-
-        this.propertyTypeMenu.nativeElement
-          .querySelector('.menu')
-          .classList.add('hidden');
-        this.propertyTypeFilterValue =
-          this.searchService.propertyTypeFilterValue();
-
-        this.priceSlider.nativeElement
-          .querySelector('.menu')
-          .classList.add('hidden');
-
-        this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
-
-        this.rotateAllArrows('tradeTypeArrow');
-        if (
-          !clickedElement.classList.contains('search-button') &&
-          !clickedElement.classList.contains('arrow-up')
-        ) {
-          this.tradeTypeMenu.nativeElement
-            .querySelector('.menu')
-            .classList.add('hidden');
-          const arrow =
-            this.tradeTypeMenu.nativeElement.querySelector('#tradeTypeArrow');
-          if (arrow) {
-            if (arrow.classList.contains('arrow-up')) {
-              arrow.classList.remove('arrow-up');
-            }
-          }
-        }
-        function changeButtonInnerHtml(
-          priceSliderButton: ElementRef,
-          selectedPriceRange: [number, number]
-        ) {
-          priceSliderButton.nativeElement.innerText = `${formatPrice(
-            selectedPriceRange[1]
-          )} - ${formatPrice(selectedPriceRange[0])}
+      }
+    }
+    function changeButtonInnerHtml(
+      priceSliderButton: ElementRef,
+      selectedPriceRange: [number, number]
+    ) {
+      priceSliderButton.nativeElement.innerText = `${formatPrice(
+        selectedPriceRange[1]
+      )} - ${formatPrice(selectedPriceRange[0])}
           `;
-          priceSliderButton.nativeElement.innerHTML +=
-            '<i class="material-icons">keyboard_arrow_down</i>';
-        }
-      });
-    });
+      priceSliderButton.nativeElement.innerHTML +=
+        '<i class="material-icons">keyboard_arrow_down</i>';
+    }
   }
 
   toggleFavoriteAd(index: number): void {
