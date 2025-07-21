@@ -27,17 +27,31 @@
 
 .pics-container {
   gap: 10px;
+}
+.pics-container {
   margin: 20px;
+}
+.pics-container {
   margin: 2rem auto;
 }
 
 .main-pic {
   width: 796.688px;
-  background-size: cover;
-  background-position: center;
-  height: 440px;
-  border-top-right-radius: 12px;
+}
+.main-pic {
   border-bottom-right-radius: 12px;
+}
+.main-pic {
+  border-top-right-radius: 12px;
+}
+.main-pic {
+  height: 440px;
+}
+.main-pic {
+  background-position: center;
+}
+.main-pic {
+  background-size: cover;
 }
 
 .pics {
@@ -46,27 +60,56 @@
 
 .gap1 {
   gap: 0.25rem;
+}
+.gap1 {
   padding-right: 12px;
 }
 
 #information-icon {
   width: 18px;
+}
+#information-icon {
   height: 18px;
+}
+#information-icon {
   opacity: 0.8;
 }
 
 .contact-card {
   position: sticky !important;
+}
+
+.contact-card {
   top: 2rem !important;
+}
+.contact-card {
   background-color: #fff;
+}
+.contact-card {
   font-size: 14px;
-  line-height: 16.1px;
+}
+.contact-card {
   height: 214.797px;
+}
+.contact-card {
+  height: 214.797px;
+}
+.contact-card {
   width: 385px;
+}
+.contact-card {
   border: 1px solid #eee;
+}
+.contact-card {
   margin: 0;
+}
+.contact-card {
   padding: 30px;
+}
+.contact-card {
   border-radius: 12px;
+}
+.contact-card {
   box-shadow: rgba(0, 0, 0, 0.12) 0 4px 12px 0;
 }
 
@@ -78,14 +121,24 @@
 
 .white-btns {
   top: 19px;
+}
+.white-btns {
   right: 14px;
+}
+.white-btns {
   gap: 13px;
 }
 
 .white-btns div {
   background-color: #fff;
+}
+.white-btns div {
   height: 36px;
+}
+.white-btns div {
   width: 95.7969px;
+}
+.white-btns div {
   border-radius: 30px;
 }
 
@@ -95,9 +148,17 @@
 
 .small-pic {
   flex: 1;
+}
+.small-pic {
   background-size: cover;
+}
+.small-pic {
   background-position: center;
+}
+.small-pic {
   max-height: 215px;
+}
+.small-pic {
   width: 393.297px;
 }
 
@@ -115,15 +176,33 @@
 
 .call-button {
   line-height: 16.1px;
-  background-color: #10ad6f;
-  height: 48px;
-  width: 323px;
-  padding: 0 18px;
-  min-height: 36px;
-  border-radius: 30px;
-  gap: 0.25rem;
-  transform: translateY(35px);
+}
+.call-button {
   border: 0;
+}
+.call-button {
+  transform: translateY(35px);
+}
+.call-button {
+  gap: 0.25rem;
+}
+.call-button {
+  border-radius: 30px;
+}
+.call-button {
+  min-height: 36px;
+}
+.call-button {
+  padding: 0 18px;
+}
+.call-button {
+  width: 323px;
+}
+.call-button {
+  height: 48px;
+}
+.call-button {
+  background-color: #10ad6f;
 }
 
 .add-id,
