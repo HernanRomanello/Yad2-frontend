@@ -23,9 +23,7 @@ import { NavigationService } from '../../../services/navigation.service';
   templateUrl: './real-estate-search.component.html',
   styleUrl: './real-estate-search.component.css',
 })
-export class RealEstateSearchComponent
-  implements OnInit, OnDestroy, AfterViewInit
-{
+export class RealEstateSearchComponent implements OnInit, OnDestroy {
   clickedIndex: number[] = [-1, -1, -1];
   propertyTypeFilterValue: string = 'סוג הנכס';
   priceRangeFilterValue: string = 'מחיר';
@@ -309,26 +307,6 @@ export class RealEstateSearchComponent
     }
   }
 
-  ngAfterViewInit() {
-    document.body.addEventListener('click', (event) => {
-      const clickedElement = event.target as HTMLElement;
-      // if (
-      //   clickedElement.id !== 'propertyRoomButton' &&
-      //   clickedElement.id !== 'searchQuery'
-      // ) {
-      //   if (
-      //     !clickedElement.classList.contains('search-suggestion') &&
-      //     !clickedElement.classList.contains('title-locationSuggestions') &&
-      //     !clickedElement.classList.contains('comma') &&
-      //     !clickedElement.classList.contains('valid') &&
-      //     !clickedElement.classList.contains('title-locationSuggestion') &&
-      //     !clickedElement.classList.contains('sub-search')
-      //   ) {
-      //     this.searchSuggestionsIsOpen = false;
-      //   }
-      // }
-    });
-  }
   private cityListSubscription: any;
   private streetListSubscription: any;
 
