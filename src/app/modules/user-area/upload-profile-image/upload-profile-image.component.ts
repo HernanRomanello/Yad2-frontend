@@ -21,20 +21,19 @@ export class UploadProfileImageComponent implements OnInit {
 
   ngOnInit() {}
 
-  constructor() {
-    document.body.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
-      if (target && target.id !== 'edit-img') {
-        const backgroundColor = window.getComputedStyle(target).backgroundColor;
-        if (
-          backgroundColor !== 'rgba(0, 0, 0, 0)' &&
-          backgroundColor !== 'rgb(255, 255, 255)' &&
-          target.id !== 'delete-img'
-        ) {
-          this.closeModal();
-        }
+  clickEvent(event: Event) {
+    alert('rgttttt33333333rty');
+    const target = event.target as HTMLElement;
+    if (target && target.id !== 'edit-img') {
+      const backgroundColor = window.getComputedStyle(target).backgroundColor;
+      if (
+        backgroundColor !== 'rgba(0, 0, 0, 0)' &&
+        backgroundColor !== 'rgb(255, 255, 255)' &&
+        target.id !== 'delete-img'
+      ) {
+        this.closeModal();
       }
-    });
+    }
   }
 
   deleteProfileImage() {

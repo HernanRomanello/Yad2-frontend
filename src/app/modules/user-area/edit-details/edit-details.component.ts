@@ -101,10 +101,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     }
   }
 
-  toogleImageModal(event: any) {
-    this.isProfileImageModal = event;
-  }
-
   unloadSuccessLoader(): void {
     let width = 100;
     const interval = setInterval(() => {
