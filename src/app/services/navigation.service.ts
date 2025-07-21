@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 export class NavigationService {
   constructor(private router: Router) {}
 
+  nameOfComponentRendering = signal<string>('');
+
   IsMainHeaderISOpen = signal<boolean>(true);
   IsMainFooterISOpen = signal<boolean>(true);
   IsalternativeHeaderISOpen = signal<boolean>(false);
@@ -58,5 +60,24 @@ export class NavigationService {
     const url = this.router.serializeUrl(urlTree);
 
     window.open(url, '_blank');
+  }
+
+  setComponentNavigation(url: string) {
+    console.log(url);
+    if (url.includes('profile')) {
+      this.nameOfComponentRendering.set('profile');
+    } else if (url.includes('advertisement')) {
+      this.nameOfComponentRendering.set('advertisement');
+    } else if ((url = '/')) {
+      this.nameOfComponentRendering.set('Main Page');
+    } else if ((url = '/create-advertisement')) {
+      this.nameOfComponentRendering.set('create-advertisement');
+    } else if ((url = '/favorites')) {
+      this.nameOfComponentRendering.set('favorites');
+    } else if ((url = '/last-searches')) {
+      this.nameOfComponentRendering.set('last-searches');
+    } else if ((url = '/last-searches')) {
+      this.nameOfComponentRendering.set('last-searches');
+    }
   }
 }

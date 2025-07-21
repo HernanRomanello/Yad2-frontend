@@ -34,6 +34,7 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
           .subscribe((response) => {
             this.advertisement = response;
             const date = new Date(this.advertisement.entryDate);
+            console.log(this.advertisement.entryDate);
             const day = date.getDate().toString().padStart(2, '0');
             const month = (date.getMonth() + 1).toString().padStart(2, '0');
             const year = date.getFullYear().toString().slice(-2);
