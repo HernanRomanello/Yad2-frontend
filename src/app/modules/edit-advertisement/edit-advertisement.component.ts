@@ -188,20 +188,21 @@ export class EditAdvertisementComponent
     this.addScore = adRank;
   }
 
-  constructor(render: Renderer2, private router: Router) {
-    document.body.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
-      const clickOutsdieDropdown =
-        !target.classList.contains('dropdown-btn') ||
-        target.classList.contains('input-container') ||
-        target.classList.contains('advertisement') ||
-        target.classList.contains('space-block') ||
-        target.classList.contains('edit-container');
+  clickEvent(event: Event) {
+    const target = event?.target as HTMLElement;
+    const clickOutsideDropdown =
+      !target.classList.contains('dropdown-btn') ||
+      target.classList.contains('input-container') ||
+      target.classList.contains('advertisement') ||
+      target.classList.contains('space-block') ||
+      target.classList.contains('edit-container');
 
-      if (clickOutsdieDropdown === true) {
-        this.closeAllDropdowns();
-      }
-    });
+    if (clickOutsideDropdown === true) {
+      this.closeAllDropdowns();
+    }
+  }
+
+  constructor(render: Renderer2, private router: Router) {
     document.addEventListener('keyup', (event) => {
       const target = event.target as HTMLElement;
       this.formatNumbersInTheForm(target.id);
