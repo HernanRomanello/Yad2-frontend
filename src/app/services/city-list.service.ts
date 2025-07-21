@@ -6,17 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CityListService {
-  private fileUrl = 'assets/json/cityLists.txt';
-  private fileUrlgovAPIUrl = 'assets/json/StreetLists.txt';
+  private fileUrlgovAPIUrlCity = 'assets/json/cityLists.txt';
+  private fileUrlgovAPIUrlStreet = 'assets/json/StreetLists.txt';
 
   constructor(private http: HttpClient) {}
 
   getCityList(): Observable<any> {
-    return this.http.get<City[]>(this.fileUrl, { responseType: 'json' });
+    return this.http.get<City[]>(this.fileUrlgovAPIUrlCity, {
+      responseType: 'json',
+    });
   }
 
   getStreetList(): Observable<any> {
-    return this.http.get<Street[]>(this.fileUrlgovAPIUrl, {
+    return this.http.get<Street[]>(this.fileUrlgovAPIUrlStreet, {
       responseType: 'json',
     });
   }

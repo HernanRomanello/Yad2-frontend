@@ -9,8 +9,8 @@ export class PhoneNumberFormatPipe implements PipeTransform {
 
     if (isNumber && phoneNumber.length > 3) {
       const firstThree = phoneNumber.slice(0, 3);
-      const secondThree = phoneNumber.slice(3, 10);
-      phoneNumber = firstThree + '-' + secondThree;
+      const restNumbers = phoneNumber.slice(3, 10);
+      phoneNumber = firstThree + '-' + restNumbers;
     }
 
     return phoneNumber;

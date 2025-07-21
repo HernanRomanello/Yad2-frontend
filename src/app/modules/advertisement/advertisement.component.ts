@@ -18,7 +18,7 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
-    public authSerivce: AuthService,
+    public authService: AuthService,
     private navigationService: NavigationService
   ) {
     this.route.params.subscribe((params) => {
@@ -63,7 +63,7 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
   }
 
   isFavorite(advertisementId: number): boolean {
-    return this.authSerivce.UserFavoriteAdvertisements.value.some(
+    return this.authService.UserFavoriteAdvertisements.value.some(
       (ad) => ad.id === advertisementId
     );
   }

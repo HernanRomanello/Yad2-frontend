@@ -166,7 +166,6 @@ export class RealEstateResultsComponent implements OnInit {
             (ad) => ad.tradeType === tradeTypeFilter
           );
         }
-        ///hernan
         const filters = this.searchService.getFilters();
         let booleanFilters: { [key: string]: FilterValue } = Object.keys(
           filters
@@ -307,10 +306,7 @@ export class RealEstateResultsComponent implements OnInit {
         if (filters.petsAllowed) {
           ads = ads.filter((ad) => ad.forRoommates === filters.forRoommates);
         }
-        // ads = ads.filter((ad) => {
-        //   ad.totalSquareMeters >= filters.aptSizeRange[0] &&
-        //     ad.totalSquareMeters <= filters.aptSizeRange[1];
-        // });
+
         return ads;
       }
     )
