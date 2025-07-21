@@ -204,6 +204,22 @@ export class RealEstateSearchComponent
       priceSliderButton.nativeElement.innerHTML +=
         '<i class="material-icons">keyboard_arrow_down</i>';
     }
+
+    if (
+      clickedElement.id !== 'propertyRoomButton' &&
+      clickedElement.id !== 'searchQuery'
+    ) {
+      if (
+        !clickedElement.classList.contains('search-suggestion') &&
+        !clickedElement.classList.contains('title-locationSuggestions') &&
+        !clickedElement.classList.contains('comma') &&
+        !clickedElement.classList.contains('valid') &&
+        !clickedElement.classList.contains('title-locationSuggestion') &&
+        !clickedElement.classList.contains('sub-search')
+      ) {
+        this.searchSuggestionsIsOpen = false;
+      }
+    }
   }
 
   toggleFavoriteAd(index: number): void {
@@ -296,21 +312,21 @@ export class RealEstateSearchComponent
   ngAfterViewInit() {
     document.body.addEventListener('click', (event) => {
       const clickedElement = event.target as HTMLElement;
-      if (
-        clickedElement.id !== 'propertyRoomButton' &&
-        clickedElement.id !== 'searchQuery'
-      ) {
-        if (
-          !clickedElement.classList.contains('search-suggestion') &&
-          !clickedElement.classList.contains('title-locationSuggestions') &&
-          !clickedElement.classList.contains('comma') &&
-          !clickedElement.classList.contains('valid') &&
-          !clickedElement.classList.contains('title-locationSuggestion') &&
-          !clickedElement.classList.contains('sub-search')
-        ) {
-          this.searchSuggestionsIsOpen = false;
-        }
-      }
+      // if (
+      //   clickedElement.id !== 'propertyRoomButton' &&
+      //   clickedElement.id !== 'searchQuery'
+      // ) {
+      //   if (
+      //     !clickedElement.classList.contains('search-suggestion') &&
+      //     !clickedElement.classList.contains('title-locationSuggestions') &&
+      //     !clickedElement.classList.contains('comma') &&
+      //     !clickedElement.classList.contains('valid') &&
+      //     !clickedElement.classList.contains('title-locationSuggestion') &&
+      //     !clickedElement.classList.contains('sub-search')
+      //   ) {
+      //     this.searchSuggestionsIsOpen = false;
+      //   }
+      // }
     });
   }
   private cityListSubscription: any;
