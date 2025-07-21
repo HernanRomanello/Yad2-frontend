@@ -10,7 +10,7 @@ export class UploadProfileImageComponent implements OnInit {
   @Output() imageChange = new EventEmitter<File | null>();
   @Output() imageUrl = new EventEmitter<string>();
   @Input() DeleteImageModal: boolean = false;
-  hasuploadedImage = false;
+  hasUploadedImage = false;
   profileImageUrl: string = '';
   imageFile: File | null = null;
   imageFileUrl: string = '';
@@ -38,7 +38,7 @@ export class UploadProfileImageComponent implements OnInit {
   deleteProfileImage() {
     this.imageChange.emit(null);
     this.imageUrl.emit('');
-    this.hasuploadedImage = false;
+    this.hasUploadedImage = false;
     this.profileImageUrl = '';
     this.imageFileUrl = '';
   }
@@ -56,7 +56,7 @@ export class UploadProfileImageComponent implements OnInit {
     this.imageFile = image;
     if (image) {
       this.profileImageUrl = URL.createObjectURL(image);
-      this.hasuploadedImage = true;
+      this.hasUploadedImage = true;
     }
   }
 
@@ -65,7 +65,7 @@ export class UploadProfileImageComponent implements OnInit {
       const imageURL = URL.createObjectURL(image);
       this.imageChange.emit(image);
       this.imageUrl.emit(imageURL);
-      this.hasuploadedImage = true;
+      this.hasUploadedImage = true;
       this.profileImageUrl = imageURL;
     }
   }
