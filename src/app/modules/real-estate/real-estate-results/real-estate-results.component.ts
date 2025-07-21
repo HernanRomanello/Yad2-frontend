@@ -46,22 +46,22 @@ export class RealEstateResultsComponent implements OnInit {
   constructor(
     private render: Renderer2,
     public navigationService: NavigationService
-  ) {
-    document.body.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
+  ) {}
 
-      if (
-        !target.classList.contains('result') &&
-        !target.classList.contains('date') &&
-        !target.classList.contains('material-icons') &&
-        !target.classList.contains('search-button')
-      ) {
-        if (this.isSortDropdownOpen.valueOf() === true) {
-          this.SortDropdownOpen();
-        }
+  clickEvent(event: Event) {
+    const target = event.target as HTMLElement;
+    if (
+      !target.classList.contains('result') &&
+      !target.classList.contains('date') &&
+      !target.classList.contains('material-icons') &&
+      !target.classList.contains('search-button')
+    ) {
+      if (this.isSortDropdownOpen.valueOf() === true) {
+        this.SortDropdownOpen();
       }
-    });
+    }
   }
+
   ngOnInit(): void {
     this.sortByFilter('תאריך');
   }

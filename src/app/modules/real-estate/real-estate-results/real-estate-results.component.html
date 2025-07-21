@@ -1,4 +1,8 @@
-<div class="page" *ngIf="this.$sortedApartments | async as apartments">
+<div
+  class="page"
+  (click)="clickEvent($event)"
+  *ngIf="this.$sortedApartments | async as apartments"
+>
   @if(apartments.length>0){
 
   <div class="sort-container z100">
