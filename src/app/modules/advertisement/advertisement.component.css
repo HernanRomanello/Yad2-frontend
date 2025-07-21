@@ -423,15 +423,27 @@ img {
 
 .add-info {
   justify-content: end !important;
+}
+.add-info {
   margin-top: -13.75rem;
+}
+.add-info {
   transform: translateX(3px);
+}
+.add-info {
   gap: 2.5rem !important;
 }
 
 .price {
   opacity: 0.95;
+}
+.price {
   margin-bottom: 10px !important;
+}
+.price {
   font-size: 32px;
+}
+.price {
   line-height: 36.8px;
 }
 
@@ -455,8 +467,14 @@ img {
 
 .map {
   color: #d86000;
+}
+.map {
   height: 24px;
+}
+.map {
   padding: 45px 4px 54px 0 !important;
+}
+.map {
   gap: 0.5rem;
 }
 
@@ -473,6 +491,8 @@ img {
 
 .size-details div {
   gap: 2px;
+}
+.size-details div {
   padding: 0 1.5rem;
 }
 
@@ -492,18 +512,28 @@ img {
 
 .add-title {
   font-size: 28px;
+}
+.add-title {
   letter-spacing: 0.25px;
+}
+.add-title {
   line-height: 32.2px;
 }
 
 .letter-spacing {
   letter-spacing: 0 !important;
+}
+.letter-spacing {
   word-spacing: 0 !important;
 }
 
 #phone-icon {
   width: 24px;
+}
+#phone-icon {
   height: 24px;
+}
+#phone-icon {
   transform: rotate(10deg) translateY(2px) scale(0.9);
 }
 
@@ -516,8 +546,10 @@ img {
 }
 
 #location-icon {
-  width: 18px;
   height: 18px;
+}
+#location-icon {
+  width: 18px;
 }
 
 .icons-div div {
@@ -543,14 +575,24 @@ img {
 
 .map {
   display: flex;
+}
+.map {
   align-items: center;
+}
+.map {
   justify-content: flex-end !important;
 }
 
 .additional-details-title {
   font-size: 20px;
+}
+.additional-details-title {
   font-weight: 550;
+}
+.additional-details-title {
   line-height: 23px;
+}
+.additional-details-title {
   margin: 0 0 20px !important;
 }
 
@@ -561,7 +603,11 @@ img {
 
 .description {
   line-height: 25px;
+}
+.description {
   max-width: 770px;
+}
+.description {
   text-wrap: wrap;
 }
 
@@ -571,6 +617,8 @@ img {
 
 .additional-details-table1 {
   display: flex;
+}
+.additional-details-table1 {
   flex-wrap: wrap;
 }
 
@@ -582,8 +630,14 @@ img {
 
 .additional-details-table2 {
   display: grid;
+}
+.additional-details-table2 {
   grid-template-columns: 1fr 1fr;
+}
+.additional-details-table2 {
   grid-template-rows: 1fr 1fr;
+}
+.additional-details-table2 {
   transform: translateX(-6px) !important;
 }
 
@@ -593,6 +647,8 @@ img {
 
 .additional-details-table1 {
   row-gap: 1rem;
+}
+.additional-details-table1 {
   margin: 0 !important;
 }
 
@@ -610,12 +666,18 @@ img {
 
 .add-block {
   display: flex;
+}
+.add-block {
   width: fit-content !important;
+}
+.add-block {
   margin: 0 !important;
 }
 
 .gray-text {
   width: 154px !important;
+}
+.gray-text {
   color: #999;
 }
 
