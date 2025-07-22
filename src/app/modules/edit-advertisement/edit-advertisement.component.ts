@@ -136,10 +136,10 @@ export class EditAdvertisementComponent
   navigationService = inject(NavigationService);
 
   ngOnDestroy(): void {
-    this.navigationService.isEditAdvertisementISOpen(false);
-    this.navigationService.isalternativeHeaderISOpen(false);
-    this.navigationService.isalternativeHeaderISOpen(false);
-    this.navigationService.IsHeaderAndFooterOpen(true, true);
+    // this.navigationService.isEditAdvertisementISOpen(false);
+    // this.navigationService.isalternativeHeaderISOpen(false);
+    // this.navigationService.isalternativeHeaderISOpen(false);
+    // this.navigationService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
     this.authService.user.unsubscribe();
   }
@@ -345,8 +345,8 @@ export class EditAdvertisementComponent
   }
 
   ngOnInit(): void {
-    this.navigationService.isalternativeHeaderISOpen(true);
-    this.navigationService.isEditAdvertisementISOpen(true);
+    // this.navigationService.isalternativeHeaderISOpen(true);
+    // this.navigationService.isEditAdvertisementISOpen(true);
 
     this.route.params.subscribe((params) => {
       if (params['id']) {

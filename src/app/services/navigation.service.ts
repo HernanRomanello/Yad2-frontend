@@ -11,8 +11,9 @@ export class NavigationService {
 
   IsMainHeaderISOpen = signal<boolean>(true);
   IsMainFooterISOpen = signal<boolean>(true);
-  IsalternativeHeaderISOpen = signal<boolean>(false);
+  IsAlternativeHeaderISOpen = signal<boolean>(false);
   IsEditAdvertisementISOpen = signal<boolean>(false);
+
   IsFavoriteAdvertisementOrLastsearchesIsOpen = signal<boolean>(false);
   IsUserAreaISOpen = signal<boolean>(false);
   IsSearchFilterOpen = signal<boolean>(false);
@@ -20,10 +21,10 @@ export class NavigationService {
   isCreateNewAdIsOpen = signal<boolean>(false);
   isUserImagesIsOpen = signal<boolean>(false);
 
-  IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
-    this.IsMainHeaderISOpen = signal(IsHeaderhide);
-    this.IsMainFooterISOpen = signal(IsFooterhide);
-  }
+  // IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
+  //   this.IsMainHeaderISOpen = signal(IsHeaderhide);
+  //   this.IsMainFooterISOpen = signal(IsFooterhide);
+  // }
 
   searchFilterOpenClose() {
     if (this.IsSearchFilterOpen().valueOf() === true) {
@@ -33,27 +34,27 @@ export class NavigationService {
     }
   }
 
-  isEditAdvertisementISOpen(IsOpen: boolean) {
-    this.IsEditAdvertisementISOpen = signal(IsOpen);
-  }
+  // isEditAdvertisementISOpen(IsOpen: boolean) {
+  //   this.IsEditAdvertisementISOpen = signal(IsOpen);
+  // }
 
-  isalternativeHeaderISOpen(IsOpen: boolean) {
-    this.IsalternativeHeaderISOpen = signal(IsOpen);
-  }
+  // isalternativeHeaderISOpen(IsOpen: boolean) {
+  //   this.IsAlternativeHeaderISOpen = signal(IsOpen);
+  // }
 
-  isUserAreaOpen(isOpen: boolean) {
-    this.IsUserAreaISOpen = signal(isOpen);
-    if (isOpen) {
-      this.IsFavoriteAdvertisementOrLastsearchesIsOpen = signal(false);
-    }
-  }
+  // isUserAreaOpen(isOpen: boolean) {
+  //   this.IsUserAreaISOpen = signal(isOpen);
+  //   if (isOpen) {
+  //     this.IsFavoriteAdvertisementOrLastsearchesIsOpen = signal(false);
+  //   }
+  // }
 
-  isFavoriteAdvertisementOrLastsearchesIsOpen(isOpen: boolean) {
-    this.IsFavoriteAdvertisementOrLastsearchesIsOpen = signal(isOpen);
-    if (isOpen) {
-      this.IsUserAreaISOpen = signal(false);
-    }
-  }
+  // isFavoriteAdvertisementOrLastsearchesIsOpen(isOpen: boolean) {
+  //   this.IsFavoriteAdvertisementOrLastsearchesIsOpen = signal(isOpen);
+  //   if (isOpen) {
+  //     this.IsUserAreaISOpen = signal(false);
+  //   }
+  // }
 
   navigateInNewWindow(route: string, queryParams?: any) {
     const urlTree = this.router.createUrlTree([route], { queryParams });
@@ -63,21 +64,30 @@ export class NavigationService {
   }
 
   setComponentNavigation(url: string) {
-    console.log(url);
     if (url.includes('profile')) {
       this.nameOfComponentRendering.set('profile');
+    } else if (url.includes('/favorites')) {
+      console.log(url);
+      this.nameOfComponentRendering.set('favorites');
+    } else if (url.includes('/last-searches')) {
+      this.nameOfComponentRendering.set('last-searches');
+    } else if (url.includes('edit-advertisement')) {
+      this.nameOfComponentRendering.set('edit-advertisement');
+    } else if (url.includes('/create-advertisement')) {
+      this.nameOfComponentRendering.set('create-advertisement');
     } else if (url.includes('advertisement')) {
       this.nameOfComponentRendering.set('advertisement');
-    } else if ((url = '/')) {
-      this.nameOfComponentRendering.set('Main Page');
-    } else if ((url = '/create-advertisement')) {
-      this.nameOfComponentRendering.set('create-advertisement');
-    } else if ((url = '/favorites')) {
-      this.nameOfComponentRendering.set('favorites');
-    } else if ((url = '/last-searches')) {
-      this.nameOfComponentRendering.set('last-searches');
-    } else if ((url = '/last-searches')) {
-      this.nameOfComponentRendering.set('last-searches');
+    } else if (url.includes('user-images')) {
+      this.nameOfComponentRendering.set('user-images');
+    } else if (url.includes('/')) {
+      this.nameOfComponentRendering.set('MainPage');
     }
+  }
+
+  isNotPages(pages: string[]): boolean {
+    return !pages.includes(this.nameOfComponentRendering());
+  }
+  isPages(pages: string[]): boolean {
+    return pages.includes(this.nameOfComponentRendering());
   }
 }

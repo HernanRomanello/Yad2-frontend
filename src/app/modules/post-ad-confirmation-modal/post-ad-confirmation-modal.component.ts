@@ -9,10 +9,10 @@ import { NavigationService } from '../../services/navigation.service';
 export class PostAdConfirmationModalComponent implements OnInit, OnDestroy {
   constructor(private navigationService: NavigationService) {}
   ngOnDestroy(): void {
-    this.navigationService.isalternativeHeaderISOpen(false);
+    // this.navigationService.isalternativeHeaderISOpen(false);
   }
 
   ngOnInit() {
-    this.navigationService.isalternativeHeaderISOpen(false);
+    // this.navigationService.isalternativeHeaderISOpen(false);
   }
 }

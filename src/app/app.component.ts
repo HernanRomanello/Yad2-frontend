@@ -19,9 +19,10 @@ export class AppComponent implements OnInit {
         filter((event): event is ResolveStart => event instanceof ResolveStart)
       )
       .subscribe((event) => {
-        const url = event.urlAfterRedirects || event.url;
-
-        this.navigationService.setComponentNavigation(url);
+        const { url } = event;
+        if (url) {
+          this.navigationService.setComponentNavigation(url);
+        }
       });
   }
   authService = inject(AuthService);

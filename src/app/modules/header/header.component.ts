@@ -112,6 +112,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   setLogoClassByComponent(): string {
+    // switch (navigationService.nameOfComponentRendering) {
+    //   case value:
+    //     break;
+
+    //   default:
+    //     break;
+    // }
+
     if (this.navigationService.IsMainHeaderISOpen()) {
       return 'logo-btn main-page';
     } else if (

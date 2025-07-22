@@ -1,11 +1,11 @@
-@if ( this.navigationService.IsMainHeaderISOpen() &&
-!this.navigationService.isUserImagesIsOpen() ) {
+@if ( this.navigationService.isNotPages(['user-images']) ) {
 <app-header></app-header>
 }
+
 <router-outlet></router-outlet>
-@if (this.navigationService.IsMainFooterISOpen()&&
-!this.navigationService.IsSearchFilterOpen()&&
-!this.navigationService.isUserImagesIsOpen() ) {
+@if ( !this.navigationService.IsSearchFilterOpen()&&
+this.navigationService.isNotPages(['user-images','profile','create-advertisement'])
+) {
 
 <app-footer></app-footer>
 }

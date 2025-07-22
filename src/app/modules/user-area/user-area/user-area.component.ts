@@ -19,17 +19,17 @@ export class UserAreaComponent implements OnInit, OnDestroy {
   UserEmailAddress: string = '';
   activeLink = 'user-advertisement';
   ngOnDestroy(): void {
-    this.navigationService.isUserAreaOpen(false);
-    this.navigationService.IsHeaderAndFooterOpen(false, false);
+    // this.navigationService.isUserAreaOpen(false);
+    // this.navigationService.IsHeaderAndFooterOpen(false, false);
     this.authService.SetPageRender('');
     window.scrollTo(0, 0);
     window.location.reload();
     this.authService.user.unsubscribe();
   }
   ngOnInit(): void {
-    this.navigationService.isUserAreaOpen(true);
-    this.navigationService.isalternativeHeaderISOpen(true);
-    this.navigationService.IsHeaderAndFooterOpen(true, false);
+    // this.navigationService.isUserAreaOpen(true);
+    // this.navigationService.isalternativeHeaderISOpen(true);
+    // this.navigationService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('user-area');
 
     this.authService.user.subscribe((user: UserModel | null | undefined) => {

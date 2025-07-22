@@ -2,12 +2,12 @@
   <div
     [ngStyle]="{
       'max-height':
-        (navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()) ? '327px' : '',
+        (navigationService.isPages(['favorites','last-searches'])) ? '327px' : '',
      
     }"
     class="footer-content"
   >
-    @if(!(navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen())){
+    @if((navigationService.isNotPages(['favorites','last-searches']))){
     <div class="app-explanation">
       <p>
         מחפשים דירות להשכרה? בלוח נכסים להשכרה של יד2 תמצאו בקלות ובמהירות. מאגר
@@ -93,7 +93,7 @@
     }
     <div
       [ngClass]="
-        navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+        navigationService.isPages(['favorites', 'last-searches'])
           ? 'logos-favorite-page'
           : 'logos'
       "
@@ -103,13 +103,13 @@
         <img class="google-img" src="assets/images/google-play.svg" alt="" />
       </div>
       <div class="circle"><img src="assets/images/facebook.svg" alt="" /></div>
-     
+
       <div class="circle youtube-img">
         <img src="assets/images/youtube.svg" alt="" />
       </div>
     </div>
 
-    @if(!(navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen())){
+    @if((navigationService.isNotPages(['favorites','last-searches']))){
     <footer class="AllRightAreSave">
       <div class="">
         כל הזכויות שמורות לחברת קורל תל מפעילות לוח יד2 - לוח מודעות: דרושים,
@@ -132,11 +132,11 @@
     <div
       [ngStyle]="{
         height:
-          (navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()) ? '2px' : '1px',
+          (navigationService.isPages(['favorites','last-searches'])) ? '2px' : '1px',
       
       }"
       [ngClass]="
-        navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+        navigationService.isPages(['favorites', 'last-searches'])
           ? 'line-favorite-page'
           : 'line'
       "
@@ -146,7 +146,7 @@
 
     <ul
       [ngClass]="
-        navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+        navigationService.isPages(['favorites', 'last-searches'])
           ? 'footer-links-favorite-page'
           : 'footer-links'
       "
@@ -160,7 +160,7 @@
       <li><a href="#">קריירה ביד2</a></li>
       <li><a href="#"> פרויקטי נדלניישן </a></li>
     </ul>
-    @if(!(navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen())){
+    @if((navigationService.isNotPages(['favorites','last-searches']))){
     <p class="version">גרסה:prod</p>
     }@else {
     <p class="version font16 margin-top">גירסה: pro</p>

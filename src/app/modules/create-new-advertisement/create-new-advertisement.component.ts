@@ -204,9 +204,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.navigationService.isalternativeHeaderISOpen(false);
-    this.navigationService.IsHeaderAndFooterOpen(true, true);
-    this.navigationService.isCreateNewAdIsOpen.set(false);
+    // this.navigationService.isalternativeHeaderISOpen(false);
+    // this.navigationService.IsHeaderAndFooterOpen(true, true);
+    // this.navigationService.isCreateNewAdIsOpen.set(false);
 
     this.authService.SetPageRender('');
   }
@@ -250,9 +250,9 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
-    this.navigationService.isalternativeHeaderISOpen(true);
-    this.navigationService.isCreateNewAdIsOpen.set(true);
-    this.navigationService.IsHeaderAndFooterOpen(true, false);
+    // this.navigationService.isalternativeHeaderISOpen(true);
+    // this.navigationService.isCreateNewAdIsOpen.set(true);
+    // this.navigationService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('create-new-advertisement');
     this.advertisementForm = this.formBuilder.group({
       city: ['', [Validators.required, this.isValidCityName.bind(this)]],

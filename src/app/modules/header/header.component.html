@@ -1,23 +1,23 @@
 <div class="shadow">
-  @if ((this.navigationService.IsMainHeaderISOpen())) {
-  @if(!(this.navigationService.IsalternativeHeaderISOpen())) {
+  @if((this.navigationService.isPages(['MainPage','last-searches','favorites']))){
+  @if(true) {
 
   <header
     [ngClass]="
-      this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+      this.navigationService.nameOfComponentRendering() === 'last-searches'
         ? 'header shadow none-border'
         : 'header '
     "
   >
     <div
       [ngClass]="
-        this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+        this.navigationService.isPages(['last-searches', 'favorites'])
           ? 'header shadow none-border'
           : 'header'
       "
     >
       <div class="left-side maegin-left">
-        @if(!(this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()))
+        @if((this.navigationService.isNotPages(['last-searches', 'favorites'])))
         {
         <div class="Post-Btn">
           <button class="light" routerLink="create-advertisement">
@@ -197,7 +197,7 @@
           </button>
         </div>
 
-        } @else {
+        } @if(this.navigationService.isPages(['favorites','last-searches'])) {
         <div class="Post-Btn-Favorite">
           <button class="green flex-center" routerLink="create-advertisement">
             <span> פרסום מודעה חדשה </span>
@@ -374,7 +374,7 @@
 
     <div
       [ngClass]="
-        this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+        this.navigationService.isPages(['last-searches', 'favorites'])
           ? 'header shadow none-border'
           : 'header'
       "
@@ -559,7 +559,7 @@
 
       <button
         [ngClass]="
-          navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
+          this.navigationService.isPages(['last-searches', 'favorites'])
             ? 'logo-btn-favorite-page'
             : 'logo-btn-main-page'
         "
@@ -569,15 +569,18 @@
       </button>
     </div>
   </header>
-  } } @if((this.navigationService.IsalternativeHeaderISOpen())) {
-  @if(!(this.navigationService.IsEditAdvertisementISOpen())) {
+  } }
+  @if((this.navigationService.isPages(['advertisement','edit-advertisement','profile','create-advertisement'])))
+  {
+  @if((this.navigationService.nameOfComponentRendering())!=="edit-advertisement")
+  {
 
   <div class="orange-line"></div>
   <header>
     <div [ngClass]="setHeaderHeight()">
       <div class="left-side2 flex-center2">
         <div class="gray-btns-container2">
-          @if(!(this.navigationService.IsUserAreaISOpen())){
+          @if((this.navigationService.nameOfComponentRendering()!=='profile')){
           <button
             class="gray-btn2 close-btn-container flex-center2"
             (click)="
@@ -602,7 +605,8 @@
         </div>
         <div
           [ngClass]="
-            this.navigationService.isCreateNewAdIsOpen()
+            this.navigationService.nameOfComponentRendering() ===
+            'create-advertisement'
               ? 'user-area2 flex-center2 hover-background'
               : 'user-area2 flex-center2 hover-background2'
           "
@@ -611,7 +615,8 @@
         >
           <div
             [ngClass]="
-              this.navigationService.isCreateNewAdIsOpen()
+              this.navigationService.nameOfComponentRendering() ===
+              'create-advertisement'
                 ? 'hover-background'
                 : 'hover-background2'
             "
@@ -619,25 +624,24 @@
             <div
               routerLink="/profile"
               [ngClass]="
-                this.navigationService.isCreateNewAdIsOpen()
+                this.navigationService.nameOfComponentRendering() ===
+                'create-advertisement'
                   ? 'flex-center2 hover-background'
                   : 'flex-center2 hover-background2'
               "
             >
-              @if(!(this.navigationService.IsUserAreaISOpen())) {
+              @if((this.navigationService.isNotPages(['profile','edit-advertisement'])))
+              {
               <div class="user-name2 flex-center2 font16">
                 {{ this.userName }}
               </div>
 
               <div class="round2 flex-center2">
-                <!-- {{ this.firstLetterUserEmailAddress }} -->
                 {{ this.userName[0] }}
               </div>
               }@else {
               <div class="round2 flex-center2 move-left">
                 {{ this.userName[0] }}
-
-                <!-- {{ this.firstLetterUserEmailAddress }} -->
               </div>
 
               }
@@ -646,8 +650,10 @@
               class="menu2"
               *ngIf="
                 this.isUserAreaDropdownVisible &&
-                !this.navigationService.IsUserAreaISOpen() &&
-                !this.navigationService.isCreateNewAdIsOpen()
+                this.navigationService.nameOfComponentRendering() !==
+                  'profile' &&
+                this.navigationService.nameOfComponentRendering() !==
+                  'create-advertisement'
               "
               (mouseover)="isUserAreaDropdownOpen(true)"
               (mouseleave)="isUserAreaDropdownOpen(false)"
@@ -692,7 +698,7 @@
         </div>
       </div>
 
-      @if(this.navigationService.isCreateNewAdIsOpen()){
+      @if((this.navigationService.isPages(['create-advertisement']))){
       <div class="flex-center font18 post-ad-container">
         <div class="post-ad-title">פרסום מודעה חדשה</div>
 
@@ -700,7 +706,7 @@
           <img src="assets/images/logo-default.svg" alt="logo" />
         </div>
       </div>
-      }@else {
+      } @else {
       <div class="right-side2 flex-center2">
         <div class="user-area-text2 flex-center2">איזור אישי</div>
         <div class="" routerLink="/">
@@ -710,7 +716,7 @@
       }
     </div>
   </header>
-  } @if(navigationService.IsEditAdvertisementISOpen()) {
+  } @if((navigationService.nameOfComponentRendering()==='edit-advertisement')) {
   <div class="edit-ad-header">
     <div id="post-ad-title" class="flex-center2 post-ad-box">
       <div class="logo-img" routerLink="/">

@@ -30,11 +30,11 @@ export class ImagesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.navigationService.isUserImagesIsOpen.set(true);
+    // this.navigationService.isUserImagesIsOpen.set(true);
   }
 
   ngOnDestroy() {
-    this.navigationService.isUserImagesIsOpen.set(false);
+    // this.navigationService.isUserImagesIsOpen.set(false);
   }
   constructor(
     private route: ActivatedRoute,
