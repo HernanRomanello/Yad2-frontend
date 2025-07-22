@@ -1,10 +1,12 @@
 <div class="shadow">
+
+  
   @if((this.navigationService.isPages(['MainPage','last-searches','favorites']))){
   @if(true) {
 
   <header
     [ngClass]="
-      this.navigationService.nameOfComponentRendering() === 'last-searches'
+      this.navigationService.isPages(['last-searches'])
         ? 'header shadow none-border'
         : 'header '
     "
@@ -605,8 +607,7 @@
         </div>
         <div
           [ngClass]="
-            this.navigationService.nameOfComponentRendering() ===
-            'create-advertisement'
+            this.navigationService.isPages(['create-advertisement'])
               ? 'user-area2 flex-center2 hover-background'
               : 'user-area2 flex-center2 hover-background2'
           "
@@ -615,8 +616,7 @@
         >
           <div
             [ngClass]="
-              this.navigationService.nameOfComponentRendering() ===
-              'create-advertisement'
+              this.navigationService.isPages(['create-advertisement'])
                 ? 'hover-background'
                 : 'hover-background2'
             "

@@ -11,10 +11,6 @@
   margin-left: 20px;
 }
 
-.header {
-  border-bottom: 1px solid lightgray;
-}
-
 .green {
   gap: 0.5rem;
 }
@@ -177,7 +173,13 @@ button {
   display: flex !important;
   justify-content: space-between !important;
   width: 100%;
-  border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+/* .header {
+  border-bottom: 1px solid lightgray;
+} */
+.shadow {
+  border-bottom: 1px solid lightgray;
 }
 
 .favorite-ad-img {

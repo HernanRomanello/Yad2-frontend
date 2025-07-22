@@ -11,15 +11,14 @@ import { NavigationService } from '../../services/navigation.service';
   templateUrl: './advertisement.component.html',
   styleUrl: './advertisement.component.css',
 })
-export class AdvertisementComponent implements OnInit, OnDestroy {
+export class AdvertisementComponent {
   advertisement!: AdvertisementsModel;
   entryDate: string = '';
   adID = -1;
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
-    public authService: AuthService,
-    private navigationService: NavigationService
+    public authService: AuthService
   ) {
     this.route.params.subscribe((params) => {
       if (params['id']) {
@@ -45,14 +44,6 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
   }
   removeParenthesesContent(input: string): string {
     return input.replace(/\s*\(.*?\)\s*/g, ' ').trim();
-  }
-
-  ngOnDestroy() {
-    this.navigationService.IsAdpageOpen.set(false);
-  }
-
-  ngOnInit() {
-    this.navigationService.IsAdpageOpen.set(true);
   }
 
   fillApartmentCondition(condition: boolean): string {

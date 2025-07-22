@@ -100,11 +100,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   setHeaderHeight(): string {
-    if (this.navigationService.isCreateNewAdIsOpen()) {
+    if (this.navigationService.isPages(['create-advertisement'])) {
       return 'header2 increase-height2';
     }
 
-    if (this.navigationService.IsUserAreaISOpen() === true) {
+    if (this.navigationService.isPages(['profile'])) {
       return 'header2 increase-height';
     } else {
       return 'header2';
@@ -112,21 +112,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   setLogoClassByComponent(): string {
-    // switch (navigationService.nameOfComponentRendering) {
-    //   case value:
-    //     break;
-
-    //   default:
-    //     break;
-    // }
-
-    if (this.navigationService.IsMainHeaderISOpen()) {
+    if (this.navigationService.isPages(['MainPage'])) {
       return 'logo-btn main-page';
-    } else if (
-      this.navigationService.IsFavoriteAdvertisementOrLastsearchesIsOpen()
-    ) {
+    } else if (this.navigationService.isPages(['favorites', 'last-searches'])) {
       return 'logo-btn favorite-page';
-    } else if (this.navigationService.isCreateNewAdIsOpen()) {
+    } else if (this.navigationService.isPages(['create-advertisement'])) {
       return 'logo-btn create-ad-page';
     }
 

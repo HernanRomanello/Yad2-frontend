@@ -8,18 +8,18 @@ export class NavigationService {
   constructor(private router: Router) {}
 
   nameOfComponentRendering = signal<string>('');
-
-  IsMainHeaderISOpen = signal<boolean>(true);
-  IsMainFooterISOpen = signal<boolean>(true);
-  IsAlternativeHeaderISOpen = signal<boolean>(false);
-  IsEditAdvertisementISOpen = signal<boolean>(false);
-
-  IsFavoriteAdvertisementOrLastsearchesIsOpen = signal<boolean>(false);
-  IsUserAreaISOpen = signal<boolean>(false);
   IsSearchFilterOpen = signal<boolean>(false);
-  IsAdpageOpen = signal<boolean>(false);
-  isCreateNewAdIsOpen = signal<boolean>(false);
-  isUserImagesIsOpen = signal<boolean>(false);
+
+  // IsMainHeaderISOpen = signal<boolean>(true);
+  // IsMainFooterISOpen = signal<boolean>(true);
+  // IsAlternativeHeaderISOpen = signal<boolean>(false);
+  // IsEditAdvertisementISOpen = signal<boolean>(false);
+
+  // IsFavoriteAdvertisementOrLastsearchesIsOpen = signal<boolean>(false);
+  // IsUserAreaISOpen = signal<boolean>(false);
+  // IsAdpageOpen = signal<boolean>(false);
+  // isCreateNewAdIsOpen = signal<boolean>(false);
+  // isUserImagesIsOpen = signal<boolean>(false);
 
   // IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
   //   this.IsMainHeaderISOpen = signal(IsHeaderhide);
@@ -33,28 +33,6 @@ export class NavigationService {
       this.IsSearchFilterOpen = signal(true);
     }
   }
-
-  // isEditAdvertisementISOpen(IsOpen: boolean) {
-  //   this.IsEditAdvertisementISOpen = signal(IsOpen);
-  // }
-
-  // isalternativeHeaderISOpen(IsOpen: boolean) {
-  //   this.IsAlternativeHeaderISOpen = signal(IsOpen);
-  // }
-
-  // isUserAreaOpen(isOpen: boolean) {
-  //   this.IsUserAreaISOpen = signal(isOpen);
-  //   if (isOpen) {
-  //     this.IsFavoriteAdvertisementOrLastsearchesIsOpen = signal(false);
-  //   }
-  // }
-
-  // isFavoriteAdvertisementOrLastsearchesIsOpen(isOpen: boolean) {
-  //   this.IsFavoriteAdvertisementOrLastsearchesIsOpen = signal(isOpen);
-  //   if (isOpen) {
-  //     this.IsUserAreaISOpen = signal(false);
-  //   }
-  // }
 
   navigateInNewWindow(route: string, queryParams?: any) {
     const urlTree = this.router.createUrlTree([route], { queryParams });
