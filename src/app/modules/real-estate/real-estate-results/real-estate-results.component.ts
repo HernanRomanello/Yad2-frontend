@@ -13,7 +13,6 @@ import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, combineLatest, map, of } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
 import { FilterValue } from '../../../shared/models/Filters';
-import { NavigationService } from '../../../services/navigation.service';
 import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 @Component({
   selector: 'app-real-estate-results',
@@ -43,10 +42,7 @@ export class RealEstateResultsComponent implements OnInit {
 
   hoverIndex: number = -1;
 
-  constructor(
-    private render: Renderer2,
-    public navigationService: NavigationService
-  ) {}
+  constructor(private render: Renderer2) {}
 
   clickEvent(event: Event) {
     const target = event.target as HTMLElement;

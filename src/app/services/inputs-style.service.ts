@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavigationService } from './navigation.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InputsStyleService {
-  constructor(
-    private router: Router,
-    private navigationService: NavigationService
-  ) {}
+  constructor(private router: Router) {}
   switchPasswordVisibility(isPasswordHidden: boolean): string {
     return isPasswordHidden
       ? 'assets/images/password-exposed.svg'

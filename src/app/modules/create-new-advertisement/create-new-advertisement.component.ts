@@ -24,7 +24,6 @@ import {
   CityListService,
   Street,
 } from '../../services/city-list.service';
-import { NavigationService } from '../../services/navigation.service';
 import { environment } from '../../../environments/environment.development';
 
 @Component({
@@ -54,7 +53,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   authService = inject(AuthService);
   imageService = inject(ImageuploadService);
   formBuilder = inject(FormBuilder);
-  navigationService = inject(NavigationService);
   isAssetTypeDropdownHidden = false;
   isNumberOfPaymentsTypeDropdownHidden = false;
   isCityDropdownHidden = true;
@@ -204,9 +202,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // this.navigationService.isalternativeHeaderISOpen(false);
-    // this.navigationService.IsHeaderAndFooterOpen(true, true);
-    // this.navigationService.isCreateNewAdIsOpen.set(false);
 
     this.authService.SetPageRender('');
   }
@@ -250,9 +245,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
 
   assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
-    // this.navigationService.isalternativeHeaderISOpen(true);
-    // this.navigationService.isCreateNewAdIsOpen.set(true);
-    // this.navigationService.IsHeaderAndFooterOpen(true, false);
     this.authService.SetPageRender('create-new-advertisement');
     this.advertisementForm = this.formBuilder.group({
       city: ['', [Validators.required, this.isValidCityName.bind(this)]],

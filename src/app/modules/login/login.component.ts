@@ -3,7 +3,6 @@ import { AuthService } from '../../services/user/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { inject } from '@angular/core';
-import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private formbuilder: FormBuilder,
-    public navigationService: NavigationService
+    private formbuilder: FormBuilder
   ) {}
   ngOnDestroy(): void {
     this.formSubmitted = false;
@@ -27,7 +25,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.isPasswordHidden = true;
-    // this.navigationService.IsHeaderAndFooterOpen(false, false);
     this.loginForm = this.formbuilder.group({
       email: this.formbuilder.control('', [
         Validators.required,

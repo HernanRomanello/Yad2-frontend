@@ -18,7 +18,6 @@ import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { environment } from '../../../environments/environment.development';
-import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -133,13 +132,8 @@ export class EditAdvertisementComponent
   advertisementService = inject(AdvertisementService);
   inputsStyleService = inject(InputsStyleService);
   imageuploadService = inject(ImageuploadService);
-  navigationService = inject(NavigationService);
 
   ngOnDestroy(): void {
-    // this.navigationService.isEditAdvertisementISOpen(false);
-    // this.navigationService.isalternativeHeaderISOpen(false);
-    // this.navigationService.isalternativeHeaderISOpen(false);
-    // this.navigationService.IsHeaderAndFooterOpen(true, true);
     this.authService.SetPageRender('');
     this.authService.user.unsubscribe();
   }
@@ -345,9 +339,6 @@ export class EditAdvertisementComponent
   }
 
   ngOnInit(): void {
-    // this.navigationService.isalternativeHeaderISOpen(true);
-    // this.navigationService.isEditAdvertisementISOpen(true);
-
     this.route.params.subscribe((params) => {
       if (params['id']) {
         this.advertisementService

@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
-import { NavigationService } from '../../services/navigation.service';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
@@ -10,7 +9,7 @@ import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
   templateUrl: './favorite-ads.component.html',
   styleUrl: './favorite-ads.component.css',
 })
-export class FavoriteAdsComponent implements OnInit, OnDestroy {
+export class FavoriteAdsComponent implements OnInit {
   hasPopupOpen: boolean = true;
   userNotes: UserNoteModel[] | null = null;
   userFavoritesAds: AdvertisementsModel[] = [];
@@ -18,7 +17,6 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   constructor(
     public authService: AuthService,
     private renderer: Renderer2,
-    private navigationService: NavigationService,
     private route: ActivatedRoute
   ) {}
 
@@ -76,8 +74,6 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(true);
-
     this.userNotes = this.route.snapshot.data['userNotes'];
     this.userFavoritesAds = this.route.snapshot.data['userAds'];
   }
@@ -89,10 +85,6 @@ export class FavoriteAdsComponent implements OnInit, OnDestroy {
     } else {
       console.warn(`No note found for adID: ${adID}`);
     }
-  }
-
-  ngOnDestroy() {
-    // this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
   }
 
   displayAdOptions(event: any, index: number) {

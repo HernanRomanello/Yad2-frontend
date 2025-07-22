@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NavigationService } from '../../../services/navigation.service';
 import { SearchService } from '../../../services/search.service';
 import { LastsearchesModel } from '../../../shared/models/LastsearchesModel';
 import { BehaviorSubject } from 'rxjs';
@@ -9,16 +8,13 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './last-searches.component.html',
   styleUrl: './last-searches.component.css',
 })
-export class LastSearchesComponent implements OnInit, OnDestroy {
+export class LastSearchesComponent implements OnInit {
   LastSearches$!: LastsearchesModel;
   LastSearches: BehaviorSubject<LastsearchesModel | null> =
     new BehaviorSubject<LastsearchesModel | null>(null);
   isRemoveModalIsHidden: boolean = true;
   isAssetTypePopupIsHidden: boolean[] = [];
-  constructor(
-    private navigationService: NavigationService,
-    public searchService: SearchService
-  ) {}
+  constructor(public searchService: SearchService) {}
 
   closeModal(event: any) {
     const target = event.target as HTMLElement;
@@ -104,11 +100,7 @@ export class LastSearchesComponent implements OnInit, OnDestroy {
     return words.slice(3).join(' ').replace(/,/g, ' ');
   }
 
-  ngOnDestroy() {
-    // this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(false);
-  }
   ngOnInit() {
-    // this.navigationService.isFavoriteAdvertisementOrLastsearchesIsOpen(true);
     this.searchService.UserLastSearches.forEach((element) => {
       this.isAssetTypePopupIsHidden.push(false);
     });

@@ -10,22 +10,6 @@ export class NavigationService {
   nameOfComponentRendering = signal<string>('');
   IsSearchFilterOpen = signal<boolean>(false);
 
-  // IsMainHeaderISOpen = signal<boolean>(true);
-  // IsMainFooterISOpen = signal<boolean>(true);
-  // IsAlternativeHeaderISOpen = signal<boolean>(false);
-  // IsEditAdvertisementISOpen = signal<boolean>(false);
-
-  // IsFavoriteAdvertisementOrLastsearchesIsOpen = signal<boolean>(false);
-  // IsUserAreaISOpen = signal<boolean>(false);
-  // IsAdpageOpen = signal<boolean>(false);
-  // isCreateNewAdIsOpen = signal<boolean>(false);
-  // isUserImagesIsOpen = signal<boolean>(false);
-
-  // IsHeaderAndFooterOpen(IsHeaderhide: boolean, IsFooterhide: boolean) {
-  //   this.IsMainHeaderISOpen = signal(IsHeaderhide);
-  //   this.IsMainFooterISOpen = signal(IsFooterhide);
-  // }
-
   searchFilterOpenClose() {
     if (this.IsSearchFilterOpen().valueOf() === true) {
       this.IsSearchFilterOpen = signal(false);

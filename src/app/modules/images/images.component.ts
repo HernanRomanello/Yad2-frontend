@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { catchError } from 'rxjs';
-import { NavigationService } from '../../services/navigation.service';
 import { SearchService } from '../../services/search.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './images.component.html',
   styleUrl: './images.component.css',
 })
-export class ImagesComponent implements OnInit, OnDestroy {
+export class ImagesComponent {
   advertisement!: AdvertisementsModel;
   clickedIndex: number[] = [-1, -1, -1];
 
@@ -29,17 +28,9 @@ export class ImagesComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  ngOnInit() {
-    // this.navigationService.isUserImagesIsOpen.set(true);
-  }
-
-  ngOnDestroy() {
-    // this.navigationService.isUserImagesIsOpen.set(false);
-  }
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
-    private navigationService: NavigationService,
     public searchService: SearchService
   ) {
     this.route.params.subscribe((params) => {

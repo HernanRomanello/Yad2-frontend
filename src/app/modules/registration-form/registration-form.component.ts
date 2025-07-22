@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../services/user/auth.service';
 import { InputsStyleService } from '../../services/inputs-style.service';
-import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-registration-form',
@@ -27,8 +26,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private formbuilder: FormBuilder,
-    private navigationService: NavigationService
+    private formbuilder: FormBuilder
   ) {}
   ngOnDestroy(): void {
     this.passwordSubmitted = false;
@@ -47,8 +45,6 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   signupForm!: FormGroup;
 
   ngOnInit(): void {
-    // this.navigationService.IsHeaderAndFooterOpen(false, false);
-
     this.signupForm = this.formbuilder.group({
       email: this.formbuilder.control('', [
         Validators.required,

@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { catchError } from 'rxjs';
 import { AuthService } from '../../services/user/auth.service';
-import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-advertisement',
