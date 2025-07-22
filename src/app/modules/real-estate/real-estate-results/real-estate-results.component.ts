@@ -14,6 +14,7 @@ import { BehaviorSubject, combineLatest, map, of } from 'rxjs';
 import { SearchService } from '../../../services/search.service';
 import { FilterValue } from '../../../shared/models/Filters';
 import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
+import { NavigationService } from '../../../services/navigation.service';
 @Component({
   selector: 'app-real-estate-results',
   templateUrl: './real-estate-results.component.html',
@@ -23,6 +24,7 @@ export class RealEstateResultsComponent implements OnInit {
   advertisementService = inject(AdvertisementService);
   searchService = inject(SearchService);
   authSerivce = inject(AuthService);
+  navigationService = inject(NavigationService);
 
   $sortedApartments: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);

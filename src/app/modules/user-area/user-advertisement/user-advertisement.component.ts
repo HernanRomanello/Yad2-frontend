@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/user/auth.service';
 import { AdvertisementService } from '../../../services/advertisement.service';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-user-advertisement',
@@ -10,6 +11,8 @@ import { AdvertisementService } from '../../../services/advertisement.service';
 export class UserAdvertisementComponent implements OnInit {
   authService = inject(AuthService);
   advertisementService = inject(AdvertisementService);
+  navigationService = inject(NavigationService);
+
   assetTypes: string[] = [];
   adsStatistics: number[][] = [];
   userAdvertisements = this.authService.UserAdvertisements;
