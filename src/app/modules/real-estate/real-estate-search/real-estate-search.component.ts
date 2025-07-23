@@ -8,6 +8,7 @@ import {
   ViewChild,
   afterNextRender,
   inject,
+  signal,
 } from '@angular/core';
 import { SearchService } from '../../../services/search.service';
 import { formatPrice } from '../../../pipes/utilities.pipe';
@@ -48,6 +49,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   searchInput: string = '';
   hasSelectedStreet: boolean = false;
   hasSelectedLocation: boolean = false;
+  sortButtonThatAreOpen = <[string, boolean]>['', false];
 
   countSearchInputLetters: number = 0;
 
@@ -381,6 +383,16 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
       | 'additionalFiltersMenu'
       | 'tradeTypeMenu'
   ) {
+    const [currentType, currentState] = this.sortButtonThatAreOpen;
+
+    console.log(this.sortButtonThatAreOpen);
+    if (currentType === type) {
+      this.sortButtonThatAreOpen = [type, !currentState];
+    } else {
+      this.sortButtonThatAreOpen = [type, true];
+      console.log(this.sortButtonThatAreOpen);
+    }
+
     switch (type) {
       case 'priceSlider':
         this.toggleMenuDropdown(this.priceSlider);
@@ -411,8 +423,8 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
 
         break;
       case 'tradeTypeMenu':
-        this.toggleMenuDropdown(this.tradeTypeMenu);
-        this.rotateAllArrows('tradeTypeArrow');
+        // this.toggleMenuDropdown(this.tradeTypeMenu);
+        // this.rotateAllArrows('tradeTypeArrow');
         this.hideAllMenus('tradeTypeMenu');
         break;
     }
@@ -440,6 +452,27 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
         arrow.classList.remove('arrow-up');
       }
     });
+  }
+
+  checkTheFilter(filterType: string): boolean {
+    const [name, isOpen] = this.sortButtonThatAreOpen;
+
+    const open: boolean = name === filterType;
+
+    if (open) {
+      return isOpen;
+    } else {
+      return false;
+    }
+    if (name === filterType && isOpen) {
+      console.log(
+        this.sortButtonThatAreOpen + ' ' + 'this.sortButtonThatAreOpen;'
+      );
+      return true;
+    }
+
+    console.log('gtrthyyjt');
+    return false;
   }
 
   hideAllMenus(id: string) {
