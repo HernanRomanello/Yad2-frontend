@@ -82,6 +82,12 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     const clientY = event.clientY;
     const [filterName, filterOpen] = this.sortButtonThatAreOpen;
 
+    if (filterName === 'additionalFiltersMenu' && filterOpen) {
+      this.navigationService.searchFilterOpenClose(true);
+    } else {
+      this.navigationService.searchFilterOpenClose(false);
+    }
+
     if (
       clientY < 135 &&
       !clickedElement.classList.contains('search-button') &&
@@ -287,20 +293,12 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     } else {
       this.sortButtonThatAreOpen = [type, true];
     }
-    console.log(this.sortButtonThatAreOpen);
     this.searchSuggestionsIsOpen = false;
     this.updateButtonsLabels();
     switch (type) {
       case 'propertyTypeMenu':
         this.propertyTypeFilterValue =
           this.searchService.propertyTypeFilterValue();
-
-        this.navigationService.searchFilterOpenClose();
-
-        break;
-
-      case 'additionalFiltersMenu':
-        this.navigationService.searchFilterOpenClose();
 
         break;
     }

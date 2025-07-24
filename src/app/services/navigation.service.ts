@@ -10,12 +10,8 @@ export class NavigationService {
   nameOfComponentRendering = signal<string>('');
   IsSearchFilterOpen = signal<boolean>(false);
 
-  searchFilterOpenClose() {
-    if (this.IsSearchFilterOpen().valueOf() === true) {
-      this.IsSearchFilterOpen = signal(false);
-    } else {
-      this.IsSearchFilterOpen = signal(true);
-    }
+  searchFilterOpenClose(open: boolean) {
+    this.IsSearchFilterOpen = signal(open);
   }
 
   navigateInNewWindow(route: string, queryParams?: any) {
