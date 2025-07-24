@@ -40,7 +40,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   selectedPriceRange: [number, number] = [-1, 20000];
   selectedRoomsAmount: string[] = [];
   selectedOption: string | null = null;
-  advertisementTypebuttonText: string = 'מכירה';
+  advertisementTypeButtonText: string = 'מכירה';
   title = 'נדל"ן למכירה';
   searchInput: string = '';
   hasSelectedStreet: boolean = false;
@@ -107,7 +107,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
       allowedClasses.has(cls)
     );
 
-    if (!hasAllowedClass) {
+    if (!hasAllowedClass && !this.navigationService.IsSearchFilterOpen) {
       this.toggleMenu('');
     }
 
@@ -326,7 +326,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   applyFilter(option: 'מכירה' | 'השכרה') {
     this.searchService.needToMakeResetFilters.set(true);
     this.selectedOption = option;
-    this.advertisementTypebuttonText = option;
+    this.advertisementTypeButtonText = option;
     this.title = option === 'מכירה' ? 'נדל"ן למכירה' : 'נדל"ן להשכרה';
 
     if (option === 'מכירה') {

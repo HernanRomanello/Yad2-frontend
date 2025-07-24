@@ -340,7 +340,7 @@
             type="button"
             (click)="toggleMenu('tradeTypeMenu')"
           >
-            {{ advertisementTypebuttonText }}
+            {{ advertisementTypeButtonText }}
             <i
               id="tradeTypeArrow"
               [ngClass]="
@@ -396,7 +396,7 @@
           </div>
         </div>
 
-        <div class="menu-container" #propertyTypeMenu>
+        <div class="menu-container">
           <button
             [ngClass]="
               propertyTypeFilterValue === 'סוג הנכס'
@@ -429,7 +429,7 @@
             ></app-real-estate-property-type>
           </div>
         </div>
-        <div class="menu-container" #priceSlider>
+        <div class="menu-container">
           <button
             #priceSliderButton
             (click)="toggleMenu('priceSlider')"
@@ -462,7 +462,7 @@
           </div>
         </div>
 
-        <div class="menu-container" #roomsAmountMenu>
+        <div class="menu-container">
           <button
             (click)="toggleMenu('roomsAmountMenu')"
             id="propertyRoomButton"
@@ -498,7 +498,7 @@
           </div>
         </div>
 
-        <div class="menu-container" #additionalFiltersMenu>
+        <div class="menu-container">
           <button
             id="additionalFiltersButton"
             (click)="toggleMenu('additionalFiltersMenu')"

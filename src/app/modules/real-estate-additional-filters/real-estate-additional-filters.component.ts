@@ -105,7 +105,7 @@ export class RealEstateAdditionalFiltersComponent {
   }
 
   close() {
-    this.navigationService.searchFilterOpenClose();
+    this.navigationService.searchFilterOpenClose(false);
     this.closeMenu.emit();
   }
 
