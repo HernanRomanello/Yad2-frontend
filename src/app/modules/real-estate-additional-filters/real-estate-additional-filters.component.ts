@@ -170,6 +170,7 @@ export class RealEstateAdditionalFiltersComponent {
       isWellMaintained: undefined,
       needsRenovation: undefined,
     };
+    this.searchService.setFilters(this.filters);
   }
 
   onAptSizeSelected(size: any) {

@@ -98,7 +98,7 @@
                   : '1px solid #cccccc'
             }"
             [value]="this.searchInput"
-            (focus)="this.searchSuggestionsIsOpen = true"
+            (focus)="this.searchSuggestionsIsOpen = true; toggleMenu('')"
             (input)="
               this.displayHistory(searchInputLocation.value.length);
               searchInputLocation.focus();
@@ -334,7 +334,7 @@
           }
         </div>
 
-        <div class="menu-container" #tradeTypeMenu>
+        <div class="menu-container">
           <button
             class="search-button hover-btn-background"
             type="button"
@@ -408,11 +408,22 @@
           >
             {{ propertyTypeFilterValue }}
 
-            <i id="propertyTypeArrow" class="material-icons"
+            <i
+              id="propertyTypeArrow"
+              [ngClass]="
+                checkTheFilter('propertyTypeMenu')
+                  ? 'material-icons arrow-up'
+                  : 'material-icons'
+              "
               >keyboard_arrow_down</i
             >
           </button>
-          <div id="propertyTypeMenu" class="menu hidden">
+          <div
+            id="propertyTypeMenu"
+            [ngClass]="
+              checkTheFilter('propertyTypeMenu') ? 'menu ' : 'menu hidden'
+            "
+          >
             <app-real-estate-property-type
               (propertyTypeSelected)="onPropertyTypeSelected($event)"
             ></app-real-estate-property-type>
@@ -431,11 +442,20 @@
             type="button"
           >
             {{ priceRangeFilterValue }}
-            <i id="PriceRangeArrow" class="material-icons"
+            <i
+              id="PriceRangeArrow"
+              [ngClass]="
+                checkTheFilter('priceSlider')
+                  ? 'material-icons arrow-up'
+                  : 'material-icons'
+              "
               >keyboard_arrow_down</i
             >
           </button>
-          <div id="PriceRangeMenu" class="menu hidden">
+          <div
+            id="PriceRangeMenu"
+            [ngClass]="checkTheFilter('priceSlider') ? 'menu ' : 'menu hidden'"
+          >
             <app-real-estate-price-slider
               (selectedPriceRange)="onPriceRangeSelected($event)"
             ></app-real-estate-price-slider>
@@ -455,11 +475,22 @@
             type="button"
           >
             {{ roomNumberFilterValue }}
-            <i id="propertyRoomArrow" class="material-icons"
+            <i
+              id="propertyRoomArrow"
+              [ngClass]="
+                checkTheFilter('roomsAmountMenu')
+                  ? 'material-icons arrow-up'
+                  : 'material-icons'
+              "
               >keyboard_arrow_down</i
             >
           </button>
-          <div id="propertyRoomMenu" class="menu hidden">
+          <div
+            id="propertyRoomMenu"
+            [ngClass]="
+              checkTheFilter('roomsAmountMenu') ? 'menu ' : 'menu hidden'
+            "
+          >
             <app-real-estate-rooms-amount
               id="roomsAmountFilter"
               (propertyRoomSelected)="onRoomsAmountSelected($event)"
@@ -484,7 +515,12 @@
 
             סינונים נוספים
           </button>
-          <div id="additionalFiltersMenu" class="menu hidden">
+          <div
+            id="additionalFiltersMenu"
+            [ngClass]="
+              checkTheFilter('additionalFiltersMenu') ? 'menu ' : 'menu hidden'
+            "
+          >
             <app-real-estate-additional-filters
               (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
             ></app-real-estate-additional-filters>
@@ -492,7 +528,7 @@
         </div>
 
         <button
-          (click)="searchService.addLastSearchToDB()"
+          (click)="searchService.addLastSearchToDB(); toggleMenu('')"
           class="search-button-orange"
           type="submit"
         >
