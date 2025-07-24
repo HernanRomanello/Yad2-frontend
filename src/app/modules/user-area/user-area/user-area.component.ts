@@ -17,14 +17,11 @@ export class UserAreaComponent implements OnInit, OnDestroy {
   UserEmailAddress: string = '';
   activeLink = 'user-advertisement';
   ngOnDestroy(): void {
-    this.authService.SetPageRender('');
     window.scrollTo(0, 0);
     window.location.reload();
     this.authService.user.unsubscribe();
   }
   ngOnInit(): void {
-    this.authService.SetPageRender('user-area');
-
     this.authService.user.subscribe((user: UserModel | null | undefined) => {
       this.userName = user?.name || '';
       this.userLastname = user?.lastName || '';

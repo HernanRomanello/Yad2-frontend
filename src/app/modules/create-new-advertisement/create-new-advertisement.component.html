@@ -291,7 +291,7 @@
             advertisementForm.get('city').setValue(cityInput.value)
           "
           (keydown)="
-            this.eraseInputValue('city', $event, this.isFormHasvalidCityAddress)
+            this.eraseInputValue('city', $event, this.HasValidCityAddress)
           "
           (keyup)="this.checkIfValidCity(cityInput.value)"
           autocomplete="off"
@@ -491,7 +491,7 @@
         <ul *ngIf="isAssetTypeDropdownHidden" class="dropdown-menu asset">
           <li
             class="dropdown-item"
-            *ngFor="let option of assetTypes"
+            *ngFor="let option of assetNames"
             (click)="selectOption(option, 'assetType')"
           >
             {{ option }}
@@ -693,7 +693,7 @@
           >
             <li
               class="dropdown-item assetState"
-              *ngFor="let option of roomsOptions"
+              *ngFor="let option of roomsOptionsNum"
               (click)="selectOption(option, 'rooms')"
             >
               {{ option }}

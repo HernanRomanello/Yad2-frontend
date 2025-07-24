@@ -16,7 +16,6 @@ import {
 import { AuthService } from '../../services/user/auth.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { ModalStateService } from '../../services/modal-state.service';
-import { Router } from '@angular/router';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import {
@@ -25,13 +24,14 @@ import {
   Street,
 } from '../../services/city-list.service';
 import { environment } from '../../../environments/environment.development';
+import { assetTypes, roomsOptions } from './dataUtilities';
 
 @Component({
   selector: 'app-create-new-advertisement',
   templateUrl: './create-new-advertisement.component.html',
   styleUrl: './create-new-advertisement.component.css',
 })
-export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
+export class CreateNewAdvertisementComponent implements OnInit {
   advertisementForm!: FormGroup | any;
   $cities: City[] = [];
   $streets: Street[] = [];
@@ -48,7 +48,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   vidoeUrl: string = '';
   imagesUrl: string[] = [];
   MainPicture: string = '';
-
+  assetNames = assetTypes;
   video: File | undefined = undefined;
   authService = inject(AuthService);
   imageService = inject(ImageuploadService);
@@ -66,9 +66,10 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   hoverColors: string[] = ['#000000', '#000000', '#000000', '#000000'];
   ClickBorderColors: string[] = ['#cccccc', '#cccccc', '#cccccc', '#cccccc'];
   buttonsTypes: string[] = ['עסקים למכירה', 'נכס מסחרי', 'השכרה', 'מכירה'];
+  assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   chosenTradeType: string = '';
   isFormHasvalidStreetAddress: boolean = false;
-  isFormHasvalidCityAddress: boolean = false;
+  HasValidCityAddress: boolean = false;
   isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
   isFormPagesAreCompleted: boolean[] = [
     false,
@@ -88,7 +89,6 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     false,
     false,
   ];
-  router = inject(Router);
   advertisementService = inject(AdvertisementService);
   inputsStyleService = inject(InputsStyleService);
   cityListService = inject(CityListService);
@@ -107,32 +107,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   dropdownIconasset_owner!: ElementRef<HTMLDivElement>;
 
   furnitureDescription: boolean = false;
-  roomsOptions: string[] = [
-    '1',
-    '1.5',
-    '2',
-    '2.5',
-    '3',
-    '3.5',
-    '4',
-    '4.5',
-    '5',
-    '5.5',
-    '6',
-    '6.5',
-    '7',
-    '7.5',
-    '8',
-    '8.5',
-    '9',
-    '9.5',
-    '10',
-    '10.5',
-    '11',
-    '11.5',
-    '12',
-    '12.5',
-  ];
+  roomsOptionsNum = roomsOptions;
 
   areas: any[] = [];
   errorMessage: string | null = null;
@@ -201,51 +176,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-
-    this.authService.SetPageRender('');
-  }
-
   eraseInputValue(id: string, event: any, inputValid: boolean): void {
     if (inputValid === true) {
       if (event.key === 'Backspace') {
         const input = document.getElementById(id) as HTMLInputElement;
         if (input) {
           input.value = '';
-          this.isFormHasvalidCityAddress = false;
+          this.HasValidCityAddress = false;
         }
       }
     }
   }
 
-  assetTypes = [
-    'דירה',
-    'דירת גן',
-    'בית פרטי/ קוטג',
-    'גג/ פנטהאוז',
-    'מגרשים',
-    'דופלקס',
-    'תיירות ונופש',
-    'דו משפחתי',
-    'מרתף/ פרטר',
-    'טריפלקס',
-    'יחידת דיור',
-    'משק חקלאי/ נחלה',
-    'משק עזר',
-    'דיור מוגן',
-    'החלפת דירות',
-    'סאבלט',
-    'בניין מגורים (את הבניין כולו)',
-    'סטודיו/ לופט',
-    'מחסן',
-    "קב' רכישה/ זכות לנכס",
-    'חניה',
-    'כללי',
-  ];
-
-  assetOwner = ['בעל הנכס', 'שוכר נוכחי', 'אחר'];
   ngOnInit() {
-    this.authService.SetPageRender('create-new-advertisement');
     this.advertisementForm = this.formBuilder.group({
       city: ['', [Validators.required, this.isValidCityName.bind(this)]],
       tradeType: ['', Validators.required],
@@ -349,7 +292,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       (city: City) => city.city_name_he === CityName
     );
 
-    this.isFormHasvalidCityAddress = validCity ? true : false;
+    this.HasValidCityAddress = validCity ? true : false;
   }
   checkIfValidStreet(Street: string): void {
     const streetName = Street;
@@ -369,7 +312,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     return ValidStreetName === true ? null : { invalidStreetName: true };
   }
   isValidCityName(): ValidationErrors | null {
-    const validCity = this.isFormHasvalidCityAddress;
+    const validCity = this.HasValidCityAddress;
     return validCity === true ? null : { invalidCityName: null };
   }
 
@@ -877,11 +820,11 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         );
       } else {
         if (
-          (this.isFormHasvalidCityAddress === true && field === 'city') ||
+          (this.HasValidCityAddress === true && field === 'city') ||
           this.isFormHasvalidStreetAddress === true
         ) {
           this.removeRedBorder(element, elementErrorText);
-          if (this.isFormHasvalidCityAddress === false && field === 'city') {
+          if (this.HasValidCityAddress === false && field === 'city') {
             validForm = this.markRedBorder(
               element,
               elementErrorText,

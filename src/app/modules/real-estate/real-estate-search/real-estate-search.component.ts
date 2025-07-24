@@ -46,6 +46,8 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   hasSelectedStreet: boolean = false;
   hasSelectedLocation: boolean = false;
   sortButtonThatAreOpen = <[string, boolean]>['', false];
+  private cityListSubscription: any;
+  private streetListSubscription: any;
 
   countSearchInputLetters: number = 0;
 
@@ -219,9 +221,6 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     }
   }
 
-  private cityListSubscription: any;
-  private streetListSubscription: any;
-
   ngOnDestroy(): void {
     if (this.cityListSubscription) {
       this.cityListSubscription.unsubscribe();
@@ -338,17 +337,6 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
       this.searchService.forRent.set(true);
     }
     this.searchService.emitSelectedTradeType(option);
-  }
-
-  hideSearchMenu() {
-    setTimeout(() => {
-      if (
-        this.hasSelectedStreet === false &&
-        this.hasSelectedLocation === false
-      ) {
-        this.searchSuggestionsIsOpen = false;
-      }
-    }, 100);
   }
 
   setSearchValues(city: string, street: string) {

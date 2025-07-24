@@ -134,7 +134,6 @@ export class EditAdvertisementComponent
   imageuploadService = inject(ImageuploadService);
 
   ngOnDestroy(): void {
-    this.authService.SetPageRender('');
     this.authService.user.unsubscribe();
   }
 
