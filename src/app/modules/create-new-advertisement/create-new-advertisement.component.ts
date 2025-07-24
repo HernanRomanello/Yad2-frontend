@@ -692,7 +692,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     this.scrollToFormPart(formPageNumber);
   }
 
-  private updateIfFormPartCompleted(formPageNumber: number) {
+  updateIfFormPartCompleted(formPageNumber: number) {
     this.isFormPagesAreCompleted[formPageNumber] = true;
     this.isFormPagesHidden[formPageNumber] = true;
     this.isFormPagesHidden[formPageNumber + 1] = false;
@@ -837,7 +837,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     return '';
   }
 
-  private markErrorIfInvalidInput(
+  markErrorIfInvalidInput(
     fieldControl: any,
     element: HTMLElement | null,
     elementErrorText: HTMLElement | null,
@@ -851,7 +851,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     return validForm;
   }
 
-  private removeRedBorder(
+  removeRedBorder(
     element: HTMLElement | null,
     elementErrorText: HTMLElement | null
   ) {
@@ -861,7 +861,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     }
   }
 
-  private markRedBorder(
+  markRedBorder(
     element: HTMLElement | null,
     elementErrorText: HTMLElement | null,
     validForm: boolean
@@ -874,7 +874,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     return validForm;
   }
 
-  private scrollToFormPart(formPageNumber: number) {
+  scrollToFormPart(formPageNumber: number) {
     if (this.isFormPagesAreCompleted[formPageNumber]) {
       setTimeout(() => {
         const nextSection = document.getElementById(
