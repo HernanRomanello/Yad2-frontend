@@ -84,7 +84,10 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     const clientY = event.clientY;
     const [filterName, filterOpen] = this.sortButtonThatAreOpen;
 
-    if (filterName === 'additionalFiltersMenu' && filterOpen) {
+    if (
+      (filterName === 'additionalFiltersMenu' && filterOpen) ||
+      (filterName === 'propertyTypeMenu' && filterOpen)
+    ) {
       this.navigationService.searchFilterOpenClose(true);
     } else {
       this.navigationService.searchFilterOpenClose(false);
@@ -109,7 +112,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
       allowedClasses.has(cls)
     );
 
-    if (!hasAllowedClass && !this.navigationService.IsSearchFilterOpen) {
+    if (!hasAllowedClass && filterName !== 'additionalFiltersMenu') {
       this.toggleMenu('');
     }
 

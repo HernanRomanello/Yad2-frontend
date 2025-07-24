@@ -18,6 +18,11 @@ import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { ImageuploadService } from '../../services/imageupload.service';
 import { environment } from '../../../environments/environment.development';
+import {
+  propertyFeatures,
+  propertyFeaturesImagesUrls,
+  propertyFeaturesOptions,
+} from './dataUtilities';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -76,56 +81,11 @@ export class EditAdvertisementComponent
   addScore: number = 0;
   cityList: any;
   scoreBarwidthInPixels: number = 0;
-  propertyFeaturesImages: string[] = [
-    'cold-svgrepo-com',
-    'cube-escape-svgrepo-com',
-    'inventory_2',
-    'drawers-svgrepo-com',
-    'accessibility-svgrepo-com',
-    'elevator-svgrepo-com',
-    'paint-svgrepo-com',
-    'grid-svgrepo-com',
-    'people-svgrepo-com',
-    'dog-bold-svgrepo-com',
-    'tap-faucet-svgrepo-com',
-    'solar-battery-4-svgrepo-com',
-    'sensor_door',
-    'cold-svgrepo-com',
-  ];
+  propertyFeaturesImages = propertyFeaturesImagesUrls;
 
-  propertyFeatures: string[] = [
-    'מיזוג',
-    'ממ"ד',
-    'מחסן',
-    'ריהוט',
-    ' גישה לנכים',
-    'מעלית',
-    'משופצת',
-    'סורגים',
-    'לשותפים',
-    'חיות מחמד',
-    'מטבח כשר',
-    'דוד שמש',
-    'דלתות רב-בריח',
-    'מזגן טורנדו',
-  ];
+  propertyFeaturesChecked = propertyFeatures;
 
-  propertyFeaturesChecked: { key: string; checked: boolean }[] = [
-    { key: 'airConditioning', checked: false },
-    { key: 'safeRoom', checked: false },
-    { key: 'storageRoom', checked: false },
-    { key: 'furnished', checked: false },
-    { key: 'accessibleForDisabled', checked: false },
-    { key: 'elevator', checked: false },
-    { key: 'renovated', checked: false },
-    { key: 'windowBars', checked: false },
-    { key: 'forRoommates', checked: false },
-    { key: 'petsAllowed', checked: false },
-    { key: 'kosherKitchen', checked: false },
-    { key: 'solarWaterHeater', checked: false },
-    { key: 'multiLockDoors', checked: false },
-    { key: 'tornadoAirConditioner', checked: false },
-  ];
+  propertyFeatures = propertyFeaturesOptions;
 
   authService = inject(AuthService);
   route = inject(ActivatedRoute);
@@ -195,7 +155,7 @@ export class EditAdvertisementComponent
     }
   }
 
-  constructor(render: Renderer2, private router: Router) {
+  constructor(private router: Router) {
     document.addEventListener('keyup', (event) => {
       const target = event.target as HTMLElement;
       this.formatNumbersInTheForm(target.id);
