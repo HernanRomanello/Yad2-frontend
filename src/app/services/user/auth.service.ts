@@ -25,7 +25,6 @@ export class AuthService implements OnInit {
   >([]);
   UserAdvertisementsStatistics =
     new BehaviorSubject<AdvertisementsModel | null>(null);
-  // UserPageRender = new BehaviorSubject<string>('');
   userName = new ReplaySubject<string>(1);
   firstLetterUserEmailAddress = new ReplaySubject<string>(1);
   userNotes = new BehaviorSubject<UserNoteModel[]>([]);

@@ -93,19 +93,6 @@ export class CreateNewAdvertisementComponent implements OnInit {
   inputsStyleService = inject(InputsStyleService);
   cityListService = inject(CityListService);
 
-  @ViewChild('dropdownIconAsset_State', { static: false })
-  dropdownIconAsset_State!: ElementRef;
-  @ViewChild('dropdownIconAsset_type', { static: false })
-  dropdownIconAsset_type!: ElementRef<HTMLDivElement>;
-  @ViewChild('dropdownIconRooms', { static: false })
-  dropdownIconRooms!: ElementRef<HTMLDivElement>;
-
-  @ViewChild('dropdownIconnumber_Of_Payments_type', { static: false })
-  dropdownIconnumber_Of_Payments_type!: ElementRef<HTMLDivElement>;
-
-  @ViewChild('dropdownIconasset_owner', { static: false })
-  dropdownIconasset_owner!: ElementRef<HTMLDivElement>;
-
   furnitureDescription: boolean = false;
   roomsOptionsNum = roomsOptions;
 
