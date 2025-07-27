@@ -2,9 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  Inject,
   Output,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
 
@@ -38,7 +36,6 @@ const containerSelected = {
 export class RealEstateRoomsAmountComponent {
   selectedRooms: string[] = [];
   rooms = ['1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5', '5.5', '+6'];
-  render = Inject(Renderer2);
 
   selectedRoom_1: string | undefined;
   selectedRoom_2: string | undefined;
@@ -128,8 +125,6 @@ export class RealEstateRoomsAmountComponent {
         div.innerText = this.rooms[i];
         containerSpecial.appendChild(div);
         Object.assign(div.style, buttonCss);
-        console.log(end - start);
-        console.log(end);
         const dif = end - start;
         if (dif === 10) {
           Object.assign(div.style, { width: `${dif * 4.2}px` });

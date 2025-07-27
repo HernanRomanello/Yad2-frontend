@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
 import { ActivatedRoute } from '@angular/router';
