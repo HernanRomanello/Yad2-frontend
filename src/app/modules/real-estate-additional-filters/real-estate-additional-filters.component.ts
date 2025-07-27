@@ -86,23 +86,10 @@ export class RealEstateAdditionalFiltersComponent {
 
   constructor(
     private navigationService: NavigationService,
-    private elementRef: ElementRef,
-    private renderer: Renderer2
   ) {
-    this.addClickListener();
   }
 
-  private addClickListener(): void {
-    this.renderer.listen('document', 'click', (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-
-      if (this.elementRef.nativeElement.contains(target)) {
-        if (target.id !== 'x-icon' && target.id !== 'ok-btn') {
-          this.navigationService.IsSearchFilterOpen.set(true);
-        }
-      }
-    });
-  }
+  
 
   close() {
     this.navigationService.searchFilterOpenClose(false);

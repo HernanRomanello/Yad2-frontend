@@ -155,7 +155,7 @@ export class EditAdvertisementComponent
     }
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private render :Renderer2) {
     document.addEventListener('keyup', (event) => {
       const target = event.target as HTMLElement;
       this.formatNumbersInTheForm(target.id);
@@ -387,13 +387,16 @@ export class EditAdvertisementComponent
     const today = new Date().toISOString().substring(0, 10);
     this.advertisement.entryDate = today;
     if (checkBox === 'flexible') {
+    
       if (this.entryDate) {
-        this.entryDate.nativeElement.style.opacity = '0.5';
+        this.render.setStyle(this.entryDate.nativeElement, 'opacity', '0.5');
         (this.entryDate.nativeElement as HTMLInputElement).disabled = true;
       }
+      
+        
     }
     if (checkBox === 'immediate') {
-      this.entryDate.nativeElement.style.opacity = '0.5';
+      this.render.setStyle(this.entryDate.nativeElement,'opacity','0.5');
     }
   }
 
