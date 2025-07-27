@@ -1,7 +1,5 @@
 <div class="shadow">
-
-  
-  @if((this.navigationService.isPages(['MainPage','last-searches','favorites']))){
+  @if((this.navigationService.isPages(['MainPage','last-searches','favorites','advertisement']))){
   @if(true) {
 
   <header
@@ -574,7 +572,7 @@
   } }
   @if((this.navigationService.isPages(['advertisement','edit-advertisement','profile','create-advertisement'])))
   {
-  @if((this.navigationService.nameOfComponentRendering())!=="edit-advertisement")
+  @if((this.navigationService.isNotPages(['edit-advertisement','advertisement'])))
   {
 
   <div class="orange-line"></div>
