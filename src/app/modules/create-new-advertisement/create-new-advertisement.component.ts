@@ -1,12 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  Renderer2,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import { Component, OnInit, Renderer2, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -100,7 +92,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   errorMessage: string | null = null;
   constructor(
     private renderer: Renderer2,
-    private modalstate: ModalStateService
+    private modalstate: ModalStateService,
   ) {}
 
   setCity(city: string) {
@@ -276,7 +268,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     const CityName = city;
 
     const validCity = this.$cities.find(
-      (city: City) => city.city_name_he === CityName
+      (city: City) => city.city_name_he === CityName,
     );
 
     this.HasValidCityAddress = validCity ? true : false;
@@ -287,7 +279,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     const validstreet = this.$streets.find(
       (street: Street) =>
         street.Street_Name === streetName &&
-        street.City_Name === this.advertisementForm.get('city').value
+        street.City_Name === this.advertisementForm.get('city').value,
     );
 
     this.isFormHasvalidStreetAddress = validstreet ? true : false;
@@ -443,7 +435,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     option: number,
     selected: number,
     event: any,
-    words: boolean
+    words: boolean,
   ) {
     const elememt = event.target as HTMLElement;
     if (
@@ -517,7 +509,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   clickOnImageInput() {
     const input = document.getElementById(
-      'upload-img-input'
+      'upload-img-input',
     ) as HTMLInputElement;
     input.click();
   }
@@ -768,7 +760,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
         ];
 
         const errorStandardizationAccepted = document.getElementById(
-          'standardizationAccepted-error'
+          'standardizationAccepted-error',
         );
 
         if (errorStandardizationAccepted) {
@@ -803,7 +795,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
           fieldControl,
           element,
           elementErrorText,
-          validForm
+          validForm,
         );
       } else {
         if (
@@ -815,7 +807,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
             validForm = this.markRedBorder(
               element,
               elementErrorText,
-              validForm
+              validForm,
             );
           }
         } else {
@@ -841,7 +833,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     fieldControl: any,
     element: HTMLElement | null,
     elementErrorText: HTMLElement | null,
-    validForm: boolean
+    validForm: boolean,
   ) {
     if (!fieldControl.valid) {
       validForm = this.markRedBorder(element, elementErrorText, validForm);
@@ -853,7 +845,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   removeRedBorder(
     element: HTMLElement | null,
-    elementErrorText: HTMLElement | null
+    elementErrorText: HTMLElement | null,
   ) {
     if (element && elementErrorText) {
       element.classList.remove('border-invalid');
@@ -864,7 +856,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   markRedBorder(
     element: HTMLElement | null,
     elementErrorText: HTMLElement | null,
-    validForm: boolean
+    validForm: boolean,
   ) {
     if (element && elementErrorText) {
       element.classList.add('border-invalid');
@@ -878,7 +870,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     if (this.isFormPagesAreCompleted[formPageNumber]) {
       setTimeout(() => {
         const nextSection = document.getElementById(
-          `Selection-${formPageNumber + 2}`
+          `Selection-${formPageNumber + 2}`,
         );
         if (nextSection) {
           nextSection.scrollIntoView({ behavior: 'smooth' });

@@ -17,7 +17,7 @@ export class AdvertisementComponent {
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
-    public authService: AuthService
+    public authService: AuthService,
   ) {
     this.route.params.subscribe((params) => {
       if (params['id']) {
@@ -27,35 +27,38 @@ export class AdvertisementComponent {
             catchError((e) => {
               console.log(e);
               return [];
-            })
+            }),
           )
           .subscribe((response) => {
-            this.advertisement = response;
-            const date = new Date(this.advertisement.entryDate);
-            console.log(this.advertisement.entryDate);
-            const day = date.getDate().toString().padStart(2, '0');
-            const month = (date.getMonth() + 1).toString().padStart(2, '0');
-            const year = date.getFullYear().toString().slice(-2);
-            this.entryDate = `${day}/${month}/${year}`;
+            this.setAdvertisementAndFormatEntryDate(response);
           });
       }
     });
+  }
+
+  setAdvertisementAndFormatEntryDate(advertisement: AdvertisementsModel): void {
+    this.advertisement = advertisement;
+
+    const date = new Date(advertisement.entryDate);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear().toString().slice(-2);
+
+    this.entryDate = `${day}/${month}/${year}`;
   }
   removeParenthesesContent(input: string): string {
     return input.replace(/\s*\(.*?\)\s*/g, ' ').trim();
   }
 
   fillApartmentCondition(condition: boolean): string {
-    if (condition) {
-      return 'text align-items';
-    } else {
-      return 'light-text align-items';
-    }
+    if (condition) return 'text align-items';
+
+    return 'light-text align-items';
   }
 
   isFavorite(advertisementId: number): boolean {
     return this.authService.UserFavoriteAdvertisements.value.some(
-      (ad) => ad.id === advertisementId
+      (ad) => ad.id === advertisementId,
     );
   }
 }

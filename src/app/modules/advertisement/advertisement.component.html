@@ -1,107 +1,105 @@
 <div class="advertisement-page">
   <div class="pics-container">
-    @if(advertisement.mainPicture !== ''){
-
-    <div class="pics">
-      <img
-        routerLink="/user-images/{{ advertisement.id }}"
-        *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-        [src]="advertisement.pictures[1].url"
-        class="small-pic pic1"
-        alt="Advertisement Image"
-      />
-      <img
-        routerLink="/user-images/{{ advertisement.id }}"
-        *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-        [src]="advertisement.pictures[2].url"
-        class="small-pic pic2"
-        alt="Advertisement Image"
-      />
-    </div>
-
-    <img
-      routerLink="/user-images/{{ advertisement.id }}"
-      *ngIf="advertisement.mainPicture !== ''"
-      [src]="advertisement.mainPicture"
-      class="main-pic"
-      alt="Advertisement Image"
-    />
-    <div class="white-btns flex-center">
-      <div class="flex-center gap">
-        <span>שיתוף</span>
+    @if (advertisement.mainPicture !== "") {
+      <div class="pics">
         <img
-          id="share-icon"
-          src="assets/images/share-svgrepo-com (2).svg"
-          class="type-pic"
-          alt="share"
+          routerLink="/user-images/{{ advertisement.id }}"
+          *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+          [src]="advertisement.pictures[1].url"
+          class="small-pic pic1"
+          alt="Advertisement Image"
         />
+        <img
+          routerLink="/user-images/{{ advertisement.id }}"
+          *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+          [src]="advertisement.pictures[2].url"
+          class="small-pic pic2"
+          alt="Advertisement Image"
+        />
+      </div>
+
+      <img
+        routerLink="/user-images/{{ advertisement.id }}"
+        *ngIf="advertisement.mainPicture !== ''"
+        [src]="advertisement.mainPicture"
+        class="main-pic"
+        alt="Advertisement Image"
+      />
+      <div class="white-btns flex-center">
+        <div class="flex-center gap">
+          <span>שיתוף</span>
+          <img
+            id="share-icon"
+            src="assets/images/share-svgrepo-com (2).svg"
+            class="type-pic"
+            alt="share"
+          />
+        </div>
+        <div
+          (click)="authService.updateAdvertisementToFavorites(adID)"
+          class="flex-center gap"
+        >
+          <span>שמירה</span>
+          @if (!this.isFavorite(adID)) {
+            <img
+              id="favorite-icon"
+              src="assets/images/heart-svgrepo-com (5).svg"
+              class="type-pic"
+              alt="favorite"
+            />
+          } @else {
+            <img
+              id="favorite-icon-red"
+              src="assets/images/heart-svgrepo-com-red.svg"
+              class="type-pic"
+              alt="share"
+            />
+          }
+        </div>
       </div>
       <div
-        (click)="authService.updateAdvertisementToFavorites(adID)"
-        class="flex-center gap"
+        routerLink="/user-images/{{ advertisement.id }}"
+        class="all-pics-link-btn font16 font500 flex-center"
       >
-        <span>שמירה</span>
-        @if(!this.isFavorite(adID)){
+        <span class="wrap">
+          הצגת {{ advertisement.pictures.length }} תמונות
+        </span>
         <img
-          id="favorite-icon"
-          src="assets/images/heart-svgrepo-com (5).svg"
-          class="type-pic"
-          alt="favorite"
+          id="img-box-icon"
+          src="assets/images/img-box-svgrepo-com.svg"
+          alt="img-box"
         />
-
-        }@else {
-        <img
-          id="favorite-icon-red"
-          src="assets/images/heart-svgrepo-com-red.svg"
-          class="type-pic"
-          alt="share"
-        />
-        }
       </div>
-    </div>
-    <div
-      routerLink="/user-images/{{ advertisement.id }}"
-      class="all-pics-link-btn font16 font500 flex-center"
-    >
-      <span class="wrap">
-        הצגת {{ advertisement.pictures.length }} תמונות
-      </span>
+      @if (advertisement.video !== "") {
+        <div
+          routerLink="/user-images/{{ advertisement.id }}"
+          class="video-pics-link-btn font16 font500 flex-center"
+        >
+          <span class="wrap"> וידאו </span>
+          <img
+            id="img-box-icon"
+            src="assets/images/video-svgrepo1.svg"
+            alt="img-box"
+          />
+        </div>
+      }
+    } @else {
       <img
-        id="img-box-icon"
-        src="assets/images/img-box-svgrepo-com.svg"
-        alt="img-box"
+        id="ad-image"
+        class="house-pic"
+        src="assets/images/image_placeholder_.svg"
+        alt="Advertisement Image"
       />
-    </div>
-    @if(advertisement.video !== ''){
-    <div
-      routerLink="/user-images/{{ advertisement.id }}"
-      class="video-pics-link-btn font16 font500 flex-center"
-    >
-      <span class="wrap"> וידאו </span>
-      <img
-        id="img-box-icon"
-        src="assets/images/video-svgrepo1.svg"
-        alt="img-box"
-      />
-    </div>
-    } } @else{
-    <img
-      id="ad-image"
-      class="house-pic"
-      src="assets/images/image_placeholder_.svg"
-      alt="Advertisement Image"
-    />
     }
   </div>
 
   <div class="contact-card">
     <div class="card-content">
       <div class="price-box">
-        @if(advertisement.price >0){
-        <p class="price font600">₪{{ advertisement.price | number }}</p>
-        }@else{
-        <p class="price font500 translateY2 letter-spacing">לא צוין מחיר</p>
-
+        @if (advertisement.price > 0) {
+          <p class="price font600">₪{{ advertisement.price | number }}</p>
+        } @else {
+          <p class="price font500 translateY2 letter-spacing">לא צוין מחיר</p>
         }
       </div>
       <button class="call-button flex-center">
