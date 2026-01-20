@@ -69,7 +69,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isUserAreaDropdownVisible = isUserAreaDropdownOpen;
   }
 
-  onMouseMove(event: any): void {
+  onMouseMove(event: any) {
     this.closeMenu('menu_User');
     this.cursorX = event.offsetX;
     this.cursorY = event.offsetY;
@@ -77,12 +77,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.HasFavoriteAdsDropdownVisible = false;
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.authService.isUserLogin.unsubscribe();
     this.authService.user.unsubscribe();
     this.authService.UserFavoriteAdvertisements.unsubscribe();
   }
-  ngOnInit(): void {
+  ngOnInit() {
     this.searchService.GetUserLastSearches();
     this.authService.UserFavoriteAdvertisements.subscribe((ads) => {
       this.favoriteAds = ads;

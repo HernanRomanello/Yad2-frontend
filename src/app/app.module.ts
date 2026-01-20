@@ -37,7 +37,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.component';
 import { ImagesComponent } from './modules/images/images.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +72,6 @@ import { ImagesComponent } from './modules/images/images.component';
     BrowserAnimationsModule,
   ],
   providers: [
-    provideClientHydration(),
     provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
     provideAnimationsAsync(),
   ],

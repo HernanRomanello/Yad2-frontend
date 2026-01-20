@@ -78,7 +78,7 @@ export class FavoriteAdsComponent implements OnInit {
     this.userFavoritesAds = this.route.snapshot.data['userAds'];
   }
 
-  updateUserNote(adID: number, newNote: string): void {
+  updateUserNote(adID: number, newNote: string) {
     const userNote = this.userNotes?.find((note) => note.adID === adID);
     if (userNote) {
       userNote.note = newNote;

@@ -1,5 +1,4 @@
 import {
-  AfterContentChecked,
   Component,
   ElementRef,
   inject,

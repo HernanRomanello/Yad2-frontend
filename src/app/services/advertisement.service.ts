@@ -2,7 +2,6 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AdvertisementsModel } from '../shared/models/AdvertisementsModel';
 import { environment } from '../../environments/environment.development';
-import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './user/auth.service';
 @Injectable({
@@ -15,7 +14,6 @@ export class AdvertisementService {
   Url = environment.URl;
   UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
-  advertisementResult: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   authService = inject(AuthService);
 
   AirDirections = [1, 2, 3, 4];
@@ -119,7 +117,7 @@ export class AdvertisementService {
     'גמיש',
   ];
 
-  constructor(private router: Router, private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {
     this.GetAdvertisements();
   }
 
@@ -136,7 +134,6 @@ export class AdvertisementService {
       )
       .subscribe((response) => {
         this.Advertisements.next(response);
-        this.advertisementResult.next(response.length);
       });
   }
 
@@ -227,8 +224,6 @@ export class AdvertisementService {
       secondContactPhone: advertisement.secondContactPhone,
       standardizationAccepted: advertisement.standardizationAccepted,
     };
-
-    console.log(updatedAd);
 
     this.httpClient
       .put(`${this.Url}api/Users/UpdateAdvertisement/${id}`, updatedAd)

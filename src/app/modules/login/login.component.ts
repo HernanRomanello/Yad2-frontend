@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private formbuilder: FormBuilder
   ) {}
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.formSubmitted = false;
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.isPasswordHidden = true;
     this.loginForm = this.formbuilder.group({
       email: this.formbuilder.control('', [

@@ -93,11 +93,11 @@ export class EditAdvertisementComponent
   inputsStyleService = inject(InputsStyleService);
   imageuploadService = inject(ImageuploadService);
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.authService.user.unsubscribe();
   }
 
-  ngAfterContentChecked(): void {
+  ngAfterContentChecked() {
     this.imagesURLs.forEach((url, index) => {
       if (url !== '') {
         this.ImagesThatCanEdit[index] = true;
@@ -110,7 +110,7 @@ export class EditAdvertisementComponent
     return isNaN(parseInt(value));
   }
 
-  calculateAdRank(): void {
+  calculateAdRank() {
     let adRank = 0;
     (
       Object.keys(this.advertisement) as Array<keyof AdvertisementsModel>
@@ -155,13 +155,13 @@ export class EditAdvertisementComponent
     }
   }
 
-  constructor(private router: Router,private render :Renderer2) {
+  constructor(private router: Router, private render: Renderer2) {
     document.addEventListener('keyup', (event) => {
       const target = event.target as HTMLElement;
       this.formatNumbersInTheForm(target.id);
     });
   }
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
     this.scoreBarwidthInPixels = this.scoreBar.nativeElement.offsetWidth;
 
     for (let index = 0; index < this.advertisement.pictures.length; index++) {
@@ -297,7 +297,7 @@ export class EditAdvertisementComponent
     }
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.params.subscribe((params) => {
       if (params['id']) {
         this.advertisementService
@@ -383,20 +383,17 @@ export class EditAdvertisementComponent
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  setDateForToday(checkBox: string): void {
+  setDateForToday(checkBox: string) {
     const today = new Date().toISOString().substring(0, 10);
     this.advertisement.entryDate = today;
     if (checkBox === 'flexible') {
-    
       if (this.entryDate) {
         this.render.setStyle(this.entryDate.nativeElement, 'opacity', '0.5');
         (this.entryDate.nativeElement as HTMLInputElement).disabled = true;
       }
-      
-        
     }
     if (checkBox === 'immediate') {
-      this.render.setStyle(this.entryDate.nativeElement,'opacity','0.5');
+      this.render.setStyle(this.entryDate.nativeElement, 'opacity', '0.5');
     }
   }
 
