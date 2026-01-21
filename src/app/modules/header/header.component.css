@@ -23,10 +23,6 @@
   background-color: #ffffff;
 }
 
-.empty-space {
-  width: 120px;
-}
-
 .none-border,
 #user-area-btn-dropdown button {
   border: none !important;
@@ -468,11 +464,6 @@ img,
   box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
 }
 
-.edit-ad-header,
-.header2 {
-  justify-content: space-between;
-}
-
 .edit-ad-header {
   padding: 0 100px 0 130px;
 }
@@ -560,11 +551,6 @@ img,
   height: 54px;
   width: 109.547px;
   padding: 0px 20px;
-}
-
-.right-side2 {
-  gap: 1.5rem;
-  margin-right: 2.5rem !important;
 }
 
 .post-ad-box {
@@ -761,13 +747,6 @@ button,
   display: flex;
 }
 
-.header {
-  width: 100%;
-}
-.header div {
-  white-space: nowrap;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;
@@ -828,17 +807,17 @@ button,
   padding-left: 45px;
 }
 
-.logo-btn-main-page {
+/* .logo-btn-main-page {
   margin-left: 8px;
-}
+} */
 
 .logo-btn-favorite-page {
   margin: 0px 8px 0 15px;
 }
-.logo-btn-main-page,
+/* .logo-btn-main-page,
 .logo-btn-favorite-page {
   transform: translateX(-14px) translateY(2px);
-}
+} */
 
 .logo-btn-main-page img {
   height: 37px;
@@ -847,10 +826,10 @@ button,
 .logo-btn-favorite-page img {
   height: 36px;
 }
-.logo-btn-main-page img,
+/* .logo-btn-main-page img,
 .logo-btn-favorite-page img {
   width: 74px;
-}
+} */
 
 #space3 {
   background-color: #ffffff !important;
@@ -863,3 +842,47 @@ button,
 .shadow {
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px 0px !important;
 }
+
+.logo-btn-main-page img,
+.logo-btn-favorite-page img {
+  width: 74px;
+}
+
+.logo-btn-main-page img {
+  height: 37px;
+}
+
+.logo-btn-main-page,
+.logo-btn-favorite-page {
+  transform: translateX(-14px) translateY(2px);
+}
+
+.logo-btn-main-page,
+.logo-btn-favorite-page {
+  transform: translateX(-14px) translateY(2px);
+}
+
+.right-side2 {
+  gap: 1.5rem;
+  margin-right: 2.5rem !important;
+}
+
+.header {
+  width: 100%;
+}
+.header div {
+  white-space: nowrap;
+}
+
+.edit-ad-header,
+.header2,
+.header {
+  justify-content: space-between;
+}
+
+@media (max-width: 400px) {
+  .header {
+    font-size: 12px;
+  }
+}
+

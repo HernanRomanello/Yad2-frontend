@@ -123,15 +123,15 @@ export class AdvertisementService {
 
   isFavorite(advertisementId: number): boolean {
     return this.UserFavoriteAdvertisements.getValue().some(
-      (item) => item.id === advertisementId
+      (item) => item.id === advertisementId,
     );
   }
 
   GetAdvertisements() {
     this.httpClient
-      .get<AdvertisementsModel[]>(
-        `${this.Url}api/Advertisement/GetAdvertisements`
-      )
+      .get<
+        AdvertisementsModel[]
+      >(`${this.Url}api/Advertisement/GetAdvertisements`)
       .subscribe((response) => {
         this.Advertisements.next(response);
       });
@@ -139,7 +139,7 @@ export class AdvertisementService {
 
   GetAdvertisementById(id: number) {
     return this.httpClient.get<AdvertisementsModel>(
-      `${this.Url}api/Advertisement/GetAdvertisement/${id}`
+      `${this.Url}api/Advertisement/GetAdvertisement/${id}`,
     );
   }
 
@@ -152,7 +152,7 @@ export class AdvertisementService {
   updateAdvertisement(
     advertisement: AdvertisementsModel,
     id: number,
-    pictures: any
+    pictures: any,
   ): void {
     const date = this.convertDateToUnixTimestamp(advertisement.entryDate);
 
@@ -234,12 +234,12 @@ export class AdvertisementService {
         },
         (error) => {
           console.error('Error updating advertisement:', error);
-        }
+        },
       );
   }
 
   getFirstThreeAdvertisementParameters(
-    advertisement: AdvertisementsModel
+    advertisement: AdvertisementsModel,
   ): string[] {
     const conditions = [
       advertisement.airDirections > 0,
