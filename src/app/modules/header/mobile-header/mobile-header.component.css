@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  line-height: 3.125rem;
+}
+
+.mobile-header {
+  height: 45px;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+}
+
+.icon-btn {
+  min-width: 44px;
+  height: 44px;
+  padding: 6px 8px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.chat {
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: #111;
+}
+
+.icon-label {
+  font-size: 10px;
+  line-height: 1;
+  color: #222;
+}
+
+.logo-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 25px;
+  width: 50px;
+}
+
+.hamburger {
+  height: 16px;
+  width: 16px;
+
+  @media (min-width: 769px) {
+    :host {
+      display: none;
+    }
+  }
+}

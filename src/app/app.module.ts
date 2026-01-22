@@ -36,6 +36,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.component';
 import { ImagesComponent } from './modules/images/images.component';
+import { MobileHeaderComponent } from './modules/header/mobile-header/mobile-header.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ImagesComponent } from './modules/images/images.component';
     EditAdvertisementComponent,
     FavoriteAdsComponent,
     ImagesComponent,
+    MobileHeaderComponent,
   ],
   imports: [
     BrowserModule,
