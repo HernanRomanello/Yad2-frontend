@@ -1,8 +1,11 @@
-<!-- @if (this.navigationService.isNotPages(["user-images"])) {
-  <app-header></app-header>
-} -->
-
-<app-mobile-header />
+@if (this.navigationService.isNotPages(["user-images"])) {
+  <span class="desktop">
+    <app-header></app-header>
+  </span>
+}
+<span class="mobile">
+  <app-mobile-header />
+</span>
 
 <!-- <router-outlet></router-outlet> -->
 @if (

@@ -8,3 +8,23 @@ body {
   color: #363636 !important;
   direction: rtl;
 }
+
+@media (min-width: 769px) {
+  .desktop {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+}
