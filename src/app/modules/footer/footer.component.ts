@@ -10,4 +10,15 @@ import { NavigationService } from '../../services/navigation.service';
 export class FooterComponent {
   authService = inject(AuthService);
   navigationService = inject(NavigationService);
+
+  open = new Set<number>();
+
+  toggleDropdown(i: number) {
+    if (this.open.has(i)) this.open.delete(i);
+    else this.open.add(i);
+  }
+
+  isOpen(i: number) {
+    return this.open.has(i);
+  }
 }

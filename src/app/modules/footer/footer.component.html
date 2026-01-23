@@ -1,95 +1,156 @@
 <footer>
   <div
     [ngStyle]="{
-      'max-height':
-        (navigationService.isPages(['favorites','last-searches'])) ? '327px' : '',
-     
+      'max-height': navigationService.isPages(['favorites', 'last-searches'])
+        ? '327px'
+        : '',
     }"
     class="footer-content"
   >
-    @if((navigationService.isNotPages(['favorites','last-searches']))){
-    <div class="app-explanation">
-      <p>
-        מחפשים דירות להשכרה? בלוח נכסים להשכרה של יד2 תמצאו בקלות ובמהירות. מאגר
-        הנכסים להשכרה הענק והעדכני שלנו עומד לרשותכם – כל
-      </p>
-      <p>
-        שעליכם לעשות הוא להקליד את פרטי הנכס שמעניין אתכם (מחוז, אזור, ישוב, סוג
-        נכס, מספר חדרים וכו') ומנוע החיפוש שלנו יסנן עבורכם את המודעות
-      </p>
-      <p>
-        הרלוונטיות ביותר. מחפשים דירה להשכרה באזור ספציפי? לחצו על "הצג על גבי
-        מפה" ובחרו באזור הגיאוגרפי שבו אתם מעוניינים למצוא דירה להשכרה.
-      </p>
-      <p>
-        המערכת תסמן עבורכם את מיקומי הדירות הזמינות, ותוכלו להקליק על כל סימון
-        כדי לצפות במודעה ובפרטי ההתקשרות עם בעלי הדירה.
-      </p>
-    </div>
-    <div class="categories">
-      <div>
-        <li class="category-title">נדל"ן</li>
-        <li>מכירה</li>
-        <li>השכרה</li>
-        <li>כונס נכסים</li>
-        <li>דירות חדשות</li>
-        <li>Yzer - בונים החלטות חכמות</li>
-        <li>Yadata - הערכת שווי נכס</li>
+    @if (navigationService.isNotPages(["favorites", "last-searches"])) {
+      <div class="app-explanation">
+        <p>
+          מחפשים דירות להשכרה? בלוח נכסים להשכרה של יד2 תמצאו בקלות ובמהירות.
+          מאגר הנכסים להשכרה הענק והעדכני שלנו עומד לרשותכם – כל שעליכם לעשות
+          הוא להקליד את פרטי הנכס שמעניין אתכם (מחוז, אזור, ישוב, סוג נכס, מספר
+          חדרים וכו') ומנוע החיפוש שלנו יסנן עבורכם את המודעות הרלוונטיות ביותר.
+          מחפשים דירה להשכרה באזור ספציפי? לחצו על "הצג על גבי מפה" ובחרו באזור
+          הגיאוגרפי שבו אתם מעוניינים למצוא דירה להשכרה. המערכת תסמן עבורכם את
+          מיקומי הדירות הזמינות, ותוכלו להקליק על כל סימון כדי לצפות במודעה
+          ובפרטי ההתקשרות עם בעלי הדירה.
+        </p>
       </div>
+      <div class="categories">
+        <div>
+          <li class="category-title" (click)="toggleDropdown(0)">
+            <span>נדל"ן</span>
+            <img
+              [ngClass]="isOpen(0) ? 'down-arrow' : 'left-arrow'"
+              src="assets/images/left-arrow-backup.svg"
+              alt="arrow"
+            />
+          </li>
 
-      <div class="categories-block">
-        <li class="category-title two-col align-start">רכב</li>
-        <div class="two-col">
-          <span>
-            <li>פרטיים ומסחריים</li>
-            <li>משאיות</li>
-            <li>אופנועים</li>
-            <li>קטנועים</li>
-            <li>כלי שייט</li>
+          <span
+            class="category-dropdown"
+            [class.category-dropdown-open]="isOpen(0)"
+          >
+            <li>מכירה</li>
+            <li>השכרה</li>
+            <li>כונס נכסים</li>
+            <li>דירות חדשות</li>
+            <li>Yzer - בונים החלטות חכמות</li>
+            <li>Yadata - הערכת שווי נכס</li>
           </span>
-          <span>
-            <li>מיוחדים</li>
-            <li>אביזרים</li>
-            <li>מחירון רכב</li>
-            <li>מימון רכב</li>
+        </div>
+
+        <div class="categories-block">
+          <li
+            class="category-title two-col align-start"
+            (click)="toggleDropdown(1)"
+          >
+            <span>רכב</span>
+            <img
+              [ngClass]="isOpen(1) ? 'down-arrow' : 'left-arrow'"
+              src="assets/images/left-arrow-backup.svg"
+              alt="arrow"
+            />
+          </li>
+
+          <span
+            class="category-dropdown"
+            [class.category-dropdown-open]="isOpen(1)"
+          >
+            <div class="two-col">
+              <span>
+                <li>פרטיים ומסחריים</li>
+                <li>משאיות</li>
+                <li>אופנועים</li>
+                <li>קטנועים</li>
+                <li>כלי שייט</li>
+              </span>
+              <span>
+                <li>מיוחדים</li>
+                <li>אביזרים</li>
+                <li>מחירון רכב</li>
+                <li>מימון רכב</li>
+              </span>
+            </div>
+          </span>
+        </div>
+
+        <div class="categories-block align-text-center">
+          <li class="category-title" (click)="toggleDropdown(2)">
+            <span>יד שנייה</span>
+            <img
+              [ngClass]="isOpen(2) ? 'down-arrow' : 'left-arrow'"
+              src="assets/images/left-arrow-backup.svg"
+              alt="arrow"
+            />
+          </li>
+
+          <span
+            class="category-dropdown"
+            [class.category-dropdown-open]="isOpen(2)"
+          >
+            <li>לכל המוצרים</li>
+            <li>ריהוט</li>
+            <li>סלולרי</li>
+            <li>מוצרי חשמל</li>
+            <li>אופניים</li>
+          </span>
+        </div>
+
+        <div class="categories-block align-text-center">
+          <li class="category-title" (click)="toggleDropdown(3)">
+            <span>דרושים</span>
+            <img
+              [ngClass]="isOpen(3) ? 'down-arrow' : 'left-arrow'"
+              src="assets/images/left-arrow-backup.svg"
+              alt="arrow"
+            />
+          </li>
+
+          <span
+            class="category-dropdown"
+            [class.category-dropdown-open]="isOpen(3)"
+          >
+            <li>כל הקטגוריות</li>
+            <li>חברות מובילות</li>
+            <li>דרושים הייטק</li>
+            <li>קורות חיים</li>
+            <li>מגזין קריירה</li>
+            <li>סוכן חכם</li>
+          </span>
+        </div>
+
+        <div class="categories-block last-category">
+          <li class="category-title" (click)="toggleDropdown(4)">
+            <span>עוד באתר</span>
+            <img
+              [ngClass]="isOpen(4) ? 'down-arrow' : 'left-arrow'"
+              src="assets/images/left-arrow-backup.svg"
+              alt="arrow"
+            />
+          </li>
+
+          <span
+            class="category-dropdown"
+            [class.category-dropdown-open]="isOpen(4)"
+          >
+            <li>חיות מחמד</li>
+            <li>בעלי מקצוע</li>
+            <li>מגזין יד2</li>
           </span>
         </div>
       </div>
-
-      <div class="categories-block align-text-center">
-        <li class="category-title">יד שנייה</li>
-        <li>לכל המוצרים</li>
-        <li>ריהוט</li>
-        <li>סלולרי</li>
-        <li>מוצרי חשמל</li>
-        <li>אופניים</li>
-      </div>
-
-      <div class="categories-block align-text-center">
-        <li class="category-title">דרושים</li>
-        <li>כל הקטגוריות</li>
-        <li>חברות מובילות</li>
-        <li>דרושים הייטק</li>
-        <li>קורות חיים</li>
-        <li>מגזין קריירה</li>
-        <li>סוכן חכם</li>
-      </div>
-
-      <div class="categories-block align-text-end">
-        <li class="category-title">עוד באתר</li>
-        <li>חיות מחמד</li>
-        <li>בעלי מקצוע</li>
-        <li>מגזין יד2</li>
-      </div>
-    </div>
     } @else {
-    <div class="categories-favorite-page flex-center">
-      <li class="category-title font18">רכב</li>
-      <li class="category-title font18">נדל"ן</li>
-      <li class="category-title font18">יד שניה</li>
-      <li class="category-title font18">דרושים IL</li>
-    </div>
-
+      <div class="categories-favorite-page flex-center">
+        <li class="category-title font18">רכב</li>
+        <li class="category-title font18">נדל"ן</li>
+        <li class="category-title font18">יד שניה</li>
+        <li class="category-title font18">דרושים IL</li>
+      </div>
     }
     <div
       [ngClass]="
@@ -109,31 +170,29 @@
       </div>
     </div>
 
-    @if((navigationService.isNotPages(['favorites','last-searches']))){
-    <footer class="AllRightAreSave">
-      <div class="">
-        כל הזכויות שמורות לחברת קורל תל מפעילות לוח יד2 - לוח מודעות: דרושים,
-        דירות להשכרה, בתים למכירה, בתים להשכרה, העברת בתים, הובלות, לימודים,
-        קניות, בעלי מקצוע, אצבע, תיירות ועוד. אין לעשות שימוש בכל התכנים
-        המופיעים בלוח יד2.
-      </div>
-    </footer>
-    }@else {
-
-    <footer class="AllRightAreSave line-height14">
-      <div class="footer-note">
-        כל הזכויות שמורות לחברת קורל תל מפעילות לוח יד2 - לוח מודעות: דרושים IL,
-        דירות להשכרה, בתים למכירה, בתים להשכרה, העברת בתים, הובלות אין לעשות
-        שימוש בכל התכנים המופיעים בלוח יד2.
-      </div>
-    </footer>
-
+    @if (navigationService.isNotPages(["favorites", "last-searches"])) {
+      <footer class="AllRightAreSave">
+        <div class="">
+          כל הזכויות שמורות לחברת קורל תל מפעילות לוח יד2 - לוח מודעות: דרושים,
+          דירות להשכרה, בתים למכירה, בתים להשכרה, העברת בתים, הובלות, לימודים,
+          קניות, בעלי מקצוע, אצבע, תיירות ועוד. אין לעשות שימוש בכל התכנים
+          המופיעים בלוח יד2.
+        </div>
+      </footer>
+    } @else {
+      <footer class="AllRightAreSave line-height14">
+        <div class="footer-note">
+          כל הזכויות שמורות לחברת קורל תל מפעילות לוח יד2 - לוח מודעות: דרושים
+          IL, דירות להשכרה, בתים למכירה, בתים להשכרה, העברת בתים, הובלות אין
+          לעשות שימוש בכל התכנים המופיעים בלוח יד2.
+        </div>
+      </footer>
     }
     <div
       [ngStyle]="{
-        height:
-          (navigationService.isPages(['favorites','last-searches'])) ? '2px' : '1px',
-      
+        height: navigationService.isPages(['favorites', 'last-searches'])
+          ? '2px'
+          : '1px',
       }"
       [ngClass]="
         navigationService.isPages(['favorites', 'last-searches'])
@@ -160,10 +219,10 @@
       <li><a href="#">קריירה ביד2</a></li>
       <li><a href="#"> פרויקטי נדלניישן </a></li>
     </ul>
-    @if((navigationService.isNotPages(['favorites','last-searches']))){
-    <p class="version">גרסה:prod</p>
-    }@else {
-    <p class="version font16 margin-top">גירסה: pro</p>
+    @if (navigationService.isNotPages(["favorites", "last-searches"])) {
+      <p class="version">גרסה:prod</p>
+    } @else {
+      <p class="version font16 margin-top">גירסה: pro</p>
     }
   </div>
 </footer>
