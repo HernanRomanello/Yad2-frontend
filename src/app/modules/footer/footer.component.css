@@ -198,7 +198,7 @@
   color: transparent !important;
   background-color: #606060 !important;
 
-  width: 420px;
+  max-width: 420px;
   z-index: 10000;
 }
 
@@ -245,11 +245,6 @@
 }
 
 @media (max-width: 768px) {
-  .footer-content {
-    width: 100vw;
-    padding: 0 2.5rem;
-  }
-
   .line,
   .line-favorite-page {
     width: 92vw;
