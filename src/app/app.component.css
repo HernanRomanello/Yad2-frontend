@@ -9,7 +9,7 @@ body {
   direction: rtl;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 863px) {
   .desktop {
     display: block;
   }
@@ -19,7 +19,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 862px) {
   .desktop {
     display: none;
   }
