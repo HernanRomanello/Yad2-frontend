@@ -234,8 +234,6 @@ img {
   margin: 34px 0 0;
   border: 1px solid #eee;
   display: flex;
-  justify-content: start;
-  align-items: flex-start;
   margin-left: auto;
 }
 
@@ -520,6 +518,10 @@ img {
     margin-left: unset;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .size-details {
+    justify-content: space-betweens !important;
   }
 
   .size-details,
