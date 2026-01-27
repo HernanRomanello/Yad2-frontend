@@ -1,351 +1,376 @@
-<div class="advertisement-page">
-  <div class="pics-container">
-    @if (advertisement.mainPicture !== "") {
-      <div class="pics">
-        <img
-          routerLink="/user-images/{{ advertisement.id }}"
-          *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-          [src]="advertisement.pictures[1].url"
-          class="small-pic pic1"
-          alt="Advertisement Image"
-        />
-        <img
-          routerLink="/user-images/{{ advertisement.id }}"
-          *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-          [src]="advertisement.pictures[2].url"
-          class="small-pic pic2"
-          alt="Advertisement Image"
-        />
-      </div>
-
-      <img
-        routerLink="/user-images/{{ advertisement.id }}"
-        *ngIf="advertisement.mainPicture !== ''"
-        [src]="advertisement.mainPicture"
-        class="main-pic"
-        alt="Advertisement Image"
-      />
-      <div class="white-btns flex-center">
-        <div class="flex-center gap">
-          <span>שיתוף</span>
+<div class="advertisement-container">
+  <div class="advertisement-page">
+    <div class="pics-container">
+      @if (advertisement.mainPicture !== "") {
+        <div class="pics">
           <img
-            id="share-icon"
-            src="assets/images/share-svgrepo-com (2).svg"
-            class="type-pic"
-            alt="share"
+            routerLink="/user-images/{{ advertisement.id }}"
+            *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+            [src]="advertisement.pictures[1].url"
+            class="small-pic pic1"
+            alt="Advertisement Image"
+          />
+          <img
+            routerLink="/user-images/{{ advertisement.id }}"
+            *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
+            [src]="advertisement.pictures[2].url"
+            class="small-pic pic2"
+            alt="Advertisement Image"
           />
         </div>
-        <div
-          (click)="authService.updateAdvertisementToFavorites(adID)"
-          class="flex-center gap"
-        >
-          <span>שמירה</span>
-          @if (!this.isFavorite(adID)) {
+
+        <img
+          routerLink="/user-images/{{ advertisement.id }}"
+          *ngIf="advertisement.mainPicture !== ''"
+          [src]="advertisement.mainPicture"
+          class="main-pic"
+          alt="Advertisement Image"
+        />
+        <div class="white-btns flex-center">
+          <div class="flex-center gap">
+            <span>שיתוף</span>
             <img
-              id="favorite-icon"
-              src="assets/images/heart-svgrepo-com (5).svg"
-              class="type-pic"
-              alt="favorite"
-            />
-          } @else {
-            <img
-              id="favorite-icon-red"
-              src="assets/images/heart-svgrepo-com-red.svg"
+              id="share-icon"
+              src="assets/images/share-svgrepo-com (2).svg"
               class="type-pic"
               alt="share"
             />
-          }
+          </div>
+          <div
+            (click)="authService.updateAdvertisementToFavorites(adID)"
+            class="flex-center gap"
+          >
+            <span>שמירה</span>
+            @if (!this.isFavorite(adID)) {
+              <img
+                id="favorite-icon"
+                src="assets/images/heart-svgrepo-com (5).svg"
+                class="type-pic"
+                alt="favorite"
+              />
+            } @else {
+              <img
+                id="favorite-icon-red"
+                src="assets/images/heart-svgrepo-com-red.svg"
+                class="type-pic"
+                alt="share"
+              />
+            }
+          </div>
         </div>
-      </div>
-      <div
-        routerLink="/user-images/{{ advertisement.id }}"
-        class="all-pics-link-btn font16 font500 flex-center"
-      >
-        <span class="wrap">
-          הצגת {{ advertisement.pictures.length }} תמונות
-        </span>
-        <img
-          id="img-box-icon"
-          src="assets/images/img-box-svgrepo-com.svg"
-          alt="img-box"
-        />
-      </div>
-      @if (advertisement.video !== "") {
         <div
           routerLink="/user-images/{{ advertisement.id }}"
-          class="video-pics-link-btn font16 font500 flex-center"
+          class="all-pics-link-btn font16 font500 flex-center"
         >
-          <span class="wrap"> וידאו </span>
+          <span class="wrap">
+            הצגת {{ advertisement.pictures.length }} תמונות
+          </span>
           <img
             id="img-box-icon"
-            src="assets/images/video-svgrepo1.svg"
+            src="assets/images/img-box-svgrepo-com.svg"
             alt="img-box"
           />
         </div>
-      }
-    } @else {
-      <img
-        id="ad-image"
-        class="house-pic"
-        src="assets/images/image_placeholder_.svg"
-        alt="Advertisement Image"
-      />
-    }
-  </div>
-
-  <div class="contact-card">
-    <div class="card-content">
-      <div class="price-box">
-        @if (advertisement.price > 0) {
-          <p class="price font600">₪{{ advertisement.price | number }}</p>
-        } @else {
-          <p class="price font500 translateY2 letter-spacing">לא צוין מחיר</p>
-        }
-      </div>
-      <button class="call-button flex-center">
-        הצגת מספר טלפון
-        <img
-          id="phone-icon"
-          class=""
-          src="assets/images/phone-svgrepo-com.svg"
-          alt="phone"
-        />
-      </button>
-      <div class="add-id">
-        <div class="id-text">{{ advertisement.id }} :מס' מודעה</div>
-        <div class="id-text gap flex-center">
-          <span> דווח על מודעה </span>
-          <img
-            id="information-icon"
-            src="assets/images/information-svgrepo-com.svg"
-            alt="information"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="add-info flex column">
-    <div class="ad-details">
-      <div class="add-title">
-        {{ advertisement.street }} {{ advertisement.number }}
-      </div>
-      <div class="location-details">
-        <span>{{ advertisement.assetType }}, </span>
-        {{ advertisement.neighborhood }},<span> {{ advertisement.city }}</span>
-      </div>
-      <div class="size-details">
-        <div class="flex-center">
-          <img
-            id="door-icon"
-            src="assets/images/door-svgrepo-com (1).svg"
-            alt="door"
-          />
-          <span>{{ advertisement.rooms }}</span>
-          <span>חדרים</span>
-        </div>
-        <div class="flex-center">
-          <img
-            id="stairs-icon"
-            src="assets/images/stairs-56-svgrepo-com.svg"
-            alt="stairs"
-          />
-          <span>קומה</span>
-          <span>{{ advertisement.floor }}</span>
-        </div>
-        <div class="flex-center">
-          <img
-            id="bricks-icon"
-            src="assets/images/bricks-svgrepo-com.svg"
-            alt="stairs"
-          />
-          <span>{{ advertisement.totalSquareMeters }}</span
-          ><span>מ"ר</span>
-        </div>
-      </div>
-      <div class="description">{{ advertisement.description }}</div>
-      <div class="map">
-        <span> מפה </span>
-        <img
-          id="location-icon"
-          src="assets/images/location-svgrepo-com2.svg"
-          alt="location"
-        />
-      </div>
-    </div>
-
-    <div class="additional-details">
-      <div class="additional-details-title">פרטים נוספים</div>
-      <div class="additional-details-table1">
-        <div class="add-block">
-          <div class="gray-text">סוג העסקה</div>
-          <div class="ad-data-text">{{ advertisement.tradeType }}</div>
-        </div>
-        <div class="add-block">
-          <div class="gray-text">מצב הנכס</div>
-          <div class="ad-data-text">
-            {{ removeParenthesesContent(advertisement.assetState) }}
-          </div>
-        </div>
-        <div class="add-block">
-          <div class="gray-text">קומות בבניין</div>
-          <div class="ad-data-text">{{ advertisement.floor }}</div>
-        </div>
-        <div class="add-block">
-          <div class="gray-text">מספר תשלומים</div>
-          <div class="ad-data-text">{{ advertisement.numberOfPayments }}</div>
-        </div>
-        <div class="add-block">
-          <div class="gray-text">מ"ר בנוי</div>
-          <div class="ad-data-text">{{ advertisement.totalSquareMeters }}</div>
-        </div>
-        <div class="add-block">
-          <div class="gray-text">חניות</div>
-          <div class="ad-data-text">{{ advertisement.privateParking }}</div>
-        </div>
-        <div class="add-block">
-          <div class="gray-text">תאריך כניסה</div>
-          <div class="ad-data-text">{{ entryDate }}</div>
-        </div>
-        <div class="space"></div>
-        <div class="space"></div>
-      </div>
-    </div>
-    <div class="additional-details">
-      <div class="additional-details-title">מה יש בנכס</div>
-      <div class="additional-details-table2">
-        <div class="add-block icons-div">
-          <div [ngClass]="fillApartmentCondition(advertisement.elevator)">
-            <img
-              id="elevator-icon"
-              class="icons"
-              src="assets/images/elevator-svgrepo-com (1).svg"
-              alt="elevator"
-            />
-            <span> מעלית </span>
-          </div>
+        @if (advertisement.video !== "") {
           <div
-            [ngClass]="
-              fillApartmentCondition(advertisement.accessibleForDisabled)
-            "
+            routerLink="/user-images/{{ advertisement.id }}"
+            class="video-pics-link-btn font16 font500 flex-center"
           >
+            <span class="wrap"> וידאו </span>
             <img
-              class="icons"
-              src="assets/images/disability-svgrepo-com.svg"
+              id="img-box-icon"
+              src="assets/images/video-svgrepo1.svg"
+              alt="img-box"
+            />
+          </div>
+        }
+      } @else {
+        <img
+          id="ad-image"
+          class="house-pic"
+          src="assets/images/image_placeholder_.svg"
+          alt="Advertisement Image"
+        />
+      }
+    </div>
+
+    <div class="ad-content column">
+      <div class="contact-container">
+        <div class="contact-card">
+          <div class="card-content">
+            <div class="price-box">
+              @if (advertisement.price > 0) {
+                <p class="price font600">₪{{ advertisement.price | number }}</p>
+              } @else {
+                <p class="price font500 translateY2 letter-spacing">
+                  לא צוין מחיר
+                </p>
+              }
+            </div>
+            <button class="call-button flex-center">
+              הצגת מספר טלפון
+              <img
+                id="phone-icon"
+                class=""
+                src="assets/images/phone-svgrepo-com.svg"
+                alt="phone"
+              />
+            </button>
+          </div>
+        </div>
+        <div class="add-id">
+          <div class="id-text">{{ advertisement.id }} :מס' מודעה</div>
+          <div class="id-text gap flex-center">
+            <span> דווח על מודעה </span>
+            <img
+              id="information-icon"
+              src="assets/images/information-svgrepo-com.svg"
+              alt="information"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="ad-info flex column">
+        <div class="ad-details">
+          <div class="add-title">
+            {{ advertisement.street }} {{ advertisement.number }}
+          </div>
+          <div class="location-details">
+            <span>{{ advertisement.assetType }}, </span>
+            {{ advertisement.neighborhood }},<span>
+              {{ advertisement.city }}</span
+            >
+          </div>
+          <div class="size-details">
+            <div class="flex-center">
+              <img
+                id="door-icon"
+                src="assets/images/door-svgrepo-com (1).svg"
+                alt="door"
+              />
+              <span>{{ advertisement.rooms }}</span>
+              <span>חדרים</span>
+            </div>
+            <div class="flex-center">
+              <img
+                id="stairs-icon"
+                src="assets/images/stairs-56-svgrepo-com.svg"
+                alt="stairs"
+              />
+              <span>קומה</span>
+              <span>{{ advertisement.floor }}</span>
+            </div>
+            <div class="flex-center">
+              <img
+                id="bricks-icon"
+                src="assets/images/bricks-svgrepo-com.svg"
+                alt="stairs"
+              />
+              <span>{{ advertisement.totalSquareMeters }}</span
+              ><span>מ"ר</span>
+            </div>
+          </div>
+          <div class="description">{{ advertisement.description }}</div>
+          <div class="map">
+            <span> מפה </span>
+            <img
+              id="location-icon"
+              src="assets/images/location-svgrepo-com2.svg"
               alt="location"
             />
-            <span> גישה לנכים </span>
           </div>
-        </div>
-        <div class="add-block icons-div">
-          <div
-            [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
-          >
-            <img
-              class="icons"
-              src="assets/images/air-conditioner-svgrepo-com.svg"
-              alt="air-conditioner"
-            />
-            <span> מזגן טורנדו </span>
-          </div>
-          <div [ngClass]="fillApartmentCondition(advertisement.multiLockDoors)">
-            <img
-              class="icons"
-              src="assets/images/door-svgrepo-com (1).svg"
-              alt="door"
-            />
-            <span> דלתות רב-בריח </span>
-          </div>
-        </div>
-        <div class="add-block icons-div">
-          <div
-            [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
-          >
-            <img
-              id="air-conditioning-icon"
-              class="icons"
-              src="assets/images/air-conditioning-svgrepo-com.svg"
-              alt="air-conditioning"
-            />
-            <span> מיזוג </span>
-          </div>
-          <div [ngClass]="fillApartmentCondition(advertisement.windowBars)">
-            <img
-              class="icons"
-              src="assets/images/square-split-2x2-svgrepo-com.svg"
-              alt="square-split"
-            />
-            <span> סורגים </span>
-          </div>
-        </div>
-        <div class="add-block icons-div">
-          <div [ngClass]="fillApartmentCondition(advertisement.storageRoom)">
-            <img
-              class="icons"
-              src="assets/images/box-svgrepo-com.svg"
-              alt="box"
-            />
-            <span> מחסן </span>
-          </div>
-          <div
-            [ngClass]="fillApartmentCondition(advertisement.solarWaterHeater)"
-          >
-            <img
-              id="solar-energy-icon"
-              class="icons"
-              src="assets/images/solar-energy-svgrepo-com (1).svg"
-              alt="solar-energy"
-            />
 
-            <span> דוד שמש </span>
+          <span>
+            <div class="nav-icons">
+              <span class="col">
+                <img
+                  id="location-icon"
+                  src="assets/images/location-svgrepo-com2.svg"
+                  alt="location"
+                />
+                <span> מפה </span>
+              </span>
+              <span class="col">
+                <img
+                  id="location-icon"
+                  src="assets/images/navigate.svg"
+                  alt="navigate"
+                />
+                <span> נווט </span>
+              </span>
+            </div>
+          </span>
+        </div>
+        <div class="additional-details grid-right">
+          <div class="additional-details-title">פרטים נוספים</div>
+          <div class="additional-details-table1">
+            <div class="ad-block">
+              <div class="gray-text">סוג העסקה</div>
+              <div class="ad-data-text">{{ advertisement.tradeType }}</div>
+            </div>
+            <div class="ad-block">
+              <div class="gray-text">מצב הנכס</div>
+              <div class="ad-data-text">
+                {{ removeParenthesesContent(advertisement.assetState) }}
+              </div>
+            </div>
+            <div class="ad-block">
+              <div class="gray-text">קומות בבניין</div>
+              <div class="ad-data-text">{{ advertisement.floor }}</div>
+            </div>
+            <div class="ad-block">
+              <div class="gray-text">מספר תשלומים</div>
+              <div class="ad-data-text">
+                {{ advertisement.numberOfPayments }}
+              </div>
+            </div>
+            <div class="ad-block">
+              <div class="gray-text">מ"ר בנוי</div>
+              <div class="ad-data-text">
+                {{ advertisement.totalSquareMeters }}
+              </div>
+            </div>
+            <div class="ad-block">
+              <div class="gray-text">חניות</div>
+              <div class="ad-data-text">{{ advertisement.privateParking }}</div>
+            </div>
+            <div class="ad-block">
+              <div class="gray-text">תאריך כניסה</div>
+              <div class="ad-data-text">{{ entryDate }}</div>
+            </div>
           </div>
         </div>
-        <div class="add-block icons-div">
-          <div [ngClass]="fillApartmentCondition(advertisement.renovated)">
-            <img
-              id="paint-roller-icon"
-              class="icons"
-              src="assets/images/paint-roller-solid-svgrepo-com.svg"
-              alt="paint-roller"
-            />
-            <span> משופצת </span>
-          </div>
-          <div [ngClass]="fillApartmentCondition(advertisement.safeRoom)">
-            <img
-              class="icons"
-              src="assets/images/secure-shield-password-protect-safe-svgrepo-com.svg"
-              alt="secure"
-            />
-            <span> ממ"ד </span>
-          </div>
-        </div>
+        <div class="additional-details">
+          <div class="additional-details-title">מה יש בנכס</div>
 
-        <div class="add-block icons-div">
-          <div
-            *ngIf="true"
-            [ngClass]="fillApartmentCondition(advertisement.longTerm)"
-          >
-            <img
-              class="icons"
-              src="assets/images/calender-svgrepo-com.svg"
-              alt="door"
-            />
-            <span> לטווח ארוך </span>
-          </div>
-          <div
-            *ngIf="advertisement.hasBolcony"
-            [ngClass]="fillApartmentCondition(advertisement.hasBolcony)"
-          >
-            <img
-              class="icons"
-              src="assets/images/icons_565162.svg"
-              alt="secure"
-            />
-            <span> מרפסת</span>
+          <div class="additional-details-table2">
+            <div
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.elevator)"
+            >
+              <img
+                id="elevator-icon"
+                class="icons"
+                src="assets/images/elevator-svgrepo-com (1).svg"
+                alt="elevator"
+              />
+              <span> מעלית </span>
+            </div>
+
+            <div
+              class="ad-block icons-div"
+              [ngClass]="
+                fillApartmentCondition(advertisement.accessibleForDisabled)
+              "
+            >
+              <img
+                class="icons"
+                src="assets/images/disability-svgrepo-com.svg"
+                alt="location"
+              />
+              <span> גישה לנכים </span>
+            </div>
+
+            <div
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
+            >
+              <img
+                class="icons"
+                src="assets/images/air-conditioner-svgrepo-com.svg"
+                alt="air-conditioner"
+              />
+              <span> מזגן טורנדו </span>
+            </div>
+
+            <div
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.multiLockDoors)"
+            >
+              <img
+                class="icons"
+                src="assets/images/door-svgrepo-com (1).svg"
+                alt="door"
+              />
+              <span> דלתות רב-בריח </span>
+            </div>
+
+            <div
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.windowBars)"
+            >
+              <img
+                class="icons"
+                src="assets/images/square-split-2x2-svgrepo-com.svg"
+                alt="square-split"
+              />
+              <span> סורגים </span>
+            </div>
+
+            <div
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.storageRoom)"
+            >
+              <img
+                class="icons"
+                src="assets/images/box-svgrepo-com.svg"
+                alt="box"
+              />
+              <span> מחסן </span>
+            </div>
+
+            <div
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.solarWaterHeater)"
+            >
+              <img
+                id="solar-energy-icon"
+                class="icons"
+                src="assets/images/solar-energy-svgrepo-com (1).svg"
+                alt="solar-energy"
+              />
+              <span> דוד שמש </span>
+            </div>
+
+            <div
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.safeRoom)"
+            >
+              <img
+                class="icons"
+                src="assets/images/secure-shield-password-protect-safe-svgrepo-com.svg"
+                alt="secure"
+              />
+              <span> ממ"ד </span>
+            </div>
+
+            <div
+              *ngIf="true"
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.longTerm)"
+            >
+              <img
+                class="icons"
+                src="assets/images/calender-svgrepo-com.svg"
+                alt="door"
+              />
+              <span> לטווח ארוך </span>
+            </div>
+
+            <div
+              *ngIf="advertisement.hasBolcony"
+              class="ad-block icons-div"
+              [ngClass]="fillApartmentCondition(advertisement.hasBolcony)"
+            >
+              <img
+                class="icons"
+                src="assets/images/icons_565162.svg"
+                alt="secure"
+              />
+              <span> מרפסת</span>
+            </div>
           </div>
         </div>
-
-        <div class="space"></div>
-        <div class="space"></div>
       </div>
     </div>
   </div>

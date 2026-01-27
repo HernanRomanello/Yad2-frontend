@@ -1,13 +1,13 @@
 @if (this.navigationService.isNotPages(["user-images"])) {
   <span class="desktop">
-    <app-header></app-header>
+    <!-- <app-header></app-header> -->
   </span>
 }
 <span class="mobile">
   <app-mobile-header />
 </span>
 
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
 @if (
   !this.navigationService.IsSearchFilterOpen() &&
   this.navigationService.isNotPages([
@@ -16,7 +16,7 @@
     "create-advertisement",
   ])
 ) {
-  <app-footer></app-footer>
+  <!-- <app-footer></app-footer> -->
 }
 
 <app-interactive-modal></app-interactive-modal>
