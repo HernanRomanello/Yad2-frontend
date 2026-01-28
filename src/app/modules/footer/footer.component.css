@@ -244,7 +244,7 @@
   flex-wrap: nowrap !important;
 }
 
-@media (max-width: 862px) {
+@media (max-width: 883px) {
   .line,
   .line-favorite-page {
     width: 92vw;

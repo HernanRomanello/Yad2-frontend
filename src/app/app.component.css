@@ -19,7 +19,7 @@ body {
   }
 }
 
-@media (max-width: 862px) {
+@media (max-width: 883px) {
   .desktop {
     display: none;
   }

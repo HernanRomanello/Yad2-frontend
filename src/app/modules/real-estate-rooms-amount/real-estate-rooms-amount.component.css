@@ -13,7 +13,7 @@
   direction: ltr;
   z-index: 100 !important;
   background-color: white;
-  transform: translateX(-30px);
+  transform: translateX(25%);
 }
 
 .rooms-select button,

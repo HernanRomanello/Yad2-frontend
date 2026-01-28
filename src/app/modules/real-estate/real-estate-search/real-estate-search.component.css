@@ -666,11 +666,7 @@ i,
   padding: 12px;
 }
 
-@media (width < 862px) {
-  .search-container {
-    display: none;
-  }
-
+@media (width < 1000px) {
   .search-suggestion,
   .search-button,
   i,
@@ -678,7 +674,12 @@ i,
   .project-container,
   .title-locationSuggestions,
   #searchQuery {
-    color: #d86000 !important;
     font-size: 14px !important;
+  }
+}
+
+@media (width < 883px) {
+  .search-container {
+    display: none;
   }
 }

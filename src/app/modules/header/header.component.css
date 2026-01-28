@@ -924,13 +924,6 @@ button,
     padding-left: 8px;
     padding-right: 0;
   }
-}
-
-@media (max-width: 1000px) {
-  .btn,
-  .right-side {
-    padding: 0;
-  }
 
   .user-name,
   button,
@@ -938,8 +931,16 @@ button,
   .font16,
   #user-name,
   .header div,
-  .btn {
-    white-space: wrap;
+  .btn,
+  .none-border {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .btn,
+  .right-side {
+    padding: 0;
   }
 
   .column-menu > span,

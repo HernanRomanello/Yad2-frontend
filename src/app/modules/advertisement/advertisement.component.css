@@ -513,15 +513,12 @@ img {
   .pics-container {
     margin: 0;
   }
-  .nav-icons {
+  .nav-icons,
+  .size-details {
     display: block;
     margin-left: unset;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .size-details {
-    justify-content: space-betweens !important;
   }
 
   .size-details,
