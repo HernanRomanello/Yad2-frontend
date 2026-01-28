@@ -479,15 +479,20 @@
           <button
             #priceSliderButton
             (click)="toggleMenu('priceSlider')"
-            class="search-button price-btn hover-btn-background"
             [ngClass]="
               priceRangeFilterValue === 'מחיר'
                 ? 'search-button hover-btn-background'
-                : 'search-button hover-btn-background search-button-selected'
+                : 'search-button hover-btn-background search-button-selected price-range'
             "
             type="button"
           >
-            {{ priceRangeFilterValue }}
+            @if (priceRangeFilterValue !== "מחיר") {
+              <span class="price-range">
+                {{ priceRangeFilterValue }}
+              </span>
+            } @else {
+              {{ priceRangeFilterValue }}
+            }
             <i
               id="PriceRangeArrow"
               [ngClass]="

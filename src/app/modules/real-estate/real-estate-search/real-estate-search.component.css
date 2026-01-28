@@ -665,8 +665,18 @@ i,
   height: 44.4px;
   padding: 12px;
 }
+@media (width < 1200px) {
+  .price-range {
+    font-size: 12px;
+
+    padding: 2px !important;
+  }
+}
 
 @media (width < 1000px) {
+  .alert-btn {
+    display: none;
+  }
   .search-suggestion,
   .search-button,
   i,
