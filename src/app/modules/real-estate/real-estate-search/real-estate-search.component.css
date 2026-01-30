@@ -745,3 +745,13 @@ i,
     font-size: 12.25px;
   }
 }
+
+@media (width < 553px) {
+  .ad > img {
+    height: 100px;
+  }
+
+  .ads {
+    gap: 0.5rem;
+  }
+}
