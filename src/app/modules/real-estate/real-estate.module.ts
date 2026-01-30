@@ -14,6 +14,7 @@ import { RealEstateAdditionalFiltersComponent } from '../real-estate-additional-
 import { RealEstateRoomsAmountComponent } from '../real-estate-rooms-amount/real-estate-rooms-amount.component';
 import { RealEstateFloorSliderSelectComponent } from './real-estate-price-slider-select/real-estate-price-slider-select.component';
 import { RealEstateSquareSizeSliderComponent } from '../real-estate-price-slider-component2/real-estate-price-slider-component2.component';
+import { MobileSearchHeaderComponent } from './real-estate-search/mobile-search-header/mobile-search-header.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RealEstateSquareSizeSliderComponent } from '../real-estate-price-slider
     RealEstatePropertyTypeComponent,
     RealEstateAdditionalFiltersComponent,
     RealEstateRoomsAmountComponent,
+    MobileSearchHeaderComponent,
   ],
   imports: [
     CommonModule,
