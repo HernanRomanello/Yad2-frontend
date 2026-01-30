@@ -596,50 +596,63 @@
   </div>
 
   <div class="title">{{ title }}</div>
-
-  <div class="project-container">
-    <div class="project-title">
-      <div class="project-div left-side">
-        <img
-          class="arrow_left"
-          src="assets/images/left-arrow-svgrepo-com.svg"
-          alt="arrow_left"
-        />
-        <span style="font-weight: 400">לכל הפרויקטים</span>
+  <span class="mobile">
+    <ng-container *ngTemplateOutlet="projectTitleTpl"></ng-container>
+  </span>
+  <div span class="ads-container">
+    <span class="desktop">
+      <ng-container *ngTemplateOutlet="projectTitleTpl"></ng-container>
+      <ng-template #projectTitleTpl>
+        <div class="project-container">
+          <div class="project-title">
+            <div class="project-div left-side">
+              <img
+                class="arrow_left"
+                src="assets/images/left-arrow-svgrepo-com.svg"
+                alt="arrow_left"
+              />
+              <span style="font-weight: 400">לכל הפרויקטים</span>
+            </div>
+            <div class="project-div">
+              <span style="font-weight: 400"> פרויקטים חדשים </span>
+              <img
+                class="logo-img"
+                src="assets/images/logo-yad-blue.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </span>
+    <span class="ads">
+      <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
+        <div class="new-poject-text font500">פרויקט חדש</div>
+        <img [src]="ad.pic" alt="image" />
+        <div class="content">
+          <div class="ad-title">{{ ad.title }}</div>
+          <div class="ad-city">{{ ad.city }}</div>
+          <div class="ad-project">{{ ad.program }}</div>
+        </div>
+        <mat-icon
+          (click)="toggleFavoriteAd(i)"
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="favorite_border"
+          [ngClass]="
+            clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
+          "
+        ></mat-icon>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="favorite"
+          [ngClass]="
+            clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
+          "
+        ></mat-icon>
       </div>
-      <div class="project-div">
-        <span style="font-weight: 400"> פרויקטים חדשים </span>
-        <img class="logo-img" src="assets/images/logo-yad-blue.svg" alt="" />
-      </div>
-    </div>
-  </div>
-  <div class="adds">
-    <div class="ad" *ngFor="let ad of searchService.adds; let i = index">
-      <div class="new-poject-text font500">פרויקט חדש</div>
-      <img [src]="ad.pic" alt="" />
-      <div class="content">
-        <div class="ad-title">{{ ad.title }}</div>
-        <div class="ad-city">{{ ad.city }}</div>
-        <div class="ad-project">{{ ad.program }}</div>
-      </div>
-      <mat-icon
-        (click)="toggleFavoriteAd(i)"
-        aria-hidden="false"
-        aria-label="Example home icon"
-        fontIcon="favorite_border"
-        [ngClass]="
-          clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
-        "
-      ></mat-icon>
-      <mat-icon
-        aria-hidden="false"
-        aria-label="Example home icon"
-        fontIcon="favorite"
-        [ngClass]="
-          clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
-        "
-      ></mat-icon>
-    </div>
+    </span>
   </div>
 
   <app-real-estate-results></app-real-estate-results>

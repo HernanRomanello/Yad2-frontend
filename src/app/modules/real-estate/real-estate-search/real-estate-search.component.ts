@@ -109,7 +109,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     }
 
     const hasAllowedClass = Array.from(clickedElement.classList).some((cls) =>
-      allowedClasses.has(cls)
+      allowedClasses.has(cls),
     );
 
     if (!hasAllowedClass && filterName !== 'additionalFiltersMenu') {
@@ -121,7 +121,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
       clickedElement.id !== 'searchQuery'
     ) {
       const hasClass = Array.from(clickedElement.classList).some((cls) =>
-        allowedClassesForSearchInput.has(cls)
+        allowedClassesForSearchInput.has(cls),
       );
 
       if (!hasClass) {
@@ -150,7 +150,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
         return;
       }
       this.neighborhoodSuggestion = this.getStreetSuggestions(
-        searchQuery
+        searchQuery,
       ).slice(0, 5);
 
       this.citySuggestion =
@@ -158,7 +158,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
           this.cityList,
           searchQuery,
           'city_name_he',
-          4
+          4,
         );
       if (
         this.calculateArrayLength(this.neighborhoodSuggestion) +
@@ -184,7 +184,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
         9 -
           this.calculateArrayLength(this.neighborhoodSuggestion) -
           this.calculateArrayLength(this.citySuggestion) -
-          this.calculateArrayLength(this.areaSuggestion)
+          this.calculateArrayLength(this.areaSuggestion),
       );
     }
   }
@@ -199,7 +199,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   addLocationToSearchQuery(
     city: string,
     neighborhood: string,
-    areaLocation: boolean
+    areaLocation: boolean,
   ) {
     if (neighborhood != null) {
       this.hasSelectedLocation = true;
@@ -388,10 +388,10 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     }, 60);
     if (SearchByStreet) {
       this.searchService.emitSelectedStreetFunc(
-        this.selectedStreetAndCitySearchTexts.street.valueOf()
+        this.selectedStreetAndCitySearchTexts.street.valueOf(),
       );
       this.searchService.emitSelectedFreecityText(
-        this.selectedStreetAndCitySearchTexts.city.valueOf()
+        this.selectedStreetAndCitySearchTexts.city.valueOf(),
       );
     }
   }
@@ -431,15 +431,15 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     let newValue = 'מחיר';
     if (priceRange[0] < priceRange[1] && priceRange[1] !== 20000) {
       newValue = `${this.formatNumberWithComma(
-        priceRange[0]
+        priceRange[0],
       )} ₪ - ${this.formatNumberWithComma(priceRange[1])} ₪`;
     } else if (priceRange[1] === 20000) {
       newValue = `${this.formatNumberWithComma(
-        priceRange[0]
+        priceRange[0],
       )} ₪ - ${this.formatNumberWithComma(priceRange[1])}+ ₪`;
     } else if (priceRange[0] < priceRange[1]) {
       newValue = `${this.formatNumberWithComma(
-        priceRange[1]
+        priceRange[1],
       )} ₪ - ${this.formatNumberWithComma(priceRange[0])} ₪`;
     }
     this.searchService.minPrice.set(priceRange[0]);
@@ -466,7 +466,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
         count++;
       }
       this.searchService.propertyTypeFilterValue.set(
-        `סוג הנכס (${optionsNumber - count}) `
+        `סוג הנכס (${optionsNumber - count}) `,
       );
     }
 
@@ -481,7 +481,7 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
       this.selectedPropertyTypes = uniquePropertyTypes;
 
       this.searchService.assetTypeList.set(
-        this.transformArrayTOPropertyTypesString(uniquePropertyTypes)
+        this.transformArrayTOPropertyTypesString(uniquePropertyTypes),
       );
     }
   }
