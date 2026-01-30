@@ -1,0 +1,32 @@
+<div class="mobile-search-header">
+  <button
+    type="button"
+    class="icon-btn left"
+    aria-label="סינון"
+    (click)="filterClick.emit()"
+  >
+    <img
+      class="svg-icon-sort-filter"
+      src="assets/images/sort-filter.svg"
+      alt="sort filter"
+    />
+  </button>
+
+  <div class="title-wrap">
+    <span class="title">{{ title }}</span>
+  </div>
+  <span class="history-btn">
+    <button
+      type="button"
+      class="icon-btn right"
+      aria-label="היסטוריה"
+      (click)="historyClick.emit()"
+    >
+      <img
+        class="svg-icon-history"
+        src="assets/images/history.svg"
+        alt="history"
+      />
+    </button>
+  </span>
+</div>

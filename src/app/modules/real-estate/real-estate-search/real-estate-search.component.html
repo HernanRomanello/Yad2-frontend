@@ -594,9 +594,10 @@
       </div>
     </form>
   </div>
+  <app-mobile-search-header />
 
   <div class="title">{{ title }}</div>
-  <span class="mobile">
+  <span class="mobile padding-right">
     <ng-container *ngTemplateOutlet="projectTitleTpl"></ng-container>
   </span>
   <div span class="ads-container">
@@ -634,26 +635,30 @@
           <div class="ad-city">{{ ad.city }}</div>
           <div class="ad-project">{{ ad.program }}</div>
         </div>
-        <mat-icon
-          (click)="toggleFavoriteAd(i)"
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="favorite_border"
-          [ngClass]="
-            clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
-          "
-        ></mat-icon>
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="favorite"
-          [ngClass]="
-            clickedIndex[i] === i ? 'like-button-sm-selected' : 'like-button-sm'
-          "
-        ></mat-icon>
+        <span class="desktop">
+          <mat-icon
+            (click)="toggleFavoriteAd(i)"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="favorite_border"
+            [ngClass]="
+              clickedIndex[i] === i ? 'like-button-selected' : 'like-button'
+            "
+          ></mat-icon>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="favorite"
+            [ngClass]="
+              clickedIndex[i] === i
+                ? 'like-button-sm-selected'
+                : 'like-button-sm'
+            "
+          ></mat-icon>
+        </span>
       </div>
     </span>
   </div>
 
-  <app-real-estate-results></app-real-estate-results>
+  <!-- <app-real-estate-results></app-real-estate-results> -->
 </span>

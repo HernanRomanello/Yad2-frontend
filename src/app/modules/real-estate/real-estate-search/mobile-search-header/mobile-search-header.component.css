@@ -1,0 +1,57 @@
+.mobile-search-header {
+  height: 44px;
+  width: calc(100%-2rem);
+  background: #f2f2f2;
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.svg-icon-history {
+  width: 20px;
+  height: 20px;
+}
+.svg-icon-sort-filter {
+  width: 24px;
+  height: 24px;
+}
+
+.history-btn {
+  border-left: rgb(220, 220, 220) 1px solid;
+}
+
+.history-btn,
+.title-wrap,
+.title,
+.left {
+  padding: 0 0.5rem;
+}
+
+.title-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 6px;
+}
+
+.title {
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
