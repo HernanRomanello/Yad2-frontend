@@ -361,7 +361,7 @@ i,
   }
 
   .ad-content-text {
-    gap: 2px;
+    gap: 0 !important;
   }
   .ad-content-text > :nth-child(3) {
     padding-bottom: 0.5rem;

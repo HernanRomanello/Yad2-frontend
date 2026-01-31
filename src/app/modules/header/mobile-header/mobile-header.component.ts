@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-mobile-header',
@@ -8,6 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class MobileHeaderComponent {
   @Output() menuToggle = new EventEmitter<void>();
   @Output() chatClick = new EventEmitter<void>();
+  navigation = inject(NavigationService);
 
   toggleMenu() {
     this.menuToggle.emit();
