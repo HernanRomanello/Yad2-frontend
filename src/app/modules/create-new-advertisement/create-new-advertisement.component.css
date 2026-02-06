@@ -17,7 +17,6 @@ body {
 .checkbox-input input[type="checkbox"]:checked::after,
 .check-input input[type="checkbox"]:checked::after,
 input[type="checkbox"]:checked::after,
-.recommend-pic,
 .insight-pic,
 .upgrade-add-pic,
 .ad-images,
@@ -106,10 +105,10 @@ input[type="checkbox"]:checked::after,
   left: 10px !important;
 }
 
-.recommend-pic {
+/* .recommend-pic {
   top: 32px;
   left: 32px;
-}
+} */
 
 .dropdown-menu,
 .select-options,
@@ -209,15 +208,12 @@ input[matAutocomplete] {
 }
 .advertisement-selection,
 .close-section {
-  width: 880px !important;
+  max-width: 880px !important;
+  width: 100%;
 }
 
 .gray-border {
   border: 1px solid rgb(54, 54, 54, 0.5) !important;
-}
-
-#Selection-1 {
-  height: 359.484px;
 }
 
 #Selection-2,
@@ -279,7 +275,7 @@ form {
 }
 
 .space1 {
-  height: 50px !important;
+  height: 50px;
 }
 
 .space {
@@ -487,10 +483,6 @@ input::placeholder {
   transform: translateX(65px) !important;
 }
 
-.rooms {
-  max-width: 260px !important;
-}
-
 .asset_State-value {
   text-wrap: nowrap !important;
   letter-spacing: -0.05px !important;
@@ -503,8 +495,9 @@ input::placeholder {
 .large,
 #city-option,
 #street-option,
-.date-input {
-  width: 260px !important;
+.date-input,
+#Selection-6 .input-container .dropdown-menu {
+  width: 260px;
 }
 
 i.material-icons {
@@ -607,7 +600,7 @@ input[type="checkbox"] {
 
 .dropdown-item {
   line-height: 18.4px;
-  width: 240px;
+  max-width: 240px;
 }
 .dropdown-item,
 #city-option,
@@ -655,23 +648,13 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  margin-top: 1rem !important;
+  padding-top: 1rem;
 }
 
-.stages {
+.checkbox-input > span {
+  text-wrap: wrap !important;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  margin: 1rem 0;
-  border: 1px solid rgb(204, 204, 204, 0.3);
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  width: 800px;
-}
-.stages-pic {
-  height: 173px;
-  width: 800px;
+  flex-wrap: wrap !important;
 }
 
 .checkbox-input input[type="checkbox"],
@@ -716,24 +699,14 @@ input[type="checkbox"]:checked::after {
   transform: translateY(7px);
 }
 
-.navigation-btn {
-  line-height: 16.1px;
-  height: 36px;
-  width: 800px;
-  display: flex;
-  justify-content: space-between;
-  direction: ltr;
-  margin-top: 50px;
-}
-
 .Selection-2-content {
-  transform: translateX(-40px);
+  padding-right: 40px;
 }
 
 .Selection-6-content,
 .Selection-7-content {
   margin-left: auto !important;
-  margin-right: 40px !important;
+  margin-right: 40px;
 }
 
 .sub-title {
@@ -747,7 +720,7 @@ input[type="checkbox"]:checked::after {
   border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   height: 42px;
-  width: 189px;
+  max-width: 189px;
   padding: 12px 12px;
   vertical-align: middle !important;
   display: flex;
@@ -760,7 +733,7 @@ input[type="checkbox"]:checked::after {
 }
 
 .property-Features {
-  width: 798px;
+  max-width: 798px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin: auto;
@@ -892,7 +865,6 @@ input[type="checkbox"],
 }
 
 .Selection-5-content {
-  margin-left: auto !important;
   width: fit-content;
   display: flex;
   align-items: end;
@@ -903,11 +875,6 @@ input[type="checkbox"],
   text-align: end !important;
   padding: 0 2rem !important;
   margin-right: 11px !important;
-}
-
-.line6 {
-  transform: translateX(-8px) !important;
-  max-width: 800px !important;
 }
 
 .card-header {
@@ -931,13 +898,18 @@ input[type="checkbox"],
 
 .gray,
 .line,
-.line3 {
+.line3,
+.line-mobile {
   background-color: rgb(238, 238, 238);
 }
 
+.line,
+.line-mobile {
+  height: 1px;
+}
 .line {
   width: 800px;
-  height: 1px;
+
   margin: 40px !important;
   margin-bottom: 10px !important;
   transform: translateX(5%);
@@ -1023,10 +995,6 @@ input[type="checkbox"],
   gap: 0.5rem;
 }
 
-#balconiesNumber {
-  width: 51.8281px !important;
-}
-
 .option {
   line-height: 16.1px;
   height: 42px;
@@ -1098,10 +1066,7 @@ input[type="checkbox"],
 }
 
 .file-input-video {
-  /* background-size: cover; */
-  /* background-position: center; */
   z-index: 200;
-  /* color: transparent; */
   margin: 20% auto;
 }
 .file-input {
@@ -1139,7 +1104,8 @@ input[type="checkbox"],
   background-color: rgb(15, 202, 128, 0.25) !important;
 }
 
-.ad-images-box {
+.ad-images-box,
+.upload-part {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1176,12 +1142,6 @@ textarea::placeholder,
   margin: 2rem 0 !important;
 }
 
-#line-page7 {
-  margin-right: 7.6rem !important;
-  margin-top: 0.5rem !important;
-  margin-bottom: 1rem !important;
-}
-
 .choice-note {
   height: 76px;
   width: 798px;
@@ -1207,8 +1167,8 @@ textarea::placeholder,
 }
 
 .align-right {
-  margin-left: 160px !important;
-  padding-right: 12px !important;
+  margin-left: auto;
+  padding-right: 1.75rem;
 }
 
 .page7 {
@@ -1219,8 +1179,8 @@ textarea::placeholder,
 }
 
 .course-to-post {
-  height: 530.93px !important;
-  width: 276px !important;
+  height: 530.93px;
+  max-width: 276px;
 }
 
 .course-to-post-container {
@@ -1228,9 +1188,7 @@ textarea::placeholder,
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  width: 95% !important;
   margin: auto !important;
-
   margin-bottom: 2rem !important;
 }
 
@@ -1238,7 +1196,7 @@ textarea::placeholder,
   border: 2px solid #22c1a1 !important;
   border-radius: 10px;
   height: 530.93px;
-  width: 246px !important;
+  max-width: 246px !important;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -1326,19 +1284,19 @@ textarea::placeholder,
   background-color: rgb(250, 250, 250);
   color: rgb(54, 54, 54);
   height: 505.953px;
-  width: 246px;
-  border: 1px solid rgb(220, 220, 220);
-  border-radius: 10px;
+  max-width: 246px;
   margin: auto;
   margin-top: 27px !important;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 10px;
 }
 
 .margin-extra {
-  margin-right: 2.3rem !important;
+  margin-right: 0.5rem;
 }
 
 .last-btn {
-  margin-top: 3rem !important;
+  margin: 3rem 2rem 2rem auto;
 }
 
 .svg-icon {
@@ -1377,4 +1335,255 @@ textarea::placeholder,
 .feature-pic {
   width: 18px !important;
   height: 18px !important;
+}
+
+.navigation-btn {
+  line-height: 16.1px;
+  height: 36px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  direction: ltr;
+  margin-top: 50px;
+}
+
+.mobile,
+.insight-pic-mobile {
+  display: none;
+}
+
+.align-right {
+  direction: rtl;
+}
+
+@media (width < 883px) {
+  .Selection-7-content {
+    margin: 0 !important;
+  }
+  .desktop,
+  .insight-pic {
+    display: none;
+  }
+
+  .course-to-post-container {
+    gap: 0.25rem;
+  }
+
+  .mobile,
+  .insight-pic-mobile {
+    display: block;
+  }
+
+  #section-title-container3-mobile {
+    display: flex;
+  }
+
+  .upgrade-add-pic {
+    position: relative !important;
+    top: 0;
+    left: 0;
+  }
+
+  .advertisement-selection > .input-container {
+    padding: 0 1rem;
+  }
+  .space1 {
+    height: 0.5rem;
+  }
+
+  .Selection-2-content {
+    padding-right: 1rem;
+  }
+  #Selection-2 {
+    align-items: flex-start;
+  }
+  #Selection-1 > .asset-type-buttons,
+  .advertisement-selection > div > .input-container > .Select-options {
+    display: grid;
+  }
+  #Selection-1 > .asset-type-buttons {
+    height: fit-content;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #Selection-1 > .asset-type-buttons > button {
+    height: 160px;
+  }
+
+  .asset-type {
+    width: min(348px, 45vw);
+  }
+
+  .asset-type-buttons {
+    gap: 15px;
+  }
+
+  .section-title-container {
+    font-size: 16px;
+  }
+
+  .title-div {
+    font-size: 14px !important;
+  }
+
+  .section-title {
+    transform: scale(0.8);
+  }
+  .section-title {
+    font-size: 14px !important;
+  }
+
+  .advertisement-selection > div > .input-container > .input,
+  .advertisement-selection > div > .input-container > .Select-options,
+  .advertisement-selection > .Selection-3-content > .input-container > *,
+  .dropdown-menu,
+  #street-option,
+  #assetType,
+  #assetState,
+  #assetState-options,
+  #assetType-options,
+  .navigation-btn,
+  .accept-promotions,
+  #section-title-container3-mobile,
+  .upgrade-add-pic {
+    width: calc(100vw - 2.5rem) !important;
+    max-width: 840px;
+  }
+
+  #section-title-container3-mobile,
+  .ad-promotion,
+  .Selection-3-content > .input-container > *,
+  #Selection-4 > .Selection-2-content > .input-container > *,
+  .line-mobile,
+  .date-container > div > input,
+  .Selection-6-content > div {
+    width: calc(100vw - 5rem) !important;
+    max-width: 840px;
+  }
+
+  .more-contacts > .input-container > * {
+    width: calc(100vw - 2.5rem) !important;
+  }
+
+  .line-mobile {
+    margin: 1rem 0 0 0;
+  }
+
+  .advertisement-selection > div > .input-container > .Select-options {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .date-container {
+    display: grid;
+  }
+
+  .property-Features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .Feature {
+    max-width: 415px;
+  }
+
+  .option {
+    width: 100%;
+  }
+
+  .insight-pic-container {
+    padding-right: 0.5rem;
+    width: 100%;
+  }
+
+  .input {
+    height: 48px;
+  }
+
+  .date-checkbox {
+    justify-content: flex-start !important;
+    padding-top: 1.5rem;
+  }
+
+  .input-container {
+    padding-top: 1.5rem !important;
+  }
+
+  .Selection-6-content > div {
+    padding: 0 1rem;
+  }
+
+  .Selection-6-content {
+    margin-right: 0 !important;
+  }
+
+  .choice-note {
+    width: calc(100vw - 2.5rem) !important;
+    margin-right: 1rem !important;
+    max-width: 840px;
+  }
+
+  .course-to-post-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .course-to-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .course-to-post {
+    width: calc(33vw - 1rem);
+  }
+
+  .close-section span,
+  .close-section div {
+    font-size: 14px !important;
+  }
+
+  .dropdown-item,
+  .dropdown-menu,
+  .assetState,
+  .dropdown-item-mobile,
+  .asset,
+  #city-option {
+    width: calc(100vw - 2.5rem) !important;
+    max-width: 840px;
+  }
+  .align-right {
+    margin-top: 1rem;
+    align-items: flex-start !important;
+    padding-right: 0.25rem;
+  }
+
+  .align-right > input {
+    padding-right: 0.5rem;
+  }
+
+  .last-btn {
+    margin: 3rem 0 2rem auto;
+  }
+
+  .Selection-7-content {
+    display: grid;
+  }
+
+  .course-to-post-container {
+    margin: 2rem 0 !important;
+  }
+
+  #Selection-7.advertisement-selection {
+    padding-right: 0.5rem;
+  }
+}
+
+@media (width < 650px) {
+  .post-btn,
+  .green-btn {
+    padding: 0;
+    font-size: 14px;
+    width: 120px !important;
+  }
 }

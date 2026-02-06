@@ -62,7 +62,15 @@ export class CreateNewAdvertisementComponent implements OnInit {
   chosenTradeType: string = '';
   isFormHasvalidStreetAddress: boolean = false;
   HasValidCityAddress: boolean = false;
-  isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
+  isFormPagesHidden: boolean[] = [
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
   isFormPagesAreCompleted: boolean[] = [
     false,
     false,

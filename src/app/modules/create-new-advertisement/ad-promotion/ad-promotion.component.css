@@ -1,0 +1,82 @@
+:host {
+  display: block;
+  direction: rtl;
+}
+
+.empty-state {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e8eaf0;
+  border-radius: 14px;
+  padding: 26px 18px 22px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  margin: 0 auto;
+}
+
+.top-icon {
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #eceef4;
+  box-shadow: 0 6px 14px rgba(16, 24, 40, 0.08);
+  display: grid;
+  place-items: center;
+}
+
+.bulb {
+  width: 22px;
+  height: 22px;
+  color: #f2b01e;
+}
+
+.hint {
+  margin: 10px 0 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #3b3f4a;
+}
+
+.hint > :first-child {
+  font-weight: 700;
+}
+
+.message-card {
+  background: #fffaf5;
+  border-radius: 12px;
+  padding: 26px 14px 20px;
+  width: 324px;
+  height: 158px;
+  margin: 0 auto;
+}
+
+.rocket-wrap {
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+
+.rocket {
+  width: 70px;
+  height: 70px;
+}
+
+.title {
+  font-size: 22px;
+  color: #232733;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+}
+
+.rocket {
+  height: 85px;
+  width: 125px;
+}

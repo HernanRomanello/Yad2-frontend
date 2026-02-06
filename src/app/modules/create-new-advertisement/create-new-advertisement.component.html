@@ -293,13 +293,6 @@
         class="advertisement-selection"
         id="Selection-2"
       >
-        <div>
-          <img
-            src="assets/images/recommend.JPG"
-            class="recommend-pic"
-            alt="ad2"
-          />
-        </div>
         <div class="section-title-container">
           <span class="section-title">2</span> <span>כתובת הנכס</span>
         </div>
@@ -528,9 +521,13 @@
               >
             </button>
             <div id="assetType-error" class="error-text">שדה חובה</div>
-            <ul *ngIf="isAssetTypeDropdownHidden" class="dropdown-menu asset">
+            <ul
+              *ngIf="isAssetTypeDropdownHidden"
+              id="assetType-options"
+              class="dropdown-menu asset"
+            >
               <li
-                class="dropdown-item"
+                class="dropdown-item assetState"
                 *ngFor="let option of assetNames"
                 (click)="selectOption(option, 'assetType')"
               >
@@ -564,6 +561,7 @@
               שדה לא חוקי - מצב הנכס
             </div>
             <ul
+              id="assetState-options"
               *ngIf="isAssetAssetstateDropdownHidden"
               class="dropdown-menu asset dropdown-assetState"
             >
@@ -642,20 +640,14 @@
 
           <div class="line line2"></div>
 
-          <div>
+          <div class="accept-promotions">
             <label class="checkbox-input">
               <input type="checkbox" />
-              אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס,
-              עסקאות באיזור והצעות מקצועיות מיועצי נדל״ן
+              <span>
+                אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס,
+                עסקאות באיזור והצעות מקצועיות מיועצי נדל״ן
+              </span>
             </label>
-          </div>
-
-          <div class="stages">
-            <img
-              src="assets/images/stages.JPG"
-              class="stages-pic"
-              alt="stages"
-            />
           </div>
 
           <div class="navigation-btn">
@@ -706,15 +698,22 @@
         id="Selection-3"
       >
         <div>
+          <div
+            id="section-title-container3-mobile"
+            class="section-title-container mobile"
+          >
+            <span class="section-title">3</span> <span> על הנכס</span>
+          </div>
+          <span class="mobile ad-promotion">
+            <app-ad-promotion />
+          </span>
+
           <img
             src="assets/images/upgrade-add.JPG"
-            class="upgrade-add-pic"
+            class="upgrade-add-pic desktop"
             alt="ad2"
           />
           <div class="Selection-3-content">
-            <div id="section-title-container3" class="section-title-container">
-              <span class="section-title">3</span> <span> על הנכס</span>
-            </div>
             <div class="input-container">
               <label class="small-text" for="rooms">מספר חדרים*</label>
               <button
@@ -736,7 +735,7 @@
               <div id="rooms-error" class="error-text">שדה חובה</div>
               <ul
                 *ngIf="isRoomsDropdownHidden"
-                class="dropdown-menu asset dropdown-assetState rooms"
+                class="dropdown-menu asset dropdown-assetState"
               >
                 <li
                   class="dropdown-item assetState"
@@ -821,17 +820,12 @@
               <label class="small-text" for="view"> מרפסת</label>
               <div class="Select-options">
                 <div
-                  id="balconiesNumber"
                   *ngFor="
                     let number of advertisementService.balconiesNumber;
                     let i = index
                   "
                   [ngClass]="
-                    optionClass(
-                      i,
-
-                      advertisementService.balconiesNumber.length
-                    )
+                    optionClass(i, advertisementService.balconiesNumber.length)
                   "
                   [class.selected]="
                     advertisementForm.get('balconiesNumber').value === number
@@ -857,7 +851,8 @@
                 </div>
               </div>
             </div>
-            <div class="line3"></div>
+
+            <div class="line3 desktop"></div>
             <div class="sub-title">מאפייני הנכס</div>
 
             <div class="property-Features">
@@ -1018,12 +1013,17 @@
         class="advertisement-selection"
         id="Selection-4"
       >
-        <div>
-          <img src="assets/images/insight.JPG" class="insight-pic" alt="ad2" />
-        </div>
         <div class="section-title-container">
           <span class="section-title">4</span>
           <span>תשלומים, תאריכים ועוד</span>
+        </div>
+        <div class="insight-pic-container">
+          <img src="assets/images/insight.JPG" class="insight-pic" alt="ad2" />
+          <img
+            src="assets/images/insightMobile.JPG"
+            class="insight-pic-mobile"
+            alt="ad2"
+          />
         </div>
         <div class="Selection-2-content">
           <div class="input-container">
@@ -1060,7 +1060,7 @@
               class="dropdown-menu asset"
             >
               <li
-                class="dropdown-item"
+                class="dropdown-item assetState"
                 *ngFor="let option of advertisementService.numberOfPayments"
                 (click)="selectOption(option, 'numberOfPayments')"
               >
@@ -1094,7 +1094,8 @@
             />
           </div>
 
-          <div class="line"></div>
+          <div class="line desktop"></div>
+          <div class="line-mobile mobile"></div>
 
           <div class="input-container">
             <label class="small-text" for="builtSquareMeters"> מ״ר בנוי</label>
@@ -1265,8 +1266,6 @@
 
             <div>אין לכם מה לדאוג, בגלריה התמונה תופיע בגודלה המקורי</div>
           </div>
-
-          <div class="line line6"></div>
         </div>
         <div class="upload-part">
           @if (!this.hasImage) {
@@ -1522,7 +1521,7 @@
             </div>
           }
           @if (this.has2Contacts) {
-            <div>
+            <div class="more-contacts">
               <div class="input-container">
                 <label
                   class="small-text"
@@ -1554,7 +1553,6 @@
               </div>
             </div>
           }
-          <div id="line-page6" class="line"></div>
 
           <div>
             <label class="checkbox-input">
@@ -1642,81 +1640,71 @@
           </div>
           <img class="weCheck-img" src="assets/images/weCheck.JPG" alt="" />
         </div>
-        <div id="line-page7" class="line"></div>
-        <div class="Selection-7-content right-text">
-          <div>באיזה מסלול לפרסם את המודעה? זה הרגע לבלוט מעל כולם</div>
-          <br />
-          <br />
-        </div>
-        <div>
-          <div class="course-to-post-container">
-            <div class="course-to-post">
-              <div class="course-to-post-inner-box">
-                <img
-                  id="upgrad-course-pic"
-                  src="assets/images/upgrad-course.JPG"
-                  alt=""
-                />
 
-                <div class="post-btn-box">
-                  <button type="submit" class="return-btn post-btn">
-                    בחירה במסלול
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div id="premium-course" class="course-to-post">
-              <div>
-                <img
-                  id="premium-course-pic"
-                  src="assets/images/premium-course.JPG"
-                  alt=""
-                />
-              </div>
+        <div class="course-to-post-container">
+          <div class="course-to-post">
+            <div class="course-to-post-inner-box">
+              <img
+                id="upgrad-course-pic"
+                src="assets/images/upgrad-course.JPG"
+                alt=""
+              />
+
               <div class="post-btn-box">
-                <button type="submit" class="post-btn green-btn">
-                  המסלול המומלץ
+                <button type="submit" class="return-btn post-btn">
+                  בחירה במסלול
                 </button>
               </div>
             </div>
-            <div class="course-to-post">
-              <div class="course-to-post-inner-box">
-                <img
-                  id="upgrad-course-pic"
-                  src="assets/images/basic-course.JPG"
-                  alt=""
-                />
+          </div>
+          <div id="premium-course" class="course-to-post">
+            <div>
+              <img
+                id="premium-course-pic"
+                src="assets/images/premium-course.JPG"
+                alt=""
+              />
+            </div>
+            <div class="post-btn-box">
+              <button type="submit" class="post-btn green-btn">
+                המסלול המומלץ
+              </button>
+            </div>
+          </div>
+          <div class="course-to-post">
+            <div class="course-to-post-inner-box">
+              <img
+                id="upgrad-course-pic"
+                src="assets/images/basic-course.JPG"
+                alt=""
+              />
 
-                <div class="post-btn-box">
-                  <button type="submit" class="return-btn post-btn">
-                    בחירה במסלול
-                  </button>
-                </div>
+              <div class="post-btn-box">
+                <button type="submit" class="return-btn post-btn">
+                  בחירה במסלול
+                </button>
               </div>
             </div>
           </div>
-          <div class="Selection-7-content right-text">
-            <div>
-              חשוב לנו לעדכן! אנחנו מחדשים את נראות האתר וזה קורה בהדרגה. במידה
-              ותבחר את אחד המסלולים המשודרגים ייתכן ותראה את המראה*
-            </div>
-            <div>
-              הישן של המודעות המשודרגות (מודעה צהובה או ורודה וללא תגיות)
-            </div>
-          </div>
         </div>
-        <label class="checkbox-input align-right margin-extra">
+        <div class="Selection-7-content right-text">
+          <div>
+            חשוב לנו לעדכן! אנחנו מחדשים את נראות האתר וזה קורה בהדרגה. במידה
+            ותבחר את אחד המסלולים המשודרגים ייתכן ותראה את המראה
+          </div>
+          <div>הישן של המודעות המשודרגות (מודעה צהובה או ורודה וללא תגיות)</div>
+        </div>
+
+        <label class="checkbox-input align-right">
+          <input type="checkbox" value="true" checked />
+
           <div>
             אני מאשר את קבלת דיוור פרסומי הקשור למודעה שפרסמתי באתר יד 2 (להסרה
             - יש להוריד את הסימון בתיבה)
           </div>
-          <input type="checkbox" value="true" checked />
         </label>
 
-        <button
-          (click)="ReturnToPrevFormPart(6)"
-          class="return-btn page7 last-btn"
-        >
+        <button (click)="ReturnToPrevFormPart(6)" class="return-btn last-btn">
           חזרה
         </button>
       </div>
