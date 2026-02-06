@@ -17,12 +17,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    title: 'Sign in',
+    title: ' התחברות יד2',
   },
   {
     path: 'register',
     component: RegistrationFormComponent,
-    title: 'Registration',
+    title: ' התחברות יד2',
   },
   {
     path: 'user-images/:id',

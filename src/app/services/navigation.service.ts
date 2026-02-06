@@ -37,6 +37,10 @@ export class NavigationService {
       this.nameOfComponentRendering.set('advertisement');
     } else if (url.includes('user-images')) {
       this.nameOfComponentRendering.set('user-images');
+    } else if (url.includes('login')) {
+      this.nameOfComponentRendering.set('login');
+    } else if (url.includes('register')) {
+      this.nameOfComponentRendering.set('register');
     } else if (url.includes('/')) {
       this.nameOfComponentRendering.set('MainPage');
     }
