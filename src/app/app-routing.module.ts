@@ -32,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'favorites',
-    title: 'Favorite Ads',
+    title: 'איזור אישי יד 2 - מועדפים ',
     component: FavoriteAdsComponent,
     canActivate: [authGuard],
     resolve: {
@@ -43,7 +43,7 @@ const routes: Routes = [
 
   {
     path: 'last-searches',
-    title: 'Last Searches',
+    title: 'חיפושים אחרונים יד 2 ',
     component: LastSearchesComponent,
     canActivate: [authGuard],
   },
@@ -55,7 +55,7 @@ const routes: Routes = [
   {
     path: 'create-advertisement',
     component: CreateNewAdvertisementComponent,
-    title: 'Create New Advertisement',
+    title: 'פרסום מודעה חדשה',
     canActivate: [authGuard],
   },
 
@@ -74,17 +74,18 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () =>
       import('./modules/user-area/user-area.module').then(
-        (m) => m.UserAreaModule
+        (m) => m.UserAreaModule,
       ),
+    title: 'אזור אישי יד 2 ',
     canActivate: [authGuard],
   },
   {
     path: '',
     loadChildren: () =>
       import('./modules/real-estate/real-estate.module').then(
-        (m) => m.RealEstateModule
+        (m) => m.RealEstateModule,
       ),
-    title: 'Main Page',
+    title: 'נדל"ן מודעות ',
   },
 ];
 
