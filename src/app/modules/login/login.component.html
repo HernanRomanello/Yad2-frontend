@@ -1,4 +1,10 @@
 <div class="box">
+  <img
+    routerLink="/"
+    class="left-arrow"
+    src="assets/images/arrow-left-5.svg"
+    alt="yad2"
+  />
   <div class="container">
     <div class="left-part">
       <div class="option-img-container">
@@ -29,14 +35,11 @@
     </div>
     <div class="right-part">
       <div class="form">
-        <div
-          (click)="this.inputsStyleService.navigateTomainPage()"
-          class="logo-link"
-        >
+        <div class="logo-link">
           <img src="assets/images/logo-default.svg" alt="" />
         </div>
         <div class="form-container">
-          <div class="middleman-link">כניסה למתווכים</div>
+          <div class="middleman-link"></div>
           <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
             <div class="welcome-text">היי, טוב לראות אותך</div>
             <div class="login-box">
@@ -63,9 +66,10 @@
                       "
                       class="error-message"
                     >
-                      @if(loginForm.get('email')?.value === ''){ לא לשכוח את
-                      המייל } @else if(loginForm.get('email')?.touched){
-                      <span> ?&#64; משהו לא תקין במייל, אולי התפספס</span>
+                      @if (loginForm.get("email")?.value === "") {
+                        לא לשכוח את המייל
+                      } @else if (loginForm.get("email")?.touched) {
+                        <span> ?&#64; משהו לא תקין במייל, אולי התפספס</span>
                       }
                     </div>
                   </div>
@@ -112,8 +116,9 @@
                         loginForm.get('password')?.invalid && this.formSubmitted
                       "
                     >
-                      @if(loginForm.get('password')?.value === ''){ לא לשכוח
-                      להזין סיסמה }
+                      @if (loginForm.get("password")?.value === "") {
+                        לא לשכוח להזין סיסמה
+                      }
                     </div>
                   </div>
                   <div class="orange-label">שכחתי סיסמה</div>
@@ -122,7 +127,8 @@
               <div class="submit-container">
                 <div class="submit-button-box">
                   <div class="error-message padding" *ngIf="this.formSubmitted">
-                    @if( !this.isPasswordIsValid ){ אימייל או סיסמה אינם תקינים
+                    @if (!this.isPasswordIsValid) {
+                      אימייל או סיסמה אינם תקינים
                     }
                   </div>
                   <div class="submit-button-container">

@@ -18,10 +18,9 @@
 .right-part,
 .form-container {
   background-color: #fff8ef !important;
-  border: 2px solid #fff8ef !important;
 }
 .form {
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
 
 .option-img-container {
@@ -38,4 +37,7 @@
 
 .register-link-container {
   padding: 2rem 0 !important;
+}
+
+@media (max-width: 883px) {
 }

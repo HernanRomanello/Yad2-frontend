@@ -26,7 +26,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private formbuilder: FormBuilder
+    private formbuilder: FormBuilder,
   ) {}
   ngOnDestroy(): void {
     this.passwordSubmitted = false;
@@ -96,7 +96,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     const loggedIn = await this.authService.register(
       email,
       password,
-      confirmPassword
+      confirmPassword,
     );
 
     if (loggedIn) {
@@ -107,10 +107,10 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   togglePasswordVisibility() {
     this.isPasswordHidden = !this.isPasswordHidden;
     const passwordInput = document.getElementById(
-      'password'
+      'password',
     ) as HTMLInputElement;
     const confirmPasswordInput = document.getElementById(
-      'confirmPassword'
+      'confirmPassword',
     ) as HTMLInputElement;
     if (
       passwordInput.type === 'password' ||

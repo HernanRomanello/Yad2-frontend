@@ -1,4 +1,10 @@
 <div class="box">
+  <img
+    routerLink="/"
+    class="left-arrow"
+    src="assets/images/arrow-left-5.svg"
+    alt="yad2"
+  />
   <div class="container">
     <div class="left-part">
       <div class="option-img-container">
@@ -29,10 +35,7 @@
     </div>
     <div class="right-part">
       <div class="form">
-        <div
-          (click)="this.inputsStyleService.navigateTomainPage()"
-          class="logo-link"
-        >
+        <div class="logo-link">
           <img src="assets/images/logo-default.svg" alt="" />
         </div>
         <div class="form-container">
@@ -64,9 +67,10 @@
                       "
                       class="error-message"
                     >
-                      @if(signupForm.get('email')?.value === ''){ לא לשכוח את
-                      המייל }@else if(signupForm.get('email')?.touched){
-                      <span> ?&#64; משהו לא תקין במייל, אולי התפספס</span>
+                      @if (signupForm.get("email")?.value === "") {
+                        לא לשכוח את המייל
+                      } @else if (signupForm.get("email")?.touched) {
+                        <span> ?&#64; משהו לא תקין במייל, אולי התפספס</span>
                       }
                     </div>
                   </div>
@@ -151,11 +155,15 @@
                         this.passwordSubmitted
                       "
                     >
-                      @if( signupForm.get('password')?.errors?.['passwordError']
-                      ){
-
-                      {{ signupForm.get('password')?.errors?.['passwordError'] }}
-                      } @else { {{ this.paswwordDontMatchError }} }
+                      @if (
+                        signupForm.get("password")?.errors?.["passwordError"]
+                      ) {
+                        {{
+                          signupForm.get("password")?.errors?.["passwordError"]
+                        }}
+                      } @else {
+                        {{ this.paswwordDontMatchError }}
+                      }
                     </div>
                   </div>
                 </div>

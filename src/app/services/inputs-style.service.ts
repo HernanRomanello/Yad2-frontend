@@ -13,7 +13,7 @@ export class InputsStyleService {
   }
 
   reloloadPage(): void {
-    setInterval(() => {
+    setTimeout(() => {
       window.location.reload();
     }, 100);
     scrollTo(0, 0);

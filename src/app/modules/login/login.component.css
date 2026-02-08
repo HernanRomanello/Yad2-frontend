@@ -1,15 +1,7 @@
-.container {
-  width: 100vw;
-  height: 100vh;
-}
 .container,
 .form-container,
 .box {
   background-color: #fff8ef !important;
-}
-
-.box {
-  height: 113.5vh !important;
 }
 
 .container,
@@ -369,4 +361,114 @@ input:focus,
 input:hover {
   border-color: #000000 !important;
   outline: none;
+}
+
+.left-arrow {
+  display: none;
+}
+
+@media (max-width: 1424px) {
+  .option-images {
+    gap: min(5vw, 4rem);
+  }
+}
+@media (max-width: 1000px) {
+  .option-images {
+    gap: min(2.5vw, 4rem);
+  }
+}
+@media (max-width: 883px) {
+  .left-arrow {
+    display: block;
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .box {
+    position: relative;
+  }
+
+  .left-arrow {
+    position: absolute;
+    top: 1.5rem;
+    left: 1rem;
+  }
+  .middleman-link,
+  form {
+    max-width: 510px;
+  }
+
+  .form,
+  .login-box,
+  .register-box,
+  .option-img-container,
+  .input-container,
+  .input,
+  .left-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .option-images,
+  .option-img-container,
+  .option-text {
+    align-items: end;
+    max-width: 450px;
+  }
+  .option-images,
+  .option-img-container,
+  .option-text,
+  form,
+  .form-container,
+  .login-button {
+    max-width: 100vw;
+    width: 100% !important;
+  }
+
+  .option-img-container {
+    gap: 2.5rem;
+    margin: auto;
+    transform: translateY(27%);
+  }
+  .option-img-container,
+  form {
+    transform: unset;
+  }
+
+  form > *,
+  .button-container {
+    width: calc(100vw - 3rem) !important;
+  }
+
+  .box {
+    height: fit-content !important;
+  }
+
+  .login-container {
+    display: grid;
+  }
+
+  .button-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .submit-button {
+    font-size: 20px;
+  }
+
+  .form-container,
+  .logo-link img,
+  form,
+  .welcome-text {
+    margin: 0 !important;
+  }
+
+  .left-part,
+  .logo-link,
+  .middleman-link {
+    display: none;
+  }
+
+  form {
+    height: 100vh !important;
+  }
 }
