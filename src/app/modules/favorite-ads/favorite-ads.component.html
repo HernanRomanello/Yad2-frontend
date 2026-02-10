@@ -30,212 +30,216 @@
     </div>
 
     <div class="favorites-ads">
-      @if(this.hasPopupOpen){
-      <div class="sm-triangle"></div>
+      @if (this.hasPopupOpen) {
+        <div class="sm-triangle"></div>
 
-      <div class="pop-up">
-        <div class="align-items-center">
-          <span> הידעת </span>
-          <span style="font-size: 15px; transform: translateY(-1px)">?</span>
+        <div class="pop-up">
+          <div class="align-items-center">
+            <span> הידעת </span>
+            <span style="font-size: 15px; transform: translateY(-1px)">?</span>
+          </div>
+          <div>מהיום תוכל לשתף את המודעות שאהבת</div>
+
+          <button (click)="this.hasPopupOpen = false">מעולה, תודה</button>
         </div>
-        <div>מהיום תוכל לשתף את המודעות שאהבת</div>
-
-        <button (click)="this.hasPopupOpen = false">מעולה, תודה</button>
-      </div>
-      } @for (ad of userFavoritesAds ; track $index) {
-
-      <div
-        (mouseenter)="
-          zoomInImage($event, $index); displayAdOptions($event, $index)
-        "
-        (mouseleave)="
-          zoomOutImage($event, $index); displayAdOptions($event, $index)
-        "
-        class="favorites-ad flex column"
-        (click)="openInNewWindow(ad.id.toString())"
-      >
-        <div class="flex-center">
-          <div class="ad-part1 flex">
-            <div class="ad-image-container">
-              @if( ad.mainPicture !== "") {
-              <img
-                ngClass="ad-image"
-                id="ad-image{{ $index }}"
-                [src]="ad.pictures[0].url"
-                alt=""
-              />
-              }@else {
-              <img
-                ngClass="ad-image"
-                id="ad-image{{ $index }}"
-                src="assets/images/feed_re_placeholder_small (1).png"
-                alt=""
-              />
-              }
-              <div id="heart-icon" class="favorite-symbol flex-center">
-                <img
-                  class="house-pic"
-                  src="assets/images/heart-svgrepo-com-orange2.svg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="justify-content-center column">
-              <div class="flex font16">
-                <div>
-                  <span>
-                    {{ ad.street + " " }}
-                  </span>
-                  <span class="increace-number">
-                    {{ ad.number }}
-                  </span>
+      }
+      @for (ad of userFavoritesAds; track $index) {
+        <div
+          (mouseenter)="
+            zoomInImage($event, $index); displayAdOptions($event, $index)
+          "
+          (mouseleave)="
+            zoomOutImage($event, $index); displayAdOptions($event, $index)
+          "
+          class="favorites-ad flex column"
+          (click)="openInNewWindow(ad.id.toString())"
+        >
+          <div class="flex-center">
+            <div class="ad-part1 flex">
+              <div class="ad-image-container">
+                @if (ad.mainPicture !== "") {
+                  <img
+                    ngClass="ad-image"
+                    id="ad-image{{ $index }}"
+                    [src]="ad.pictures[0].url"
+                    alt=""
+                  />
+                } @else {
+                  <img
+                    ngClass="ad-image"
+                    id="ad-image{{ $index }}"
+                    src="assets/images/feed_re_placeholder_small (1).png"
+                    alt=""
+                  />
+                }
+                <div id="heart-icon" class="favorite-symbol flex-center">
+                  <img
+                    class="house-pic"
+                    src="assets/images/heart-svgrepo-com-orange2.svg"
+                    alt=""
+                  />
                 </div>
               </div>
-              <div class="flex ad-sub-details">
-                <div>{{ ad.assetType + ", " + ad.city }}</div>
+              <div class="justify-content-center column">
+                <div class="flex font16">
+                  <div>
+                    <span>
+                      {{ ad.street + " " }}
+                    </span>
+                    <span class="increace-number">
+                      {{ ad.number }}
+                    </span>
+                  </div>
+                </div>
+                <div class="flex ad-sub-details">
+                  <div>{{ ad.assetType + ", " + ad.city }}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ad-part2 flex-center">
+              <div class="flex-center column box">
+                <span class="font16 number">
+                  {{ ad.rooms }}
+                </span>
+                <span class="decrease-opacity">חדרים</span>
+              </div>
+              <div class="flex-center column box">
+                <span class="font16 number">
+                  {{ ad.floor }}
+                </span>
+                <span class="decrease-opacity">קומה</span>
+              </div>
+              <div class="flex-center column box">
+                <span class="font16 number">
+                  {{ ad.totalSquareMeters }}
+                </span>
+                <span class="decrease-opacity">מ"ר</span>
+              </div>
+            </div>
+
+            <div class="ad-part3 flex-end column">
+              <div>
+                <div class="new-window-container flex-center">
+                  <span
+                    (mouseenter)="increaseOpacity($event, $index)"
+                    (mouseleave)="increaseOpacity($event, $index)"
+                    id="new-window-content{{ $index }}"
+                    class="font13 decrease-opacity"
+                    >פתיחה בטאב חדש</span
+                  >
+
+                  <img
+                    id="new-window-icon{{ $index }}"
+                    class="new-window-icon"
+                    src="assets/images/new-window-svgrepo-com.svg"
+                    alt="new-window"
+                  />
+                </div>
+              </div>
+              <div class="font16">{{ ad.price | number: "1.0-0" }} ₪</div>
+              <div
+                id="ad-date-update{{ $index }}"
+                class="font13 decrease-opacity"
+              >
+                עודכן היום
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="ad-part2 flex-center">
-            <div class="flex-center column box">
-              <span class="font16 number">
-                {{ ad.rooms }}
-              </span>
-              <span class="decrease-opacity">חדרים</span>
-            </div>
-            <div class="flex-center column box">
-              <span class="font16 number">
-                {{ ad.floor }}
-              </span>
-              <span class="decrease-opacity">קומה</span>
-            </div>
-            <div class="flex-center column box">
-              <span class="font16 number">
-                {{ ad.totalSquareMeters }}
-              </span>
-              <span class="decrease-opacity">מ"ר</span>
-            </div>
-          </div>
+        <div
+          id="ad-note{{ $index }}"
+          class="write-note font16 align-items-center"
+          (click)="openOrCloseAdNote($index, true)"
+        >
+          <div class="flex-center">
+            @if (this.retrieveNoteAd(ad.id) === "") {
+              <img
+                id="plus-icon"
+                src="assets/images/plus-svgrepo-com-.svg"
+                alt="plus"
+              />
 
-          <div class="ad-part3 flex-end column">
-            <div>
-              <div class="new-window-container flex-center">
-                <span
-                  (mouseenter)="increaseOpacity($event, $index)"
-                  (mouseleave)="increaseOpacity($event, $index)"
-                  id="new-window-content{{ $index }}"
-                  class="font13 decrease-opacity"
-                  >פתיחה בטאב חדש</span
-                >
-
+              <span class="font14"> הוספת הערה </span>
+            } @else {
+              <span class="font14 align-items-center comment">
                 <img
-                  id="new-window-icon{{ $index }}"
-                  class="new-window-icon"
-                  src="assets/images/new-window-svgrepo-com.svg"
-                  alt="new-window"
+                  id="edit-pencil-icon"
+                  src="assets/images/edit-pen-.svg"
+                  alt="edit"
                 />
+
+                <span
+                  class="text-content"
+                  #note
+                  style="transform: translateX(0px)"
+                >
+                  {{ retrieveNoteAd(ad.id) }}
+                </span>
+              </span>
+            }
+          </div>
+          <div class="sqaure"></div>
+          <div class="sqaure2"></div>
+        </div>
+        <div id="ad-note-open{{ $index }}" class="ad-comment-open hide">
+          <div class="note-btns flex-center column">
+            <div class="text-options flex">
+              <div (click)="this.addTextToNoteAd($index, 'אין תשובה')">
+                אין תשובה
+              </div>
+              <div (click)="this.addTextToNoteAd($index, 'טלפון שגוי')">
+                טלפון שגוי
+              </div>
+              <div (click)="this.addTextToNoteAd($index, 'לא רלוונטי')">
+                לא רלוונטי
+              </div>
+              <div (click)="this.addTextToNoteAd($index, 'להתקשר החל מהשעה')">
+                להתקשר החל מהשעה
+              </div>
+              <div (click)="this.addTextToNoteAd($index, 'להתקשר מאוחר יותר')">
+                להתקשר מאוחר יותר
               </div>
             </div>
-            <div class="font16">{{ ad.price | number : "1.0-0" }} ₪</div>
-            <div
-              id="ad-date-update{{ $index }}"
-              class="font13 decrease-opacity"
+
+            <textarea
+              id="ad-note-area-text{{ $index }}"
+              #note
+              placeholder="כתיבת הערה..."
+              [value]="retrieveNoteAd(ad.id)"
+              maxlength="200"
+              (keyup)="note.value = note.value"
             >
-              עודכן היום
+            </textarea>
+            <div class="note-area-btns flex-space-between">
+              <div class="flex-center note-length">
+                {{ note.value.length }}/200
+              </div>
+              <div class="flex-center">
+                <button
+                  class="border-none cancel-btn"
+                  (click)="
+                    openOrCloseAdNote($index, false);
+                    this.clearTextFromNoteAd($index, ad.id)
+                  "
+                >
+                  ביטול
+                </button>
+                <button
+                  class="font13 save-btn"
+                  (click)="
+                    openOrCloseAdNote($index, false);
+                    updateNoteAd(ad.id, note.value);
+                    updateUserNote(ad.id, note.value)
+                  "
+                >
+                  שמירה
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div
-        id="ad-note{{ $index }}"
-        class="write-note font16 align-items-center"
-        (click)="openOrCloseAdNote($index, true)"
-      >
-        <div class="flex-center">
-          @if(this.retrieveNoteAd(ad.id) === ""){
-          <img
-            id="plus-icon"
-            src="assets/images/plus-svgrepo-com-.svg"
-            alt="plus"
-          />
-
-          <span class="font14"> הוספת הערה </span>
-          }@else {
-          <span class="font14 align-items-center comment">
-            <img
-              id="edit-pencil-icon"
-              src="assets/images/edit-pen-.svg"
-              alt="edit"
-            />
-
-            <span class="text-content" #note style="transform: translateX(0px)">
-              {{ retrieveNoteAd(ad.id) }}
-            </span>
-          </span>
-          }
-        </div>
-        <div class="sqaure"></div>
-        <div class="sqaure2"></div>
-      </div>
-      <div id="ad-note-open{{ $index }}" class="ad-comment-open hide">
-        <div class="note-btns flex-center column">
-          <div class="text-options flex">
-            <div (click)="this.addTextToNoteAd($index, 'אין תשובה')">
-              אין תשובה
-            </div>
-            <div (click)="this.addTextToNoteAd($index, 'טלפון שגוי')">
-              טלפון שגוי
-            </div>
-            <div (click)="this.addTextToNoteAd($index, 'לא רלוונטי')">
-              לא רלוונטי
-            </div>
-            <div (click)="this.addTextToNoteAd($index, 'להתקשר החל מהשעה')">
-              להתקשר החל מהשעה
-            </div>
-            <div (click)="this.addTextToNoteAd($index, 'להתקשר מאוחר יותר')">
-              להתקשר מאוחר יותר
-            </div>
-          </div>
-
-          <textarea
-            id="ad-note-area-text{{ $index }}"
-            #note
-            placeholder="כתיבת הערה..."
-            [value]="retrieveNoteAd(ad.id)"
-            maxlength="200"
-            (keyup)="note.value = note.value"
-          >
-          </textarea>
-          <div class="note-area-btns flex-space-between">
-            <div class="flex-center note-length">
-              {{ note.value.length }}/200
-            </div>
-            <div class="flex-center">
-              <button
-                class="border-none cancel-btn"
-                (click)="
-                  openOrCloseAdNote($index, false);
-                  this.clearTextFromNoteAd($index, ad.id)
-                "
-              >
-                ביטול
-              </button>
-              <button
-                class="font13 save-btn"
-                (click)="
-                  openOrCloseAdNote($index, false);
-                  updateNoteAd(ad.id, note.value);
-                  updateUserNote(ad.id, note.value)
-                "
-              >
-                שמירה
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
       }
     </div>
   </body>
