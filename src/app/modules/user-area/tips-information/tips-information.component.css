@@ -51,6 +51,7 @@ body {
   text-align: center;
   height: 256px;
   width: 285.109px;
+  width: min(285.109px, 30%);
   padding: 40px 0px 60px;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 6px 0px;
   border-radius: 12px;
@@ -76,5 +77,44 @@ body {
 }
 
 .infomation-squares {
-  gap: 3rem;
+  width: calc(100vw - 235px);
+  gap: 3vw;
+  padding: 0 9vw;
+}
+
+@media (max-width: 883px) {
+  .infomation-squares {
+    width: 100vw;
+    padding: 0 5vw;
+  }
+
+  body {
+    margin-top: 44px;
+  }
+
+  .infomation-squares.flex-center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .infomation-square {
+    width: 100%;
+  }
+
+  .infomation-squares > :last-child {
+    grid-column: 1/-1;
+    justify-self: center;
+    width: 50%;
+  }
+
+  .infomation-square {
+    height: 170px;
+    margin: auto !important;
+  }
+
+  .column.title div {
+    text-align: center !important;
+  }
 }

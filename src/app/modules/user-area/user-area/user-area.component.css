@@ -63,7 +63,7 @@
 
 .user-content {
   height: calc(100vh - 59px);
-  width: calc(100vw - 234px);
+  /* width: calc(100vw - 234px); */
   overflow-y: auto;
 }
 
@@ -224,4 +224,13 @@
 .round {
   background-color: #ef6c00 !important;
   border: none !important;
+}
+
+@media (max-width: 883px) {
+  .sidebar {
+    display: none;
+  }
+  .user-content {
+    /* width: 100vw; */
+  }
 }
