@@ -1,34 +1,33 @@
-@if(!isRemoveModalIsHidden){
-<div (click)="closeModal($event)" class="modal-overlay">
-  <div class="modal flex-center column">
-    <div class="font16 nowrap modal-title">
-      ?האם להסיר מרשימת חיפושים אחרונים
-    </div>
-    <div class="modal-btns flex">
-      <button
-        (click)="
-          searchService.removeAllLastSearches(); isRemoveModalIsHidden = true
-        "
-        class="modal-btn remove-btn pointer font16 font500"
-      >
-        להסיר
-      </button>
-      <button
-        (click)="isRemoveModalIsHidden = true"
-        class="modal-btn save-btn pointer font500"
-      >
-        לשמור
-      </button>
+@if (!isRemoveModalIsHidden) {
+  <div (click)="closeModal($event)" class="modal-overlay">
+    <div class="modal flex-center column">
+      <div class="font16 nowrap modal-title">
+        ?האם להסיר מרשימת חיפושים אחרונים
+      </div>
+      <div class="modal-btns flex">
+        <button
+          (click)="
+            searchService.removeAllLastSearches(); isRemoveModalIsHidden = true
+          "
+          class="modal-btn remove-btn pointer font16 font500"
+        >
+          להסיר
+        </button>
+        <button
+          (click)="isRemoveModalIsHidden = true"
+          class="modal-btn save-btn pointer font500"
+        >
+          לשמור
+        </button>
+      </div>
     </div>
   </div>
-</div>
 }
 
 <div class="page no-scroll">
   <div class="body">
     <div class="title justify-content-space-between">
       <div
-        class=""
         [ngClass]="
           searchService.UserLastSearches.value.length > 0
             ? 'font500 font24 letter-spacing'
@@ -37,280 +36,278 @@
       >
         חיפושים אחרונים
       </div>
-      @if((searchService.UserLastSearches.value.length > 0)){
-      <div
-        (click)="isRemoveModalIsHidden = false"
-        class="grayfont underline pointer"
-      >
-        מחק הכל
-      </div>
+      @if (searchService.UserLastSearches.value.length > 0) {
+        <div
+          (click)="isRemoveModalIsHidden = false"
+          class="grayfont underline pointer"
+        >
+          מחק הכל
+        </div>
       }
     </div>
-    @if((searchService.UserLastSearches.value.length > 0)){
+    @if (searchService.UserLastSearches.value.length > 0) {
+      <div class="btns">
+        <button class="font500 orange-border all">הכל</button>
+        <button class="border-none gray pointer real-estate">נדל"ן</button>
+      </div>
 
-    <div class="btns">
-      <button class="font500 orange-border all">הכל</button>
-      <button class="border-none gray pointer real-estate">נדל"ן</button>
-    </div>
-
-    <div class="searches flex column">
-      <ng-container *ngFor="let date of searchService.uniqueMonthDayArray()">
-        <div class="date flex font500 font18">
-          <span>
-            {{ date.day }}
-          </span>
-          <span>
-            {{ transformToHebrewMonth(date.month) }}
-          </span>
-        </div>
-        <ng-container
-          *ngFor="
-            let search of searchService.UserLastSearches | async;
-            let i = index
-          "
-        >
+      <div class="searches flex column">
+        <ng-container *ngFor="let date of searchService.uniqueMonthDayArray()">
+          <div class="date flex font500 font18">
+            <span>
+              {{ date.day }}
+            </span>
+            <span>
+              {{ transformToHebrewMonth(date.month) }}
+            </span>
+          </div>
           <ng-container
-            *ngIf="
-              date.day === search.dayOfCreation &&
-              date.month === search.monthOfCreation
+            *ngFor="
+              let search of searchService.UserLastSearches | async;
+              let i = index
             "
           >
-            <div class="search pointer">
-              <img
-                (click)="searchService.removeLastSearch(search.id)"
-                id="close-icon"
-                src="assets/images/close-sm.svg"
-                alt=""
-              />
-              <div class="time grayfont">
-                {{
-                  addZeroToNumberToHour(
-                    search.hourOfCreation,
-                    search.minuteOfCreation
-                  )
-                }}
-              </div>
-              <div class="search-title font500 font18">
-                <span>נדל"ן - </span>
-                <span>{{ search.forSale ? "מכירה" : "השכרה" }}</span>
-              </div>
-              <div class="search-body">
-                <div *ngIf="search.city !== ''">
-                  <span class="grayfont"> עיר: </span>
-
-                  <span>
-                    {{ search.city }}
-                  </span>
-                  <span class="grayfont"> | </span>
+            <ng-container
+              *ngIf="
+                date.day === search.dayOfCreation &&
+                date.month === search.monthOfCreation
+              "
+            >
+              <div class="search pointer">
+                <img
+                  (click)="searchService.removeLastSearch(search.id)"
+                  id="close-icon"
+                  src="assets/images/close-sm.svg"
+                  alt=""
+                />
+                <div class="time grayfont">
+                  {{
+                    addZeroToNumberToHour(
+                      search.hourOfCreation,
+                      search.minuteOfCreation
+                    )
+                  }}
                 </div>
-                <div *ngIf="search.neighborhood !== ''">
-                  <span class="grayfont"> שכונה: </span>
-
-                  <span>
-                    {{ search.neighborhood }}
-                  </span>
-                  <span class="grayfont"> | </span>
+                <div class="search-title font500 font18">
+                  <span>נדל"ן - </span>
+                  <span>{{ search.forSale ? "מכירה" : "השכרה" }}</span>
                 </div>
-                <div *ngIf="search.moshavOrKibuutz">
-                  <span class="grayfont"> הצגת מושבים וקיבוצים בלבד: </span>
+                <div class="search-body">
+                  <div *ngIf="search.city !== ''">
+                    <span class="grayfont"> עיר: </span>
 
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.assetType !== ''">
-                  <span class="grayfont"> סוג נכס : </span>
+                    <span>
+                      {{ search.city }}
+                    </span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.neighborhood !== ''">
+                    <span class="grayfont"> שכונה: </span>
 
-                  <span>
-                    {{ decreaseLargeString(search.assetType) }}
-                  </span>
-                  @if(countStringWords(search.assetType)>3){
+                    <span>
+                      {{ search.neighborhood }}
+                    </span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.moshavOrKibuutz">
+                    <span class="grayfont"> הצגת מושבים וקיבוצים בלבד: </span>
 
-                  <span
-                    (mouseover)="isAssetTypePopupIsHidden[i] = true"
-                    (mouseleave)="isAssetTypePopupIsHidden[i] = false"
-                    class="Notification-For-Other-Words"
-                  >
-                    {{ addNotificationForTheOtherWords(search.assetType) }}
-                    @if(isAssetTypePopupIsHidden[i]){
-                    <div class="pop-up-container">
-                      <div class="sm-triangle hidden"></div>
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.assetType !== ''">
+                    <span class="grayfont"> סוג נכס : </span>
 
-                      <div class="pop-up">
-                        {{
-                          addNotificationForTheOtherWordsThatDontFit(
-                            search.assetType
-                          )
-                        }}
-                      </div>
-                    </div>
+                    <span>
+                      {{ decreaseLargeString(search.assetType) }}
+                    </span>
+                    @if (countStringWords(search.assetType) > 3) {
+                      <span
+                        (mouseover)="isAssetTypePopupIsHidden[i] = true"
+                        (mouseleave)="isAssetTypePopupIsHidden[i] = false"
+                        class="Notification-For-Other-Words"
+                      >
+                        {{ addNotificationForTheOtherWords(search.assetType) }}
+                        @if (isAssetTypePopupIsHidden[i]) {
+                          <div class="pop-up-container">
+                            <div class="sm-triangle hidden"></div>
+
+                            <div class="pop-up">
+                              {{
+                                addNotificationForTheOtherWordsThatDontFit(
+                                  search.assetType
+                                )
+                              }}
+                            </div>
+                          </div>
+                        }
+                      </span>
                     }
-                  </span>
-                  }
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.minRooms > 0">
-                  <span class="grayfont"> חדרים : </span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.minRooms > 0">
+                    <span class="grayfont"> חדרים : </span>
 
-                  <span>
                     <span>
-                      {{ search.minRooms }}
+                      <span>
+                        {{ search.minRooms }}
+                      </span>
+                      <span> - </span>
+                      <span>
+                        {{ search.maxRooms }}
+                      </span>
                     </span>
-                    <span> - </span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.minPrice > 0">
+                    <span class="grayfont"> מחיר : </span>
+
                     <span>
-                      {{ search.maxRooms }}
+                      <span>
+                        {{ search.minPrice }}
+                      </span>
+                      <span> - </span>
+                      <span>
+                        {{ search.maxPrice }}
+                      </span>
                     </span>
-                  </span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.minPrice > 0">
-                  <span class="grayfont"> מחיר : </span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasAccessibleForDisabled">
+                    <span class="grayfont"> גישה לנכים: </span>
 
-                  <span>
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasAirConditioner">
+                    <span class="grayfont"> מיזוג: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasExclusivity">
+                    <span class="grayfont"> בבלעדיות: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasBolcony">
+                    <span class="grayfont"> מרפסת: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.haswindowBars">
+                    <span class="grayfont"> סורגים: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasElevator">
+                    <span class="grayfont"> מעלית: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.minFloor > 0">
+                    <span class="grayfont"> קומה : </span>
+
                     <span>
-                      {{ search.minPrice }}
+                      <span>
+                        {{ search.minFloor }}
+                      </span>
+                      <span> - </span>
+                      <span>
+                        {{ search.maxFloor }}
+                      </span>
                     </span>
-                    <span> - </span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.forRoommates">
+                    <span class="grayfont"> לשותפים: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasFurnished">
+                    <span class="grayfont"> מרוהטת: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasPrivateParking">
+                    <span class="grayfont"> חניה: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.petsAllowed">
+                    <span class="grayfont"> חיות מחמד: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasPrice">
+                    <span class="grayfont"> עם מחיר: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.isRenovated">
+                    <span class="grayfont"> משופצת: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasSafeRoom">
+                    <span class="grayfont"> ממ"ד: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasSafeRoom">
+                    <span class="grayfont"> ממ"ד: </span>
+
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.minSquareSize > 0">
+                    <span class="grayfont"> גודל דירה (במ"ר) : </span>
+
                     <span>
-                      {{ search.maxPrice }}
+                      <span>
+                        {{ search.minSquareSize }}
+                      </span>
+                      <span> - </span>
+                      <span>
+                        {{ search.maxSquareSize }}
+                      </span>
                     </span>
-                  </span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasAccessibleForDisabled">
-                  <span class="grayfont"> גישה לנכים: </span>
+                    <span class="grayfont"> | </span>
+                  </div>
+                  <div *ngIf="search.hasStorageRoom">
+                    <span class="grayfont"> מחסן: </span>
 
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasAirConditioner">
-                  <span class="grayfont"> מיזוג: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasExclusivity">
-                  <span class="grayfont"> בבלעדיות: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasBolcony">
-                  <span class="grayfont"> מרפסת: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.haswindowBars">
-                  <span class="grayfont"> סורגים: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasElevator">
-                  <span class="grayfont"> מעלית: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.minFloor > 0">
-                  <span class="grayfont"> קומה : </span>
-
-                  <span>
-                    <span>
-                      {{ search.minFloor }}
-                    </span>
-                    <span> - </span>
-                    <span>
-                      {{ search.maxFloor }}
-                    </span>
-                  </span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.forRoommates">
-                  <span class="grayfont"> לשותפים: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasFurnished">
-                  <span class="grayfont"> מרוהטת: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasPrivateParking">
-                  <span class="grayfont"> חניה: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.petsAllowed">
-                  <span class="grayfont"> חיות מחמד: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasPrice">
-                  <span class="grayfont"> עם מחיר: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.isRenovated">
-                  <span class="grayfont"> משופצת: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasSafeRoom">
-                  <span class="grayfont"> ממ"ד: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasSafeRoom">
-                  <span class="grayfont"> ממ"ד: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.minSquareSize > 0">
-                  <span class="grayfont"> גודל דירה (במ"ר) : </span>
-
-                  <span>
-                    <span>
-                      {{ search.minSquareSize }}
-                    </span>
-                    <span> - </span>
-                    <span>
-                      {{ search.maxSquareSize }}
-                    </span>
-                  </span>
-                  <span class="grayfont"> | </span>
-                </div>
-                <div *ngIf="search.hasStorageRoom">
-                  <span class="grayfont"> מחסן: </span>
-
-                  <span>כן</span>
-                  <span class="grayfont"> | </span>
+                    <span>כן</span>
+                    <span class="grayfont"> | </span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ng-container>
           </ng-container>
         </ng-container>
-      </ng-container>
-    </div>
-    } @else {
-    <div class="not-found-box flex letter-spacing word-spacing">
-      <div class="flex column gap">
-        <div class="font500 font24">עוד לא חיפשת משהו</div>
-        <div class="flex column gap1">
-          <div class="font16">כאן יופיעו החיפושים שלך,</div>
-          <div class="font16">אפשר יהיה לחזור על חיפוש בקליק</div>
-        </div>
       </div>
-      <img id="search-img" src="assets/images/last_name_search.png" alt="" />
-    </div>
+    } @else {
+      <div class="not-found-box flex letter-spacing word-spacing">
+        <div class="flex column gap">
+          <div class="font500 font24">עוד לא חיפשת משהו</div>
+          <div class="flex column gap1">
+            <div class="font16">כאן יופיעו החיפושים שלך,</div>
+            <div class="font16">אפשר יהיה לחזור על חיפוש בקליק</div>
+          </div>
+        </div>
+        <img id="search-img" src="assets/images/last_name_search.png" alt="" />
+      </div>
     }
   </div>
 </div>
