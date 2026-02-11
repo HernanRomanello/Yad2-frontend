@@ -14,16 +14,15 @@
               !this.isProfileImageDropdownHidden
           "
         >
-          @if(profileImageURL === ''){
-          <div class="user-name">שם</div>
+          @if (profileImageURL === "") {
+            <div class="user-name">שם</div>
           } @else {
-          <img
-            id="profile-img"
-            class="upload-user-img circle-img"
-            [src]="this.profileImageURL"
-            alt=""
-          />
-
+            <img
+              id="profile-img"
+              class="upload-user-img circle-img"
+              [src]="this.profileImageURL"
+              alt=""
+            />
           }
           <div id="edit-image" class="circle">
             <img
@@ -32,37 +31,40 @@
               alt=""
             />
           </div>
-          @if(this.isProfileImageDropdownHidden){
-          <div id="btns" class="upload-profile-image two-option-potion">
-            <div
-              id="edit-img"
-              (click)="
-                this.isProfileImageModal = true; this.deleteImageOption = false
-              "
-              class="upload-profile-image-text"
-            >
-              בחירת תמונה חדשה
+          @if (this.isProfileImageDropdownHidden) {
+            <div id="btns" class="upload-profile-image two-option-potion">
+              <div
+                id="edit-img"
+                (click)="
+                  this.isProfileImageModal = true;
+                  this.deleteImageOption = false
+                "
+                class="upload-profile-image-text"
+              >
+                בחירת תמונה חדשה
+              </div>
+              @if (this.profileImageURL !== "") {
+                <div
+                  id="delete-img"
+                  (click)="
+                    this.isProfileImageModal = true;
+                    this.deleteImageOption = true
+                  "
+                  class="upload-profile-image-text"
+                >
+                  מחיקת תמונה
+                </div>
+              }
             </div>
-            @if(this.profileImageURL !== ''){
-            <div
-              id="delete-img"
-              (click)="
-                this.isProfileImageModal = true; this.deleteImageOption = true
-              "
-              class="upload-profile-image-text"
-            >
-              מחיקת תמונה
-            </div>
-            }
-          </div>
-          } @if(this.isProfileImageModal){
-          <app-upload-profile-image
-            [DeleteImageModal]="deleteImageOption"
-            (modalVisibilityChange)="this.isProfileImageModal = $event"
-            (imageChange)="this.uploadProfileImage($event)"
-            (imageUrl)="this.profileImageURL = $event"
-            style="direction: ltr"
-          ></app-upload-profile-image>
+          }
+          @if (this.isProfileImageModal) {
+            <app-upload-profile-image
+              [DeleteImageModal]="deleteImageOption"
+              (modalVisibilityChange)="this.isProfileImageModal = $event"
+              (imageChange)="this.uploadProfileImage($event)"
+              (imageUrl)="this.profileImageURL = $event"
+              style="direction: ltr"
+            ></app-upload-profile-image>
           }
         </div>
       </div>
@@ -71,7 +73,10 @@
         (ngSubmit)="updateUserDetails()"
         class="right-side"
       >
-        <div style="font-size: 18px; font-weight: 500; padding: 0.2rem 0">
+        <div
+          class="sub-title"
+          style="font-size: 18px; font-weight: 500; padding: 0.2rem 0"
+        >
           פרטים אישיים
         </div>
         <div class="inputs">
@@ -86,7 +91,7 @@
               [ngStyle]="{
                 borderColor: $updatedUser.get('name')?.invalid
                   ? '#ff2a2b'
-                  : '#cccccc'
+                  : '#cccccc',
               }"
               type="text"
             />
@@ -110,7 +115,7 @@
               [ngStyle]="{
                 borderColor: $updatedUser.get('lastName')?.invalid
                   ? '#ff2a2b'
-                  : '#cccccc'
+                  : '#cccccc',
               }"
               type="text"
             />
@@ -138,7 +143,7 @@
               [ngStyle]="{
                 borderColor: $updatedUser.get('phoneNumber')?.invalid
                   ? '#ff2a2b'
-                  : '#cccccc'
+                  : '#cccccc',
               }"
               type="text"
             />
@@ -161,7 +166,7 @@
               [ngStyle]="{
                 borderColor: $updatedUser.get('email')?.invalid
                   ? '#ff2a2b'
-                  : '#cccccc'
+                  : '#cccccc',
               }"
               type="text"
             />
@@ -169,8 +174,11 @@
               *ngIf="$updatedUser.get('email')?.invalid"
               class="error-message"
             >
-              @if($updatedUser.get('email')?.value === ''){ כתובת מייל הוא שדה
-              חובה} @else{אנא הכנס כתובת מייל תקינה }
+              @if ($updatedUser.get("email")?.value === "") {
+                כתובת מייל הוא שדה חובה
+              } @else {
+                אנא הכנס כתובת מייל תקינה
+              }
             </div>
           </div>
         </div>
@@ -232,7 +240,7 @@
                 [ngStyle]="{
                   borderColor: !this.checkIfValidCity(chosenCity)
                     ? '#ff2a2b'
-                    : '#cccccc'
+                    : '#cccccc',
                 }"
                 type="text"
               />
@@ -243,103 +251,105 @@
               >
                 ישוב/עיר הוא שדה חובה
               </div>
-              @if(this.isCityDropdownHidden && cityInput.value.length > 0){
-              <span class="select-options">
-                <div
-                  id="city-option"
-                  #cityOption
-                  (click)="
-                    this.isCityDropdownHidden = false;
-                    cityInput.value = item.city_name_he;
-                    this.chosenCity = item.city_name_he;
-                    this.cityWasEdited = false
-                  "
-                  *ngFor="let item of this.$cityOptions"
-                >
-                  {{ item.city_name_he }}
-                </div>
-              </span>
+              @if (this.isCityDropdownHidden && cityInput.value.length > 0) {
+                <span class="select-options">
+                  <div
+                    id="city-option"
+                    #cityOption
+                    (click)="
+                      this.isCityDropdownHidden = false;
+                      cityInput.value = item.city_name_he;
+                      this.chosenCity = item.city_name_he;
+                      this.cityWasEdited = false
+                    "
+                    *ngFor="let item of this.$cityOptions"
+                  >
+                    {{ item.city_name_he }}
+                  </div>
+                </span>
               }
             </div>
             <div class="house-number">
               <div class="input-box">
                 <label for="">רחוב*</label>
-                @if(this.checkIfValidCity(chosenCity)){
-                <input
-                  id="street"
-                  formControlName="street"
-                  #streetInput
-                  autocomplete="off"
-                  placeholder="הזינו טקסט"
-                  [ngModel]="chosenStreet"
-                  (focus)="this.isStreetDropdownHidden = true"
-                  class="md"
-                  [value]="this.$user?.street"
-                  (input)="
-                    this.serchStreet(streetInput.value);
-                    this.chosenStreet = streetInput.value
-                  "
-                  (keyup)="
-                    this.resetUserAddress(
-                      this.checkIfValidCity(chosenCity),
-                      this.checkIfValidStreet(chosenStreet)
-                    )
-                  "
-                  type="text"
-                />
-                <div *ngIf="this.InvalidStreet" class="error-message">
-                  רחוב הוא שדה חובה
-                </div>
-                } @else {
-                <div class="md invalid-input">הזינו טקסט</div>
-                } @if(this.isStreetDropdownHidden && chosenStreet.length > 0){
-                <span id="street-option-dropdown" class="select-options">
-                  <div
-                    id="street-option"
-                    #streetOption
-                    (click)="
-                      this.isStreetDropdownHidden = false;
-                      this.chosenStreet = item.Street_Name;
-                      this.chosenStreet = item.Street_Name
+                @if (this.checkIfValidCity(chosenCity)) {
+                  <input
+                    id="street"
+                    formControlName="street"
+                    #streetInput
+                    autocomplete="off"
+                    placeholder="הזינו טקסט"
+                    [ngModel]="chosenStreet"
+                    (focus)="this.isStreetDropdownHidden = true"
+                    class="md"
+                    [value]="this.$user?.street"
+                    (input)="
+                      this.serchStreet(streetInput.value);
+                      this.chosenStreet = streetInput.value
                     "
-                    *ngFor="let item of this.$streetsOptions"
-                  >
-                    {{ item.Street_Name }}
+                    (keyup)="
+                      this.resetUserAddress(
+                        this.checkIfValidCity(chosenCity),
+                        this.checkIfValidStreet(chosenStreet)
+                      )
+                    "
+                    type="text"
+                  />
+                  <div *ngIf="this.InvalidStreet" class="error-message">
+                    רחוב הוא שדה חובה
                   </div>
-                </span>
+                } @else {
+                  <div class="md invalid-input">הזינו טקסט</div>
+                }
+                @if (this.isStreetDropdownHidden && chosenStreet.length > 0) {
+                  <span id="street-option-dropdown" class="select-options">
+                    <div
+                      id="street-option"
+                      #streetOption
+                      (click)="
+                        this.isStreetDropdownHidden = false;
+                        this.chosenStreet = item.Street_Name;
+                        this.chosenStreet = item.Street_Name
+                      "
+                      *ngFor="let item of this.$streetsOptions"
+                    >
+                      {{ item.Street_Name }}
+                    </div>
+                  </span>
                 }
               </div>
 
               <div class="input-box">
                 <label for="">מספר בית*</label>
-                @if(this.checkIfValidStreet(chosenStreet)){
-
-                <input
-                  formControlName="houseNumber"
-                  #houseNumberInput
-                  placeholder="הזינו טקסט"
-                  class="sm"
-                  [ngModel]="chosenHouseNumber"
-                  type="text"
-                  (input)="
-                    this.InvalidHouseNumber =
-                      +houseNumberInput.value > 0 ? false : true;
-                    this.chosenHouseNumber = houseNumberInput.value
-                  "
-                  [ngStyle]="{
-                    borderColor: this.InvalidHouseNumber ? '#ff2a2b' : '#cccccc'
-                  }"
-                  type="text"
-                />
-                <div
-                  style="width: 70px; flex-wrap: wrap"
-                  *ngIf="InvalidHouseNumber"
-                  class="error-message"
-                >
-                  מספר בית הוא שדה חובה
-                </div>
-                } @else{
-                <div class="sm invalid-input">הזינ</div>
+                @if (this.checkIfValidStreet(chosenStreet)) {
+                  <input
+                    formControlName="houseNumber"
+                    #houseNumberInput
+                    placeholder="הזינו טקסט"
+                    class="sm"
+                    [ngModel]="chosenHouseNumber"
+                    type="text"
+                    (input)="
+                      this.InvalidHouseNumber =
+                        +houseNumberInput.value > 0 ? false : true;
+                      this.chosenHouseNumber = houseNumberInput.value
+                    "
+                    [ngStyle]="{
+                      borderColor: this.InvalidHouseNumber
+                        ? '#ff2a2b'
+                        : '#cccccc',
+                    }"
+                    type="text"
+                  />
+                  <div
+                    style="width: 70px; flex-wrap: wrap"
+                    *ngIf="InvalidHouseNumber"
+                    class="error-message"
+                  >
+                    מספר בית הוא שדה חובה
+                  </div>
+                } @else {
+                  <div class="sm invalid-input">הזינ</div>
                 }
               </div>
             </div>

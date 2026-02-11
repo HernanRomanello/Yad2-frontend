@@ -17,6 +17,7 @@ form {
 }
 .user-form {
   grid-template-columns: 1fr 3fr;
+  gap: 1rem;
 }
 
 .purple-circle,
@@ -53,9 +54,10 @@ button {
   font-weight: 500;
 }
 
-.edit-details {
-  width: 100%;
+label {
+  text-wrap: nowrap;
 }
+
 .edit-details,
 .edit-details-container {
   background-color: #f8f8f8;
@@ -63,10 +65,9 @@ button {
 
 .edit-details-container {
   height: 861px;
-  width: 1172px;
 }
 .edit-details-container {
-  margin: 2.25rem 5.5rem 2rem 0;
+  margin: 2.25rem auto;
 }
 
 .user-form,
@@ -89,7 +90,6 @@ button {
   justify-content: end;
 }
 .btn-container {
-  margin-top: 6rem;
   margin-top: 3rem;
   margin-left: 10.25rem;
 }
@@ -102,10 +102,9 @@ button {
 
 .user-form {
   background-color: rgb(255, 255, 255);
-
-  width: 1044px;
+  width: 66vw;
   border: 1px solid rgb(238, 238, 238);
-  padding: 42px 0px;
+  padding: 42px 3vw;
   box-shadow: rgba(107, 107, 107, 0.086) 0px 2px 25px 0px;
   border-radius: 8px;
 }
@@ -146,13 +145,13 @@ input {
 
 .circle-img,
 .purple-circle {
-  height: 118px;
-  width: 118px;
+  height: 8.2vw;
+  width: 8.2vw;
 }
 
 .circle {
-  height: 48px;
-  width: 48px;
+  height: 3.2vw;
+  width: 3.2vw;
 }
 
 .label-address,
@@ -173,8 +172,8 @@ button {
 }
 
 .circle img {
-  height: 26px;
-  width: 26px;
+  height: 1.85vw;
+  width: 1.85vw;
 }
 
 .circle {
@@ -219,15 +218,15 @@ button,
   font-weight: 400;
   background-color: rgb(248, 240, 255);
   color: rgb(139, 66, 208);
-  height: 40px;
-
+  height: fit-content;
   padding: 0px 10px;
   border-radius: 6px;
   margin: 1.25rem 0 3.5rem;
 }
+
 .input-box input,
 .birthday-card {
-  width: 283px;
+  width: 20.2vw;
 }
 
 .birthday-card img {
@@ -235,10 +234,10 @@ button,
 }
 
 .md {
-  width: 200px !important;
+  width: 14.2vw !important;
 }
 .sm {
-  width: 70px !important;
+  max-width: 70px !important;
 }
 
 .address-inputs {
@@ -269,7 +268,7 @@ button,
 
   color: rgb(255, 255, 255);
   height: 48px;
-  width: 185px;
+  width: 13.2vw;
   border-radius: 30px;
 }
 
@@ -293,9 +292,7 @@ button,
 #city-option,
 #street-option {
   line-height: 21px;
-
   height: 42px !important;
-  width: 100% !important;
 }
 
 #city-option,
@@ -312,7 +309,7 @@ button,
   max-height: 214px;
   overflow-y: auto !important;
   height: fit-content !important;
-  width: 283px;
+  width: 20.2vw;
   margin: 8px 0px 0px;
   padding: 2px 0px;
   top: 68px;
@@ -335,7 +332,7 @@ button,
   z-index: 1000;
   color: #ffffff;
   height: 43px;
-  width: 304px;
+  width: 21.7vw;
   font-size: 16px;
 }
 
@@ -353,11 +350,11 @@ button,
   color: #363636 !important;
   font-size: 14px !important;
   font-weight: 400 !important;
-  width: 100px !important;
+  width: 7.2vw !important;
 }
 
 #street-option-dropdown {
-  width: 200px !important;
+  width: 14.3vw !important;
   overflow-x: hidden !important;
 }
 
@@ -383,11 +380,13 @@ button,
 .upload-profile-image-text {
   height: 31px;
   width: 100%;
+  text-wrap: nowrap;
 }
 
 .upload-profile-image {
   border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
@@ -396,6 +395,8 @@ button,
   max-height: 82px;
   align-items: center;
   gap: 2px;
+  right: -30%;
+  top: -10%;
 }
 
 .one-option-potion {
@@ -421,4 +422,126 @@ button,
 #delete-img,
 #edit-img {
   transform: translateY(-1px) !important;
+}
+
+@media (max-width: 883px) {
+  .edit-details,
+  .edit-details-container {
+    background-color: #f8f8f8;
+  }
+
+  .title,
+  .birthday-card {
+    display: none !important;
+  }
+
+  .user-form,
+  .cancel-btn {
+    background-color: #f8f8f8;
+    border: none;
+    box-shadow: unset;
+  }
+
+  .user-form,
+  form,
+  .right-side > * {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-container {
+    flex-direction: row !important;
+  }
+
+  .user-form {
+    padding: 0;
+  }
+  .user-form,
+  .edit-details-container {
+    width: 67vw;
+  }
+
+  .address-inputs {
+    flex-direction: column;
+  }
+  .address-inputs {
+    gap: 1rem;
+  }
+
+  .address-inputs > .house-number {
+    display: grid;
+    grid-template-columns: 83% 13%;
+    gap: 4%;
+  }
+
+  #street,
+  .invalid-input {
+    width: 100% !important;
+  }
+
+  .sub-title {
+    margin: 1.5rem 2px 0.75rem 0;
+  }
+  .sub-title,
+  .label-address {
+    font-size: 20px !important;
+  }
+
+  .user-form > *,
+  .select-options,
+  .house-number > :nth-child(2) > input {
+    width: 100% !important;
+  }
+
+  #street-option-dropdown {
+    width: 83% !important;
+    top: 150px !important;
+  }
+
+  .btn-container {
+    margin: 3rem 0 3rem 0 !important;
+    justify-content: flex-start;
+  }
+
+  .save-btn {
+    width: 100px;
+  }
+
+  .house-number > :nth-child(2) > input {
+    padding: 0 0 0 0.25rem !important;
+    text-align: center;
+  }
+
+  .address-part {
+    margin-top: 3rem;
+  }
+
+  .user-form > * {
+    margin: 0 !important;
+    transform: unset !important;
+    padding: 0 !important;
+  }
+
+  .user-form {
+    padding: 2rem;
+  }
+
+  .circle {
+    height: 42px;
+    width: 42px;
+  }
+
+  .circle img {
+    height: 24px;
+    width: 24px;
+  }
+
+  .input-box input {
+    width: 100% !important;
+  }
+
+  .upload-user-img {
+    width: 118px;
+    height: 118px;
+  }
 }
