@@ -151,7 +151,7 @@
               </div>
             </div>
             <div class="advertisement-content">
-              <div class="add-data-container">
+              <div class="ad-data-container">
                 <div class="ad-data ad-price">
                   @if (advertisement.price > 0) {
                     {{ advertisement.price | number: "1.0-0" }} ₪&nbsp;
@@ -171,7 +171,7 @@
                     <div>חדרים</div>
                     <span class="dot-symbol"><li></li></span>
                   </div>
-                  <div class="ad-data move-right">
+                  <div class="ad-data">
                     <div>{{ advertisement.totalSquareMeters }}</div>
                     <div>מ"ר</div>
                   </div>
@@ -324,49 +324,47 @@
                     <button class="upgrade-btn">שדרוג</button>
                   </div>
                 } @else {
-                  <div class="info-insight-second-slider">
-                    <div class="info-insight">
-                      <div
-                        [ngClass]="{
-                          'move-up1': !findIfTheFirstSlideIsVisibleById(
-                            advertisement.id
-                          ),
-                        }"
-                      >
-                        <div class="AI-ad">
-                          <span>חדש</span>
-                          <span>!</span>
-                          <span> תגיות</span>
-                          <span class="medium-size"> AI </span>
-                          <span>למודעה</span>
-                        </div>
-                        <div>מהיום תוכל לצרף תגיות יחודיות</div>
-                        <div>שמתאימות בדיוק למודעה שלך</div>
-                      </div>
-                      <div
-                        [ngClass]="{
-                          'move-down': !findIfTheFirstSlideIsVisibleById(
-                            advertisement.id
-                          ),
-                        }"
-                      >
-                        <img
-                          class="ad-AI"
-                          src="assets/images/Advertising-Drawing-images.svg"
-                          alt="ad-AI"
-                        />
-                      </div>
-                    </div>
-
+                  <div class="info-insight">
                     <div
                       [ngClass]="{
-                        'move-up2': !findIfTheFirstSlideIsVisibleById(
+                        'move-up1': !findIfTheFirstSlideIsVisibleById(
                           advertisement.id
                         ),
                       }"
                     >
-                      <button class="upgrade-btn-AI orange">רכישת תגיות</button>
+                      <div class="AI-ad">
+                        <span>חדש</span>
+                        <span>!</span>
+                        <span> תגיות</span>
+                        <span class="medium-size"> AI </span>
+                        <span>למודעה</span>
+                      </div>
+                      <div>מהיום תוכל לצרף תגיות יחודיות</div>
+                      <div>שמתאימות בדיוק למודעה שלך</div>
                     </div>
+                    <div
+                      [ngClass]="{
+                        'move-down': !findIfTheFirstSlideIsVisibleById(
+                          advertisement.id
+                        ),
+                      }"
+                    >
+                      <img
+                        class="ad-AI"
+                        src="assets/images/Advertising-Drawing-images.svg"
+                        alt="ad-AI"
+                      />
+                    </div>
+                  </div>
+
+                  <div
+                    [ngClass]="{
+                      'move-up2': !findIfTheFirstSlideIsVisibleById(
+                        advertisement.id
+                      ),
+                    }"
+                  >
+                    <button class="upgrade-btn-AI orange">רכישת תגיות</button>
                   </div>
                 }
 
@@ -443,8 +441,8 @@
               </div>
             </div>
           </div>
-          <div class="add-details">
-            <div class="add-details-btn pointer">
+          <div class="ad-details">
+            <div class="ad-details-btn pointer">
               <div>
                 <img
                   id="link"
@@ -475,7 +473,7 @@
                 </div>
               </div>
             </div>
-            <div class="add-details-btn light-gray-small-text">
+            <div class="ad-details-btn light-gray-small-text">
               <div>
                 נוצרה ב-{{ transformDateToString(advertisement.creationDate) }}
               </div>

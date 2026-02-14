@@ -10,8 +10,14 @@
 .ad-container {
   grid-template-columns: 28.5% 31.6% 35.32%;
 }
+
 .ad-content {
   grid-template-rows: 86.8% 13.2%;
+}
+
+.ad-content,
+.advertisement-content {
+  margin-top: 1rem;
 }
 .advertisement-content {
   grid-template-rows: 31% 53% 16%;
@@ -27,44 +33,35 @@
   gap: 1rem;
 }
 
-.add-details {
+.ad-details {
   height: 43.36px;
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
 
 .slider,
-.slider-container,
-.slider-indicators,
-.ad-status-container {
-  width: 275px;
-}
-.slider,
 .slider-container {
   height: 100%;
 }
 
 .ad-container,
-.add-details {
+.ad-details {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
 }
 
 .sort-btns-container {
   gap: 0.25rem;
 }
-.add-details-btn {
+.ad-details-btn {
   gap: 0.2rem;
 }
 
 .ad-status-container {
-  gap: 6px;
+  gap: min(6px, 0.42vw);
 }
 
 .slider-arrows {
   padding: 0.5rem;
-}
-.ad-container {
-  padding: 1rem 0.5rem 1rem 0;
 }
 
 .input,
@@ -74,12 +71,12 @@
 .AI-ad {
   padding-bottom: 0.5rem !important;
 }
-.add-details,
-.add-data-container {
-  padding: 0.5rem !important;
+.ad-details,
+.ad-data-container {
+  padding: 0.5rem;
 }
 .result-list,
-.add-data-container,
+.ad-data-container,
 .icon-div,
 .stats-information-btn,
 .promotion-information-content,
@@ -105,13 +102,13 @@
 .stats-information,
 .stats-information-container,
 .result-list,
-.add-data-container,
+.ad-data-container,
 .dot-symbol,
 .icon-div,
 .stats-information-btn,
 .stats-information,
-.add-details,
-.add-details-btn,
+.ad-details,
+.ad-details-btn,
 .link-btn,
 .promotion-information,
 .promotion-information-details,
@@ -134,17 +131,20 @@
 }
 
 .icon-circle-container {
-  gap: 1.25rem;
-  padding: 0 10px;
-  transform: translateY(8px);
+  gap: min(1.25rem, 1.43vw);
+  padding: 0 min(10px, 0.71vw);
 }
 
 .icon-div,
-.add-data-container,
+.ad-data-container,
 .stats-information-btn,
 .ad-data,
 .promotion-information-details {
   gap: 0.25rem;
+}
+
+.ad-data-container > div {
+  flex-wrap: wrap;
 }
 
 .link-btn {
@@ -160,7 +160,7 @@
 .stats-information,
 .stats-information-container,
 .dot-symbol,
-.add-details,
+.ad-details,
 .bit-option,
 .promotion-information,
 .promotion-indicators,
@@ -174,10 +174,10 @@
 }
 
 .bit-option {
-  transform: translateY(-6px);
+  gap: 0.25rem;
 }
 
-.add-details,
+.ad-details,
 .promotion-information {
   background-color: rgb(249, 249, 249) !important;
 }
@@ -188,7 +188,7 @@
 .small-icon-circle,
 .dot-symbol,
 .icon-div,
-.add-details-btn,
+.ad-details-btn,
 .link-btn,
 .promotion-information-details,
 .promotion-indicators,
@@ -209,17 +209,16 @@
   transform: translateX(-6px) scaleX(0.9);
 }
 
-.move-right {
-  transform: translateX(1rem);
+li {
+  list-style: none;
 }
 
 .slider-arrows,
 .dropdown-btn,
 .stats-information-btn,
 .stats-information,
-.add-details,
+.ad-details,
 .promotion-information,
-.info-insight,
 .arrows-pic-round-div {
   justify-content: space-between !important;
 }
@@ -260,8 +259,7 @@
 }
 
 .component-content {
-  width: 74.4vw;
-  max-width: 1044px;
+  width: calc(100vw - 246px);
   margin: auto;
   margin-top: 1rem;
 }
@@ -270,6 +268,11 @@
   font-size: 24px;
   height: 51.5938px;
   padding: 10px 0;
+  margin: 0 1rem 2rem 0;
+}
+
+.sort-btns-container {
+  margin: 0 1rem 0 0;
 }
 
 i.material-icons {
@@ -322,7 +325,7 @@ i.material-icons {
 }
 .ad-container,
 .input,
-.add-details,
+.ad-details,
 .status-div {
   background-color: rgb(255, 255, 255);
 }
@@ -392,8 +395,8 @@ i.material-icons {
 }
 
 .icon-circle {
-  width: 48px;
-  height: 48px;
+  width: min(48px, 3.42vw);
+  height: min(48px, 3.42vw);
 }
 
 .ad-container,
@@ -438,11 +441,6 @@ i.material-icons {
 
 .promotion-indicators {
   margin: auto !important;
-  transform: translateY(320%) !important;
-}
-.promotion-indicators {
-  margin: auto !important;
-  transform: translateY(420%) !important;
 }
 
 .user-card-img,
@@ -468,28 +466,37 @@ i.material-icons {
   transform: translateY(5px) !important;
 }
 
+.component-content > * {
+  padding: 0 1rem;
+}
+
 .slider-arrows,
 .user-card-img {
   height: 100%;
+}
+
+.info-insight {
+  height: 240px;
 }
 .slider-arrows,
 .user-card-img,
 .ad-content,
 .advertisement-content,
 .slider-container {
-  max-height: 280px;
+  height: 280px;
 }
+
 .slider-arrows,
 .user-card-img,
 .ad-content,
 .advertisement-content,
 .slider-container,
-.promotion-information-content {
-  min-width: 275px;
-}
-
-.promotion-information-content {
-  max-height: 240px;
+.slider,
+.slider-container,
+.slider-indicators,
+.ad-status-container,
+.ad-content {
+  min-width: min(275px, 20vw);
 }
 
 .arrow-pic {
@@ -502,8 +509,7 @@ i.material-icons {
 }
 
 .arrows-pic-round-div {
-  width: 315px;
-  transform: translateY(10%) scaleX(1.125);
+  width: 100%;
 }
 
 .arrows-pic-round-div-container,
@@ -564,7 +570,7 @@ i.material-icons {
   padding: 0px 18px;
 }
 
-.add-details-btn {
+.ad-details-btn {
   padding: 8px;
 }
 
@@ -624,9 +630,8 @@ i.material-icons {
   transform: translateY(-0.75rem);
 }
 .ad-AI {
-  width: 120px;
-  transform: translateY(-0.75rem);
-  height: 120px;
+  width: 8.6vw;
+  height: 8.6vw;
 }
 
 .bit {
@@ -641,8 +646,7 @@ i.material-icons {
 }
 
 .promotion-information-content {
-  gap: 4px !important;
-  padding: 2rem 1.5rem;
+  padding: min(2rem, 2.3vw) min(1.5rem, 1.72vw);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
@@ -661,11 +665,6 @@ i.material-icons {
   border-bottom: transparent;
 }
 
-.promotion-information {
-  transform: translateY(-4px) !important;
-  height: 41px;
-}
-
 .turquoise-text {
   color: #52b799;
 }
@@ -677,15 +676,165 @@ i.material-icons {
   background-color: rgb(255, 113, 0);
 }
 
-.move-up {
-  transform: translateY(-17px);
-}
-.move-up1 {
-  transform: translateY(-10px);
-}
-.move-up2 {
-  transform: translateY(-30px);
-}
 .move-down {
-  transform: translateY(6px);
+  transform: translateY(-6px);
+}
+
+.component-content {
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 884px) and (max-width: 1100px) {
+  .ad-container {
+    justify-content: center;
+    gap: 0.5rem !important;
+  }
+
+  .status-div {
+    text-wrap: nowrap;
+    margin: auto;
+  }
+
+  .icon-circle-container {
+    gap: min(1.25rem, 1vw) !important;
+  }
+}
+
+@media (width < 1000px) {
+  .info-insight-text,
+  .icon-circle-container {
+    font-size: 14px;
+  }
+
+  .icon-circle-container {
+    gap: min(1.25rem, 0.75vw);
+  }
+
+  .ad-container {
+    grid-template-columns: 28.5% 30% 35.32%;
+  }
+  .status-div {
+    padding: 0px 4px;
+  }
+}
+
+@media (width < 920px) {
+  .ad-details,
+  .ad-data-container {
+    padding: 0;
+  }
+
+  .status-div {
+    padding: 0px 2px;
+  }
+
+  .ad-details-btn {
+    font-size: 12px;
+  }
+  .ad-details-btn,
+  .promotion-information > div {
+    text-wrap: nowrap;
+  }
+}
+
+@media (width < 883px) {
+  .component-content,
+  .sort-btns-container {
+    width: calc(100vw - 1rem);
+  }
+
+  .ad-details,
+  .ad-data-container {
+    padding: 0.5rem;
+  }
+
+  .status-div {
+    padding: 0px 8px;
+  }
+
+  .ad-details-btn {
+    font-size: 12px;
+  }
+
+  .info-insight-text,
+  .icon-circle-container {
+    font-size: 14px;
+  }
+
+  .icon-circle-container {
+    gap: min(1.25rem, 1.43vw);
+  }
+
+  .ad-container {
+    grid-template-columns: 28.5% 31.6% 35.32%;
+  }
+
+  .icon-circle {
+    width: min(42px, 4.75vw);
+    height: min(42px, 4.75vw);
+  }
+
+  .slider-indicators {
+    width: 100%;
+  }
+}
+
+@media (width < 675px) {
+  .ad-container {
+    grid-template-columns: 45% 50%;
+    gap: 1rem;
+  }
+
+  .icon-circle-container {
+    gap: 1rem;
+  }
+
+  .large {
+    width: 27vw;
+  }
+
+  .ad-content {
+    display: none;
+  }
+
+  .slider-container,
+  .slide {
+    width: 100%;
+  }
+
+  .light-gray-small-text {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .icon-circle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .or-sign {
+    display: none;
+  }
+
+  .ad-details-btn {
+    gap: 0.25rem;
+  }
+  .ad-details-btn {
+    padding: 0;
+  }
+
+  .ad-details {
+    height: fit-content;
+  }
+  .ad-details {
+    display: grid;
+  }
+
+  .ad-details-btn {
+    justify-content: flex-start !important;
+  }
+
+  .light-gray-small-text {
+    padding: 0 0.5rem;
+  }
 }
