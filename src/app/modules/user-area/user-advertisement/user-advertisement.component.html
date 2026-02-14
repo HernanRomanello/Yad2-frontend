@@ -45,421 +45,452 @@
   </div>
   <div>
     <div class="result-list">
-      @for (advertisement of authService.UserAdvertisements | async; track
-      $index) {
-      <div class="ad">
-        <div class="ad-container">
-          <div class="slider-container">
-            <div
-              (mouseenter)="
-                showArrow(advertisement.id, true, this.currentSlidesData)
-              "
-              (mouseleave)="
-                showArrow(advertisement.id, false, this.currentSlidesData)
-              "
-              [ngClass]="
-                advertisement.pictures.length > 0
-                  ? 'slider'
-                  : 'slider gray-frame'
-              "
-            >
-              @if( advertisement.pictures.length > 0){
-              <div class="slider-indicators slider-arrows">
-                @if(findIfIsVisibleById(advertisement.id,this.currentSlidesData)){
-                <span class="dark-circle">
-                  <img
-                    (click)="
-                      goToSlide(
-                        false,
-                        true,
-                        advertisement.pictures.length,
-                        advertisement.id
-                      )
-                    "
-                    src="assets/images/next-arrow.svg"
-                    class="arrow-pic"
-                    alt="ad2"
-                  />
-                </span>
-                <span class="dark-circle">
-                  <img
-                    (click)="
-                      goToSlide(
-                        true,
-                        false,
-                        advertisement.pictures.length,
-                        advertisement.id
-                      )
-                    "
-                    src="assets/images/prev-arrow.svg"
-                    class="arrow-pic"
-                    alt="ad2"
-                  />
-                </span>
-                }
-              </div>
-              } @else {
-              <img
-                id="empty-image"
-                src="assets/images/realestateNoImage.svg"
-                alt="empty-image"
-              />
-              }
-              <div class="ad-status-container">
-                <div class="status-div basic-status">מודעה בסיסית</div>
-                <div class="status-div active-div">
-                  <span>פעילה</span>
-                  <img
-                    class="active-circle"
-                    src="assets/images/dot-active.svg"
-                    alt="active-circle"
-                  />
-                </div>
-              </div>
-              <div class="slide">
-                @for (image of advertisement.pictures; track $index) {
-                @if($index== this.findAdIndexById(advertisement.id)){
-
-                <img
-                  class="user-card-img"
-                  [src]="$index !== 0 ? image.url : advertisement.mainPicture"
-                  [alt]="image"
-                />
-
-                <div class="slider-indicators">
-                  @for (image of advertisement.pictures; track $index) {
-                  @if($index== this.findAdIndexById(advertisement.id)){
-                  <span class="dot dot-active"></span>
-
-                  } @else {
-                  <span class="dot"></span>
-                  } }
-                </div>
-                } }
-              </div>
-            </div>
-          </div>
-          <div class="advertisement-content">
-            <div class="add-data-container">
-              <div class="ad-data ad-price">
-                @if(advertisement.price>0){
-
-                {{ advertisement.price | number : "1.0-0" }} ₪&nbsp; }@else {
-
-                <span> ללא מחיר </span>
-                }
-              </div>
-              <div class="ad-data ad-address">
-                <div>{{ advertisement.assetType }},</div>
-                <div>{{ advertisement.city }},</div>
-                <div>{{ advertisement.street }}</div>
-                <div>{{ advertisement.number }}</div>
-              </div>
-              <div class="ad-data ad-size">
-                <div class="ad-data">
-                  <div>{{ advertisement.rooms }}</div>
-                  <div>חדרים</div>
-                  <span class="dot-symbol"><li></li></span>
-                </div>
-                <div class="ad-data move-right">
-                  <div>{{ advertisement.totalSquareMeters }}</div>
-                  <div>מ"ר</div>
-                </div>
-              </div>
-            </div>
-            <div class="icon-circle-container">
-              <div class="icon-div">
-                <div>
-                  <div
-                    class="icon-circle"
-                    (click)="
-                      this.navigationService.navigateInNewWindow(
-                        '/edit-advertisement/' + advertisement.id
-                      )
-                    "
-                  >
-                    <img
-                      class="icon-pic"
-                      src="assets/images/edit-pencil.svg"
-                      alt="edit-pencil"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="pointer"
-                  routerLink="/edit-advertisement/{{ advertisement.id }}"
-                >
-                  עריכה
-                </div>
-              </div>
-              <div class="icon-div">
-                <div>
-                  <div class="icon-circle">
-                    <img
-                      class="icon-pic"
-                      src="assets/images/upload-arrow.svg"
-                      alt="edit-pencil"
-                    />
-                  </div>
-                </div>
-                <div>הקפצה</div>
-              </div>
-              <div class="icon-div">
-                <div>
-                  <div class="icon-circle">
-                    <img
-                      class="icon-pic snow-icon"
-                      src="assets/images/snow-svgrepo.svg"
-                      alt="edit-pencil"
-                    />
-                  </div>
-                </div>
-                <div>הקפאה</div>
-              </div>
-              <div class="icon-div">
-                <div>
-                  <div
-                    (click)="authService.deleteAdvertisement(advertisement.id)"
-                    class="icon-circle"
-                  >
-                    <img
-                      class="icon-pic bin-icon"
-                      src="assets/images/remove-bin-delete.svg"
-                      alt="bin-icon"
-                    />
-                  </div>
-                </div>
-                <div>הסרה</div>
-              </div>
-            </div>
-            <div class="stats-information-container">
-              <div class="stats-information-btn">
-                <div class="stats-information">
-                  <div class="stats-num">
-                    {{ this.adsStatistics[1][$index] }}
-                  </div>
-                  <div class="small-icon-circle light-pink">
-                    <img
-                      id="eye-icon"
-                      class="icon-pic"
-                      src="assets/images/eye-pink.svg"
-                      alt="edit-pencil"
-                    />
-                  </div>
-                </div>
-                <div class="stats-information-btn-text">צפו במודעה</div>
-              </div>
-              <div class="stats-information-btn">
-                <div class="stats-information">
-                  <div class="stats-num">
-                    {{ this.adsStatistics[0][$index] }}
-                  </div>
-                  <div class="small-icon-circle light-red">
-                    <img
-                      class="icon-pic"
-                      src="assets/images/heart-red-small.svg"
-                      alt="edit-pencil"
-                    />
-                  </div>
-                </div>
-                <div class="stats-information-btn-text">שמרו אותה</div>
-              </div>
-            </div>
-          </div>
-          <div class="ad-content">
-            <div
-              class="promotion-information-content"
-              (mouseenter)="
-                showArrow(advertisement.id, true, this.currentSlidesPromotionAd)
-              "
-              (mouseleave)="
-                showArrow(
-                  advertisement.id,
-                  false,
-                  this.currentSlidesPromotionAd
-                )
-              "
-            >
-              @if(findIfTheFirstSlideIsVisibleById(advertisement.id)){
-              <div class="info-insight">
-                <div class="info-insight-text">
-                  <div>
-                    <span class="turquoise-text">לפני שמורידים </span>
-                    <span>את המחיר במודעה</span>
-                    <span>,</span>
-                  </div>
-                  <div>אנחנו ממליצים לשדרג ולמכור</div>
-                  <div>בדיוק במחיר שרצית</div>
-                </div>
-                <img
-                  class="green-spaceship"
-                  src="assets/images/light-green-spaceship.svg"
-                  alt="green-spaceship"
-                />
-              </div>
-
-              <div class="bit-option">
-                <span>עכשיו אפשר לשלם על השדרוג גם באמצאות</span>
-                <span>
-                  <img class="bit" src="assets/images/bit.svg" alt="bit"
-                /></span>
-              </div>
-              <div>
-                <button class="upgrade-btn">שדרוג</button>
-              </div>
-              }@else {
-              <div class="info-insight-second-slider">
-                <div class="info-insight">
-                  <div
-                    [ngClass]="{
-                      'move-up1': !findIfTheFirstSlideIsVisibleById(
-                        advertisement.id
-                      )
-                    }"
-                  >
-                    <div class="AI-ad">
-                      <span>חדש</span>
-                      <span>!</span>
-                      <span> תגיות</span>
-                      <span class="medium-size"> AI </span>
-                      <span>למודעה</span>
-                    </div>
-                    <div>מהיום תוכל לצרף תגיות יחודיות</div>
-                    <div>שמתאימות בדיוק למודעה שלך</div>
-                  </div>
-                  <div
-                    [ngClass]="{
-                      'move-down': !findIfTheFirstSlideIsVisibleById(
-                        advertisement.id
-                      )
-                    }"
-                  >
-                    <img
-                      class="ad-AI"
-                      src="assets/images/Advertising-Drawing-images.svg"
-                      alt="ad-AI"
-                    />
-                  </div>
-                </div>
-
-                <div
-                  [ngClass]="{
-                    'move-up2': !findIfTheFirstSlideIsVisibleById(
-                      advertisement.id
-                    )
-                  }"
-                >
-                  <button class="upgrade-btn-AI orange">רכישת תגיות</button>
-                </div>
-              </div>
-              }
-
+      @for (
+        advertisement of authService.UserAdvertisements | async;
+        track $index
+      ) {
+        <div class="ad">
+          <div class="ad-container">
+            <div class="slider-container">
               <div
-                [ngClass]="{
-                  'move-up': !findIfTheFirstSlideIsVisibleById(advertisement.id)
-                }"
+                (mouseenter)="
+                  showArrow(advertisement.id, true, this.currentSlidesData)
+                "
+                (mouseleave)="
+                  showArrow(advertisement.id, false, this.currentSlidesData)
+                "
+                [ngClass]="
+                  advertisement.pictures.length > 0
+                    ? 'slider'
+                    : 'slider gray-frame'
+                "
               >
-                @if(findIfIsVisibleById(advertisement.id,this.currentSlidesPromotionAd)){
-                <div class="arrows-pic-round-div-container">
-                  <div class="arrows-pic-round-div">
-                    <span class="">
-                      <img
-                        (click)="
-                          setColors(advertisement.id, '#cccccc', 'rightArrow')
-                        "
-                        src="assets/images/circle-round-arrow-next.svg"
-                        class="arrow-pic-round"
-                        alt="ad2"
-                      />
-                    </span>
-
-                    <span class="">
-                      <img
-                        (click)="
-                          setColors(advertisement.id, '#363636', 'leftArrow')
-                        "
-                        src="assets/images/circle-round-arrow-prev.svg"
-                        class="arrow-pic-round"
-                        alt="ad2"
-                      />
-                    </span>
+                @if (advertisement.pictures.length > 0) {
+                  <div class="slider-indicators slider-arrows">
+                    @if (
+                      findIfIsVisibleById(
+                        advertisement.id,
+                        this.currentSlidesData
+                      )
+                    ) {
+                      <span class="dark-circle">
+                        <img
+                          (click)="
+                            goToSlide(
+                              false,
+                              true,
+                              advertisement.pictures.length,
+                              advertisement.id
+                            )
+                          "
+                          src="assets/images/next-arrow.svg"
+                          class="arrow-pic"
+                          alt="ad2"
+                        />
+                      </span>
+                      <span class="dark-circle">
+                        <img
+                          (click)="
+                            goToSlide(
+                              true,
+                              false,
+                              advertisement.pictures.length,
+                              advertisement.id
+                            )
+                          "
+                          src="assets/images/prev-arrow.svg"
+                          class="arrow-pic"
+                          alt="ad2"
+                        />
+                      </span>
+                    }
+                  </div>
+                } @else {
+                  <img
+                    id="empty-image"
+                    src="assets/images/realestateNoImage.svg"
+                    alt="empty-image"
+                  />
+                }
+                <div class="ad-status-container">
+                  <div class="status-div basic-status">מודעה בסיסית</div>
+                  <div class="status-div active-div">
+                    <span>פעילה</span>
+                    <img
+                      class="active-circle"
+                      src="assets/images/dot-active.svg"
+                      alt="active-circle"
+                    />
                   </div>
                 </div>
-                }
-                <div class="promotion-indicators">
-                  <span
-                    class="dot"
-                    [ngStyle]="{
-                      background: changeColor(1, advertisement.id)
-                    }"
-                  ></span>
-                  <span
-                    class="dot"
-                    [ngStyle]="{
-                      background: changeColor(0, advertisement.id)
-                    }"
-                  ></span>
+                <div class="slide">
+                  @for (image of advertisement.pictures; track $index) {
+                    @if ($index == this.findAdIndexById(advertisement.id)) {
+                      <img
+                        class="user-card-img"
+                        [src]="
+                          $index !== 0 ? image.url : advertisement.mainPicture
+                        "
+                        [alt]="image"
+                      />
+
+                      <div class="slider-indicators">
+                        @for (image of advertisement.pictures; track $index) {
+                          @if (
+                            $index == this.findAdIndexById(advertisement.id)
+                          ) {
+                            <span class="dot dot-active"></span>
+                          } @else {
+                            <span class="dot"></span>
+                          }
+                        }
+                      </div>
+                    }
+                  }
                 </div>
               </div>
-              <div></div>
             </div>
-            <div class="promotion-information">
-              <div class="promotion-information-details">
-                <div class="bold lg-text">80%</div>
-                <div>חוזק המודעה שלך</div>
+            <div class="advertisement-content">
+              <div class="add-data-container">
+                <div class="ad-data ad-price">
+                  @if (advertisement.price > 0) {
+                    {{ advertisement.price | number: "1.0-0" }} ₪&nbsp;
+                  } @else {
+                    <span> ללא מחיר </span>
+                  }
+                </div>
+                <div class="ad-data ad-address">
+                  <div>{{ advertisement.assetType }},</div>
+                  <div>{{ advertisement.city }},</div>
+                  <div>{{ advertisement.street }}</div>
+                  <div>{{ advertisement.number }}</div>
+                </div>
+                <div class="ad-data ad-size">
+                  <div class="ad-data">
+                    <div>{{ advertisement.rooms }}</div>
+                    <div>חדרים</div>
+                    <span class="dot-symbol"><li></li></span>
+                  </div>
+                  <div class="ad-data move-right">
+                    <div>{{ advertisement.totalSquareMeters }}</div>
+                    <div>מ"ר</div>
+                  </div>
+                </div>
               </div>
-              <div class="underline bold">השלימו</div>
-            </div>
-          </div>
-        </div>
-        <div class="add-details">
-          <div class="add-details-btn pointer">
-            <div>
-              <img
-                id="link"
-                class="small-icon-pic"
-                src="assets/images/link.svg"
-                alt="external-link"
-              />
-            </div>
-            <div>שיתוף מודעה</div>
-            <div class="or-sign">|</div>
-            <div class="link-btn">
-              <div>
-                <img
-                  id="external-link"
-                  class="small-icon-pic"
-                  src="assets/images/external-link.svg"
-                  alt="external-link"
-                />
+              <div class="icon-circle-container">
+                <div class="icon-div">
+                  <div>
+                    <div
+                      class="icon-circle"
+                      (click)="
+                        this.navigationService.navigateInNewWindow(
+                          '/edit-advertisement/' + advertisement.id
+                        )
+                      "
+                    >
+                      <img
+                        class="icon-pic"
+                        src="assets/images/edit-pencil.svg"
+                        alt="edit-pencil"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="pointer"
+                    routerLink="/edit-advertisement/{{ advertisement.id }}"
+                  >
+                    עריכה
+                  </div>
+                </div>
+                <div class="icon-div">
+                  <div>
+                    <div class="icon-circle">
+                      <img
+                        class="icon-pic"
+                        src="assets/images/upload-arrow.svg"
+                        alt="edit-pencil"
+                      />
+                    </div>
+                  </div>
+                  <div>הקפצה</div>
+                </div>
+                <div class="icon-div">
+                  <div>
+                    <div class="icon-circle">
+                      <img
+                        class="icon-pic snow-icon"
+                        src="assets/images/snow-svgrepo.svg"
+                        alt="edit-pencil"
+                      />
+                    </div>
+                  </div>
+                  <div>הקפאה</div>
+                </div>
+                <div class="icon-div">
+                  <div>
+                    <div
+                      (click)="
+                        authService.deleteAdvertisement(advertisement.id)
+                      "
+                      class="icon-circle"
+                    >
+                      <img
+                        class="icon-pic bin-icon"
+                        src="assets/images/remove-bin-delete.svg"
+                        alt="bin-icon"
+                      />
+                    </div>
+                  </div>
+                  <div>הסרה</div>
+                </div>
               </div>
+              <div class="stats-information-container">
+                <div class="stats-information-btn">
+                  <div class="stats-information">
+                    <div class="stats-num">
+                      {{ this.adsStatistics[1][$index] }}
+                    </div>
+                    <div class="small-icon-circle light-pink">
+                      <img
+                        id="eye-icon"
+                        class="icon-pic"
+                        src="assets/images/eye-pink.svg"
+                        alt="edit-pencil"
+                      />
+                    </div>
+                  </div>
+                  <div class="stats-information-btn-text">צפו במודעה</div>
+                </div>
+                <div class="stats-information-btn">
+                  <div class="stats-information">
+                    <div class="stats-num">
+                      {{ this.adsStatistics[0][$index] }}
+                    </div>
+                    <div class="small-icon-circle light-red">
+                      <img
+                        class="icon-pic"
+                        src="assets/images/heart-red-small.svg"
+                        alt="edit-pencil"
+                      />
+                    </div>
+                  </div>
+                  <div class="stats-information-btn-text">שמרו אותה</div>
+                </div>
+              </div>
+            </div>
+            <div class="ad-content">
               <div
-                (click)="
-                  this.navigationService.navigateInNewWindow(
-                    '/advertisement/' + advertisement.id
+                class="promotion-information-content"
+                (mouseenter)="
+                  showArrow(
+                    advertisement.id,
+                    true,
+                    this.currentSlidesPromotionAd
+                  )
+                "
+                (mouseleave)="
+                  showArrow(
+                    advertisement.id,
+                    false,
+                    this.currentSlidesPromotionAd
                   )
                 "
               >
-                צפייה במודעה
+                @if (findIfTheFirstSlideIsVisibleById(advertisement.id)) {
+                  <div class="info-insight">
+                    <div class="info-insight-text">
+                      <div>
+                        <span class="turquoise-text">לפני שמורידים </span>
+                        <span>את המחיר במודעה</span>
+                        <span>,</span>
+                      </div>
+                      <div>אנחנו ממליצים לשדרג ולמכור</div>
+                      <div>בדיוק במחיר שרצית</div>
+                    </div>
+                    <img
+                      class="green-spaceship"
+                      src="assets/images/light-green-spaceship.svg"
+                      alt="green-spaceship"
+                    />
+                  </div>
+
+                  <div class="bit-option">
+                    <span>עכשיו אפשר לשלם על השדרוג גם באמצאות</span>
+                    <span>
+                      <img class="bit" src="assets/images/bit.svg" alt="bit"
+                    /></span>
+                  </div>
+                  <div>
+                    <button class="upgrade-btn">שדרוג</button>
+                  </div>
+                } @else {
+                  <div class="info-insight-second-slider">
+                    <div class="info-insight">
+                      <div
+                        [ngClass]="{
+                          'move-up1': !findIfTheFirstSlideIsVisibleById(
+                            advertisement.id
+                          ),
+                        }"
+                      >
+                        <div class="AI-ad">
+                          <span>חדש</span>
+                          <span>!</span>
+                          <span> תגיות</span>
+                          <span class="medium-size"> AI </span>
+                          <span>למודעה</span>
+                        </div>
+                        <div>מהיום תוכל לצרף תגיות יחודיות</div>
+                        <div>שמתאימות בדיוק למודעה שלך</div>
+                      </div>
+                      <div
+                        [ngClass]="{
+                          'move-down': !findIfTheFirstSlideIsVisibleById(
+                            advertisement.id
+                          ),
+                        }"
+                      >
+                        <img
+                          class="ad-AI"
+                          src="assets/images/Advertising-Drawing-images.svg"
+                          alt="ad-AI"
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      [ngClass]="{
+                        'move-up2': !findIfTheFirstSlideIsVisibleById(
+                          advertisement.id
+                        ),
+                      }"
+                    >
+                      <button class="upgrade-btn-AI orange">רכישת תגיות</button>
+                    </div>
+                  </div>
+                }
+
+                <div
+                  [ngClass]="{
+                    'move-up': !findIfTheFirstSlideIsVisibleById(
+                      advertisement.id
+                    ),
+                  }"
+                >
+                  @if (
+                    findIfIsVisibleById(
+                      advertisement.id,
+                      this.currentSlidesPromotionAd
+                    )
+                  ) {
+                    <div class="arrows-pic-round-div-container">
+                      <div class="arrows-pic-round-div">
+                        <span class="">
+                          <img
+                            (click)="
+                              setColors(
+                                advertisement.id,
+                                '#cccccc',
+                                'rightArrow'
+                              )
+                            "
+                            src="assets/images/circle-round-arrow-next.svg"
+                            class="arrow-pic-round"
+                            alt="ad2"
+                          />
+                        </span>
+
+                        <span class="">
+                          <img
+                            (click)="
+                              setColors(
+                                advertisement.id,
+                                '#363636',
+                                'leftArrow'
+                              )
+                            "
+                            src="assets/images/circle-round-arrow-prev.svg"
+                            class="arrow-pic-round"
+                            alt="ad2"
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  }
+                  <div class="promotion-indicators">
+                    <span
+                      class="dot"
+                      [ngStyle]="{
+                        background: changeColor(1, advertisement.id),
+                      }"
+                    ></span>
+                    <span
+                      class="dot"
+                      [ngStyle]="{
+                        background: changeColor(0, advertisement.id),
+                      }"
+                    ></span>
+                  </div>
+                </div>
+                <div></div>
+              </div>
+              <div class="promotion-information">
+                <div class="promotion-information-details">
+                  <div class="bold lg-text">80%</div>
+                  <div>חוזק המודעה שלך</div>
+                </div>
+                <div class="underline bold">השלימו</div>
               </div>
             </div>
           </div>
-          <div class="add-details-btn light-gray-small-text">
-            <div>
-              נוצרה ב-{{ transformDateToString(advertisement.creationDate) }}
+          <div class="add-details">
+            <div class="add-details-btn pointer">
+              <div>
+                <img
+                  id="link"
+                  class="small-icon-pic"
+                  src="assets/images/link.svg"
+                  alt="external-link"
+                />
+              </div>
+              <div>שיתוף מודעה</div>
+              <div class="or-sign">|</div>
+              <div class="link-btn">
+                <div>
+                  <img
+                    id="external-link"
+                    class="small-icon-pic"
+                    src="assets/images/external-link.svg"
+                    alt="external-link"
+                  />
+                </div>
+                <div
+                  (click)="
+                    this.navigationService.navigateInNewWindow(
+                      '/advertisement/' + advertisement.id
+                    )
+                  "
+                >
+                  צפייה במודעה
+                </div>
+              </div>
             </div>
-            <div class="or-sign">|</div>
-            <div>
-              תאריך תפוגה
-              {{ transformDateToString(advertisement.expirationDate) }}
-            </div>
-            <div class="or-sign">|</div>
-            <div>
-              מס' מודעה {{ aggregateZerosToIDNumber(advertisement.id) }}
+            <div class="add-details-btn light-gray-small-text">
+              <div>
+                נוצרה ב-{{ transformDateToString(advertisement.creationDate) }}
+              </div>
+              <div class="or-sign">|</div>
+              <div>
+                תאריך תפוגה
+                {{ transformDateToString(advertisement.expirationDate) }}
+              </div>
+              <div class="or-sign">|</div>
+              <div>
+                מס' מודעה {{ aggregateZerosToIDNumber(advertisement.id) }}
+              </div>
             </div>
           </div>
         </div>
-      </div>
       }
     </div>
   </div>

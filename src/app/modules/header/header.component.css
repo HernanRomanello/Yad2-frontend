@@ -480,11 +480,11 @@ img,
   background-color: rgb(171, 71, 188);
   background-color: #ef6c00;
   height: 40px;
-  max-width: 40px;
+  width: 40px;
+  margin: 0 1rem;
   border-radius: 50%;
   font-size: 22px;
   color: white;
-  margin-left: 6px;
   cursor: default;
 }
 
@@ -898,6 +898,10 @@ button,
 @media (max-width: 1200px) {
   .btn {
     padding: 0 6px;
+  }
+
+  .user-name-btn {
+    gap: 0.25rem;
   }
 
   .logo-btn-main-page img,
