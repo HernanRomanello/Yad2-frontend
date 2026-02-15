@@ -27,13 +27,15 @@
             this.isHouseNumberEraseBtnHidden = false
           "
         />
-        @if(!this.isHouseNumberEraseBtnHidden && HouseNumber.value.length > 0){
-        <img
-          (click)="clearInputValue('houseNumber'); HouseNumber.value = ''"
-          class="erase-input-btn"
-          src="assets/images/close-sm.svg"
-          alt=""
-        />
+        @if (
+          !this.isHouseNumberEraseBtnHidden && HouseNumber.value.length > 0
+        ) {
+          <img
+            (click)="clearInputValue('houseNumber'); HouseNumber.value = ''"
+            class="erase-input-btn"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
         }
       </div>
       <div class="input-container">
@@ -45,7 +47,7 @@
           [ngStyle]="{
             border: this.isAssetAssetstateDropdownHidden
               ? 'solid 1px #cccccc '
-              : 'solid 2px #363636 '
+              : 'solid 2px #363636 ',
           }"
           (click)="
             this.openAndCloseDropdown(
@@ -179,14 +181,18 @@
             "
           />
 
-          @if(!this.isTotalFloorsEraseBtnHidden && TotalFloorInput.value.length
-          > 0){
-          <img
-            (click)="clearInputValue('totalFloors'); TotalFloorInput.value = ''"
-            class="erase-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
+          @if (
+            !this.isTotalFloorsEraseBtnHidden &&
+            TotalFloorInput.value.length > 0
+          ) {
+            <img
+              (click)="
+                clearInputValue('totalFloors'); TotalFloorInput.value = ''
+              "
+              class="erase-btn"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
           }
           <div id="totalFloors-error" class="error-text">
             זהו שדה חובה - סה"כ קומות בבניין
@@ -263,7 +269,11 @@
             [class.selected2]="advertisement.privateParking === number"
             (click)="selectBtnOption(number, 'privateParking', 'none')"
           >
-            @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
+            @if (number == 0) {
+              {{ "ללא" }}
+            } @else {
+              {{ number }}
+            }
           </div>
         </div>
       </div>
@@ -279,7 +289,11 @@
             [class.selected2]="advertisement.balconiesNumber === number"
             (click)="selectBtnOption(number, 'balconiesNumber', 'none')"
           >
-            @if(number==0){ {{ "ללא" }}} @else{{{ number }}}
+            @if (number == 0) {
+              {{ "ללא" }}
+            } @else {
+              {{ number }}
+            }
           </div>
         </div>
       </div>
@@ -317,7 +331,7 @@
                   'justify-content':
                     advertisement.furnituredescription.length > 1
                       ? 'flex-end'
-                      : 'center'
+                      : 'center',
                 }"
               >
                 {{ this.changeText(advertisement.furnituredescription.length) }}
@@ -333,7 +347,7 @@
                 ),
                 height: changeHieght(
                   advertisement.furnituredescription.length || 0
-                )
+                ),
               }"
             ></div>
 
@@ -343,14 +357,16 @@
           </div>
         </div>
         <div class="textarea">
-          @if(!this.isFurnitureDescriptionEraseBtnHidden &&
-          furnitureDescription.value.length > 0){
-          <img
-            (click)="clearInputValue('furnituredescription')"
-            class="erase-furnituredescription-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
+          @if (
+            !this.isFurnitureDescriptionEraseBtnHidden &&
+            furnitureDescription.value.length > 0
+          ) {
+            <img
+              (click)="clearInputValue('furnituredescription')"
+              class="erase-furnituredescription-btn"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
           }
           <textarea
             maxlength="200"
@@ -374,7 +390,9 @@
                 class="descriptionMessage"
                 [ngStyle]="{
                   'justify-content':
-                    advertisement.description.length > 1 ? 'flex-end' : 'center'
+                    advertisement.description.length > 1
+                      ? 'flex-end'
+                      : 'center',
                 }"
               >
                 {{ this.changeText(advertisement.description.length) }}
@@ -384,7 +402,7 @@
               [ngClass]="changeColor(advertisement.description.length || 0)"
               [ngStyle]="{
                 width: changeWidth(advertisement.description.length || 0),
-                height: changeHieght(advertisement.description.length || 0)
+                height: changeHieght(advertisement.description.length || 0),
               }"
             ></div>
 
@@ -394,14 +412,16 @@
           </div>
         </div>
         <div class="textarea">
-          @if(!this.isDescriptionEraseBtnHidden && assetDescription.value.length
-          > 0){
-          <img
-            (click)="clearInputValue('description')"
-            class="erase-furnituredescription-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
+          @if (
+            !this.isDescriptionEraseBtnHidden &&
+            assetDescription.value.length > 0
+          ) {
+            <img
+              (click)="clearInputValue('description')"
+              class="erase-furnituredescription-btn"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
           }
           <textarea
             maxlength="400"
@@ -428,7 +448,7 @@
           [ngStyle]="{
             border: this.isNumberOfPaymentsDropdownHidden
               ? 'solid 1px #cccccc '
-              : 'solid 2px #363636 '
+              : 'solid 2px #363636 ',
           }"
           (click)="
             this.openAndCloseDropdown(
@@ -473,17 +493,19 @@
             this.isHouseCommitteePaymentEraseBtnHidden = false
           "
         />
-        @if(!this.isHouseCommitteePaymentEraseBtnHidden &&
-        houseCommitteePayment.value.length > 0){
-        <img
-          (click)="
-            clearInputValue('houseCommitteePayment');
-            houseCommitteePayment.value = ''
-          "
-          class="erase-input-btn"
-          src="assets/images/close-sm.svg"
-          alt=""
-        />
+        @if (
+          !this.isHouseCommitteePaymentEraseBtnHidden &&
+          houseCommitteePayment.value.length > 0
+        ) {
+          <img
+            (click)="
+              clearInputValue('houseCommitteePayment');
+              houseCommitteePayment.value = ''
+            "
+            class="erase-input-btn"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
         }
       </div>
       <div class="input-container">
@@ -507,17 +529,19 @@
             this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden = false
           "
         />
-        @if(!this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden &&
-        municipalityMonthlyPropertyTax.value.length > 0){
-        <img
-          (click)="
-            clearInputValue('municipalityMonthlyPropertyTax');
-            municipalityMonthlyPropertyTax.value = ''
-          "
-          class="erase-input-btn"
-          src="assets/images/close-sm.svg"
-          alt=""
-        />
+        @if (
+          !this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden &&
+          municipalityMonthlyPropertyTax.value.length > 0
+        ) {
+          <img
+            (click)="
+              clearInputValue('municipalityMonthlyPropertyTax');
+              municipalityMonthlyPropertyTax.value = ''
+            "
+            class="erase-input-btn"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
         }
       </div>
       <div class="input-container">
@@ -545,16 +569,18 @@
             this.isBuiltSquareMetersEraseBtnHidden = false
           "
         />
-        @if(!this.isBuiltSquareMetersEraseBtnHidden &&
-        builtSquareMeters.value.length > 0){
-        <img
-          (click)="
-            clearInputValue('builtSquareMeters'); builtSquareMeters.value = ''
-          "
-          class="erase-input-btn medium-input"
-          src="assets/images/close-sm.svg"
-          alt=""
-        />
+        @if (
+          !this.isBuiltSquareMetersEraseBtnHidden &&
+          builtSquareMeters.value.length > 0
+        ) {
+          <img
+            (click)="
+              clearInputValue('builtSquareMeters'); builtSquareMeters.value = ''
+            "
+            class="erase-input-btn medium-input"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
         }
       </div>
       <div class="input-container">
@@ -576,16 +602,18 @@
             this.isTotalSquareMetersEraseBtnHidden = false
           "
         />
-        @if(!this.isTotalSquareMetersEraseBtnHidden &&
-        totalSquareMeters.value.length > 0){
-        <img
-          (click)="
-            clearInputValue('totalSquareMeters'); totalSquareMeters.value = ''
-          "
-          class="erase-input-btn"
-          src="assets/images/close-sm.svg"
-          alt=""
-        />
+        @if (
+          !this.isTotalSquareMetersEraseBtnHidden &&
+          totalSquareMeters.value.length > 0
+        ) {
+          <img
+            (click)="
+              clearInputValue('totalSquareMeters'); totalSquareMeters.value = ''
+            "
+            class="erase-input-btn"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
         }
       </div>
       <div class="input-container price-box">
@@ -616,16 +644,16 @@
               : 'סכום מינימלי 10,000'
           }}"
         />
-        @if(!this.isPriceEraseBtnHidden && price.value.length > 0){
-        <div class="currency move-right">&#x20AA;</div>
-        <img
-          (click)="clearInputValue('price'); price.value = ''"
-          class="erase-input-btn"
-          src="assets/images/close-sm.svg"
-          alt=""
-        />
-        }@else {
-        <div class="currency">&#x20AA;</div>
+        @if (!this.isPriceEraseBtnHidden && price.value.length > 0) {
+          <div class="currency move-right">&#x20AA;</div>
+          <img
+            (click)="clearInputValue('price'); price.value = ''"
+            class="erase-input-btn"
+            src="assets/images/close-sm.svg"
+            alt=""
+          />
+        } @else {
+          <div class="currency">&#x20AA;</div>
         }
       </div>
       <label class="small-text" for="entryDate"> תאריך כניסה*</label>
@@ -700,32 +728,31 @@
       <div class="main-images-container">
         <div class="video-upload">
           <div class="card-content">
-            @if(this.videoURL !== '' ){
-            <div class="image-btn-circle video-remove-btn">
-              <img
-                id="delete-image-video"
-                class="image-btn"
-                src="assets/images/recycle-bin-garbage.svg"
-                alt=""
-                (click)="deleteVideo()"
-              />
-            </div>
-            }
-            <div class="camara-image-container">
-              @if(this.videoURL === '' ){
-              <div>
+            @if (this.videoURL !== "") {
+              <div class="image-btn-circle video-remove-btn">
                 <img
-                  id="video-pic"
-                  src="assets/images/video-svgrepo-com.svg"
+                  id="delete-image-video"
+                  class="image-btn"
+                  src="assets/images/recycle-bin-garbage.svg"
                   alt=""
+                  (click)="deleteVideo()"
                 />
               </div>
-              <div class="upload-video-box">העלאת סרטון</div>
-              }@else {
-              <div class="upload-video-box translateY spacing">
-                הסרטון עלה, אפשר להמשיך בפרסום
-              </div>
-
+            }
+            <div class="camara-image-container">
+              @if (this.videoURL === "") {
+                <div>
+                  <img
+                    id="video-pic"
+                    src="assets/images/video-svgrepo-com.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="upload-video-box">העלאת סרטון</div>
+              } @else {
+                <div class="upload-video-box translateY spacing">
+                  הסרטון עלה, אפשר להמשיך בפרסום
+                </div>
               }
             </div>
             <input
@@ -752,28 +779,30 @@
             )
           "
         >
-          @if((!this.mainImageURLwasDeleted) ){
-          <div
-            class="image-btns"
-            (mouseenter)="hideImageOnHover(0, '', this.mainImageURLwasDeleted)"
-          >
-            <div class="image-btn-circle">
-              <img
-                id="delete-image"
-                class="image-btn"
-                src="assets/images/recycle-bin-garbage.svg"
-                alt=""
-                (click)="deleteImage(0)"
-              />
+          @if (!this.mainImageURLwasDeleted) {
+            <div
+              class="image-btns"
+              (mouseenter)="
+                hideImageOnHover(0, '', this.mainImageURLwasDeleted)
+              "
+            >
+              <div class="image-btn-circle">
+                <img
+                  id="delete-image"
+                  class="image-btn"
+                  src="assets/images/recycle-bin-garbage.svg"
+                  alt=""
+                  (click)="deleteImage(0)"
+                />
+              </div>
+              <div class="image-btn-circle">
+                <img
+                  class="image-btn"
+                  src="assets/images/refresh-svgrepo-com.svg"
+                  alt=""
+                />
+              </div>
             </div>
-            <div class="image-btn-circle">
-              <img
-                class="image-btn"
-                src="assets/images/refresh-svgrepo-com.svg"
-                alt=""
-              />
-            </div>
-          </div>
           }
           <div
             class="card-header"
@@ -789,36 +818,35 @@
           </div>
 
           <div id="main-image-frame" class="upload-img-card">
-            @if(this.mainImageURL === '' ){
-            <div class="camara-image-container">
-              <div>
-                <input
-                  #image
-                  class="file-input upload-pictures"
-                  type="file"
-                  id="picture{{ 0 }}"
-                  (change)="changeImage($event, 0)"
-                />
+            @if (this.mainImageURL === "") {
+              <div class="camara-image-container">
+                <div>
+                  <input
+                    #image
+                    class="file-input upload-pictures"
+                    type="file"
+                    id="picture{{ 0 }}"
+                    (change)="changeImage($event, 0)"
+                  />
+                </div>
+                <div class="upload-box">העלאת תמונות</div>
               </div>
-              <div class="upload-box">העלאת תמונות</div>
-            </div>
-
             } @else {
-            <img
-              id="main-image"
-              class=""
-              [src]="this.mainImageURL"
-              (mouseleave)="
-                hideImageOnHover(
-                  0,
-                  this.advertisement.mainPicture,
-                  this.mainImageURLwasDeleted
-                )
-              "
-              (mouseenter)="
-                hideImageOnHover(0, '', this.mainImageURLwasDeleted)
-              "
-            />
+              <img
+                id="main-image"
+                class=""
+                [src]="this.mainImageURL"
+                (mouseleave)="
+                  hideImageOnHover(
+                    0,
+                    this.advertisement.mainPicture,
+                    this.mainImageURLwasDeleted
+                  )
+                "
+                (mouseenter)="
+                  hideImageOnHover(0, '', this.mainImageURLwasDeleted)
+                "
+              />
             }
           </div>
         </div>
@@ -841,35 +869,37 @@
               )
             "
           >
-            @if((!this.imagesURlWasDeleted[index + 1 ]) &&
-            this.ImagesThatCanEdit[index +1] ){
-            <div
-              class="image-btns image-card-container"
-              (mouseenter)="
-                hideImageOnHover(
-                  index + 1,
-                  '',
-                  this.imagesURlWasDeleted[index + 1]
-                )
-              "
-            >
-              <div class="image-btn-circle">
-                <img
-                  id="delete-image"
-                  class="image-btn"
-                  src="assets/images/recycle-bin-garbage.svg"
-                  alt=""
-                  (click)="deleteImage(index + 1)"
-                />
+            @if (
+              !this.imagesURlWasDeleted[index + 1] &&
+              this.ImagesThatCanEdit[index + 1]
+            ) {
+              <div
+                class="image-btns image-card-container"
+                (mouseenter)="
+                  hideImageOnHover(
+                    index + 1,
+                    '',
+                    this.imagesURlWasDeleted[index + 1]
+                  )
+                "
+              >
+                <div class="image-btn-circle">
+                  <img
+                    id="delete-image"
+                    class="image-btn"
+                    src="assets/images/recycle-bin-garbage.svg"
+                    alt=""
+                    (click)="deleteImage(index + 1)"
+                  />
+                </div>
+                <div class="image-btn-circle">
+                  <img
+                    class="image-btn"
+                    src="assets/images/refresh-svgrepo-com.svg"
+                    alt=""
+                  />
+                </div>
               </div>
-              <div class="image-btn-circle">
-                <img
-                  class="image-btn"
-                  src="assets/images/refresh-svgrepo-com.svg"
-                  alt=""
-                />
-              </div>
-            </div>
             }
             <div
               class=""
@@ -890,40 +920,39 @@
                   : ' upload-img-card ad-card-container dashed-frame '
               "
             >
-              @if(this.imagesURLs[index + 1] === '' ){
-              <div class="camara-image-container">
-                <div>
-                  <input
-                    #image
-                    class="file-input upload-pictures"
-                    type="file"
-                    id="pictures{{ index + 1 }}"
-                    (change)="changeImage($event, index + 1)"
-                  />
+              @if (this.imagesURLs[index + 1] === "") {
+                <div class="camara-image-container">
+                  <div>
+                    <input
+                      #image
+                      class="file-input upload-pictures"
+                      type="file"
+                      id="pictures{{ index + 1 }}"
+                      (change)="changeImage($event, index + 1)"
+                    />
+                  </div>
+                  <div class="upload-box">העלאת תמונות</div>
                 </div>
-                <div class="upload-box">העלאת תמונות</div>
-              </div>
-
               } @else {
-              <img
-                id="card-image"
-                class="ad-card"
-                [src]="this.imagesURLs[index + 1]"
-                (mouseleave)="
-                  hideImageOnHover(
-                    index + 1,
-                    this.advertisement.pictures[index + 1].url,
-                    this.imagesURlWasDeleted[index + 1]
-                  )
-                "
-                (mouseenter)="
-                  hideImageOnHover(
-                    index + 1,
-                    '',
-                    this.imagesURlWasDeleted[index + 1]
-                  )
-                "
-              />
+                <img
+                  id="card-image"
+                  class="ad-card"
+                  [src]="this.imagesURLs[index + 1]"
+                  (mouseleave)="
+                    hideImageOnHover(
+                      index + 1,
+                      this.advertisement.pictures[index + 1].url,
+                      this.imagesURlWasDeleted[index + 1]
+                    )
+                  "
+                  (mouseenter)="
+                    hideImageOnHover(
+                      index + 1,
+                      '',
+                      this.imagesURlWasDeleted[index + 1]
+                    )
+                  "
+                />
               }
             </div>
           </div>
@@ -951,7 +980,7 @@
           [ngStyle]="{
             border: this.isassetOwnerDropdownHidden
               ? 'solid 1px #cccccc '
-              : 'solid 2px #363636 '
+              : 'solid 2px #363636 ',
           }"
           (click)="
             this.openAndCloseDropdown(
@@ -987,17 +1016,18 @@
               this.iscontactNameEraseBtnHidden = false
             "
           />
-          @if(!this.iscontactNameEraseBtnHidden && contactName.value.length >
-          0){
-          <img
-            (click)="
-              clearInputValue('contactName'); advertisement.contactName = ''
-            "
-            id="erase-contactName"
-            class="erase-input-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
+          @if (
+            !this.iscontactNameEraseBtnHidden && contactName.value.length > 0
+          ) {
+            <img
+              (click)="
+                clearInputValue('contactName'); advertisement.contactName = ''
+              "
+              id="erase-contactName"
+              class="erase-input-btn"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
           }
         </div>
         <div id="contactPhoneNumberBox" class="input-container">
@@ -1018,83 +1048,86 @@
         </div>
       </div>
       <div class="input-container">
-        @if(!this.has2Contacts){
-        <div
-          class="remove-add-contact"
-          style="color: #ff7f30"
-          (click)="Definecontacts(2)"
-        >
-          <mat-icon>control_point</mat-icon>
+        @if (!this.has2Contacts) {
+          <div
+            class="remove-add-contact"
+            style="color: #ff7f30"
+            (click)="Definecontacts(2)"
+          >
+            <mat-icon>control_point</mat-icon>
 
-          <span>הוספת איש קשר נוסף</span>
-        </div>
-        } @if(this.has2Contacts){
-        <div class="phone-Number-Box">
-          <div class="input-container">
-            <label class="small-text" for="number"> איש קשר נוסף </label>
-            <input
-              #SecondContactName
-              class="data number-input"
-              id="secondContactName"
-              [value]="this.secondContactName"
-              (input)="
-                this.secondContactName = SecondContactName.value;
-                this.isSecondcontactNameEraseBtnHidden = false
-              "
-            />
-            @if(!this.isSecondcontactNameEraseBtnHidden &&
-            SecondContactName.value.length > 0){
+            <span>הוספת איש קשר נוסף</span>
+          </div>
+        }
+        @if (this.has2Contacts) {
+          <div class="phone-Number-Box">
+            <div class="input-container">
+              <label class="small-text" for="number"> איש קשר נוסף </label>
+              <input
+                #SecondContactName
+                class="data number-input"
+                id="secondContactName"
+                [value]="this.secondContactName"
+                (input)="
+                  this.secondContactName = SecondContactName.value;
+                  this.isSecondcontactNameEraseBtnHidden = false
+                "
+              />
+              @if (
+                !this.isSecondcontactNameEraseBtnHidden &&
+                SecondContactName.value.length > 0
+              ) {
+                <img
+                  (click)="
+                    clearInputValue('secondContactName');
+                    this.secondContactName = ''
+                  "
+                  id="erase-contactName"
+                  class="erase-input-btn"
+                  src="assets/images/close-sm.svg"
+                  alt=""
+                />
+              }
+            </div>
+            <div id="SecondcontactPhoneNumberBox" class="input-container">
+              <label class="small-text" for="number"> טלפון נוסף</label>
+              <button
+                id="contactPhoneNumber"
+                class="data large dropdown-btn"
+                type="button"
+                [ngStyle]="{
+                  color:
+                    this.secondContactPhone === '' ? 'transparent' : '#0000000',
+                }"
+              >
+                {{
+                  this.secondContactPhone === ""
+                    ? "empty"
+                    : this.secondContactPhone
+                }}
+
+                <img
+                  class="plus-circle"
+                  src="assets/images/plus-circle-svgrepo-com.svg"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            id="remove-contact-btn"
+            class="remove-add-contact"
+            (click)="Definecontacts(1)"
+          >
             <img
-              (click)="
-                clearInputValue('secondContactName');
-                this.secondContactName = ''
-              "
-              id="erase-contactName"
-              class="erase-input-btn"
-              src="assets/images/close-sm.svg"
+              id="delete-image"
+              class="image-btn"
+              src="assets/images/recycle-bin-garbage.svg"
               alt=""
             />
-            }
-          </div>
-          <div id="SecondcontactPhoneNumberBox" class="input-container">
-            <label class="small-text" for="number"> טלפון נוסף</label>
-            <button
-              id="contactPhoneNumber"
-              class="data large dropdown-btn"
-              type="button"
-              [ngStyle]="{
-                color:
-                  this.secondContactPhone === '' ? 'transparent' : '#0000000'
-              }"
-            >
-              {{
-                this.secondContactPhone === ""
-                  ? "empty"
-                  : this.secondContactPhone
-              }}
 
-              <img
-                class="plus-circle"
-                src="assets/images/plus-circle-svgrepo-com.svg"
-                alt=""
-              />
-            </button>
+            ביטול
           </div>
-        </div>
-        <div
-          id="remove-contact-btn"
-          class="remove-add-contact"
-          (click)="Definecontacts(1)"
-        >
-          <img
-            id="delete-image"
-            class="image-btn"
-            src="assets/images/recycle-bin-garbage.svg"
-            alt=""
-          />
-
-          ביטול
-        </div>
         }
       </div>
       <div id="user-email" class="input-container">
@@ -1155,13 +1188,12 @@
       <div id="score-text" class="bold-font">עד כמה המודעה שלי אטרקטיבית?</div>
       <div class="score-content">
         <div style="display: flex; flex-direction: column; gap: 10px">
-          @if(this.addScore > 75){
-          <div class="ad-reward">קיבלת כתר!</div>
-
+          @if (this.addScore > 75) {
+            <div class="ad-reward">קיבלת כתר!</div>
           } @else {
-          <div class="ad-reward">
-            {{ this.addScore < 50 ? "קיבלת מדליית השתתפות" : "קיבלת גביע" }}
-          </div>
+            <div class="ad-reward">
+              {{ this.addScore < 50 ? "קיבלת מדליית השתתפות" : "קיבלת גביע" }}
+            </div>
           }
           <div class="ad-tip">
             {{
@@ -1176,15 +1208,14 @@
             [innerHTML]="this.createSuggestionToImproveAd()"
           ></div>
         </div>
-        @if(this.addScore > 50 && this.addScore <= 75){
-
-        <img class="tropy-img" src="assets/images/tropy.svg" alt="" />
-        } @if(this.addScore > 75){
-
-        <img class="tropy-img" src="assets/images/crown.svg" alt="" />
-        } @if(this.addScore < 50){
-
-        <img class="tropy-img" src="assets/images/medal.svg" alt="" />
+        @if (this.addScore > 50 && this.addScore <= 75) {
+          <img class="tropy-img" src="assets/images/tropy.svg" alt="" />
+        }
+        @if (this.addScore > 75) {
+          <img class="tropy-img" src="assets/images/crown.svg" alt="" />
+        }
+        @if (this.addScore < 50) {
+          <img class="tropy-img" src="assets/images/medal.svg" alt="" />
         }
       </div>
       <div id="score-bar-container" class="description-title description-box">
@@ -1193,7 +1224,7 @@
           id="score-bar-fill"
           [ngClass]="this.defineScoreBArColor()"
           [ngStyle]="{
-            width: (this.scoreBarwidthInPixels * this.addScore) / 100 + 'px'
+            width: (this.scoreBarwidthInPixels * this.addScore) / 100 + 'px',
           }"
         ></div>
       </div>

@@ -49,7 +49,10 @@ li {
 }
 
 .ad-pics {
-  width: 780px !important;
+  /* width: 780px !important; */
+  width: min(780px, 55.7vw) !important;
+
+  /* display: none !important; */
 }
 
 #contact-form {
@@ -517,8 +520,10 @@ textarea {
   color: rgb(85, 85, 85);
   border-bottom: 1px solid rgb(221, 221, 221);
   margin: 0px 0px 0px 6px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px 0px inset,
-    rgb(255, 255, 255) 0px -1px 1px 0px, rgb(255, 255, 255) 0px 1px 0px 0px;
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 1px 2px 0px inset,
+    rgb(255, 255, 255) 0px -1px 1px 0px,
+    rgb(255, 255, 255) 0px 1px 0px 0px;
 }
 
 #score-bar,
