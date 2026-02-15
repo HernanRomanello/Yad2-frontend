@@ -497,6 +497,13 @@ i.material-icons {
 .ad-status-container,
 .ad-content {
   min-width: min(275px, 20vw);
+}
+.slider-arrows,
+.user-card-img,
+.slider-container,
+.slider,
+.slider-container,
+.slider-indicators {
   max-width: 275px;
 }
 
@@ -792,6 +799,10 @@ i.material-icons {
   .slider-container,
   .slider {
     max-width: 215px;
+  }
+
+  .ad-content {
+    transform: translateX(0.5rem);
   }
 }
 
