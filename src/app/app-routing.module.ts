@@ -62,7 +62,7 @@ const routes: Routes = [
   {
     path: 'edit-advertisement/:id',
     component: EditAdvertisementComponent,
-    title: 'Edit Advertisement',
+    title: 'עריכת מודעה',
     canActivate: [authGuard],
   },
 

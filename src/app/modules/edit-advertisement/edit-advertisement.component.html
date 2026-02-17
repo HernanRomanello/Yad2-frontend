@@ -1,812 +1,798 @@
 <div class="edit-container" (click)="clickEvent($event)">
   <div class="space-block">.</div>
-  <form
-    id="edit-advertisement"
-    class="advertisement-selection"
-    (ngSubmit)="handleSubmit()"
-  >
-    <span class="title">עריכת פרטי הנכס </span>
-    <div class="edit-inputs">
-      <div class="input-container">
-        <label class="small-text light-grey-text" for="assetType"
-          >סוג הנכס*
-        </label>
-        <div id="assetType" class="data-input fill-block large light-grey-text">
-          {{ advertisement.assetType }}
-        </div>
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="number">מס' דירה</label>
-        <input
-          #HouseNumber
-          class="data"
-          id="houseNumber"
-          [value]="this.houseNumber"
-          (input)="
-            this.houseNumber = HouseNumber.value;
-            this.isHouseNumberEraseBtnHidden = false
-          "
-        />
-        @if (
-          !this.isHouseNumberEraseBtnHidden && HouseNumber.value.length > 0
-        ) {
-          <img
-            (click)="clearInputValue('houseNumber'); HouseNumber.value = ''"
-            class="erase-input-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
-        }
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="number">מצב הנכס*</label>
-        <button
-          id="assetState"
-          class="data large dropdown-btn"
-          type="button"
-          [ngStyle]="{
-            border: this.isAssetAssetstateDropdownHidden
-              ? 'solid 1px #cccccc '
-              : 'solid 2px #363636 ',
-          }"
-          (click)="
-            this.openAndCloseDropdown(
-              'assetState',
-              this.isAssetAssetstateDropdownHidden
-            )
-          "
-        >
-          {{ this.advertisement.assetState }}
-
-          <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
-        </button>
-        <ul
-          *ngIf="!this.isAssetAssetstateDropdownHidden"
-          class="dropdown-select"
-        >
-          <li
-            class="dropdown-option"
-            *ngFor="let option of advertisementService.assetConditions"
-            (click)="selectOption(option, 'assetState')"
-          >
-            {{ option }}
-          </li>
-        </ul>
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="view">כיווני אוויר</label>
-        <div class="Select-options">
-          <div
-            *ngFor="
-              let number of advertisementService.AirDirections;
-              let i = index
-            "
-            [ngClass]="optionClass(i, false)"
-            [class.selected3]="advertisement.airDirections === number"
-            (click)="selectBtnOption(number, 'airDirections', 'none')"
-          >
-            {{ number }}
-          </div>
-        </div>
-      </div>
-
-      <div class="input-container">
-        <label class="small-text" for="view"> נוף פתוח</label>
-        <div class="Select-options">
-          <div
-            *ngFor="let view of advertisementService.viewOptions; let i = index"
-            [ngClass]="optionClass(i, false)"
-            [class.selected3]="this.advertisement.view === view"
-            (click)="selectBtnOption(0, 'view', view)"
-          >
-            {{ view }}
-          </div>
-        </div>
-        <label id="first-checkbox" class="checkbox-input">
-          <input
-            id="first-checkbox-input"
-            class="checkbox"
-            type="checkbox"
-            #frontProperty
-            [checked]="this.advertisement.rearProperty.valueOf()"
-            (input)="this.advertisement.rearProperty = frontProperty.checked"
-          />
-          נכס עורפי
-        </label>
-      </div>
-
-      <div class="space-block-2"></div>
-
-      <div class="input-container">
-        <label class="small-text light-grey-text" for="city">ישוב* </label>
-        <div id="city" class="data-input fill-block large light-grey-text">
-          {{ advertisement.city }}
-        </div>
-        <div class="space-block-3"></div>
-      </div>
-
-      <div class="input-container">
-        <label class="small-text light-grey-text" for="street">רחוב* </label>
-        <div id="street" class="data-input fill-block large light-grey-text">
-          {{ advertisement.street }}
-        </div>
-        <div class="address-info-box address-info">
-          המידע הזה מגיע מגוף ממשלתי, אם הרחוב שלך לא מופיע, מומלץ לבחור רחוב
-          קרוב אליך
-        </div>
-      </div>
-
-      <div class="input-container">
-        <label class="small-text light-grey-text" for="number">מס' בית* </label>
-        <div
-          id="number"
-          class="data-input fill-block medium-size light-grey-text"
-        >
-          {{ advertisement.number }}
-        </div>
-      </div>
-
-      <div class="floor-description">
+  <ng-container *ngIf="this.advertisement">
+    <form
+      id="edit-advertisement"
+      class="advertisement-selection"
+      (ngSubmit)="handleSubmit()"
+    >
+      <span class="title">עריכת פרטי הנכס </span>
+      <div class="edit-inputs">
         <div class="input-container">
-          <div class="input-container">
-            <label class="small-text light-grey-text" for="floor">קומה*</label>
-            <div
-              id="floor"
-              class="data-input fill-block medium-size light-grey-text large-size"
+          <label class="small-text light-grey-text" for="assetType"
+            >סוג הנכס*
+          </label>
+          <div class="data-input fill-block large light-grey-text">
+            {{ advertisement.assetType }}
+          </div>
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="number">מס' דירה</label>
+          <input
+            #HouseNumber
+            class="data"
+            id="houseNumber"
+            [value]="this.houseNumber"
+            (input)="
+              this.houseNumber = HouseNumber.value;
+              this.isHouseNumberEraseBtnHidden = false
+            "
+          />
+          @if (
+            !this.isHouseNumberEraseBtnHidden && HouseNumber.value.length > 0
+          ) {
+            <img
+              (click)="clearInputValue('houseNumber'); HouseNumber.value = ''"
+              class="erase-input-btn"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
+          }
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="number">מצב הנכס*</label>
+          <button
+            id="assetState"
+            class="data large dropdown-btn"
+            type="button"
+            [ngStyle]="{
+              border: this.isAssetAssetstateDropdownHidden
+                ? 'solid 1px #cccccc '
+                : 'solid 2px #363636 ',
+            }"
+            (click)="
+              this.openAndCloseDropdown(
+                'assetState',
+                this.isAssetAssetstateDropdownHidden
+              )
+            "
+          >
+            {{ this.advertisement.assetState }}
+
+            <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
+          </button>
+          <ul
+            *ngIf="!this.isAssetAssetstateDropdownHidden"
+            class="dropdown-select"
+          >
+            <li
+              class="dropdown-option"
+              *ngFor="let option of advertisementService.assetConditions"
+              (click)="selectOption(option, 'assetState')"
             >
-              {{ advertisement.floor }}
+              {{ option }}
+            </li>
+          </ul>
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="view">כיווני אוויר</label>
+          <div class="Select-options">
+            <div
+              *ngFor="
+                let number of advertisementService.AirDirections;
+                let i = index
+              "
+              [ngClass]="optionClass(i, false)"
+              [class.selected3]="advertisement.airDirections === number"
+              (click)="selectBtnOption(number, 'airDirections', 'none')"
+            >
+              {{ number }}
             </div>
           </div>
-          <div id="floor-error" class="error-text">שדה חובה</div>
         </div>
 
         <div class="input-container">
-          <label class="small-text" for="totalFloors">סה״כ קומות בבניין*</label>
+          <label class="small-text" for="view"> נוף פתוח</label>
+          <div class="Select-options">
+            <div
+              *ngFor="
+                let view of advertisementService.viewOptions;
+                let i = index
+              "
+              [ngClass]="optionClass(i, false)"
+              [class.selected3]="this.advertisement.view === view"
+              (click)="selectBtnOption(0, 'view', view)"
+            >
+              {{ view }}
+            </div>
+          </div>
+          <label id="first-checkbox" class="checkbox-input">
+            <input
+              id="first-checkbox-input"
+              class="checkbox"
+              type="checkbox"
+              #frontProperty
+              [checked]="this.advertisement.rearProperty.valueOf()"
+              (input)="this.advertisement.rearProperty = frontProperty.checked"
+            />
+            נכס עורפי
+          </label>
+        </div>
+
+        <div class="space-block-2"></div>
+
+        <div class="input-container">
+          <label class="small-text light-grey-text" for="city">ישוב* </label>
+          <div id="city" class="data-input fill-block large light-grey-text">
+            {{ advertisement.city }}
+          </div>
+          <div class="space-block-3"></div>
+        </div>
+
+        <div class="input-container">
+          <label class="small-text light-grey-text" for="street">רחוב* </label>
+          <div id="street" class="data-input fill-block large light-grey-text">
+            {{ advertisement.street }}
+          </div>
+          <div class="address-info-box address-info">
+            המידע הזה מגיע מגוף ממשלתי, אם הרחוב שלך לא מופיע, מומלץ לבחור רחוב
+            קרוב אליך
+          </div>
+        </div>
+
+        <div class="input-container">
+          <label class="small-text light-grey-text" for="number"
+            >מס' בית*
+          </label>
+          <div
+            id="number"
+            class="data-input fill-block medium-size light-grey-text"
+          >
+            {{ advertisement.number }}
+          </div>
+        </div>
+
+        <div class="floor-description">
+          <div class="input-container">
+            <div class="input-container">
+              <label class="small-text light-grey-text" for="floor"
+                >קומה*</label
+              >
+              <div
+                id="floor"
+                class="data-input fill-block medium-size light-grey-text lage-size"
+              >
+                {{ advertisement.floor }}
+              </div>
+            </div>
+            <div id="floor-error" class="error-text">שדה חובה</div>
+          </div>
+
+          <div class="input-container">
+            <label class="small-text" for="totalFloors"
+              >סה״כ קומות בבניין*</label
+            >
+            <input
+              #TotalFloorInput
+              class="data medium large-size"
+              id="totalFloors"
+              placeholder="הכנסת סה״כ קומות "
+              [value]="
+                advertisement.totalFloors.toString() === 'NaN' ||
+                advertisement.totalFloors === 0
+                  ? ''
+                  : advertisement.totalFloors.toString()
+              "
+              (input)="
+                advertisement.totalFloors = removeCommasFromNumberAndParseInt(
+                  TotalFloorInput.value
+                );
+                this.isTotalFloorsEraseBtnHidden = false
+              "
+            />
+
+            @if (
+              !this.isTotalFloorsEraseBtnHidden &&
+              TotalFloorInput.value.length > 0
+            ) {
+              <img
+                (click)="
+                  clearInputValue('totalFloors'); TotalFloorInput.value = ''
+                "
+                class="erase-btn"
+                src="assets/images/close-sm.svg"
+                alt=""
+              />
+            }
+            <div id="totalFloors-error" class="error-text">
+              זהו שדה חובה - סה"כ קומות בבניין
+            </div>
+          </div>
+          <div class="check-input margin-bottom">
+            <input
+              #onPillars
+              class="checkbox"
+              type="checkbox"
+              (input)="this.advertisement.onPillars = onPillars.checked"
+            />
+            <label> על עמודים </label>
+          </div>
+        </div>
+        <div class="input-container double-input-box">
+          <div class="input-container">
+            <label class="small-text light-grey-text" for="street"
+              >שכונה*
+            </label>
+            <div
+              id="neighborhood"
+              class="data-input fill-block large light-grey-text"
+            >
+              {{ advertisement.neighborhood }}
+            </div>
+            <div class="address-info-box address-info">
+              המידע הזה מגיע מגוף ממשלתי ולא ניתן לשינוי
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label class="small-text light-grey-text" for="street">
+              אזור
+              <span>{{ advertisement.tradeType }}</span>
+            </label>
+            <div
+              id="neighborhood"
+              class="data-input fill-block large light-grey-text"
+            >
+              אזור {{ advertisement.area }}
+            </div>
+            <div class="address-info-box address-info">
+              המידע הזה מגיע מגוף ממשלתי ולא ניתן לשינוי
+            </div>
+          </div>
+          <label id="second-checkbox-input-div" class="checkbox-input">
+            <input
+              id="second-checkbox-input"
+              class="checkbox"
+              type="checkbox"
+            />
+
+            אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס,
+            עסקאות באזור והצעות מקצועיות מיועצי נדל"ן
+          </label>
+        </div>
+
+        <div class="input-container">
+          <label class="small-text light-grey-text" for="number"
+            >מספר חדרים*
+          </label>
+          <div
+            id="number"
+            class="data-input fill-block medium-size light-grey-text"
+          >
+            {{ this.advertisement.rooms }}
+          </div>
+        </div>
+
+        <div class="input-container">
+          <label class="small-text" for="privateParking">חניה</label>
+          <div class="Select-options">
+            <div
+              *ngFor="
+                let number of advertisementService.privateParking;
+                let i = index
+              "
+              [ngClass]="[optionClass(i, false), 'small-option']"
+              [class.selected2]="advertisement.privateParking === number"
+              (click)="selectBtnOption(number, 'privateParking', 'none')"
+            >
+              @if (number == 0) {
+                {{ "ללא" }}
+              } @else {
+                {{ number }}
+              }
+            </div>
+          </div>
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="balconiesNumber">מרפסת</label>
+          <div class="Select-options">
+            <div
+              *ngFor="
+                let number of advertisementService.balconiesNumber;
+                let i = index
+              "
+              [ngClass]="[optionClass(i, false), 'small-option']"
+              [class.selected2]="advertisement.balconiesNumber === number"
+              (click)="selectBtnOption(number, 'balconiesNumber', 'none')"
+            >
+              @if (number == 0) {
+                {{ "ללא" }}
+              } @else {
+                {{ number }}
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-title-">מאפייני הנכס</div>
+
+        <div class="property-Features">
+          <div
+            class="Feature"
+            *ngFor="let item of propertyFeatures; let i = index"
+            (click)="selectPropertyFeatures(i)"
+            [class.selected2]="this.findPropertyFeature(i) === true"
+          >
+            <img
+              id="{{ propertyFeaturesImages[i] }}"
+              [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
+              class="feature-pic"
+              alt="feature"
+            />
+            <span>
+              {{ item }}
+            </span>
+          </div>
+        </div>
+        <div class="sub-title-">מה חשוב לך שידעו על הנכס?</div>
+
+        <div class="description-box" *ngIf="advertisement.furnished">
+          <div class="text-length-box">
+            <label class="small-text" for="">
+              פרוט הריהוט: (עד 200 תוים)
+            </label>
+            <div class="description-title description-box">
+              <div class="loading-bar">
+                <span
+                  class="descriptionMessage"
+                  [ngStyle]="{
+                    'justify-content':
+                      advertisement.furnituredescription.length > 1
+                        ? 'flex-end'
+                        : 'center',
+                  }"
+                >
+                  {{
+                    this.changeText(advertisement.furnituredescription.length)
+                  }}
+                </span>
+              </div>
+              <div
+                [ngClass]="
+                  changeColor(advertisement.furnituredescription.length || 0)
+                "
+                [ngStyle]="{
+                  width: changeWidth(
+                    advertisement.furnituredescription.length || 0
+                  ),
+                  height: changeHieght(
+                    advertisement.furnituredescription.length || 0
+                  ),
+                }"
+              ></div>
+
+              <div class="content-chars">
+                {{ advertisement.furnituredescription.length || 0 }}/200
+              </div>
+            </div>
+          </div>
+          <div class="textarea">
+            @if (
+              !this.isFurnitureDescriptionEraseBtnHidden &&
+              furnitureDescription.value.length > 0
+            ) {
+              <img
+                (click)="clearInputValue('furnituredescription')"
+                class="erase-furnituredescription-btn"
+                src="assets/images/close-sm.svg"
+                alt=""
+              />
+            }
+            <textarea
+              maxlength="200"
+              id="furnituredescription"
+              #furnitureDescription
+              (input)="
+                this.advertisement.furnituredescription =
+                  furnitureDescription.value;
+                this.isFurnitureDescriptionEraseBtnHidden = false
+              "
+              [value]="advertisement.furnituredescription"
+            ></textarea>
+          </div>
+        </div>
+        <div class="description-box">
+          <div class="text-length-box">
+            <label class="small-text" for=""> פרוט הנכס </label>
+            <div class="description-title description-box">
+              <div class="loading-bar">
+                <span
+                  class="descriptionMessage"
+                  [ngStyle]="{
+                    'justify-content':
+                      advertisement.description.length > 1
+                        ? 'flex-end'
+                        : 'center',
+                  }"
+                >
+                  {{ this.changeText(advertisement.description.length) }}
+                </span>
+              </div>
+              <div
+                [ngClass]="changeColor(advertisement.description.length || 0)"
+                [ngStyle]="{
+                  width: changeWidth(advertisement.description.length || 0),
+                  height: changeHieght(advertisement.description.length || 0),
+                }"
+              ></div>
+
+              <div class="content-chars">
+                {{ advertisement.description.length || 0 }}/400
+              </div>
+            </div>
+          </div>
+          <div class="textarea">
+            @if (
+              !this.isDescriptionEraseBtnHidden &&
+              assetDescription.value.length > 0
+            ) {
+              <img
+                (click)="clearInputValue('description')"
+                class="erase-furnituredescription-btn"
+                src="assets/images/close-sm.svg"
+                alt=""
+              />
+            }
+            <textarea
+              maxlength="400"
+              id="assetDescription"
+              #assetDescription
+              (input)="
+                this.advertisement.description = assetDescription.value;
+                this.isDescriptionEraseBtnHidden = false
+              "
+              [value]="advertisement.description"
+            ></textarea>
+          </div>
+          <div class="fill-info">
+            אין צורך להוסיף מספר טלפון כחלק מהתיאור, בהמשך התהליך יש אזור מסודר
+            לזה
+          </div>
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="number">מספר תשלומים *</label>
+          <button
+            id="assetState"
+            class="data large dropdown-btn"
+            type="button"
+            [ngStyle]="{
+              border: this.isNumberOfPaymentsDropdownHidden
+                ? 'solid 1px #cccccc '
+                : 'solid 2px #363636 ',
+            }"
+            (click)="
+              this.openAndCloseDropdown(
+                'numberOfPayments',
+                this.isNumberOfPaymentsDropdownHidden
+              )
+            "
+          >
+            {{ this.advertisement.numberOfPayments }}
+
+            <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
+          </button>
+          <ul
+            *ngIf="!this.isNumberOfPaymentsDropdownHidden"
+            class="dropdown-select"
+          >
+            <li
+              class="dropdown-option payment-option"
+              *ngFor="let option of advertisementService.numberOfPayments"
+              (click)="selectOption(option, 'numberOfPayments')"
+            >
+              {{ option }}
+            </li>
+          </ul>
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="number">ועד בית </label>
           <input
-            #TotalFloorInput
-            class="data medium large-size"
-            id="totalFloors"
-            placeholder="הכנסת סה״כ קומות "
+            placeholder="הכנסת סכום תשלום לועד בית"
+            #houseCommitteePayment
+            class="data number-input"
+            id="houseCommitteePayment"
             [value]="
-              advertisement.totalFloors.toString() === 'NaN' ||
-              advertisement.totalFloors === 0
+              advertisement.houseCommitteePayment.toString() === 'NaN' ||
+              advertisement.houseCommitteePayment === 0
                 ? ''
-                : advertisement.totalFloors.toString()
+                : advertisement.houseCommitteePayment.toString()
             "
             (input)="
-              advertisement.totalFloors = removeCommasFromNumberAndParseInt(
-                TotalFloorInput.value
-              );
-              this.isTotalFloorsEraseBtnHidden = false
+              advertisement.houseCommitteePayment =
+                removeCommasFromNumberAndParseInt(houseCommitteePayment.value);
+              this.isHouseCommitteePaymentEraseBtnHidden = false
             "
           />
-
           @if (
-            !this.isTotalFloorsEraseBtnHidden &&
-            TotalFloorInput.value.length > 0
+            !this.isHouseCommitteePaymentEraseBtnHidden &&
+            houseCommitteePayment.value.length > 0
           ) {
             <img
               (click)="
-                clearInputValue('totalFloors'); TotalFloorInput.value = ''
+                clearInputValue('houseCommitteePayment');
+                houseCommitteePayment.value = ''
               "
-              class="erase-btn"
+              class="erase-input-btn"
               src="assets/images/close-sm.svg"
               alt=""
             />
           }
-          <div id="totalFloors-error" class="error-text">
-            זהו שדה חובה - סה"כ קומות בבניין
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="number"> ארנונה לחודשיים </label>
+          <input
+            placeholder="סכום הארנונה לתשלום"
+            #municipalityMonthlyPropertyTax
+            class="data number-input"
+            id="municipalityMonthlyPropertyTax"
+            [value]="
+              advertisement.municipalityMonthlyPropertyTax.toString() ===
+                'NaN' || advertisement.municipalityMonthlyPropertyTax === 0
+                ? ''
+                : advertisement.municipalityMonthlyPropertyTax.toString()
+            "
+            (input)="
+              advertisement.municipalityMonthlyPropertyTax =
+                removeCommasFromNumberAndParseInt(
+                  municipalityMonthlyPropertyTax.value
+                );
+              this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden = false
+            "
+          />
+          @if (
+            !this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden &&
+            municipalityMonthlyPropertyTax.value.length > 0
+          ) {
+            <img
+              (click)="
+                clearInputValue('municipalityMonthlyPropertyTax');
+                municipalityMonthlyPropertyTax.value = ''
+              "
+              class="erase-input-btn"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
+          }
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="number"> מ"ר בנוי </label>
+          <input
+            placeholder="כמה מ{{ this.apostrophe }}ר בנוי יש בנכס"
+            #builtSquareMeters
+            class="data number-input"
+            id="builtSquareMeters"
+            [value]="
+              advertisement.builtSquareMeters.toString() === 'NaN' ||
+              advertisement.builtSquareMeters === 0
+                ? ''
+                : advertisement.builtSquareMeters.toString()
+            "
+            (input)="
+              advertisement.builtSquareMeters =
+                removeCommasFromNumberAndParseInt(builtSquareMeters.value);
+              advertisement.builtSquareMeters = this.isNaN(
+                advertisement.builtSquareMeters.toString()
+              )
+                ? 0
+                : advertisement.builtSquareMeters;
+              this.isBuiltSquareMetersEraseBtnHidden = false
+            "
+          />
+          @if (
+            !this.isBuiltSquareMetersEraseBtnHidden &&
+            builtSquareMeters.value.length > 0
+          ) {
+            <img
+              (click)="
+                clearInputValue('builtSquareMeters');
+                builtSquareMeters.value = ''
+              "
+              class="erase-input-btn medium-input"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
+          }
+        </div>
+        <div class="input-container">
+          <label class="small-text" for="number"> גודל במ"ר סך הכל* </label>
+          <input
+            #totalSquareMeters
+            class="data number-input"
+            id="totalSquareMeters"
+            [value]="
+              advertisement.totalSquareMeters.toString() === 'NaN' ||
+              advertisement.totalSquareMeters === 0
+                ? ''
+                : advertisement.totalSquareMeters.toString()
+            "
+            (input)="
+              advertisement.totalSquareMeters =
+                removeCommasFromNumberAndParseInt(totalSquareMeters.value);
+              this.isTotalSquareMetersEraseBtnHidden = false
+            "
+          />
+          @if (
+            !this.isTotalSquareMetersEraseBtnHidden &&
+            totalSquareMeters.value.length > 0
+          ) {
+            <img
+              (click)="
+                clearInputValue('totalSquareMeters');
+                totalSquareMeters.value = ''
+              "
+              class="erase-input-btn"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
+          }
+        </div>
+        <div class="input-container price-box">
+          <label class="small-text" for="number"> מחיר </label>
+          <input
+            #price
+            class="data number-input"
+            type="text"
+            id="price"
+            [value]="
+              advertisement.price.toString() === 'NaN' ||
+              advertisement.price === 0
+                ? ''
+                : advertisement.price.toString()
+            "
+            (input)="
+              advertisement.price = removeCommasFromNumberAndParseInt(
+                price.value
+              );
+              advertisement.price = this.isNaN(advertisement.price.toString())
+                ? 0
+                : advertisement.price;
+              this.isPriceEraseBtnHidden = false
+            "
+            placeholder="{{
+              advertisement.tradeType === 'השכרה'
+                ? 'סכום מינימלי 100'
+                : 'סכום מינימלי 10,000'
+            }}"
+          />
+          @if (!this.isPriceEraseBtnHidden && price.value.length > 0) {
+            <div class="currency move-right">&#x20AA;</div>
+            <img
+              (click)="clearInputValue('price'); price.value = ''"
+              class="erase-input-btn"
+              src="assets/images/close-sm.svg"
+              alt=""
+            />
+          } @else {
+            <div class="currency">&#x20AA;</div>
+          }
+        </div>
+        <label class="small-text entryDate-title" for="entryDate">
+          תאריך כניסה*</label
+        >
+
+        <div class="date-container">
+          <div class="">
+            <input
+              id="entryDate"
+              class="date-input"
+              type="date"
+              placeholder="dd/mm/2024"
+              #entryDate
+              [value]="formatDateString(advertisement.entryDate)"
+              (input)="
+                advertisement.entryDate = this.toDateString(entryDate.value)
+              "
+            />
+          </div>
+
+          <div class="date-checkbox">
+            <div>
+              <input
+                (change)="setDateForToday('immediate')"
+                class="checkbox"
+                type="checkbox"
+                #immediate
+                (input)="
+                  flexible.checked = false;
+                  disableCalendar(flexible.checked, immediate.checked)
+                "
+              />
+              מיידי
+            </div>
+            <div>
+              <input
+                (change)="setDateForToday('flexible')"
+                class="checkbox"
+                type="checkbox"
+                #flexible
+                (input)="
+                  immediate.checked = false;
+                  disableCalendar(flexible.checked, immediate.checked)
+                "
+              />
+              גמיש
+            </div>
           </div>
         </div>
-        <div class="check-input margin-bottom">
+        <div id="entryDate-error" class="error-text">תאריך שהוזן לא תקין.</div>
+
+        <label class="checkbox-input long-term">
           <input
-            #onPillars
+            id="third-checkbox-input"
             class="checkbox"
             type="checkbox"
-            (input)="this.advertisement.onPillars = onPillars.checked"
+            #LongTerm
+            [checked]="this.advertisement.rearProperty.valueOf()"
+            (input)="this.advertisement.longTerm = LongTerm.checked"
           />
-          <label> על עמודים </label>
-        </div>
-      </div>
-      <div class="input-container double-input-box">
-        <div class="input-container">
-          <label class="small-text light-grey-text" for="street">שכונה* </label>
-          <div
-            id="neighborhood"
-            class="data-input fill-block large light-grey-text"
-          >
-            {{ advertisement.neighborhood }}
-          </div>
-          <div class="address-info-box address-info">
-            המידע הזה מגיע מגוף ממשלתי ולא ניתן לשינוי
-          </div>
-        </div>
-
-        <div class="input-container">
-          <label class="small-text light-grey-text" for="street">
-            אזור
-            <span>{{ advertisement.tradeType }}</span>
-          </label>
-          <div
-            id="neighborhood"
-            class="data-input fill-block large light-grey-text"
-          >
-            אזור {{ advertisement.area }}
-          </div>
-          <div class="address-info-box address-info">
-            המידע הזה מגיע מגוף ממשלתי ולא ניתן לשינוי
-          </div>
-        </div>
-        <label id="second-checkbox-input-div" class="checkbox-input">
-          <input id="second-checkbox-input" class="checkbox" type="checkbox" />
-
-          אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס,
-          עסקאות באזור והצעות מקצועיות מיועצי נדל"ן
+          לטווח ארוך
         </label>
-      </div>
 
-      <div class="input-container">
-        <label class="small-text light-grey-text" for="number"
-          >מספר חדרים*
-        </label>
-        <div
-          id="number"
-          class="data-input fill-block medium-size light-grey-text"
-        >
-          {{ this.advertisement.rooms }}
-        </div>
-      </div>
-
-      <div class="input-container">
-        <label class="small-text" for="privateParking">חניה</label>
-        <div class="Select-options">
-          <div
-            *ngFor="
-              let number of advertisementService.privateParking;
-              let i = index
-            "
-            [ngClass]="[optionClass(i, false), 'small-option']"
-            [class.selected2]="advertisement.privateParking === number"
-            (click)="selectBtnOption(number, 'privateParking', 'none')"
-          >
-            @if (number == 0) {
-              {{ "ללא" }}
-            } @else {
-              {{ number }}
-            }
-          </div>
-        </div>
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="balconiesNumber">מרפסת</label>
-        <div class="Select-options">
-          <div
-            *ngFor="
-              let number of advertisementService.balconiesNumber;
-              let i = index
-            "
-            [ngClass]="[optionClass(i, false), 'small-option']"
-            [class.selected2]="advertisement.balconiesNumber === number"
-            (click)="selectBtnOption(number, 'balconiesNumber', 'none')"
-          >
-            @if (number == 0) {
-              {{ "ללא" }}
-            } @else {
-              {{ number }}
-            }
-          </div>
-        </div>
-      </div>
-
-      <div class="sub-title-">מאפייני הנכס</div>
-
-      <div class="property-Features">
-        <div
-          class="Feature"
-          *ngFor="let item of propertyFeatures; let i = index"
-          (click)="selectPropertyFeatures(i)"
-          [class.selected2]="this.findPropertyFeature(i) === true"
-        >
-          <img
-            id="{{ propertyFeaturesImages[i] }}"
-            [src]="'assets/images/' + propertyFeaturesImages[i] + '.svg'"
-            class="feature-pic"
-            alt="feature"
-          />
-          <span>
-            {{ item }}
-          </span>
-        </div>
-      </div>
-      <div class="sub-title-">מה חשוב לך שידעו על הנכס?</div>
-
-      <div class="description-box" *ngIf="advertisement.furnished">
-        <div class="text-length-box">
-          <label class="small-text" for=""> פרוט הריהוט: (עד 200 תוים) </label>
-          <div class="description-title description-box">
-            <div class="loading-bar">
-              <span
-                class="descriptionMessage"
-                [ngStyle]="{
-                  'justify-content':
-                    advertisement.furnituredescription.length > 1
-                      ? 'flex-end'
-                      : 'center',
-                }"
-              >
-                {{ this.changeText(advertisement.furnituredescription.length) }}
-              </span>
-            </div>
-            <div
-              [ngClass]="
-                changeColor(advertisement.furnituredescription.length || 0)
-              "
-              [ngStyle]="{
-                width: changeWidth(
-                  advertisement.furnituredescription.length || 0
-                ),
-                height: changeHieght(
-                  advertisement.furnituredescription.length || 0
-                ),
-              }"
-            ></div>
-
-            <div class="content-chars">
-              {{ advertisement.furnituredescription.length || 0 }}/200
-            </div>
-          </div>
-        </div>
-        <div class="textarea">
-          @if (
-            !this.isFurnitureDescriptionEraseBtnHidden &&
-            furnitureDescription.value.length > 0
-          ) {
+        <div class="WeCheck-container">
+          <div class="WeCheck-ad">
             <img
-              (click)="clearInputValue('furnituredescription')"
-              class="erase-furnituredescription-btn"
-              src="assets/images/close-sm.svg"
-              alt=""
+              id="WeCheck-pic"
+              src="assets/images/video-ad.JPG"
+              alt="WeCheck"
             />
-          }
-          <textarea
-            maxlength="200"
-            id="furnituredescription"
-            #furnitureDescription
-            (input)="
-              this.advertisement.furnituredescription =
-                furnitureDescription.value;
-              this.isFurnitureDescriptionEraseBtnHidden = false
-            "
-            [value]="advertisement.furnituredescription"
-          ></textarea>
-        </div>
-      </div>
-      <div class="description-box">
-        <div class="text-length-box">
-          <label class="small-text" for=""> פרוט הנכס </label>
-          <div class="description-title description-box">
-            <div class="loading-bar">
-              <span
-                class="descriptionMessage"
-                [ngStyle]="{
-                  'justify-content':
-                    advertisement.description.length > 1
-                      ? 'flex-end'
-                      : 'center',
-                }"
-              >
-                {{ this.changeText(advertisement.description.length) }}
-              </span>
-            </div>
-            <div
-              [ngClass]="changeColor(advertisement.description.length || 0)"
-              [ngStyle]="{
-                width: changeWidth(advertisement.description.length || 0),
-                height: changeHieght(advertisement.description.length || 0),
-              }"
-            ></div>
-
-            <div class="content-chars">
-              {{ advertisement.description.length || 0 }}/400
-            </div>
           </div>
         </div>
-        <div class="textarea">
-          @if (
-            !this.isDescriptionEraseBtnHidden &&
-            assetDescription.value.length > 0
-          ) {
-            <img
-              (click)="clearInputValue('description')"
-              class="erase-furnituredescription-btn"
-              src="assets/images/close-sm.svg"
-              alt=""
-            />
-          }
-          <textarea
-            maxlength="400"
-            id="assetDescription"
-            #assetDescription
-            (input)="
-              this.advertisement.description = assetDescription.value;
-              this.isDescriptionEraseBtnHidden = false
-            "
-            [value]="advertisement.description"
-          ></textarea>
-        </div>
-        <div class="fill-info">
-          אין צורך להוסיף מספר טלפון כחלק מהתיאור, בהמשך התהליך יש אזור מסודר
-          לזה
-        </div>
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="number">מספר תשלומים *</label>
-        <button
-          id="assetState"
-          class="data large dropdown-btn"
-          type="button"
-          [ngStyle]="{
-            border: this.isNumberOfPaymentsDropdownHidden
-              ? 'solid 1px #cccccc '
-              : 'solid 2px #363636 ',
-          }"
-          (click)="
-            this.openAndCloseDropdown(
-              'numberOfPayments',
-              this.isNumberOfPaymentsDropdownHidden
-            )
-          "
-        >
-          {{ this.advertisement.numberOfPayments }}
-
-          <img class="arrow-down" src="assets/images/arrow-down.svg" alt="" />
-        </button>
-        <ul
-          *ngIf="!this.isNumberOfPaymentsDropdownHidden"
-          class="dropdown-select"
-        >
-          <li
-            class="dropdown-option payment-option"
-            *ngFor="let option of advertisementService.numberOfPayments"
-            (click)="selectOption(option, 'numberOfPayments')"
-          >
-            {{ option }}
-          </li>
-        </ul>
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="number">ועד בית </label>
-        <input
-          placeholder="הכנסת סכום תשלום לועד בית"
-          #houseCommitteePayment
-          class="data number-input"
-          id="houseCommitteePayment"
-          [value]="
-            advertisement.houseCommitteePayment.toString() === 'NaN' ||
-            advertisement.houseCommitteePayment === 0
-              ? ''
-              : advertisement.houseCommitteePayment.toString()
-          "
-          (input)="
-            advertisement.houseCommitteePayment =
-              removeCommasFromNumberAndParseInt(houseCommitteePayment.value);
-            this.isHouseCommitteePaymentEraseBtnHidden = false
-          "
-        />
-        @if (
-          !this.isHouseCommitteePaymentEraseBtnHidden &&
-          houseCommitteePayment.value.length > 0
-        ) {
-          <img
-            (click)="
-              clearInputValue('houseCommitteePayment');
-              houseCommitteePayment.value = ''
-            "
-            class="erase-input-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
-        }
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="number"> ארנונה לחודשיים </label>
-        <input
-          placeholder="סכום הארנונה לתשלום"
-          #municipalityMonthlyPropertyTax
-          class="data number-input"
-          id="municipalityMonthlyPropertyTax"
-          [value]="
-            advertisement.municipalityMonthlyPropertyTax.toString() === 'NaN' ||
-            advertisement.municipalityMonthlyPropertyTax === 0
-              ? ''
-              : advertisement.municipalityMonthlyPropertyTax.toString()
-          "
-          (input)="
-            advertisement.municipalityMonthlyPropertyTax =
-              removeCommasFromNumberAndParseInt(
-                municipalityMonthlyPropertyTax.value
-              );
-            this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden = false
-          "
-        />
-        @if (
-          !this.isMunicipalityMonthlyPropertyTaxEraseBtnHidden &&
-          municipalityMonthlyPropertyTax.value.length > 0
-        ) {
-          <img
-            (click)="
-              clearInputValue('municipalityMonthlyPropertyTax');
-              municipalityMonthlyPropertyTax.value = ''
-            "
-            class="erase-input-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
-        }
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="number"> מ"ר בנוי </label>
-        <input
-          placeholder="כמה מ{{ this.apostrophe }}ר בנוי יש בנכס"
-          #builtSquareMeters
-          class="data number-input"
-          id="builtSquareMeters"
-          [value]="
-            advertisement.builtSquareMeters.toString() === 'NaN' ||
-            advertisement.builtSquareMeters === 0
-              ? ''
-              : advertisement.builtSquareMeters.toString()
-          "
-          (input)="
-            advertisement.builtSquareMeters = removeCommasFromNumberAndParseInt(
-              builtSquareMeters.value
-            );
-            advertisement.builtSquareMeters = this.isNaN(
-              advertisement.builtSquareMeters.toString()
-            )
-              ? 0
-              : advertisement.builtSquareMeters;
-            this.isBuiltSquareMetersEraseBtnHidden = false
-          "
-        />
-        @if (
-          !this.isBuiltSquareMetersEraseBtnHidden &&
-          builtSquareMeters.value.length > 0
-        ) {
-          <img
-            (click)="
-              clearInputValue('builtSquareMeters'); builtSquareMeters.value = ''
-            "
-            class="erase-input-btn medium-input"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
-        }
-      </div>
-      <div class="input-container">
-        <label class="small-text" for="number"> גודל במ"ר סך הכל* </label>
-        <input
-          #totalSquareMeters
-          class="data number-input"
-          id="totalSquareMeters"
-          [value]="
-            advertisement.totalSquareMeters.toString() === 'NaN' ||
-            advertisement.totalSquareMeters === 0
-              ? ''
-              : advertisement.totalSquareMeters.toString()
-          "
-          (input)="
-            advertisement.totalSquareMeters = removeCommasFromNumberAndParseInt(
-              totalSquareMeters.value
-            );
-            this.isTotalSquareMetersEraseBtnHidden = false
-          "
-        />
-        @if (
-          !this.isTotalSquareMetersEraseBtnHidden &&
-          totalSquareMeters.value.length > 0
-        ) {
-          <img
-            (click)="
-              clearInputValue('totalSquareMeters'); totalSquareMeters.value = ''
-            "
-            class="erase-input-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
-        }
-      </div>
-      <div class="input-container price-box">
-        <label class="small-text" for="number"> מחיר </label>
-        <input
-          #price
-          class="data number-input"
-          type="text"
-          id="price"
-          [value]="
-            advertisement.price.toString() === 'NaN' ||
-            advertisement.price === 0
-              ? ''
-              : advertisement.price.toString()
-          "
-          (input)="
-            advertisement.price = removeCommasFromNumberAndParseInt(
-              price.value
-            );
-            advertisement.price = this.isNaN(advertisement.price.toString())
-              ? 0
-              : advertisement.price;
-            this.isPriceEraseBtnHidden = false
-          "
-          placeholder="{{
-            advertisement.tradeType === 'השכרה'
-              ? 'סכום מינימלי 100'
-              : 'סכום מינימלי 10,000'
-          }}"
-        />
-        @if (!this.isPriceEraseBtnHidden && price.value.length > 0) {
-          <div class="currency move-right">&#x20AA;</div>
-          <img
-            (click)="clearInputValue('price'); price.value = ''"
-            class="erase-input-btn"
-            src="assets/images/close-sm.svg"
-            alt=""
-          />
-        } @else {
-          <div class="currency">&#x20AA;</div>
-        }
-      </div>
-      <label class="small-text" for="entryDate"> תאריך כניסה*</label>
-
-      <div class="date-container">
-        <div class="">
-          <input
-            id="entryDate"
-            class="date-input"
-            type="date"
-            placeholder="dd/mm/2024"
-            #entryDate
-            [value]="formatDateString(advertisement.entryDate)"
-            (input)="
-              advertisement.entryDate = this.toDateString(entryDate.value)
-            "
-          />
-        </div>
-
-        <div class="date-checkbox">
-          <div>
-            <input
-              (change)="setDateForToday('immediate')"
-              class="checkbox"
-              type="checkbox"
-              #immediate
-              (input)="
-                flexible.checked = false;
-                disableCalendar(flexible.checked, immediate.checked)
-              "
-            />
-            מיידי
-          </div>
-          <div>
-            <input
-              (change)="setDateForToday('flexible')"
-              class="checkbox"
-              type="checkbox"
-              #flexible
-              (input)="
-                immediate.checked = false;
-                disableCalendar(flexible.checked, immediate.checked)
-              "
-            />
-            גמיש
-          </div>
-        </div>
-      </div>
-      <div id="entryDate-error" class="error-text">תאריך שהוזן לא תקין.</div>
-
-      <label class="checkbox-input">
-        <input
-          id="third-checkbox-input"
-          class="checkbox"
-          type="checkbox"
-          #LongTerm
-          [checked]="this.advertisement.rearProperty.valueOf()"
-          (input)="this.advertisement.longTerm = LongTerm.checked"
-        />
-        לטווח ארוך
-      </label>
-
-      <div class="WeCheck-container">
-        <div class="WeCheck-ad">
-          <img
-            id="WeCheck-pic"
-            src="assets/images/video-ad.JPG"
-            alt="WeCheck"
-          />
-        </div>
-      </div>
-      <div class="main-images-container">
-        <div class="video-upload">
-          <div class="card-content">
-            @if (this.videoURL !== "") {
-              <div class="image-btn-circle video-remove-btn">
-                <img
-                  id="delete-image-video"
-                  class="image-btn"
-                  src="assets/images/recycle-bin-garbage.svg"
-                  alt=""
-                  (click)="deleteVideo()"
-                />
-              </div>
-            }
-            <div class="camara-image-container">
-              @if (this.videoURL === "") {
-                <div>
+        <div class="main-images-container">
+          <div class="video-upload">
+            <div class="card-content">
+              @if (this.videoURL !== "") {
+                <div class="image-btn-circle video-remove-btn">
                   <img
-                    id="video-pic"
-                    src="assets/images/video-svgrepo-com.svg"
+                    id="delete-image-video"
+                    class="image-btn"
+                    src="assets/images/recycle-bin-garbage.svg"
                     alt=""
+                    (click)="deleteVideo()"
                   />
                 </div>
-                <div class="upload-video-box">העלאת סרטון</div>
-              } @else {
-                <div class="upload-video-box translateY spacing">
-                  הסרטון עלה, אפשר להמשיך בפרסום
-                </div>
               }
+              <div class="camara-image-container">
+                @if (this.videoURL === "") {
+                  <div>
+                    <img
+                      id="video-pic"
+                      src="assets/images/video-svgrepo-com.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="upload-video-box">העלאת סרטון</div>
+                } @else {
+                  <div class="upload-video-box translateY spacing">
+                    הסרטון עלה, אפשר להמשיך בפרסום
+                  </div>
+                }
+              </div>
+              <input
+                type="file"
+                id="video"
+                class="file-input"
+                accept="video/*"
+                (change)="uploadVideoFile($event)"
+              />
             </div>
-            <input
-              type="file"
-              id="video"
-              class="file-input"
-              formControlName="video"
-              accept="video/*"
-              (change)="uploadVideoFile($event)"
-            />
+            <video #videoPlayer controls *ngIf="false">
+              <source [src]="" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-          <video #videoPlayer controls *ngIf="false">
-            <source [src]="" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div
-          class="upload-container"
-          (mouseleave)="
-            hideImageOnHover(
-              0,
-              this.advertisement.mainPicture,
-              this.mainImageURLwasDeleted
-            )
-          "
-        >
-          @if (!this.mainImageURLwasDeleted) {
-            <div
-              class="image-btns"
-              (mouseenter)="
-                hideImageOnHover(0, '', this.mainImageURLwasDeleted)
-              "
-            >
-              <div class="image-btn-circle">
-                <img
-                  id="delete-image"
-                  class="image-btn"
-                  src="assets/images/recycle-bin-garbage.svg"
-                  alt=""
-                  (click)="deleteImage(0)"
-                />
-              </div>
-              <div class="image-btn-circle">
-                <img
-                  class="image-btn"
-                  src="assets/images/refresh-svgrepo-com.svg"
-                  alt=""
-                />
-              </div>
-            </div>
-          }
           <div
-            class="card-header"
-            (mouseenter)="
+            class="upload-container"
+            (mouseleave)="
               hideImageOnHover(
                 0,
                 this.advertisement.mainPicture,
@@ -814,73 +800,11 @@
               )
             "
           >
-            תמונות ראשית
-          </div>
-
-          <div id="main-image-frame" class="upload-img-card">
-            @if (this.mainImageURL === "") {
-              <div class="camara-image-container">
-                <div>
-                  <input
-                    #image
-                    class="file-input upload-pictures"
-                    type="file"
-                    id="picture{{ 0 }}"
-                    (change)="changeImage($event, 0)"
-                  />
-                </div>
-                <div class="upload-box">העלאת תמונות</div>
-              </div>
-            } @else {
-              <img
-                id="main-image"
-                class=""
-                [src]="this.mainImageURL"
-                (mouseleave)="
-                  hideImageOnHover(
-                    0,
-                    this.advertisement.mainPicture,
-                    this.mainImageURLwasDeleted
-                  )
-                "
+            @if (!this.mainImageURLwasDeleted) {
+              <div
+                class="image-btns"
                 (mouseenter)="
                   hideImageOnHover(0, '', this.mainImageURLwasDeleted)
-                "
-              />
-            }
-          </div>
-        </div>
-      </div>
-      <div class="images-headline-wrapper">
-        <div class="images-headline">תמונות שיופיעו בגוף המודעה</div>
-      </div>
-      <div class="ad-pics">
-        <div
-          class="image-card"
-          *ngFor="let i of [].constructor(9); let index = index"
-        >
-          <div
-            class="image-card"
-            (mouseleave)="
-              hideImageOnHover(
-                index + 1,
-                this.advertisement.pictures[index + 1].url,
-                this.imagesURlWasDeleted[index + 1]
-              )
-            "
-          >
-            @if (
-              !this.imagesURlWasDeleted[index + 1] &&
-              this.ImagesThatCanEdit[index + 1]
-            ) {
-              <div
-                class="image-btns image-card-container"
-                (mouseenter)="
-                  hideImageOnHover(
-                    index + 1,
-                    '',
-                    this.imagesURlWasDeleted[index + 1]
-                  )
                 "
               >
                 <div class="image-btn-circle">
@@ -889,7 +813,7 @@
                     class="image-btn"
                     src="assets/images/recycle-bin-garbage.svg"
                     alt=""
-                    (click)="deleteImage(index + 1)"
+                    (click)="deleteImage(0)"
                   />
                 </div>
                 <div class="image-btn-circle">
@@ -902,49 +826,76 @@
               </div>
             }
             <div
-              class=""
+              class="card-header"
               (mouseenter)="
                 hideImageOnHover(
-                  index + 1,
-                  this.advertisement.pictures[index + 1].url,
-                  this.imagesURlWasDeleted[index + 1]
+                  0,
+                  this.advertisement.mainPicture,
+                  this.mainImageURLwasDeleted
                 )
               "
-            ></div>
-
-            <div
-              id=""
-              [ngClass]="
-                this.imagesURLs[index + 1] !== ''
-                  ? ' upload-img-card ad-card-container  '
-                  : ' upload-img-card ad-card-container dashed-frame '
-              "
             >
-              @if (this.imagesURLs[index + 1] === "") {
+              תמונות ראשית
+            </div>
+
+            <div id="main-image-frame" class="upload-img-card">
+              @if (this.mainImageURL === "") {
                 <div class="camara-image-container">
                   <div>
                     <input
                       #image
                       class="file-input upload-pictures"
                       type="file"
-                      id="pictures{{ index + 1 }}"
-                      (change)="changeImage($event, index + 1)"
+                      id="picture{{ 0 }}"
+                      (change)="changeImage($event, 0)"
                     />
                   </div>
                   <div class="upload-box">העלאת תמונות</div>
                 </div>
               } @else {
                 <img
-                  id="card-image"
-                  class="ad-card"
-                  [src]="this.imagesURLs[index + 1]"
+                  id="main-image"
+                  class=""
+                  [src]="this.mainImageURL"
                   (mouseleave)="
                     hideImageOnHover(
-                      index + 1,
-                      this.advertisement.pictures[index + 1].url,
-                      this.imagesURlWasDeleted[index + 1]
+                      0,
+                      this.advertisement.mainPicture,
+                      this.mainImageURLwasDeleted
                     )
                   "
+                  (mouseenter)="
+                    hideImageOnHover(0, '', this.mainImageURLwasDeleted)
+                  "
+                />
+              }
+            </div>
+          </div>
+        </div>
+        <div class="images-headline-wrapper">
+          <div class="images-headline">תמונות שיופיעו בגוף המודעה</div>
+        </div>
+        <div class="ad-pics">
+          <div
+            class="image-card"
+            *ngFor="let i of [].constructor(9); let index = index"
+          >
+            <div
+              class="image-card"
+              (mouseleave)="
+                hideImageOnHover(
+                  index + 1,
+                  this.advertisement.pictures[index + 1].url,
+                  this.imagesURlWasDeleted[index + 1]
+                )
+              "
+            >
+              @if (
+                !this.imagesURlWasDeleted[index + 1] &&
+                this.ImagesThatCanEdit[index + 1]
+              ) {
+                <div
+                  class="image-btns image-card-container"
                   (mouseenter)="
                     hideImageOnHover(
                       index + 1,
@@ -952,14 +903,86 @@
                       this.imagesURlWasDeleted[index + 1]
                     )
                   "
-                />
+                >
+                  <div class="image-btn-circle">
+                    <img
+                      id="delete-image"
+                      class="image-btn"
+                      src="assets/images/recycle-bin-garbage.svg"
+                      alt=""
+                      (click)="deleteImage(index + 1)"
+                    />
+                  </div>
+                  <div class="image-btn-circle">
+                    <img
+                      class="image-btn"
+                      src="assets/images/refresh-svgrepo-com.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
               }
+              <div
+                class=""
+                (mouseenter)="
+                  hideImageOnHover(
+                    index + 1,
+                    this.advertisement.pictures[index + 1].url,
+                    this.imagesURlWasDeleted[index + 1]
+                  )
+                "
+              ></div>
+
+              <div
+                id=""
+                [ngClass]="
+                  this.imagesURLs[index + 1] !== ''
+                    ? ' upload-img-card ad-card-container  '
+                    : ' upload-img-card ad-card-container dashed-frame '
+                "
+              >
+                @if (this.imagesURLs[index + 1] === "") {
+                  <div class="camara-image-container">
+                    <div>
+                      <input
+                        #image
+                        class="file-input upload-pictures"
+                        type="file"
+                        id="pictures{{ index + 1 }}"
+                        (change)="changeImage($event, index + 1)"
+                      />
+                    </div>
+                    <div class="upload-box">העלאת תמונות</div>
+                  </div>
+                } @else {
+                  <img
+                    id="card-image"
+                    class="ad-card"
+                    [src]="this.imagesURLs[index + 1]"
+                    (mouseleave)="
+                      hideImageOnHover(
+                        index + 1,
+                        this.advertisement.pictures[index + 1].url,
+                        this.imagesURlWasDeleted[index + 1]
+                      )
+                    "
+                    (mouseenter)="
+                      hideImageOnHover(
+                        index + 1,
+                        '',
+                        this.imagesURlWasDeleted[index + 1]
+                      )
+                    "
+                  />
+                }
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </ng-container>
+
   <div id="contact-form" class="contact-part advertisement-selection">
     <div
       class="right-div"
@@ -1062,7 +1085,9 @@
         @if (this.has2Contacts) {
           <div class="phone-Number-Box">
             <div class="input-container">
-              <label class="small-text" for="number"> איש קשר נוסף </label>
+              <label id="titleSecondContact" class="small-text" for="number">
+                איש קשר נוסף
+              </label>
               <input
                 #SecondContactName
                 class="data number-input"
@@ -1092,7 +1117,7 @@
             <div id="SecondcontactPhoneNumberBox" class="input-container">
               <label class="small-text" for="number"> טלפון נוסף</label>
               <button
-                id="contactPhoneNumber"
+                id="contactPhoneNumber2"
                 class="data large dropdown-btn"
                 type="button"
                 [ngStyle]="{
@@ -1230,6 +1255,4 @@
       </div>
     </div>
   </div>
-
-  <div class="end-space"></div>
 </div>

@@ -23,6 +23,7 @@ import {
   propertyFeaturesImagesUrls,
   propertyFeaturesOptions,
 } from './dataUtilities';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -36,6 +37,9 @@ import {
 export class EditAdvertisementComponent
   implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked
 {
+  editAdvertisementForm = this.fb.group({
+    video: [null],
+  });
   advertisement!: AdvertisementsModel;
   isAssetAssetstateDropdownHidden = true;
   isNumberOfPaymentsDropdownHidden = true;
@@ -103,7 +107,6 @@ export class EditAdvertisementComponent
         this.ImagesThatCanEdit[index] = true;
       }
     });
-    this.calculateAdRank();
   }
 
   isNaN(value: string): boolean {
@@ -155,12 +158,11 @@ export class EditAdvertisementComponent
     }
   }
 
-  constructor(private router: Router, private render: Renderer2) {
-    document.addEventListener('keyup', (event) => {
-      const target = event.target as HTMLElement;
-      this.formatNumbersInTheForm(target.id);
-    });
-  }
+  constructor(
+    private router: Router,
+    private render: Renderer2,
+    private fb: FormBuilder,
+  ) {}
   ngAfterViewInit() {
     this.scoreBarwidthInPixels = this.scoreBar.nativeElement.offsetWidth;
 
@@ -185,6 +187,13 @@ export class EditAdvertisementComponent
     this.imagesURLsForPosting.push('');
 
     this.initialFormatNumberInForm();
+
+    this.calculateAdRank();
+
+    document.addEventListener('keyup', (event) => {
+      const target = event.target as HTMLElement;
+      this.formatNumbersInTheForm(target.id);
+    });
   }
 
   openAndCloseDropdown(type: string, dropdownTypeWasClicked: boolean) {
@@ -286,7 +295,7 @@ export class EditAdvertisementComponent
   hideImageOnHover(
     index: number,
     imageURL: string,
-    imagesURlWasDeleted: boolean
+    imagesURlWasDeleted: boolean,
   ) {
     if (index === 0 && !imagesURlWasDeleted) {
       this.mainImageURL = imageURL;
@@ -306,7 +315,7 @@ export class EditAdvertisementComponent
             catchError((e) => {
               console.log(e);
               return [];
-            })
+            }),
           )
           .subscribe((response) => {
             this.advertisement = response;
@@ -528,7 +537,7 @@ export class EditAdvertisementComponent
   async handleSubmit() {
     try {
       var ImagesURLsForPosting = this.imagesURLsForPosting.filter(
-        (url) => url !== ''
+        (url) => url !== '',
       );
 
       if (this.mainImageURLwasDeleted && this.imagesURLs.length > 0) {
@@ -557,7 +566,7 @@ export class EditAdvertisementComponent
       this.advertisementService.updateAdvertisement(
         this.advertisement,
         this.advertisement.id,
-        ImagesURLsForPosting
+        ImagesURLsForPosting,
       );
 
       this.router.navigate(['/profile/user-advertisement']);

@@ -48,13 +48,6 @@ li {
   row-gap: 26px !important;
 }
 
-.ad-pics {
-  /* width: 780px !important; */
-  width: min(780px, 55.7vw) !important;
-
-  /* display: none !important; */
-}
-
 #contact-form {
   min-height: 617.594px !important;
 }
@@ -206,7 +199,7 @@ li {
 
 .space-block {
   color: transparent !important;
-  height: 70px !important;
+  height: 70px;
 }
 
 .title,
@@ -395,6 +388,7 @@ li {
 }
 #contactName,
 #contactPhoneNumber,
+#contactPhoneNumber2,
 #contactPhoneNumberBox,
 #secondContactName {
   width: 240px !important;
@@ -511,6 +505,7 @@ textarea {
 
 .loading-bar {
   width: 290.672px;
+
   height: 30px;
 }
 .fill-loading-bar,
@@ -567,7 +562,7 @@ textarea {
 
 #WeCheck-pic {
   height: 178px !important;
-  width: 730px !important;
+  width: min(730px, 52.1428vw) !important;
 }
 
 .WeCheck-ad {
@@ -852,6 +847,7 @@ form {
 .ad-card-container {
   height: 166px !important;
   width: 220px !important;
+
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -878,11 +874,10 @@ form {
 
 .image-card-container {
   transform: translateY(15%) !important;
-  padding: 0 0.5rem 0 0 !important;
 }
 
 .image-card {
-  width: 220px !important;
+  max-width: 220px;
 }
 
 .left-div {
@@ -907,6 +902,7 @@ form {
 }
 
 #contactPhoneNumber,
+#contactPhoneNumber2,
 .data,
 #assetState,
 .text-length-box {
@@ -992,13 +988,8 @@ form {
   color: rgb(51, 51, 51);
   margin: 20px auto 0;
   height: 241px;
-  width: 880px;
   max-width: 880px;
   border-radius: 8px;
-}
-
-.end-space {
-  height: 60px;
 }
 
 .tropy-img {
@@ -1182,4 +1173,291 @@ form {
 .selected2,
 .selected2:hover {
   color: #000000 !important;
+}
+
+.edit-container {
+  padding: 2rem !important;
+}
+
+@media (width < 883px) {
+  #score-bar-container {
+    width: 700px !important;
+    width: min(700px, 79.27519vw) !important;
+  }
+
+  .score-container,
+  #score-bar-container,
+  #score-bar,
+  #score-bar-fill,
+  #score-bar {
+    width: min(760px, 86.0702vw) !important;
+  }
+
+  #WeCheck-pic {
+    width: min(730px, 52.1428vw) !important;
+  }
+
+  .tropy-img {
+    transform: unset;
+  }
+
+  #edit-advertisement,
+  .ad-score,
+  #contact-form {
+    padding: 0px !important;
+    width: calc(100vw - 3rem);
+  }
+
+  .input-container > * {
+    margin: 0 1rem;
+  }
+
+  .input-container,
+  .dropdown-select,
+  .dropdown-btn,
+  .dropdown-select,
+  .dropdown-option,
+  .floor-description > div,
+  .input-container > *,
+  .property-Features,
+  .right-div > .input-container,
+  #contactPhoneNumberBox > *,
+  .right-div > .input-container > *,
+  .phone-Number-Box > *,
+  .phone-Number-Box > .input-container > #contactName,
+  .phone-Number-Box > .input-container,
+  #contactName,
+  #contact-email,
+  #contactPhoneNumberBox,
+  #contactPhoneNumber2,
+  #secondContactName {
+    width: calc(100vw - 5rem) !important;
+  }
+
+  #contactPhoneNumberBox {
+    margin-right: 1rem;
+  }
+
+  .right-div > .input-container > input {
+    max-width: 100vw !important;
+  }
+
+  .floor-description > :first-child > * {
+    margin: 0rem !important;
+  }
+  .floor-description > :nth-child(3) {
+    justify-content: flex-start !important;
+    margin: 0 1rem;
+  }
+
+  .ad-score,
+  #score-bar-container,
+  .ad-pics {
+    padding: 0px !important;
+    width: calc(100vw - 3rem) !important;
+  }
+
+  .edit-container,
+  .floor-description,
+  .property-Features {
+    display: grid !important;
+  }
+
+  .right-div {
+    padding: 0 !important;
+  }
+
+  .property-Features {
+    grid-template-columns: repeat(4, 1fr) !important;
+    justify-items: center;
+  }
+
+  .edit-container {
+    justify-content: center !important;
+  }
+
+  .sub-title- {
+    margin: 0 1rem !important;
+  }
+  .ad-pics {
+    align-items: center !important;
+  }
+
+  .space-block,
+  .WeCheck-container,
+  .note {
+    display: none !important;
+  }
+
+  .image-card {
+    max-width: 100%;
+  }
+
+  .image-card-container {
+    transform: translateX(-12%) translateY(30%) !important;
+    max-width: 100%;
+  }
+
+  .title,
+  .contact-form-title {
+    font-size: 16px !important;
+  }
+
+  .title {
+    padding: 1rem;
+  }
+
+  .dropdown-btn,
+  .dropdown-select,
+  .dropdown-option,
+  .Select-options,
+  .property-Features,
+  .main-images-container,
+  #SecondcontactPhoneNumberBox > *,
+  .phone-Number-Box > .input-container > #contactName,
+  .phone-Number-Box > .input-container {
+    max-width: calc(100vw - 5rem) !important;
+  }
+
+  .main-images-container,
+  .images-headline {
+    margin: 0 !important;
+    padding: 0 2rem;
+    border: transparent !important;
+  }
+
+  .dropdown-select {
+    transform: translateY(-2px);
+  }
+
+  .option {
+    width: 100% !important;
+  }
+
+  .image-btns {
+    padding: 0 0.5rem;
+  }
+
+  .description-box,
+  .text-length-box > .small-text,
+  .date-container,
+  .long-term,
+  .entryDate-title {
+    margin: 0 2rem !important;
+  }
+
+  .property-Features {
+    margin: 0 1rem !important;
+    gap: min(1rem, 1.812vw);
+  }
+
+  .title-part {
+    margin: 2rem 1rem 0 1rem !important;
+  }
+
+  .remove-add-contact {
+    margin: 0 1rem !important;
+  }
+
+  #contactPhoneNumber,
+  #contactPhoneNumber2,
+  #contactPhoneNumberBox > .small-text,
+  #SecondcontactPhoneNumberBox > .small-text,
+  #secondContactName,
+  .phone-Number-Box > .small-text,
+  #titleSecondContact {
+    margin: 0 !important;
+  }
+}
+
+@media (width < 830px) {
+  .image-card-container {
+    transform: translateX(-10%) translateY(30%) !important;
+  }
+}
+@media (width < 785px) {
+  .image-card-container {
+    transform: translateX(-8%) translateY(30%) !important;
+  }
+}
+@media (width < 755px) {
+  .image-card-container {
+    transform: translateX(-6%) translateY(30%) !important;
+  }
+}
+@media (width < 755px) {
+  .image-card-container {
+    transform: translateX(-6%) translateY(30%) !important;
+  }
+}
+
+@media (width < 735px) {
+  .image-card-container {
+    transform: translateX(-30%) translateY(30%) !important;
+  }
+  .ad-pics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width < 713px) {
+  .image-card-container {
+    transform: translateX(-26%) translateY(30%) !important;
+  }
+}
+@media (width < 670px) {
+  .image-card-container {
+    transform: translateX(-23%) translateY(30%) !important;
+  }
+}
+@media (width < 660px) {
+  .property-Features {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  #score-bar-fill,
+  #score-bar {
+    transform: translateX(2vw);
+  }
+}
+
+@media (width < 650px) {
+  .image-card-container {
+    transform: translateX(-20%) translateY(30%) !important;
+  }
+}
+@media (width < 640px) {
+  .image-card-container {
+    transform: translateX(-15%) translateY(30%) !important;
+  }
+}
+@media (width < 580px) {
+  .image-card-container {
+    transform: translateX(-12%) translateY(30%) !important;
+  }
+}
+
+@media (width < 550px) {
+  .image-card-container {
+    transform: translateX(-9%) translateY(30%) !important;
+  }
+  .main-images-container {
+    padding: 0.5rem !important;
+  }
+
+  .card-content,
+  #video,
+  .upload-container {
+    width: min(234px, 42.5454vw) !important;
+  }
+}
+
+@media (width < 535px) {
+  .image-card-container {
+    transform: translateX(-6%) translateY(30%) !important;
+  }
+}
+@media (width < 505px) {
+  .image-card-container {
+    transform: translateX(-2%) translateY(30%) !important;
+  }
 }
