@@ -69,6 +69,7 @@ const routes: Routes = [
   {
     path: 'confirmation-modal',
     component: PostAdConfirmationModalComponent,
+    title: ' פרסום מודעה חדשה',
   },
   {
     path: 'profile',

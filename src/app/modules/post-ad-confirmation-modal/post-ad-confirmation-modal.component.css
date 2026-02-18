@@ -17,12 +17,17 @@
   position: fixed;
   height: 439.062px;
   width: 880px;
-  margin: 50px 0px 0px;
+  margin: 50px 0px;
   border-radius: 10px;
   background-color: #ffffff;
   z-index: 20 !important;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin: calc(548px - 439.062px - 64px) 280px 0 280px !important;
+}
+
+.page {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
 .post-ad-box,
@@ -130,4 +135,20 @@ img {
 
 .text-line {
   padding: 8px;
+}
+
+@media (width < 883px) {
+  .modal-overlay {
+    top: 40px;
+  }
+  .post-ad-box {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .modal-overlay {
+    background-color: transparent;
+  }
 }
