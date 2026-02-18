@@ -88,12 +88,6 @@ export class SearchService {
       city: 'תל אביב יפו',
       program: 'מהפכת השכירות בתל אביב',
     },
-    {
-      title: 'מורשת טל',
-      pic: 'assets/images/ad3.jpg',
-      city: 'מודעין מכבים רעות',
-      program: 'המרכז החדש של מודעין',
-    },
   ];
   selectedPropertyTypes: BehaviorSubject<string[]> = new BehaviorSubject<
     string[]
@@ -104,7 +98,7 @@ export class SearchService {
   ]);
 
   selectedTradeType: BehaviorSubject<'מכירה' | 'השכרה'> = new BehaviorSubject(
-    'מכירה' as 'מכירה' | 'השכרה'
+    'מכירה' as 'מכירה' | 'השכרה',
   );
 
   selectedCityText: BehaviorSubject<string> = new BehaviorSubject<string>('');
@@ -163,8 +157,8 @@ export class SearchService {
             (value, index, self) =>
               index ===
               self.findIndex(
-                (t) => t.month === value.month && t.day === value.day
-              )
+                (t) => t.month === value.month && t.day === value.day,
+              ),
           );
 
         this.uniqueMonthDayArray.set(uniqueMonthDayArray);
@@ -180,7 +174,7 @@ export class SearchService {
         },
         (error) => {
           console.error('Error deleting last search:', error);
-        }
+        },
       );
   }
 
@@ -193,7 +187,7 @@ export class SearchService {
         },
         (error) => {
           console.error('Error deleting all last searches:', error);
-        }
+        },
       );
   }
 
@@ -238,7 +232,7 @@ export class SearchService {
         },
         (error) => {
           console.error('Error adding last search:', error);
-        }
+        },
       );
   }
 }
