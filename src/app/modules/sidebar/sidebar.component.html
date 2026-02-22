@@ -1,0 +1,186 @@
+<div class="overlay" *ngIf="isOpen" (click)="closeSidebar()"></div>
+
+<div
+  class="sidebar"
+  [class.open]="isOpen"
+  [class.dark]="theme === 'dark'"
+  [class.light]="theme === 'light'"
+>
+  <span>
+    <div class="header">
+      @if (isDarkModes) {
+        <button class="close-btn" (click)="closeSidebar()">✕</button>
+      } @else {
+        <div class="close-btn gray" (click)="this.authService.logout()">
+          התנתקות
+        </div>
+        <button class="close-btn-light" (click)="closeSidebar()">✕</button>
+      }
+      @if (isDarkModes) {
+        <div class="user-profile-box">
+          <div class="round">
+            {{ this.userName[0] | uppercase }}
+          </div>
+          <div class="user-data">
+            <span class="user-name"
+              >{{ this.userName }} {{ this.userLastname }}</span
+            >
+            <span class="user-email">
+              {{ this.UserEmailAddress }}
+            </span>
+          </div>
+        </div>
+      } @else {
+        <div class="user-profile-box-light">
+          <span class="user-data-light">
+            <div>{{ this.userName }} {{ this.userLastname }}</div>
+            <div>אזור אישי</div>
+          </span>
+          <div class="round-light">
+            {{ this.userName[0] + this.userName[1] | uppercase }}
+          </div>
+        </div>
+      }
+
+      @if (isDarkModes) {
+        <button
+          (click)="closeSidebar()"
+          routerLink="create-advertisement"
+          class="post-btn"
+        >
+          <span>פרסום מודעה חדשה</span>
+          <span>+</span>
+        </button>
+      } @else {
+        <button
+          (click)="closeSidebar()"
+          routerLink="create-advertisement"
+          class="post-btn-dark"
+        >
+          <span>פרסום מודעה </span>
+          <span>+</span>
+        </button>
+      }
+    </div>
+  </span>
+  <span>
+    <div class="links">
+      @if (isDarkModes) {
+        <ul>
+          <li routerLink="/profile/user-advertisement" (click)="closeSidebar()">
+            <a>המודעות שלי</a>
+            <img
+              class="svg-icon key-img"
+              src="assets/images/key.svg"
+              alt="adds"
+            />
+          </li>
+          <li (click)="closeSidebar()" routerLink="/profile/edit-details">
+            <a>עדכון פרטים</a>
+            <img class="svg-icon" src="assets/images/pencil.svg" alt="adds" />
+          </li>
+          <li (click)="closeSidebar()" routerLink="/profile/statistic">
+            <a>סטטיסטיקות</a>
+            <img
+              class="svg-icon"
+              src="assets/images/stats-svgrepo-com.svg"
+              alt="adds"
+            />
+          </li>
+          <li (click)="closeSidebar()" routerLink="/favorites">
+            <a>מודעות שמורות </a>
+            <img
+              class="svg-icon"
+              src="assets/images/heart-dark.svg"
+              alt="adds"
+            />
+          </li>
+          <li (click)="closeSidebar()" routerLink="/last-searches">
+            <a routerLink="/last-searches">חיפושים אחורונים</a>
+            <img
+              class="svg-icon"
+              src="assets/images/search-dark.svg"
+              alt="adds"
+            />
+          </li>
+          <li (click)="closeSidebar()" routerLink="/profile/tips-information">
+            <a routerLink="tips-information">טיפים ומידע</a>
+            <img class="svg-icon" src="assets/images/idea.svg" alt="adds" />
+          </li>
+        </ul>
+      } @else {
+        <ul class="light-list">
+          <li routerLink="/" (click)="closeSidebar()">
+            <a> דף הבית</a>
+            <img
+              class="svg-icon key-img"
+              src="assets/images/home.svg"
+              alt="adds"
+            />
+          </li>
+          <li (click)="closeSidebar()">
+            <a> צאט</a>
+            <img
+              class="svg-icon"
+              src="assets/images/logo/chat.svg"
+              alt="adds"
+            />
+          </li>
+          <li (click)="closeSidebar()" routerLink="/favorites">
+            <div class="notification">
+              {{ this.countFavoriteAds }}
+            </div>
+            <a>מודעות שאהבתי</a>
+            <img
+              class="svg-icon"
+              src="assets/images/heart-svgrepo-com (4).svg"
+              alt="adds"
+            />
+          </li>
+
+          <li (click)="closeSidebar()" routerLink="/last-searches">
+            <div class="notification">
+              {{ searchService.UserLastSearches.getValue().length }}
+            </div>
+
+            <div>חיפושים אחרונים</div>
+            <img
+              class="svg-icon"
+              src="assets/images/history-svgrepo-com (1).svg"
+              alt="adds"
+            />
+          </li>
+          <li (click)="closeSidebar()">
+            <a routerLink="/last-searches"> התראות</a>
+            <img class="svg-icon" src="assets/images/bell1.svg" alt="adds" />
+          </li>
+          <li (click)="closeSidebar()">
+            <a routerLink="tips-information"> שירות לקוחות</a>
+            <img
+              class="svg-icon"
+              src="assets/images/headphone.svg"
+              alt="adds"
+            />
+          </li>
+        </ul>
+      }
+    </div>
+    @if (isDarkModes) {
+      <div class="user-accessibility-btns-container">
+        <div class="user-logout-container">
+          <div class="user-accessibility-btns">
+            <button class="contact-btn">
+              <img class="icons" src="assets/images/phone.svg" alt="adds" />
+            </button>
+            <button class="accessibility-btn">
+              <i class="material-icons">accessibility</i>
+            </button>
+          </div>
+          <div class="user-loguot-btns" (click)="this.authService.logout()">
+            התנתקות
+          </div>
+        </div>
+      </div>
+    }
+  </span>
+</div>

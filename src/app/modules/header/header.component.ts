@@ -90,7 +90,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
     this.countFavoriteAds = this.favoriteAds.length;
     this.authService.isUserLogin.subscribe(
-      (status) => (this.isUserConnected = status)
+      (status) => (this.isUserConnected = status),
     );
     this.authService.user.subscribe((user: UserModel | null | undefined) => {
       this.userName = user?.name || '';
@@ -133,7 +133,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   getCircleClass(): string {
     this.authService.isUserLogin.subscribe(
-      (status) => (this.isUserConnected = status)
+      (status) => (this.isUserConnected = status),
     );
     return this.isUserConnected ? 'round' : 'round-gray';
   }

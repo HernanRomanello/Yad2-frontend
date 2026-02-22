@@ -38,6 +38,7 @@ import { FavoriteAdsComponent } from './modules/favorite-ads/favorite-ads.compon
 import { ImagesComponent } from './modules/images/images.component';
 import { MobileHeaderComponent } from './modules/header/mobile-header/mobile-header.component';
 import { AdPromotionComponent } from './modules/create-new-advertisement/ad-promotion/ad-promotion.component';
+import { SidebarComponent } from './modules/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AdPromotionComponent } from './modules/create-new-advertisement/ad-prom
     ImagesComponent,
     MobileHeaderComponent,
     AdPromotionComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

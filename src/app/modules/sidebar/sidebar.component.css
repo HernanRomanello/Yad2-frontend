@@ -1,0 +1,442 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -302px;
+  width: 302px;
+  height: 100%;
+  background: white;
+  transition: right 0.35s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 8px;
+  min-height: 620px;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar.dark {
+  background: #30313f;
+  color: white;
+}
+.sidebar.light {
+  background: #ffffff;
+  color: #333333 !important;
+  padding: 0;
+}
+
+.user-profile-box-light {
+  padding: 20px 20px 0px 8px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.close-btn,
+.close-btn-light {
+  align-self: flex-start;
+  border: none;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.close-btn {
+  color: #ffffff;
+}
+.close-btn-light {
+  color: #000000;
+}
+
+.post-btn-dark {
+  transform: translateY(-24px) translateX(20px);
+}
+
+.post-btn {
+  background: #10ad6f;
+  color: white;
+  font-size: 14px;
+  height: 36px;
+  border-radius: 30px;
+  width: 90%;
+  transform: translateX(max(20px, 3.25732vh));
+  border: none;
+}
+.post-btn-dark,
+.post-btn {
+  cursor: pointer;
+  font-weight: 600;
+  text-wrap: nowrap;
+}
+.post-btn-dark {
+  color: #ff7100;
+  min-height: 42px;
+  padding: 0 20px;
+  font-size: 16px;
+  border-radius: 30px;
+  background: #ffffff;
+  border: 1px solid #ff7100;
+  width: 151.5px;
+  margin: auto;
+}
+
+.post-btn-dark > :last-child {
+  font-size: 24px !important;
+}
+
+.menu {
+  padding: 0;
+  margin-top: 25px;
+}
+
+.menu li {
+  cursor: pointer;
+}
+
+.sidebar.dark .menu li {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+li {
+  list-style: none;
+  gap: 4px;
+}
+
+.round-light,
+.round {
+  padding: 1rem;
+}
+
+.round,
+.round-light,
+.user-data,
+.sidebar > :last-child,
+.post-btn-dark,
+.post-btn,
+.notification {
+  display: flex;
+}
+
+.light-list {
+  transform: translateY(-90px);
+}
+.light-list > * {
+  gap: 0.5rem;
+}
+
+.sidebar > :last-child {
+  justify-content: space-between;
+}
+
+.round,
+.round-light,
+.post-btn-dark,
+.post-btn,
+.notification {
+  justify-content: center;
+  align-items: center;
+}
+.post-btn-dark,
+.post-btn {
+  gap: 0.5rem;
+}
+
+.post-btn-dark > :last-child,
+.post-btn > :last-child {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.round-light,
+.round {
+  border-radius: 50%;
+  margin-top: 1rem;
+  font-weight: 350 !important;
+}
+
+.round {
+  font-size: 26px;
+}
+.round-light {
+  font-size: 20px;
+}
+.round-light {
+  height: 50px;
+  width: 50px;
+}
+.round {
+  height: 46px;
+  width: 46px;
+}
+
+.round {
+  background-color: #ef6c00 !important;
+  border: none !important;
+}
+.round-light {
+  background-color: #fff1e5 !important;
+  border: 1px solid rgb(255, 113, 0) !important;
+  color: #ff7100 !important;
+}
+
+.round,
+.user-area-container,
+.user-profile-box,
+.sidebar li,
+.user-accessibility-btns-container,
+.user-loguot-btns,
+.user-accessibility-btns,
+.user-logout-container,
+.user-profile-box-light {
+  display: flex;
+}
+.user-profile-box-light {
+  justify-content: flex-end;
+}
+.user-profile-box-light {
+  gap: 0.75rem;
+}
+.user-profile-box-light {
+  margin-top: 1rem;
+}
+
+.user-profile-box-light {
+  transform: translateX(16px);
+}
+.user-data-light > * {
+  text-align: right !important;
+}
+.user-data-light > :first-child {
+  font-weight: 600;
+  font-size: 16px;
+  transform: translateY(6px);
+}
+.user-data-light > :last-child {
+  transform: translateY(-22px);
+}
+.user-data-light > :last-child {
+  color: #363636;
+}
+
+.user-data-light {
+  display: grid;
+}
+.user-data-light > :last-child {
+  text-decoration: underline;
+}
+.user-data-light > :last-child {
+  font-size: 14px;
+}
+
+.round,
+.round-light,
+.sidebar li,
+.user-loguot-btns,
+.user-accessibility-btns {
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar li,
+.user-accessibility-btns-container {
+  justify-content: flex-end;
+}
+
+.sidebar li {
+  height: min(48.39px, 7.88273vh);
+}
+
+.user-accessibility-btns {
+  gap: 0.75rem;
+}
+
+.user-profile-box {
+  justify-content: center;
+}
+
+.user-profile-box,
+.user-accessibility-btns-container,
+.user-logout-container,
+.user-data,
+.sidebar > :last-child {
+  flex-direction: column;
+}
+
+.sidebar {
+  display: grid;
+}
+.sidebar {
+  overflow: hidden;
+}
+
+.user-profile-box,
+.user-data {
+  align-items: end;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.gray {
+  color: #999999;
+}
+
+.close-btn.gray {
+  transform: translateY(8px);
+}
+
+.sidebar li {
+  font-size: 16px;
+}
+
+.sidebar a {
+  text-decoration: none !important;
+  color: #ffffff !important;
+}
+
+.header {
+  position: relative;
+}
+
+.close-btn,
+.close-btn-light {
+  position: absolute;
+}
+.close-btn {
+  top: -12px;
+}
+.close-btn {
+  left: 5px;
+}
+.close-btn-light {
+  right: 4px;
+}
+.close-btn-light {
+  top: 10px;
+}
+
+.links,
+.user-profile-box,
+.user-accessibility-btns-container {
+  width: 100%;
+}
+
+.user-profile-box,
+.sidebar li {
+  padding-right: 4px;
+}
+
+.user-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-email {
+  color: #cccccc;
+  transform: translateY(-12px);
+}
+.user-email,
+.round-light,
+.round {
+  line-height: 16.1px;
+}
+
+.user-email {
+  font-weight: 500;
+}
+
+.icons,
+.material-icons,
+.svg-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.svg-icon {
+  height: 16px;
+  transform: translateY(-2px);
+}
+
+.user-accessibility-btns button {
+  text-align: center;
+  border: 1px solid rgb(0, 0, 0);
+  height: 42px;
+  width: 124.5px;
+  border-radius: 30px;
+  background-color: #eeeeee;
+}
+.user-accessibility-btns button,
+.user-loguot-btns,
+.sidebar li,
+.close-btn,
+.gray,
+button,
+header > * {
+  cursor: pointer !important;
+}
+
+.sidebar li:hover,
+.sidebar li:active {
+  background-color: #23242c !important;
+}
+.sidebar .light-list li:hover,
+.sidebar .light-list li:active {
+  background-color: #f8f8f8 !important;
+}
+.sidebar .light-list li,
+.sidebar .light-list li > a {
+  background-color: #ffffff !important;
+  color: #363636 !important;
+}
+
+.contact-btn:hover {
+  background-color: rgb(209, 209, 209);
+}
+
+.accessibility-btn {
+  background-color: #012f75 !important;
+  border: 1px solid transparent !important;
+}
+
+.material-icons {
+  color: #ffffff;
+}
+
+.user-loguot-btns {
+  font-weight: 300;
+}
+
+.user-loguot-btns {
+  transform: translateY(-6px);
+}
+
+.notification {
+  color: rgb(255, 255, 255);
+}
+
+.notification {
+  font-size: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: #ff7100 !important;
+  padding: 0px 5px;
+  border-radius: 10px;
+}
+img {
+  width: 24px !important;
+  height: 24px !important;
+  transform: translateY(1px) !important;
+}

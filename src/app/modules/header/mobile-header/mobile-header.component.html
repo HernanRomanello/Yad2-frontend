@@ -27,11 +27,18 @@
   </div>
 
   <button
+    (click)="openSidebar()"
     class="icon-btn"
     type="button"
     aria-label="תפריט"
-    (click)="toggleMenu()"
   >
     <img class="hamburger" src="assets/images/hamburger.svg" alt="yad2" />
   </button>
 </header>
+
+<app-sidebar
+  [isOpen]="sidebarOpen"
+  [theme]="theme"
+  (close)="sidebarOpen = false"
+>
+</app-sidebar>

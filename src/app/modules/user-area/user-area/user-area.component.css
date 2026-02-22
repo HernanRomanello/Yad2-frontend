@@ -114,19 +114,6 @@
 }
 
 .round {
-  background-color: #ab47bc;
-  height: 46px;
-  width: 46px;
-  border-radius: 50%;
-  font-size: 26px;
-  margin-left: 6px;
-  border: solid 1px #ff7100;
-  margin: 1rem;
-  transform: translateY(8px) translateX(16px);
-  font-weight: 350 !important;
-}
-
-.round {
   padding: 1rem;
 }
 
@@ -219,6 +206,17 @@
 
 .key-img {
   transform: scaleY(0.8);
+}
+
+.round {
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  font-size: 26px;
+  margin-left: 6px;
+  margin: 1rem;
+  transform: translateY(8px) translateX(16px);
+  font-weight: 350 !important;
 }
 
 .round {

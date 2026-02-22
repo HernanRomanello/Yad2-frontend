@@ -7,11 +7,12 @@ import { NavigationService } from '../../../services/navigation.service';
   styleUrl: './mobile-header.component.css',
 })
 export class MobileHeaderComponent {
-  @Output() menuToggle = new EventEmitter<void>();
-  @Output() chatClick = new EventEmitter<void>();
-  navigation = inject(NavigationService);
+  sidebarOpen = false;
+  theme: 'dark' | 'light' = 'dark';
 
-  toggleMenu() {
-    this.menuToggle.emit();
+  openSidebar() {
+    this.sidebarOpen = true;
   }
+
+  navigation = inject(NavigationService);
 }
