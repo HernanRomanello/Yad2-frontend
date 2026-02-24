@@ -44,7 +44,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
   isDarkModes: boolean = true;
   searchService = inject(SearchService);
   countFavoriteAds = 0;
-  // activeLink = 'user-advertisement';
 
   ngOnInit(): void {
     this.authService.user.subscribe((user: UserModel | null | undefined) => {
@@ -59,7 +58,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log('Current URL:', this.router.url);
         if (
           this.router.url.includes('profile') ||
           this.router.url.includes('favorites') ||

@@ -34,7 +34,12 @@
         <div class="user-profile-box-light">
           <span class="user-data-light">
             <div>{{ this.userName }} {{ this.userLastname }}</div>
-            <div>אזור אישי</div>
+            <div
+              (click)="closeSidebar()"
+              routerLink="/profile/user-advertisement"
+            >
+              אזור אישי
+            </div>
           </span>
           <div class="round-light">
             {{ this.userName[0] + this.userName[1] | uppercase }}

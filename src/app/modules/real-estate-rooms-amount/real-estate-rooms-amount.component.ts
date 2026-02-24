@@ -79,7 +79,6 @@ export class RealEstateRoomsAmountComponent {
   }
 
   updateBarStyle() {
-    console.log(this.selectedRoom_1);
     if (this.selectedRoom_1 && !this.selectedRoom_2) {
       this.bar.nativeElement.innerHTML = '';
 

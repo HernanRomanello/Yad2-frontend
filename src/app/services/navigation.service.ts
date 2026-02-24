@@ -25,7 +25,6 @@ export class NavigationService {
     if (url.includes('profile')) {
       this.nameOfComponentRendering.set('profile');
     } else if (url.includes('/favorites')) {
-      console.log(url);
       this.nameOfComponentRendering.set('favorites');
     } else if (url.includes('/last-searches')) {
       this.nameOfComponentRendering.set('last-searches');

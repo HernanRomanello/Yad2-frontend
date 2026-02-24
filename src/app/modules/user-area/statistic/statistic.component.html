@@ -30,43 +30,43 @@
         </div>
       </div>
       <div class="general-data">
-        <div>
-          <div class="flex-space-between title-form">
-            <div class="font16 font500 flex-center">נתונים כלליים</div>
-            <div class="dropdown-container">
-              <div
-                id="dropdown-btn"
-                (click)="
-                  dropDownIsVisible = !dropDownIsVisible;
-                  blueDecorationIsVisible = true
-                "
-                class="dropdown font16 flex-space-between"
-              >
-                <span id="dropdown-btn-text" class="flex-center">
-                  <span id="dropdown-btn-text-value" class="extra-padding">
-                    {{ dropDownValue }}
-                  </span>
+        <div class="flex-space-between title-form">
+          <div class="font16 font500 flex-center">נתונים כלליים</div>
+          <div class="dropdown-container">
+            <div
+              id="dropdown-btn"
+              (click)="
+                dropDownIsVisible = !dropDownIsVisible;
+                blueDecorationIsVisible = true
+              "
+              class="dropdown font16 flex-space-between"
+            >
+              <span id="dropdown-btn-text" class="flex-center">
+                <span id="dropdown-btn-text-value" class="extra-padding">
+                  {{ dropDownValue }}
                 </span>
-                <span>
-                  <img
-                    id="arrow-down"
-                    [ngStyle]="{
-                      transform: dropDownIsVisible
-                        ? 'rotate(180deg)'
-                        : 'rotate(0deg)'
-                    }"
-                    src="assets/images/down-arrow2-svgrepo-com.svg"
-                    alt="arrow-down"
-                  />
-                </span>
-              </div>
-              @if(blueDecorationIsVisible){
+              </span>
+              <span>
+                <img
+                  id="arrow-down"
+                  [ngStyle]="{
+                    transform: dropDownIsVisible
+                      ? 'rotate(180deg)'
+                      : 'rotate(0deg)',
+                  }"
+                  src="assets/images/down-arrow2-svgrepo-com.svg"
+                  alt="arrow-down"
+                />
+              </span>
+            </div>
+            @if (blueDecorationIsVisible) {
               <div
                 (click)="dropDownIsVisible = !dropDownIsVisible"
                 id="blue-decoration"
                 class="blue-decoration"
               ></div>
-              } @if(dropDownIsVisible){
+            }
+            @if (dropDownIsVisible) {
               <div
                 (click)="blueDecorationIsVisible = false"
                 class="dropdown-content"
@@ -87,25 +87,25 @@
                   <span class="flex-center">
                     {{ item }}
                   </span>
-                  @if(dropDownValue === item){
-                  <span class="flex-center">
-                    <img
-                      id="check-img"
-                      src="assets/images/check-svgrepo-com.svg"
-                      alt="check"
-                    />
-                  </span>
+                  @if (dropDownValue === item) {
+                    <span class="flex-center">
+                      <img
+                        id="check-img"
+                        src="assets/images/check-svgrepo-com.svg"
+                        alt="check"
+                      />
+                    </span>
                   }
                 </div>
               </div>
-              }
-            </div>
+            }
           </div>
-          <div class="form-frame">
-            <div class="actions-container flex-space-between">
-              <div class="action-item">
-                <label>
-                  @if(!watchedAdisCheckedFrame){
+        </div>
+        <div class="form-frame">
+          <div class="actions-container flex-space-between">
+            <div class="action-item">
+              <label>
+                @if (!watchedAdisCheckedFrame) {
                   <input
                     [(ngModel)]="watchedAdisChecked"
                     type="checkbox"
@@ -119,7 +119,7 @@
                       watchedAdisChecked = !watchedAdisChecked
                     "
                   />
-                  }@else {
+                } @else {
                   <div class="blue-frame flex-center">
                     <input
                       [(ngModel)]="watchedAdisChecked"
@@ -132,14 +132,13 @@
                       "
                     />
                   </div>
-
-                  }
-                  <span class="flex-center">צפו במודעה</span>
-                </label>
-              </div>
-              <div class="action-item">
-                <label>
-                  @if(!saveAdisCheckedFrame){
+                }
+                <span class="flex-center">צפו במודעה</span>
+              </label>
+            </div>
+            <div class="action-item">
+              <label>
+                @if (!saveAdisCheckedFrame) {
                   <input
                     [(ngModel)]="saveAdisChecked"
                     type="checkbox"
@@ -153,7 +152,7 @@
                       saveAdisChecked = !saveAdisChecked
                     "
                   />
-                  }@else {
+                } @else {
                   <div class="blue-frame flex-center">
                     <input
                       [(ngModel)]="saveAdisChecked"
@@ -166,15 +165,14 @@
                       "
                     />
                   </div>
+                }
 
-                  }
-
-                  <span>שמרו את המודעה</span>
-                </label>
-              </div>
-              <div class="action-item">
-                <label>
-                  @if(!clickedAdisCheckedFrame){
+                <span>שמרו את המודעה</span>
+              </label>
+            </div>
+            <div class="action-item">
+              <label>
+                @if (!clickedAdisCheckedFrame) {
                   <input
                     [(ngModel)]="clickedAdisChecked"
                     type="checkbox"
@@ -188,7 +186,7 @@
                       clickedAdisChecked = !clickedAdisChecked
                     "
                   />
-                  } @else {
+                } @else {
                   <div class="blue-frame flex-center">
                     <input
                       [(ngModel)]="clickedAdisChecked"
@@ -201,25 +199,22 @@
                       "
                     />
                   </div>
-
-                  }
-                  <span> לחצו על מס׳ הטלפון</span>
-                </label>
-              </div>
+                }
+                <span> לחצו על מס׳ הטלפון</span>
+              </label>
             </div>
+          </div>
 
-            <div
-              class="decoration-box"
-              (mouseenter)="vaerticalLineIsVisible = true"
-            >
-              @if (vaerticalLineIsVisible) {
-
+          <div
+            class="decoration-box"
+            (mouseenter)="vaerticalLineIsVisible = true"
+          >
+            @if (vaerticalLineIsVisible) {
               <div
                 (mouseenter)="vaerticalLineIsVisible = false"
                 class="vertical-line"
               ></div>
-              }
-            </div>
+            }
           </div>
         </div>
         <div></div>

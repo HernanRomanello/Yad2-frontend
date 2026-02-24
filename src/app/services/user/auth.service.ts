@@ -29,7 +29,10 @@ export class AuthService implements OnInit {
   firstLetterUserEmailAddress = new ReplaySubject<string>(1);
   userNotes = new BehaviorSubject<UserNoteModel[]>([]);
 
-  constructor(private router: Router, private httpClient: HttpClient) {
+  constructor(
+    private router: Router,
+    private httpClient: HttpClient,
+  ) {
     afterNextRender(() => {
       this.access_token.next(localStorage.getItem('access_token'));
     });
@@ -56,7 +59,7 @@ export class AuthService implements OnInit {
   async register(
     email: string,
     password: string,
-    confirmPassword: string
+    confirmPassword: string,
   ): Promise<boolean> {
     const user = {
       Email: email,
@@ -161,7 +164,7 @@ export class AuthService implements OnInit {
               .sort((a, b) => b.id - a.id)
               .map((ad) => {
                 return ad;
-              })
+              }),
           );
         }
       });
@@ -217,46 +220,46 @@ export class AuthService implements OnInit {
     const milliseconds = date.getTime();
 
     NewAdvertisement.number = this.validateNumberString(
-      NewAdvertisement.number
+      NewAdvertisement.number,
     );
     NewAdvertisement.floor = this.validateNumberString(NewAdvertisement.floor);
     NewAdvertisement.totalFloors = this.validateNumberString(
-      NewAdvertisement.totalFloors
+      NewAdvertisement.totalFloors,
     );
     NewAdvertisement.airDirections = this.validateNumberString(
-      NewAdvertisement.airDirections
+      NewAdvertisement.airDirections,
     );
     NewAdvertisement.rooms = this.validateNumberString(NewAdvertisement.rooms);
     NewAdvertisement.showerRooms = this.validateNumberString(
-      NewAdvertisement.showerRooms
+      NewAdvertisement.showerRooms,
     );
     NewAdvertisement.privateParking = this.validateNumberString(
-      NewAdvertisement.privateParking
+      NewAdvertisement.privateParking,
     );
     NewAdvertisement.balconiesNumber = this.validateNumberString(
-      NewAdvertisement.balconiesNumber
+      NewAdvertisement.balconiesNumber,
     );
     NewAdvertisement.numberOfPayments = this.validateNumberString(
-      NewAdvertisement.numberOfPayments
+      NewAdvertisement.numberOfPayments,
     );
     NewAdvertisement.builtSquareMeters = this.validateNumberString(
-      NewAdvertisement.builtSquareMeters
+      NewAdvertisement.builtSquareMeters,
     );
     NewAdvertisement.gardenSquareMeters = this.validateNumberString(
-      NewAdvertisement.builtSquareMeters
+      NewAdvertisement.builtSquareMeters,
     );
     NewAdvertisement.minimumAmount = this.validateNumberString(
-      NewAdvertisement.minimumAmount
+      NewAdvertisement.minimumAmount,
     );
     NewAdvertisement.minimumAmount = this.validateNumberString(
-      NewAdvertisement.minimumAmount
+      NewAdvertisement.minimumAmount,
     );
     NewAdvertisement.builtSqpricePerMeteruareMeters = this.validateNumberString(
-      NewAdvertisement.builtSqpricePerMeteruareMeters
+      NewAdvertisement.builtSqpricePerMeteruareMeters,
     );
     NewAdvertisement.price = this.validateNumberString(NewAdvertisement.price);
     NewAdvertisement.totalSquareMeters = this.validateNumberString(
-      NewAdvertisement.totalSquareMeters
+      NewAdvertisement.totalSquareMeters,
     );
 
     const formData = {
@@ -330,20 +333,18 @@ export class AuthService implements OnInit {
         NewAdvertisement.standardizationAccepted ?? false,
     };
 
-    console.log(NewAdvertisement);
-
     this.httpClient
       .post<HttpResponse<any>>(
         `${this.Url}api/Users/CreateAdvertisement`,
         formData,
-        { observe: 'response' }
+        { observe: 'response' },
       )
       .pipe(
         map((response) => {
           if (response.status === 200 || response.status === 204) {
             this.router.navigate(['/confirmation-modal']);
           }
-        })
+        }),
       )
       .subscribe((data) => {
         this.UserAdvertisements.next([
