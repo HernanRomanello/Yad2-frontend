@@ -295,13 +295,13 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
       this.sortButtonThatAreOpen = [type, true];
     }
     this.searchSuggestionsIsOpen = false;
-    // this.updateButtonsLabels();
-    // switch (type) {
-    //   case 'propertyTypeMenu':
-    //     this.propertyTypeFilterValue =
-    //       this.searchService.propertyTypeFilterValue();
-    //     break;
-    // }
+    this.updateButtonsLabels();
+    switch (type) {
+      case 'propertyTypeMenu':
+        this.propertyTypeFilterValue =
+          this.searchService.propertyTypeFilterValue();
+        break;
+    }
   }
 
   checkTheFilter(filterType: string): boolean {

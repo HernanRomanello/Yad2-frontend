@@ -1,10 +1,20 @@
 <span (click)="clickEvent($event)">
   <div class="search-container">
     <form (submit)="onSearch()">
+      <div
+        id="additionalFiltersMenu"
+        [ngClass]="
+          checkTheFilter('additionalFiltersMenu') ? 'menu ' : 'menu hidden'
+        "
+      >
+        <app-real-estate-additional-filters
+          (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
+        ></app-real-estate-additional-filters>
+      </div>
       <div class="Search-bar">
         <div
           id="subSearchQueryBox"
-          class="input-box invalid"
+          class="desktop input-box invalid"
           (click)="openSeveralSearches()"
         >
           @if (this.locationList.length > 0 && !this.hasSelectedStreet) {
@@ -566,16 +576,6 @@
 
             סינונים נוספים
           </button>
-          <div
-            id="additionalFiltersMenu"
-            [ngClass]="
-              checkTheFilter('additionalFiltersMenu') ? 'menu ' : 'menu hidden'
-            "
-          >
-            <app-real-estate-additional-filters
-              (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
-            ></app-real-estate-additional-filters>
-          </div>
         </div>
 
         <button
@@ -595,7 +595,39 @@
     </form>
   </div>
   <span class="mobile">
-    <app-mobile-search-header />
+    <!-- <app-mobile-search-header /> -->
+    <div class="mobile-search-header">
+      <button
+        (click)="toggleMenu('additionalFiltersMenu')"
+        type="button"
+        class="icon-btn left"
+        aria-label="סינון"
+      >
+        <img
+          class="svg-icon-sort-filter"
+          src="assets/images/sort-filter.svg"
+          alt="sort filter"
+        />
+      </button>
+
+      <div class="title-wrap">
+        <span class="title">{{ title }}</span>
+      </div>
+      <span class="history-btn">
+        <button type="button" class="icon-btn right" aria-label="היסטוריה">
+          <img
+            class="svg-icon-history"
+            src="assets/images/history.svg"
+            alt="history"
+          />
+        </button>
+      </span>
+    </div>
+    <!-- <span [ngClass]="checkTheFilter('additionalFiltersMenu') ? '' : 'hidden'">
+      <app-real-estate-additional-filters
+        (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
+      ></app-real-estate-additional-filters>
+    </span> -->
   </span>
 
   <div class="title">{{ title }}</div>
