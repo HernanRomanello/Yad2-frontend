@@ -3,7 +3,7 @@
     type="button"
     class="icon-btn left"
     aria-label="סינון"
-    (click)="filterClick.emit()"
+    (click)="this.openSearch()"
   >
     <img
       class="svg-icon-sort-filter"
@@ -30,3 +30,9 @@
     </button>
   </span>
 </div>
+
+@if (this.searchFilterOpenClose) {
+  <app-real-estate-additional-filters
+    (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
+  ></app-real-estate-additional-filters>
+}

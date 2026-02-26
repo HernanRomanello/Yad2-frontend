@@ -95,23 +95,24 @@
             }}"
             *ngFor="let item of filters_.propertyFeatures; index as i"
           >
-            @if(filters[
-            propertyFeaturesHebrewToProperty[filters_.propertyFeatures[i]] ]){
-            <img
-              [id]="item"
-              class="svg-icon-selected"
-              [src]="selectSvgURLByFilter(item)"
-              alt="check"
-            />
-            }@else {
-
-            <img
-              [id]="item"
-              class="svg-icon"
-              [src]="selectSvgURLByFilter(item)"
-              alt="check"
-            />
-
+            @if (
+              filters[
+                propertyFeaturesHebrewToProperty[filters_.propertyFeatures[i]]
+              ]
+            ) {
+              <img
+                [id]="item"
+                class="svg-icon-selected"
+                [src]="selectSvgURLByFilter(item)"
+                alt="check"
+              />
+            } @else {
+              <img
+                [id]="item"
+                class="svg-icon"
+                [src]="selectSvgURLByFilter(item)"
+                alt="check"
+              />
             }
 
             <span>
@@ -202,7 +203,9 @@
       </div>
     </div>
     <footer>
-      <button class="reset-btn pointer" (click)="resetFilters()">איפוס</button>
+      <button class="reset-btn pointer" (click)="resetFilters(); close()">
+        איפוס
+      </button>
       <button
         id="ok-btn"
         class="ok-btn pointer font500 close-filter"

@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Output,
-  Renderer2,
-  inject,
-} from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 import { PropertyFilters } from '../../shared/models/Filters';
 import { NavigationService } from '../../services/navigation.service';
@@ -84,12 +77,7 @@ export class RealEstateAdditionalFiltersComponent {
 
   @Output() closeMenu = new EventEmitter<any>();
 
-  constructor(
-    private navigationService: NavigationService,
-  ) {
-  }
-
-  
+  constructor(private navigationService: NavigationService) {}
 
   close() {
     this.navigationService.searchFilterOpenClose(false);

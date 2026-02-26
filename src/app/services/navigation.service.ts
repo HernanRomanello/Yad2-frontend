@@ -11,7 +11,7 @@ export class NavigationService {
   IsSearchFilterOpen = signal<boolean>(false);
 
   searchFilterOpenClose(open: boolean) {
-    this.IsSearchFilterOpen = signal(open);
+    this.IsSearchFilterOpen.set(open);
   }
 
   navigateInNewWindow(route: string, queryParams?: any) {

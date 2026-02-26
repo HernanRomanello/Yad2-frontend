@@ -70,7 +70,7 @@ export class RealEstateResultsComponent implements OnInit {
           .pipe(
             map((apartments) => {
               return [...apartments].sort((a, b) => a.price - b.price);
-            })
+            }),
           )
           .subscribe((sortedApartments) => {
             this.$sortedApartments.next(sortedApartments) as any;
@@ -82,7 +82,7 @@ export class RealEstateResultsComponent implements OnInit {
           .pipe(
             map((apartments) => {
               return apartments.sort((a, b) => b.price - a.price) as any;
-            })
+            }),
           )
           .subscribe((sortedApartments) => {
             this.$sortedApartments.next(sortedApartments);
@@ -93,7 +93,7 @@ export class RealEstateResultsComponent implements OnInit {
           .pipe(
             map((apartments) => {
               return [...apartments].sort((a, b) => a.id - b.id);
-            })
+            }),
           )
           .subscribe((sortedApartments) => {
             this.$sortedApartments.next(sortedApartments) as any;
@@ -105,7 +105,7 @@ export class RealEstateResultsComponent implements OnInit {
           .pipe(
             map((apartments) => {
               return apartments.sort((a, b) => b.id - a.id) as any;
-            })
+            }),
           )
           .subscribe((sortedApartments) => {
             this.$sortedApartments.next(sortedApartments);
@@ -160,17 +160,18 @@ export class RealEstateResultsComponent implements OnInit {
             : 'השכרה';
 
           return advertisements.filter(
-            (ad) => ad.tradeType === tradeTypeFilter
+            (ad) => ad.tradeType === tradeTypeFilter,
           );
         }
+
         const filters = this.searchService.getFilters();
         let booleanFilters: { [key: string]: FilterValue } = Object.keys(
-          filters
+          filters,
         )
           .filter(
             (key: string) =>
               typeof (filters as any)[key] === 'boolean' ||
-              typeof (filters as any)[key] === 'undefined'
+              typeof (filters as any)[key] === 'undefined',
           )
           .reduce((acc: any, key: string) => {
             acc[key] = (filters as any)[key];
@@ -191,22 +192,22 @@ export class RealEstateResultsComponent implements OnInit {
               return (ad as any)[key] === booleanFilters[key];
             }
             return true;
-          })
+          }),
         );
         ads = ads.filter(
           (ad) =>
             ad.builtSquareMeters >= aptSizeMin &&
-            ad.builtSquareMeters <= aptSizeMax
+            ad.builtSquareMeters <= aptSizeMax,
         );
         ads = ads.filter(
-          (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax
+          (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax,
         );
 
         if (selectedPropertyTypes.length > 0) {
           ads = ads.filter((ad) =>
             selectedPropertyTypes
               .map((type) => type.trim())
-              .includes(ad.assetType.trim())
+              .includes(ad.assetType.trim()),
           );
         }
 
@@ -214,7 +215,7 @@ export class RealEstateResultsComponent implements OnInit {
           ads = ads.filter(
             (ad) =>
               ad.price >= selectedPriceRange[0] &&
-              ad.price <= selectedPriceRange[1]
+              ad.price <= selectedPriceRange[1],
           );
         }
         if (selectedRoomsAmount.length > 0) {
@@ -226,7 +227,7 @@ export class RealEstateResultsComponent implements OnInit {
           ads = ads.filter(
             (ad) =>
               ad.city === this.searchService.selectedCityText.value &&
-              ad.street === this.searchService.selectedStreetText.value
+              ad.street === this.searchService.selectedStreetText.value,
           );
         } else if (this.searchService.locationSubject.value.length > 0) {
           of(ads)
@@ -250,7 +251,7 @@ export class RealEstateResultsComponent implements OnInit {
                   });
                   return acc;
                 }, [] as any[]);
-              })
+              }),
             )
             .subscribe((filteredAds) => {
               ads = filteredAds;
@@ -266,7 +267,7 @@ export class RealEstateResultsComponent implements OnInit {
         }
         if (filters.hasPrivateParking) {
           ads = ads.filter(
-            (ad) => ad.hasPrivateParking === filters.hasPrivateParking
+            (ad) => ad.hasPrivateParking === filters.hasPrivateParking,
           );
         }
         if (filters.safeRoom) {
@@ -277,7 +278,7 @@ export class RealEstateResultsComponent implements OnInit {
         }
         if (filters.airConditioner) {
           ads = ads.filter(
-            (ad) => ad.airConditioning === filters.airConditioner
+            (ad) => ad.airConditioning === filters.airConditioner,
           );
         }
         if (filters.storageRoom) {
@@ -288,7 +289,7 @@ export class RealEstateResultsComponent implements OnInit {
         }
         if (filters.accessibleForDisabled) {
           ads = ads.filter(
-            (ad) => ad.accessibleForDisabled === filters.accessibleForDisabled
+            (ad) => ad.accessibleForDisabled === filters.accessibleForDisabled,
           );
         }
         if (filters.windowBars) {
@@ -305,13 +306,13 @@ export class RealEstateResultsComponent implements OnInit {
         }
 
         return ads;
-      }
-    )
+      },
+    ),
   );
 
   isFavorite(advertisementId: number): boolean {
     return this.authSerivce.UserFavoriteAdvertisements.value.some(
-      (ad) => ad.id === advertisementId
+      (ad) => ad.id === advertisementId,
     );
   }
 }

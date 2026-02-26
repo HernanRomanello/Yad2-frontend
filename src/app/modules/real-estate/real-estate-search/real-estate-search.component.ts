@@ -289,21 +289,19 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
 
   toggleMenu(type: string) {
     const [currentType, currentState] = this.sortButtonThatAreOpen;
-
     if (currentType === type) {
       this.sortButtonThatAreOpen = [type, !currentState];
     } else {
       this.sortButtonThatAreOpen = [type, true];
     }
     this.searchSuggestionsIsOpen = false;
-    this.updateButtonsLabels();
-    switch (type) {
-      case 'propertyTypeMenu':
-        this.propertyTypeFilterValue =
-          this.searchService.propertyTypeFilterValue();
-
-        break;
-    }
+    // this.updateButtonsLabels();
+    // switch (type) {
+    //   case 'propertyTypeMenu':
+    //     this.propertyTypeFilterValue =
+    //       this.searchService.propertyTypeFilterValue();
+    //     break;
+    // }
   }
 
   checkTheFilter(filterType: string): boolean {

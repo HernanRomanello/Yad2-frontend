@@ -10,6 +10,8 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 9999;
+
+  /* /// לשנות צבע ללבן  */
 }
 
 #x-icon {
@@ -442,4 +444,26 @@ footer button,
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 883px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+  .overlay {
+    background-color: #ffffff;
+  }
+
+  .filter-options {
+    height: 100vh;
+    width: 100vw;
+  }
 }
