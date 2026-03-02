@@ -147,3 +147,19 @@
   background-color: black;
   opacity: 1;
 }
+
+@media (max-width: 883px) {
+  .price-container,
+  .price-slider-select,
+  .price,
+  .slider,
+  .price-slider-no-bg {
+    width: calc(100vw - 3rem) !important;
+  }
+
+  .slider {
+    padding: 2rem 0;
+    transform: translateX(-42px);
+    width: calc(100vw - 5rem) !important;
+  }
+}

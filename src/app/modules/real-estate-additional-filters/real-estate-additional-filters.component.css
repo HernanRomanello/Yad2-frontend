@@ -303,7 +303,7 @@ footer button,
   border: 1px solid rgb(211, 211, 211);
   border-radius: 3.92px;
   text-align: right;
-  width: 145px;
+  max-width: 145px;
   height: 40.25px;
 }
 
@@ -329,7 +329,7 @@ footer button,
 .features {
   display: grid;
   justify-content: space-between;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   padding: 12px 0px 24px;
 }
@@ -452,7 +452,35 @@ footer button,
 
 @media (max-width: 883px) {
   .desktop {
-    display: none;
+    display: none !important;
+  }
+
+  .feature {
+    max-width: 48vw;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header.flex-center {
+    background-color: #ffffff !important;
+    width: calc(100vw) !important;
+
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .body > *,
+  .text-serch > * {
+    width: calc(100vw - 4rem) !important;
+  }
+
+  .date-input {
+    width: 40vw;
+  }
+
+  .mobile.main-title {
+    font-size: 16px;
   }
 
   .mobile {
