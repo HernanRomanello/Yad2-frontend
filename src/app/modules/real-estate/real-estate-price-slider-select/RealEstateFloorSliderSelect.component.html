@@ -6,9 +6,11 @@
       [value]="values[selectedEndIndex]"
       (input)="manualSelectMaxPrice($event)"
     >
-      <option *ngFor="let floors of values" [value]="floors">
-        {{ floors }}
-      </option>
+      <span class="options">
+        <option *ngFor="let floors of values" [value]="floors">
+          {{ floors }}
+        </option>
+      </span>
     </select>
 
     <span class="hyphen"></span>
