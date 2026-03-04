@@ -756,6 +756,9 @@ i,
 }
 
 @media (width < 883px) {
+  #propertyRoomMenu {
+    display: none;
+  }
   .mobile-search-header {
     height: 44px;
     width: calc(100%-2rem);

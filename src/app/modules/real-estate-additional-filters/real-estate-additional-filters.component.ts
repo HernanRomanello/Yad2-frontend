@@ -46,6 +46,14 @@ export class RealEstateAdditionalFiltersComponent {
   aptSizeRange: [number, number] = [0, 500];
   floorsRange: [string, string] = ['0', '18'];
 
+  onRoomsAmountSelected(roomsAmount: string[]) {
+    const minRooms = Math.min(...roomsAmount.map((room) => parseFloat(room)));
+    const maxRooms = Math.max(...roomsAmount.map((room) => parseFloat(room)));
+
+    this.searchService.minRooms.set(minRooms);
+    this.searchService.maxRooms.set(maxRooms);
+  }
+
   filters: any = {
     hasImage: undefined,
     moshavOrKibutz: undefined,

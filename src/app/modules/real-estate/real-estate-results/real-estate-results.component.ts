@@ -149,7 +149,6 @@ export class RealEstateResultsComponent implements OnInit {
         selectedPropertyTypes,
         selectedPriceRange,
         selectedTradeType,
-        selectedRoomsAmount,
       ]) => {
         isFakeTouchstartFromScreenReader;
         if (this.searchService.needToMakeResetFilters()) {
@@ -217,9 +216,6 @@ export class RealEstateResultsComponent implements OnInit {
               ad.price >= selectedPriceRange[0] &&
               ad.price <= selectedPriceRange[1],
           );
-        }
-        if (selectedRoomsAmount.length > 0) {
-          ads = ads.filter((ad) => selectedRoomsAmount.includes(ad.rooms));
         }
 
         ads = ads.filter((ad) => ad.tradeType === selectedTradeType);
@@ -303,6 +299,24 @@ export class RealEstateResultsComponent implements OnInit {
         }
         if (filters.petsAllowed) {
           ads = ads.filter((ad) => ad.forRoommates === filters.forRoommates);
+        }
+
+        if (this.searchService.minRooms() !== 0) {
+          ads = ads.filter((ad) => {
+            const rooms = parseFloat(ad.rooms);
+            console.log(rooms);
+            return !isNaN(rooms) && rooms >= this.searchService.minRooms();
+          });
+        }
+
+        if (
+          this.searchService.maxRooms() !== 0 &&
+          this.searchService.maxRooms() !== 6
+        ) {
+          ads = ads.filter((ad) => {
+            const rooms = parseFloat(ad.rooms);
+            return !isNaN(rooms) && rooms <= this.searchService.maxRooms();
+          });
         }
 
         return ads;

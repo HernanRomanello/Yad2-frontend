@@ -451,6 +451,15 @@ footer button,
 }
 
 @media (max-width: 883px) {
+  .line,
+  .line2 {
+    width: calc(100vw - 3rem);
+  }
+
+  .sub-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
   .desktop {
     display: none !important;
   }

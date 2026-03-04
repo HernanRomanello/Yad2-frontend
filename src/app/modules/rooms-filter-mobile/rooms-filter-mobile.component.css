@@ -3,17 +3,11 @@
   justify-content: space-between;
   flex-direction: row-reverse;
   padding: 18px;
-  height: 74px;
-  width: 514px;
-  border: 1px solid rgb(238, 238, 238);
-  margin: 10px 0px 0px;
-  padding: 18px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  border-radius: 12px;
+
+  width: calc(100vw - 3rem) !important;
+
   direction: ltr;
   z-index: 100 !important;
-  background-color: white;
-  transform: translateX(25%);
 }
 
 .rooms-select button,
@@ -22,15 +16,15 @@
   background-color: white;
   border: 1px solid #cccccc;
   border-radius: 50%;
-  height: 36px;
-  width: 36px;
+  height: 42px;
+  width: 42px;
 }
 
 .selected {
   border: 1px solid #ff7100;
 }
 
-.container-selected {
+.mobileContainerSelected {
   background-color: rgb(255, 250, 245);
   border: 1px solid #ff7137;
   display: flex;
@@ -41,41 +35,48 @@
   align-items: center;
   justify-content: center;
   border-radius: 16px;
+  display: none !important;
 }
 
-.button-css {
+.mobileButtonCss {
   cursor: pointer;
   border: 1px solid #cccccc;
   border-radius: 50%;
-  height: 36px;
-  width: 36px;
+  height: 42px;
+  width: 42px;
   background: none;
 }
 
 .mobile {
   display: none;
 }
-/* 
+
 @media (max-width: 883px) {
   .desktop {
     display: none;
   }
 
+  .rooms-select {
+    margin-bottom: 2rem !important;
+  }
+
   .mobile {
     display: block;
   }
-
-  .rooms-select button,
-  .room-btn {
-    height: 42px;
-    width: 42px;
+}
+@media (max-width: 586px) {
+  .rooms-select {
+    width: calc(100vw - 2rem) !important;
+    margin: auto;
+    gap: 4px !important;
   }
 
   .rooms-select {
-    border: unset;
-
-    box-shadow: unset;
-
-    transform: unset;
+    padding: 1rem 0 1rem 1rem !important;
   }
-} */
+
+  .mobileButtonCss {
+    height: 36px;
+    width: 36px;
+  }
+}

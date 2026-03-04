@@ -6,20 +6,20 @@ import {
   ViewChild,
 } from '@angular/core';
 
-const buttonCss = {
+const mobileButtonCss = {
   cursor: 'pointer',
   border: '1px solid #cccccc',
   'border-radius': '50%',
-  height: '36px',
-  width: '36px',
+  height: '42px',
+  width: '42px',
   background: 'none',
 };
 
-const containerSelected = {
+const mobileContainerSelected = {
   'background-color': 'rgb(255,250,245)',
   border: '1px solid #FF7137',
   display: 'flex',
-  padding: '2px 6px',
+  padding: '2px 16px',
   direction: 'rtl',
   overflow: 'hidden',
   flexDirection: 'row',
@@ -29,18 +29,18 @@ const containerSelected = {
 };
 
 @Component({
-  selector: 'app-real-estate-rooms-amount',
-  templateUrl: './real-estate-rooms-amount.component.html',
-  styleUrl: './real-estate-rooms-amount.component.css',
+  selector: 'app-rooms-filter-mobile',
+  templateUrl: './rooms-filter-mobile.component.html',
+  styleUrl: './rooms-filter-mobile.component.css',
 })
-export class RealEstateRoomsAmountComponent {
+export class RoomsFilterMobileComponent {
   selectedRooms: string[] = [];
   rooms = ['1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5', '5.5', '+6'];
 
   selectedRoom_1: string | undefined;
   selectedRoom_2: string | undefined;
 
-  @ViewChild('bar') bar!: ElementRef;
+  @ViewChild('Mobilebar') Mobilebar!: ElementRef;
   @Output() propertyRoomSelected = new EventEmitter<string[]>();
 
   emit() {
@@ -83,18 +83,20 @@ export class RealEstateRoomsAmountComponent {
       (this.selectedRoom_1 && !this.selectedRoom_2) ||
       (this.selectedRoom_1 === this.selectedRoom_2 && this.selectedRoom_1)
     ) {
-      this.bar.nativeElement.innerHTML = '';
+      this.Mobilebar.nativeElement.innerHTML = '';
 
       for (let i = 0; i < this.rooms.length; i++) {
         let div = document.createElement('button');
         div.classList.add('room-btn');
-        div.id = `btn-${this.rooms[i]}`;
+        div.id = `mobile-btn-${this.rooms[i]}`;
         div.innerText = this.rooms[i];
-        Object.assign(div.style, buttonCss);
+        Object.assign(div.style, mobileButtonCss);
         div.addEventListener('click', () => this.onSelectRoom(this.rooms[i]));
-        this.bar.nativeElement.appendChild(div);
+        this.Mobilebar.nativeElement.appendChild(div);
       }
-      const button = document.getElementById(`btn-${this.selectedRoom_1}`);
+      const button = document.getElementById(
+        `mobile-btn-${this.selectedRoom_1}`,
+      );
 
       if (button) {
         button.style.border = '1px solid #FF7137';
@@ -103,7 +105,7 @@ export class RealEstateRoomsAmountComponent {
     }
 
     if (this.selectedRoom_1 && this.selectedRoom_2) {
-      this.bar.nativeElement.innerHTML = '';
+      this.Mobilebar.nativeElement.innerHTML = '';
       let index1 = this.rooms.indexOf(this.selectedRoom_1);
       let index2 = this.rooms.indexOf(this.selectedRoom_2);
       let start = Math.min(index1, index2);
@@ -112,42 +114,43 @@ export class RealEstateRoomsAmountComponent {
       for (let i = 0; i < start; i++) {
         let div = document.createElement('button');
         div.classList.add('room-btn');
-        div.id = `btn-${this.rooms[i]}`;
+        div.id = `mobile-btn-${this.rooms[i]}`;
         div.innerText = this.rooms[i];
-        Object.assign(div.style, buttonCss);
+        Object.assign(div.style, mobileButtonCss);
         div.addEventListener('click', () => this.onSelectRoom(this.rooms[i]));
-        this.bar.nativeElement.appendChild(div);
+        this.Mobilebar.nativeElement.appendChild(div);
       }
       let containerSpecial = document.createElement('div');
-      Object.assign(containerSpecial.style, containerSelected);
+      Object.assign(containerSpecial.style, mobileContainerSelected);
       for (let i = start; i <= end; i++) {
         let div = document.createElement('button');
         div.classList.add('room-btn');
-        div.id = `btn-${this.rooms[i]}`;
+        div.id = `mobile-btn-${this.rooms[i]}`;
         div.addEventListener('click', () => this.onSelectRoom(this.rooms[i]));
         div.innerText = this.rooms[i];
         containerSpecial.appendChild(div);
-        Object.assign(div.style, buttonCss);
+        Object.assign(div.style, mobileButtonCss);
         const dif = end - start;
+
         if (dif === 10) {
-          Object.assign(div.style, { width: `${dif * 4.2}px` });
+          Object.assign(div.style, { width: `${dif * 4.2}vw` });
         } else if (dif > 7) {
-          Object.assign(div.style, { width: `${dif * 5}px` });
+          Object.assign(div.style, { width: `${dif * 5}vw` });
         }
 
         div.style.border = 'none';
       }
-      this.bar.nativeElement.appendChild(containerSpecial);
+      this.Mobilebar.nativeElement.appendChild(containerSpecial);
 
       for (let i = end + 1; i < this.rooms.length; i++) {
         let div = document.createElement('button');
         div.classList.add('room-btn');
         div.addEventListener('click', () => this.onSelectRoom(this.rooms[i]));
-        div.id = `btn-${this.rooms[i]}`;
+        div.id = `mobile-btn-${this.rooms[i]}`;
         div.innerText = this.rooms[i];
-        Object.assign(div.style, buttonCss);
+        Object.assign(div.style, mobileButtonCss);
 
-        this.bar.nativeElement.appendChild(div);
+        this.Mobilebar.nativeElement.appendChild(div);
       }
     }
   }

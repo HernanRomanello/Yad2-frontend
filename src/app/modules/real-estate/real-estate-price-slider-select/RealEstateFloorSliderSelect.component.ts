@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SliderModule } from 'primeng/slider';
 
 import { formatPrice } from '../../../pipes/utilities.pipe';
-import { CdkVirtualForOf } from '@angular/cdk/scrolling';
+// import { CdkVirtualForOf } from '@angular/cdk/scrolling';
 @Component({
   selector: 'app-real-estate-price-slider-select',
   templateUrl: './RealEstateFloorSliderSelect.component.html',
@@ -16,7 +16,7 @@ import { CdkVirtualForOf } from '@angular/cdk/scrolling';
     MatIconModule,
     SliderModule,
     FormsModule,
-    CdkVirtualForOf,
+    // CdkVirtualForOf,
   ],
 })
 export class RealEstatePriceSliderSelectComponent {

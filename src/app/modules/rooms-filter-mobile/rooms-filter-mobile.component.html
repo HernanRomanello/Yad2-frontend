@@ -1,0 +1,12 @@
+<span class="mobile">
+  <div class="rooms-select" #Mobilebar>
+    <button
+      *ngFor="let room of rooms"
+      class="room-btn"
+      id="mobile-btn-{{ room }}"
+      (click)="onSelectRoom(room)"
+    >
+      {{ room }}
+    </button>
+  </div>
+</span>

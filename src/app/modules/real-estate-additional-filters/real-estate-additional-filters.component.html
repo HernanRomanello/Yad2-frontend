@@ -184,6 +184,13 @@
         </div>
         <div class="line2"></div>
 
+        <div class="mobile">
+          <div class="sub-title">חדרים</div>
+          <app-rooms-filter-mobile
+            (propertyRoomSelected)="onRoomsAmountSelected($event)"
+          ></app-rooms-filter-mobile>
+        </div>
+
         <div class="date-container">
           <div class="title">תאריך כניסה</div>
           <div class="date">
