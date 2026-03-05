@@ -9,6 +9,7 @@ import { NavigationService } from '../../services/navigation.service';
   styleUrl: './real-estate-additional-filters.component.css',
 })
 export class RealEstateAdditionalFiltersComponent {
+  tradeType: 'השכרה' | 'מכירה' = 'מכירה';
   searchService = inject(SearchService);
   filters_ = {
     propertyFeatures: [
@@ -52,6 +53,21 @@ export class RealEstateAdditionalFiltersComponent {
 
     this.searchService.minRooms.set(minRooms);
     this.searchService.maxRooms.set(maxRooms);
+  }
+
+  selectTradeType(option: string) {
+    if (option === 'מכירה') {
+      this.searchService.forSale.set(true);
+      this.searchService.forRent.set(false);
+      this.tradeType = 'מכירה';
+      this.searchService.emitSelectedTradeType('מכירה');
+    } else if (option === 'השכרה') {
+      this.searchService.forSale.set(false);
+      this.searchService.forRent.set(true);
+      this.tradeType = 'השכרה';
+      this.searchService.emitSelectedTradeType('השכרה');
+    }
+    this.searchService.needToMakeResetFilters.set(true);
   }
 
   filters: any = {

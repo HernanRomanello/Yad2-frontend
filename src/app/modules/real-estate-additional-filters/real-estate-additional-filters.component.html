@@ -11,8 +11,24 @@
       <div class="desktop main-title font18 font500">סינונים נוספים</div>
       <div class="mobile main-title">חיפוש נדל״ן</div>
     </header>
-    <!-- <div class="border"></div> -->
     <div class="body column flex">
+      <div class="mobile">
+        <div class="title font500 font16">סוג עסקה</div>
+
+        <div class="trade-type-tabs">
+          <span
+            [class.selected]="tradeType === 'השכרה'"
+            (click)="selectTradeType('השכרה')"
+            >השכרה</span
+          >
+
+          <span
+            [class.selected]="tradeType === 'מכירה'"
+            (click)="selectTradeType('מכירה')"
+            >מכירה</span
+          >
+        </div>
+      </div>
       <div class="add-block1 flex column">
         <span class="title font16 font500 translateY">מאפייני מודעה</span>
         <div class="add-checkboxs">

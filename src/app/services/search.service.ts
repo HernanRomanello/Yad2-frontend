@@ -65,6 +65,8 @@ export class SearchService {
   setFilters(filters: PropertyFilters) {
     this.propertyFilters = filters;
 
+    console.log(this.propertyFilters);
+
     this.propertyFilters.floorsRange = [
       this.minFloor().toString(),
       this.maxFloor().toString(),

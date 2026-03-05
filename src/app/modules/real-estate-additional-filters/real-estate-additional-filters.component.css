@@ -227,7 +227,8 @@ input[type="checkbox"],
 footer button,
 .pointer,
 .feature,
-.asset-stete-checkBox {
+.asset-stete-checkBox,
+.trade-type-tabs > span {
   cursor: pointer;
 }
 
@@ -300,16 +301,19 @@ footer button,
 
 .feature {
   padding: 7px 14px;
-  border: 1px solid rgb(211, 211, 211);
   border-radius: 3.92px;
   text-align: right;
   max-width: 145px;
   height: 40.25px;
 }
+.feature,
+.trade-type-tabs > span {
+  border: 1px solid rgb(211, 211, 211);
+}
 
 .selected,
 .feature:hover {
-  border: 1px solid #ff7100;
+  border: 1px solid #ff7100 !important;
 }
 .selected {
   background-color: #fffaf5;
@@ -401,10 +405,13 @@ footer button,
 .text-serch input[type="text"] {
   margin-top: 8px;
   line-height: 18.4px;
-  height: 42px !important;
   padding: 0px 11px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 4px;
+}
+.text-serch input[type="text"],
+.trade-type-tabs {
+  height: 42px !important;
 }
 .text-serch input[type="text"]:focus {
   outline: none;
@@ -432,6 +439,7 @@ footer button,
   gap: 10px;
   padding: 10px 0px;
   display: flex;
+
   justify-content: start;
 }
 
@@ -440,10 +448,15 @@ footer button,
   align-items: center !important;
 }
 
-.date-checkbox {
+.date-checkbox,
+.trade-type-tabs > span {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+}
+
+.trade-type-tabs {
+  margin-top: 0.5rem;
 }
 
 .mobile {
@@ -452,13 +465,24 @@ footer button,
 
 @media (max-width: 883px) {
   .line,
-  .line2 {
+  .line2,
+  .trade-type-tabs {
     width: calc(100vw - 3rem);
   }
 
   .sub-title {
-    font-size: 16px;
     font-weight: 700;
+  }
+  .sub-title,
+  .trade-type-tabs > span {
+    font-size: 16px;
+  }
+
+  .trade-type-tabs > :first-child {
+    border-radius: 0 8px 8px 0;
+  }
+  .trade-type-tabs > :last-child {
+    border-radius: 8px 0 0 8px;
   }
   .desktop {
     display: none !important;
@@ -468,8 +492,12 @@ footer button,
     max-width: 48vw;
   }
 
-  .features {
+  .features,
+  .trade-type-tabs {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .trade-type-tabs {
+    display: grid;
   }
 
   header.flex-center {

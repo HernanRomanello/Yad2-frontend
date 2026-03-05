@@ -12,9 +12,9 @@
         ></app-real-estate-additional-filters>
       </div>
       <div class="Search-bar">
-        <div
+        <!-- <div
           id="subSearchQueryBox"
-          class="desktop input-box invalid"
+          class="desktop input-box "
           (click)="openSeveralSearches()"
         >
           @if (this.locationList.length > 0 && !this.hasSelectedStreet) {
@@ -35,7 +35,7 @@
                   : 'translateY(0%)',
               }"
             >
-              <div class="box-wrapper">
+              <div class="">
                 <div
                   style="padding-right: 0.25rem"
                   [ngStyle]="{
@@ -388,8 +388,8 @@
               }
             </div>
           }
-        </div>
-
+        </div> -->
+        <app-sub-search-query-box />
         <div class="menu-container">
           <button
             class="search-button hover-btn-background"
@@ -595,7 +595,6 @@
     </form>
   </div>
   <span class="mobile">
-    <!-- <app-mobile-search-header /> -->
     <div class="mobile-search-header">
       <button
         (click)="toggleMenu('additionalFiltersMenu')"
@@ -623,11 +622,6 @@
         </button>
       </span>
     </div>
-    <!-- <span [ngClass]="checkTheFilter('additionalFiltersMenu') ? '' : 'hidden'">
-      <app-real-estate-additional-filters
-        (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
-      ></app-real-estate-additional-filters>
-    </span> -->
   </span>
 
   <div class="title">{{ title }}</div>

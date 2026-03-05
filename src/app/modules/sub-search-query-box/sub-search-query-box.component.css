@@ -1,0 +1,296 @@
+#subSearchQueryBox,
+#subSearchQuery {
+  display: flex;
+}
+
+#subSearchQueryBox,
+#subSearchQuery {
+  flex-direction: column;
+}
+
+.input-box {
+  height: 44.4px;
+  border-left: 1px solid #dcdcdc;
+  padding: 0 0.5rem 0 1rem;
+}
+.input-box {
+  display: flex;
+  justify-content: center;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-search {
+  border-radius: 30px;
+}
+
+.input-search {
+  max-width: 280px;
+  width: 20vw;
+  height: 44.4px;
+  padding: 12px;
+}
+
+.input-search,
+.input-search:focus {
+  border: 1px solid #cccccc;
+}
+
+.input-search,
+.input-search:focus,
+.sub-search,
+.sub-search:focus {
+  outline: none !important;
+}
+
+.sub-search,
+.sub-search:focus {
+  border: transparent;
+}
+
+#searchQuery,
+.input-search::placeholder,
+.search-suggestion,
+.title-locationSuggestions,
+.sub-search,
+.select-btn,
+.reset-btn {
+  font-size: 16px;
+}
+
+.title-locationSuggestions {
+  padding: 0 20px !important;
+}
+
+.search-suggestion {
+  padding: 20px 16px !important;
+}
+
+.input-search::placeholder,
+.type-btn,
+.select-btn,
+.reset-btn,
+.sub-search {
+  font-size: 16px !important;
+}
+.input-search::placeholder,
+.sub-search::placeholder {
+  color: rgb(153, 153, 153, 0.8) !important;
+}
+
+.search-suggestions {
+  position: absolute;
+}
+
+.suggestion-location {
+  padding: 0 4px;
+}
+
+.location-list,
+.search-suggestion,
+#locationSuggestion,
+.title-locationSuggestions {
+  align-items: center;
+}
+#subSearchQuery {
+  gap: 0.5rem;
+}
+
+.reset-btn:hover,
+i {
+  color: #363636;
+}
+
+.filters-btns {
+  justify-content: space-between;
+}
+
+.filters-btns {
+  height: 47px;
+}
+.filters-btns {
+  border-top: solid 1px #eeeeee;
+}
+
+.remove-btn,
+#locationSuggestion,
+.select-btn,
+.search-suggestion,
+.reset-btn,
+.option {
+  cursor: pointer;
+}
+
+.comma,
+.word-space {
+  margin-left: 0.25rem;
+}
+
+.reset-btn {
+  color: #999999;
+}
+
+#locationSuggestion {
+  font-weight: 600;
+}
+
+#locationSuggestion {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.select-btn,
+#selected-street {
+  font-weight: bold;
+}
+
+.reset-btn,
+.select-btn {
+  padding: 4px 8px;
+  margin: 4px 10px;
+}
+
+.select-btn {
+  color: #ff7e17;
+}
+
+#locationSuggestion:hover,
+.gray-color,
+#street-option:hover,
+#neighborhood-option:hover,
+#city-option:hover,
+#area-option:hover,
+#selected-street:hover {
+  background-color: #f8f8f8 !important;
+}
+
+#selected-street {
+  height: 42.358px !important;
+}
+
+.location-arrow-img,
+.history-img {
+  width: 24px;
+  height: 24px;
+}
+.remove-btn {
+  width: 14px;
+  height: 14px;
+  transform: scale(1.5);
+}
+
+.location-list,
+.search-suggestion,
+#locationSuggestion,
+.title-locationSuggestions {
+  display: flex;
+}
+
+.fit-hieght {
+  height: unset !important;
+  height: fit-content !important;
+}
+
+.sub-search,
+.sub-search:focus {
+  border: transparent;
+}
+
+.location-list {
+  justify-content: center;
+}
+
+.location-list {
+  font-weight: 400;
+}
+
+.location-list {
+  width: fit-content;
+}
+
+.location-list {
+  border-radius: 30px;
+}
+
+.location-list {
+  background-color: rgb(238, 238, 238);
+}
+
+.locations {
+  display: grid;
+  gap: 0.25rem;
+  grid-template-columns: repeat(2, auto);
+  direction: rtl;
+  justify-content: flex-start;
+  width: 280px;
+  margin: 1rem;
+}
+
+.instruction-title {
+  font-weight: bold;
+}
+
+.instruction-title {
+  line-height: 16.1px !important;
+  margin: 1rem;
+  color: rgb(130, 130, 130);
+}
+
+.title-locationSuggestion {
+  font-size: 16px;
+  height: 38.3906px;
+  padding: 10px 20px;
+}
+
+.title-locationSuggestions {
+  background-color: #eeeeee;
+}
+
+.title-locationSuggestion,
+.title-locationSuggestions {
+  font-weight: 600;
+}
+
+.search-suggestion,
+.title-locationSuggestion,
+.title-locationSuggestions {
+  width: 320px;
+}
+
+.search-suggestions {
+  z-index: 200 !important;
+}
+
+#neighborhood-option,
+.search-suggestions,
+#street-option,
+#area-option,
+#city-option,
+#selected-street {
+  background-color: #ffffff !important;
+}
+
+#street-option,
+#area-option,
+#city-option,
+#neighborhood-option {
+  font-weight: 300 !important;
+}
+
+.search-suggestions {
+  height: fit-content !important;
+}
+
+.search-suggestions {
+  top: 54px;
+  right: 8px;
+  z-index: 100;
+}
+.search-suggestions {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.search-suggestions {
+  border-radius: 12px;
+}
