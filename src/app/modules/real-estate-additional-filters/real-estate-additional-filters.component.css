@@ -464,6 +464,9 @@ footer button,
 }
 
 @media (max-width: 883px) {
+  .body > :first-child {
+    margin-top: 4rem !important;
+  }
   .line,
   .line2,
   .trade-type-tabs {

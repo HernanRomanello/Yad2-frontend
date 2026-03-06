@@ -338,6 +338,37 @@
     display: block;
   }
 
+  .input-search {
+    border-radius: 7px;
+  }
+
+  .search-suggestions {
+    top: 50px;
+    right: -1px;
+  }
+
+  #subSearchQueryBox,
+  #subSearchQueryBox > *,
+  #subSearchQueryBox > * > * {
+    width: calc(100vw - 3rem);
+  }
+
+  .search-suggestions {
+    right: 0px;
+  }
+
+  .input-search {
+    max-width: 98vw;
+    height: 46px;
+  }
+  #subSearchQueryBox {
+    margin: 1rem 0;
+  }
+
+  .input-box {
+    border: none;
+  }
+
   .desktop {
     display: none;
   }
