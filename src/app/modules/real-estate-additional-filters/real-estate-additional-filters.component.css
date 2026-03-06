@@ -534,4 +534,12 @@ footer button,
     height: 100vh;
     width: 100vw;
   }
+
+  .ok-btn,
+  #ok-btn {
+    width: calc(100vw - 3rem);
+    background-color: #ff7100 !important;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+  }
 }

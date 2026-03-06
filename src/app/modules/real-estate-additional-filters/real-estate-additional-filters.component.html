@@ -232,7 +232,10 @@
       </div>
     </div>
     <footer>
-      <button class="reset-btn pointer" (click)="resetFilters(); close()">
+      <button
+        class="desktop reset-btn pointer"
+        (click)="resetFilters(); close()"
+      >
         איפוס
       </button>
       <button
@@ -240,7 +243,8 @@
         class="ok-btn pointer font500 close-filter"
         (click)="searchService.setFilters(filters); close()"
       >
-        אישור
+        <span class="desktop"> אישור </span>
+        <span class="mobile"> חיפוש </span>
       </button>
     </footer>
   </div>
