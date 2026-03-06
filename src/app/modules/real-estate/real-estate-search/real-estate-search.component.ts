@@ -84,6 +84,7 @@ export class RealEstateSearchComponent implements OnDestroy {
 
       if (!hasClass) {
         // this.searchSuggestionsIsOpen = false;
+        this.searchService.searchSuggestionsIsOpen.set(false);
       }
     }
   }
@@ -116,43 +117,6 @@ export class RealEstateSearchComponent implements OnDestroy {
     }
   }
 
-  // resetSearchInput() {
-  //   this.searchSuggestionsIsOpen = false;
-  //   this.hasSelectedStreet = false;
-  //   this.selectedCities = [];
-  //   this.locationList = [];
-  //   this.firstLocationIsArea = false;
-  //   this.hasSelectedLocation = false;
-  //   this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
-  //   this.historyLocationSearchIsOpen = true;
-  //   this.searchService.emitSelectedFreecityText('');
-  //   this.searchService.emitSelectedStreetFunc('');
-  // }
-
-  // resetSearchInputLocation() {
-  //   this.hasSelectedStreet = false;
-  //   this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
-  //   this.selectedCities = [];
-  //   this.searchService.emitSelectedFreecityText('');
-  //   this.searchService.emitSelectedStreetFunc('');
-  // }
-
-  // openSeveralSearches() {
-  //   setTimeout(() => {
-  //     this.searchSuggestionsIsOpen = true;
-  //   }, 50);
-  // }
-
-  // getStreetSuggestions(substring: string): Street[] {
-  //   return this.streetList.filter((street) => {
-  //     const value = street.Street_Name;
-  //     return (
-  //       typeof value === 'string' &&
-  //       value.toLowerCase().includes(substring.toLowerCase())
-  //     );
-  //   });
-  // }
-
   toggleMenu(type: string) {
     const [currentType, currentState] = this.sortButtonThatAreOpen;
     if (currentType === type) {
@@ -161,6 +125,7 @@ export class RealEstateSearchComponent implements OnDestroy {
       this.sortButtonThatAreOpen = [type, true];
     }
     // this.searchSuggestionsIsOpen = false;
+    // this.searchService.searchSuggestionsIsOpen.set(false);
     this.updateButtonsLabels();
     switch (type) {
       case 'propertyTypeMenu':
@@ -182,13 +147,6 @@ export class RealEstateSearchComponent implements OnDestroy {
     }
   }
 
-  // calculateArrayLength(array: any[]): number {
-  //   if (!(array.length > 0)) {
-  //     return 0;
-  //   }
-  //   return array.length;
-  // }
-
   applyFilter(option: 'מכירה' | 'השכרה') {
     this.searchService.needToMakeResetFilters.set(true);
     this.selectedOption = option;
@@ -205,20 +163,6 @@ export class RealEstateSearchComponent implements OnDestroy {
     this.searchService.emitSelectedTradeType(option);
   }
 
-  // setSearchValues(city: string, street: string) {
-  //   if (this.hasSelectedStreet) {
-  //     this.selectedStreetAndCitySearchTexts.city = city;
-  //     this.selectedStreetAndCitySearchTexts.street = street;
-  //   }
-  // }
-  // reduceTextLength(text: string, length: number) {
-  //   const Text = this.addSpaceAfterComma(text);
-  //   if (Text.length > length) {
-  //     return text.slice(0, length) + '...';
-  //   }
-  //   return Text;
-  // }
-
   addSpaceAfterComma(text: string) {
     const commaIndex = text.indexOf(',');
     if (commaIndex === text.length - 1 || commaIndex === 0) {
@@ -228,38 +172,10 @@ export class RealEstateSearchComponent implements OnDestroy {
     return text.replace(/,/g, ', ');
   }
 
-  // removeSelectedLocation(city: string, neighborhood: string) {
-  //   this.locationList = this.locationList.filter((loc) => {
-  //     return loc.city !== city && loc.neighborhood !== neighborhood;
-  //   });
-  //   if (this.locationList.length === 0) {
-  //     this.resetSearchInput();
-  //     this.resetSearchInputLocation();
-  //     this.searchInput = '';
-  //   }
-  // }
-
   emitQuerySearch() {
     if (this.searchService.locationList().length > 0) {
       this.searchService.emitLocation(this.searchService.locationList());
     }
-    // if (searchByLocation && !SearchByStreet) {
-    //   this.searchService.emitLocation(this.locationList);
-    // } else if (!searchByLocation) {
-    //   this.searchService.emitLocation([]);
-    // }
-
-    // setTimeout(() => {
-    //   this.searchSuggestionsIsOpen = false;
-    // }, 60);
-    // if (SearchByStreet) {
-    //   this.searchService.emitSelectedStreetFunc(
-    //     this.selectedStreetAndCitySearchTexts.street.valueOf(),
-    //   );
-    //   this.searchService.emitSelectedFreecityText(
-    //     this.selectedStreetAndCitySearchTexts.city.valueOf(),
-    //   );
-    // }
   }
 
   onSearch() {

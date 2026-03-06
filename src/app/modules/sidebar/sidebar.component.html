@@ -42,7 +42,9 @@
             </div>
           </span>
           <div class="round-light">
-            {{ this.userName[0] + this.userName[1] | uppercase }}
+            {{
+              (this.userName[0] | uppercase) + (this.userName[1] | uppercase)
+            }}
           </div>
         </div>
       }

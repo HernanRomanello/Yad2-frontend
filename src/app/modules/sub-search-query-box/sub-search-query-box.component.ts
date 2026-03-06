@@ -67,7 +67,7 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
   searchInputLocation!: ElementRef;
 
   roomsFilterIsOpen: boolean = false;
-  searchSuggestionsIsOpen: boolean = false;
+  // searchSuggestionsIsOpen: boolean = false;
   historyLocationSearchIsOpen: boolean = true;
   lastHoverSearchHistory = -1;
 
@@ -76,8 +76,6 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
   displayHistory(countCharacters: number) {
     this.historyLocationSearchIsOpen = countCharacters === 0 ? true : false;
   }
-
-  constructor(private navigationService: NavigationService) {}
 
   showSuggestionBox(searchQuery: string) {
     this.countSearchInputLetters = searchQuery.length;
@@ -185,7 +183,7 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
   }
 
   resetSearchInput() {
-    this.searchSuggestionsIsOpen = false;
+    this.searchService.searchSuggestionsIsOpen.set(false);
     this.hasSelectedStreet = false;
     this.selectedCities = [];
     this.locationList = [];
@@ -216,7 +214,7 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
 
   openSeveralSearches() {
     setTimeout(() => {
-      this.searchSuggestionsIsOpen = true;
+      this.searchService.searchSuggestionsIsOpen.set(true);
     }, 50);
   }
 
@@ -279,7 +277,7 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
     }
 
     setTimeout(() => {
-      this.searchSuggestionsIsOpen = false;
+      this.searchService.searchSuggestionsIsOpen.set(false);
     }, 60);
     if (SearchByStreet) {
       this.searchService.emitSelectedStreetFunc(
