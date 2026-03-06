@@ -219,39 +219,56 @@ export class RealEstateResultsComponent implements OnInit {
         }
 
         ads = ads.filter((ad) => ad.tradeType === selectedTradeType);
-        if (this.searchService.selectedCityText.value !== '') {
-          ads = ads.filter(
-            (ad) =>
-              ad.city === this.searchService.selectedCityText.value &&
-              ad.street === this.searchService.selectedStreetText.value,
+        // if (this.searchService.selectedCityText.value !== '') {
+        //   ads = ads.filter(
+        //     (ad) =>
+        //       ad.city === this.searchService.selectedCityText.value &&
+        //       ad.street === this.searchService.selectedStreetText.value,
+        //   );
+        // } else if (this.searchService.locationList().length > 0) {
+        //   of(ads)
+        //     .pipe(
+        //       map((adList) => {
+        //         return adList.reduce((acc, ad) => {
+        //           this.searchService.locationSubject.value.forEach((loc) => {
+        //             if (ad.city === loc.city && loc.neighborhood === '') {
+        //               acc.push(ad);
+        //             } else if (
+        //               ad.neighborhood === loc.neighborhood &&
+        //               loc.city === ''
+        //             ) {
+        //               acc.push(ad);
+        //             } else if (
+        //               ad.city === loc.city &&
+        //               ad.neighborhood === loc.neighborhood
+        //             ) {
+        //               acc.push(ad);
+        //             }
+        //           });
+        //           return acc;
+        //         }, [] as any[]);
+        //       }),
+        //     )
+        //     .subscribe((filteredAds) => {
+        //       if (this.searchService.locationList().length > 0) {
+        //         ads = filteredAds;
+        //       } else {
+        //         ads = advertisements;
+        //       }
+        //     });
+        // }
+
+        if (this.searchService.locationList().length > 0) {
+          const locations = this.searchService.locationList();
+
+          ads = ads.filter((ad) =>
+            locations.some(
+              (loc) =>
+                (ad.city === loc.city && loc.neighborhood === '') ||
+                (ad.neighborhood === loc.neighborhood && loc.city === '') ||
+                (ad.city === loc.city && ad.neighborhood === loc.neighborhood),
+            ),
           );
-        } else if (this.searchService.locationSubject.value.length > 0) {
-          of(ads)
-            .pipe(
-              map((adList) => {
-                return adList.reduce((acc, ad) => {
-                  this.searchService.locationSubject.value.forEach((loc) => {
-                    if (ad.city === loc.city && loc.neighborhood === '') {
-                      acc.push(ad);
-                    } else if (
-                      ad.neighborhood === loc.neighborhood &&
-                      loc.city === ''
-                    ) {
-                      acc.push(ad);
-                    } else if (
-                      ad.city === loc.city &&
-                      ad.neighborhood === loc.neighborhood
-                    ) {
-                      acc.push(ad);
-                    }
-                  });
-                  return acc;
-                }, [] as any[]);
-              }),
-            )
-            .subscribe((filteredAds) => {
-              ads = filteredAds;
-            });
         }
 
         this.apartmentsAmount = ads.length;

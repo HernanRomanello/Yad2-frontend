@@ -28,7 +28,9 @@ export class SearchService {
   assetTypeList = signal<string>('');
   forRent = signal<boolean>(false);
   forSale = signal<boolean>(true);
+  searchSuggestionsIsOpen = signal<boolean>(false);
   needToMakeResetFilters = signal<boolean>(false);
+  locationList = signal<{ city: string; neighborhood: string }[]>([]);
 
   public UserLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   constructor(private httpClient: HttpClient) {}

@@ -1,6 +1,6 @@
 <div
   id="subSearchQueryBox"
-  class="desktop input-box invalid"
+  class="input-box invalid"
   (click)="openSeveralSearches()"
 >
   @if (this.locationList.length > 0 && !this.hasSelectedStreet) {
@@ -69,8 +69,7 @@
                 : '';
               subSearchInputLocation.value.length > 1
                 ? (this.hasSelectedLocation = false)
-                : (this.hasSelectedLocation = true);
-              this.test(subSearchInputLocation.value)
+                : (this.hasSelectedLocation = true)
             "
             (blur)="subSearchInputLocation.value = ''"
           />
@@ -78,7 +77,7 @@
       </div>
     </div>
   } @else {
-    <!-- <input
+    <input
       type="text"
       name="searchQuery"
       id="searchQuery"
@@ -101,35 +100,7 @@
           ? this.showSuggestionBox(searchInputLocation.value)
           : ''
       "
-    /> -->
-    <input
-      type="text"
-      name="searchQuery"
-      id="searchQuery"
-      placeholder="איזור, עיר שכונה או רחוב"
-      class="input-search"
-      #subSearchInputLocation
-      autocomplete="off"
-      [ngStyle]="{
-        border:
-          this.hasSelectedStreet || this.hasSelectedLocation
-            ? '1px solid #828282'
-            : '1px solid #cccccc',
-      }"
-      [value]="this.searchInput"
-      (focus)="this.searchSuggestionsIsOpen = true"
-      (input)="handleLocationInput(subSearchInputLocation.value)"
     />
-    <!-- <input
-      #subSearchInputLocation
-      autocomplete="off"
-      class="input-search"
-      type="text"
-      name="searchQuery"
-      placeholder="הוספת מיקום"
-      (input)="handleLocationInput(subSearchInputLocation.value)"
-      (blur)="subSearchInputLocation.value = ''"
-    /> -->
   }
   @if (this.searchSuggestionsIsOpen) {
     <div
@@ -357,7 +328,7 @@
             איפוס
           </div>
           <div
-            (click)="this.emitQuerySearch(false, this.hasSelectedStreet)"
+            (click)="this.emitQuerySearch(this.hasSelectedStreet)"
             class="select-btn"
           >
             אישור

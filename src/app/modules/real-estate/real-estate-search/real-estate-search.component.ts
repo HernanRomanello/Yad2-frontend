@@ -1,17 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { SearchService } from '../../../services/search.service';
-import {
-  City,
-  CityListService,
-  Street,
-} from '../../../services/city-list.service';
+
 import { Subscription } from 'rxjs';
 import { NavigationService } from '../../../services/navigation.service';
 import { allowedClasses, allowedClassesForSearchInput } from './dataUtility';
@@ -20,21 +9,14 @@ import { allowedClasses, allowedClassesForSearchInput } from './dataUtility';
   templateUrl: './real-estate-search.component.html',
   styleUrl: './real-estate-search.component.css',
 })
-export class RealEstateSearchComponent implements OnInit, OnDestroy {
+export class RealEstateSearchComponent implements OnDestroy {
   clickedIndex: number[] = [-1, -1, -1];
   propertyTypeFilterValue: string = 'סוג הנכס';
   priceRangeFilterValue: string = 'מחיר';
   roomNumberFilterValue: string = 'חדרים';
   searchService = inject(SearchService);
-  // cityList: City[] = [];
-  // streetList: Street[] = [];
-  // cityListService = inject(CityListService);
-  // neighborhoodSuggestion: Street[] = [];
-  // areaSuggestion: City[] = [];
-  // citySuggestion: City[] = [];
-  // streetSuggestion: Street[] = [];
+
   searchInputSubscription!: Subscription;
-  // firstLocationIsArea: boolean = false;
 
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
@@ -42,36 +24,12 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   selectedOption: string | null = null;
   advertisementTypeButtonText: string = 'מכירה';
   title = 'נדל"ן למכירה';
-  // searchInput: string = '';
-  // hasSelectedStreet: boolean = false;
-  // hasSelectedLocation: boolean = false;
+
   sortButtonThatAreOpen = <[string, boolean]>['', false];
   private cityListSubscription: any;
   private streetListSubscription: any;
 
-  // countSearchInputLetters: number = 0;
-
-  // selectedStreetAndCitySearchTexts: { city: string; street: string } = {
-  //   city: '',
-  //   street: '',
-  // };
-
-  // locationList: Array<{ city: string; neighborhood: string }> = [];
-
-  // selectedCities: string[] = [];
-  // @ViewChild('searchInputLocation', { static: false })
-  // searchInputLocation!: ElementRef;
-
   roomsFilterIsOpen: boolean = false;
-  // searchSuggestionsIsOpen: boolean = false;
-  // historyLocationSearchIsOpen: boolean = true;
-  // lastHoverSearchHistory = -1;
-
-  // historyLocationSearchSuggestions: string[] = ['חיפה ', 'באר שבע', 'רמלה'];
-
-  // displayHistory(countCharacters: number) {
-  //   this.historyLocationSearchIsOpen = countCharacters === 0 ? true : false;
-  // }
 
   onCloseAdditionalFiltersMenu(event: any) {
     this.toggleMenu('');
@@ -138,91 +96,12 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     }
   }
 
-  // showSuggestionBox(searchQuery: string) {
-  //   this.countSearchInputLetters = searchQuery.length;
-  //   if (this.historyLocationSearchIsOpen) {
-  //     this.searchInput = '';
-  //     return;
-  //   }
-  //   if (searchQuery.length > 1) {
-  //     if (this.hasSelectedStreet) {
-  //       this.resetSearchInputLocation();
-  //       return;
-  //     }
-  //     this.neighborhoodSuggestion = this.getStreetSuggestions(
-  //       searchQuery,
-  //     ).slice(0, 5);
-
-  //     this.citySuggestion =
-  //       this.cityListService.getFirstsCitiesContainingSubstring(
-  //         this.cityList,
-  //         searchQuery,
-  //         'city_name_he',
-  //         4,
-  //       );
-  //     if (
-  //       this.calculateArrayLength(this.neighborhoodSuggestion) +
-  //         this.calculateArrayLength(this.citySuggestion) >
-  //       8
-  //     ) {
-  //       this.areaSuggestion = [];
-  //       this.streetSuggestion = [];
-  //       return;
-  //     }
-  //     this.areaSuggestion = this.citySuggestion.slice(0, 1);
-  //     if (
-  //       this.calculateArrayLength(this.neighborhoodSuggestion) +
-  //         this.calculateArrayLength(this.citySuggestion) >=
-  //       8
-  //     ) {
-  //       this.streetSuggestion = [];
-  //       return;
-  //     }
-
-  //     this.streetSuggestion = this.neighborhoodSuggestion.slice(
-  //       0,
-  //       9 -
-  //         this.calculateArrayLength(this.neighborhoodSuggestion) -
-  //         this.calculateArrayLength(this.citySuggestion) -
-  //         this.calculateArrayLength(this.areaSuggestion),
-  //     );
-  //   }
-  // }
-
   updateButtonsLabels() {
     this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
     this.propertyTypeFilterValue = this.searchService.propertyTypeFilterValue();
     this.priceRangeFilterValue = this.searchService.priceRangeFilterValue();
     this.roomNumberFilterValue = this.searchService.roomNumberFilterValue();
   }
-
-  // addLocationToSearchQuery(
-  //   city: string,
-  //   neighborhood: string,
-  //   areaLocation: boolean,
-  // ) {
-  //   if (neighborhood != null) {
-  //     this.hasSelectedLocation = true;
-  //   }
-  //   const location = { city, neighborhood };
-  //   this.hasSelectedLocation = true;
-  //   const hasThisLocation = this.locationList.some((loc) => {
-  //     return loc.city === city && loc.neighborhood === neighborhood;
-  //   });
-
-  //   if (this.locationList.length >= 5 || hasThisLocation) {
-  //     return;
-  //   }
-
-  //   this.searchService.city.set(city);
-  //   this.searchService.neighborhood.set(neighborhood);
-
-  //   this.locationList.push(location);
-
-  //   if (this.locationList.length == 1 && areaLocation) {
-  //     this.firstLocationIsArea = true;
-  //   }
-  // }
 
   ngOnDestroy(): void {
     if (this.cityListSubscription) {
@@ -235,18 +114,6 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
     if (this.searchInputSubscription) {
       this.searchInputSubscription.unsubscribe;
     }
-  }
-  ngOnInit(): void {
-    // this.cityListSubscription = this.cityListService
-    //   .getCityList()
-    //   .subscribe((data) => {
-    //     this.cityList = data;
-    //   });
-    // this.streetListSubscription = this.cityListService
-    //   .getStreetList()
-    //   .subscribe((data) => {
-    //     this.streetList = data;
-    //   });
   }
 
   // resetSearchInput() {
@@ -372,30 +239,31 @@ export class RealEstateSearchComponent implements OnInit, OnDestroy {
   //   }
   // }
 
-  // emitQuerySearch(searchByLocation: boolean, SearchByStreet: boolean) {
-  //   if (searchByLocation && !SearchByStreet) {
-  //     this.searchService.emitLocation(this.locationList);
-  //   } else if (!searchByLocation) {
-  //     this.searchService.emitLocation([]);
-  //   }
+  emitQuerySearch() {
+    if (this.searchService.locationList().length > 0) {
+      this.searchService.emitLocation(this.searchService.locationList());
+    }
+    // if (searchByLocation && !SearchByStreet) {
+    //   this.searchService.emitLocation(this.locationList);
+    // } else if (!searchByLocation) {
+    //   this.searchService.emitLocation([]);
+    // }
 
-  //   setTimeout(() => {
-  //     this.searchSuggestionsIsOpen = false;
-  //   }, 60);
-  //   if (SearchByStreet) {
-  //     this.searchService.emitSelectedStreetFunc(
-  //       this.selectedStreetAndCitySearchTexts.street.valueOf(),
-  //     );
-  //     this.searchService.emitSelectedFreecityText(
-  //       this.selectedStreetAndCitySearchTexts.city.valueOf(),
-  //     );
-  //   }
-  // }
+    // setTimeout(() => {
+    //   this.searchSuggestionsIsOpen = false;
+    // }, 60);
+    // if (SearchByStreet) {
+    //   this.searchService.emitSelectedStreetFunc(
+    //     this.selectedStreetAndCitySearchTexts.street.valueOf(),
+    //   );
+    //   this.searchService.emitSelectedFreecityText(
+    //     this.selectedStreetAndCitySearchTexts.city.valueOf(),
+    //   );
+    // }
+  }
 
   onSearch() {
-    // this.searchSuggestionsIsOpen = false;
-
-    // this.emitQuerySearch(this.hasSelectedLocation, this.hasSelectedStreet);
+    this.emitQuerySearch();
 
     this.searchService.emitSelectedPriceRange(this.selectedPriceRange);
     this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
