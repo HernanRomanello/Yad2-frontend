@@ -51,3 +51,21 @@ div,
   color: rgb(255, 130, 0);
   border: 1px solid rgb(255, 130, 0);
 }
+@media (max-width: 883px) {
+  .property-type-select {
+    box-shadow: unset;
+  }
+
+  .property-type-select {
+    width: calc(100vw - 3rem);
+  }
+  .property-type-select {
+    margin: 0rem !important;
+    padding: 0rem 0 2rem 0 !important;
+    gap: 0.5rem;
+  }
+
+  .property-type-select p {
+    margin-bottom: 0 !important;
+  }
+}

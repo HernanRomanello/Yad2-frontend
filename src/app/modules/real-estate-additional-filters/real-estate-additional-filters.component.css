@@ -527,7 +527,7 @@ footer button,
   }
 
   .mobile {
-    display: block;
+    display: block !important;
   }
   .overlay {
     background-color: #ffffff;
