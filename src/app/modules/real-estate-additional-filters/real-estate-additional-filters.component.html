@@ -34,6 +34,14 @@
           >
         </div>
       </div>
+      <div class="mobile">
+        <div class="title font500 font16">מחיר</div>
+
+        <app-real-estate-price-slider
+          (selectedPriceRange)="onPriceRangeSelected($event)"
+        ></app-real-estate-price-slider>
+      </div>
+
       <div class="add-block1 flex column">
         <span class="title font16 font500 translateY">מאפייני מודעה</span>
         <div class="add-checkboxs">
@@ -241,7 +249,7 @@
       <button
         id="ok-btn"
         class="ok-btn pointer font500 close-filter"
-        (click)="searchService.setFilters(filters); close()"
+        (click)="onSearch()"
       >
         <span class="desktop"> אישור </span>
         <span class="mobile"> חיפוש </span>

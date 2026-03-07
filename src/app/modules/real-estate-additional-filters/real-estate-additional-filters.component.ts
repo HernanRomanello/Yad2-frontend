@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 import { PropertyFilters } from '../../shared/models/Filters';
 import { NavigationService } from '../../services/navigation.service';
+import { min } from 'moment';
 
 @Component({
   selector: 'app-real-estate-additional-filters',
@@ -46,6 +47,41 @@ export class RealEstateAdditionalFiltersComponent {
 
   aptSizeRange: [number, number] = [0, 500];
   floorsRange: [string, string] = ['0', '18'];
+
+  onPriceRangeSelected(priceRange: [number, number]) {
+    // let newValue = 'מחיר';
+    // if (priceRange[0] < priceRange[1] && priceRange[1] !== 20000) {
+    //   newValue = `${this.searchService.formatNumberWithComma(
+    //     priceRange[0],
+    //   )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[1])} ₪`;
+    // } else if (priceRange[1] === 20000) {
+    //   newValue = `${this.searchService.formatNumberWithComma(
+    //     priceRange[0],
+    //   )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[1])}+ ₪`;
+    // } else if (priceRange[0] < priceRange[1]) {
+    //   newValue = `${this.searchService.formatNumberWithComma(
+    //     priceRange[1],
+    //   )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[0])} ₪`;
+    // }
+    const min = Math.min(priceRange[0], priceRange[1]);
+    const max = Math.max(priceRange[0], priceRange[1]);
+    this.searchService.minPrice.set(min);
+    this.searchService.maxPrice.set(max);
+    // this.searchService.priceRangeFilterValue.set(newValue);
+    // this.selectedPriceRange = priceRange;
+    // Emit the selected price range to the parent component
+  }
+
+  onSearch() {
+    console.log([this.searchService.minPrice(), this.searchService.maxPrice()]);
+    this.searchService.emitSelectedPriceRange([
+      this.searchService.minPrice(),
+      this.searchService.maxPrice(),
+    ]);
+
+    this.searchService.setFilters(this.filters);
+    this.close();
+  }
 
   onRoomsAmountSelected(roomsAmount: string[]) {
     const minRooms = Math.min(...roomsAmount.map((room) => parseFloat(room)));

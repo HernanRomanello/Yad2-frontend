@@ -467,6 +467,9 @@ footer button,
   .body > :first-child {
     margin-top: 4rem !important;
   }
+  .body > :nth-child(3) {
+    margin-top: 1rem;
+  }
   .line,
   .line2,
   .trade-type-tabs {

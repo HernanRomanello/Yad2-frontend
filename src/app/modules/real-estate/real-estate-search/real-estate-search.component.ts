@@ -187,40 +187,40 @@ export class RealEstateSearchComponent implements OnDestroy {
     this.toggleMenu('');
   }
 
-  formatNumberWithComma(num: number): string {
-    const numStr = num.toString();
+  // formatNumberWithComma(num: number): string {
+  //   const numStr = num.toString();
 
-    const [integerPart, fractionalPart] = numStr.split('.');
+  //   const [integerPart, fractionalPart] = numStr.split('.');
 
-    const result: string[] = [];
-    let count = 0;
+  //   const result: string[] = [];
+  //   let count = 0;
 
-    for (let i = integerPart.length - 1; i >= 0; i--) {
-      result.unshift(integerPart[i]);
-      count++;
-      if (count % 3 === 0 && i !== 0) {
-        result.unshift(',');
-      }
-    }
+  //   for (let i = integerPart.length - 1; i >= 0; i--) {
+  //     result.unshift(integerPart[i]);
+  //     count++;
+  //     if (count % 3 === 0 && i !== 0) {
+  //       result.unshift(',');
+  //     }
+  //   }
 
-    return fractionalPart
-      ? `${result.join('')}.${fractionalPart}`
-      : result.join('');
-  }
+  //   return fractionalPart
+  //     ? `${result.join('')}.${fractionalPart}`
+  //     : result.join('');
+  // }
   onPriceRangeSelected(priceRange: [number, number]) {
     let newValue = 'מחיר';
     if (priceRange[0] < priceRange[1] && priceRange[1] !== 20000) {
-      newValue = `${this.formatNumberWithComma(
+      newValue = `${this.searchService.formatNumberWithComma(
         priceRange[0],
-      )} ₪ - ${this.formatNumberWithComma(priceRange[1])} ₪`;
+      )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[1])} ₪`;
     } else if (priceRange[1] === 20000) {
-      newValue = `${this.formatNumberWithComma(
+      newValue = `${this.searchService.formatNumberWithComma(
         priceRange[0],
-      )} ₪ - ${this.formatNumberWithComma(priceRange[1])}+ ₪`;
+      )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[1])}+ ₪`;
     } else if (priceRange[0] < priceRange[1]) {
-      newValue = `${this.formatNumberWithComma(
+      newValue = `${this.searchService.formatNumberWithComma(
         priceRange[1],
-      )} ₪ - ${this.formatNumberWithComma(priceRange[0])} ₪`;
+      )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[0])} ₪`;
     }
     this.searchService.minPrice.set(priceRange[0]);
     this.searchService.maxPrice.set(priceRange[1]);

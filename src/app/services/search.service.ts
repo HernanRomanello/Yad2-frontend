@@ -64,6 +64,27 @@ export class SearchService {
   getFilters() {
     return this.propertyFilters;
   }
+
+  formatNumberWithComma(num: number): string {
+    const numStr = num.toString();
+
+    const [integerPart, fractionalPart] = numStr.split('.');
+
+    const result: string[] = [];
+    let count = 0;
+
+    for (let i = integerPart.length - 1; i >= 0; i--) {
+      result.unshift(integerPart[i]);
+      count++;
+      if (count % 3 === 0 && i !== 0) {
+        result.unshift(',');
+      }
+    }
+
+    return fractionalPart
+      ? `${result.join('')}.${fractionalPart}`
+      : result.join('');
+  }
   setFilters(filters: PropertyFilters) {
     this.propertyFilters = filters;
 
