@@ -378,5 +378,14 @@
   }
 }
 
-@media (width < 553px) {
+@media (max-width: 528px) {
+  .trade-type-tabs {
+    width: calc(100vw - 4rem);
+  }
+
+  #subSearchQueryBox,
+  #subSearchQueryBox > *,
+  #subSearchQueryBox > * > * {
+    width: calc(100vw - 4rem);
+  }
 }

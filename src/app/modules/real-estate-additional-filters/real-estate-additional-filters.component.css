@@ -546,3 +546,9 @@ footer button,
     margin-bottom: 1.25rem;
   }
 }
+
+@media (max-width: 528px) {
+  .trade-type-tabs {
+    width: calc(100vw - 4rem);
+  }
+}
