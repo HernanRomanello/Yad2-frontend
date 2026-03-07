@@ -65,6 +65,20 @@ export class SearchService {
     return this.propertyFilters;
   }
 
+  transformArrayTOPropertyTypesString(propertyTypes: string[]): string {
+    let searchText = '';
+
+    propertyTypes.forEach((propertyType) => {
+      if (propertyType !== 'דירות_הכל' && propertyType !== 'בתים_הכל') {
+        searchText += propertyType + ', ';
+      }
+    });
+    if (searchText.endsWith(', ')) {
+      searchText = searchText.slice(0, -2);
+    }
+    return searchText;
+  }
+
   formatNumberWithComma(num: number): string {
     const numStr = num.toString();
 

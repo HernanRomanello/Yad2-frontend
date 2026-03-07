@@ -44,36 +44,59 @@ export class RealEstateAdditionalFiltersComponent {
     'חיות מחמד': 'petsAllowed',
     לשותפים: 'forRoommates',
   } as const;
+  selectedPropertyTypes: string[] = [];
 
   aptSizeRange: [number, number] = [0, 500];
   floorsRange: [string, string] = ['0', '18'];
 
   onPriceRangeSelected(priceRange: [number, number]) {
-    // let newValue = 'מחיר';
-    // if (priceRange[0] < priceRange[1] && priceRange[1] !== 20000) {
-    //   newValue = `${this.searchService.formatNumberWithComma(
-    //     priceRange[0],
-    //   )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[1])} ₪`;
-    // } else if (priceRange[1] === 20000) {
-    //   newValue = `${this.searchService.formatNumberWithComma(
-    //     priceRange[0],
-    //   )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[1])}+ ₪`;
-    // } else if (priceRange[0] < priceRange[1]) {
-    //   newValue = `${this.searchService.formatNumberWithComma(
-    //     priceRange[1],
-    //   )} ₪ - ${this.searchService.formatNumberWithComma(priceRange[0])} ₪`;
-    // }
     const min = Math.min(priceRange[0], priceRange[1]);
     const max = Math.max(priceRange[0], priceRange[1]);
     this.searchService.minPrice.set(min);
     this.searchService.maxPrice.set(max);
-    // this.searchService.priceRangeFilterValue.set(newValue);
-    // this.selectedPriceRange = priceRange;
-    // Emit the selected price range to the parent component
+  }
+  onPropertyTypeSelected(propertyTypes: string[]) {
+    const uniquePropertyTypes = [...new Set(propertyTypes)];
+    let optionsNumber = uniquePropertyTypes.length;
+    if (optionsNumber === 0) {
+      this.searchService.propertyTypeFilterValue.set('סוג הנכס');
+    } else if (optionsNumber === 1) {
+      this.searchService.propertyTypeFilterValue.set(propertyTypes[0]);
+    } else if (optionsNumber > 1) {
+      let count = 0;
+      if (uniquePropertyTypes.includes('דירות_הכל')) {
+        optionsNumber--;
+        count++;
+      }
+      if (uniquePropertyTypes.includes('בתים_הכל')) {
+        optionsNumber--;
+        count++;
+      }
+      this.searchService.propertyTypeFilterValue.set(
+        `סוג הנכס (${optionsNumber - count}) `,
+      );
+    }
+
+    if (optionsNumber === 11 && propertyTypes.includes('דירות_הכל')) {
+      this.searchService.propertyTypeFilterValue.set('דירות');
+    }
+    if (optionsNumber === 4 && propertyTypes.includes('בתים_הכל')) {
+      this.searchService.propertyTypeFilterValue.set('בתים');
+    }
+
+    if (propertyTypes.length > 0) {
+      this.selectedPropertyTypes = uniquePropertyTypes;
+
+      this.searchService.assetTypeList.set(
+        this.searchService.transformArrayTOPropertyTypesString(
+          uniquePropertyTypes,
+        ),
+      );
+    }
   }
 
   onSearch() {
-    console.log([this.searchService.minPrice(), this.searchService.maxPrice()]);
+    this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
     this.searchService.emitSelectedPriceRange([
       this.searchService.minPrice(),
       this.searchService.maxPrice(),

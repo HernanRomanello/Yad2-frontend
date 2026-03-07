@@ -15,20 +15,16 @@ export class RealEstateSearchComponent implements OnDestroy {
   priceRangeFilterValue: string = 'מחיר';
   roomNumberFilterValue: string = 'חדרים';
   searchService = inject(SearchService);
-
   searchInputSubscription!: Subscription;
-
   selectedPropertyTypes: string[] = [];
   selectedPriceRange: [number, number] = [-1, 20000];
   selectedRoomsAmount: string[] = [];
   selectedOption: string | null = null;
   advertisementTypeButtonText: string = 'מכירה';
   title = 'נדל"ן למכירה';
-
   sortButtonThatAreOpen = <[string, boolean]>['', false];
   private cityListSubscription: any;
   private streetListSubscription: any;
-
   roomsFilterIsOpen: boolean = false;
 
   onCloseAdditionalFiltersMenu(event: any) {
@@ -38,6 +34,7 @@ export class RealEstateSearchComponent implements OnDestroy {
   constructor(private navigationService: NavigationService) {}
 
   clickEvent(event: MouseEvent) {
+    console.log(this.sortButtonThatAreOpen);
     const clickedElement = event.target as HTMLElement;
     const clientY = event.clientY;
     const [filterName, filterOpen] = this.sortButtonThatAreOpen;
@@ -83,7 +80,6 @@ export class RealEstateSearchComponent implements OnDestroy {
       );
 
       if (!hasClass) {
-        // this.searchSuggestionsIsOpen = false;
         this.searchService.searchSuggestionsIsOpen.set(false);
       }
     }
@@ -117,6 +113,16 @@ export class RealEstateSearchComponent implements OnDestroy {
     }
   }
 
+  hideMatIcon(index: number): boolean {
+    const hideIcon: boolean =
+      this.sortButtonThatAreOpen[0] === 'propertyTypeMenu' ||
+      this.sortButtonThatAreOpen[0] === 'additionalFiltersMenu';
+    if (index === 0 && hideIcon && this.sortButtonThatAreOpen[1]) {
+      return false;
+    }
+    return true;
+  }
+
   toggleMenu(type: string) {
     const [currentType, currentState] = this.sortButtonThatAreOpen;
     if (currentType === type) {
@@ -124,8 +130,6 @@ export class RealEstateSearchComponent implements OnDestroy {
     } else {
       this.sortButtonThatAreOpen = [type, true];
     }
-    // this.searchSuggestionsIsOpen = false;
-    // this.searchService.searchSuggestionsIsOpen.set(false);
     this.updateButtonsLabels();
     switch (type) {
       case 'propertyTypeMenu':
@@ -187,26 +191,6 @@ export class RealEstateSearchComponent implements OnDestroy {
     this.toggleMenu('');
   }
 
-  // formatNumberWithComma(num: number): string {
-  //   const numStr = num.toString();
-
-  //   const [integerPart, fractionalPart] = numStr.split('.');
-
-  //   const result: string[] = [];
-  //   let count = 0;
-
-  //   for (let i = integerPart.length - 1; i >= 0; i--) {
-  //     result.unshift(integerPart[i]);
-  //     count++;
-  //     if (count % 3 === 0 && i !== 0) {
-  //       result.unshift(',');
-  //     }
-  //   }
-
-  //   return fractionalPart
-  //     ? `${result.join('')}.${fractionalPart}`
-  //     : result.join('');
-  // }
   onPriceRangeSelected(priceRange: [number, number]) {
     let newValue = 'מחיר';
     if (priceRange[0] < priceRange[1] && priceRange[1] !== 20000) {
@@ -261,23 +245,11 @@ export class RealEstateSearchComponent implements OnDestroy {
       this.selectedPropertyTypes = uniquePropertyTypes;
 
       this.searchService.assetTypeList.set(
-        this.transformArrayTOPropertyTypesString(uniquePropertyTypes),
+        this.searchService.transformArrayTOPropertyTypesString(
+          uniquePropertyTypes,
+        ),
       );
     }
-  }
-
-  transformArrayTOPropertyTypesString(propertyTypes: string[]): string {
-    let searchText = '';
-
-    propertyTypes.forEach((propertyType) => {
-      if (propertyType !== 'דירות_הכל' && propertyType !== 'בתים_הכל') {
-        searchText += propertyType + ', ';
-      }
-    });
-    if (searchText.endsWith(', ')) {
-      searchText = searchText.slice(0, -2);
-    }
-    return searchText;
   }
 
   onRoomsAmountSelected(roomsAmount: string[]) {

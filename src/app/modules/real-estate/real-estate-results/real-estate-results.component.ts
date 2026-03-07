@@ -202,11 +202,10 @@ export class RealEstateResultsComponent implements OnInit {
           (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax,
         );
 
-        if (selectedPropertyTypes.length > 0) {
-          ads = ads.filter((ad) =>
-            selectedPropertyTypes
-              .map((type) => type.trim())
-              .includes(ad.assetType.trim()),
+        if (this.searchService.assetTypeList()) {
+          ads = ads.filter(
+            (ad) =>
+              ad.assetType.trim() === this.searchService.assetTypeList().trim(),
           );
         }
 

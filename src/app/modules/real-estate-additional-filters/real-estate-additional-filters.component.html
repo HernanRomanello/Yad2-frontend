@@ -35,6 +35,11 @@
         </div>
       </div>
       <div class="mobile">
+        <app-real-estate-property-type
+          (propertyTypeSelected)="onPropertyTypeSelected($event)"
+        ></app-real-estate-property-type>
+      </div>
+      <div class="mobile">
         <div class="title font500 font16">מחיר</div>
 
         <app-real-estate-price-slider
