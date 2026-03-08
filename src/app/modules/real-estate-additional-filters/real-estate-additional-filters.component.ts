@@ -46,7 +46,6 @@ export class RealEstateAdditionalFiltersComponent {
   } as const;
   selectedPropertyTypes: string[] = [];
 
-  aptSizeRange: [number, number] = [0, 500];
   floorsRange: [string, string] = ['0', '18'];
 
   onPriceRangeSelected(priceRange: [number, number]) {
@@ -232,20 +231,13 @@ export class RealEstateAdditionalFiltersComponent {
   }
 
   onAptSizeSelected(size: any) {
-    this.aptSizeRange = size;
-    let minAptSizeRange = size[0] > size[1] ? size[1] : size[0];
-    let maxAptSizeRange = size[0] > size[1] ? size[0] : size[1];
-    if (size[0] !== 0) {
-      this.searchService.minSquareSize.set(minAptSizeRange);
-    }
-    if (size[1] !== 500) {
-      this.searchService.maxSqaureSize.set(maxAptSizeRange);
-    }
+    let minAptSizeRange = Math.min(size[0]);
+    let maxAptSizeRange = Math.max(size[1]);
+    this.searchService.minSquareSize.set(minAptSizeRange);
+    this.searchService.maxSqaureSize.set(maxAptSizeRange);
   }
   onFloorsSelected(floors: any) {
     if (isNaN(floors[0]) && isNaN(floors[0])) return;
-
-    // let nums: number[] = [];
 
     if (!isNaN(floors[1]) && !isNaN(floors[0])) {
       this.searchService.minFloor.set(Math.min(floors[0], floors[1]));

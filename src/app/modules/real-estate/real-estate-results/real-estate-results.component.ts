@@ -177,11 +177,6 @@ export class RealEstateResultsComponent implements OnInit {
             return acc;
           }, {});
         let [aptSizeMin, aptSizeMax] = filters.aptSizeRange;
-        // let [floorsMin, floorsMax] = filters.floorsRange.map((n) => {
-        //   if (n === 'מרתף') return -1;
-        //   if (n === 'קרקע') return 0;
-        //   return parseInt(n);
-        // });
 
         let ads = advertisements;
 
@@ -193,22 +188,31 @@ export class RealEstateResultsComponent implements OnInit {
             return true;
           }),
         );
-        ads = ads.filter(
-          (ad) =>
-            ad.builtSquareMeters >= aptSizeMin &&
-            ad.builtSquareMeters <= aptSizeMax,
-        );
         // ads = ads.filter(
-        //   (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax,
+        //   (ad) =>
+        //     ad.builtSquareMeters >= aptSizeMin &&
+        //     ad.builtSquareMeters <= aptSizeMax,
         // );
+
         if (this.searchService.minFloor() !== -1) {
           ads = ads.filter((ad) => ad.floor >= this.searchService.minFloor());
-          // alert(this.searchService.minFloor());
-          // alert(this.searchService.maxFloor());
         }
 
         if (this.searchService.maxFloor() !== 20) {
           ads = ads.filter((ad) => ad.floor <= this.searchService.maxFloor());
+        }
+        if (this.searchService.minSquareSize() > 0) {
+          ads = ads.filter(
+            (ad) => ad.totalSquareMeters >= this.searchService.minSquareSize(),
+          );
+          // alert(this.searchService.minSquareSize());
+        }
+
+        if (this.searchService.maxSqaureSize() > 0) {
+          ads = ads.filter(
+            (ad) => ad.totalSquareMeters <= this.searchService.maxSqaureSize(),
+          );
+          // alert(this.searchService.maxSqaureSize());
         }
 
         if (this.searchService.assetTypeList()) {

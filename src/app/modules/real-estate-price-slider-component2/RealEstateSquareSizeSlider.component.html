@@ -5,7 +5,7 @@
       (input)="emit()"
       [(ngModel)]="rangeValuesBuy[1]"
       (input)="manualSelectMaxPrice($event)"
-      [value]="formatPrice(rangeValuesBuy[1])"
+      [value]="rangeValuesBuy[1] | number"
     />
 
     <span class="hyphen"></span>
@@ -14,7 +14,7 @@
       (input)="manualSelectMinPrice($event)"
       [(ngModel)]="rangeValuesBuy[0]"
       class="price"
-      [value]="formatPrice(rangeValuesBuy[0])"
+      [value]="rangeValuesBuy[0] | number"
     />
   </div>
 

@@ -14,6 +14,9 @@ import { formatPrice } from '../../pipes/utilities.pipe';
   imports: [CommonModule, MatIconModule, SliderModule, FormsModule],
 })
 export class RealEstateSquareSizeSliderComponent {
+  formatNumber(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
   rangeValuesBuyMinMax: [number, number] = [0, 500];
 
   rangeValuesBuy: [number, number] = [...this.rangeValuesBuyMinMax];
