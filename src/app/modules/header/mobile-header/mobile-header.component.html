@@ -1,40 +1,42 @@
-<header class="mobile-header">
-  @if (navigation.isPages(["create-advertisement"])) {
-    <img
-      routerLink="/"
-      class="left-arrow"
-      src="assets/images/arrow-left-5.svg"
-      alt="yad2"
-    />
-  } @else {
-    <button class="icon-btn" type="button" aria-label="צ'אט">
-      <img class="chat" src="assets/images/logo/chat.svg" alt="yad2" />
+<span class="mobile-header-wrap">
+  <header class="mobile-header">
+    @if (navigation.isPages(["create-advertisement"])) {
+      <img
+        routerLink="/"
+        class="left-arrow"
+        src="assets/images/arrow-left-5.svg"
+        alt="yad2"
+      />
+    } @else {
+      <button class="icon-btn" type="button" aria-label="צ'אט">
+        <img class="chat" src="assets/images/logo/chat.svg" alt="yad2" />
 
-      <span class="icon-label">צ'אט</span>
+        <span class="icon-label">צ'אט</span>
+      </button>
+    }
+
+    <div routerLink="/" class="logo-wrap" role="banner">
+      <img
+        class="logo"
+        [src]="
+          navigation.isPages(['create-advertisement'])
+            ? 'assets/images/logo/logo-white-yad2.svg'
+            : 'assets/images/logo/logo.svg'
+        "
+        alt="yad2"
+      />
+    </div>
+
+    <button
+      (click)="openSidebar()"
+      class="icon-btn"
+      type="button"
+      aria-label="תפריט"
+    >
+      <img class="hamburger" src="assets/images/hamburger.svg" alt="yad2" />
     </button>
-  }
-
-  <div routerLink="/" class="logo-wrap" role="banner">
-    <img
-      class="logo"
-      [src]="
-        navigation.isPages(['create-advertisement'])
-          ? 'assets/images/logo/logo-white-yad2.svg'
-          : 'assets/images/logo/logo.svg'
-      "
-      alt="yad2"
-    />
-  </div>
-
-  <button
-    (click)="openSidebar()"
-    class="icon-btn"
-    type="button"
-    aria-label="תפריט"
-  >
-    <img class="hamburger" src="assets/images/hamburger.svg" alt="yad2" />
-  </button>
-</header>
+  </header>
+</span>
 
 <app-sidebar
   [isOpen]="sidebarOpen"

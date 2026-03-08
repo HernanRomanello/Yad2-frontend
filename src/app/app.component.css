@@ -24,6 +24,10 @@ body {
     display: none;
   }
 
+  .router-content {
+    padding-top: 40px !important;
+  }
+
   .mobile {
     display: block;
   }

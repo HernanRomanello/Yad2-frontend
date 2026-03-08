@@ -12,9 +12,7 @@
 .not-found-box {
   background-color: rgb(255, 255, 255);
   height: 122px;
-
   padding: 24px 15px 20px 15px;
-
   border-radius: 4px;
   transform: translateY(61px);
   justify-content: space-between;
@@ -54,8 +52,8 @@
 .page {
   height: 100%;
   height: fit-content !important;
-  background-color: #f9f9f9 !important;
   padding-bottom: 42px;
+  background-color: #f9f9f9 !important;
 }
 
 .search-title {
@@ -385,6 +383,6 @@ body,
   }
 
   .title {
-    margin: 2rem 0 2rem auto;
+    margin: 0rem 0 2rem auto;
   }
 }
