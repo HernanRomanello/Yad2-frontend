@@ -177,11 +177,11 @@ export class RealEstateResultsComponent implements OnInit {
             return acc;
           }, {});
         let [aptSizeMin, aptSizeMax] = filters.aptSizeRange;
-        let [floorsMin, floorsMax] = filters.floorsRange.map((n) => {
-          if (n === 'מרתף') return -1;
-          if (n === 'קרקע') return 0;
-          return parseInt(n);
-        });
+        // let [floorsMin, floorsMax] = filters.floorsRange.map((n) => {
+        //   if (n === 'מרתף') return -1;
+        //   if (n === 'קרקע') return 0;
+        //   return parseInt(n);
+        // });
 
         let ads = advertisements;
 
@@ -198,9 +198,18 @@ export class RealEstateResultsComponent implements OnInit {
             ad.builtSquareMeters >= aptSizeMin &&
             ad.builtSquareMeters <= aptSizeMax,
         );
-        ads = ads.filter(
-          (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax,
-        );
+        // ads = ads.filter(
+        //   (ad) => ad.floor >= floorsMin && ad.floor <= floorsMax,
+        // );
+        if (this.searchService.minFloor() !== -1) {
+          ads = ads.filter((ad) => ad.floor >= this.searchService.minFloor());
+          // alert(this.searchService.minFloor());
+          // alert(this.searchService.maxFloor());
+        }
+
+        if (this.searchService.maxFloor() !== 20) {
+          ads = ads.filter((ad) => ad.floor <= this.searchService.maxFloor());
+        }
 
         if (this.searchService.assetTypeList()) {
           ads = ads.filter(

@@ -68,4 +68,11 @@ div,
   .property-type-select p {
     margin-bottom: 0 !important;
   }
+
+  .property-type-header,
+  .property-type-select,
+  div,
+  .property-type-select p {
+    z-index: 1 !important;
+  }
 }

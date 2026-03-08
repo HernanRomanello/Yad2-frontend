@@ -243,6 +243,26 @@ export class RealEstateAdditionalFiltersComponent {
     }
   }
   onFloorsSelected(floors: any) {
-    this.floorsRange = floors;
+    if (isNaN(floors[0]) && isNaN(floors[0])) return;
+
+    // let nums: number[] = [];
+
+    if (!isNaN(floors[1]) && !isNaN(floors[0])) {
+      this.searchService.minFloor.set(Math.min(floors[0], floors[1]));
+      this.searchService.maxFloor.set(Math.max(floors[0], floors[1]));
+      return;
+    }
+
+    if (isNaN(floors[0]) && !isNaN(floors[1])) {
+      this.searchService.maxFloor.set(
+        Math.max(this.searchService.maxFloor(), floors[1]),
+      );
+      return;
+    }
+    if (!isNaN(floors[0]) && isNaN(floors[1])) {
+      this.searchService.minFloor.set(
+        Math.min(this.searchService.maxFloor(), floors[0]),
+      );
+    }
   }
 }

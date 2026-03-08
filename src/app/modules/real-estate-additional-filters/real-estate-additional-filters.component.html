@@ -47,6 +47,13 @@
         ></app-real-estate-price-slider>
       </div>
 
+      <div class="mobile">
+        <div class="sub-title">חדרים</div>
+        <app-rooms-filter-mobile
+          (propertyRoomSelected)="onRoomsAmountSelected($event)"
+        ></app-rooms-filter-mobile>
+      </div>
+
       <div class="add-block1 flex column">
         <span class="title font16 font500 translateY">מאפייני מודעה</span>
         <div class="add-checkboxs">
@@ -217,13 +224,6 @@
           ></SquareSizeSlider>
         </div>
         <div class="line2"></div>
-
-        <div class="mobile">
-          <div class="sub-title">חדרים</div>
-          <app-rooms-filter-mobile
-            (propertyRoomSelected)="onRoomsAmountSelected($event)"
-          ></app-rooms-filter-mobile>
-        </div>
 
         <div class="date-container">
           <div class="title">תאריך כניסה</div>
