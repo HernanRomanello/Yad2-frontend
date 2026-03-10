@@ -40,12 +40,23 @@
 }
 
 .main-pic {
+  height: 440px;
+  width: 100%;
+}
+.house-pic,
+.main-pic {
   border-bottom-right-radius: 12px;
   border-top-right-radius: 12px;
-  height: 440px;
+}
+
+.house-pic,
+.main-pic {
   background-position: center;
   background-size: cover;
-  width: 100%;
+}
+
+.house-pic {
+  width: calc(100vw - 1.25rem);
 }
 
 .pics {
@@ -209,7 +220,6 @@ img {
 
 .advertisement-page {
   display: flex;
-
   padding-bottom: 4rem;
   justify-content: center;
   flex-direction: column;
@@ -399,9 +409,11 @@ img {
 
 .additional-details-table2 {
   display: grid;
-
   transform: translateX(-6px) !important;
   grid-template-columns: repeat(4, 1fr);
+}
+.additional-details-table1,
+.additional-details-table2 {
   padding-bottom: 4rem;
 }
 
@@ -452,10 +464,6 @@ img {
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 10px;
   padding: 0 0.25rem;
-}
-
-.ad-content {
-  justify-content: space-between;
 }
 
 .contact-card {
@@ -509,7 +517,7 @@ img {
   display: none;
 }
 
-@media (width < 856px) {
+@media (width < 883px) {
   .pics-container {
     margin: 0;
   }
@@ -617,12 +625,29 @@ img {
     width: fit-content;
   }
 
-  .pics-container,
-  .ad-content {
+  .ad-content,
+  .pics-container {
     grid-template-columns: 1fr;
   }
 
-  .main-pic {
+  .ad-info {
+    max-width: calc(100vw - 1.5rem);
+  }
+
+  .main-pic,
+  .house-pic,
+  #ad-image {
     max-height: 260px;
+    width: calc(100vw - 1.5rem);
+  }
+
+  .main-pic,
+  .main-pic > *,
+  .house-pic {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  .main-pic {
+    padding: 0.25rem 0 1rem 0rem;
   }
 }
