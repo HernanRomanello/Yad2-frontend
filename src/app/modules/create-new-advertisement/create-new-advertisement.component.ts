@@ -62,7 +62,15 @@ export class CreateNewAdvertisementComponent implements OnInit {
   chosenTradeType: string = '';
   isFormHasvalidStreetAddress: boolean = false;
   HasValidCityAddress: boolean = false;
-  isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
+  isFormPagesHidden: boolean[] = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
   isFormPagesAreCompleted: boolean[] = [
     false,
     false,
@@ -707,10 +715,9 @@ export class CreateNewAdvertisementComponent implements OnInit {
 
   continueToTheNextFormPage(formPageNumber: number) {
     this.isFormPagesAreSubmitted[formPageNumber - 1] = true;
-
     if (this.checkIfThisFormPartIsValid(formPageNumber)) {
       this.updateIfFormPartCompleted(formPageNumber);
-      this.continueToTheNextFormPage(formPageNumber);
+      this.scrollToOpenFormPart(formPageNumber);
       this.firstError = '';
     } else {
       if (this.firstError !== '') {
@@ -876,6 +883,15 @@ export class CreateNewAdvertisementComponent implements OnInit {
           nextSection.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100);
+    }
+  }
+
+  scrollToOpenFormPart(formPageNumber: number) {
+    const nextSection = document.getElementById(
+      `section-title${formPageNumber + 1}`,
+    );
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }

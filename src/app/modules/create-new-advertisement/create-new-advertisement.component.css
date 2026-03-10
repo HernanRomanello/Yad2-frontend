@@ -1357,6 +1357,10 @@ textarea::placeholder,
   direction: rtl;
 }
 
+#section-title-container3-mobile {
+  padding: 24px 0 !important;
+}
+
 @media (width < 883px) {
   .Selection-7-content {
     margin: 0 !important;
@@ -1445,7 +1449,6 @@ textarea::placeholder,
   #assetType-options,
   .navigation-btn,
   .accept-promotions,
-  #section-title-container3-mobile,
   .upgrade-add-pic {
     width: calc(100vw - 2.5rem) !important;
     max-width: 840px;
