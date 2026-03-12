@@ -151,4 +151,9 @@ img {
   .modal-overlay {
     background-color: transparent;
   }
+
+  .post-ad-box {
+    text-align: center;
+    padding: 0 1.5rem;
+  }
 }
