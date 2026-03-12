@@ -20,4 +20,9 @@ export class ImageuploadService {
       ),
     );
   }
+
+  async uploadImageAndGetUrl(image: File): Promise<string> {
+    const response = await this.uploadImage(image);
+    return response.fileUrl;
+  }
 }

@@ -209,7 +209,11 @@ export class EditAdvertisementComponent
     }
   }
 
-  onFileChange(event: any, index: number, isMainImage: boolean): string | null {
+  async onFileChange(
+    event: any,
+    index: number,
+    isMainImage: boolean,
+  ): Promise<string | null> {
     const file = event.target.files[0];
 
     if (!file) {
@@ -221,44 +225,25 @@ export class EditAdvertisementComponent
 
     this.advertisement.hasImage = this.images.length > 0;
 
-    const fileURL = URL.createObjectURL(file);
-
-    if (this.advertisement.pictures[index]) {
-      this.advertisement.pictures[index].url = fileURL;
-      this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
-
-      this.ImagesThatCanEdit[index] = true;
-      this.imagesURlWasDeleted[index] = false;
-    } else {
-      this.advertisement.pictures[index] = {
-        id: this.advertisement.id,
-        advertisementId: this.advertisement.id,
-        url: fileURL,
-      };
-    }
-
     if (isMainImage) {
-      this.mainImageURL = this.Url + 'uploads/' + file.name;
-      this.imageuploadService.uploadImage(file);
-
+      const S3url = await this.imageuploadService.uploadImageAndGetUrl(file);
+      this.mainImageURL = S3url;
       if (this.mainImageURL) {
         URL.revokeObjectURL(this.imagesURLs[index]);
       }
       this.advertisement.mainPicture = this.mainImageURL;
 
-      return this.mainImageURL;
+      return S3url;
     }
 
     if (this.imagesURLs[index]) {
       URL.revokeObjectURL(this.imagesURLs[index]);
     }
 
-    this.imagesURLs[index] = fileURL;
-
-    this.imageuploadService.uploadImage(file);
-
-    this.imagesURLsForPosting[index] = this.Url + 'uploads/' + file.name;
-    return fileURL;
+    const S3url = await this.imageuploadService.uploadImageAndGetUrl(file);
+    this.imagesURLs[index] = S3url;
+    this.imagesURLsForPosting[index] = S3url;
+    return S3url;
   }
 
   uploadVideoFile(event: any) {
@@ -277,8 +262,8 @@ export class EditAdvertisementComponent
     this.has2Contacts = numberOfContacts === 2 ? true : false;
   }
 
-  changeImage(event: any, index: number) {
-    const newImageUrl = this.onFileChange(event, index, index === 0);
+  async changeImage(event: any, index: number) {
+    const newImageUrl = await this.onFileChange(event, index, index === 0);
 
     if (newImageUrl) {
       if (index === 0) {
@@ -341,6 +326,7 @@ export class EditAdvertisementComponent
       this.mainImageURL = '';
     } else {
       this.imagesURlWasDeleted[index] = true;
+      this.imagesURLsForPosting[index] = '';
       this.imagesURLs[index] = '';
     }
   }
@@ -434,25 +420,25 @@ export class EditAdvertisementComponent
     return formattedDateString;
   }
 
-  async uploadAllImages() {
-    if (this.images.length === 0) return [];
+  // async uploadAllImages() {
+  //   if (this.images.length === 0) return [];
 
-    const validImages = this.images.filter((image) => image.size > 0);
+  //   const validImages = this.images.filter((image) => image.size > 0);
 
-    if (validImages.length === 0) return [];
+  //   if (validImages.length === 0) return [];
 
-    const tasks = validImages.map((image) => {
-      if (validImages.length === 1) {
-        this.mainImage = image;
-      }
+  //   const tasks = validImages.map((image) => {
+  //     if (validImages.length === 1) {
+  //       this.mainImage = image;
+  //     }
 
-      return this.imageuploadService.uploadImage(image);
-    });
+  //     return this.imageuploadService.uploadImage(image);
+  //   });
 
-    return await Promise.all(tasks).then((urls) => {
-      return urls.map((u) => u.fileUrl);
-    });
-  }
+  //   return await Promise.all(tasks).then((urls) => {
+  //     return urls.map((u) => u.fileUrl);
+  //   });
+  // }
 
   removeCommasFromNumberAndParseInt(value: string): number {
     return parseFloat(value.replace(/,/g, ''));
@@ -549,19 +535,18 @@ export class EditAdvertisementComponent
           this.mainImageURLwasDeleted = false;
 
           this.imagesURLs.splice(this.imagesURLs.indexOf(newMainImageURL), 1);
+        } else {
+          ImagesURLsForPosting = [];
+          this.mainImageURLwasDeleted = false;
         }
       }
 
       if (this.advertisement.pictures.length > 0) {
         this.advertisement.hasImage = true;
-        this.advertisement.pictures = this.imagesURLs.map((url) => ({
-          id: this.advertisement.id,
-          advertisementId: this.advertisement.id,
-          url: url,
-        }));
       } else {
         this.advertisement.hasImage = false;
       }
+
       this.advertisement.video = this.videoURL;
       this.advertisementService.updateAdvertisement(
         this.advertisement,
