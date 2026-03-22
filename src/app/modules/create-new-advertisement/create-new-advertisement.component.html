@@ -1292,10 +1292,10 @@
             <div class="card-header">סרטון הנכס</div>
             <div
               [ngClass]="
-                this.vidoeUrl === '' ? 'upload-card' : 'upload-card none-border'
+                videoUrl === '' ? 'upload-card' : 'upload-card none-border'
               "
             >
-              @if (this.vidoeUrl === "") {
+              @if (videoUrl === "") {
                 <div class="card-content">
                   <input
                     type="file"
@@ -1308,10 +1308,10 @@
                 </div>
               } @else {
                 <video class="file-input-video" #videoPlayer controls>
-                  <source [src]="this.vidoeUrl" type="video/mp4" />
+                  <source [src]="videoUrl" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                <div class="remove-video" (click)="this.vidoeUrl = ''">
+                <div class="remove-video" (click)="videoUrl = ''">
                   <img
                     class="svg-icon-edit"
                     src="assets/images/bin-svgrepo-com.svg"

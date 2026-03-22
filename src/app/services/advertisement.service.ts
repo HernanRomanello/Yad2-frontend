@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AdvertisementsModel } from '../shared/models/AdvertisementsModel';
-import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './user/auth.service';
+import { environment } from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root',
 })
@@ -11,7 +11,7 @@ export class AdvertisementService {
   Advertisements: BehaviorSubject<AdvertisementsModel[]> = new BehaviorSubject<
     AdvertisementsModel[]
   >([]);
-  Url = environment.URl;
+  Url = environment.apiUrl;
   UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
   authService = inject(AuthService);

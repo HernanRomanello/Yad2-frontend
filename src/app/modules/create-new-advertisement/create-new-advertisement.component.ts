@@ -15,8 +15,8 @@ import {
   CityListService,
   Street,
 } from '../../services/city-list.service';
-import { environment } from '../../../environments/environment.development';
 import { assetTypes, roomsOptions } from './dataUtilities';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-create-new-advertisement',
@@ -37,7 +37,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   has2Contacts: boolean = false;
   mainImage: File | undefined = undefined;
   images: File[] = [];
-  vidoeUrl: string = '';
+  videoUrl: string = '';
   imagesUrl: string[] = [];
   MainPicture: string = '';
   assetNames = assetTypes;
@@ -530,7 +530,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     }
     const file = input.files[0];
 
-    this.vidoeUrl = environment.URl + 'uploads/' + file.name;
+    this.videoUrl = `${environment.apiUrl}/uploads/${file.name}`;
 
     this.imageService.uploadImage(file);
   }
@@ -592,10 +592,10 @@ export class CreateNewAdvertisementComponent implements OnInit {
       form.assetState = this.asset_State;
       const uploadedImages = await this.uploadAllImages();
       form.pictures = uploadedImages;
-      form.video = this.vidoeUrl;
+      form.video = this.videoUrl;
 
       this.advertisementForm.get('pictures').setValue(this.imagesUrl);
-      this.advertisementForm.get('video').setValue(this.vidoeUrl);
+      this.advertisementForm.get('video').setValue(this.videoUrl);
       if (uploadedImages.length > 0) {
         this.advertisementForm.get('hasImage').setValue(true);
         this.imagesUrl = uploadedImages.map((image) => image);

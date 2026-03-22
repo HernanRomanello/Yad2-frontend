@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.development';
 import { firstValueFrom } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ImageuploadService {
   constructor(private httpClient: HttpClient) {}
-  Url = environment.URl;
+  Url = environment.apiUrl;
 
   uploadImage(image: File) {
     const formData = new FormData();

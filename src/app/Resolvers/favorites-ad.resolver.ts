@@ -6,9 +6,9 @@ import { environment } from '../../environments/environment.development';
 
 export const favoritesAdResolver: ResolveFn<AdvertisementsModel[] | null> = (
   route,
-  state
+  state,
 ) => {
   const httpClient = inject(HttpClient);
-  const URL = environment.URl;
+  const URL = environment.apiUrl;
   return httpClient.get<AdvertisementsModel[]>(`${URL}api/Users/GetFavorites`);
 };

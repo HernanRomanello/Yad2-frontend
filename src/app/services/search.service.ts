@@ -2,14 +2,14 @@ import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PropertyFilters } from '../shared/models/Filters';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment.development';
 import { LastsearchesModel } from '../shared/models/LastsearchesModel';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
-  Url = environment.URl;
+  Url = environment.apiUrl;
   propertyTypeFilterValue = signal<string>('סוג הנכס');
   priceRangeFilterValue = signal<string>('מחיר');
   roomNumberFilterValue = signal<string>('חדרים');
@@ -187,7 +187,7 @@ export class SearchService {
 
   GetUserLastSearches() {
     this.httpClient
-      .get<LastsearchesModel[]>(this.Url + 'api/Users/user/GetLastSearches')
+      .get<LastsearchesModel[]>(`${this.Url}api/Users/user/GetLastSearches`)
       .subscribe((data) => {
         this.UserLastSearches.next(data);
         const uniqueMonthDayArray = data
@@ -209,20 +209,22 @@ export class SearchService {
 
   removeLastSearch(id: string) {
     this.httpClient
-      .delete(this.Url + 'api/Users/user/DeleteLastSearch/' + id)
-      .subscribe(
-        () => {
+      .delete(`${this.Url}api/Users/user/DeleteLastSearch/${id}`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: () => {
           this.GetUserLastSearches();
         },
-        (error) => {
+        error: (error) => {
           console.error('Error deleting last search:', error);
         },
-      );
+      });
   }
 
   removeAllLastSearches() {
     this.httpClient
-      .delete(this.Url + 'api/Users/user/DeleteAllLastSearches')
+      .delete(`${this.Url}api/Users/user/DeleteAllLastSearches`)
       .subscribe(
         () => {
           this.GetUserLastSearches();
@@ -267,7 +269,7 @@ export class SearchService {
       hasStorageRoom: this.propertyFilters.storageRoom,
     };
     this.httpClient
-      .post(this.Url + 'api/Users/user/AddLastSearch', lastSearch)
+      .post(`${this.Url}api/Users/user/AddLastSearch`, lastSearch)
       .subscribe(
         () => {
           this.GetUserLastSearches();

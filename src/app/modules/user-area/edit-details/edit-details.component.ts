@@ -80,7 +80,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     private userService: AuthService,
     private formBuilder: FormBuilder,
     private cityListService: CityListService,
-    private imageuploadService: ImageuploadService
+    private imageuploadService: ImageuploadService,
   ) {}
 
   clickEvent(event: Event) {
@@ -163,19 +163,19 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
       this.$cities,
       searchQuery,
       'city_name_he',
-      10
+      10,
     );
   }
 
   serchStreet(searchQuery: string) {
     const streetsOptions = this.$streets.filter(
-      (s) => s.City_Name.toLowerCase() === this.chosenCity.toLowerCase()
+      (s) => s.City_Name.toLowerCase() === this.chosenCity.toLowerCase(),
     );
     this.$streetsOptions = this.cityListService.getStreetSuggestions(
       this.chosenCity,
       searchQuery,
       streetsOptions,
-      4
+      4,
     );
   }
 
@@ -183,7 +183,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     const CityName = city;
 
     const validCity = this.$cities.find(
-      (city: City) => city.city_name_he === CityName
+      (city: City) => city.city_name_he === CityName,
     );
 
     return validCity ? true : false;
@@ -195,7 +195,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     const validstreet = this.$streets.find(
       (street: Street) =>
         street.Street_Name === streetName &&
-        street.City_Name === this.chosenCity
+        street.City_Name === this.chosenCity,
     );
 
     return validstreet ? true : false;
@@ -270,8 +270,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
 
     if (this.profileImage && this.profileImage && this.profileImageURL !== '') {
       this.imageuploadService.uploadImage(this.profileImage);
-      this.$user.picture =
-        environment.URl + 'uploads/' + this.profileImage.name;
+      this.$user.picture = `${environment.apiUrl}/uploads/${this.profileImage.name}`;
     } else {
       this.$user.picture = '';
     }

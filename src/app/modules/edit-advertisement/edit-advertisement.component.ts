@@ -17,13 +17,13 @@ import { AdvertisementService } from '../../services/advertisement.service';
 import { catchError } from 'rxjs';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { ImageuploadService } from '../../services/imageupload.service';
-import { environment } from '../../../environments/environment.development';
 import {
   propertyFeatures,
   propertyFeaturesImagesUrls,
   propertyFeaturesOptions,
 } from './dataUtilities';
 import { FormBuilder } from '@angular/forms';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-edit-advertisement',
@@ -55,7 +55,7 @@ export class EditAdvertisementComponent
   numberValuesForForm: (string | number)[] = new Array(5);
   mainImage: File | undefined = undefined;
   mainImageURL: string = '';
-  Url = environment.URl;
+  Url = environment.apiUrl;
   video: File | undefined = undefined;
   videoWasDeleted: boolean = false;
   isHouseNumberEraseBtnHidden = true;
@@ -255,7 +255,7 @@ export class EditAdvertisementComponent
 
     this.video = file;
     this.imageuploadService.uploadImage(file);
-    this.videoURL = this.Url + 'uploads/' + file.name;
+    this.videoURL = `${this.Url}/uploads/${file.name}`;
   }
 
   Definecontacts(numberOfContacts: number) {

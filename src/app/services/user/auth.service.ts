@@ -1,5 +1,4 @@
 import { Injectable, OnInit, afterNextRender, inject } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject, ReplaySubject, filter, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
@@ -7,12 +6,13 @@ import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService implements OnInit {
-  Url = environment.URl;
+  Url = environment.apiUrl;
   access_token = new BehaviorSubject<string | null | undefined>('');
   isUserLogin = new ReplaySubject<boolean>(1);
   user = new BehaviorSubject<UserModel | null | undefined>(undefined);
