@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../services/user/auth.service';
 import { InputsStyleService } from '../../services/inputs-style.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-registration-form',
@@ -22,6 +23,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
   email = false;
   isPasswordHidden = true;
   inputsStyleService = inject(InputsStyleService);
+  navigationService = inject(NavigationService);
   paswwordDontMatchError: string = '';
 
   constructor(

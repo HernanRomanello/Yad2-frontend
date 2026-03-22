@@ -3,6 +3,7 @@ import { AuthService } from '../../services/user/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { inject } from '@angular/core';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,13 @@ import { inject } from '@angular/core';
 export class LoginComponent implements OnInit, OnDestroy {
   formSubmitted = false;
   inputsStyleService = inject(InputsStyleService);
+  navigationService = inject(NavigationService);
   isPasswordHidden = true;
   isPasswordIsValid = true;
 
   constructor(
     private authService: AuthService,
-    private formbuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {}
   ngOnDestroy() {
     this.formSubmitted = false;
@@ -25,12 +27,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isPasswordHidden = true;
-    this.loginForm = this.formbuilder.group({
-      email: this.formbuilder.control('', [
+    this.loginForm = this.formBuilder.group({
+      email: this.formBuilder.control('', [
         Validators.required,
         Validators.email,
       ]),
-      password: this.formbuilder.control('', Validators.required),
+      password: this.formBuilder.control('', Validators.required),
     });
   }
   loginForm!: FormGroup;
@@ -57,7 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   togglePasswordVisibility() {
     this.isPasswordHidden = !this.isPasswordHidden;
     const passwordInput = document.getElementById(
-      'password'
+      'password',
     ) as HTMLInputElement;
     if (passwordInput.type === 'password') {
       passwordInput.type = 'text';

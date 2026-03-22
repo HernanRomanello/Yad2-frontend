@@ -14,6 +14,15 @@ export class NavigationService {
     this.IsSearchFilterOpen.set(open);
   }
 
+  goHome(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    window.location.href = '/';
+  }
+
   navigateInNewWindow(route: string, queryParams?: any) {
     const urlTree = this.router.createUrlTree([route], { queryParams });
     const url = this.router.serializeUrl(urlTree);
