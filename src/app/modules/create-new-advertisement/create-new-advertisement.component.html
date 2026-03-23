@@ -1636,7 +1636,7 @@
           <span>בחירת מסלול </span
           ><span id="section-title7" class="section-title">7</span>
         </div>
-        <div class="Selection-7-content">
+        <div class="desktop Selection-7-content">
           <div class="course-note">
             <div class="spaceship-icon">
               <img src="assets/images/spaceship.JPG" alt="" />
@@ -1646,7 +1646,7 @@
           <img class="weCheck-img" src="assets/images/weCheck.JPG" alt="" />
         </div>
 
-        <div class="course-to-post-container">
+        <div class="desktop course-to-post-container">
           <div class="course-to-post">
             <div class="course-to-post-inner-box">
               <img
@@ -1692,7 +1692,7 @@
             </div>
           </div>
         </div>
-        <div class="Selection-7-content right-text">
+        <div class="desktop Selection-7-content right-text">
           <div>
             חשוב לנו לעדכן! אנחנו מחדשים את נראות האתר וזה קורה בהדרגה. במידה
             ותבחר את אחד המסלולים המשודרגים ייתכן ותראה את המראה
@@ -1700,7 +1700,7 @@
           <div>הישן של המודעות המשודרגות (מודעה צהובה או ורודה וללא תגיות)</div>
         </div>
 
-        <label class="checkbox-input align-right">
+        <label class="desktop checkbox-input align-right">
           <input type="checkbox" value="true" checked />
 
           <div>
@@ -1708,6 +1708,40 @@
             - יש להוריד את הסימון בתיבה)
           </div>
         </label>
+
+        <div class="plans-container">
+          <div
+            class="mobile plan-card"
+            *ngFor="let plan of plans"
+            [class.selected-plan]="selectedPlan === plan.id"
+            (click)="selectPlan(plan.id)"
+          >
+            <div class="plan-header">
+              <div>
+                <h2 class="plan-title">{{ plan.title }}</h2>
+                <div class="price">
+                  <span> {{ plan.price }} ₪ </span>
+                  <span>/ 28 ימים</span>
+                </div>
+              </div>
+              <img [src]="plan.src" class="plan-icon" />
+            </div>
+
+            <ul>
+              <li *ngFor="let f of plan.features">
+                {{ f }}
+              </li>
+            </ul>
+
+            <button
+              type="submit"
+              class="choose-btn"
+              [class.selected-btn]="selectedPlan === plan.id"
+            >
+              בחירת המסלול שלך
+            </button>
+          </div>
+        </div>
 
         <button (click)="ReturnToPrevFormPart(6)" class="return-btn last-btn">
           חזרה

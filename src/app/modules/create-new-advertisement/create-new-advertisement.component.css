@@ -105,11 +105,6 @@ input[type="checkbox"]:checked::after,
   left: 10px !important;
 }
 
-/* .recommend-pic {
-  top: 32px;
-  left: 32px;
-} */
-
 .dropdown-menu,
 .select-options,
 #city-option,
@@ -1367,7 +1362,7 @@ textarea::placeholder,
   }
   .desktop,
   .insight-pic {
-    display: none;
+    display: none !important;
   }
 
   .course-to-post-container {
@@ -1582,11 +1577,96 @@ textarea::placeholder,
   }
 }
 
+@media (width < 883px) {
+  .plans-container {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 1.5rem;
+    direction: rtl;
+  }
+
+  .plan-card {
+    width: calc(100vw - 4rem);
+    padding: 10px 1rem;
+    border-radius: 16px;
+    background: #f3f3f3;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .plan-card.selected-plan {
+    border: 2px solid #ff9800;
+    background: #fffaf5;
+  }
+
+  .plan-header {
+    display: flex;
+    gap: 14px;
+    justify-content: space-between;
+  }
+
+  .price > :first-child {
+    font-size: 24px;
+  }
+  .plan-title {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .price > :last-child {
+    color: #828282;
+  }
+  .price > :last-child {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+  }
+
+  .plan-icon {
+    width: 90px;
+  }
+
+  .plan-title {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  ul {
+    margin-top: 10px;
+    padding-right: 18px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  .choose-btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 30px;
+    border: 1px solid #333;
+    background: white;
+  }
+
+  .selected-btn {
+    background: #1db954;
+    color: white;
+    border: none;
+  }
+}
+
 @media (width < 650px) {
   .post-btn,
   .green-btn {
     padding: 0;
     font-size: 14px;
     width: 120px !important;
+  }
+}
+
+@media (width < 432px) {
+  .plan-card {
+    width: calc(100vw - 2rem);
   }
 }

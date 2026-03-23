@@ -62,7 +62,44 @@ export class CreateNewAdvertisementComponent implements OnInit {
   chosenTradeType: string = '';
   isFormHasvalidStreetAddress: boolean = false;
   HasValidCityAddress: boolean = false;
+  selectedPlan = 1;
+
   isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
+  plans = [
+    {
+      id: 1,
+      title: 'פרימיום',
+      price: 329,
+      features: [
+        'מקסימום חשיפה ובראש תוצאות המודעות הפרטיות',
+        'הקפצה אוטומטית בכל 4 שעות',
+        'יותר שיחות לקיצור זמן המכירה',
+      ],
+      src: 'https://dev-assets.yad2.co.il/publish-ad/packagesIcons/bigHouse_small.svg',
+    },
+    {
+      id: 2,
+      title: 'משודרגת',
+      price: 299,
+      features: [
+        'חשיפה גבוהה יותר מהמסלול הבסיסי',
+        'הקפצה ידנית בכל 4 שעות',
+        'מיקום גבוה יותר בעמודי החיפוש',
+      ],
+
+      src: 'https://dev-assets.yad2.co.il/publish-ad/packagesIcons/house_small.svg',
+    },
+
+    {
+      id: 3,
+      title: 'בסיסי',
+      price: 0,
+      features: ['מיקום נמוך ביחס למסלולים המשודרגים', 'ללא אפשרות הקפצה'],
+
+      src: 'https://dev-assets.yad2.co.il/publish-ad/packagesIcons/tent_small.svg',
+    },
+  ];
+
   isFormPagesAreCompleted: boolean[] = [
     false,
     false,
@@ -81,6 +118,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
     false,
     false,
   ];
+
   advertisementService = inject(AdvertisementService);
   inputsStyleService = inject(InputsStyleService);
   cityListService = inject(CityListService);
@@ -92,9 +130,12 @@ export class CreateNewAdvertisementComponent implements OnInit {
   errorMessage: string | null = null;
   constructor(
     private renderer: Renderer2,
-    private modalstate: ModalStateService,
+    private modalState: ModalStateService,
   ) {}
 
+  selectPlan(id: number) {
+    this.selectedPlan = id;
+  }
   setCity(city: string) {
     this.checkIfValidCity(city);
     this.advertisementForm.get('city').setValue(city);
@@ -276,13 +317,13 @@ export class CreateNewAdvertisementComponent implements OnInit {
   checkIfValidStreet(Street: string): void {
     const streetName = Street;
 
-    const validstreet = this.$streets.find(
+    const validStreet = this.$streets.find(
       (street: Street) =>
         street.Street_Name === streetName &&
         street.City_Name === this.advertisementForm.get('city').value,
     );
 
-    this.isFormHasvalidStreetAddress = validstreet ? true : false;
+    this.isFormHasvalidStreetAddress = validStreet ? true : false;
   }
 
   isValidStreetName(): ValidationErrors | null {
@@ -645,7 +686,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   }
 
   showOrHideModal(isVisible: boolean) {
-    this.modalstate.isModalVisible.next(isVisible);
+    this.modalState.isModalVisible.next(isVisible);
   }
 
   selectOption(option: string, type: string) {
