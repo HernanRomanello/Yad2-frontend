@@ -457,7 +457,14 @@
               <label> על עמודים </label>
             </div>
           </div>
-
+          <span class="small-mobile">
+            <input
+              class="checkbox"
+              type="checkbox"
+              formControlName="onPillars"
+            />
+            <label> על עמודים </label>
+          </span>
           <div class="input-container">
             <label class="small-text light-grey-text" for="neighborhood"
               >שכונה</label
@@ -639,17 +646,15 @@
             נכס עורפי
           </label>
 
-          <div class="line line2"></div>
+          <div class="desktop line line2"></div>
 
-          <div class="accept-promotions">
-            <label class="checkbox-input">
-              <input type="checkbox" />
-              <span>
-                אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס,
-                עסקאות באיזור והצעות מקצועיות מיועצי נדל״ן
-              </span>
-            </label>
-          </div>
+          <label class="desktop checkbox-input">
+            <input type="checkbox" />
+            <span>
+              אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס,
+              עסקאות באיזור והצעות מקצועיות מיועצי נדל״ן
+            </span>
+          </label>
 
           <div class="navigation-btn">
             <button (click)="continueToTheNextFormPage(1)" class="continue-btn">

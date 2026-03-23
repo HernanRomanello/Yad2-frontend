@@ -715,13 +715,11 @@ input[type="checkbox"]:checked::after {
   border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   height: 42px;
-  max-width: 189px;
   padding: 12px 12px;
   vertical-align: middle !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 70px;
   vertical-align: middle !important;
   justify-content: flex-start;
   white-space: nowrap;
@@ -1443,10 +1441,10 @@ textarea::placeholder,
   #assetState-options,
   #assetType-options,
   .navigation-btn,
-  .accept-promotions,
-  .upgrade-add-pic {
+  .upgrade-add-pic,
+  .checkbox-input,
+  .property-Features {
     width: calc(100vw - 2.5rem) !important;
-    max-width: 840px;
   }
 
   #section-title-container3-mobile,
@@ -1479,10 +1477,6 @@ textarea::placeholder,
   .property-Features {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
-  }
-
-  .Feature {
-    max-width: 415px;
   }
 
   .option {
@@ -1577,7 +1571,16 @@ textarea::placeholder,
   }
 }
 
+.small-mobile {
+  display: none;
+}
+
 @media (width < 883px) {
+  .checkbox-newsletter {
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
   .plans-container {
     display: grid;
     grid-template-rows: repeat(1, 1fr);
@@ -1666,7 +1669,37 @@ textarea::placeholder,
 }
 
 @media (width < 432px) {
-  .plan-card {
+  .plan-card,
+  #Selection-3 > *,
+  .property-description,
+  .property-description > *,
+  .description-box,
+  textarea {
     width: calc(100vw - 2rem);
+  }
+  textarea {
+    font-size: 12px !important;
+  }
+  textarea::placeholder {
+    font-size: 14px !important;
+  }
+
+  .empty-state > * {
+    width: calc(100vw - 4rem);
+  }
+
+  .property-description {
+    margin-top: 2.5rem;
+  }
+
+  .check-input.margin-bottom {
+    display: none !important;
+  }
+
+  .small-mobile {
+    display: block !important;
+  }
+  .small-mobile > input {
+    transform: translateY(7px);
   }
 }

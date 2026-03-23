@@ -64,7 +64,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   HasValidCityAddress: boolean = false;
   selectedPlan = 1;
 
-  isFormPagesHidden: boolean[] = [true, true, true, true, true, true, true];
+  isFormPagesHidden: boolean[] = [true, false, false, true, true, true, true];
   plans = [
     {
       id: 1,

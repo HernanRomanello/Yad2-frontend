@@ -80,3 +80,44 @@
   height: 85px;
   width: 125px;
 }
+
+@media (max-width: 883px) {
+  .message-card > :first-child {
+    transform: translateY(-20px);
+  }
+  .message-card > :not(:first-child) {
+    transform: translateY(-40px);
+  }
+}
+
+@media (width < 432px) {
+  .empty-state {
+    width: calc(100vw - 2rem) !important;
+  }
+  .empty-state > :not(.empty-state) * {
+    width: calc(100vw - 5rem) !important;
+  }
+
+  .empty-state,
+  .message-card,
+  .subtitle {
+    padding: 0 !important;
+  }
+  .message-card,
+  .message-card > * {
+    width: calc(100vw - 7rem) !important;
+  }
+
+  .top-icon,
+  .subtitle {
+    transform: unset !important;
+    display: none !important;
+  }
+
+  .message-card > :first-child {
+    transform: translateY(-0px);
+  }
+  .message-card > :not(:first-child) {
+    transform: translateY(-20px);
+  }
+}
