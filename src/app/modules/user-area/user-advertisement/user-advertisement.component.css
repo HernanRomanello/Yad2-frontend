@@ -411,7 +411,7 @@ i.material-icons {
 .slider-container {
   position: relative;
   max-width: 100%;
-  margin: auto;
+  margin: 1rem 0.5rem 0 0;
 }
 
 .slider {
@@ -746,6 +746,10 @@ i.material-icons {
 }
 
 @media (width < 883px) {
+  .slider-container {
+    margin: 1rem 0 0 0;
+  }
+
   .component-content,
   .sort-btns-container {
     width: calc(100vw - 1rem);
@@ -875,5 +879,107 @@ i.material-icons {
 
   .light-gray-small-text {
     padding: 0 0.5rem;
+  }
+}
+@media (width < 530px) {
+  .slider-container {
+    margin: 1rem 0 0 0;
+  }
+
+  .ad-container {
+    grid-template-columns: 50% 45%;
+    gap: 0.25rem;
+  }
+
+  .ad-container,
+  .ad-details {
+    width: calc(100vw - 2rem);
+  }
+
+  .component-content > * {
+    padding: 0 0.25rem;
+  }
+
+  .status-div {
+    text-wrap: nowrap;
+  }
+
+  .icon-circle-container {
+    gap: 0.5rem;
+  }
+}
+
+@media (width < 500px) {
+  .icon-circle-container {
+    gap: 0.25rem;
+  }
+
+  #empty-image {
+    transform: translateX(30px) !important;
+  }
+}
+@media (width < 420px) {
+  .stats-information-btn {
+    height: 46px;
+    width: 50px;
+    text-wrap: nowrap;
+  }
+  .ad-status-container {
+    transform: translateX(10px) !important;
+    font-size: 12px !important;
+  }
+
+  #empty-image {
+    transform: translateX(40px) !important;
+  }
+  .icon-circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon-circle-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .icon-circle-container > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ad-container {
+    height: 330px !important;
+  }
+  .ad-container > * {
+    height: 310px !important;
+  }
+}
+
+@media (width < 370px) {
+  .ad-status-container {
+    transform: translateX(10px) !important;
+    font-size: 10px !important;
+  }
+  .ad-address,
+  .medium-size {
+    font-size: 14px;
+  }
+
+  .ad-size {
+    font-size: 12px;
+  }
+
+  .stats-information-btn {
+    height: 46px;
+    width: 40px;
+    text-wrap: nowrap;
+  }
+
+  .stats-num {
+    padding-bottom: 0 !important;
+    font-size: 14px;
+    transform: translateY(4px);
   }
 }
