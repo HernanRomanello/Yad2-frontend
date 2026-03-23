@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputsStyleService } from '../../services/inputs-style.service';
 import { inject } from '@angular/core';
 import { NavigationService } from '../../services/navigation.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, take } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
+    private router: Router,
   ) {}
   ngOnDestroy() {
     this.formSubmitted = false;
@@ -45,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     const loggedIn = await this.authService.login(email, password);
 
     if (loggedIn) {
-      this.inputsStyleService.navigateTomainPage();
+      this.inputsStyleService.navigateToMainPage();
     } else {
       if (
         this.loginForm.get('password')?.valid &&

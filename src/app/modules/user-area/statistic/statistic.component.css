@@ -591,7 +591,15 @@ input[type="checkbox"],
     width: calc(100vw - 4rem);
   }
 
-  .dropdown {
+  .dropdown,
+  .dropdown-content,
+  .dropdown-content > * {
     width: 200px;
+  }
+}
+
+@media (max-width: 360px) {
+  .font16.wrap-text {
+    font-size: 14px;
   }
 }

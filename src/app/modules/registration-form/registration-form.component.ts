@@ -102,7 +102,7 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
     );
 
     if (loggedIn) {
-      this.inputsStyleService.navigateTomainPage();
+      this.inputsStyleService.navigateToMainPage();
     }
   }
 

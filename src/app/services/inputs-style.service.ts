@@ -12,16 +12,16 @@ export class InputsStyleService {
       : 'assets/images/password-invisible.svg';
   }
 
-  reloloadPage(): void {
+  reloadPage(): void {
     setTimeout(() => {
       window.location.reload();
     }, 100);
     scrollTo(0, 0);
   }
 
-  navigateTomainPage(): void {
+  navigateToMainPage(): void {
+    this.reloadPage();
     this.router.navigate(['/']);
-    this.reloloadPage();
   }
 
   changeBorderColor(consitions: any, Class: string): string {
