@@ -265,10 +265,10 @@ button,
   line-height: 27px;
   text-align: center;
   background-color: rgb(255, 113, 0);
-
   color: rgb(255, 255, 255);
   height: 48px;
-  width: 13.2vw;
+  width: 13.2vw, 88px;
+  min-width: 88px;
   border-radius: 30px;
 }
 
@@ -425,6 +425,10 @@ button,
 }
 
 @media (max-width: 883px) {
+  .invalid-input {
+    padding: 0.5rem 1rem;
+  }
+
   .edit-details,
   .edit-details-container {
     background-color: #f8f8f8;
@@ -503,10 +507,6 @@ button,
     justify-content: flex-start;
   }
 
-  .save-btn {
-    width: 100px;
-  }
-
   .house-number > :nth-child(2) > input {
     padding: 0 0 0 0.25rem !important;
     text-align: center;
@@ -543,5 +543,24 @@ button,
   .upload-user-img {
     width: 118px;
     height: 118px;
+  }
+}
+
+@media (max-width: 650px) {
+  .address-inputs > .house-number {
+    grid-template-columns: 75% 25%;
+    gap: 4%;
+  }
+}
+@media (max-width: 510px) {
+  .user-form,
+  .edit-details-container {
+    width: 80vw;
+  }
+}
+@media (max-width: 380px) {
+  .user-form,
+  .edit-details-container {
+    width: 90vw;
   }
 }
