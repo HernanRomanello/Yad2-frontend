@@ -152,7 +152,6 @@
   .price-container,
   .price-slider-select,
   .price,
-  .slider,
   .price-slider-no-bg {
     width: calc(100vw - 3rem) !important;
   }
@@ -161,5 +160,11 @@
     padding: 2rem 0;
     transform: translateX(-42px);
     width: calc(100vw - 5rem) !important;
+  }
+
+  @media (max-width: 488px) {
+    .price {
+      max-width: 40vw !important;
+    }
   }
 }

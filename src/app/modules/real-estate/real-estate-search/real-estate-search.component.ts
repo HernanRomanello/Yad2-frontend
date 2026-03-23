@@ -34,7 +34,6 @@ export class RealEstateSearchComponent implements OnDestroy {
   constructor(private navigationService: NavigationService) {}
 
   clickEvent(event: MouseEvent) {
-    console.log(this.sortButtonThatAreOpen);
     const clickedElement = event.target as HTMLElement;
     const clientY = event.clientY;
     const [filterName, filterOpen] = this.sortButtonThatAreOpen;

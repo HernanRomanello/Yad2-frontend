@@ -80,3 +80,27 @@
     width: 36px;
   }
 }
+
+@media (max-width: 530px) {
+  .mobileButtonCss {
+    height: 6.7vw !important;
+    width: 6.7vw !important;
+  }
+
+  .room-btn {
+    height: 8vw;
+    width: 8vw;
+  }
+  .room-btn,
+  .mobileButtonCss {
+    font-size: 2.6vw !important;
+  }
+
+  .rooms-select {
+    gap: 1px !important;
+    padding: 18px 0 !important;
+  }
+  .body {
+    padding-right: 0 !important;
+  }
+}

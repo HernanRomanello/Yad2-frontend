@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
     this.router.events
       .pipe(
-        filter((event): event is ResolveStart => event instanceof ResolveStart)
+        filter((event): event is ResolveStart => event instanceof ResolveStart),
       )
       .subscribe((event) => {
         const { url } = event;

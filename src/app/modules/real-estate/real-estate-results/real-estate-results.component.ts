@@ -298,7 +298,6 @@ export class RealEstateResultsComponent implements OnInit {
         if (this.searchService.minRooms() !== 0) {
           ads = ads.filter((ad) => {
             const rooms = parseFloat(ad.rooms);
-            console.log(rooms);
             return !isNaN(rooms) && rooms >= this.searchService.minRooms();
           });
         }
