@@ -22,7 +22,7 @@ import {
   propertyFeaturesOptions,
 } from './dataUtilities';
 import { FormBuilder } from '@angular/forms';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-edit-advertisement',

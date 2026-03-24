@@ -16,7 +16,7 @@ import {
   Street,
 } from '../../services/city-list.service';
 import { assetTypes, roomsOptions } from './dataUtilities';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-create-new-advertisement',

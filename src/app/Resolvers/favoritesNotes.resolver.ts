@@ -2,7 +2,7 @@ import { ResolveFn } from '@angular/router';
 import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserNoteModel } from '../shared/models/UserNoteModel';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 export const favoritesNotesResolver: ResolveFn<UserNoteModel[]> = (
   route,

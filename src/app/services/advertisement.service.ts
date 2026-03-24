@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { AdvertisementsModel } from '../shared/models/AdvertisementsModel';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './user/auth.service';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })

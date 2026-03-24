@@ -1,46 +1,102 @@
-import { Injectable, OnInit, afterNextRender, inject } from '@angular/core';
-import {
-  BehaviorSubject,
-  ReplaySubject,
-  filter,
-  firstValueFrom,
-  map,
-} from 'rxjs';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { BehaviorSubject, firstValueFrom, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
 import { LastsearchesModel } from '../../shared/models/LastsearchesModel';
 import { UserNoteModel } from '../../shared/models/UserNoteModel';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService implements OnInit {
+export class AuthService {
+  private platformId = inject(PLATFORM_ID);
+
   Url = environment.apiUrl;
-  access_token = new BehaviorSubject<string | null | undefined>('');
-  isUserLogin = new ReplaySubject<boolean>(1);
+
+  isUserLogin = new BehaviorSubject<boolean>(false);
   user = new BehaviorSubject<UserModel | null>(null);
-  UserAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
-    new BehaviorSubject<AdvertisementsModel[]>([]);
-  UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
-    new BehaviorSubject<AdvertisementsModel[]>([]);
-  userLastSearches: BehaviorSubject<LastsearchesModel[]> = new BehaviorSubject<
-    LastsearchesModel[]
-  >([]);
+  UserAdvertisements = new BehaviorSubject<AdvertisementsModel[]>([]);
+  UserFavoriteAdvertisements = new BehaviorSubject<AdvertisementsModel[]>([]);
+  userLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   UserAdvertisementsStatistics =
     new BehaviorSubject<AdvertisementsModel | null>(null);
-  userName = new ReplaySubject<string>(1);
-  firstLetterUserEmailAddress = new ReplaySubject<string>(1);
+  userName = new BehaviorSubject<string>('');
+  firstLetterUserEmailAddress = new BehaviorSubject<string>('');
   userNotes = new BehaviorSubject<UserNoteModel[]>([]);
 
   constructor(
     private router: Router,
     private httpClient: HttpClient,
-  ) {}
-  ngOnInit(): void {
-    this.GetUserDatails();
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkAuth();
+    }
+  }
+
+  private checkAuth() {
+    this.httpClient
+      .get<UserModel>(`${this.Url}api/Users/User`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (response) => {
+          if (response) {
+            this.isUserLogin.next(true);
+            this.user.next(response);
+            this.saveUserDetails(response.name, response.email);
+            this.loadUserData(false);
+          }
+        },
+        error: (err) => {
+          if (err.status === 401) {
+            this.clearUserState();
+            return;
+          }
+
+          console.error(err);
+        },
+      });
+  }
+
+  private loadUserData(includeUserDetails: boolean = true) {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    if (includeUserDetails) {
+      this.GetUserDatails();
+    }
+
+    this.GetUsersAdvertisements();
+    this.getUserFavoriteAdvertisements();
+    this.getUserLastSearches();
+    this.getUserAdvertisementsStatistics();
+    this.getUserNotes();
+  }
+
+  private clearUserState() {
+    this.isUserLogin.next(false);
+    this.user.next(null);
+    this.UserAdvertisements.next([]);
+    this.UserFavoriteAdvertisements.next([]);
+    this.userLastSearches.next([]);
+    this.UserAdvertisementsStatistics.next(null);
+    this.userName.next('');
+    this.firstLetterUserEmailAddress.next('');
+    this.userNotes.next([]);
+  }
+
+  private handleAuthError(err: any) {
+    if (err?.status === 401) {
+      this.clearUserState();
+      return;
+    }
+
+    console.error(err);
   }
 
   async register(
@@ -55,15 +111,14 @@ export class AuthService implements OnInit {
     };
 
     try {
-      const response = await this.httpClient
-        .post<any>(`${this.Url}api/Users/signup`, user)
-        .toPromise();
+      const response = await firstValueFrom(
+        this.httpClient.post<any>(`${this.Url}api/Users/signup`, user, {
+          withCredentials: true,
+        }),
+      );
 
       if (response) {
-        const success = await this.login(email, password);
-        if (success) {
-          return true;
-        }
+        return await this.login(email, password);
       }
 
       return false;
@@ -73,25 +128,6 @@ export class AuthService implements OnInit {
     }
   }
 
-  postAdNoteToUser(advertisementId: number, note: string) {
-    const newNote = { adID: advertisementId, note: note };
-    this.httpClient
-      .post(`${this.Url}api/Users/user/addNote/${advertisementId}`, newNote)
-      .subscribe(() => {
-        this.getUserNotes();
-      });
-  }
-
-  getUserNotes() {
-    this.httpClient
-      .get<UserNoteModel[]>(`${this.Url}api/Users/user/GetNotes`)
-      .subscribe((response) => {
-        if (response) {
-          this.userNotes.next(response);
-        }
-      });
-  }
-
   async login(email: string, password: string): Promise<boolean> {
     const body = { email, password };
 
@@ -99,38 +135,57 @@ export class AuthService implements OnInit {
       await firstValueFrom(
         this.httpClient.post(`${this.Url}api/Users/login`, body, {
           responseType: 'text' as 'json',
+          withCredentials: true,
         }),
       );
 
       this.isUserLogin.next(true);
-      this.GetUserDatails();
-      this.GetUsersAdvertisements();
-      this.getUserFavoriteAdvertisements();
-      this.getUserLastSearches();
-      this.getUserAdvertisementsStatistics();
+      this.loadUserData();
 
       return true;
     } catch (error) {
       console.error('Login failed:', error);
+      this.clearUserState();
       return false;
     }
   }
 
   async logout() {
-    this.isUserLogin.next(false);
-    this.access_token.next(undefined);
-    localStorage.setItem('access_token', '');
-    this.router.navigate(['/login']);
+    try {
+      await firstValueFrom(
+        this.httpClient.post(
+          `${this.Url}api/Users/logout`,
+          {},
+          {
+            withCredentials: true,
+          },
+        ),
+      );
+    } catch (error) {
+      console.error('Logout request failed:', error);
+    } finally {
+      this.clearUserState();
+      this.router.navigate(['/login']);
+    }
   }
 
   GetUserDatails() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.httpClient
-      .get<UserModel>(`${this.Url}api/Users/User`)
-      .subscribe(async (response) => {
-        if (response) {
-          this.user.next(response);
-          this.saveUserDetails(response.name, response.email);
-        }
+      .get<UserModel>(`${this.Url}api/Users/User`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (response) => {
+          if (response) {
+            this.user.next(response);
+            this.saveUserDetails(response.name, response.email);
+          }
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 
@@ -138,53 +193,118 @@ export class AuthService implements OnInit {
     if (!name || !email) {
       return;
     }
-    this.userName.next(name.valueOf());
-    this.firstLetterUserEmailAddress.next(email[0].valueOf().toUpperCase());
+
+    this.userName.next(name);
+    this.firstLetterUserEmailAddress.next(email[0].toUpperCase());
   }
 
   GetUsersAdvertisements() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.httpClient
-      .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetAdvertisements`)
-      .subscribe((response) => {
-        if (response) {
-          this.UserAdvertisements.next(
-            response
-              .sort((a, b) => b.id - a.id)
-              .map((ad) => {
-                return ad;
-              }),
-          );
-        }
+      .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetAdvertisements`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (response) => {
+          if (response) {
+            this.UserAdvertisements.next(response.sort((a, b) => b.id - a.id));
+          }
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 
-  async getUserFavoriteAdvertisements() {
+  getUserFavoriteAdvertisements() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.httpClient
-      .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetFavorites`)
-      .subscribe((response) => {
-        if (response) {
-          this.UserFavoriteAdvertisements.next(response);
-        }
+      .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetFavorites`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (response) => {
+          if (response) {
+            this.UserFavoriteAdvertisements.next(response);
+          }
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 
   getUserLastSearches() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.httpClient
-      .get<LastsearchesModel[]>(`${this.Url}api/Users/user/GetLastSearches`)
-      .subscribe((response) => {
-        if (response) {
-          this.userLastSearches.next(response);
-        }
+      .get<LastsearchesModel[]>(`${this.Url}api/Users/user/GetLastSearches`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (response) => {
+          if (response) {
+            this.userLastSearches.next(response);
+          }
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 
   getUserAdvertisementsStatistics() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.httpClient
-      .get<AdvertisementsModel>(`${this.Url}api/Users/User/UserStatistics`)
-      .subscribe((response) => {
-        if (response) {
-          this.UserAdvertisementsStatistics.next(response);
-        }
+      .get<AdvertisementsModel>(`${this.Url}api/Users/User/UserStatistics`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (response) => {
+          if (response) {
+            this.UserAdvertisementsStatistics.next(response);
+          }
+        },
+        error: (err) => this.handleAuthError(err),
+      });
+  }
+
+  getUserNotes() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    this.httpClient
+      .get<UserNoteModel[]>(`${this.Url}api/Users/user/GetNotes`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (response) => {
+          if (response) {
+            this.userNotes.next(response);
+          }
+        },
+        error: (err) => this.handleAuthError(err),
+      });
+  }
+
+  postAdNoteToUser(advertisementId: number, note: string) {
+    const newNote = { adID: advertisementId, note: note };
+
+    this.httpClient
+      .post(`${this.Url}api/Users/user/addNote/${advertisementId}`, newNote, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: () => {
+          this.getUserNotes();
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 
@@ -309,7 +429,6 @@ export class AuthService implements OnInit {
       immediate: NewAdvertisement.immediate ?? false,
       flexible: NewAdvertisement.flexible ?? false,
       longTerm: NewAdvertisement.longTerm ?? false,
-
       pictures: NewAdvertisement.pictures ?? [],
       MainPicture: NewAdvertisement.pictures[0] ?? '',
       video: NewAdvertisement.video ?? '',
@@ -325,44 +444,67 @@ export class AuthService implements OnInit {
       .post<HttpResponse<any>>(
         `${this.Url}api/Users/CreateAdvertisement`,
         formData,
-        { observe: 'response' },
+        {
+          observe: 'response',
+          withCredentials: true,
+        },
       )
       .pipe(
         map((response) => {
           if (response.status === 200 || response.status === 204) {
             this.router.navigate(['/confirmation-modal']);
           }
+          return response;
         }),
       )
-      .subscribe((data) => {
-        this.UserAdvertisements.next([
-          ...this.UserAdvertisements.value,
-          data as any,
-        ]);
+      .subscribe({
+        next: () => {
+          this.GetUsersAdvertisements();
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 
   deleteAdvertisement(advertisementId: number) {
     this.httpClient
-      .delete(`${this.Url}api/Users/DeleteAdvertisement/${advertisementId}`)
-      .subscribe(() => {
-        this.GetUsersAdvertisements();
+      .delete(`${this.Url}api/Users/DeleteAdvertisement/${advertisementId}`, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: () => {
+          this.GetUsersAdvertisements();
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 
-  async updateAdvertisementToFavorites(advertisementId: number) {
+  updateAdvertisementToFavorites(advertisementId: number) {
     this.httpClient
-      .post(`${this.Url}api/Users/user/updateFavorite/${advertisementId}`, null)
-      .subscribe(() => {
-        this.getUserFavoriteAdvertisements();
+      .post(
+        `${this.Url}api/Users/user/updateFavorite/${advertisementId}`,
+        null,
+        {
+          withCredentials: true,
+        },
+      )
+      .subscribe({
+        next: () => {
+          this.getUserFavoriteAdvertisements();
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 
-  async updateUserDetails(user: UserModel) {
+  updateUserDetails(user: UserModel) {
     this.httpClient
-      .put(`${this.Url}api/Users/user/update`, user)
-      .subscribe(() => {
-        this.GetUserDatails();
+      .put(`${this.Url}api/Users/user/update`, user, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: () => {
+          this.GetUserDatails();
+        },
+        error: (err) => this.handleAuthError(err),
       });
   }
 }

@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { PropertyFilters } from '../shared/models/Filters';
 import { HttpClient } from '@angular/common/http';
 import { LastsearchesModel } from '../shared/models/LastsearchesModel';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',

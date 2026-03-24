@@ -2,7 +2,7 @@ import { ResolveFn } from '@angular/router';
 import { AdvertisementsModel } from '../shared/models/AdvertisementsModel';
 import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 export const favoritesAdResolver: ResolveFn<AdvertisementsModel[] | null> = (
   route,
