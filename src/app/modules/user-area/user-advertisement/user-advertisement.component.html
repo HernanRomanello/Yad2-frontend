@@ -491,5 +491,17 @@
         </div>
       }
     </div>
+
+    @if ((authService.UserAdvertisements | async)?.length === 0) {
+      <div class="empty-state">
+        <img
+          class="empty-state-img"
+          src="https://assets.yad2.co.il/personal-area/images/no_image_desk.png"
+          alt="no ads"
+        />
+
+        <div class="empty-state-text">אין לך מודעות פרטיות פעילות</div>
+      </div>
+    }
   </div>
 </div>

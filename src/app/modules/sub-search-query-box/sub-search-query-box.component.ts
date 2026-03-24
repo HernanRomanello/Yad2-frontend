@@ -67,7 +67,6 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
   searchInputLocation!: ElementRef;
 
   roomsFilterIsOpen: boolean = false;
-  // searchSuggestionsIsOpen: boolean = false;
   historyLocationSearchIsOpen: boolean = true;
   lastHoverSearchHistory = -1;
 

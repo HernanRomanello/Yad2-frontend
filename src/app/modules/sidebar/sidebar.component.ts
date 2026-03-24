@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   EventEmitter,
   HostListener,
@@ -14,22 +13,11 @@ import { UserModel } from '../../shared/models/UserModel';
 import { NavigationService } from '../../services/navigation.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchService } from '../../services/search.service';
-// import { UserModel } from '../../app.component.css';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-
-  //  styleUrls: [
-  //   './user-area.component.css',
-  //   '../../real-estate/real-estate-results/real-estate-results.component.css',
-  //    './sidebar.component.css'
-  // ],
-  styleUrls: [
-    // '../real-estate/real-estate-results/real-estate-results.component.css',
-    // '../../app.component.css',
-    './sidebar.component.css',
-  ],
+  styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   constructor(private router: Router) {}
@@ -58,7 +46,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
       this.userName = user?.name || '';
       this.userLastName = user?.lastName || '';
       this.UserEmailAddress = user?.email || '';
-      // console.log(user);
     });
 
     this.authService.UserFavoriteAdvertisements.subscribe((ads) => {
@@ -85,7 +72,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // this.authService.user.unsubscribe();
     this.authService.UserFavoriteAdvertisements.unsubscribe;
   }
 

@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  ViewChild,
-  ElementRef,
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -42,7 +36,7 @@ import { environment } from '../../../../environments/environment.development';
     ]),
   ],
 })
-export class EditDetailsComponent implements OnInit, OnDestroy {
+export class EditDetailsComponent implements OnInit {
   deleteImageOption: boolean = false;
   $user: UserModel | null = null;
   $updatedUser: FormGroup | any;
@@ -212,10 +206,6 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
     const day = String(date.getDate()).padStart(2, '0');
 
     return `${year}-${month}-${day}`;
-  }
-
-  ngOnDestroy() {
-    // this.userSubscription?.unsubscribe();
   }
 
   onPhoneNumberChange(value: string): void {

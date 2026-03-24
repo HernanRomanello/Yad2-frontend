@@ -35,7 +35,7 @@ const routes: Routes = [
     path: 'favorites',
     title: 'איזור אישי יד 2 - מועדפים ',
     component: FavoriteAdsComponent,
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
     resolve: {
       userNotes: favoritesNotesResolver,
       userAds: favoritesAdResolver,

@@ -64,12 +64,6 @@ export class RealEstateResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // const adds = this.route.snapshot.data['ads'];
-
-    // this.advertisementService.Advertisements.next(adds);
-    // this.$sortedApartments.next(adds);
-    // console.log(adds);
-
     this.sortByFilter('תאריך');
   }
 
@@ -186,7 +180,6 @@ export class RealEstateResultsComponent implements OnInit {
             acc[key] = (filters as any)[key];
             return acc;
           }, {});
-        // let [aptSizeMin, aptSizeMax] = filters.aptSizeRange;
 
         let ads = advertisements;
 

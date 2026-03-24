@@ -24,20 +24,6 @@ export class AppComponent implements OnInit {
   renderer = inject(Renderer2);
   router = inject(Router);
   isRouteLoading = false;
-  // ngOnInit(): void {
-  //   document.body.addEventListener('click', this.handleBodyClick);
-
-  //   this.router.events
-  //     .pipe(
-  //       filter((event): event is ResolveStart => event instanceof ResolveStart),
-  //     )
-  //     .subscribe((event) => {
-  //       const { url } = event;
-  //       if (url) {
-  //         this.navigationService.setComponentNavigation(url);
-  //       }
-  //     });
-  // }
 
   ngOnInit(): void {
     document.body.addEventListener('click', this.handleBodyClick);

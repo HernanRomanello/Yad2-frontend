@@ -38,26 +38,7 @@ export class AuthService implements OnInit {
   constructor(
     private router: Router,
     private httpClient: HttpClient,
-  ) {
-    afterNextRender(() => {
-      // this.access_token.next(localStorage.getItem('access_token'));
-    });
-
-    // this.access_token
-    //   .pipe(filter((it) => it !== undefined))
-    //   .subscribe((token) => {
-    //     if (token) {
-    //       this.isUserLogin.next(true);
-    //       this.GetUserDatails();
-    //       this.GetUsersAdvertisements();
-    //       this.getUserFavoriteAdvertisements();
-    //       this.getUserLastSearches();
-    //       this.getUserAdvertisementsStatistics();
-    //     } else {
-    //       this.isUserLogin.next(false);
-    //     }
-    //   });
-  }
+  ) {}
   ngOnInit(): void {
     this.GetUserDatails();
   }
@@ -111,66 +92,6 @@ export class AuthService implements OnInit {
       });
   }
 
-  // async login(email: string, password: string): Promise<boolean> {
-  //   const body = { email, password };
-  //   try {
-  //     const accessToken = await this.httpClient
-  //       .post<string>(`${this.Url}api/Users/login`, body, {
-  //         responseType: 'text' as 'json',
-  //       })
-  //       .toPromise();
-
-  //     if (accessToken) {
-  //       localStorage.setItem('access_token', accessToken);
-  //       this.access_token.next(accessToken);
-  //       this.router.navigate(['/']);
-
-  //       return true;
-  //     }
-  //   } catch (error) {
-  //     console.error('Login failed:', error);
-  //   }
-
-  //   return false;
-  // }
-
-  // async login(email: string, password: string): Promise<boolean> {
-  //   const body = { email, password };
-
-  //   try {
-  //     await this.httpClient.post<string>(`${this.Url}api/Users/login`, body, {
-  //       responseType: 'text' as 'json',
-  //     });
-
-  //     // if (accessToken) {
-  //     //   localStorage.setItem('access_token', accessToken);
-  //     //   this.access_token.next(accessToken);
-  //     //   return true;
-  //     // }
-  //   } catch (error) {
-  //     console.error('Login failed:', error);
-  //   }
-
-  //   return false;
-  // }
-
-  // async login(email: string, password: string): Promise<boolean> {
-  //   const body = { email, password };
-
-  //   try {
-  //     await firstValueFrom(
-  //       this.httpClient.post(`${this.Url}api/Users/login`, body, {
-  //         responseType: 'text' as 'json',
-  //       }),
-  //     );
-
-  //     return true;
-  //   } catch (error) {
-  //     console.error('Login failed:', error);
-  //     return false;
-  //   }
-  // }
-
   async login(email: string, password: string): Promise<boolean> {
     const body = { email, password };
 
@@ -211,8 +132,6 @@ export class AuthService implements OnInit {
           this.saveUserDetails(response.name, response.email);
         }
       });
-
-    console.log(this.user);
   }
 
   private saveUserDetails(name: string, email: string) {

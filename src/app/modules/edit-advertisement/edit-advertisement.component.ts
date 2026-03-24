@@ -4,7 +4,6 @@ import {
   Component,
   ElementRef,
   inject,
-  OnDestroy,
   OnInit,
   Renderer2,
   ViewChild,
@@ -35,7 +34,7 @@ import { environment } from '../../../environments/environment.development';
   encapsulation: ViewEncapsulation.None,
 })
 export class EditAdvertisementComponent
-  implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked
+  implements OnInit, AfterViewInit, AfterContentChecked
 {
   editAdvertisementForm = this.fb.group({
     video: [null],
@@ -96,10 +95,6 @@ export class EditAdvertisementComponent
   advertisementService = inject(AdvertisementService);
   inputsStyleService = inject(InputsStyleService);
   imageuploadService = inject(ImageuploadService);
-
-  ngOnDestroy() {
-    // this.authService.user.unsubscribe();
-  }
 
   ngAfterContentChecked() {
     this.imagesURLs.forEach((url, index) => {
@@ -419,26 +414,6 @@ export class EditAdvertisementComponent
 
     return formattedDateString;
   }
-
-  // async uploadAllImages() {
-  //   if (this.images.length === 0) return [];
-
-  //   const validImages = this.images.filter((image) => image.size > 0);
-
-  //   if (validImages.length === 0) return [];
-
-  //   const tasks = validImages.map((image) => {
-  //     if (validImages.length === 1) {
-  //       this.mainImage = image;
-  //     }
-
-  //     return this.imageuploadService.uploadImage(image);
-  //   });
-
-  //   return await Promise.all(tasks).then((urls) => {
-  //     return urls.map((u) => u.fileUrl);
-  //   });
-  // }
 
   removeCommasFromNumberAndParseInt(value: string): number {
     return parseFloat(value.replace(/,/g, ''));

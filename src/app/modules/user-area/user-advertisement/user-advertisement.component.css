@@ -797,6 +797,33 @@ i.material-icons {
   }
 }
 
+.empty-state {
+  width: 100%;
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 40px 20px;
+}
+
+.empty-state-img {
+  width: 260px;
+  max-width: 90%;
+}
+
+.empty-state-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+
+  text-align: center;
+}
+
 @media (width < 883px) and (width > 675px) {
   .slider-arrows,
   .user-card-img,

@@ -20,7 +20,6 @@ export class InputsStyleService {
   }
 
   navigateToMainPage(): void {
-    // this.reloadPage();
     this.router.navigate(['/']);
   }
 
