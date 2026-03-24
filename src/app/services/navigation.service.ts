@@ -15,12 +15,15 @@ export class NavigationService {
   }
 
   goHome(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    // if (event) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
 
     window.location.href = '/';
+    // alert('gggg');
+
+    // this.router.navigateByUrl('/');
   }
 
   navigateInNewWindow(route: string, queryParams?: any) {

@@ -2,7 +2,14 @@ import { Component, inject, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { AuthService } from './services/user/auth.service';
 import { ModalStateService } from './services/modal-state.service';
 import { NavigationService } from './services/navigation.service';
-import { ResolveStart, Router } from '@angular/router';
+import {
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  ResolveStart,
+  Router,
+} from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
@@ -11,6 +18,27 @@ import { filter } from 'rxjs';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
+  authService = inject(AuthService);
+  navigationService = inject(NavigationService);
+  modalStateService = inject(ModalStateService);
+  renderer = inject(Renderer2);
+  router = inject(Router);
+  isRouteLoading = false;
+  // ngOnInit(): void {
+  //   document.body.addEventListener('click', this.handleBodyClick);
+
+  //   this.router.events
+  //     .pipe(
+  //       filter((event): event is ResolveStart => event instanceof ResolveStart),
+  //     )
+  //     .subscribe((event) => {
+  //       const { url } = event;
+  //       if (url) {
+  //         this.navigationService.setComponentNavigation(url);
+  //       }
+  //     });
+  // }
+
   ngOnInit(): void {
     document.body.addEventListener('click', this.handleBodyClick);
 
@@ -24,12 +52,21 @@ export class AppComponent implements OnInit {
           this.navigationService.setComponentNavigation(url);
         }
       });
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.isRouteLoading = true;
+      }
+
+      if (
+        event instanceof NavigationEnd ||
+        event instanceof NavigationCancel ||
+        event instanceof NavigationError
+      ) {
+        this.isRouteLoading = false;
+      }
+    });
   }
-  authService = inject(AuthService);
-  navigationService = inject(NavigationService);
-  modalStateService = inject(ModalStateService);
-  renderer = inject(Renderer2);
-  router = inject(Router);
 
   handleBodyClick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;

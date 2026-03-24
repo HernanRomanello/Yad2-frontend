@@ -7,21 +7,30 @@
   </span>
 }
 
-<div class="router-content">
-  <router-outlet></router-outlet>
-</div>
+@if (!isRouteLoading) {
+  <div class="router-content">
+    <router-outlet></router-outlet>
+  </div>
 
-@if (
-  !this.navigationService.IsSearchFilterOpen() &&
-  this.navigationService.isNotPages([
-    "user-images",
-    "profile",
-    "create-advertisement",
-    "login",
-    "register",
-  ])
-) {
-  <app-footer></app-footer>
+  @if (
+    !this.navigationService.IsSearchFilterOpen() &&
+    this.navigationService.isNotPages([
+      "user-images",
+      "profile",
+      "create-advertisement",
+      "login",
+      "register",
+    ])
+  ) {
+    <app-footer></app-footer>
+  }
+} @else {
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 }
 
 <app-interactive-modal></app-interactive-modal>
