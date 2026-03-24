@@ -11,9 +11,12 @@
       @if (isDarkModes) {
         <button class="close-btn" (click)="closeSidebar()">✕</button>
       } @else {
-        <div class="close-btn gray" (click)="this.authService.logout()">
-          התנתקות
-        </div>
+        @if (this.UserEmailAddress.length > 1) {
+          <div class="close-btn gray" (click)="this.authService.logout()">
+            התנתקות
+          </div>
+        }
+
         <button class="close-btn-light" (click)="closeSidebar()">✕</button>
       }
       @if (isDarkModes) {
@@ -22,31 +25,43 @@
             {{ this.userName[0] | uppercase }}
           </div>
           <div class="user-data">
-            <span class="user-name"
-              >{{ this.userName }} {{ this.userLastname }}</span
-            >
+            @if (this.userName.length > 1 || this.userLastName.length > 1) {
+              <span class="user-name"
+                >{{ this.userName }} {{ this.userLastName }}</span
+              >
+            }
             <span class="user-email">
               {{ this.UserEmailAddress }}
             </span>
           </div>
         </div>
       } @else {
-        <div class="user-profile-box-light">
-          <span class="user-data-light">
-            <div>{{ this.userName }} {{ this.userLastname }}</div>
-            <div
-              (click)="closeSidebar()"
-              routerLink="/profile/user-advertisement"
-            >
-              אזור אישי
+        @if (this.UserEmailAddress.length > 1) {
+          <div class="user-profile-box-light">
+            <div class="">
+              <div>
+                @if (this.userName.length > 1 || this.userLastName.length > 1) {
+                  {{ this.userName }} {{ this.userLastName }}
+                }
+              </div>
+              <span
+                routerLink="/profile/user-advertisement"
+                (click)="closeSidebar()"
+                class="user-area"
+              >
+                אזור אישי</span
+              >
             </div>
-          </span>
-          <div class="round-light">
-            {{
-              (this.userName[0] | uppercase) + (this.userName[1] | uppercase)
-            }}
+            <div class="round-light">
+              <span> {{ getUserInitial() }}</span>
+            </div>
           </div>
-        </div>
+        } @else {
+          <span routerLink="login" class="guest-container">
+            <span class="round-gray"></span>
+            <span>התחברות </span>
+          </span>
+        }
       }
 
       @if (isDarkModes) {
@@ -183,6 +198,7 @@
               <i class="material-icons">accessibility</i>
             </button>
           </div>
+
           <div class="user-loguot-btns" (click)="this.authService.logout()">
             התנתקות
           </div>

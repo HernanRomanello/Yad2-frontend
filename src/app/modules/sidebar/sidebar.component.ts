@@ -36,7 +36,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   authService = inject(AuthService);
   userName: string = '';
-  userLastname: string = '';
+  userLastName: string = '';
   UserEmailAddress: string = '';
   navigate = inject(NavigationService);
   nameOfComponent: string = '';
@@ -45,11 +45,20 @@ export class SidebarComponent implements OnInit, OnDestroy {
   searchService = inject(SearchService);
   countFavoriteAds = 0;
 
+  getUserInitial(): string {
+    if (!this.UserEmailAddress || this.UserEmailAddress.length === 0) {
+      return '';
+    }
+
+    return this.UserEmailAddress.charAt(0).toUpperCase();
+  }
+
   ngOnInit(): void {
     this.authService.user.subscribe((user: UserModel | null | undefined) => {
       this.userName = user?.name || '';
-      this.userLastname = user?.lastName || '';
+      this.userLastName = user?.lastName || '';
       this.UserEmailAddress = user?.email || '';
+      // console.log(user);
     });
 
     this.authService.UserFavoriteAdvertisements.subscribe((ads) => {
