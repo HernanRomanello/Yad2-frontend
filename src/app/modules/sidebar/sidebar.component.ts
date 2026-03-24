@@ -85,7 +85,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.authService.user.unsubscribe();
+    // this.authService.user.unsubscribe();
     this.authService.UserFavoriteAdvertisements.unsubscribe;
   }
 

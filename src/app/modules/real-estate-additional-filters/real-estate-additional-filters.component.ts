@@ -234,7 +234,7 @@ export class RealEstateAdditionalFiltersComponent {
     let minAptSizeRange = Math.min(size[0]);
     let maxAptSizeRange = Math.max(size[1]);
     this.searchService.minSquareSize.set(minAptSizeRange);
-    this.searchService.maxSqaureSize.set(maxAptSizeRange);
+    this.searchService.maxSquareSize.set(maxAptSizeRange);
   }
   onFloorsSelected(floors: any) {
     if (isNaN(floors[0]) && isNaN(floors[0])) return;

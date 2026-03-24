@@ -1,5 +1,11 @@
 import { Injectable, OnInit, afterNextRender, inject } from '@angular/core';
-import { BehaviorSubject, ReplaySubject, filter, map } from 'rxjs';
+import {
+  BehaviorSubject,
+  ReplaySubject,
+  filter,
+  firstValueFrom,
+  map,
+} from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
@@ -15,7 +21,7 @@ export class AuthService implements OnInit {
   Url = environment.apiUrl;
   access_token = new BehaviorSubject<string | null | undefined>('');
   isUserLogin = new ReplaySubject<boolean>(1);
-  user = new BehaviorSubject<UserModel | null | undefined>(undefined);
+  user = new BehaviorSubject<UserModel | null>(null);
   UserAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
     new BehaviorSubject<AdvertisementsModel[]>([]);
   UserFavoriteAdvertisements: BehaviorSubject<AdvertisementsModel[]> =
@@ -34,23 +40,23 @@ export class AuthService implements OnInit {
     private httpClient: HttpClient,
   ) {
     afterNextRender(() => {
-      this.access_token.next(localStorage.getItem('access_token'));
+      // this.access_token.next(localStorage.getItem('access_token'));
     });
 
-    this.access_token
-      .pipe(filter((it) => it !== undefined))
-      .subscribe((token) => {
-        if (token) {
-          this.isUserLogin.next(true);
-          this.GetUserDatails();
-          this.GetUsersAdvertisements();
-          this.getUserFavoriteAdvertisements();
-          this.getUserLastSearches();
-          this.getUserAdvertisementsStatistics();
-        } else {
-          this.isUserLogin.next(false);
-        }
-      });
+    // this.access_token
+    //   .pipe(filter((it) => it !== undefined))
+    //   .subscribe((token) => {
+    //     if (token) {
+    //       this.isUserLogin.next(true);
+    //       this.GetUserDatails();
+    //       this.GetUsersAdvertisements();
+    //       this.getUserFavoriteAdvertisements();
+    //       this.getUserLastSearches();
+    //       this.getUserAdvertisementsStatistics();
+    //     } else {
+    //       this.isUserLogin.next(false);
+    //     }
+    //   });
   }
   ngOnInit(): void {
     this.GetUserDatails();
@@ -105,27 +111,88 @@ export class AuthService implements OnInit {
       });
   }
 
+  // async login(email: string, password: string): Promise<boolean> {
+  //   const body = { email, password };
+  //   try {
+  //     const accessToken = await this.httpClient
+  //       .post<string>(`${this.Url}api/Users/login`, body, {
+  //         responseType: 'text' as 'json',
+  //       })
+  //       .toPromise();
+
+  //     if (accessToken) {
+  //       localStorage.setItem('access_token', accessToken);
+  //       this.access_token.next(accessToken);
+  //       this.router.navigate(['/']);
+
+  //       return true;
+  //     }
+  //   } catch (error) {
+  //     console.error('Login failed:', error);
+  //   }
+
+  //   return false;
+  // }
+
+  // async login(email: string, password: string): Promise<boolean> {
+  //   const body = { email, password };
+
+  //   try {
+  //     await this.httpClient.post<string>(`${this.Url}api/Users/login`, body, {
+  //       responseType: 'text' as 'json',
+  //     });
+
+  //     // if (accessToken) {
+  //     //   localStorage.setItem('access_token', accessToken);
+  //     //   this.access_token.next(accessToken);
+  //     //   return true;
+  //     // }
+  //   } catch (error) {
+  //     console.error('Login failed:', error);
+  //   }
+
+  //   return false;
+  // }
+
+  // async login(email: string, password: string): Promise<boolean> {
+  //   const body = { email, password };
+
+  //   try {
+  //     await firstValueFrom(
+  //       this.httpClient.post(`${this.Url}api/Users/login`, body, {
+  //         responseType: 'text' as 'json',
+  //       }),
+  //     );
+
+  //     return true;
+  //   } catch (error) {
+  //     console.error('Login failed:', error);
+  //     return false;
+  //   }
+  // }
+
   async login(email: string, password: string): Promise<boolean> {
     const body = { email, password };
+
     try {
-      const accessToken = await this.httpClient
-        .post<string>(`${this.Url}api/Users/login`, body, {
+      await firstValueFrom(
+        this.httpClient.post(`${this.Url}api/Users/login`, body, {
           responseType: 'text' as 'json',
-        })
-        .toPromise();
+        }),
+      );
 
-      if (accessToken) {
-        localStorage.setItem('access_token', accessToken);
-        this.access_token.next(accessToken);
-        this.router.navigate(['/']);
+      this.isUserLogin.next(true);
+      this.GetUserDatails();
+      this.GetUsersAdvertisements();
+      this.getUserFavoriteAdvertisements();
+      this.getUserLastSearches();
+      this.getUserAdvertisementsStatistics();
 
-        return true;
-      }
+      return true;
     } catch (error) {
       console.error('Login failed:', error);
+      return false;
     }
-
-    return false;
   }
 
   async logout() {
@@ -144,6 +211,8 @@ export class AuthService implements OnInit {
           this.saveUserDetails(response.name, response.email);
         }
       });
+
+    console.log(this.user);
   }
 
   private saveUserDetails(name: string, email: string) {

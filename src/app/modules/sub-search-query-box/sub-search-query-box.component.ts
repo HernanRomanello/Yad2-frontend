@@ -191,7 +191,7 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
     this.hasSelectedLocation = false;
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
     this.historyLocationSearchIsOpen = true;
-    this.searchService.emitSelectedFreecityText('');
+    this.searchService.emitSelectedFreeCityText('');
     this.searchService.emitSelectedStreetFunc('');
 
     this.cityListService.getCityList().subscribe((cities) => {
@@ -208,7 +208,7 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
     this.hasSelectedStreet = false;
     this.selectedStreetAndCitySearchTexts = { city: '', street: '' };
     this.selectedCities = [];
-    this.searchService.emitSelectedFreecityText('');
+    this.searchService.emitSelectedFreeCityText('');
     this.searchService.emitSelectedStreetFunc('');
   }
 
@@ -283,7 +283,7 @@ export class SubSearchQueryBoxComponent implements OnInit, OnDestroy {
       this.searchService.emitSelectedStreetFunc(
         this.selectedStreetAndCitySearchTexts.street.valueOf(),
       );
-      this.searchService.emitSelectedFreecityText(
+      this.searchService.emitSelectedFreeCityText(
         this.selectedStreetAndCitySearchTexts.city.valueOf(),
       );
     }

@@ -12,6 +12,7 @@ import { favoritesNotesResolver } from './Resolvers/favoritesNotes.resolver';
 import { favoritesAdResolver } from './Resolvers/favorites-ad.resolver';
 import { LastSearchesComponent } from './modules/user-area/last-searches/last-searches.component';
 import { ImagesComponent } from './modules/images/images.component';
+import { addsResolver } from './Resolvers/adds.resolver';
 
 const routes: Routes = [
   {
@@ -34,7 +35,7 @@ const routes: Routes = [
     path: 'favorites',
     title: 'איזור אישי יד 2 - מועדפים ',
     component: FavoriteAdsComponent,
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
     resolve: {
       userNotes: favoritesNotesResolver,
       userAds: favoritesAdResolver,

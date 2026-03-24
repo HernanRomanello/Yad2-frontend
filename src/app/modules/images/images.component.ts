@@ -31,7 +31,7 @@ export class ImagesComponent {
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
-    public searchService: SearchService
+    public searchService: SearchService,
   ) {
     this.route.params.subscribe((params) => {
       if (params['id']) {
@@ -40,7 +40,7 @@ export class ImagesComponent {
             catchError((e) => {
               console.log(e);
               return [];
-            })
+            }),
           )
           .subscribe((response) => {
             this.advertisement = response;

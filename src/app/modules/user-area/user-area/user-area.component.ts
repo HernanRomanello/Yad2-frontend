@@ -18,8 +18,8 @@ export class UserAreaComponent implements OnInit, OnDestroy {
   activeLink = 'user-advertisement';
   ngOnDestroy(): void {
     window.scrollTo(0, 0);
-    window.location.reload();
-    this.authService.user.unsubscribe();
+    // window.location.reload();
+    // this.authService.user.unsubscribe();
   }
   ngOnInit(): void {
     this.authService.user.subscribe((user: UserModel | null | undefined) => {

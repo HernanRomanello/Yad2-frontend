@@ -215,7 +215,7 @@ export class EditDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.userSubscription?.unsubscribe();
+    // this.userSubscription?.unsubscribe();
   }
 
   onPhoneNumberChange(value: string): void {

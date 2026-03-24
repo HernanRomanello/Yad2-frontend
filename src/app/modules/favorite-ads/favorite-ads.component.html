@@ -52,7 +52,7 @@
             zoomOutImage($event, $index); displayAdOptions($event, $index)
           "
           class="favorites-ad flex column"
-          (click)="openInNewWindow(ad.id.toString())"
+          [routerLink]="['/advertisement', ad.id]"
         >
           <div class="flex-center">
             <div class="ad-part1 flex">

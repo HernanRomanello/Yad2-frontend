@@ -21,7 +21,7 @@ export class SearchService {
   minPrice = signal<number>(0);
   maxPrice = signal<number>(0);
   minSquareSize = signal<number>(0);
-  maxSqaureSize = signal<number>(99999999);
+  maxSquareSize = signal<number>(99999999);
   uniqueMonthDayArray = signal<{ month: number; day: number }[]>([]);
   city = signal<string>('');
   neighborhood = signal<string>('');
@@ -108,7 +108,7 @@ export class SearchService {
     ];
     this.propertyFilters.aptSizeRange = [
       this.minSquareSize(),
-      this.maxSqaureSize(),
+      this.maxSquareSize(),
     ];
 
     this.addLastSearchToDB();
@@ -166,7 +166,7 @@ export class SearchService {
     this.selectedRoomsAmount.next(roomsAmount);
   }
 
-  emitSelectedFreecityText(freeText: string) {
+  emitSelectedFreeCityText(freeText: string) {
     this.selectedCityText.next(freeText);
     if (freeText !== '') {
       this.apartmentsSortedByStreet.next(true);
@@ -263,7 +263,7 @@ export class SearchService {
       hasSafeRoom: this.propertyFilters.safeRoom,
       hasElevator: this.propertyFilters.elevator,
       minSquareSize: this.minSquareSize(),
-      maxSquareSize: this.maxSqaureSize(),
+      maxSquareSize: this.maxSquareSize(),
       hasStorageRoom: this.propertyFilters.storageRoom,
     };
     this.httpClient

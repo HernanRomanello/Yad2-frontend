@@ -121,11 +121,7 @@
         </div>
         <div
           class="advertisement-details"
-          (click)="
-            this.navigationService.navigateInNewWindow(
-              '/advertisement/' + advertisement.id
-            )
-          "
+          [routerLink]="['/advertisement', advertisement.id]"
         >
           <div class="ad-content-text">
             <div class="price-mobile mobile">

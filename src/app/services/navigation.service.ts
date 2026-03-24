@@ -20,10 +20,10 @@ export class NavigationService {
     //   event.stopPropagation();
     // }
 
-    window.location.href = '/';
+    // window.location.href = '/';
     // alert('gggg');
 
-    // this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/');
   }
 
   navigateInNewWindow(route: string, queryParams?: any) {

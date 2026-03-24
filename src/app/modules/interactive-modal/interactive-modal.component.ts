@@ -37,7 +37,7 @@ export class InteractiveModalComponent implements OnInit {
 
   closeModal() {
     this.modalstate.openOrCloseModal(false);
-    window.location.reload();
+    // window.location.reload();
   }
 
   confirm() {

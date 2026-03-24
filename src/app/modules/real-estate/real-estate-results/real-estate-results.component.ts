@@ -14,6 +14,7 @@ import { SearchService } from '../../../services/search.service';
 import { FilterValue } from '../../../shared/models/Filters';
 import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 import { NavigationService } from '../../../services/navigation.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-real-estate-results',
   templateUrl: './real-estate-results.component.html',
@@ -43,7 +44,10 @@ export class RealEstateResultsComponent implements OnInit {
 
   hoverIndex: number = -1;
 
-  constructor(private render: Renderer2) {}
+  constructor(
+    private render: Renderer2,
+    private route: ActivatedRoute,
+  ) {}
 
   clickEvent(event: Event) {
     const target = event.target as HTMLElement;
@@ -60,6 +64,12 @@ export class RealEstateResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // const adds = this.route.snapshot.data['ads'];
+
+    // this.advertisementService.Advertisements.next(adds);
+    // this.$sortedApartments.next(adds);
+    // console.log(adds);
+
     this.sortByFilter('תאריך');
   }
 
@@ -176,7 +186,7 @@ export class RealEstateResultsComponent implements OnInit {
             acc[key] = (filters as any)[key];
             return acc;
           }, {});
-        let [aptSizeMin, aptSizeMax] = filters.aptSizeRange;
+        // let [aptSizeMin, aptSizeMax] = filters.aptSizeRange;
 
         let ads = advertisements;
 
@@ -188,11 +198,6 @@ export class RealEstateResultsComponent implements OnInit {
             return true;
           }),
         );
-        // ads = ads.filter(
-        //   (ad) =>
-        //     ad.builtSquareMeters >= aptSizeMin &&
-        //     ad.builtSquareMeters <= aptSizeMax,
-        // );
 
         if (this.searchService.minFloor() !== -1) {
           ads = ads.filter((ad) => ad.floor >= this.searchService.minFloor());
@@ -205,14 +210,12 @@ export class RealEstateResultsComponent implements OnInit {
           ads = ads.filter(
             (ad) => ad.totalSquareMeters >= this.searchService.minSquareSize(),
           );
-          // alert(this.searchService.minSquareSize());
         }
 
-        if (this.searchService.maxSqaureSize() > 0) {
+        if (this.searchService.maxSquareSize() > 0) {
           ads = ads.filter(
-            (ad) => ad.totalSquareMeters <= this.searchService.maxSqaureSize(),
+            (ad) => ad.totalSquareMeters <= this.searchService.maxSquareSize(),
           );
-          // alert(this.searchService.maxSqaureSize());
         }
 
         if (this.searchService.assetTypeList()) {

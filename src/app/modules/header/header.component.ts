@@ -12,6 +12,7 @@ import { ModalStateService } from '../../services/modal-state.service';
 import { ModalContent } from '../../shared/models/Modal';
 import { NavigationService } from '../../services/navigation.service';
 import { SearchService } from '../../services/search.service';
+import { Subscription } from 'rxjs';
 
 type MenuTriggers = {
   menu_User: boolean;
@@ -32,6 +33,112 @@ type MenuTriggers = {
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
+// export class HeaderComponent implements OnInit, OnDestroy {
+//   userName: string = '';
+//   userLastName: string = '';
+//   modalContent!: ModalContent;
+//   isUserAreaDropdownVisible = false;
+//   _LogoPic = 'assets/images/logo-default.svg';
+//   authService = inject(AuthService);
+//   navigationService = inject(NavigationService);
+//   modalStateSerrvice = inject(ModalStateService);
+//   searchService = inject(SearchService);
+//   isUserConnected: boolean = false;
+//   firstLetterUserEmailAddress = '';
+//   @ViewChild('alternativeHeader', { static: false })
+//   alternativeHeader!: ElementRef;
+//   favoriteAds: any = [];
+//   countFavoriteAds = 0;
+//   HasFavoriteAdsDropdownVisible = false;
+//   menus: MenuTriggers = {
+//     menu_User: false,
+//     menu_PostAd: false,
+//     menu_FavoriteAds: false,
+//     menu_Yad2Magazine: false,
+//     menu_proffesionals: false,
+//     menu_Pets: false,
+//     menu_BusinessesforSale: false,
+//     menu_JobsIL: false,
+//     menu_Yad2: false,
+//     menu_Cars: false,
+//     menu_RealEstate: false,
+//   };
+//   cursorX: number = 0;
+//   cursorY: number = 0;
+
+//   isUserAreaDropdownOpen(isUserAreaDropdownOpen: boolean) {
+//     this.isUserAreaDropdownVisible = isUserAreaDropdownOpen;
+//   }
+
+//   onMouseMove(event: any) {
+//     this.closeMenu('menu_User');
+//     this.cursorX = event.offsetX;
+//     this.cursorY = event.offsetY;
+//     window.scrollTo(event.offsetX + 500, 0);
+//     this.HasFavoriteAdsDropdownVisible = false;
+//   }
+
+//   ngOnDestroy() {
+//     this.authService.isUserLogin.unsubscribe();
+//     this.authService.user.unsubscribe();
+//     this.authService.UserFavoriteAdvertisements.unsubscribe();
+//   }
+//   ngOnInit() {
+//     this.searchService.GetUserLastSearches();
+//     this.authService.UserFavoriteAdvertisements.subscribe((ads) => {
+//       this.favoriteAds = ads;
+//       this.countFavoriteAds = ads.length;
+//     });
+//     this.countFavoriteAds = this.favoriteAds.length;
+//     this.authService.isUserLogin.subscribe(
+//       (status) => (this.isUserConnected = status),
+//     );
+//     this.authService.user.subscribe((user: UserModel | null | undefined) => {
+//       this.userName = user?.name || '';
+//       this.userLastName = user?.lastName || '';
+//       this.firstLetterUserEmailAddress = user?.email[0].toUpperCase() || '';
+//     });
+//   }
+
+//   setHeaderHeight(): string {
+//     if (this.navigationService.isPages(['create-advertisement'])) {
+//       return 'header2 increase-height2';
+//     }
+
+//     if (this.navigationService.isPages(['profile'])) {
+//       return 'header2 increase-height';
+//     } else {
+//       return 'header2';
+//     }
+//   }
+
+//   setLogoClassByComponent(): string {
+//     if (this.navigationService.isPages(['MainPage'])) {
+//       return 'logo-btn main-page';
+//     } else if (this.navigationService.isPages(['favorites', 'last-searches'])) {
+//       return 'logo-btn favorite-page';
+//     } else if (this.navigationService.isPages(['create-advertisement'])) {
+//       return 'logo-btn create-ad-page';
+//     }
+
+//     return 'logo-btn';
+//   }
+
+//   openMenu(menu: keyof MenuTriggers) {
+//     this.menus[menu] = true;
+//   }
+
+//   closeMenu(menu: keyof MenuTriggers) {
+//     this.menus[menu] = false;
+//   }
+
+//   getCircleClass(): string {
+//     this.authService.isUserLogin.subscribe(
+//       (status) => (this.isUserConnected = status),
+//     );
+//     return this.isUserConnected ? 'round' : 'round-gray';
+//   }
+// }
 export class HeaderComponent implements OnInit, OnDestroy {
   userName: string = '';
   userLastName: string = '';
@@ -44,11 +151,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   searchService = inject(SearchService);
   isUserConnected: boolean = false;
   firstLetterUserEmailAddress = '';
+
   @ViewChild('alternativeHeader', { static: false })
   alternativeHeader!: ElementRef;
+
   favoriteAds: any = [];
   countFavoriteAds = 0;
   HasFavoriteAdsDropdownVisible = false;
+
+  private subscriptions = new Subscription();
+
   menus: MenuTriggers = {
     menu_User: false,
     menu_PostAd: false,
@@ -62,6 +174,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     menu_Cars: false,
     menu_RealEstate: false,
   };
+
   cursorX: number = 0;
   cursorY: number = 0;
 
@@ -77,26 +190,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.HasFavoriteAdsDropdownVisible = false;
   }
 
-  ngOnDestroy() {
-    this.authService.isUserLogin.unsubscribe();
-    this.authService.user.unsubscribe();
-    this.authService.UserFavoriteAdvertisements.unsubscribe();
-  }
   ngOnInit() {
     this.searchService.GetUserLastSearches();
-    this.authService.UserFavoriteAdvertisements.subscribe((ads) => {
-      this.favoriteAds = ads;
-      this.countFavoriteAds = ads.length;
-    });
-    this.countFavoriteAds = this.favoriteAds.length;
-    this.authService.isUserLogin.subscribe(
-      (status) => (this.isUserConnected = status),
+
+    this.subscriptions.add(
+      this.authService.UserFavoriteAdvertisements.subscribe((ads) => {
+        this.favoriteAds = ads;
+        this.countFavoriteAds = ads.length;
+      }),
     );
-    this.authService.user.subscribe((user: UserModel | null | undefined) => {
-      this.userName = user?.name || '';
-      this.userLastName = user?.lastName || '';
-      this.firstLetterUserEmailAddress = user?.email[0].toUpperCase() || '';
-    });
+
+    this.subscriptions.add(
+      this.authService.isUserLogin.subscribe((status) => {
+        this.isUserConnected = status;
+      }),
+    );
+
+    this.subscriptions.add(
+      this.authService.user.subscribe((user) => {
+        this.userName = user?.name || '';
+        this.userLastName = user?.lastName || '';
+        this.firstLetterUserEmailAddress =
+          user?.email?.[0]?.toUpperCase() || '';
+      }),
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 
   setHeaderHeight(): string {
@@ -132,9 +253,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getCircleClass(): string {
-    this.authService.isUserLogin.subscribe(
-      (status) => (this.isUserConnected = status),
-    );
     return this.isUserConnected ? 'round' : 'round-gray';
   }
 }
