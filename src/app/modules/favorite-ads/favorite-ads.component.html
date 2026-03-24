@@ -86,13 +86,17 @@
                     <span>
                       {{ ad.street + " " }}
                     </span>
-                    <span class="increace-number">
+                    <span class="increase-number">
                       {{ ad.number }}
                     </span>
                   </div>
                 </div>
                 <div class="flex ad-sub-details">
                   <div>{{ ad.assetType + ", " + ad.city }}</div>
+                  <span>
+                    <span>{{ ad.assetType }}</span>
+                    <span>{{ ad.city }}</span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -137,7 +141,11 @@
                   />
                 </div>
               </div>
-              <div class="font16">{{ ad.price | number: "1.0-0" }} ₪</div>
+              @if (ad.price > 0) {
+                <div class="font16">{{ ad.price | number: "1.0-0" }} ₪</div>
+              } @else {
+                <div class="font16">אין מחיר</div>
+              }
               <div
                 id="ad-date-update{{ $index }}"
                 class="font13 decrease-opacity"
@@ -180,8 +188,8 @@
               </span>
             }
           </div>
-          <div class="sqaure"></div>
-          <div class="sqaure2"></div>
+          <div class="square"></div>
+          <div class="square2"></div>
         </div>
         <div id="ad-note-open{{ $index }}" class="ad-comment-open hide">
           <div class="note-btns flex-center column">
