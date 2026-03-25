@@ -297,8 +297,6 @@ header {
   }
 
   #close-icon {
-    /* width: 29px;
-    height: 29px; */
     width: max(7vw, 16px);
     height: max(7vw, 16px);
   }

@@ -367,3 +367,35 @@ i,
     padding-bottom: 0.5rem;
   }
 }
+
+@media (max-width: 528px) {
+  .ad-content-text > :nth-child(3) {
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 380px) {
+  .ad-content-text > :nth-child(4) {
+    text-wrap: nowrap;
+  }
+  .ad-content-text > :nth-child(4) > li > span {
+    display: none !important;
+  }
+
+  .ad-content-text > * {
+    font-size: 12px !important;
+  }
+
+  .price-mobile {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 330px) {
+  .ad-content-text > * {
+    font-size: 10px !important;
+  }
+
+  .price-mobile {
+    font-size: 8px !important;
+  }
+}
