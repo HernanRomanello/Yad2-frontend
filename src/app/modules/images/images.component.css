@@ -257,13 +257,65 @@ header {
     display: none !important;
   }
 
+  .ad-images {
+    top: 0px;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 58px !important;
+    padding: 24px 24px 18px;
+  }
+
+  .pics-container {
+    margin: 0.25rem auto !important;
+  }
+
   .small-img,
   .large-img {
-    height: 431px;
+    height: max(54vw, 250px);
     width: calc(100%);
   }
 
   .ad-images {
     width: calc(100vw) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-btn {
+    padding: 0px 4.5vw 0px 3vw;
+    height: 9vw;
+  }
+
+  .header-btn,
+  .font16 {
+    font-size: max(3vw, 10px) !important;
+    text-wrap: nowrap;
+  }
+
+  #close-icon {
+    /* width: 29px;
+    height: 29px; */
+    width: max(7vw, 16px);
+    height: max(7vw, 16px);
+  }
+  #map-icon,
+  #nearby-icon {
+    width: max(4.3vw, 16px);
+    height: max(4.3vw, 16px);
+  }
+}
+
+@media (max-width: 355px) {
+  header > * {
+    transform: translateX(-10px);
+  }
+}
+@media (max-width: 335px) {
+  header > * {
+    transform: translateX(-20px);
   }
 }

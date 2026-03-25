@@ -18,14 +18,15 @@
             alt="Advertisement Image"
           />
         </div>
-
-        <img
-          routerLink="/user-images/{{ advertisement.id }}"
-          *ngIf="advertisement.mainPicture !== ''"
-          [src]="advertisement.mainPicture"
-          class="main-pic"
-          alt="Advertisement Image"
-        />
+        <span class="main-pic-container">
+          <img
+            routerLink="/user-images/{{ advertisement.id }}"
+            *ngIf="advertisement.mainPicture !== ''"
+            [src]="advertisement.mainPicture"
+            class="main-pic"
+            alt="Advertisement Image"
+          />
+        </span>
         <div class="white-btns flex-center">
           <div class="flex-center gap">
             <span>שיתוף</span>

@@ -22,7 +22,8 @@
 }
 
 .card-content,
-.pics-container {
+.pics-container,
+.main-pic-container {
   position: relative;
 }
 .card-content {
@@ -60,7 +61,7 @@
 }
 
 .pics {
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 10px;
 }
 
@@ -566,11 +567,22 @@ img {
   }
 
   .pics,
-  .all-pics-link-btn,
+  .all-pics-link-btn > img,
   .white-btns > .flex-center > span,
   .contact-container,
   .map {
     display: none;
+  }
+
+  .all-pics-link-btn {
+    transform: translateY(-20px);
+    width: Max(16vw, 88px);
+    padding: 2px !important;
+    height: Max(3.2vw, 20px) !important;
+  }
+
+  .all-pics-link-btn > .wrap {
+    font-size: Max(2vw, 12px) !important;
   }
 
   .size-details,
