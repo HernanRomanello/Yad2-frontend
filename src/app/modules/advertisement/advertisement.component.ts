@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AdvertisementService } from '../../services/advertisement.service';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertisementsModel } from '../../shared/models/AdvertisementsModel';
-import { catchError } from 'rxjs';
+import { catchError, EMPTY } from 'rxjs';
 import { AuthService } from '../../services/user/auth.service';
 
 @Component({
@@ -11,9 +11,31 @@ import { AuthService } from '../../services/user/auth.service';
   styleUrl: './advertisement.component.css',
 })
 export class AdvertisementComponent {
-  advertisement!: AdvertisementsModel;
+  advertisement?: AdvertisementsModel;
   entryDate: string = '';
   adID = -1;
+  // constructor(
+  //   private route: ActivatedRoute,
+  //   private AdvertisementsService: AdvertisementService,
+  //   public authService: AuthService,
+  // ) {
+  //   this.route.params.subscribe((params) => {
+  //     if (params['id']) {
+  //       this.adID = +params['id'];
+  //       this.AdvertisementsService.GetAdvertisementById(+params['id'])
+  //         .pipe(
+  //           catchError((e) => {
+  //             console.log(e);
+  //             return [];
+  //           }),
+  //         )
+  //         .subscribe((response) => {
+  //           this.setAdvertisementAndFormatEntryDate(response);
+  //         });
+  //     }
+  //   });
+  // }
+
   constructor(
     private route: ActivatedRoute,
     private AdvertisementsService: AdvertisementService,
@@ -22,14 +44,16 @@ export class AdvertisementComponent {
     this.route.params.subscribe((params) => {
       if (params['id']) {
         this.adID = +params['id'];
-        this.AdvertisementsService.GetAdvertisementById(+params['id'])
+
+        this.AdvertisementsService.GetAdvertisementById(this.adID)
           .pipe(
             catchError((e) => {
               console.log(e);
-              return [];
+              return EMPTY;
             }),
           )
           .subscribe((response) => {
+            console.log('GetAdvertisement response:', response);
             this.setAdvertisementAndFormatEntryDate(response);
           });
       }

@@ -15,7 +15,7 @@ export class ImageuploadService {
     formData.append('file', image);
     return firstValueFrom(
       this.httpClient.post<{ fileUrl: string }>(
-        `${this.Url}api/ImageUpload/UploadImage`,
+        `${this.Url}/api/ImageUpload/UploadImage`,
         formData,
       ),
     );

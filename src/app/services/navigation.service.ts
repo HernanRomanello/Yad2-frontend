@@ -25,6 +25,10 @@ export class NavigationService {
     window.open(url, '_blank');
   }
 
+  navigate(route: string, queryParams?: any) {
+    this.router.navigate([route], { queryParams });
+  }
+
   setComponentNavigation(url: string) {
     if (url.includes('profile')) {
       this.nameOfComponentRendering.set('profile');

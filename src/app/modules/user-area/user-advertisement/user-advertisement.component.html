@@ -183,7 +183,7 @@
                     <div
                       class="icon-circle"
                       (click)="
-                        this.navigationService.navigateInNewWindow(
+                        this.navigationService.navigate(
                           '/edit-advertisement/' + advertisement.id
                         )
                       "
@@ -464,7 +464,7 @@
                 </div>
                 <div
                   (click)="
-                    this.navigationService.navigateInNewWindow(
+                    this.navigationService.navigate(
                       '/advertisement/' + advertisement.id
                     )
                   "

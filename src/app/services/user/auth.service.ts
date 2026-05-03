@@ -39,7 +39,7 @@ export class AuthService {
 
   private checkAuth() {
     this.httpClient
-      .get<UserModel>(`${this.Url}api/Users/User`, {
+      .get<UserModel>(`${this.Url}/api/Users/User`, {
         withCredentials: true,
       })
       .subscribe({
@@ -112,7 +112,7 @@ export class AuthService {
 
     try {
       const response = await firstValueFrom(
-        this.httpClient.post<any>(`${this.Url}api/Users/signup`, user, {
+        this.httpClient.post<any>(`${this.Url}/api/Users/signup`, user, {
           withCredentials: true,
         }),
       );
@@ -133,7 +133,7 @@ export class AuthService {
 
     try {
       await firstValueFrom(
-        this.httpClient.post(`${this.Url}api/Users/login`, body, {
+        this.httpClient.post(`${this.Url}/api/Users/login`, body, {
           responseType: 'text' as 'json',
           withCredentials: true,
         }),
@@ -154,7 +154,7 @@ export class AuthService {
     try {
       await firstValueFrom(
         this.httpClient.post(
-          `${this.Url}api/Users/logout`,
+          `${this.Url}/api/Users/logout`,
           {},
           {
             withCredentials: true,
@@ -175,7 +175,7 @@ export class AuthService {
     }
 
     this.httpClient
-      .get<UserModel>(`${this.Url}api/Users/User`, {
+      .get<UserModel>(`${this.Url}/api/Users/User`, {
         withCredentials: true,
       })
       .subscribe({
@@ -204,7 +204,7 @@ export class AuthService {
     }
 
     this.httpClient
-      .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetAdvertisements`, {
+      .get<AdvertisementsModel[]>(`${this.Url}/api/Users/GetAdvertisements`, {
         withCredentials: true,
       })
       .subscribe({
@@ -223,7 +223,7 @@ export class AuthService {
     }
 
     this.httpClient
-      .get<AdvertisementsModel[]>(`${this.Url}api/Users/GetFavorites`, {
+      .get<AdvertisementsModel[]>(`${this.Url}/api/Users/GetFavorites`, {
         withCredentials: true,
       })
       .subscribe({
@@ -242,7 +242,7 @@ export class AuthService {
     }
 
     this.httpClient
-      .get<LastsearchesModel[]>(`${this.Url}api/Users/user/GetLastSearches`, {
+      .get<LastsearchesModel[]>(`${this.Url}/api/Users/user/GetLastSearches`, {
         withCredentials: true,
       })
       .subscribe({
@@ -261,7 +261,7 @@ export class AuthService {
     }
 
     this.httpClient
-      .get<AdvertisementsModel>(`${this.Url}api/Users/User/UserStatistics`, {
+      .get<AdvertisementsModel>(`${this.Url}/api/Users/User/UserStatistics`, {
         withCredentials: true,
       })
       .subscribe({
@@ -280,7 +280,7 @@ export class AuthService {
     }
 
     this.httpClient
-      .get<UserNoteModel[]>(`${this.Url}api/Users/user/GetNotes`, {
+      .get<UserNoteModel[]>(`${this.Url}/api/Users/user/GetNotes`, {
         withCredentials: true,
       })
       .subscribe({
@@ -297,7 +297,7 @@ export class AuthService {
     const newNote = { adID: advertisementId, note: note };
 
     this.httpClient
-      .post(`${this.Url}api/Users/user/addNote/${advertisementId}`, newNote, {
+      .post(`${this.Url}/api/Users/user/addNote/${advertisementId}`, newNote, {
         withCredentials: true,
       })
       .subscribe({
@@ -442,7 +442,7 @@ export class AuthService {
 
     this.httpClient
       .post<HttpResponse<any>>(
-        `${this.Url}api/Users/CreateAdvertisement`,
+        `${this.Url}/api/Users/CreateAdvertisement`,
         formData,
         {
           observe: 'response',
@@ -467,7 +467,7 @@ export class AuthService {
 
   deleteAdvertisement(advertisementId: number) {
     this.httpClient
-      .delete(`${this.Url}api/Users/DeleteAdvertisement/${advertisementId}`, {
+      .delete(`${this.Url}/api/Users/DeleteAdvertisement/${advertisementId}`, {
         withCredentials: true,
       })
       .subscribe({
@@ -481,7 +481,7 @@ export class AuthService {
   updateAdvertisementToFavorites(advertisementId: number) {
     this.httpClient
       .post(
-        `${this.Url}api/Users/user/updateFavorite/${advertisementId}`,
+        `${this.Url}/api/Users/user/updateFavorite/${advertisementId}`,
         null,
         {
           withCredentials: true,
@@ -497,7 +497,7 @@ export class AuthService {
 
   updateUserDetails(user: UserModel) {
     this.httpClient
-      .put(`${this.Url}api/Users/user/update`, user, {
+      .put(`${this.Url}/api/Users/user/update`, user, {
         withCredentials: true,
       })
       .subscribe({

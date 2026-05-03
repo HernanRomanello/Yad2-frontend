@@ -10,5 +10,5 @@ export const favoritesAdResolver: ResolveFn<AdvertisementsModel[] | null> = (
 ) => {
   const httpClient = inject(HttpClient);
   const URL = environment.apiUrl;
-  return httpClient.get<AdvertisementsModel[]>(`${URL}api/Users/GetFavorites`);
+  return httpClient.get<AdvertisementsModel[]>(`${URL}/api/Users/GetFavorites`);
 };

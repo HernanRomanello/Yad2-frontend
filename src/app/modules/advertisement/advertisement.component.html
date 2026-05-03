@@ -1,28 +1,28 @@
-<div class="advertisement-container">
+<div *ngIf="advertisement as ad" class="advertisement-container">
   <div class="advertisement-page">
     <div class="pics-container">
-      @if (advertisement.mainPicture !== "") {
+      @if (ad.mainPicture !== "") {
         <div class="pics">
           <img
-            routerLink="/user-images/{{ advertisement.id }}"
-            *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-            [src]="advertisement.pictures[1].url"
+            routerLink="/user-images/{{ ad.id }}"
+            *ngIf="ad.pictures && ad.pictures.length > 1"
+            [src]="ad.pictures[1].url"
             class="small-pic pic1"
             alt="Advertisement Image"
           />
           <img
-            routerLink="/user-images/{{ advertisement.id }}"
-            *ngIf="advertisement.pictures && advertisement.pictures.length > 0"
-            [src]="advertisement.pictures[2].url"
+            routerLink="/user-images/{{ ad.id }}"
+            *ngIf="ad.pictures && ad.pictures.length > 2"
+            [src]="ad.pictures[2].url"
             class="small-pic pic2"
             alt="Advertisement Image"
           />
         </div>
         <span class="main-pic-container">
           <img
-            routerLink="/user-images/{{ advertisement.id }}"
-            *ngIf="advertisement.mainPicture !== ''"
-            [src]="advertisement.mainPicture"
+            routerLink="/user-images/{{ ad.id }}"
+            *ngIf="ad.mainPicture !== ''"
+            [src]="ad.mainPicture"
             class="main-pic"
             alt="Advertisement Image"
           />
@@ -60,21 +60,19 @@
           </div>
         </div>
         <div
-          routerLink="/user-images/{{ advertisement.id }}"
+          routerLink="/user-images/{{ ad.id }}"
           class="all-pics-link-btn font16 font500 flex-center"
         >
-          <span class="wrap">
-            הצגת {{ advertisement.pictures.length }} תמונות
-          </span>
+          <span class="wrap"> הצגת {{ ad.pictures.length }} תמונות </span>
           <img
             id="img-box-icon"
             src="assets/images/img-box-svgrepo-com.svg"
             alt="img-box"
           />
         </div>
-        @if (advertisement.video !== "") {
+        @if (ad.video !== "") {
           <div
-            routerLink="/user-images/{{ advertisement.id }}"
+            routerLink="/user-images/{{ ad.id }}"
             class="video-pics-link-btn font16 font500 flex-center"
           >
             <span class="wrap"> וידאו </span>
@@ -100,8 +98,8 @@
         <div class="contact-card">
           <div class="card-content">
             <div class="price-box">
-              @if (advertisement.price > 0) {
-                <p class="price font600">₪{{ advertisement.price | number }}</p>
+              @if (ad.price > 0) {
+                <p class="price font600">₪{{ ad.price | number }}</p>
               } @else {
                 <p class="price font500 translateY2 letter-spacing">
                   לא צוין מחיר
@@ -120,7 +118,7 @@
           </div>
         </div>
         <div class="add-id">
-          <div class="id-text">{{ advertisement.id }} :מס' מודעה</div>
+          <div class="id-text">{{ ad.id }} :מס' מודעה</div>
           <div class="id-text gap flex-center">
             <span> דווח על מודעה </span>
             <img
@@ -133,14 +131,10 @@
       </div>
       <div class="ad-info flex column">
         <div class="ad-details">
-          <div class="add-title">
-            {{ advertisement.street }} {{ advertisement.number }}
-          </div>
+          <div class="add-title">{{ ad.street }} {{ ad.number }}</div>
           <div class="location-details">
-            <span>{{ advertisement.assetType }}, </span>
-            {{ advertisement.neighborhood }},<span>
-              {{ advertisement.city }}</span
-            >
+            <span>{{ ad.assetType }}, </span>
+            {{ ad.neighborhood }},<span> {{ ad.city }}</span>
           </div>
           <div class="size-details">
             <div class="flex-center">
@@ -149,7 +143,7 @@
                 src="assets/images/door-svgrepo-com (1).svg"
                 alt="door"
               />
-              <span>{{ advertisement.rooms }}</span>
+              <span>{{ ad.rooms }}</span>
               <span>חדרים</span>
             </div>
             <div class="flex-center">
@@ -159,7 +153,7 @@
                 alt="stairs"
               />
               <span>קומה</span>
-              <span>{{ advertisement.floor }}</span>
+              <span>{{ ad.floor }}</span>
             </div>
             <div class="flex-center">
               <img
@@ -167,11 +161,11 @@
                 src="assets/images/bricks-svgrepo-com.svg"
                 alt="stairs"
               />
-              <span>{{ advertisement.totalSquareMeters }}</span
+              <span>{{ ad.totalSquareMeters }}</span
               ><span>מ"ר</span>
             </div>
           </div>
-          <div class="description">{{ advertisement.description }}</div>
+          <div class="description">{{ ad.description }}</div>
           <div class="map">
             <span> מפה </span>
             <img
@@ -207,33 +201,33 @@
           <div class="additional-details-table1">
             <div class="ad-block">
               <div class="gray-text">סוג העסקה</div>
-              <div class="ad-data-text">{{ advertisement.tradeType }}</div>
+              <div class="ad-data-text">{{ ad.tradeType }}</div>
             </div>
             <div class="ad-block">
               <div class="gray-text">מצב הנכס</div>
               <div class="ad-data-text">
-                {{ removeParenthesesContent(advertisement.assetState) }}
+                {{ removeParenthesesContent(ad.assetState) }}
               </div>
             </div>
             <div class="ad-block">
               <div class="gray-text">קומות בבניין</div>
-              <div class="ad-data-text">{{ advertisement.floor }}</div>
+              <div class="ad-data-text">{{ ad.floor }}</div>
             </div>
             <div class="ad-block">
               <div class="gray-text">מספר תשלומים</div>
               <div class="ad-data-text">
-                {{ advertisement.numberOfPayments }}
+                {{ ad.numberOfPayments }}
               </div>
             </div>
             <div class="ad-block">
               <div class="gray-text">מ"ר בנוי</div>
               <div class="ad-data-text">
-                {{ advertisement.totalSquareMeters }}
+                {{ ad.totalSquareMeters }}
               </div>
             </div>
             <div class="ad-block">
               <div class="gray-text">חניות</div>
-              <div class="ad-data-text">{{ advertisement.privateParking }}</div>
+              <div class="ad-data-text">{{ ad.privateParking }}</div>
             </div>
             <div class="ad-block">
               <div class="gray-text">תאריך כניסה</div>
@@ -247,7 +241,7 @@
           <div class="additional-details-table2">
             <div
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.elevator)"
+              [ngClass]="fillApartmentCondition(ad.elevator)"
             >
               <img
                 id="elevator-icon"
@@ -260,9 +254,7 @@
 
             <div
               class="ad-block icons-div"
-              [ngClass]="
-                fillApartmentCondition(advertisement.accessibleForDisabled)
-              "
+              [ngClass]="fillApartmentCondition(ad.accessibleForDisabled)"
             >
               <img
                 class="icons"
@@ -274,7 +266,7 @@
 
             <div
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.airConditioning)"
+              [ngClass]="fillApartmentCondition(ad.airConditioning)"
             >
               <img
                 class="icons"
@@ -286,7 +278,7 @@
 
             <div
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.multiLockDoors)"
+              [ngClass]="fillApartmentCondition(ad.multiLockDoors)"
             >
               <img
                 class="icons"
@@ -298,7 +290,7 @@
 
             <div
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.windowBars)"
+              [ngClass]="fillApartmentCondition(ad.windowBars)"
             >
               <img
                 class="icons"
@@ -310,7 +302,7 @@
 
             <div
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.storageRoom)"
+              [ngClass]="fillApartmentCondition(ad.storageRoom)"
             >
               <img
                 class="icons"
@@ -322,7 +314,7 @@
 
             <div
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.solarWaterHeater)"
+              [ngClass]="fillApartmentCondition(ad.solarWaterHeater)"
             >
               <img
                 id="solar-energy-icon"
@@ -335,7 +327,7 @@
 
             <div
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.safeRoom)"
+              [ngClass]="fillApartmentCondition(ad.safeRoom)"
             >
               <img
                 class="icons"
@@ -348,7 +340,7 @@
             <div
               *ngIf="true"
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.longTerm)"
+              [ngClass]="fillApartmentCondition(ad.longTerm)"
             >
               <img
                 class="icons"
@@ -359,9 +351,9 @@
             </div>
 
             <div
-              *ngIf="advertisement.hasBolcony"
+              *ngIf="ad.hasBolcony"
               class="ad-block icons-div"
-              [ngClass]="fillApartmentCondition(advertisement.hasBolcony)"
+              [ngClass]="fillApartmentCondition(ad.hasBolcony)"
             >
               <img
                 class="icons"

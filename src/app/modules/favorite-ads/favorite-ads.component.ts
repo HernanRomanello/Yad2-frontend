@@ -17,13 +17,8 @@ export class FavoriteAdsComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private renderer: Renderer2,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
-
-  openInNewWindow(adId: string): void {
-    const url = `/advertisement/${adId}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-  }
 
   openOrCloseAdNote(index: number, isOpen: boolean): void {
     let noteAreaButton = document.getElementById('ad-note' + index.toString());
@@ -41,7 +36,7 @@ export class FavoriteAdsComponent implements OnInit {
 
   addTextToNoteAd(index: number, text: string): void {
     const noteArea = document.getElementById(
-      `ad-note-area-text${index}`
+      `ad-note-area-text${index}`,
     ) as HTMLTextAreaElement;
 
     if (noteArea) {
@@ -57,7 +52,7 @@ export class FavoriteAdsComponent implements OnInit {
   clearTextFromNoteAd(index: number, adId: number): void {
     if (this.retrieveNoteAd(adId) === '') {
       const noteArea = document.getElementById(
-        `ad-note-area-text${index}`
+        `ad-note-area-text${index}`,
       ) as HTMLTextAreaElement;
       if (noteArea) {
         noteArea.value = '';
@@ -89,11 +84,11 @@ export class FavoriteAdsComponent implements OnInit {
 
   displayAdOptions(event: any, index: number) {
     let divTarget = document.getElementById(
-      'ad-date-update' + index.toString()
+      'ad-date-update' + index.toString(),
     );
 
     let divTarget2 = document.getElementById(
-      'new-window-content' + index.toString()
+      'new-window-content' + index.toString(),
     );
 
     if (event.type === 'mouseenter' && divTarget) {
@@ -116,10 +111,10 @@ export class FavoriteAdsComponent implements OnInit {
 
   increaseOpacity(event: any, index: number) {
     let divTarget1 = document.getElementById(
-      'new-window-icon' + index.toString()
+      'new-window-icon' + index.toString(),
     );
     let divTarget2 = document.getElementById(
-      'new-window-content' + index.toString()
+      'new-window-content' + index.toString(),
     );
 
     if (event.type === 'mouseenter' && divTarget2) {

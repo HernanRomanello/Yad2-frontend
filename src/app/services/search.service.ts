@@ -185,7 +185,7 @@ export class SearchService {
 
   GetUserLastSearches() {
     this.httpClient
-      .get<LastsearchesModel[]>(`${this.Url}api/Users/user/GetLastSearches`)
+      .get<LastsearchesModel[]>(`${this.Url}/api/Users/user/GetLastSearches`)
       .subscribe((data) => {
         this.UserLastSearches.next(data);
         const uniqueMonthDayArray = data
@@ -207,7 +207,7 @@ export class SearchService {
 
   removeLastSearch(id: string) {
     this.httpClient
-      .delete(`${this.Url}api/Users/user/DeleteLastSearch/${id}`, {
+      .delete(`${this.Url}/api/Users/user/DeleteLastSearch/${id}`, {
         withCredentials: true,
       })
       .subscribe({
@@ -222,7 +222,7 @@ export class SearchService {
 
   removeAllLastSearches() {
     this.httpClient
-      .delete(`${this.Url}api/Users/user/DeleteAllLastSearches`)
+      .delete(`${this.Url}/api/Users/user/DeleteAllLastSearches`)
       .subscribe(
         () => {
           this.GetUserLastSearches();
@@ -267,7 +267,7 @@ export class SearchService {
       hasStorageRoom: this.propertyFilters.storageRoom,
     };
     this.httpClient
-      .post(`${this.Url}api/Users/user/AddLastSearch`, lastSearch)
+      .post(`${this.Url}/api/Users/user/AddLastSearch`, lastSearch)
       .subscribe(
         () => {
           this.GetUserLastSearches();

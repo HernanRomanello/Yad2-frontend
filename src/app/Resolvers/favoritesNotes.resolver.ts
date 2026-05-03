@@ -11,5 +11,5 @@ export const favoritesNotesResolver: ResolveFn<UserNoteModel[]> = (
   const httpClient = inject(HttpClient);
   const URL = environment.apiUrl;
 
-  return httpClient.get<UserNoteModel[]>(`${URL}api/Users/user/GetNotes`);
+  return httpClient.get<UserNoteModel[]>(`${URL}/api/Users/user/GetNotes`);
 };

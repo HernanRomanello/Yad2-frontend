@@ -131,7 +131,7 @@ export class AdvertisementService {
     this.httpClient
       .get<
         AdvertisementsModel[]
-      >(`${this.Url}api/Advertisement/GetAdvertisements`)
+      >(`${this.Url}/api/Advertisement/GetAdvertisements`)
       .subscribe((response) => {
         this.Advertisements.next(response);
       });
@@ -139,7 +139,7 @@ export class AdvertisementService {
 
   GetAdvertisementById(id: number) {
     return this.httpClient.get<AdvertisementsModel>(
-      `${this.Url}api/Advertisement/GetAdvertisement/${id}`,
+      `${this.Url}/api/Advertisement/GetAdvertisement/${id}`,
     );
   }
 
@@ -226,7 +226,7 @@ export class AdvertisementService {
     };
 
     this.httpClient
-      .put(`${this.Url}api/Users/UpdateAdvertisement/${id}`, updatedAd)
+      .put(`${this.Url}/api/Users/UpdateAdvertisement/${id}`, updatedAd)
       .subscribe(
         (data) => {
           this.authService.GetUsersAdvertisements();
