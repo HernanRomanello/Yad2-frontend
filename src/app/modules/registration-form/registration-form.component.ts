@@ -75,23 +75,32 @@ export class RegistrationFormComponent implements OnInit, OnDestroy {
       return { passwordError: ' נבקש שהסיסמה תכלול אותיות באנגלית וספרות   ' };
     }
 
-    if (password.length < 8 || password.length <= 20) {
-      return { passwordError: '  נבקש סיסמה באורך 8-20 תווים ' };
+    if (password.length < 8 || password.length > 20) {
+      return { passwordError: 'נבקש סיסמה באורך 8-20 תווים' };
     }
 
     return null;
   }
 
   async handleSubmit() {
+    this.passwordSubmitted = true;
+    this.emailSubmitted = true;
+
+    this.signupForm.markAllAsTouched();
+
     const email: string = this.signupForm.get('email')?.value;
     const password: string = this.signupForm.get('password')?.value;
     const confirmPassword: string =
       this.signupForm.get('confirmPassword')?.value;
-    this.passwordSubmitted = true;
-    this.emailSubmitted = true;
 
-    if (password !== confirmPassword) {
+    this.paswwordDontMatchError = '';
+
+    if (password && password !== confirmPassword) {
       this.paswwordDontMatchError = 'הסיסמאות אינן תואמות';
+      return;
+    }
+
+    if (this.signupForm.invalid) {
       return;
     }
 

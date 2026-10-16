@@ -151,8 +151,9 @@
                     <div
                       class="error-message"
                       *ngIf="
-                        signupForm.get('password')?.invalid &&
-                        this.passwordSubmitted
+                        this.passwordSubmitted &&
+                        (signupForm.get('password')?.invalid ||
+                          this.paswwordDontMatchError)
                       "
                     >
                       @if (
@@ -161,7 +162,7 @@
                         {{
                           signupForm.get("password")?.errors?.["passwordError"]
                         }}
-                      } @else {
+                      } @else if (this.paswwordDontMatchError) {
                         {{ this.paswwordDontMatchError }}
                       }
                     </div>
