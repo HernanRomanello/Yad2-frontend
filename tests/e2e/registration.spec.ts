@@ -2,7 +2,6 @@ import { randomUUID } from 'node:crypto';
 import { test, expect } from '@playwright/test';
 import { RegistrationPage } from '../../pages/RegistrationPage';
 import {
-  apiBaseURL,
   guardSignup,
   isAPIRequest,
   localHTTPSException,
@@ -47,7 +46,17 @@ test.describe('Registration', () => {
       const password = registrationPassword();
       const email = uniqueEmail();
       const registration = new RegistrationPage(page);
-      await registration.goto();
+      // Finish the initial anonymous check before submitting, so it cannot be
+      // mistaken for login's user request or clear the newly logged-in UI.
+      const [anonymous] = await Promise.all([
+        page.waitForResponse(
+          (r) =>
+            r.request().method() === 'GET' &&
+            isAPIRequest(r.url(), '/api/Users/User'),
+        ),
+        registration.goto(),
+      ]);
+      expect(anonymous.status()).toBe(401);
       await registration.fillForm({
         email,
         password,
@@ -63,19 +72,32 @@ test.describe('Registration', () => {
           r.request().method() === 'POST' &&
           isAPIRequest(r.url(), '/api/Users/login'),
       );
-      await registration.submit();
-      const signupResponse = await signup;
+      // login() loads the user in the browser. An APIRequestContext check would
+      // bypass browser cookie policy and could mask a broken browser session.
+      const authenticated = page.waitForResponse(
+        (r) =>
+          r.request().method() === 'GET' &&
+          isAPIRequest(r.url(), '/api/Users/User'),
+      );
+      const [signupResponse, loginResponse, user] = await Promise.all([
+        signup,
+        login,
+        authenticated,
+        registration.submit(),
+      ]);
       expect(signupResponse.status()).toBe(200);
       expect(await signupResponse.json()).toBe(true);
-      expect((await login).status()).toBe(200);
+      expect(loginResponse.status()).toBe(200);
       await expect(page).toHaveURL(new URL('/', page.url()).href);
-      // const user = await page.request.get(apiBaseURL + '/api/Users/User');
-      const user = await page.request.get(apiBaseURL + '/api/Users/User', {
-        ignoreHTTPSErrors: new URL(apiBaseURL).hostname === 'localhost',
-      });
-
       expect(user.status()).toBe(200);
       expect((await user.json()).email).toBe(email);
+      // New accounts have no display name, so assert the authenticated menu.
+      const accountMenu = page.locator('app-header .menu-container').filter({
+        has: page.locator('button.user-name'),
+      });
+      const logout = accountMenu.getByRole('button', { name: /התנתקות/ });
+      await accountMenu.hover();
+      await expect(logout).toBeVisible();
       const restored = page.waitForResponse(
         (r) =>
           r.request().method() === 'GET' &&
@@ -85,6 +107,8 @@ test.describe('Registration', () => {
       const restoredResponse = await restored;
       expect(restoredResponse.status()).toBe(200);
       expect((await restoredResponse.json()).email).toBe(email);
+      await accountMenu.hover();
+      await expect(logout).toBeVisible();
     });
   });
 
