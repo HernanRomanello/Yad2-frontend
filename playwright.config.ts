@@ -1,5 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 import { isLoopback } from './tests/utils/registration';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const baseURL = process.env.BASE_URL || 'http://localhost:4200';
 const localFrontend = isLoopback(baseURL);

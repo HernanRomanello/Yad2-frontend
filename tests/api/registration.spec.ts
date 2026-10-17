@@ -14,18 +14,12 @@ const syntheticPassword = () =>
   'Aa1!' + randomUUID().replace(/-/g, '').slice(0, 8);
 const signupPath = '/api/Users/signup';
 
-// test.use({
-//   baseURL: apiBaseURL,
-//   ignoreHTTPSErrors: localHTTPSException,
-//   trace: 'off',
-// });
 test.use({
   baseURL: apiBaseURL,
   ignoreHTTPSErrors: true,
   trace: 'off',
 });
 test.describe('Registration API', () => {
-  // Requests reach the real database. Gate even negative cases on shared targets.
   test.skip(!mutationsAllowed, 'Shared targets require ALLOW_MUTATIONS=true.');
 
   async function assertModelError(response: APIResponse, key: string) {
