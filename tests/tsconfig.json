@@ -13,6 +13,7 @@
   "include": [
     "./**/*.ts",
     "../pages/**/*.ts",
-    "../playwright.config.ts"
+    "../playwright.config.ts",
+    "../playwright.auth.config.ts"
   ]
 }

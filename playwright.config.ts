@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { isLoopback } from './tests/utils/registration';
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -26,17 +26,17 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      testIgnore: '**/api/**',
+      testIgnore: ['**/api/**', '**/e2e/auth/**'],
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'firefox',
-      testIgnore: '**/api/**',
+      testIgnore: ['**/api/**', '**/e2e/auth/**'],
       use: { ...devices['Desktop Firefox'] },
     },
     {
       name: 'webkit',
-      testIgnore: '**/api/**',
+      testIgnore: ['**/api/**', '**/e2e/auth/**'],
       use: { ...devices['Desktop Safari'] },
     },
     {

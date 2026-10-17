@@ -10,7 +10,9 @@
     "serve:ssr:angular-Yad2": "node dist/angular-yad2/server/server.mjs",
     "test:e2e": "playwright test --project=chromium",
     "test:registration": "playwright test registration.spec.ts",
-    "test:registration:types": "tsc --project tests/tsconfig.json"
+    "test:registration:types": "tsc --project tests/tsconfig.json",
+    "test:auth": "playwright test --config playwright.auth.config.ts",
+    "test:auth:types": "tsc --project tests/tsconfig.json"
   },
   "private": true,
   "dependencies": {

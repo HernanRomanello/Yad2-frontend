@@ -42,6 +42,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   async handleSubmit() {
     this.formSubmitted = true;
+
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
     const email: string = this.loginForm.get('email')?.value;
     const password: string = this.loginForm.get('password')?.value;
 
@@ -50,12 +56,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (loggedIn) {
       this.inputsStyleService.navigateToMainPage();
     } else {
-      if (
-        this.loginForm.get('password')?.valid &&
-        this.loginForm.get('email')?.valid
-      ) {
-        this.isPasswordIsValid = false;
-      }
+      this.isPasswordIsValid = false;
     }
   }
 
