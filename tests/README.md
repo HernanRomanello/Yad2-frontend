@@ -1,5 +1,7 @@
 # Registration automation
 
+For the read-only Search Ads suite, coverage matrix, and defect report, see [SEARCH.md](./SEARCH.md).
+
 ## Running
 
 The suites use the existing npm installation and Playwright. Angular is started automatically in development mode when a local frontend is not already running. Start the ASP.NET Core API and disposable MySQL database separately. Defaults are http://localhost:4200 and https://localhost:7211; BASE_URL and API_BASE_URL override them. The Angular application's API URL must match API_BASE_URL; the test variable does not rewrite Angular configuration. Backend CORS currently permits http://localhost:4200.

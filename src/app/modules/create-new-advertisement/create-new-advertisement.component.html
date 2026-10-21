@@ -1359,7 +1359,7 @@
               </div>
               <img
                 [ngClass]="i === 0 ? 'main-image pointer' : 'ad-images pointer'"
-                [src]="this.advertisementService.src(image)"
+                [src]="imagePreviewUrls[i]"
               />
             </div>
             <div class="upload-container">

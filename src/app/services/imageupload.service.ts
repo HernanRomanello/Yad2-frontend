@@ -12,7 +12,7 @@ export class ImageuploadService {
 
   uploadImage(image: File) {
     const formData = new FormData();
-    formData.append('file', image);
+    formData.append('image', image);
     return firstValueFrom(
       this.httpClient.post<{ fileUrl: string }>(
         `${this.Url}/api/ImageUpload/UploadImage`,

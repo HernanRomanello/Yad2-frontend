@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -23,7 +23,7 @@ import { environment } from '../../../environments/environment';
   templateUrl: './create-new-advertisement.component.html',
   styleUrl: './create-new-advertisement.component.css',
 })
-export class CreateNewAdvertisementComponent implements OnInit {
+export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   advertisementForm!: FormGroup | any;
   $cities: City[] = [];
   $streets: Street[] = [];
@@ -37,6 +37,7 @@ export class CreateNewAdvertisementComponent implements OnInit {
   has2Contacts: boolean = false;
   mainImage: File | undefined = undefined;
   images: File[] = [];
+  imagePreviewUrls: string[] = [];
   videoUrl: string = '';
   imagesUrl: string[] = [];
   MainPicture: string = '';
@@ -539,8 +540,11 @@ export class CreateNewAdvertisementComponent implements OnInit {
     if (this.images.length >= 10) {
       return;
     }
-    let file = event.target.files[0];
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const previewUrl = URL.createObjectURL(file);
     this.images.push(file);
+    this.imagePreviewUrls.push(previewUrl);
     if (this.images.length > 0) {
       this.hasImage = true;
     } else {
@@ -556,12 +560,20 @@ export class CreateNewAdvertisementComponent implements OnInit {
   }
 
   removeFileChange(index: number) {
+    if (index < 0 || index >= this.images.length) return;
+    URL.revokeObjectURL(this.imagePreviewUrls[index]);
+    this.imagePreviewUrls.splice(index, 1);
     this.images.splice(index, 1);
     if (this.images.length > 0) {
       this.hasImage = true;
     } else {
       this.hasImage = false;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.imagePreviewUrls.forEach((url) => URL.revokeObjectURL(url));
+    this.imagePreviewUrls = [];
   }
 
   onFileVideoChange(event: Event) {
