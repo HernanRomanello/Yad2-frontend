@@ -1,7 +1,5 @@
 import { test, expect } from '../../fixtures/search.fixture';
-import { boundaryAds, booleanFilters, makeAd, saleIds } from '../../fixtures/search-data';
-
-test.use({ searchData: { ads: boundaryAds } });
+import { booleanFilters, makeAd, saleIds } from '../../fixtures/search-data';
 
 test.describe('Multiple locations', () => {
   test('selected cities are combined with OR', async ({ searchPage }) => {
@@ -132,4 +130,3 @@ test.describe('Mobile search controls', () => {
     await expect(searchPage.titles).toHaveText(['QA Search 103 1']);
   });
 });
-

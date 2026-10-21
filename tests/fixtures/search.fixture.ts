@@ -55,6 +55,6 @@ export const test = base.extend<SearchFixtures>({
     await testInfo.attach('search-fixture-data', { body: JSON.stringify(searchAds), contentType: 'application/json' });
     expect(unexpected, 'No unhandled API calls or real mutations').toEqual([]);
   }, { auto: true }],
-  searchPage: async ({ page, network, searchData }, use) => { await use(new SearchAdsPage(page, searchData.ads)); },
+  searchPage: async ({ page, network }, use) => { await use(new SearchAdsPage(page)); },
 });
 export { expect } from '@playwright/test';

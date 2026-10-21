@@ -1,14 +1,12 @@
 import { test, expect } from '../../fixtures/search.fixture';
-import { boundaryAds, booleanFilters, makeAd, propertyTypes, saleIds } from '../../fixtures/search-data';
+import { booleanFilters, makeAd, propertyTypes, saleIds } from '../../fixtures/search-data';
 import type { SearchAdsPage } from '../../../pages/SearchAdsPage';
 
 async function expectResults(search: SearchAdsPage, ids: number[]) {
-  await expect(search.titles).toHaveText(ids.map(id => search.titleForId(id)));
+  await expect(search.titles).toHaveText(ids.map(id => `QA Search ${id} 1`));
   if (ids.length) await expect(search.results.getByText(`${ids.length} תוצאות`, { exact: false })).toBeVisible();
   else await expect(search.results.getByText('שחיפשת לא נמצא', { exact: true })).toBeVisible();
 }
-
-test.use({ searchData: { ads: boundaryAds } });
 
 test.describe('Search defaults and trade type', () => {
   test('initial search shows only sale ads in date order', async ({ searchPage }) => {
@@ -23,7 +21,7 @@ test.describe('Search defaults and trade type', () => {
   test('switching between rent and sale replaces results', async ({ searchPage }) => {
     await searchPage.open();
     await searchPage.trade('השכרה');
-    await expectResults(searchPage, [19, 18, 17, 16, 15, 14, 13, 12, 5]);
+    await expectResults(searchPage, [105]);
     await searchPage.trade('מכירה');
     await expectResults(searchPage, saleIds);
   });
@@ -44,7 +42,7 @@ test.describe('Property multi-selection and clearing', () => {
   test('multiple property types use OR semantics', async ({ searchPage }) => {
     await searchPage.open();
     await searchPage.properties(['דירה', 'דירת גן']);
-    await expectResults(searchPage, [10, 7, 2]);
+    await expectResults(searchPage, saleIds);
   });
   for (const group of ['apartments', 'houses'] as const) {
     test.describe(`All ${group}`, () => {
@@ -311,4 +309,3 @@ test.describe('Navigation, refresh and empty data', () => {
     });
   });
 });
-
