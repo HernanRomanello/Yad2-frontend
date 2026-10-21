@@ -212,9 +212,12 @@ export class RealEstateResultsComponent implements OnInit {
         }
 
         if (this.searchService.assetTypeList()) {
+          const assetTypes = this.searchService.assetTypeList()
+            .split(',')
+            .map((assetType) => assetType.trim())
+            .filter(Boolean);
           ads = ads.filter(
-            (ad) =>
-              ad.assetType.trim() === this.searchService.assetTypeList().trim(),
+            (ad) => assetTypes.includes(ad.assetType.trim()),
           );
         }
 

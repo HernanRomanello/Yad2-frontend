@@ -1,5 +1,5 @@
 import type { Locator, Page } from '@playwright/test';
-import type { BooleanFilter } from '../tests/fixtures/search-data';
+import type { SearchAd, BooleanFilter } from '../tests/fixtures/search-data';
 
 export class AdditionalSearchFilters {
   constructor(readonly root: Locator) {}
@@ -30,7 +30,7 @@ export class SearchAdsPage {
   readonly titles: Locator;
   readonly additional: AdditionalSearchFilters;
   readonly location: Locator;
-  constructor(readonly page: Page) {
+  constructor(readonly page: Page, readonly ads: SearchAd[] = []) {
     this.root = page.locator('app-real-estate-search');
     this.results = this.root.locator('app-real-estate-results');
     // The app has no roles/test IDs for result cards, sort controls, suggestions,
@@ -39,6 +39,11 @@ export class SearchAdsPage {
     this.titles = this.cards.locator('.title');
     this.additional = new AdditionalSearchFilters(this.root.locator('app-real-estate-additional-filters'));
     this.location = this.root.locator('app-sub-search-query-box').last();
+  }
+  titleForId(id: number) {
+    const ad = this.ads.find(item => item.id === id);
+    if (!ad) throw new Error(`Missing search fixture listing ${id}`);
+    return `${ad.street} ${ad.number}`;
   }
   async open() { await this.page.goto('/'); }
   async submit() { await this.root.getByRole('button', { name: 'חיפוש', exact: true }).click(); }
@@ -145,6 +150,6 @@ export class SearchAdsPage {
     await location.getByText('אישור', { exact: true }).click();
   }
   async openResult(id: number) {
-    await this.cards.filter({ hasText: `QA Search ${id} 1` }).click();
+    await this.cards.filter({ hasText: this.titleForId(id) }).click();
   }
 }
