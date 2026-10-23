@@ -55,49 +55,31 @@ export class RealEstatePropertyTypeComponent {
           ? this.propertyTypes.apartment
           : this.propertyTypes.house;
 
-      var id = propertyType === 'דירות_הכל' ? 'all-apartments' : 'all-houses';
-      var allApartmentsElements = document.getElementById(id);
-
-      var countCheckedApartments = 0;
-      for (let i = 0; i <= apartments.length; i++) {
-        if (this.selectedPropertyTypes.includes(apartments[i])) {
-          countCheckedApartments++;
-        }
-      }
-      if (countCheckedApartments === apartments.length) {
-        for (let i = 0; i <= apartments.length; i++) {
-          for (let j = 0; j <= this.selectedPropertyTypes.length; j++) {
-            if (apartments[i] === this.selectedPropertyTypes[j]) {
-              this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
-                (type) => type !== apartments[i]
-              );
-            }
-          }
-        }
-        if (allApartmentsElements) {
-          allApartmentsElements.classList.remove('selected');
-          this.searchService.propertyTypeFilterValue.set('סוג הנכס');
-        }
-        return;
+      const groupSelected = apartments.every(type => this.selectedPropertyTypes.includes(type));
+      if (groupSelected) {
+        this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
+          type => type !== propertyType && !apartments.some(groupType => groupType === type),
+        );
       } else {
-        var countCheckedApartments = 0;
+        this.selectedPropertyTypes = [...new Set([
+          ...apartments, ...this.selectedPropertyTypes, propertyType,
+        ])];
       }
-
-      this.selectedPropertyTypes.push(propertyType);
-      if (allApartmentsElements) {
-        allApartmentsElements.classList.toggle('selected');
-      }
-
-      this.selectedPropertyTypes = [
-        ...apartments,
-        ...this.selectedPropertyTypes,
-      ];
     } else if (this.isSelected(propertyType)) {
       this.selectedPropertyTypes = this.selectedPropertyTypes.filter(
         (type) => type !== propertyType
       );
     } else {
       this.selectedPropertyTypes.push(propertyType);
+    }
+    // A group marker is valid only while every member of that group is selected.
+    for (const [marker, types] of [
+      ['דירות_הכל', this.propertyTypes.apartment],
+      ['בתים_הכל', this.propertyTypes.house],
+    ] as const) {
+      if (!types.every(type => this.selectedPropertyTypes.includes(type))) {
+        this.selectedPropertyTypes = this.selectedPropertyTypes.filter(type => type !== marker);
+      }
     }
     this.checkeIfAllApartmentsSelected('all-apartments', 'apartment');
     this.checkeIfAllApartmentsSelected('all-houses', 'house');

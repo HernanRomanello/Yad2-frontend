@@ -78,17 +78,14 @@ export class RealEstateAdditionalFiltersComponent implements OnChanges {
     } else if (optionsNumber === 1) {
       this.searchService.propertyTypeFilterValue.set(propertyTypes[0]);
     } else if (optionsNumber > 1) {
-      let count = 0;
       if (uniquePropertyTypes.includes('דירות_הכל')) {
         optionsNumber--;
-        count++;
       }
       if (uniquePropertyTypes.includes('בתים_הכל')) {
         optionsNumber--;
-        count++;
       }
       this.searchService.propertyTypeFilterValue.set(
-        `סוג הנכס (${optionsNumber - count}) `,
+        `סוג הנכס (${optionsNumber}) `,
       );
     }
 
@@ -99,15 +96,13 @@ export class RealEstateAdditionalFiltersComponent implements OnChanges {
       this.searchService.propertyTypeFilterValue.set('בתים');
     }
 
-    if (propertyTypes.length > 0) {
-      this.selectedPropertyTypes = uniquePropertyTypes;
+    this.selectedPropertyTypes = uniquePropertyTypes;
 
-      this.searchService.assetTypeList.set(
-        this.searchService.transformArrayTOPropertyTypesString(
-          uniquePropertyTypes,
-        ),
-      );
-    }
+    this.searchService.assetTypeList.set(
+      this.searchService.transformArrayTOPropertyTypesString(
+        uniquePropertyTypes,
+      ),
+    );
   }
 
   onSearch() {

@@ -203,11 +203,11 @@ export class RealEstateResultsComponent implements OnInit {
           (maxFloor === '' || ad.floor <= Number(maxFloor)) &&
           ad.totalSquareMeters >= minArea && ad.totalSquareMeters <= maxArea);
 
-        if (this.searchService.assetTypeList()) {
-          ads = ads.filter(
-            (ad) =>
-              ad.assetType.trim() === this.searchService.assetTypeList().trim(),
-          );
+        const propertyTypes = selectedPropertyTypes
+          .filter(type => type !== 'דירות_הכל' && type !== 'בתים_הכל')
+          .map(type => type.trim());
+        if (propertyTypes.length > 0) {
+          ads = ads.filter(ad => propertyTypes.includes(ad.assetType.trim()));
         }
 
         if (this.searchService.minPrice() > 0) {

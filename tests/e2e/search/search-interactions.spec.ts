@@ -100,6 +100,17 @@ test.describe('Mobile search controls', () => {
     await searchPage.applyMobileFilters();
     await expect(searchPage.titles).toHaveText(['QA Search 102 1']);
   });
+  test('clearing the last mobile property restores sale results', async ({ searchPage }) => {
+    await searchPage.open();
+    await searchPage.openMobileFilters();
+    await searchPage.mobileProperty('דירת גן');
+    await searchPage.applyMobileFilters();
+    await expect(searchPage.titles).toHaveText(['QA Search 102 1']);
+    await searchPage.openMobileFilters();
+    await searchPage.mobileProperty('דירת גן');
+    await searchPage.applyMobileFilters();
+    await expect(searchPage.titles).toHaveText([104, 103, 102, 101].map(id => `QA Search ${id} 1`));
+  });
   test('mobile room selection filters fractional rooms', async ({ searchPage }) => {
     await searchPage.open();
     await searchPage.openMobileFilters();

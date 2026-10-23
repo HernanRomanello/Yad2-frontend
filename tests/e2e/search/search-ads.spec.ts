@@ -68,6 +68,21 @@ test.describe('Property multi-selection and clearing', () => {
   });
 });
 
+test.describe('Property group clearing regression', () => {
+  for (const group of ['apartments', 'houses'] as const) {
+    test(`deselecting all ${group} restores results`, async ({ searchPage }) => {
+      await searchPage.open();
+      await searchPage.propertyGroup(group);
+      await searchPage.openPropertyMenu();
+      await searchPage.root.locator(`#propertyTypeMenu #all-${group}`).click();
+      await searchPage.submit();
+      await expectResults(searchPage, saleIds);
+      await expect(searchPage.root.getByRole('button').filter({ has: searchPage.page.locator('#propertyTypeArrow') }))
+        .toContainText('סוג הנכס');
+    });
+  }
+});
+
 for (const filter of booleanFilters) {
   test.describe(`Additional filter: ${filter[0]}`, () => {
     test.use({ searchData: { ads: [makeAd(1, { [filter[1]]: true }), makeAd(2), makeAd(3, { [filter[1]]: true, tradeType: 'השכרה' })] } });
