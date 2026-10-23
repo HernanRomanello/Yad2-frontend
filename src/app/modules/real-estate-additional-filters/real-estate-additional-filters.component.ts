@@ -1,15 +1,33 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnChanges, WritableSignal, inject } from '@angular/core';
 import { SearchService } from '../../services/search.service';
-import { PropertyFilters } from '../../shared/models/Filters';
+import { PropertyFilters, emptyPropertyFilters } from '../../shared/models/Filters';
 import { NavigationService } from '../../services/navigation.service';
-import { min } from 'moment';
 
 @Component({
   selector: 'app-real-estate-additional-filters',
+  // Nested mobile controls share the dialog draft, not the applied search state.
+  providers: [SearchService],
   templateUrl: './real-estate-additional-filters.component.html',
   styleUrl: './real-estate-additional-filters.component.css',
 })
-export class RealEstateAdditionalFiltersComponent {
+export class RealEstateAdditionalFiltersComponent implements OnChanges {
+  @Input() active = false;
+  private readonly appliedSearch = inject(SearchService, { skipSelf: true });
+  private readonly draftSignals = ['minPrice', 'maxPrice', 'minRooms', 'maxRooms', 'assetTypeList',
+    'propertyTypeFilterValue', 'forSale', 'forRent', 'locationList', 'city', 'neighborhood'] as const;
+  ngOnChanges() {
+    if (!this.active) return;
+    this.filters = this.appliedSearch.getFilters();
+    this.tradeType = this.appliedSearch.selectedTradeType.value;
+    this.selectedPropertyTypes = [...this.appliedSearch.selectedPropertyTypes.value];
+    this.copySignals(this.appliedSearch, this.searchService);
+  }
+  private copySignals(from: SearchService, to: SearchService) {
+    for (const key of this.draftSignals) {
+      (to[key] as WritableSignal<unknown>).set(structuredClone(from[key]()));
+    }
+  }
+
   tradeType: 'השכרה' | 'מכירה' = 'מכירה';
   searchService = inject(SearchService);
   filters_ = {
@@ -29,7 +47,7 @@ export class RealEstateAdditionalFiltersComponent {
       'לשותפים',
     ],
   };
-  propertyFeaturesHebrewToProperty: { [key: string]: keyof PropertyFilters } = {
+  propertyFeaturesHebrewToProperty: { [key: string]: Exclude<keyof PropertyFilters, 'floorsRange' | 'aptSizeRange'> } = {
     חניה: 'hasPrivateParking',
     מעלית: 'elevator',
     'ממ״ד': 'safeRoom',
@@ -45,8 +63,6 @@ export class RealEstateAdditionalFiltersComponent {
     לשותפים: 'forRoommates',
   } as const;
   selectedPropertyTypes: string[] = [];
-
-  floorsRange: [string, string] = ['0', '18'];
 
   onPriceRangeSelected(priceRange: [number, number]) {
     const min = Math.min(priceRange[0], priceRange[1]);
@@ -95,13 +111,12 @@ export class RealEstateAdditionalFiltersComponent {
   }
 
   onSearch() {
-    this.searchService.emitSelectedPropertyTypes(this.selectedPropertyTypes);
-    this.searchService.emitSelectedPriceRange([
-      this.searchService.minPrice(),
-      this.searchService.maxPrice(),
-    ]);
-
-    this.searchService.setFilters(this.filters);
+    this.copySignals(this.searchService, this.appliedSearch);
+    this.appliedSearch.needToMakeResetFilters.set(false);
+    this.appliedSearch.setFilters(this.filters);
+    this.appliedSearch.emitSelectedTradeType(this.tradeType);
+    this.appliedSearch.emitSelectedPropertyTypes(this.selectedPropertyTypes);
+    this.appliedSearch.emitSelectedPriceRange([this.searchService.minPrice(), this.searchService.maxPrice()]);
     this.close();
   }
 
@@ -118,42 +133,17 @@ export class RealEstateAdditionalFiltersComponent {
       this.searchService.forSale.set(true);
       this.searchService.forRent.set(false);
       this.tradeType = 'מכירה';
-      this.searchService.emitSelectedTradeType('מכירה');
+
     } else if (option === 'השכרה') {
       this.searchService.forSale.set(false);
       this.searchService.forRent.set(true);
       this.tradeType = 'השכרה';
-      this.searchService.emitSelectedTradeType('השכרה');
+
     }
-    this.searchService.needToMakeResetFilters.set(true);
+
   }
 
-  filters: any = {
-    hasImage: undefined,
-    moshavOrKibutz: undefined,
-    hasPrice: undefined,
-    pirceDiscount: undefined,
-    publisherIsMiddleMan: undefined,
-    publisherIsContractor: undefined,
-    hasPrivateParking: undefined,
-    elevator: undefined,
-    safeRoom: undefined,
-    hasBolcony: undefined,
-    airConditioner: undefined,
-    storageRoom: undefined,
-    renovated: undefined,
-    accessibleForDisabled: undefined,
-    windowBars: undefined,
-    furnished: undefined,
-    exclusivity: undefined,
-    petsAllowed: undefined,
-    forRoommates: undefined,
-    isNewFromBuilder: undefined,
-    isNew: undefined,
-    isRenovated: undefined,
-    isWellMaintained: undefined,
-    needsRenovation: undefined,
-  };
+  filters: PropertyFilters = emptyPropertyFilters();
 
   @Output() applyFilters = new EventEmitter<any>();
 
@@ -201,60 +191,9 @@ export class RealEstateAdditionalFiltersComponent {
   }
 
   resetFilters() {
-    this.filters = {
-      hasImage: undefined,
-      moshavOrKibutz: undefined,
-      hasPrice: undefined,
-      pirceDiscount: undefined,
-      publisherIsMiddleMan: undefined,
-      publisherIsContractor: undefined,
-      hasPrivateParking: undefined,
-      elevator: undefined,
-      safeRoom: undefined,
-      hasBolcony: undefined,
-      airConditioner: undefined,
-      storageRoom: undefined,
-      renovated: undefined,
-      accessibleForDisabled: undefined,
-      windowBars: undefined,
-      furnished: undefined,
-      exclusivity: undefined,
-      petsAllowed: undefined,
-      forRoommates: undefined,
-      isNewFromBuilder: undefined,
-      isNew: undefined,
-      isRenovated: undefined,
-      isWellMaintained: undefined,
-      needsRenovation: undefined,
-    };
-    this.searchService.setFilters(this.filters);
+    this.filters = emptyPropertyFilters();
+    this.appliedSearch.setFilters(this.filters);
   }
-
-  onAptSizeSelected(size: any) {
-    let minAptSizeRange = Math.min(size[0]);
-    let maxAptSizeRange = Math.max(size[1]);
-    this.searchService.minSquareSize.set(minAptSizeRange);
-    this.searchService.maxSquareSize.set(maxAptSizeRange);
-  }
-  onFloorsSelected(floors: any) {
-    if (isNaN(floors[0]) && isNaN(floors[0])) return;
-
-    if (!isNaN(floors[1]) && !isNaN(floors[0])) {
-      this.searchService.minFloor.set(Math.min(floors[0], floors[1]));
-      this.searchService.maxFloor.set(Math.max(floors[0], floors[1]));
-      return;
-    }
-
-    if (isNaN(floors[0]) && !isNaN(floors[1])) {
-      this.searchService.maxFloor.set(
-        Math.max(this.searchService.maxFloor(), floors[1]),
-      );
-      return;
-    }
-    if (!isNaN(floors[0]) && isNaN(floors[1])) {
-      this.searchService.minFloor.set(
-        Math.min(this.searchService.maxFloor(), floors[0]),
-      );
-    }
-  }
+  onAptSizeSelected(size: [number, number]) { this.filters.aptSizeRange = [...size]; }
+  onFloorsSelected(floors: [string, string]) { this.filters.floorsRange = [...floors]; }
 }

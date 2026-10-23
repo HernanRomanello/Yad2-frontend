@@ -8,6 +8,8 @@
         "
       >
         <app-real-estate-additional-filters
+          *ngIf="checkTheFilter('additionalFiltersMenu')"
+          [active]="checkTheFilter('additionalFiltersMenu')"
           (closeMenu)="onCloseAdditionalFiltersMenu(undefined)"
         ></app-real-estate-additional-filters>
       </div>

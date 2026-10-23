@@ -211,6 +211,7 @@
           <div class="title">קומה</div>
           <app-real-estate-price-slider-select
             [hasBackground]="false"
+            [range]="filters.floorsRange"
             (selectedFloorRange)="onFloorsSelected($event)"
           ></app-real-estate-price-slider-select>
         </div>
@@ -220,6 +221,7 @@
 
           <SquareSizeSlider
             [hasBackground]="false"
+            [range]="filters.aptSizeRange"
             (selectedSquareSizeRange)="onAptSizeSelected($event)"
           ></SquareSizeSlider>
         </div>
@@ -246,12 +248,14 @@
     </div>
     <footer>
       <button
-        class="desktop reset-btn pointer"
+        type="button"
+        class="reset-btn pointer"
         (click)="resetFilters(); close()"
       >
         איפוס
       </button>
       <button
+        type="button"
         id="ok-btn"
         class="ok-btn pointer font500 close-filter"
         (click)="onSearch()"

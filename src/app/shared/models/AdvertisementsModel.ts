@@ -31,7 +31,9 @@ export type AdvertisementsModel = {
   isRenovated: boolean;
   isNew: boolean;
   isNewFromBuilder: boolean;
-  pirceDiscount: boolean;
+  priceDiscount: boolean;
+  // Not supplied by the current backend. Unknown values must not match exclusivity searches.
+  exclusivity?: boolean | null;
   publisherIsMiddleMan: boolean;
   publisherIsContractor: boolean;
   balconiesNumber: number;

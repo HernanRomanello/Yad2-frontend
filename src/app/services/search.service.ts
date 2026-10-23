@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { PropertyFilters } from '../shared/models/Filters';
+import { PropertyFilters, emptyPropertyFilters } from '../shared/models/Filters';
 import { HttpClient } from '@angular/common/http';
 import { LastsearchesModel } from '../shared/models/LastsearchesModel';
 import { environment } from '../../environments/environment';
@@ -34,35 +34,14 @@ export class SearchService {
 
   public UserLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   constructor(private httpClient: HttpClient) {}
-  private propertyFilters: PropertyFilters = {
-    hasImage: undefined,
-    moshavOrKibutz: undefined,
-    hasPrice: undefined,
-    pirceDiscount: undefined,
-    publisherIsMiddleMan: undefined,
-    publisherIsContractor: undefined,
-    hasPrivateParking: undefined,
-    elevator: undefined,
-    safeRoom: undefined,
-    hasBolcony: undefined,
-    airConditioner: undefined,
-    storageRoom: undefined,
-    renovated: undefined,
-    accessibleForDisabled: undefined,
-    windowBars: undefined,
-    furnished: undefined,
-    exclusivity: undefined,
-    petsAllowed: undefined,
-    forRoommates: undefined,
-    floorsRange: ['-1', '180'],
-    aptSizeRange: [0, 9999999999],
-  };
+  private propertyFilters = emptyPropertyFilters();
+  readonly filtersChanged = new BehaviorSubject<PropertyFilters>(this.propertyFilters);
 
   apartmentsSortedByStreet: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 
   getFilters() {
-    return this.propertyFilters;
+    return structuredClone(this.propertyFilters);
   }
 
   transformArrayTOPropertyTypesString(propertyTypes: string[]): string {
@@ -100,17 +79,17 @@ export class SearchService {
       : result.join('');
   }
   setFilters(filters: PropertyFilters) {
-    this.propertyFilters = filters;
-
-    this.propertyFilters.floorsRange = [
-      this.minFloor().toString(),
-      this.maxFloor().toString(),
-    ];
-    this.propertyFilters.aptSizeRange = [
-      this.minSquareSize(),
-      this.maxSquareSize(),
-    ];
-
+    this.propertyFilters = structuredClone(filters);
+    const floor = (value: string) => value === 'מרתף' ? -1 : value === 'קרקע' ? 0 : Number(value);
+    const floors = filters.floorsRange.map(value => value === '' ? undefined : floor(value));
+    if (floors.every(value => value !== undefined && Number.isFinite(value))) floors.sort((a, b) => a! - b!);
+    this.propertyFilters.floorsRange = floors.map(value => value === undefined ? '' : String(value)) as [string, string];
+    this.propertyFilters.aptSizeRange = [...filters.aptSizeRange].sort((a, b) => a - b) as [number, number];
+    this.minFloor.set(floors[0] ?? -1);
+    this.maxFloor.set(floors[1] ?? 20);
+    this.minSquareSize.set(this.propertyFilters.aptSizeRange[0]);
+    this.maxSquareSize.set(this.propertyFilters.aptSizeRange[1]);
+    this.filtersChanged.next(this.getFilters());
     this.addLastSearchToDB();
   }
 

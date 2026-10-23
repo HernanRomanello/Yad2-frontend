@@ -23,6 +23,9 @@ export class RealEstateSquareSizeSliderComponent {
 
   @Output() selectedSquareSizeRange = new EventEmitter<[number, number]>();
 
+  @Input() set range(value: [number, number]) {
+    this.rangeValuesBuy = [value[0], Math.min(value[1], 500)];
+  }
   @Input() hasBackground = true;
 
   sliderClass() {
@@ -47,6 +50,7 @@ export class RealEstateSquareSizeSliderComponent {
     }
     this.rangeValuesBuy = [number, this.rangeValuesBuy[1]];
     element.value = this.formatPrice(number);
+    this.emit();
   }
 
   manualSelectMaxPrice(event: Event) {
@@ -62,6 +66,7 @@ export class RealEstateSquareSizeSliderComponent {
     this.rangeValuesBuy = [this.rangeValuesBuy[0], number];
 
     element.value = this.formatPrice(number);
+    this.emit();
   }
   formatPrice = formatPrice;
 }

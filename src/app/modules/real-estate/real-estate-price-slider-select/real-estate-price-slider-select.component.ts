@@ -39,10 +39,16 @@ export class RealEstateFloorSliderSelectComponent {
   rangeValuesBuy: [number, number] = [0, this.values.length - 1] as const;
 
   selectedStartIndex = 0;
-  selectedEndIndex = 0;
+  selectedEndIndex = this.values.length - 1;
 
   @Output() selectedFloorRange = new EventEmitter<[string, string]>();
 
+  @Input() set range(value: [string, string]) {
+    const index = (v: string, fallback: number) => v === '' ? fallback : v === '-1' ? 0 : v === '0' ? 1 : this.values.indexOf(v as any);
+    this.selectedStartIndex = index(value[0], 0);
+    this.selectedEndIndex = index(value[1], this.values.length - 1);
+    this.rangeValuesBuy = [this.selectedStartIndex, this.selectedEndIndex];
+  }
   @Input() hasBackground = true;
 
   sliderClass() {
@@ -56,6 +62,7 @@ export class RealEstateFloorSliderSelectComponent {
     const selected = event.target.value;
     const index = this.values.indexOf(selected);
     this.selectedStartIndex = index;
+    this.rangeValuesBuy = [index, this.selectedEndIndex];
     this.selectedFloorRange.emit([
       this.values[this.selectedStartIndex],
       this.values[this.selectedEndIndex],
@@ -65,6 +72,7 @@ export class RealEstateFloorSliderSelectComponent {
     const selected = event.target.value;
     const index = this.values.indexOf(selected);
     this.selectedEndIndex = index;
+    this.rangeValuesBuy = [this.selectedStartIndex, index];
     this.selectedFloorRange.emit([
       this.values[this.selectedStartIndex],
       this.values[this.selectedEndIndex],
@@ -82,6 +90,16 @@ export class RealEstateFloorSliderSelectComponent {
   }
   manualSelectMinPrice(event: Event) {
     const value = (event.target as HTMLInputElement).value;
+    const onlyNumerics = value.replace(/\D/g, '');
+    const element = event.target as HTMLInputElement;
+    const number = parseInt(onlyNumerics);
+    /*if (isNaN(number) || number < this.rangeValuesBuyMinMax[0]) {
+      element.value = this.formatPrice(this.rangeValuesBuy[0]);
+      return;
+    }
+
+    this.rangeValuesBuy = [number, this.rangeValuesBuy[1]];
+    element.value = this.formatPrice(number);*/
   }
 
   manualSelectMaxPrice(event: Event) {

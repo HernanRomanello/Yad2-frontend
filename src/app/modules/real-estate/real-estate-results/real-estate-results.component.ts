@@ -146,6 +146,7 @@ export class RealEstateResultsComponent implements OnInit {
     this.searchService.selectedPriceRange,
     this.searchService.selectedTradeType,
     this.searchService.selectedRoomsAmount,
+    this.searchService.filtersChanged,
   ]).pipe(
     map(
       ([
@@ -186,30 +187,21 @@ export class RealEstateResultsComponent implements OnInit {
         ads = ads.filter((ad) =>
           Object.keys(booleanFilters).every((key) => {
             if (booleanFilters[key]) {
-              return (ad as any)[key] === booleanFilters[key];
+              // The UI retains its legacy names; these are distinct API fields.
+              const field = key === 'pirceDiscount' ? 'priceDiscount'
+                : key === 'airConditioner' ? 'airConditioning' : key;
+              return (ad as any)[field] === true;
             }
             return true;
           }),
         );
 
-        if (this.searchService.minFloor() !== -1) {
-          ads = ads.filter((ad) => ad.floor >= this.searchService.minFloor());
-        }
-
-        if (this.searchService.maxFloor() !== 20) {
-          ads = ads.filter((ad) => ad.floor <= this.searchService.maxFloor());
-        }
-        if (this.searchService.minSquareSize() > 0) {
-          ads = ads.filter(
-            (ad) => ad.totalSquareMeters >= this.searchService.minSquareSize(),
-          );
-        }
-
-        if (this.searchService.maxSquareSize() > 0) {
-          ads = ads.filter(
-            (ad) => ad.totalSquareMeters <= this.searchService.maxSquareSize(),
-          );
-        }
+        const [minFloor, maxFloor] = filters.floorsRange;
+        const [minArea, maxArea] = filters.aptSizeRange;
+        ads = ads.filter(ad =>
+          (minFloor === '' || ad.floor >= Number(minFloor)) &&
+          (maxFloor === '' || ad.floor <= Number(maxFloor)) &&
+          ad.totalSquareMeters >= minArea && ad.totalSquareMeters <= maxArea);
 
         if (this.searchService.assetTypeList()) {
           ads = ads.filter(
@@ -245,52 +237,6 @@ export class RealEstateResultsComponent implements OnInit {
         }
 
         this.apartmentsAmount = ads.length;
-        if (filters.hasImage) {
-          ads = ads.filter((ad) => ad.hasImage === filters.hasImage);
-        }
-        if (filters.hasPrice) {
-          ads = ads.filter((ad) => ad.hasPrice === filters.hasPrice);
-        }
-        if (filters.hasPrivateParking) {
-          ads = ads.filter(
-            (ad) => ad.hasPrivateParking === filters.hasPrivateParking,
-          );
-        }
-        if (filters.safeRoom) {
-          ads = ads.filter((ad) => ad.safeRoom === filters.safeRoom);
-        }
-        if (filters.hasBolcony) {
-          ads = ads.filter((ad) => ad.hasBolcony === filters.hasBolcony);
-        }
-        if (filters.airConditioner) {
-          ads = ads.filter(
-            (ad) => ad.airConditioning === filters.airConditioner,
-          );
-        }
-        if (filters.storageRoom) {
-          ads = ads.filter((ad) => ad.storageRoom === filters.storageRoom);
-        }
-        if (filters.renovated) {
-          ads = ads.filter((ad) => ad.renovated === filters.renovated);
-        }
-        if (filters.accessibleForDisabled) {
-          ads = ads.filter(
-            (ad) => ad.accessibleForDisabled === filters.accessibleForDisabled,
-          );
-        }
-        if (filters.windowBars) {
-          ads = ads.filter((ad) => ad.windowBars === filters.windowBars);
-        }
-        if (filters.furnished) {
-          ads = ads.filter((ad) => ad.furnished === filters.furnished);
-        }
-        if (filters.petsAllowed) {
-          ads = ads.filter((ad) => ad.petsAllowed === filters.petsAllowed);
-        }
-        if (filters.petsAllowed) {
-          ads = ads.filter((ad) => ad.forRoommates === filters.forRoommates);
-        }
-
         if (this.searchService.minRooms() !== 0) {
           ads = ads.filter((ad) => {
             const rooms = parseFloat(ad.rooms);

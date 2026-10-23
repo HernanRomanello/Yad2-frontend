@@ -4,8 +4,8 @@ type BooleanAdvertisementKey = {
   [Key in keyof AdvertisementsModel]: AdvertisementsModel[Key] extends boolean ? Key : never;
 }[keyof AdvertisementsModel];
 
-// Exclusivity is consumed dynamically by SearchService but is absent from the
-// API model. Keep that documented contract gap explicit in the fixture type.
+// Exclusivity is optional because the current backend omits it. Synthetic true
+// values exercise frontend behavior, not live API support.
 type BooleanFilterDefinition = readonly [
   label: string,
   key: BooleanAdvertisementKey | 'exclusivity',
@@ -19,18 +19,18 @@ export const propertyTypes = [
   'מגרשים', 'דיור מוגן', 'בניין מגורים', 'מחסן', 'חניה', "קב' רכישה/ זכות לנכס", 'כללי',
 ] as const;
 
-// Keys come from the API model and the additional-filter template. Do not fix
-// backend spelling (pirceDiscount) here: this suite exercises the actual contract.
+// Keys are API response fields: UI pirceDiscount maps to priceDiscount,
+// and the general air-conditioning filter maps to airConditioning.
 export const booleanFilters = [
   ['עם תמונה', 'hasImage', 'checkbox'],
   ['רק מושבים וקיבוצים', 'moshavOrKibutz', 'checkbox'],
   ['עם מחיר', 'hasPrice', 'checkbox'],
-  ['נכסים שמחירם ירד', 'pirceDiscount', 'checkbox'],
+  ['נכסים שמחירם ירד', 'priceDiscount', 'checkbox'],
   ['תיווך', 'publisherIsMiddleMan', 'checkbox'],
   ['יזם/קבלן', 'publisherIsContractor', 'checkbox'],
   ['חניה', 'hasPrivateParking', 'feature'], ['מעלית', 'elevator', 'feature'],
   ['ממ״ד', 'safeRoom', 'feature'], ['מרפסת', 'hasBolcony', 'feature'],
-  ['מיזוג', 'airConditioner', 'feature'], ['מחסן', 'storageRoom', 'feature'],
+  ['מיזוג', 'airConditioning', 'feature'], ['מחסן', 'storageRoom', 'feature'],
   ['משופצת', 'renovated', 'feature'], ['גישה לנכים', 'accessibleForDisabled', 'feature'],
   ['סורגים', 'windowBars', 'feature'], ['מרוהטת', 'furnished', 'feature'],
   ['בבלעדיות', 'exclusivity', 'feature'], ['חיות מחמד', 'petsAllowed', 'feature'],
