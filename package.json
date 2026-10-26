@@ -14,7 +14,9 @@
     "test:auth": "playwright test --config playwright.auth.config.ts",
     "test:auth:types": "tsc --project tests/tsconfig.json",
     "test:search": "playwright test --config playwright.search.config.ts --project=chromium",
-    "test:search:types": "tsc --project tests/tsconfig.json"
+    "test:search:types": "tsc --project tests/tsconfig.json",
+    "test:favorites": "playwright test --config playwright.favorites.config.ts",
+    "test:favorites:types": "tsc --project tests/tsconfig.json"
   },
   "private": true,
   "dependencies": {

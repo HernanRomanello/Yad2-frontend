@@ -15,6 +15,7 @@
     "../pages/**/*.ts",
     "../playwright.config.ts",
     "../playwright.auth.config.ts",
-    "../playwright.search.config.ts"
+    "../playwright.search.config.ts",
+    "../playwright.favorites.config.ts"
   ]
 }
