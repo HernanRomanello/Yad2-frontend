@@ -378,7 +378,7 @@
           <div #successLoader class="success-loader"></div>
         </div>
         <div class="btn-container">
-          <button type="button" class="cancel-btn">ביטול</button>
+          <button type="button" class="cancel-btn" (click)="cancelEdit()">ביטול</button>
           <button [disabled]="!canSave" type="submit" class="save-btn">
             שמירה
           </button>

@@ -111,9 +111,31 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
     }
   }
   test('cancel discards edits without submitting', async ({ profilePage: ui, profileState: state }) => {
-    await ui.open(); await ui.update('name', 'Unsaved QA'); await ui.cancel(); await ui.away();
+    await ui.open();
+    await ui.update('name', 'Unsaved QA');
+    await ui.update('lastName', 'Unsaved Family');
+    await ui.update('phoneNumber', '052-7654321');
+    await ui.update('birthDate', '2000-02-29');
+    await ui.update('houseNumber', '23');
+    await ui.openImage();
+    await ui.chooseImage('qa.png', 'image/png', Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=', 'base64'));
+    await ui.confirmImage();
+    await expect(ui.image).toHaveAttribute('src', /^blob:/);
+    await ui.cancel();
+    await expect(ui.page).toHaveURL(/\/profile\/user-advertisement$/);
+    await expect(ui.root).toHaveCount(0);
     expect(state.updates).toEqual([]);
-    await ui.openEdit(); await expect(ui.field('name')).toHaveValue(originalProfile.name);
+    expect(state.uploads).toBe(0);
+    expect(state.user).toEqual(originalProfile);
+    await ui.openEdit();
+    for (const [field, value] of Object.entries(originalProfile)) {
+      if (field === 'picture') continue;
+      await expect(ui.field(field as ProfileField)).toHaveValue(field === 'birthDate' ? '1990-01-15' : field === 'phoneNumber' ? '050-1234567' : String(value));
+    }
+    await expect(ui.image).toHaveCount(0);
+    expect(state.updates).toEqual([]);
+    expect(state.uploads).toBe(0);
+    expect(state.user).toEqual(originalProfile);
   });
   test('allows clearing optional birthday in the UI', async ({ profilePage: ui, profileState: state }) => {
     await ui.open(); await ui.update('birthDate', '');

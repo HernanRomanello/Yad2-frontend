@@ -18,6 +18,7 @@ import {
 } from '../../../services/city-list.service';
 import { ImageuploadService } from '../../../services/imageupload.service';
 import { environment } from '../../../../environments/environment';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-details',
@@ -57,6 +58,7 @@ export class EditDetailsComponent implements OnInit {
   formattedBirthDate: string = '';
 
   private userSubscription: Subscription | undefined;
+  private originalUser: UserModel | null = null;
   $cities: City[] = [];
   $streets: Street[] = [];
   $cityOptions: City[] = [];
@@ -78,6 +80,8 @@ export class EditDetailsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cityListService: CityListService,
     private imageuploadService: ImageuploadService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   clickEvent(event: Event) {
@@ -117,6 +121,7 @@ export class EditDetailsComponent implements OnInit {
       this.userService.user as BehaviorSubject<UserModel | null>
     ).subscribe((user) => {
       this.$user = user;
+      this.originalUser = user ? { ...user } : null;
       this.phoneNumber = user?.phoneNumber
         ? user.phoneNumber.slice(0, 3) + '-' + user.phoneNumber.slice(3, 10)
         : '';
@@ -146,6 +151,25 @@ export class EditDetailsComponent implements OnInit {
     this.cityListService.getStreetList().subscribe((streets) => {
       this.$streets = streets;
     });
+  }
+
+  cancelEdit(): void {
+    if (this.$user && this.originalUser) {
+      Object.assign(this.$user, this.originalUser);
+      this.$updatedUser.reset({
+        ...this.originalUser,
+        phoneNumber: this.originalUser.phoneNumber || '',
+        houseNumber: this.originalUser.houseNumber?.toString() || '',
+      });
+      this.phoneNumber = this.phoneNumberFormat(this.originalUser.phoneNumber || '');
+      this.chosenCity = this.originalUser.city || '';
+      this.chosenStreet = this.originalUser.street || '';
+      this.chosenHouseNumber = this.originalUser.houseNumber?.toString() || '';
+      this.profileImageURL = this.originalUser.picture || '';
+    }
+    this.profileImage = null;
+    this.isProfileImageModal = false;
+    this.router.navigate(['../user-advertisement'], { relativeTo: this.route });
   }
 
   uploadProfileImage(file: any) {
