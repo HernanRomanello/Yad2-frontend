@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UserModel } from '../../../shared/models/UserModel';
 import { AuthService } from '../../../services/user/auth.service';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription, finalize } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   state,
@@ -41,6 +42,7 @@ export class EditDetailsComponent implements OnInit {
   $user: UserModel | null = null;
   $updatedUser: FormGroup | any;
   successMessageVisible: boolean = false;
+  isSaving = false;
   modalState: 'in' | 'out' = 'out';
   isCityDropdownHidden = false;
 
@@ -72,6 +74,7 @@ export class EditDetailsComponent implements OnInit {
 
   constructor(
     private userService: AuthService,
+    private httpClient: HttpClient,
     private formBuilder: FormBuilder,
     private cityListService: CityListService,
     private imageuploadService: ImageuploadService,
@@ -128,7 +131,7 @@ export class EditDetailsComponent implements OnInit {
         city: [this.$user?.city, [Validators.required]],
         street: [this.$user?.street, [Validators.required]],
         houseNumber: [
-          this.chosenHouseNumber,
+          this.$user?.houseNumber?.toString() || '',
           [Validators.required, Validators.pattern(/^\d+$/)],
         ],
       });
@@ -249,8 +252,13 @@ export class EditDetailsComponent implements OnInit {
       +this.chosenHouseNumber > 0
     );
   }
+  get canSave(): boolean {
+    return !!this.$updatedUser?.valid && this.checkIfAddressIsValid() && !this.isSaving;
+  }
+
   updateUserDetails(): void {
-    if (!this.$user || !this.checkIfAddressIsValid()) {
+    if (!this.$user || !this.canSave) {
+      this.$updatedUser?.markAllAsTouched();
       return;
     }
 
@@ -270,17 +278,36 @@ export class EditDetailsComponent implements OnInit {
       this.checkIfValidStreet(this.chosenStreet);
     if (this.$user.phoneNumber && validAddress) {
       this.$user.phoneNumber = this.$user.phoneNumber.replace('-', '');
-      this.userService.updateUserDetails(this.$user);
-      this.successMessageVisible = true;
-      this.modalState = 'in';
-
-      setTimeout(() => {
-        this.modalState = 'out';
-      }, 12000);
-
-      setTimeout(() => {
-        this.successMessageVisible = false;
-      }, 13900);
+      this.isSaving = true;
+      this.httpClient.put(`${environment.apiUrl}/api/Users/user/update`, this.$user, {
+        withCredentials: true,
+      }).pipe(finalize(() => { this.isSaving = false; })).subscribe({
+        next: () => {
+          this.userService.GetUserDatails();
+          this.showSaveSuccess();
+        },
+        error: (err) => {
+          if (err.status === 401) {
+            this.userService.GetUserDatails();
+          } else {
+            console.error(err);
+          }
+        },
+      });
     }
+  }
+
+  private showSaveSuccess(): void {
+    this.unloadSuccessLoader();
+    this.successMessageVisible = true;
+    this.modalState = 'in';
+
+    setTimeout(() => {
+      this.modalState = 'out';
+    }, 12000);
+
+    setTimeout(() => {
+      this.successMessageVisible = false;
+    }, 13900);
   }
 }

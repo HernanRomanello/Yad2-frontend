@@ -295,7 +295,7 @@
                     "
                     type="text"
                   />
-                  <div *ngIf="this.InvalidStreet" class="error-message">
+                  <div *ngIf="!this.checkIfValidStreet(chosenStreet)" class="error-message">
                     רחוב הוא שדה חובה
                   </div>
                 } @else {
@@ -335,7 +335,7 @@
                       this.chosenHouseNumber = houseNumberInput.value
                     "
                     [ngStyle]="{
-                      borderColor: this.InvalidHouseNumber
+                      borderColor: $updatedUser.get('houseNumber')?.invalid || !(+chosenHouseNumber > 0)
                         ? '#ff2a2b'
                         : '#cccccc',
                     }"
@@ -343,7 +343,7 @@
                   />
                   <div
                     style="width: 70px; flex-wrap: wrap"
-                    *ngIf="InvalidHouseNumber"
+                    *ngIf="$updatedUser.get('houseNumber')?.invalid || !(+chosenHouseNumber > 0)"
                     class="error-message"
                   >
                     מספר בית הוא שדה חובה
@@ -369,9 +369,9 @@
           <div #successLoader class="success-loader"></div>
         </div>
         <div class="btn-container">
-          <button class="cancel-btn">ביטול</button>
+          <button type="button" class="cancel-btn">ביטול</button>
           <button
-            (click)="unloadSuccessLoader()"
+            [disabled]="!canSave"
             type="submit"
             class="save-btn"
           >

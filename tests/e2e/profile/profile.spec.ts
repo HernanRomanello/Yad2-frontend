@@ -1,5 +1,12 @@
 import { test, expect, originalProfile } from '../../fixtures/profile.fixture';
-import type { ProfileField } from '../../../pages/ProfilePage';
+import type { ProfilePage, ProfileField } from '../../../pages/ProfilePage';
+
+async function submitInvalid(ui: ProfilePage) {
+  await expect(ui.root.getByRole('button', { name: '\u05e9\u05de\u05d9\u05e8\u05d4', exact: true })).toBeDisabled();
+  await ui.field('name').press('Enter');
+  // Exercise the submit handler even though the disabled button blocks normal submission.
+  await ui.root.locator('form').dispatchEvent('submit');
+}
 
 // Every test receives a fresh synthetic account; no real profile is changed.
 test.describe('Profile UI — isolated stateful API simulation', () => {
@@ -67,7 +74,7 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
       await ui.open(); await ui.update(field, '');
       await expect(ui.errors(field)).toBeVisible();
       await expect(ui.errors(field)).toContainText(field === 'phoneNumber' ? 'תקין' : 'חובה');
-      await ui.save();
+      await submitInvalid(ui);
       await ui.away(); // Completed UI action provides a deterministic checkpoint, without sleeps.
       expect(state.updates).toEqual([]);
       expect(state.user).toEqual(originalProfile);
@@ -77,7 +84,7 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
     test(`rejects invalid email ${JSON.stringify(value)}`, async ({ profilePage: ui, profileState: state }) => {
       await ui.open(); await ui.update('email', value);
       await expect(ui.errors('email')).toContainText('תקינה');
-      await ui.save(); await ui.away();
+      await submitInvalid(ui); await ui.away();
       expect(state.updates).toEqual([]);
     });
   }
@@ -104,13 +111,13 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
     test(`rejects nonpositive or nonnumeric house number ${JSON.stringify(value)}`, async ({ profilePage: ui, profileState: state }) => {
       await ui.open(); await ui.update('houseNumber', value);
       await expect(ui.errors('houseNumber')).toContainText('חובה');
-      await ui.save(); await ui.away(); expect(state.updates).toEqual([]);
+      await submitInvalid(ui); await ui.away(); expect(state.updates).toEqual([]);
     });
   }
   for (const field of ['city', 'street'] as const) {
     for (const value of ['', 'Unknown QA address', ` ${originalProfile[field]} `]) {
       test(`rejects ${field} outside the exact address catalogue: ${JSON.stringify(value)}`, async ({ profilePage: ui, profileState: state }) => {
-        await ui.open(); await ui.update(field, value); await ui.save(); await ui.away();
+        await ui.open(); await ui.update(field, value); await submitInvalid(ui); await ui.away();
         expect(state.updates).toEqual([]);
         expect(state.user).toEqual(originalProfile);
       });
@@ -172,7 +179,7 @@ for (const length of [253, 254, 255]) {
     expect(value.length).toBe(length);
     await ui.open(); await ui.update('email', value);
     await expect(ui.errors('email')).toHaveCount(length > 254 ? 1 : 0);
-    if (length > 254) { await ui.save(); await ui.away(); expect(state.updates).toEqual([]); }
+    if (length > 254) { await submitInvalid(ui); await ui.away(); expect(state.updates).toEqual([]); }
   });
 }
 for (const length of [63, 64, 65]) {
@@ -182,7 +189,7 @@ for (const length of [63, 64, 65]) {
   });
 }
 test('house number must be an integer, not a fraction', async ({ profilePage: ui, profileState: state }) => {
-  await ui.open(); await ui.update('houseNumber', '1.5'); await ui.save(); await ui.away();
+  await ui.open(); await ui.update('houseNumber', '1.5'); await submitInvalid(ui); await ui.away();
   expect(state.updates).toEqual([]);
 });
 test('image deletion persists when the profile is saved', async ({ profilePage: ui, profileState: state }) => {
@@ -192,4 +199,46 @@ test('image deletion persists when the profile is saved', async ({ profilePage: 
   await ui.save(); await expect.poll(() => state.updates.length).toBe(1);
   expect(state.user.picture).toBe('');
   await ui.open(); await expect(ui.image).toHaveCount(0);
+});
+
+for (const [field, invalid, corrected] of [
+  ['name', '', 'QA Corrected'], ['lastName', '', 'Corrected'],
+  ['phoneNumber', '', '052-7654321'], ['email', 'invalid', originalProfile.email],
+  ['city', 'Unknown', originalProfile.city], ['street', 'Unknown', originalProfile.street],
+  ['houseNumber', '1.5', '12'], ['houseNumber', '0', '12'],
+] as const) {
+  test(`Edit Profile blocks invalid ${field} and saves after correction: ${invalid}`, async ({ profilePage: ui, profileState: state }) => {
+    await ui.open();
+    await ui.update(field, invalid);
+    await expect(ui.errors(field)).toBeVisible();
+    await submitInvalid(ui);
+    expect(state.updates).toEqual([]);
+    await ui.update(field, corrected);
+    await expect(ui.errors(field)).toHaveCount(0);
+    await expect(ui.root.getByRole('button', { name: '\u05e9\u05de\u05d9\u05e8\u05d4', exact: true })).toBeEnabled();
+    await ui.save();
+    await expect(ui.success).toBeVisible();
+    expect(state.updates).toHaveLength(1);
+  });
+}
+
+test('Edit Profile disables Save until the update completes and allows retry after failure', async ({ profilePage: ui, page }) => {
+  await ui.open();
+  let release!: () => void;
+  const held = new Promise<void>(resolve => { release = resolve; });
+  let requests = 0;
+  await page.route('**/api/Users/user/update', async route => {
+    requests++;
+    await held;
+    await route.fulfill({ status: 500, json: {} });
+  });
+  await ui.save();
+  const save = ui.root.getByRole('button', { name: '\u05e9\u05de\u05d9\u05e8\u05d4', exact: true });
+  await expect(save).toBeDisabled();
+  await ui.field('name').press('Enter');
+  await ui.root.locator('form').dispatchEvent('submit');
+  await expect.poll(() => requests).toBe(1);
+  release();
+  await expect(save).toBeEnabled();
+  await expect(ui.success).toHaveCount(0);
 });
