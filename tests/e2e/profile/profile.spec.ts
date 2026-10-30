@@ -1,0 +1,195 @@
+import { test, expect, originalProfile } from '../../fixtures/profile.fixture';
+import type { ProfileField } from '../../../pages/ProfilePage';
+
+// Every test receives a fresh synthetic account; no real profile is changed.
+test.describe('Profile UI — isolated stateful API simulation', () => {
+  test('opens Edit Profile and populates all existing values', async ({ profilePage: ui }) => {
+    await ui.open();
+    await expect(ui.root).toBeVisible();
+    for (const [field, value] of Object.entries(originalProfile)) {
+      if (field === 'picture') continue;
+      await expect(ui.field(field as ProfileField)).toHaveValue(field === 'birthDate' ? '1990-01-15' : field === 'phoneNumber' ? '050-1234567' : String(value));
+    }
+  });
+
+  const validCases: { field: ProfileField; value: string; saved?: string | number; title: string }[] = [
+    { field: 'name', value: 'א', title: 'first name minimum nonempty length' },
+    { field: 'name', value: "  QA אנה-Marie O’Neil  ", title: 'first name Unicode punctuation and preserved spaces' },
+    { field: 'lastName', value: 'ב', title: 'last name minimum nonempty length' },
+    { field: 'lastName', value: "  לוי O’Neil-Smith  ", title: 'last name Unicode punctuation and preserved spaces' },
+    { field: 'phoneNumber', value: '052-7654321', saved: '0527654321', title: 'phone hyphen normalization' },
+    { field: 'birthDate', value: '2000-02-29', title: 'birth date leap day' },
+    { field: 'street', value: 'רחוב נוסף', title: 'street from current city' },
+    { field: 'houseNumber', value: '1', saved: 1, title: 'house number minimum positive integer' },
+    { field: 'houseNumber', value: '2147483647', saved: 2147483647, title: 'house number Int32 maximum' },
+  ];
+  for (const { field, value, saved = value, title } of validCases) {
+    test(`saves ${title} and preserves it after refresh and navigation`, async ({ profilePage: ui, profileState: state }) => {
+      await ui.open();
+      await ui.update(field, value);
+      await ui.save();
+      await expect.poll(() => state.updates.length).toBe(1);
+      await expect(ui.success).toBeVisible();
+      expect(state.user[field]).toBe(saved);
+      await ui.refresh();
+      await ui.openEdit();
+      await expect(ui.field(field)).toHaveValue(field === 'phoneNumber' ? '052-7654321' : value);
+      await ui.away();
+      await ui.openEdit();
+      await expect(ui.field(field)).toHaveValue(field === 'phoneNumber' ? '052-7654321' : value);
+    });
+  }
+
+  test('updates city, dependent street, house number and names together', async ({ profilePage: ui, profileState: state }) => {
+    await ui.open();
+    await ui.selectCity('עיר נוספת');
+    await ui.selectStreet('רחוב אחר');
+    await ui.update('houseNumber', '23');
+    await ui.update('name', 'QA Updated');
+    await ui.update('lastName', 'Test Updated');
+    await ui.save();
+    await expect.poll(() => state.user.city).toBe('עיר נוספת');
+    expect(state.user).toMatchObject({ street: 'רחוב אחר', houseNumber: 23, name: 'QA Updated', lastName: 'Test Updated' });
+    await ui.open();
+    await expect(ui.field('city')).toHaveValue('עיר נוספת');
+    await expect(ui.field('street')).toHaveValue('רחוב אחר');
+  });
+
+  test('saves unchanged values successfully', async ({ profilePage: ui, profileState: state }) => {
+    await ui.open(); await ui.save();
+    await expect.poll(() => state.updates.length).toBe(1);
+    await expect(ui.success).toBeVisible();
+    expect(state.user).toEqual(originalProfile);
+  });
+
+  for (const field of ['name', 'lastName', 'phoneNumber', 'email'] as const) {
+    test(`rejects empty required ${field} without sending an update`, async ({ profilePage: ui, profileState: state }) => {
+      await ui.open(); await ui.update(field, '');
+      await expect(ui.errors(field)).toBeVisible();
+      await expect(ui.errors(field)).toContainText(field === 'phoneNumber' ? 'תקין' : 'חובה');
+      await ui.save();
+      await ui.away(); // Completed UI action provides a deterministic checkpoint, without sleeps.
+      expect(state.updates).toEqual([]);
+      expect(state.user).toEqual(originalProfile);
+    });
+  }
+  for (const value of ['plain-address', 'qa@', '@example.invalid', ' qa@example.invalid ']) {
+    test(`rejects invalid email ${JSON.stringify(value)}`, async ({ profilePage: ui, profileState: state }) => {
+      await ui.open(); await ui.update('email', value);
+      await expect(ui.errors('email')).toContainText('תקינה');
+      await ui.save(); await ui.away();
+      expect(state.updates).toEqual([]);
+    });
+  }
+  test('persists a valid changed email rather than reporting a discarded update', async ({ profilePage: ui }) => {
+    await ui.open(); await ui.update('email', 'qa+updated@example.invalid'); await ui.save();
+    await expect(ui.success).toBeVisible(); await ui.open();
+    await expect(ui.field('email')).toHaveValue('qa+updated@example.invalid');
+  });
+  test('phone input enforces its actual 11-character HTML limit', async ({ profilePage: ui }) => {
+    await ui.open();
+    await expect(ui.field('phoneNumber')).toHaveAttribute('maxlength', '11');
+    await ui.field('phoneNumber').clear();
+    await ui.field('phoneNumber').pressSequentially('052-765432199');
+    await expect(ui.field('phoneNumber')).toHaveValue('052-7654321');
+  });
+  // Only required is implemented for phone; no invented mobile-number regex expectations.
+  for (const value of ['1', 'abcdefghijk']) {
+    test(`characterizes phone required-only validation: ${value}`, async ({ profilePage: ui }) => {
+      await ui.open(); await ui.update('phoneNumber', value);
+      await expect(ui.errors('phoneNumber')).toHaveCount(0);
+    });
+  }
+  for (const value of ['', '0', '-1', 'abc']) {
+    test(`rejects nonpositive or nonnumeric house number ${JSON.stringify(value)}`, async ({ profilePage: ui, profileState: state }) => {
+      await ui.open(); await ui.update('houseNumber', value);
+      await expect(ui.errors('houseNumber')).toContainText('חובה');
+      await ui.save(); await ui.away(); expect(state.updates).toEqual([]);
+    });
+  }
+  for (const field of ['city', 'street'] as const) {
+    for (const value of ['', 'Unknown QA address', ` ${originalProfile[field]} `]) {
+      test(`rejects ${field} outside the exact address catalogue: ${JSON.stringify(value)}`, async ({ profilePage: ui, profileState: state }) => {
+        await ui.open(); await ui.update(field, value); await ui.save(); await ui.away();
+        expect(state.updates).toEqual([]);
+        expect(state.user).toEqual(originalProfile);
+      });
+    }
+  }
+  test('cancel discards edits without submitting', async ({ profilePage: ui, profileState: state }) => {
+    await ui.open(); await ui.update('name', 'Unsaved QA'); await ui.cancel(); await ui.away();
+    expect(state.updates).toEqual([]);
+    await ui.openEdit(); await expect(ui.field('name')).toHaveValue(originalProfile.name);
+  });
+  test('allows clearing optional birthday in the UI', async ({ profilePage: ui, profileState: state }) => {
+    await ui.open(); await ui.update('birthDate', '');
+    await expect(ui.field('birthDate')).toHaveValue('');
+    await ui.save(); await expect.poll(() => state.updates.length).toBe(1);
+    expect(state.updates[0].birthDate).toBe('');
+    // Real API cannot deserialize empty string into nonnullable DateTime; see PROFILE.md.
+  });
+  for (const failure of ['500', 'network', '401'] as const) {
+    test(`does not announce success when update fails: ${failure}`, async ({ profilePage: ui, profileState: state }) => {
+      state.failure = failure;
+      await ui.open(); await ui.update('name', 'Failed QA'); await ui.save();
+      await expect.poll(() => state.updates.length).toBe(1);
+      expect(state.user).toEqual(originalProfile);
+      await expect(ui.success).toHaveCount(0);
+    });
+  }
+  test('anonymous user cannot open Edit Profile', async ({ profilePage: ui, profileState: state, page }) => {
+    state.authenticated = false;
+    await page.goto('/profile/edit-details');
+    await expect(page).toHaveURL(/\/login$/); await expect(ui.root).toHaveCount(0);
+    expect(state.updates).toEqual([]);
+  });
+  test('selects and previews a PNG, then saves through the upload endpoint', async ({ profilePage: ui, profileState: state }) => {
+    await ui.open(); await ui.openImage();
+    await ui.chooseImage('qa.png', 'image/png', Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=', 'base64'));
+    await expect(ui.imageModal.locator('.profile-image-frame img')).toHaveAttribute('src', /^blob:/);
+    await ui.confirmImage(); await expect(ui.image).toHaveAttribute('src', /^blob:/);
+    await ui.save(); await expect.poll(() => state.uploads).toBe(1);
+    await expect.poll(() => state.user.picture).toMatch(/\/uploads\/qa.png$/);
+  });
+  test('cancels image selection without uploading', async ({ profilePage: ui, profileState: state }) => {
+    await ui.open(); await ui.openImage(); await ui.chooseImage('qa.txt', 'text/plain', Buffer.from('synthetic'));
+    await ui.cancelImage(); await expect(ui.imageModal).toHaveCount(0);
+    expect(state.uploads).toBe(0); await expect(ui.image).toHaveCount(0);
+  });
+  test('preserves an existing image when saving another field', async ({ profilePage: ui, profileState: state }) => {
+    state.user.picture = '/assets/images/image_placeholder_.svg';
+    await ui.open(); await ui.update('name', 'QA Picture'); await ui.save();
+    await expect.poll(() => state.updates.length).toBe(1);
+    expect(state.user.picture).toBe('/assets/images/image_placeholder_.svg');
+  });
+});
+
+// Angular Validators.email limits the whole address to 254 characters and the local part to 64.
+for (const length of [253, 254, 255]) {
+  test(`email total length boundary ${length}`, async ({ profilePage: ui, profileState: state }) => {
+    const domain = ['b'.repeat(63), 'c'.repeat(63), 'd'.repeat(length - 193)].join('.');
+    const value = 'a'.repeat(64) + '@' + domain;
+    expect(value.length).toBe(length);
+    await ui.open(); await ui.update('email', value);
+    await expect(ui.errors('email')).toHaveCount(length > 254 ? 1 : 0);
+    if (length > 254) { await ui.save(); await ui.away(); expect(state.updates).toEqual([]); }
+  });
+}
+for (const length of [63, 64, 65]) {
+  test(`email local-part length boundary ${length}`, async ({ profilePage: ui }) => {
+    await ui.open(); await ui.update('email', 'a'.repeat(length) + '@example.invalid');
+    await expect(ui.errors('email')).toHaveCount(length > 64 ? 1 : 0);
+  });
+}
+test('house number must be an integer, not a fraction', async ({ profilePage: ui, profileState: state }) => {
+  await ui.open(); await ui.update('houseNumber', '1.5'); await ui.save(); await ui.away();
+  expect(state.updates).toEqual([]);
+});
+test('image deletion persists when the profile is saved', async ({ profilePage: ui, profileState: state }) => {
+  state.user.picture = '/assets/images/image_placeholder_.svg';
+  await ui.open(); await ui.openDeleteImage(); await ui.confirmDeleteImage();
+  await expect(ui.image).toHaveCount(0);
+  await ui.save(); await expect.poll(() => state.updates.length).toBe(1);
+  expect(state.user.picture).toBe('');
+  await ui.open(); await expect(ui.image).toHaveCount(0);
+});
