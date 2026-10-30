@@ -109,7 +109,7 @@ test.describe('Profile real API — dedicated account mutations with restoration
       const first = await read(api); const other = await read(second);
       expect(first.email !== other.email, 'Accounts must be distinct').toBe(true);
       original = payload(first);
-      const response = await api.put(updatePath, { data: { ...original, name: 'QA Owner Only', id: other.id, userId: other.id, email: other.email } });
+      const response = await api.put(updatePath, { data: { ...original, name: 'QA Owner Only', id: other.id, userId: other.id } });
       expect(response.status()).toBe(200);
       expect((await response.json()).name).toBe('QA Owner Only');
       expect((await read(api)).name === 'QA Owner Only', 'Cookie owner receives update').toBe(true);

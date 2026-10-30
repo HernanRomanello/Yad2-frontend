@@ -159,6 +159,7 @@
             <label for=""> מייל*</label>
             <input
               #emailInput
+              readonly
               formControlName="email"
               [value]="this.$user?.email"
               (input)="$user ? ($user.email = emailInput.value) : null"
@@ -295,7 +296,10 @@
                     "
                     type="text"
                   />
-                  <div *ngIf="!this.checkIfValidStreet(chosenStreet)" class="error-message">
+                  <div
+                    *ngIf="!this.checkIfValidStreet(chosenStreet)"
+                    class="error-message"
+                  >
                     רחוב הוא שדה חובה
                   </div>
                 } @else {
@@ -335,15 +339,20 @@
                       this.chosenHouseNumber = houseNumberInput.value
                     "
                     [ngStyle]="{
-                      borderColor: $updatedUser.get('houseNumber')?.invalid || !(+chosenHouseNumber > 0)
-                        ? '#ff2a2b'
-                        : '#cccccc',
+                      borderColor:
+                        $updatedUser.get('houseNumber')?.invalid ||
+                        !(+chosenHouseNumber > 0)
+                          ? '#ff2a2b'
+                          : '#cccccc',
                     }"
                     type="text"
                   />
                   <div
                     style="width: 70px; flex-wrap: wrap"
-                    *ngIf="$updatedUser.get('houseNumber')?.invalid || !(+chosenHouseNumber > 0)"
+                    *ngIf="
+                      $updatedUser.get('houseNumber')?.invalid ||
+                      !(+chosenHouseNumber > 0)
+                    "
                     class="error-message"
                   >
                     מספר בית הוא שדה חובה
@@ -370,11 +379,7 @@
         </div>
         <div class="btn-container">
           <button type="button" class="cancel-btn">ביטול</button>
-          <button
-            [disabled]="!canSave"
-            type="submit"
-            class="save-btn"
-          >
+          <button [disabled]="!canSave" type="submit" class="save-btn">
             שמירה
           </button>
         </div>

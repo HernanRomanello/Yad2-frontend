@@ -19,7 +19,7 @@ export class ProfilePage {
     await this.openEdit();
   }
   async openEdit() { await this.page.getByRole('link', { name: 'עדכון פרטים', exact: true }).click(); }
-  async update(name: ProfileField, value: string) { await this.field(name).fill(value); }
+  async update(name: Exclude<ProfileField, 'email'>, value: string) { await this.field(name).fill(value); }
   async value(name: ProfileField) { return this.field(name).inputValue(); }
   async save() { await this.root.getByRole('button', { name: 'שמירה', exact: true }).click(); }
   async cancel() { await this.root.locator('form').getByRole('button', { name: 'ביטול', exact: true }).click(); }

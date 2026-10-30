@@ -19,7 +19,7 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
     }
   });
 
-  const validCases: { field: ProfileField; value: string; saved?: string | number; title: string }[] = [
+  const validCases: { field: Exclude<ProfileField, 'email'>; value: string; saved?: string | number; title: string }[] = [
     { field: 'name', value: 'א', title: 'first name minimum nonempty length' },
     { field: 'name', value: "  QA אנה-Marie O’Neil  ", title: 'first name Unicode punctuation and preserved spaces' },
     { field: 'lastName', value: 'ב', title: 'last name minimum nonempty length' },
@@ -69,7 +69,7 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
     expect(state.user).toEqual(originalProfile);
   });
 
-  for (const field of ['name', 'lastName', 'phoneNumber', 'email'] as const) {
+  for (const field of ['name', 'lastName', 'phoneNumber'] as const) {
     test(`rejects empty required ${field} without sending an update`, async ({ profilePage: ui, profileState: state }) => {
       await ui.open(); await ui.update(field, '');
       await expect(ui.errors(field)).toBeVisible();
@@ -80,19 +80,6 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
       expect(state.user).toEqual(originalProfile);
     });
   }
-  for (const value of ['plain-address', 'qa@', '@example.invalid', ' qa@example.invalid ']) {
-    test(`rejects invalid email ${JSON.stringify(value)}`, async ({ profilePage: ui, profileState: state }) => {
-      await ui.open(); await ui.update('email', value);
-      await expect(ui.errors('email')).toContainText('תקינה');
-      await submitInvalid(ui); await ui.away();
-      expect(state.updates).toEqual([]);
-    });
-  }
-  test('persists a valid changed email rather than reporting a discarded update', async ({ profilePage: ui }) => {
-    await ui.open(); await ui.update('email', 'qa+updated@example.invalid'); await ui.save();
-    await expect(ui.success).toBeVisible(); await ui.open();
-    await expect(ui.field('email')).toHaveValue('qa+updated@example.invalid');
-  });
   test('phone input enforces its actual 11-character HTML limit', async ({ profilePage: ui }) => {
     await ui.open();
     await expect(ui.field('phoneNumber')).toHaveAttribute('maxlength', '11');
@@ -171,23 +158,6 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
   });
 });
 
-// Angular Validators.email limits the whole address to 254 characters and the local part to 64.
-for (const length of [253, 254, 255]) {
-  test(`email total length boundary ${length}`, async ({ profilePage: ui, profileState: state }) => {
-    const domain = ['b'.repeat(63), 'c'.repeat(63), 'd'.repeat(length - 193)].join('.');
-    const value = 'a'.repeat(64) + '@' + domain;
-    expect(value.length).toBe(length);
-    await ui.open(); await ui.update('email', value);
-    await expect(ui.errors('email')).toHaveCount(length > 254 ? 1 : 0);
-    if (length > 254) { await submitInvalid(ui); await ui.away(); expect(state.updates).toEqual([]); }
-  });
-}
-for (const length of [63, 64, 65]) {
-  test(`email local-part length boundary ${length}`, async ({ profilePage: ui }) => {
-    await ui.open(); await ui.update('email', 'a'.repeat(length) + '@example.invalid');
-    await expect(ui.errors('email')).toHaveCount(length > 64 ? 1 : 0);
-  });
-}
 test('house number must be an integer, not a fraction', async ({ profilePage: ui, profileState: state }) => {
   await ui.open(); await ui.update('houseNumber', '1.5'); await submitInvalid(ui); await ui.away();
   expect(state.updates).toEqual([]);
@@ -203,7 +173,7 @@ test('image deletion persists when the profile is saved', async ({ profilePage: 
 
 for (const [field, invalid, corrected] of [
   ['name', '', 'QA Corrected'], ['lastName', '', 'Corrected'],
-  ['phoneNumber', '', '052-7654321'], ['email', 'invalid', originalProfile.email],
+  ['phoneNumber', '', '052-7654321'],
   ['city', 'Unknown', originalProfile.city], ['street', 'Unknown', originalProfile.street],
   ['houseNumber', '1.5', '12'], ['houseNumber', '0', '12'],
 ] as const) {
