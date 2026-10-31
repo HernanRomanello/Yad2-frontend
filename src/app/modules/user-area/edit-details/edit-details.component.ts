@@ -280,7 +280,7 @@ export class EditDetailsComponent implements OnInit {
     return !!this.$updatedUser?.valid && this.checkIfAddressIsValid() && !this.isSaving;
   }
 
-  updateUserDetails(): void {
+  async updateUserDetails(): Promise<void> {
     if (!this.$user || !this.canSave) {
       this.$updatedUser?.markAllAsTouched();
       return;
@@ -290,12 +290,18 @@ export class EditDetailsComponent implements OnInit {
     this.$user.street = this.chosenStreet;
     this.$user.houseNumber = +this.chosenHouseNumber;
 
-    if (this.profileImage && this.profileImage && this.profileImageURL !== '') {
-      this.imageuploadService.uploadImage(this.profileImage);
-      this.$user.picture = `${environment.apiUrl}/uploads/${this.profileImage.name}`;
-    } else {
-      this.$user.picture = '';
+    if (this.profileImage && this.profileImageURL !== '') {
+      this.isSaving = true;
+      try {
+        this.profileImageURL = await this.imageuploadService.uploadImageAndGetUrl(this.profileImage);
+        this.profileImage = null;
+      } catch (err) {
+        this.isSaving = false;
+        console.error(err);
+        return;
+      }
     }
+    this.$user.picture = this.profileImageURL;
 
     const validAddress =
       this.checkIfValidCity(this.chosenCity) &&

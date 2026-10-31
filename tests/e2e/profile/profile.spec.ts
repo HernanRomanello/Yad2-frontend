@@ -159,13 +159,36 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
     await expect(page).toHaveURL(/\/login$/); await expect(ui.root).toHaveCount(0);
     expect(state.updates).toEqual([]);
   });
-  test('selects and previews a PNG, then saves through the upload endpoint', async ({ profilePage: ui, profileState: state }) => {
+  test('selects and previews a PNG, then saves through the upload endpoint', async ({ profilePage: ui, profileState: state, page }) => {
+    const imageUrl = '/assets/images/image_placeholder_.svg?uploaded=first';
+    let release!: () => void;
+    const held = new Promise<void>(resolve => { release = resolve; });
+    let uploads = 0;
+    await page.route('**/api/ImageUpload/UploadImage', async route => {
+      uploads++;
+      expect(route.request().postDataBuffer()?.toString()).toContain('filename="qa.png"');
+      await held;
+      await route.fulfill({ json: { fileUrl: imageUrl } });
+    });
     await ui.open(); await ui.openImage();
     await ui.chooseImage('qa.png', 'image/png', Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=', 'base64'));
     await expect(ui.imageModal.locator('.profile-image-frame img')).toHaveAttribute('src', /^blob:/);
     await ui.confirmImage(); await expect(ui.image).toHaveAttribute('src', /^blob:/);
-    await ui.save(); await expect.poll(() => state.uploads).toBe(1);
-    await expect.poll(() => state.user.picture).toMatch(/\/uploads\/qa.png$/);
+    await ui.save(); await expect.poll(() => uploads).toBe(1);
+    await expect(ui.root.locator('button[type=submit]')).toBeDisabled();
+    expect(state.updates).toEqual([]);
+    release();
+    await expect(ui.success).toBeVisible();
+    expect(state.updates).toHaveLength(1);
+    expect(state.updates[0].picture).toBe(imageUrl);
+    expect(state.user.picture).toBe(imageUrl);
+    await expect(ui.image).toHaveAttribute('src', imageUrl);
+    await expect.poll(() => ui.image.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+    await ui.refresh(); await expect(ui.image).toHaveAttribute('src', imageUrl);
+    await ui.update('name', 'QA Uploaded'); await ui.save();
+    await expect.poll(() => state.updates.length).toBe(2);
+    expect(state.updates[1].picture).toBe(imageUrl);
+    expect(uploads).toBe(1);
   });
   test('cancels image selection without uploading', async ({ profilePage: ui, profileState: state }) => {
     await ui.open(); await ui.openImage(); await ui.chooseImage('qa.txt', 'text/plain', Buffer.from('synthetic'));
@@ -176,7 +199,11 @@ test.describe('Profile UI — isolated stateful API simulation', () => {
     state.user.picture = '/assets/images/image_placeholder_.svg';
     await ui.open(); await ui.update('name', 'QA Picture'); await ui.save();
     await expect.poll(() => state.updates.length).toBe(1);
+    expect(state.updates[0].picture).toBe('/assets/images/image_placeholder_.svg');
     expect(state.user.picture).toBe('/assets/images/image_placeholder_.svg');
+    expect(state.uploads).toBe(0);
+    await expect(ui.image).toHaveAttribute('src', state.user.picture);
+    await ui.refresh(); await expect(ui.image).toHaveAttribute('src', state.user.picture);
   });
 });
 
