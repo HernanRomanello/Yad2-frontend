@@ -1289,6 +1289,9 @@
             <div>אין לכם מה לדאוג, בגלריה התמונה תופיע בגודלה המקורי</div>
           </div>
         </div>
+        @if (errorMessage) {
+          <div id="image-type-error" class="error-text display-block" role="alert">{{ errorMessage }}</div>
+        }
         <div class="upload-part">
           @if (!this.hasImage) {
             <div class="upload-container gray">
@@ -1299,6 +1302,8 @@
                   <input
                     class="file-input upload-pictures"
                     type="file"
+                    accept="image/*"
+                    aria-describedby="image-type-error"
                     id=""
                     (change)="onFileChange($event)"
                   />
@@ -1382,6 +1387,8 @@
                   class="file-input"
                   type="file"
                   id="upload-img-input"
+                  accept="image/*"
+                  aria-describedby="image-type-error"
                   (change)="onFileChange($event)"
                 />
                 <div

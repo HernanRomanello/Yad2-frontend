@@ -249,10 +249,38 @@ test('regression: whitespace-only contact name is rejected', async ({ ad, state 
   await expect(ad.error('contactName')).toBeVisible(); expect(state.submissions).toEqual([]);
 });
 
-test('regression: unsupported image type is rejected', async ({ ad }) => {
+test('regression: unsupported image type is rejected', async ({ ad, state, page }) => {
   await ad.toImages(); await ad.image('qa.txt', 'text/plain', Buffer.from('synthetic text'));
   await expect(ad.previews, 'Text files must not become image previews').toHaveCount(0);
+  await expect(ad.root.getByRole('alert')).toHaveText('ניתן לבחור קובצי תמונה בלבד.');
+  await expect(ad.section(5).locator('input[type=file]:not(#video)')).toHaveValue('');
+  expect(state.uploads).toBe(0);
+  await ad.next(5); await ad.consent(); await ad.next(6); await ad.publishFree();
+  await expect(page).toHaveURL(/confirmation-modal$/);
+  expect(state.uploads).toBe(0);
+  expect(state.submissions).toHaveLength(1);
+  expect(state.submissions[0].pictures).toEqual([]);
 });
+
+for (const [name, mimeType] of [['qa.pdf', 'application/pdf'], ['qa.mp4', 'video/mp4'], ['qa', '']]) {
+  test(`unsupported image selection ${name} preserves existing images and allows correction`, async ({ ad, state, page }) => {
+    await ad.toImages(); await ad.image();
+    await expect(ad.previews).toHaveCount(1);
+    await ad.image(name, mimeType, Buffer.from('synthetic non-image'));
+    await expect(ad.previews).toHaveCount(1);
+    await expect(ad.root.getByRole('alert')).toHaveText('ניתן לבחור קובצי תמונה בלבד.');
+    await expect(ad.field('upload-img-input')).toHaveValue('');
+    expect(state.uploads).toBe(0);
+    await ad.image('replacement.png');
+    await expect(ad.previews).toHaveCount(2);
+    await expect(ad.root.getByRole('alert')).toHaveCount(0);
+    await ad.next(5); await ad.consent(); await ad.next(6); await ad.publishFree();
+    await expect(page).toHaveURL(/confirmation-modal$/);
+    expect(state.uploads).toBe(2);
+    expect(state.submissions).toHaveLength(1);
+    expect(state.submissions[0].pictures).toHaveLength(2);
+  });
+}
 
 test('regression: visible validation is programmatically associated with the field', async ({ ad }) => {
   await ad.next(2); await expect(ad.error('city')).toBeVisible();

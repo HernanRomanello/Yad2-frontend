@@ -553,12 +553,19 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
-  onFileChange(event: any) {
+  onFileChange(event: Event) {
     if (this.images.length >= 10) {
       return;
     }
-    const file = event.target.files?.[0];
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
     if (!file) return;
+    input.value = '';
+    if (!file.type.startsWith('image/')) {
+      this.errorMessage = 'ניתן לבחור קובצי תמונה בלבד.';
+      return;
+    }
+    this.errorMessage = null;
     const previewUrl = URL.createObjectURL(file);
     this.images.push(file);
     this.imagePreviewUrls.push(previewUrl);
