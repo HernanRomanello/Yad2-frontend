@@ -1,6 +1,6 @@
 import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { BehaviorSubject, firstValueFrom, map } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, map, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { UserModel } from '../../shared/models/UserModel';
@@ -20,6 +20,7 @@ export class AuthService {
   isUserLogin = new BehaviorSubject<boolean>(false);
   user = new BehaviorSubject<UserModel | null>(null);
   UserAdvertisements = new BehaviorSubject<AdvertisementsModel[]>([]);
+  readonly advertisementCreated = new Subject<void>();
   UserFavoriteAdvertisements = new BehaviorSubject<AdvertisementsModel[]>([]);
   userLastSearches = new BehaviorSubject<LastsearchesModel[]>([]);
   UserAdvertisementsStatistics =
@@ -460,6 +461,7 @@ export class AuthService {
       .subscribe({
         next: () => {
           this.GetUsersAdvertisements();
+          this.advertisementCreated.next();
         },
         error: (err) => this.handleAuthError(err),
       });

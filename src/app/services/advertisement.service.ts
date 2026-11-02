@@ -119,6 +119,7 @@ export class AdvertisementService {
 
   constructor(private httpClient: HttpClient) {
     this.GetAdvertisements();
+    this.authService.advertisementCreated.subscribe(() => this.GetAdvertisements());
   }
 
   isFavorite(advertisementId: number): boolean {
