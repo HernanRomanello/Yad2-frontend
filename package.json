@@ -18,7 +18,13 @@
     "test:favorites": "playwright test --config playwright.favorites.config.ts",
     "test:favorites:types": "tsc --project tests/tsconfig.json",
     "test:profile": "playwright test --config playwright.profile.config.ts",
-    "test:profile:types": "tsc --project tests/tsconfig.json"
+    "test:profile:types": "tsc --project tests/tsconfig.json",
+    "test:ads": "playwright test --config playwright.ads.config.ts",
+    "test:ads:desktop": "playwright test --config playwright.ads.config.ts --project ads-desktop",
+    "test:ads:mobile": "playwright test --config playwright.ads.config.ts --project ads-mobile",
+    "test:ads:ui": "playwright test --config playwright.ads.config.ts --ui",
+    "test:ads:report": "playwright show-report",
+    "test:ads:types": "tsc --project tests/tsconfig.json"
   },
   "private": true,
   "dependencies": {

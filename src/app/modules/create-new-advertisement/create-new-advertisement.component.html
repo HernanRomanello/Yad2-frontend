@@ -405,19 +405,25 @@
                 autocomplete="off"
                 class="input medium center"
                 id="number"
-                formControlName="number"
+                formControlName="number" [attr.aria-invalid]="!!inputError('number')" aria-describedby="number-error"
                 placeholder="  מספר בית"
                 autocomplete="off"
               />
+              <div id="number-error" class="error-text" [class.display-block]="!!inputError('number')">{{ inputError('number') }}</div>
             </div>
             <div class="input-container">
-              <label class="small-text" for="number"> מספר דירה</label>
+              <label class="small-text" for="apartmentNumber"> מספר דירה</label>
               <input
                 autocomplete="off"
                 class="input medium center"
                 placeholder="  מספר דירה"
+                id="apartmentNumber"
+                formControlName="apartmentNumber"
+                [attr.aria-invalid]="!!inputError('apartmentNumber')"
+                aria-describedby="apartmentNumber-error"
                 autocomplete="off"
               />
+              <div id="apartmentNumber-error" class="error-text" [class.display-block]="!!inputError('apartmentNumber')">{{ inputError('apartmentNumber') }}</div>
             </div>
           </div>
           <div class="floor-description">
@@ -428,10 +434,11 @@
                 #floorInput
                 class="input medium center-placeholder"
                 id="floor"
-                formControlName="floor"
+                formControlName="floor" [attr.aria-invalid]="!!inputError('floor')" aria-describedby="floor-error"
                 placeholder="מספר קומה"
               />
-              <div id="floor-error" class="error-text">שדה חובה</div>
+              <div id="floor-error" class="error-text" [class.display-block]="!!inputError('floor')">{{ inputError('floor') }}</div>
+
             </div>
 
             <div class="input-container">
@@ -443,10 +450,11 @@
                 #totalFloorInput
                 class="input medium center-placeholder"
                 id="totalFloors"
-                formControlName="totalFloors"
+                formControlName="totalFloors" [attr.aria-invalid]="!!inputError('totalFloors')" aria-describedby="totalFloors-error"
                 placeholder="סה״כ קומות "
               />
-              <div id="totalFloors-error" class="error-text">שדה חובה</div>
+              <div id="totalFloors-error" class="error-text" [class.display-block]="!!inputError('totalFloors')">{{ inputError('totalFloors') }}</div>
+
             </div>
             <div class="check-input margin-bottom">
               <input
@@ -470,7 +478,7 @@
               >שכונה</label
             >
 
-            <button
+            <button type="button"
               class="input large not-allowed"
               id="neighborhood"
               formControlName="neighborhood"
@@ -490,7 +498,7 @@
           <div class="input-container">
             <label class="small-text light-grey-text" for="area">אזור</label>
 
-            <button
+            <button type="button"
               class="input large not-allowed"
               id="area"
               formControlName="area"
@@ -657,10 +665,10 @@
           </label>
 
           <div class="navigation-btn">
-            <button (click)="continueToTheNextFormPage(1)" class="continue-btn">
+            <button type="button" (click)="continueToTheNextFormPage(1)" class="continue-btn">
               המשך לשלב הבא
             </button>
-            <button (click)="ReturnToPrevFormPart(1)" class="return-btn">
+            <button type="button" (click)="ReturnToPrevFormPart(1)" class="return-btn">
               חזרה
             </button>
           </div>
@@ -970,13 +978,13 @@
               מסודר לזה
             </div>
             <div class="navigation-btn">
-              <button
+              <button type="button"
                 (click)="continueToTheNextFormPage(2)"
                 class="continue-btn"
               >
                 המשך לשלב הבא
               </button>
-              <button (click)="ReturnToPrevFormPart(2)" class="return-btn">
+              <button type="button" (click)="ReturnToPrevFormPart(2)" class="return-btn">
                 חזרה
               </button>
             </div>
@@ -1083,9 +1091,10 @@
               autocomplete="off"
               class="input large"
               id="houseCommitteePayment"
-              formControlName="houseCommitteePayment"
+              formControlName="houseCommitteePayment" [attr.aria-invalid]="!!inputError('houseCommitteePayment')" aria-describedby="houseCommitteePayment-error"
               placeholder="   תשלום לועד בית"
             />
+            <div id="houseCommitteePayment-error" class="error-text" [class.display-block]="!!inputError('houseCommitteePayment')">{{ inputError('houseCommitteePayment') }}</div>
           </div>
 
           <div class="input-container">
@@ -1095,10 +1104,11 @@
             <input
               autocomplete="off"
               class="input large"
-              id="houseCommitteePayment"
-              formControlName="municipalityMonthlyPropertyTax"
+              id="municipalityMonthlyPropertyTax"
+              formControlName="municipalityMonthlyPropertyTax" [attr.aria-invalid]="!!inputError('municipalityMonthlyPropertyTax')" aria-describedby="municipalityMonthlyPropertyTax-error"
               placeholder="  סכום הארנונה לתשלום"
             />
+            <div id="municipalityMonthlyPropertyTax-error" class="error-text" [class.display-block]="!!inputError('municipalityMonthlyPropertyTax')">{{ inputError('municipalityMonthlyPropertyTax') }}</div>
           </div>
 
           <div class="line desktop"></div>
@@ -1110,9 +1120,10 @@
               autocomplete="off"
               class="input large left-Placeholder"
               id="builtSquareMeters"
-              formControlName="builtSquareMeters"
+              formControlName="builtSquareMeters" [attr.aria-invalid]="!!inputError('builtSquareMeters')" aria-describedby="builtSquareMeters-error"
               placeholder="כמה מר יש בנכס"
             />
+            <div id="builtSquareMeters-error" class="error-text" [class.display-block]="!!inputError('builtSquareMeters')">{{ inputError('builtSquareMeters') }}</div>
           </div>
           <div class="input-container">
             <label class="small-text" for="gardenSquareMeters">
@@ -1122,8 +1133,9 @@
               autocomplete="off"
               class="input large left-Placeholder"
               id="gardenSquareMeters"
-              formControlName="gardenSquareMeters"
+              formControlName="gardenSquareMeters" [attr.aria-invalid]="!!inputError('gardenSquareMeters')" aria-describedby="gardenSquareMeters-error"
             />
+            <div id="gardenSquareMeters-error" class="error-text" [class.display-block]="!!inputError('gardenSquareMeters')">{{ inputError('gardenSquareMeters') }}</div>
           </div>
 
           <div class="input-container">
@@ -1134,9 +1146,10 @@
               autocomplete="off"
               id="totalSquareMeters"
               class="input large left-Placeholder"
-              formControlName="totalSquareMeters"
+              formControlName="totalSquareMeters" [attr.aria-invalid]="!!inputError('totalSquareMeters')" aria-describedby="totalSquareMeters-error"
             />
-            <div id="totalSquareMeters-error" class="error-text">שדה חובה</div>
+            <div id="totalSquareMeters-error" class="error-text" [class.display-block]="!!inputError('totalSquareMeters')">{{ inputError('totalSquareMeters') }}</div>
+
           </div>
 
           <div class="input-container">
@@ -1146,9 +1159,10 @@
                 autocomplete="off"
                 class="input large left-Placeholder price-input-text"
                 id="price"
-                formControlName="price"
+                formControlName="price" [attr.aria-invalid]="!!inputError('price')" aria-describedby="price-error"
                 placeholder=" סכום מינימלי {{ this.minPrice | number }} "
               />
+              <div id="price-error" class="error-text" [class.display-block]="!!inputError('price')">{{ inputError('price') }}</div>
               <span class="shekel">₪</span>
             </div>
           </div>
@@ -1217,10 +1231,10 @@
           </div>
 
           <div class="navigation-btn">
-            <button (click)="continueToTheNextFormPage(3)" class="continue-btn">
+            <button type="button" (click)="continueToTheNextFormPage(3)" class="continue-btn">
               המשך לשלב הבא
             </button>
-            <button (click)="ReturnToPrevFormPart(3)" class="return-btn">
+            <button type="button" (click)="ReturnToPrevFormPart(3)" class="return-btn">
               חזרה
             </button>
           </div>
@@ -1402,10 +1416,10 @@
           </div>
         }
         <div class="navigation-btn">
-          <button (click)="continueToTheNextFormPage(4)" class="continue-btn">
+          <button type="button" (click)="continueToTheNextFormPage(4)" class="continue-btn">
             המשך לשלב הבא
           </button>
-          <button (click)="ReturnToPrevFormPart(4)" class="return-btn">
+          <button type="button" (click)="ReturnToPrevFormPart(4)" class="return-btn">
             חזרה
           </button>
         </div>
@@ -1503,20 +1517,22 @@
             <input
               id="contactName"
               class="input large left-Placeholder"
-              formControlName="contactName"
+              formControlName="contactName" [attr.aria-invalid]="!!inputError('contactName')" aria-describedby="contactName-error"
               [value]="authService.user.getValue()?.name"
             />
-            <div id="contactName-error" class="error-text">שדה חובה</div>
+            <div id="contactName-error" class="error-text" [class.display-block]="!!inputError('contactName')">{{ inputError('contactName') }}</div>
+
           </div>
           <div class="input-container">
             <label class="small-text" for="contactPhone"> טלפון* </label>
             <input
               id="contactPhone"
               class="input large left-Placeholder"
-              formControlName="contactPhone"
+              formControlName="contactPhone" [attr.aria-invalid]="!!inputError('contactPhone')" aria-describedby="contactPhone-error"
               [value]="authService.user.getValue()?.phoneNumber"
             />
-            <div id="contactPhone-error" class="error-text">שדה חובה</div>
+            <div id="contactPhone-error" class="error-text" [class.display-block]="!!inputError('contactPhone')">{{ inputError('contactPhone') }}</div>
+
           </div>
           @if (!this.has2Contacts) {
             <div
@@ -1534,22 +1550,22 @@
               <div class="input-container">
                 <label
                   class="small-text"
-                  formControlName="secondContactName"
-                  for="SecondContactPhone"
+                  for="secondContactName"
                 >
                   השם שלך*
                 </label>
-                <input class="input large left-Placeholder" id="contactName" />
+                <input class="input large left-Placeholder" id="secondContactName" formControlName="secondContactName" [attr.aria-invalid]="!!inputError('secondContactName')" aria-describedby="secondContactName-error" />
+<div id="secondContactName-error" class="error-text" [class.display-block]="!!inputError('secondContactName')">{{ inputError('secondContactName') }}</div>
               </div>
               <div class="input-container">
                 <label
                   class="small-text"
-                  formControlName="secondContactPhone"
-                  for="SecondContactPhone"
+                  for="secondContactPhone"
                 >
                   טלפון*
                 </label>
-                <input class="input large left-Placeholder" id="contactPhone" />
+                <input class="input large left-Placeholder" id="secondContactPhone" formControlName="secondContactPhone" [attr.aria-invalid]="!!inputError('secondContactPhone')" aria-describedby="secondContactPhone-error" />
+<div id="secondContactPhone-error" class="error-text" [class.display-block]="!!inputError('secondContactPhone')">{{ inputError('secondContactPhone') }}</div>
               </div>
               <div
                 class="remove-add-contact"
@@ -1596,10 +1612,10 @@
         </div>
 
         <div class="navigation-btn">
-          <button (click)="continueToTheNextFormPage(5)" class="continue-btn">
+          <button type="button" (click)="continueToTheNextFormPage(5)" class="continue-btn">
             המשך לשלב הבא
           </button>
-          <button (click)="ReturnToPrevFormPart(5)" class="return-btn">
+          <button type="button" (click)="ReturnToPrevFormPart(5)" class="return-btn">
             חזרה
           </button>
         </div>
@@ -1748,7 +1764,7 @@
           </div>
         </div>
 
-        <button (click)="ReturnToPrevFormPart(6)" class="return-btn last-btn">
+        <button type="button" (click)="ReturnToPrevFormPart(6)" class="return-btn last-btn">
           חזרה
         </button>
       </div>

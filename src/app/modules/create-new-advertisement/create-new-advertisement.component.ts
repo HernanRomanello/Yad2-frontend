@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, Renderer2, inject } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormGroup,
   ValidationErrors,
@@ -215,6 +216,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       tradeType: ['', Validators.required],
       street: [, [Validators.required, this.isValidStreetName.bind(this)]],
       number: ['', Validators.required],
+      apartmentNumber: [''],
       floor: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       totalFloors: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       onPillars: [false],
@@ -298,6 +300,31 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
       standardizationAccepted: [false, Validators.required],
     });
 
+    for (const field of ['number', 'apartmentNumber', 'floor', 'totalFloors', 'houseCommitteePayment',
+      'municipalityMonthlyPropertyTax', 'builtSquareMeters', 'gardenSquareMeters', 'totalSquareMeters', 'price']) {
+      this.advertisementForm.get(field).addValidators([
+        Validators.pattern(/^[0-9]+$/),
+        Validators.min(['number', 'totalSquareMeters'].includes(field) ? 1 : 0),
+        Validators.max(Number.MAX_SAFE_INTEGER),
+      ]);
+    }
+    for (const field of ['contactName', 'tradeType', 'assetType', 'assetState']) {
+      this.advertisementForm.get(field).addValidators(this.nonBlank);
+    }
+    this.advertisementForm.get('totalFloors').addValidators((control: AbstractControl) => {
+      const floor = this.advertisementForm.get('floor');
+      return floor.valid && /^[0-9]+$/.test(String(control.value)) && Number(control.value) < Number(floor.value)
+        ? { min: { min: Number(floor.value) } } : null;
+    });
+    this.advertisementForm.get('contactPhone').setValidators([Validators.required, Validators.pattern(/^0[0-9]{9}$/)]);
+    this.advertisementForm.get('standardizationAccepted').setValidators(Validators.requiredTrue);
+    for (const field of ['description', 'furnituredescription']) {
+      this.advertisementForm.get(field).addValidators(Validators.maxLength(400));
+    }
+    this.advertisementForm.get('price').addValidators((control: AbstractControl) => {
+      const min = this.advertisementForm.get('tradeType').value === 'מכירה' ? 10000 : 100;
+      return control.value === null || control.value === '' || Number(control.value) >= min ? null : { min: { min } };
+    });
     this.cityListService.getCityList().subscribe((cities) => {
       this.$cities = cities;
     });
@@ -327,14 +354,12 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     this.isFormHasvalidStreetAddress = validStreet ? true : false;
   }
 
-  isValidStreetName(): ValidationErrors | null {
-    const ValidStreetName = this.isFormHasvalidStreetAddress;
-
-    return ValidStreetName === true ? null : { invalidStreetName: true };
+  isValidStreetName(control: AbstractControl): ValidationErrors | null {
+    return this.$streets.some(street => street.Street_Name === control.value &&
+      street.City_Name === this.advertisementForm?.get('city')?.value) ? null : { invalidStreetName: true };
   }
-  isValidCityName(): ValidationErrors | null {
-    const validCity = this.HasValidCityAddress;
-    return validCity === true ? null : { invalidCityName: null };
+  isValidCityName(control: AbstractControl): ValidationErrors | null {
+    return this.$cities.some(city => city.city_name_he === control.value) ? null : { invalidCityName: true };
   }
 
   changeColor(textLength: number): string {
@@ -357,16 +382,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   checkIfFloorNumberValid(floor: string, totalFloors: string): void {
-    const floorNum = parseInt(floor, 10);
-    const totalFloorsNum = parseInt(totalFloors, 10);
-
-    if (
-      !isNaN(floorNum) &&
-      !isNaN(totalFloorsNum) &&
-      floorNum > totalFloorsNum
-    ) {
-      this.advertisementForm.get('totalFloors').setValue(floor);
-    }
+    // Never change entered values to satisfy validation.
+    this.advertisementForm.get('totalFloors').updateValueAndValidity();
   }
   pricePerSquareMeter(): string {
     const price = this.advertisementForm.get('price').value;
@@ -628,18 +645,22 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   async handleSubmit() {
-    this.defineAssetState();
-    if (!this.checkIfThisFormPartIsValid(5)) {
-      return;
-    }
-    const cityControl = this.advertisementForm.get('city');
-    if (cityControl) {
-      cityControl.setErrors({ invalid: true });
-      cityControl.markAsTouched();
-    }
-
     this.fillEmptyFields();
+    let valid = true;
+    for (const step of [1, 2, 3, 5]) {
+      if (!this.checkIfThisFormPartIsValid(step)) {
+        if (valid) {
+          this.isFormPagesHidden.fill(true);
+          this.isFormPagesHidden[step] = false;
+        }
+        valid = false;
+      }
+    }
+    if (!valid) return;
+    this.defineAssetState();
     const form = this.advertisementForm.value;
+    // The API has no apartment-number field.
+    delete form.apartmentNumber;
 
     try {
       form.assetState = this.asset_State;
@@ -665,7 +686,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   private defineAssetState() {
     switch (this.asset_State) {
       case 'חדש מקבלן (לא גרו בו בכלל)':
-        this.advertisementForm.get('isNewFromBuilder').setValue(true);
+        this.advertisementForm.get('isNew').setValue(true);
         break;
       case 'חדש (נכס בן עד 10 שנים)':
         this.advertisementForm.get('isNew').setValue(true);
@@ -728,7 +749,15 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
   }
 
   Definecontacts(numberOfContacts: number) {
-    this.has2Contacts = numberOfContacts === 2 ? true : false;
+    this.has2Contacts = numberOfContacts === 2;
+    for (const field of ['secondContactName', 'secondContactPhone']) {
+      const control = this.advertisementForm.get(field);
+      control.setValidators(this.has2Contacts
+        ? field === 'secondContactName' ? [Validators.required, this.nonBlank]
+          : [Validators.required, Validators.pattern(/^0[0-9]{9}$/)] : []);
+      if (!this.has2Contacts) control.setValue('');
+      control.updateValueAndValidity();
+    }
   }
 
   submitPartOfTheForm(formPageNumber: number) {
@@ -780,6 +809,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         const mustFieldsInFormPart1 = [
           'city',
           'street',
+          'number',
+          'apartmentNumber',
           'floor',
           'totalFloors',
           'assetType',
@@ -789,12 +820,14 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
         return this.checkInputs(mustFieldsInFormPart1, true);
       }
       case 2: {
-        const mustFieldsInFormPart2 = ['rooms'];
+        const mustFieldsInFormPart2 = ['rooms', 'description', 'furnituredescription'];
         this.firstError = this.markTheFirstError(mustFieldsInFormPart2);
         return this.checkInputs(mustFieldsInFormPart2, true);
       }
       case 3: {
         const mustFieldsInFormPart3 = [
+          'price', 'houseCommitteePayment', 'municipalityMonthlyPropertyTax',
+          'builtSquareMeters', 'gardenSquareMeters',
           'entryDate',
           'totalSquareMeters',
           'numberOfPayments',
@@ -811,6 +844,7 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
           'standardizationAccepted',
         ];
 
+        if (this.has2Contacts) mustFieldsInFormPart5.push('secondContactName', 'secondContactPhone');
         const errorStandardizationAccepted = document.getElementById(
           'standardizationAccepted-error',
         );
@@ -836,36 +870,30 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     }
   }
 
+  nonBlank(control: AbstractControl): ValidationErrors | null {
+    return typeof control.value === 'string' && !control.value.trim() ? { required: true } : null;
+  }
+
+  inputError(field: string): string {
+    const control = this.advertisementForm.get(field);
+    if (!control || !control.invalid || !(control.dirty || control.touched)) return '';
+    if (control.hasError('required')) return 'שדה חובה';
+    if (field.includes('Phone')) return 'יש להזין 10 ספרות המתחילות ב־0';
+    if (control.hasError('min')) return 'הערך המינימלי הוא ' + control.errors.min.min;
+    if (control.hasError('max')) return 'הערך המקסימלי הוא ' + control.errors.max.max;
+    if (control.hasError('maxlength')) return 'ניתן להזין עד 400 תווים';
+    return 'יש להזין מספר שלם ולא שלילי ללא רווחים או סימנים';
+  }
+
   checkInputs(mustFieldsInFormPart1: string[], validForm: boolean) {
     for (const field of mustFieldsInFormPart1) {
       const fieldControl = this.advertisementForm.get(field);
       const element = document.getElementById(field);
       const elementErrorText = document.getElementById(`${field}-error`);
 
-      if (!(field === 'city' || field === 'street')) {
-        validForm = this.markErrorIfInvalidInput(
-          fieldControl,
-          element,
-          elementErrorText,
-          validForm,
-        );
-      } else {
-        if (
-          (this.HasValidCityAddress === true && field === 'city') ||
-          this.isFormHasvalidStreetAddress === true
-        ) {
-          this.removeRedBorder(element, elementErrorText);
-          if (this.HasValidCityAddress === false && field === 'city') {
-            validForm = this.markRedBorder(
-              element,
-              elementErrorText,
-              validForm,
-            );
-          }
-        } else {
-          validForm = this.markRedBorder(element, elementErrorText, validForm);
-        }
-      }
+      fieldControl.updateValueAndValidity();
+      fieldControl.markAsTouched();
+      validForm = this.markErrorIfInvalidInput(fieldControl, element, elementErrorText, validForm);
     }
     return validForm;
   }
@@ -888,7 +916,8 @@ export class CreateNewAdvertisementComponent implements OnInit, OnDestroy {
     validForm: boolean,
   ) {
     if (!fieldControl.valid) {
-      validForm = this.markRedBorder(element, elementErrorText, validForm);
+      this.markRedBorder(element, elementErrorText, false);
+      validForm = false;
     } else {
       this.removeRedBorder(element, elementErrorText);
     }

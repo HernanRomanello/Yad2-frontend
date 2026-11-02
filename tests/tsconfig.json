@@ -17,6 +17,7 @@
     "../playwright.auth.config.ts",
     "../playwright.search.config.ts",
     "../playwright.favorites.config.ts",
-    "../playwright.profile.config.ts"
+    "../playwright.profile.config.ts",
+    "../playwright.ads.config.ts"
   ]
 }
