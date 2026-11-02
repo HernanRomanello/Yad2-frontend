@@ -337,7 +337,6 @@ export class AuthService {
     NewAdvertisement.airDirections = this.validateNumberString(
       NewAdvertisement.airDirections,
     );
-    NewAdvertisement.rooms = this.validateNumberString(NewAdvertisement.rooms);
     NewAdvertisement.showerRooms = this.validateNumberString(
       NewAdvertisement.showerRooms,
     );
@@ -385,7 +384,8 @@ export class AuthService {
       airDirections: NewAdvertisement.airDirections ?? 0,
       view: NewAdvertisement.view ?? '',
       rearProperty: NewAdvertisement.rearProperty ?? '',
-      rooms: NewAdvertisement.rooms ?? 0,
+      // The API expects a string, and valid room options include halves.
+      rooms: NewAdvertisement.rooms ?? '',
       showerRooms: NewAdvertisement.showerRooms ?? 0,
       privateParking: NewAdvertisement.privateParking ?? 0,
       hasPrivateParking: NewAdvertisement.hasPrivateParking ?? false,

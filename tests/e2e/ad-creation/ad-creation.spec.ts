@@ -12,7 +12,7 @@ test('completes the rental flow and submits entered values to the simulated API'
   await ad.publishFree();
   await expect.poll(() => state.submissions.length).toBe(1);
   expect(state.submissions[0]).toMatchObject({ city: 'עיר בדיקה', street: 'רחוב בדיקה', number: 12, floor: 2, totalFloors: 5,
-    tradeType: 'השכרה', assetType: 'דירה', rooms: 3, totalSquareMeters: 80, price: 4800,
+    tradeType: 'השכרה', assetType: 'דירה', rooms: '3', totalSquareMeters: 80, price: 4800,
     description: 'דירת בדיקה QA בלבד', contactName: 'QA', contactPhone: '0501234567', standardizationAccepted: true });
   expect(state.submissions[0].pictures).toEqual([expect.stringContaining('/assets/images/ad1.jpg')]);
   await expect(page).toHaveURL(/confirmation-modal$/);
